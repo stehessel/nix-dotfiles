@@ -5,11 +5,19 @@
 	];
 
 	home.packages = with pkgs; [
+		bat
+		exa
+		fd
 		fish
+		fzf
+		highlight
 		kak-lsp
 		kakoune
 		kitty
 		lf
+		ripgrep
+		starship
 		vifm
+		xsv
 	];
 }
