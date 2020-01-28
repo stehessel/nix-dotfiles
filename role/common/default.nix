@@ -8,5 +8,7 @@
 		../../program/terminal/kitty
 	];
 
+	home.file.".nixpath".source = config/nixpath;
+
 	nixpkgs.config.allowUnfree = true;
 }

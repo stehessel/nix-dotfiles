@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+sudo modprobe -r psmouse
+sudo modprobe psmouse
+picom --daemon
+feh --bg-max --randomize ~/backgrounds/*
+sxhkd -c ~/.config/sxhkd/sxhkdrc &
+xset r rate 300 50 &
+dunst &
+unclutter &
+udiskie -s &
+nm-applet &
+dropbox &
+
+setxkbmap -option caps:escape
+
+[ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
