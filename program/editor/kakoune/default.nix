@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-	imports = [ ../kak-lsp/default.nix ];
+	imports = [ ../kak-lsp ];
 
 	xdg.configFile = {
 		"kak/kakrc".source = config/kakrc;

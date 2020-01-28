@@ -6,6 +6,7 @@
 
 	home.packages = with pkgs; [
 		fish
+		kak-lsp
 		kakoune
 		kitty
 		lf
