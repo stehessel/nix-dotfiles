@@ -8,7 +8,7 @@
 		fish
 		kakoune
 		kitty
-		sxiv
+		lf
 		vifm
 		zathura
 	];
