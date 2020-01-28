@@ -9,5 +9,6 @@
 		../../desktop/rofi
 		../../desktop/sxhkd
 		../../program/sxiv
+		../../program/zathura
 	];
 }

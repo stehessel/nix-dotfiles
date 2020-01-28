@@ -10,6 +10,5 @@
 		kitty
 		lf
 		vifm
-		zathura
 	];
 }
