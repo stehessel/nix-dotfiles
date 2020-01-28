@@ -1,0 +1,253 @@
+# User preference
+set-option global tabstop 4
+set-option global makecmd 'make -j8'
+# set-option global clang_options -std=c++1y
+set-option global ui_options ncurses_status_on_top=true ncurses_assistant=none
+
+colorscheme gotham
+
+# Highlighters
+# add-highlighter global/ dynregex '%reg{/}' 0:+b
+add-highlighter global/ show-matching
+add-highlighter global/ show-whitespaces -lf " " -spc " " -tab "→" -tabpad " "
+add-highlighter global/ wrap -word
+add-highlighter global/ regex \b(?:FIXME|TODO|XXX)\b 0:default+rb
+hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor -relative }
+
+# Grep
+set-option global grepcmd 'rg -L --hidden --with-filename --column'
+hook global BufSetOption filetype=grep %{
+	remove-highlighter buffer/wrap
+}
+
+# Enable editor config
+hook global BufOpenFile .* %{ editorconfig-load }
+hook global BufNewFile .* %{ editorconfig-load }
+
+# Filetype specific hooks
+hook global WinSetOption filetype=(c|cpp) %{
+	clang-enable-autocomplete 
+	clang-enable-diagnostics
+	alias window lint clang-parse
+	alias window lint-next-error clang-diagnostics-next
+}
+
+# hook global WinSetOption filetype=python %{
+# 	jedi-enable-autocomplete
+# 	lint-enable
+# 	set-option global lintcmd 'flake8'
+# }
+
+map -docstring "xml tag objet" global object t %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}
+
+# LSP Server
+eval %sh{kak-lsp --kakoune -s $kak_session}
+# set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
+hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
+	lsp-enable-window
+}
+set-option global lsp_server_configuration pyls.configurationSources=["flake8"]
+
+# Highlight the word under the cursor
+declare-option -hidden regex curword
+set-face global CurWord default,rgb:4a4a4a
+
+hook global NormalIdle .* %{
+	eval -draft %{ try %{
+		exec <space><a-i>w <a-k>\A\w+(\W?\w+)+\z<ret>
+		set-option buffer curword "\b\Q%val{selection}\E\b"
+	} catch %{
+		set-option buffer curword ''
+	} }
+}
+add-highlighter global/ dynregex '%opt{curword}' 0:CurWord
+
+# System clipboard handling
+evaluate-commands %sh{
+	case $(uname) in
+		Linux) copy="xclip -i -selection clipboard"; paste="xclip -o -selection clipboard" ;;
+		Darwin) copy="pbcopy"; paste="pbpaste" ;;
+	esac
+
+	printf "map global user -docstring 'paste (after) from clipboard' p '!%s<ret>'\n" "$paste"
+	printf "map global user -docstring 'paste (before) from clipboard' P '<a-!>%s<ret>'\n" "$paste"
+	printf "map global user -docstring 'yank to clipboard' y '<a-|>%s<ret>:echo -markup %%{{Information}copied selection to X11 clipboard}<ret>'\n" "$copy"
+	printf "map global user -docstring 'replace from clipboard' R '|%s<ret>'\n" "$paste"
+}
+
+# Mappings
+map global normal D       '<a-l>d'                        -docstring 'delete to end of line'
+map global normal Y       '<a-l>y'                        -docstring 'yank to end of line'
+map global normal '#'     ':comment-line<ret>'            -docstring 'comment line'
+map global normal '<a-#>' ':comment-block<ret>'           -docstring 'comment block'
+map global normal =       's=<ret>&'                      -docstring 'align along ='
+map global normal <c-n>   ':select-or-add-cursor<ret>'    -docstring 'add cursor on current word, and jump to the next match' 
+map global normal <c-l>   ':lint<ret>'
+map global normal <a-=>   ':prompt math: %{exec "a%val{text}<lt>esc>|bc<lt>ret>"}<ret>'
+
+map global user t         '%s^\s+<ret>@<space>'           -docstring 'convert leading tabs to spaces'
+map global user T         '%s^\s+<ret><a-@><space>'       -docstring 'convert leading spaces to tabs'
+map global user c         ":connect-terminal<ret>"        -docstring 'open conncted terminal'
+map global user f         ":connect-terminal vifm .<ret>" -docstring 'open connected file browser'
+map global user g         ':enter-user-mode git<ret>'     -docstring 'git user mode'
+map global user l         ':enter-user-mode lsp<ret>'     -docstring 'kak-lsp user mode'
+map global user h         ':gdb-helper<ret>'              -docstring 'gdb helper mode'
+map global user H         ':gdb-helper-repeat<ret>'       -docstring 'gdb helper mode (repeat)'
+map global user n         ':lint-next-error<ret>'         -docstring 'next lint error'
+
+declare-user-mode git
+map global git b          ': git-toggle-blame<ret>'       -docstring 'blame (toggle)'
+map global git l          ': git log<ret>'                -docstring 'log'
+map global git c          ': git commit<ret>'             -docstring 'commit'
+map global git d          ': git diff<ret>'               -docstring 'diff'
+map global git s          ': git status<ret>'             -docstring 'status'
+map global git h          ': git show-diff<ret>'          -docstring 'show diff'
+map global git H          ': git-hide-diff<ret>'          -docstring 'hide diff'
+map global git w          ': git-show-blamed-commit<ret>' -docstring 'show blamed commit'
+map global git L          ': git-log-lines<ret>'          -docstring 'log blame'
+
+hook global -always BufOpenFifo '\*grep\*' %{ map -- global normal - ':grep-next-match<ret>' }
+hook global -always BufOpenFifo '\*make\*' %{ map -- global normal - ':make-next-error<ret>' }
+
+# Enable <tab>/<s-tab> for insert completion selection
+hook global InsertCompletionShow .* %{
+	try %{
+		execute-keys -draft 'h<a-K>\h<ret>'
+		map window insert <tab> <c-n>
+		map window insert <c-n> <tab>
+		map window insert <s-tab> <c-p>
+	}
+}
+hook global InsertCompletionHide .* %{
+	unmap window insert <tab> <c-n>
+	unmap window insert <c-n> <tab>
+	unmap window insert <s-tab> <c-p>
+}
+
+
+# Custom commands
+define-command -override -docstring "select a word under cursor, or add cursor on next occurrence of current selection" \
+select-or-add-cursor %{ execute-keys -save-regs '' %sh{
+	if [ $(expr $(echo $kak_selection | wc -m) - 1) -eq 1 ]; then
+		echo "<a-i>w*"
+	else
+		echo "*<s-n>"
+	fi
+}}
+
+define-command find -params 1 -shell-script-candidates %{ ag -g '' --ignore "$kak_opt_ignored_files" } %{ edit %arg{1} }
+
+define-command mkdir %{ nop %sh{ mkdir -p $(dirname $kak_buffile) } }
+
+define-command ide %{
+	rename-client main
+	set-option global jumpclient main
+
+	new rename-client tools
+	set-option global toolsclient tools
+
+	new rename-client docs
+	set-option global docsclient docs
+}
+
+define-command delete-buffers-matching -params 1 %{
+	evaluate-commands -buffer * %{
+		evaluate-commands %sh{ case "$kak_buffile" in $1) echo "delete-buffer" ;; esac }
+	}
+}
+
+# Load local Kakoune config file if it exists
+evaluate-commands %sh{ [ -f $kak_config/local.kak ] && echo "source $kak_config/local.kak" }
+
+# Plugins
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+
+plug "alexherbo2/auto-pairs.kak" defer auto-pairs %{
+	set-option -add global auto_pairs ( ) { } [ ] < > 『 』 「 」
+} config %{
+	map global user a ':auto-pairs-toggle<ret>'                     -docstring 'toggle auto-surround'
+	map global user s ':auto-pairs-surround <lt> <gt><ret>'         -docstring 'surround'
+	map global user S ':auto-pairs-surround <lt> <gt> _ _ * *<ret>' -docstring 'surround++'
+}
+plug "alexherbo2/connect.kak"
+plug "alexherbo2/search-highlighter.kak" config %{
+	set-face global Search default,rgb:8a8a8a
+}
+plug "alexherbo2/volatile-highlighter.kak"
+plug "andreyorst/fzf.kak" config %{
+	map global normal '<c-p>' ': fzf-mode<ret>' -docstring 'fzf mode'
+} defer fzf %{
+	set-option global fzf_preview_width '65%'
+	set-option global fzf_project_use_tilda true
+	declare-option str-list fzf_exclude_files "*.o" "*.bin" "*.obj" ".*cleanfiles" "*.pyc"
+	declare-option str-list fzf_exclude_dirs ".git" ".svn" "rtlrun*" "__pycache__"
+	evaluate-commands %sh{
+		if [ -n "$(command -v fd)" ]; then
+			eval "set -- $kak_quoted_opt_fzf_exclude_files $kak_quoted_opt_fzf_exclude_dirs"
+			while [ $# -gt 0 ]; do
+				exclude="$exclude --exclude '$1'"
+				shift
+			done
+			cmd="fd . --no-ignore --type f --follow --hidden $exclude"
+		else
+			eval "set -- $kak_quoted_opt_fzf_exclude_files"
+			while [ $# -gt 0 ]; do
+				exclude="$exclude -name '$1' -o"
+				shift
+			done
+			eval "set -- $kak_quoted_opt_fzf_exclude_dirs"
+			while [ $# -gt 1 ]; do
+				exclude="$exclude -path '*/$1' -o"
+				shift
+			done
+			exclude="$exclude -path '*/$1'"
+			cmd="find . \( $exclude \) -prune -o -type f -follow -print"
+		fi
+		echo "set-option global fzf_file_command %{$cmd}"
+
+		if [ -n "$(command -v bat)" ]; then
+			echo "set-option global fzf_highlight_command bat"
+		fi
+		if [ -n "${kak_opt_grepcmd}" ]; then
+			echo "set-option global fzf_sk_grep_command %{${kak_opt_grepcmd}}"
+		fi
+	}
+}
+# plug "andreyorst/kaktree" defer kaktree %{
+# 	set-option global kaktree_double_click_duration '0.5'
+# 	set-option global kaktree_indentation 1
+# 	set-option global kaktree_dir_icon_open  '▾ 🗁 '
+# 	set-option global kaktree_dir_icon_close '▸ 🗀 '
+# 	set-option global kaktree_file_icon      '  🖺'
+# 	set-option global kaktree_show_hidden false
+# 	set-option global kaktree_sort true
+# } config %{
+# 	map global user 'k' ':kaktree-toggle<ret>' -docstring 'toggle kaktree'
+# 	hook global WinSetOption filetype=kaktree %{
+# 		remove-highlighter buffer/numbers
+# 		remove-highlighter buffer/matching
+# 		remove-highlighter buffer/wrap
+# 		remove-highlighter buffer/show-whitespaces
+# 	}
+# 	kaktree-enable
+# }
+plug "andreyorst/smarttab.kak" defer smarttab %{
+	set-option global tabstop 4
+	set-option global softtabstop 4
+} config %{
+	hook global WinCreate .* smarttab
+	hook global WinSetOption filetype=(python) expandtab
+}
+plug "delapouite/kakoune-buffers" config %{
+	map global user b     ':enter-buffers-mode<ret>'              -docstring 'buffers'
+	map global user B     ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)'
+}
+plug "jwhett/sxhkdrc-kak"
+plug "occivink/kakoune-vertical-selection" config %{
+	map global user v     ': vertical-selection-down<ret>'        -docstring 'vertical-selection-down'
+	map global user <a-v> ': vertical-selection-up<ret>'          -docstring 'vertical-selection-up'
+	map global user V     ': vertical-selection-up-and-down<ret>' -docstring 'vertical-selection-up-and-down'
+}
+# plug "teddyDD/kakoune-wiki" config kakoune-wiki %{
+# 	wiki_setup '/home/stephan/wiki'
+# }

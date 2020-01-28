@@ -1,0 +1,22 @@
+IMAPStore stehessel-remote
+Host imap.mailbox.org
+User stephan@stehessel.de
+PassCmd "pass stephan@stehessel.de"
+SSLType IMAPS
+
+MaildirStore stehessel-local
+Path ~/.local/share/mail/stehessel/
+Inbox ~/.local/share/mail/stehessel/Inbox
+SubFolders Verbatim
+Flatten .
+TrashNewOnly yes
+
+Channel stehessel
+Master :stehessel-remote:
+Slave :stehessel-local:
+Patterns * !\"[Gmail]/All Mail\"
+Sync Pull
+Create Both
+# Expunge Both
+SyncState *
+CopyArrivalDate yes

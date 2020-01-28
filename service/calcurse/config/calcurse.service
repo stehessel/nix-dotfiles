@@ -1,0 +1,6 @@
+[Unit]
+Description=Run calcurse-caldav to sync calcurse
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/calcurse-caldav
