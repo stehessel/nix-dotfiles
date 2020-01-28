@@ -11,4 +11,6 @@
 		../../program/sxiv
 		../../program/zathura
 	];
+
+	xdg.configFile.".profile".source = config/profile;
 }
