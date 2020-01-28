@@ -6,7 +6,6 @@
 		../../program/fileviewer/vifm
 		../../program/shell/fish
 		../../program/terminal/kitty
-		../../program/sxiv
 		../../program/zathura
 	];
 

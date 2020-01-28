@@ -8,5 +8,6 @@
 		../../desktop/mime-apps
 		../../desktop/rofi
 		../../desktop/sxhkd
+		../../program/sxiv
 	];
 }
