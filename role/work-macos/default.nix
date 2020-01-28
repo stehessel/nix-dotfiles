@@ -5,6 +5,7 @@
 	];
 
 	home.packages = with pkgs; [
+		firefox
 		fish
 		kak-lsp
 		kakoune
