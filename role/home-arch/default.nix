@@ -12,5 +12,5 @@
 		../../program/zathura
 	];
 
-	xdg.configFile.".profile".source = config/profile;
+	home.file.".profile".source = config/profile;
 }
