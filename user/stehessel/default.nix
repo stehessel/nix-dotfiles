@@ -1,0 +1,14 @@
+{ config, lib, pkgs, ... }:
+{
+	imports = [
+		../common
+		../../service/calcurse
+	];
+
+	services.mbsync = {
+		enable = true;
+		configFile = config/mbsync/mbsyncrc;
+		frequency = "*:0/1";
+	};
+	xdg.configFile."mbsync/mbsyncrc".source = config/mbsync/mbsyncrc;
+}
