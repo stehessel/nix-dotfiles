@@ -47,10 +47,13 @@ bind \ca 'fg'
 # theme
 starship init fish | source
 
-# Nix
+# nix
 if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-  bax "source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'"
+	bax "source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'"
 end
-bax "source ~/.nixpath"
-bax "source ~/.nix-profile/etc/profile.d/hm-session-vars.sh"
-# End Nix
+if test -e '~/.nixpath'
+	bax "source ~/.nixpath"
+end
+if test -e '~/.nix-profile/etc/profile.d/hm-session-vars.sh'
+	bax "source ~/.nix-profile/etc/profile.d/hm-session-vars.sh"
+end
