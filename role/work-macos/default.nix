@@ -18,6 +18,7 @@
 		ripgrep
 		speedtest-cli
 		starship
+		taskwarrior
 		vifm
 		xsv
 	];

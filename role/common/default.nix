@@ -4,8 +4,9 @@
 		../../program/dev/python/flake8
 		../../program/editor/kakoune
 		../../program/file-manager/lf
-		../../program/file-managervifm
+		../../program/file-manager/vifm
 		../../program/shell/fish
+		../../program/todo/taskwarrior
 		../../program/terminal/kitty
 	];
 
