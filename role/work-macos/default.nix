@@ -16,6 +16,7 @@
 		kitty
 		lf
 		ripgrep
+		speedtest-cli
 		starship
 		vifm
 		xsv
