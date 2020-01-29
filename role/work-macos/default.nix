@@ -16,6 +16,7 @@
 		kitty
 		lf
 		ripgrep
+		slack-dark
 		speedtest-cli
 		starship
 		taskwarrior
