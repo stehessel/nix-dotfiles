@@ -6,7 +6,7 @@
 
 	home.packages = with pkgs; [
 		bat
-		betterlockscreeen
+		betterlockscreen
 		exa
 		fd
 		fish
