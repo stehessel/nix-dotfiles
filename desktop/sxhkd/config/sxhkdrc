@@ -39,7 +39,7 @@ XF86AudioStop
 	lmc toggle
 
 super + shift + Return
-	i3lock-fancy
+	betterlockscreen -l
 super + shift + x
 	prompt "Shutdown computer?" "shutdown -h now"
 super + shift + BackSpace
@@ -49,4 +49,4 @@ super + shift + BackSpace
 super + F1
 	ducksearch
 super + F2
-	feh --bg-max --randomize ~/backgrounds/*
+	feh --bg-max --randomize ~/Dropbox/backgrounds/*

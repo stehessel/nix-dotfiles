@@ -3,7 +3,7 @@
 sudo modprobe -r psmouse
 sudo modprobe psmouse
 picom --daemon
-feh --bg-max --randomize ~/backgrounds/*
+feh --bg-max --randomize ~/Dropbox/backgrounds/*
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
 xset r rate 300 50 &
 dunst &
