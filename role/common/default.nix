@@ -9,6 +9,7 @@
 		../../program/shell/starship
 		../../program/todo/taskwarrior
 		../../program/terminal/kitty
+		../../program/utility/topgrade
 	];
 
 	home.file.".nixpath".source = config/nixpath;

@@ -20,6 +20,8 @@
 		speedtest-cli
 		starship
 		taskwarrior
+		tokei
+		topgrade
 		vifm
 		xsv
 	];
