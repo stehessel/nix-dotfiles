@@ -2,12 +2,12 @@
 {
 	imports = [
 		../common
-		../../desktop/compositor/picom
-		../../desktop/window-manager/qtile
-		../../desktop/dunst
-		../../desktop/mime-apps
-		../../desktop/rofi
-		../../desktop/sxhkd
+		../../program/desktop/compositor/picom
+		../../program/desktop/window-manager/qtile
+		../../program/desktop/dunst
+		../../program/desktop/mime-apps
+		../../program/desktop/rofi
+		../../program/desktop/sxhkd
 		../../program/sxiv
 		../../program/zathura
 	];
