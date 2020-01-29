@@ -1,9 +1,10 @@
 { config, lib, pkgs, ... }:
 {
 	imports = [
+		../../program/dev/python/flake8
 		../../program/editor/kakoune
-		../../program/fileviewer/lf
-		../../program/fileviewer/vifm
+		../../program/file-manager/lf
+		../../program/file-managervifm
 		../../program/shell/fish
 		../../program/terminal/kitty
 	];

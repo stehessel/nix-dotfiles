@@ -8,8 +8,8 @@
 		../../program/desktop/mime-apps
 		../../program/desktop/rofi
 		../../program/desktop/sxhkd
-		../../program/sxiv
-		../../program/zathura
+		../../program/file-viewer/sxiv
+		../../program/file-viewer/zathura
 	];
 
 	home.file.".profile".source = config/profile;
