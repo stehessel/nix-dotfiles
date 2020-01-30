@@ -12,5 +12,7 @@
 		../../program/utility/topgrade
 	];
 
+	xdg.configFile."nix/nix-daemon.fish".source = config/nix-daemon.fish;
+
 	nixpkgs.config.allowUnfree = true;
 }

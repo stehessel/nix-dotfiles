@@ -48,10 +48,5 @@ bind \ca 'fg'
 starship init fish | source
 
 # nix
-if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-	bax "source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'"
-end
+source "$HOME/.config/nix/nix-daemon.fish"
 set -x -p NIX_PATH "$HOME/.nix-defexpr/channels"
-if test -e "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-	bax "source '$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh'"
-end
