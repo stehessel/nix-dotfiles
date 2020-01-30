@@ -31,7 +31,6 @@
 		bandwhich
 		just
 		procs
-		slack-dark
 		speedtest-cli
 		svgcleaner
 		taskwarrior
