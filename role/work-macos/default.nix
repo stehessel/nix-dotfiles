@@ -5,24 +5,36 @@
 	];
 
 	home.packages = with pkgs; [
-		bat
-		exa
-		fd
-		fish
-		fzf
-		highlight
+		# dev
+		fira-code
 		kak-lsp
 		kakoune
-		kitty
+		tokei
+		xsv
+		# file-manager
 		lf
+		vifm
+		# shell
+		dash
+		fish
+		starship
+		# terminal
+		bat
+		du-dust
+		exa
+		fd
+		fzf
+		highlight
+		kitty
 		ripgrep
+		# utility
+		bandwhich
+		just
+		procs
 		slack-dark
 		speedtest-cli
-		starship
+		svgcleaner
 		taskwarrior
-		tokei
 		topgrade
-		vifm
-		xsv
 	];
 }
