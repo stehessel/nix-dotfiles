@@ -12,7 +12,5 @@
 		../../program/utility/topgrade
 	];
 
-	home.file.".nixpath".source = config/nixpath;
-
 	nixpkgs.config.allowUnfree = true;
 }

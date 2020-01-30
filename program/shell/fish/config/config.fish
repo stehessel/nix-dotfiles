@@ -51,9 +51,7 @@ starship init fish | source
 if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 	bax "source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'"
 end
-if test -e "$HOME/.nixpath"
-	bax "source '$HOME/.nixpath'"
-end
+set -x -p NIX_PATH "$HOME/.nix-defexpr/channels"
 if test -e "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 	bax "source '$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh'"
 end
