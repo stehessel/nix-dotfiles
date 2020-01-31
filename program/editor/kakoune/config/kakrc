@@ -87,15 +87,15 @@ map global user H         ':gdb-helper-repeat<ret>'       -docstring 'gdb helper
 map global user n         ':lint-next-error<ret>'         -docstring 'next lint error'
 
 declare-user-mode git
-map global git b          ': git-toggle-blame<ret>'       -docstring 'blame (toggle)'
-map global git l          ': git log<ret>'                -docstring 'log'
-map global git c          ': git commit<ret>'             -docstring 'commit'
-map global git d          ': git diff<ret>'               -docstring 'diff'
-map global git s          ': git status<ret>'             -docstring 'status'
-map global git h          ': git show-diff<ret>'          -docstring 'show diff'
-map global git H          ': git-hide-diff<ret>'          -docstring 'hide diff'
-map global git w          ': git-show-blamed-commit<ret>' -docstring 'show blamed commit'
-map global git L          ': git-log-lines<ret>'          -docstring 'log blame'
+map global git b          ':git-toggle-blame<ret>'        -docstring 'blame (toggle)'
+map global git l          ':git log<ret>'                 -docstring 'log'
+map global git c          ':git commit<ret>'              -docstring 'commit'
+map global git d          ':git diff<ret>'                -docstring 'diff'
+map global git s          ':git status<ret>'              -docstring 'status'
+map global git h          ':git show-diff<ret>'           -docstring 'show diff'
+map global git H          ':git-hide-diff<ret>'           -docstring 'hide diff'
+map global git w          ':git-show-blamed-commit<ret>'  -docstring 'show blamed commit'
+map global git L          ':git-log-lines<ret>'           -docstring 'log blame'
 
 hook global -always BufOpenFifo '\*grep\*' %{ map -- global normal - ':grep-next-match<ret>' }
 hook global -always BufOpenFifo '\*make\*' %{ map -- global normal - ':make-next-error<ret>' }
@@ -231,6 +231,19 @@ plug "andreyorst/smarttab.kak" defer smarttab %{
 plug "delapouite/kakoune-buffers" config %{
 	map global user b     ':enter-buffers-mode<ret>'              -docstring 'buffers'
 	map global user B     ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)'
+}
+plug "dmerejkowsky/kak-subvert" config %{
+	declare-user-mode subvert
+	map global user y     ':enter-user-mode subvert<ret>'         -docstring 'enter subvert user mode'
+	map global subvert c  '<esc> | kak-subvert camel <ret>'       -docstring 'convert to camel case'
+	map global subvert k  '<esc> | kak-subvert kebab <ret>'       -docstring 'convert to kebab case'
+	map global subvert p  '<esc> | kak-subvert pascal <ret>'      -docstring 'convert to pascal case'
+	map global subvert .  '<esc> | kak-subvert sentence <ret>'    -docstring 'convert to sentence case'
+	map global subvert s  '<esc> | kak-subvert snake <ret>'       -docstring 'convert to snake case'
+	map global subvert S  '<esc> | kak-subvert screaming <ret>'   -docstring 'convert to screaming case'
+	map global subvert t  '<esc> | kak-subvert train <ret>'       -docstring 'convert to train case'
+	map global subvert T  '<esc> | kak-subvert title <ret>'       -docstring 'convert to title case'
+	map global subvert u  '<esc> | kak-subvert ugly <ret>'        -docstring 'convert to ugly case'
 }
 plug "jwhett/sxhkdrc-kak"
 plug "occivink/kakoune-vertical-selection" config %{
