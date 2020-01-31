@@ -2,6 +2,7 @@
 {
 	imports = [
 		../../program/dev/python/flake8
+		../../program/dev/version-control/tig
 		../../program/editor/kakoune
 		../../program/file-manager/lf
 		../../program/file-manager/vifm
