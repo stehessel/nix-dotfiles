@@ -10,7 +10,7 @@
 		../../program/shell/starship
 		../../program/terminal/kitty
 		../../program/todo/taskwarrior
-		../../program/utility/pueue
+		# ../../program/utility/pueue
 		../../program/utility/topgrade
 	];
 
