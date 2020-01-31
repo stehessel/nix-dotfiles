@@ -1,0 +1,9 @@
+---
+client:
+  daemon_port: "6924"
+  secret: (%uS*G(uoU@tggw1Rd22
+daemon:
+  pueue_directory: /home/stephan/.local/share/pueue
+  default_parallel_tasks: 1
+  port: "6924"
+  secret: (%uS*G(uoU@tggw1Rd22

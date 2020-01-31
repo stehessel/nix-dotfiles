@@ -7,8 +7,9 @@
 		../../program/file-manager/vifm
 		../../program/shell/fish
 		../../program/shell/starship
-		../../program/todo/taskwarrior
 		../../program/terminal/kitty
+		../../program/todo/taskwarrior
+		../../program/utility/pueue
 		../../program/utility/topgrade
 	];
 
