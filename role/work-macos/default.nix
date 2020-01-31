@@ -10,6 +10,7 @@
 		fira-code
 		kakoune
 		rustc
+		tig
 		tokei
 		xsv
 		# file-manager
