@@ -6,9 +6,10 @@
 
 	home.packages = with pkgs; [
 		# dev
+		cargo
 		fira-code
-		kak-lsp
 		kakoune
+		rustc
 		tokei
 		xsv
 		# file-manager

@@ -40,14 +40,6 @@ hook global WinSetOption filetype=(c|cpp) %{
 
 map -docstring "xml tag objet" global object t %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}
 
-# LSP Server
-eval %sh{kak-lsp --kakoune -s $kak_session}
-# set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
-hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
-	lsp-enable-window
-}
-set-option global lsp_server_configuration pyls.configurationSources=["flake8"]
-
 # Highlight the word under the cursor
 declare-option -hidden regex curword
 set-face global CurWord default,rgb:4a4a4a
@@ -90,7 +82,6 @@ map global user T         '%s^\s+<ret><a-@><space>'       -docstring 'convert le
 map global user c         ":connect-terminal<ret>"        -docstring 'open conncted terminal'
 map global user f         ":connect-terminal vifm .<ret>" -docstring 'open connected file browser'
 map global user g         ':enter-user-mode git<ret>'     -docstring 'git user mode'
-map global user l         ':enter-user-mode lsp<ret>'     -docstring 'kak-lsp user mode'
 map global user h         ':gdb-helper<ret>'              -docstring 'gdb helper mode'
 map global user H         ':gdb-helper-repeat<ret>'       -docstring 'gdb helper mode (repeat)'
 map global user n         ':lint-next-error<ret>'         -docstring 'next lint error'
@@ -161,17 +152,16 @@ evaluate-commands %sh{ [ -f $kak_config/local.kak ] && echo "source $kak_config/
 
 # Plugins
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
-
-plug "alexherbo2/auto-pairs.kak" defer auto-pairs %{
-	set-option -add global auto_pairs ( ) { } [ ] < > 『 』 「 」
-} config %{
-	map global user a ':auto-pairs-toggle<ret>'                     -docstring 'toggle auto-surround'
-	map global user s ':auto-pairs-surround <lt> <gt><ret>'         -docstring 'surround'
-	map global user S ':auto-pairs-surround <lt> <gt> _ _ * *<ret>' -docstring 'surround++'
-}
+plug "alexherbo2/auto-pairs.kak"
 plug "alexherbo2/connect.kak"
 plug "alexherbo2/search-highlighter.kak" config %{
 	set-face global Search default,rgb:8a8a8a
+}
+plug "alexherbo2/surround.kak" config %{
+	map global user s ':surround<ret>'         -docstring 'Enter surround mode'
+	map global user S ':surround _ _ * *<ret>' -docstring 'Enter surround mode with extra surrounding pairs'
+	set-option global surround_begin auto-pairs-disable
+	set-option global surround_end auto-pairs-enable
 }
 plug "alexherbo2/volatile-highlighter.kak"
 plug "andreyorst/fzf.kak" config %{
@@ -251,3 +241,10 @@ plug "occivink/kakoune-vertical-selection" config %{
 # plug "teddyDD/kakoune-wiki" config kakoune-wiki %{
 # 	wiki_setup '/home/stephan/wiki'
 # }
+plug "ul/kak-lsp" do %{
+	cargo install --locked --force --path .
+} config %{
+	hook global WinSetOption filetype=(c|cpp|haskel|python|rust) lsp-enable-window
+	map global user l     ':enter-user-mode lsp<ret>'             -docstring 'kak-lsp user mode'
+	set-option global lsp_server_configuration pyls.configurationSources=["flake8"]
+}
