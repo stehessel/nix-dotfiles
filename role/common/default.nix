@@ -10,6 +10,7 @@
 		../../program/shell/fish
 		../../program/shell/starship
 		../../program/terminal/kitty
+		../../program/terminal/tmux
 		../../program/todo/taskwarrior
 		# ../../program/utility/pueue
 		../../program/utility/topgrade

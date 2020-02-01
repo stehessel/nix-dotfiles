@@ -9,6 +9,7 @@
 		cargo
 		fira-code
 		kakoune
+		# pier
 		rustc
 		tig
 		tokei
@@ -31,6 +32,7 @@
 		ripgrep
 		# utility
 		bandwhich
+		direnv
 		just
 		procs
 		# pueue
