@@ -46,5 +46,9 @@ bind \ca 'fg'
 starship init fish | source
 
 # nix
-source "$HOME/.config/nix/nix-daemon.fish"
+if set -q XDG_CONFIG_HOME
+	source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
+else
+	source "$HOME/.config/nix/nix-daemon.fish"
+end
 set -x -p NIX_PATH "$HOME/.nix-defexpr/channels"
