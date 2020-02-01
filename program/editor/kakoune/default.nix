@@ -5,7 +5,7 @@
 	xdg.configFile = {
 		"kak/kakrc".source = config/kakrc;
 		"kak/colors" = {
-			source = ./config/colors;
+			source = config/colors;
 			recursive = true;
 		};
 	};

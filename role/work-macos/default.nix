@@ -33,6 +33,7 @@
 		bandwhich
 		just
 		procs
+		# pueue
 		speedtest-cli
 		svgcleaner
 		taskwarrior
