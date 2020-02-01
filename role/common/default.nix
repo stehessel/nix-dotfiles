@@ -2,6 +2,7 @@
 {
 	imports = [
 		../../program/dev/python/flake8
+		../../program/dev/python/pycodestyle
 		../../program/dev/version-control/tig
 		../../program/editor/kakoune
 		../../program/file-manager/lf
