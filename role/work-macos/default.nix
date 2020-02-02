@@ -29,6 +29,7 @@
 		highlight
 		kitty
 		ripgrep
+		tre-command
 		# utility
 		bandwhich
 		direnv
