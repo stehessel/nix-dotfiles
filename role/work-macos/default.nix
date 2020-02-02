@@ -23,7 +23,6 @@
 		starship
 		# terminal
 		bat
-		du-dust
 		exa
 		fd
 		fzf
@@ -33,6 +32,8 @@
 		# utility
 		bandwhich
 		direnv
+		du-dust
+		hyperfine
 		just
 		procs
 		# pueue
