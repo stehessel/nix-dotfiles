@@ -25,12 +25,12 @@ hook global BufOpenFile .* %{ editorconfig-load }
 hook global BufNewFile .* %{ editorconfig-load }
 
 # Filetype specific hooks
-hook global WinSetOption filetype=(c|cpp) %{
-	clang-enable-autocomplete 
-	clang-enable-diagnostics
-	alias window lint clang-parse
-	alias window lint-next-error clang-diagnostics-next
-}
+# hook global WinSetOption filetype=(c|cpp) %{
+# 	clang-enable-autocomplete
+# 	clang-enable-diagnostics
+# 	alias window lint clang-parse
+# 	alias window lint-next-error clang-diagnostics-next
+# }
 
 # hook global WinSetOption filetype=python %{
 # 	jedi-enable-autocomplete
@@ -79,8 +79,6 @@ map global normal <a-=>   ':prompt math: %{exec "a%val{text}<lt>esc>|bc<lt>ret>"
 
 map global user t         '%s^\s+<ret>@<space>'           -docstring 'convert leading tabs to spaces'
 map global user T         '%s^\s+<ret><a-@><space>'       -docstring 'convert leading spaces to tabs'
-map global user c         ":connect-terminal<ret>"        -docstring 'open conncted terminal'
-map global user f         ":connect-terminal vifm .<ret>" -docstring 'open connected file browser'
 map global user g         ':enter-user-mode git<ret>'     -docstring 'git user mode'
 map global user h         ':gdb-helper<ret>'              -docstring 'gdb helper mode'
 map global user H         ':gdb-helper-repeat<ret>'       -docstring 'gdb helper mode (repeat)'
@@ -153,13 +151,26 @@ evaluate-commands %sh{ [ -f $kak_config/local.kak ] && echo "source $kak_config/
 # Plugins
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 plug "alexherbo2/auto-pairs.kak"
-plug "alexherbo2/connect.kak"
+plug "alexherbo2/connect.kak" config %{
+	require-module connect-fzf
+	require-module connect-rofi
+	require-module connect-lf
+	require-module connect-dolphin
+
+	map global user c        ':enter-user-mode connect<ret>' -docstring 'connect user mode'
+	declare-user-mode connect
+	map global connect c     ':connect-terminal<ret>'        -docstring 'open connected terminal'
+	map global connect f     ':connect-terminal vifm .<ret>' -docstring 'open connected vifm'
+	map global connect l     ':lf<ret>'                      -docstring 'open connected lf'
+	map global connect r     ':rofi-files<ret>'              -docstring 'open files in rofi'
+	map global connect R     ':rofi-buffers<ret>'            -docstring 'open buffers in rofi'
+}
 plug "alexherbo2/search-highlighter.kak" config %{
 	set-face global Search default,rgb:8a8a8a
 }
 plug "alexherbo2/surround.kak" config %{
-	map global user s ':surround<ret>'         -docstring 'Enter surround mode'
-	map global user S ':surround _ _ * *<ret>' -docstring 'Enter surround mode with extra surrounding pairs'
+	map global user s ':surround<ret>'                      -docstring 'Enter surround mode'
+	map global user S ':surround _ _ * *<ret>'              -docstring 'Enter surround mode with extra surrounding pairs'
 	set-option global surround_begin auto-pairs-disable
 	set-option global surround_end auto-pairs-enable
 }
@@ -232,19 +243,19 @@ plug "delapouite/kakoune-buffers" config %{
 	map global user b     ':enter-buffers-mode<ret>'              -docstring 'buffers'
 	map global user B     ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)'
 }
-plug "dmerejkowsky/kak-subvert" config %{
-	declare-user-mode subvert
-	map global user y     ':enter-user-mode subvert<ret>'         -docstring 'enter subvert user mode'
-	map global subvert c  '<esc> | kak-subvert camel <ret>'       -docstring 'convert to camel case'
-	map global subvert k  '<esc> | kak-subvert kebab <ret>'       -docstring 'convert to kebab case'
-	map global subvert p  '<esc> | kak-subvert pascal <ret>'      -docstring 'convert to pascal case'
-	map global subvert .  '<esc> | kak-subvert sentence <ret>'    -docstring 'convert to sentence case'
-	map global subvert s  '<esc> | kak-subvert snake <ret>'       -docstring 'convert to snake case'
-	map global subvert S  '<esc> | kak-subvert screaming <ret>'   -docstring 'convert to screaming case'
-	map global subvert t  '<esc> | kak-subvert train <ret>'       -docstring 'convert to train case'
-	map global subvert T  '<esc> | kak-subvert title <ret>'       -docstring 'convert to title case'
-	map global subvert u  '<esc> | kak-subvert ugly <ret>'        -docstring 'convert to ugly case'
-}
+# plug "dmerejkowsky/kak-subvert" config %{
+# 	declare-user-mode subvert
+# 	map global user u     ':enter-user-mode subvert<ret>'         -docstring 'enter subvert user mode'
+# 	map global subvert c  '<esc> | kak-subvert camel <ret>'       -docstring 'convert to camel case'
+# 	map global subvert k  '<esc> | kak-subvert kebab <ret>'       -docstring 'convert to kebab case'
+# 	map global subvert p  '<esc> | kak-subvert pascal <ret>'      -docstring 'convert to pascal case'
+# 	map global subvert .  '<esc> | kak-subvert sentence <ret>'    -docstring 'convert to sentence case'
+# 	map global subvert s  '<esc> | kak-subvert snake <ret>'       -docstring 'convert to snake case'
+# 	map global subvert S  '<esc> | kak-subvert screaming <ret>'   -docstring 'convert to screaming case'
+# 	map global subvert t  '<esc> | kak-subvert train <ret>'       -docstring 'convert to train case'
+# 	map global subvert T  '<esc> | kak-subvert title <ret>'       -docstring 'convert to title case'
+# 	map global subvert u  '<esc> | kak-subvert ugly <ret>'        -docstring 'convert to ugly case'
+# }
 plug "jwhett/sxhkdrc-kak"
 plug "occivink/kakoune-vertical-selection" config %{
 	map global user v     ': vertical-selection-down<ret>'        -docstring 'vertical-selection-down'
@@ -262,7 +273,6 @@ plug "ul/kak-lsp" do %{
 	# eval %sh{echo ${kak_opt_lsp_cmd} >> /tmp/kak-lsp.log}
 	# set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
 
-	map global user l ':enter-user-mode lsp<ret>' -docstring 'kak-lsp user mode'
 	define-command ne                             -docstring 'go to next error/warning from lsp' %{
 		lsp-find-error --include-warnings
 	}
@@ -275,6 +285,8 @@ plug "ul/kak-lsp" do %{
 	define-command lsp-restart                    -docstring 'restart lsp server' %{
 		lsp-stop; lsp-start
 	}
+
+	map global user l ':enter-user-mode lsp<ret>' -docstring 'kak-lsp user mode'
 
 	hook global WinSetOption filetype=(c|cpp|haskel|latex|python|rust) %{
 		set-option window lsp_auto_highlight_references false
