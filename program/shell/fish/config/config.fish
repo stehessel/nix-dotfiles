@@ -6,6 +6,10 @@ set -x READER "zathura"
 set -x TERMINAL "kitty"
 set -x FZF_LEGACY_KEYBINDINGS "0"
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
+switch (uname)
+	case Darwin
+		set -p fish_user_paths "$HOME/Library/Python/3.7/bin"
+end
 
 # abbreviations
 abbr -a -U h "cd ~/ and ls -a"
