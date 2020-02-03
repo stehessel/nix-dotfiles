@@ -7,6 +7,7 @@
 	home.packages = with pkgs; [
 		# dev
 		cargo
+		docker
 		fira-code
 		kakoune
 		# pier
