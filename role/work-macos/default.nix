@@ -28,6 +28,7 @@
 		fzf
 		highlight
 		kitty
+		neofetch
 		ripgrep
 		tre-command
 		# utility
