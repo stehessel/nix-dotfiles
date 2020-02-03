@@ -43,9 +43,6 @@ alias vpn_tunnel "sudo systemctl start wg-quick@wg0"
 bind \cb beginning-of-line
 bind \ca 'fg'
 
-# theme
-starship init fish | source
-
 # plug.kak
 if not test -d "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
 	git clone "https://github.com/andreyorst/plug.kak.git" "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
@@ -60,3 +57,6 @@ end
 # nix
 source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
 set -x -p NIX_PATH "$HOME/.nix-defexpr/channels"
+
+# theme
+starship init fish | source
