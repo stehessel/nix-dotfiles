@@ -34,9 +34,10 @@
 		bandwhich
 		direnv
 		du-dust
+		htop
 		hyperfine
 		just
-		procs
+		# procs
 		# pueue
 		speedtest-cli
 		svgcleaner

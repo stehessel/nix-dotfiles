@@ -5,6 +5,7 @@ set -x FILE "vifm"
 set -x READER "zathura"
 set -x TERMINAL "kitty"
 set -x FZF_LEGACY_KEYBINDINGS "0"
+set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 
 # abbreviations
 abbr -a -U h "cd ~/ and ls -a"
@@ -45,10 +46,17 @@ bind \ca 'fg'
 # theme
 starship init fish | source
 
-# nix
-if set -q XDG_CONFIG_HOME
-	source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
-else
-	source "$HOME/.config/nix/nix-daemon.fish"
+# plug.kak
+if not test -d "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
+	git clone "https://github.com/andreyorst/plug.kak.git" "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
 end
+
+# fisher
+if not functions -q fisher
+	curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+	fish -c fisher
+end
+
+# nix
+source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
 set -x -p NIX_PATH "$HOME/.nix-defexpr/channels"
