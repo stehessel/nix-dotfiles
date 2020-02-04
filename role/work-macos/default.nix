@@ -7,7 +7,6 @@
 	home.packages = with pkgs; [
 		# dev
 		cargo
-		docker
 		fira-code
 		kakoune
 		# pier
@@ -31,6 +30,7 @@
 		kitty
 		neofetch
 		ripgrep
+		tmux
 		tre-command
 		# utility
 		bandwhich
