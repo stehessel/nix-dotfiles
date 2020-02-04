@@ -38,6 +38,7 @@
 		du-dust
 		htop
 		hyperfine
+		jrnl
 		just
 		# procs
 		# pueue
