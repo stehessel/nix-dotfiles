@@ -8,6 +8,7 @@
 		# dev
 		cargo
 		ccls
+		editorconfig-core-c
 		fira-code
 		kakoune
 		# pier
