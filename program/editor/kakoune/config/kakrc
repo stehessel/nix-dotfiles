@@ -288,7 +288,7 @@ plug "ul/kak-lsp" do %{
 
 	map global user l ':enter-user-mode lsp<ret>' -docstring 'kak-lsp user mode'
 
-	hook global WinSetOption filetype=(c|cpp|haskel|latex|python|rust) %{
+	hook global WinSetOption filetype=(c|cpp|haskel|latex|python|rust|shell) %{
 		set-option window lsp_auto_highlight_references false
 		set-option window lsp_hover_anchor false
 		lsp-auto-hover-enable

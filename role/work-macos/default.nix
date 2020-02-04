@@ -7,6 +7,7 @@
 	home.packages = with pkgs; [
 		# dev
 		cargo
+		ccls
 		fira-code
 		kakoune
 		# pier
