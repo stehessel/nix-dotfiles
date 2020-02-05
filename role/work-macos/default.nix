@@ -11,7 +11,7 @@
 		editorconfig-core-c
 		fira-code
 		kakoune
-		# pier
+		#pier
 		rustc
 		tig
 		tokei
@@ -19,6 +19,8 @@
 		# file-manager
 		lf
 		vifm
+		# file-viewer
+		glow
 		# shell
 		dash
 		fish
@@ -42,8 +44,8 @@
 		hyperfine
 		jrnl
 		just
-		# procs
-		# pueue
+		#procs
+		#pueue
 		speedtest-cli
 		svgcleaner
 		taskwarrior
