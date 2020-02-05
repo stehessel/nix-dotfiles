@@ -1,7 +1,11 @@
+acomagu/fish-async-prompt
 danhper/fish-ssh-agent
 laughedelic/pisces
 jethrokuan/fzf
 jethrokuan/z
 jorgebucaran/fish-bax
 oh-my-fish/plugin-bang-bang
+oh-my-fish/plugin-brew
+oh-my-fish/plugin-extract
+oh-my-fish/plugin-osx
 oh-my-fish/plugin-sudope
