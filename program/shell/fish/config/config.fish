@@ -9,6 +9,7 @@ set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 switch (uname)
 	case Darwin
 		set -p fish_user_paths "$HOME/Library/Python/3.7/bin"
+		set -p fish_user_paths "$HOME/miniconda3/bin"
 		set -x LC_ALL "en_US.UTF-8"  
 		set -x LANG "en_US.UTF-8"
 end
