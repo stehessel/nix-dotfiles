@@ -9,7 +9,6 @@ set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 switch (uname)
 	case Darwin
 		set -p fish_user_paths "$HOME/Library/Python/3.7/bin"
-		set -p fish_user_paths "$HOME/miniconda3/bin"
 		set -x LC_ALL "en_US.UTF-8"  
 		set -x LANG "en_US.UTF-8"
 end
@@ -67,3 +66,6 @@ set -x -p NIX_PATH "$HOME/.nix-defexpr/channels"
 
 # theme
 starship init fish | source
+
+# conda
+eval /Users/lgtf/miniconda3/bin/conda "shell.fish" "hook" $argv | source
