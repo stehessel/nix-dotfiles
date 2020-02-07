@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 {
 	imports = [
+		../../program/dev/build-system/just-build
 		../../program/dev/python/flake8
 		../../program/dev/python/pycodestyle
 		../../program/dev/version-control/tig
