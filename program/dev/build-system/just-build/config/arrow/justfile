@@ -1,8 +1,9 @@
-set shell := ["fish"]
+# set shell := ["/usr/bin/env fish", "-c"]
 GREEN :='\033[1;32m'
 NORMAL := '\033[0m'
 
 build-cpp: clean clone
+	#!/usr/bin/env fish
 	printf "{{GREEN}}Building cpp...{{NORMAL}}\n"
 	conda activate pyarrow-dev
 	set -x ARROW_HOME $CONDA_PREFIX
@@ -21,6 +22,7 @@ build-cpp: clean clone
 	conda deactivate
 
 build-python: clean clone
+	#!/usr/bin/env fish
 	printf "{{GREEN}}Building python...{{NORMAL}}\n"
 	conda activate pyarrow-dev
 	set -x ARROW_HOME $CONDA_PREFIX
@@ -33,23 +35,28 @@ build-python: clean clone
 	conda deactivate
 
 build: build-cpp build-python
+	#!/usr/bin/env fish
 	printf "{{GREEN}}All done.{{NORMAL}}\n"
 
 clean:
+	#!/usr/bin/env fish
 	rm -rf ~/git/arrow/cpp/build
 	rm -rf ~/git/arrow/python/build
 
 clone:
+	#!/usr/bin/env fish
 	if ! test -d ~/git/arrow
 		git clone https://github.com/apache/arrow ~/git/arrow
 	end
 
 test-all:
+	#!/usr/bin/env fish
 	conda activate pyarrow-dev
 	pytest ~/git/arrow/python/pyarrow
 	conda deactivate
 
 test TEST:
+	#!/usr/bin/env fish
 	conda activate pyarrow-dev
 	pytest ~/git/arrow/python/pyarrow/tests/{{TEST}}
 	conda deactivate

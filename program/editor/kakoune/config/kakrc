@@ -152,7 +152,7 @@ evaluate-commands %sh{ [ -f $kak_config/local.kak ] && echo "source $kak_config/
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 plug "andreyorst/plug.kak" noload
 
-# plug "alexherbo2/auto-pairs.kak"
+plug "alexherbo2/auto-pairs.kak"
 plug "alexherbo2/connect.kak" config %{
 	require-module connect-fzf
 	require-module connect-rofi
