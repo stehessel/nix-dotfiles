@@ -8,6 +8,7 @@
 		../../program/editor/kakoune
 		../../program/file-manager/lf
 		../../program/file-manager/vifm
+		../../program/package-manager/nix
 		../../program/shell/fish
 		../../program/shell/starship
 		../../program/terminal/kitty
