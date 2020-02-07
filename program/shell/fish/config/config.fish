@@ -67,5 +67,8 @@ set -x -p NIX_PATH "$HOME/.nix-defexpr/channels"
 # theme
 starship init fish | source
 
+# link sh to dash
+ln -s (which dash) /usr/local/bin/sh 2> /dev/null
+
 # conda
 eval /Users/lgtf/miniconda3/bin/conda "shell.fish" "hook" $argv | source
