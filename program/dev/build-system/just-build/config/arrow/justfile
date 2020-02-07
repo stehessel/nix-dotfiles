@@ -1,10 +1,8 @@
-parquet := "OFF"
-
+set shell := ["fish"]
 GREEN :='\033[1;32m'
 NORMAL := '\033[0m'
 
 build-cpp: clean clone
-	#!/usr/bin/env fish
 	printf "{{GREEN}}Building cpp...{{NORMAL}}\n"
 	conda activate pyarrow-dev
 	set -x ARROW_HOME $CONDA_PREFIX
@@ -13,7 +11,7 @@ build-cpp: clean clone
 	cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \
 		-DCMAKE_INSTALL_LIBDIR=lib \
 		-DARROW_BUILD_TESTS=ON \
-		-DARROW_PARQUET={{parquet}} \
+		-DARROW_PARQUET=ON \
 		-DARROW_PYTHON=ON \
 		-DARROW_WITH_SNAPPY=ON \
 		..
@@ -23,16 +21,10 @@ build-cpp: clean clone
 	conda deactivate
 
 build-python: clean clone
-	#!/usr/bin/env fish
 	printf "{{GREEN}}Building python...{{NORMAL}}\n"
 	conda activate pyarrow-dev
 	set -x ARROW_HOME $CONDA_PREFIX
 	set -x PYARROW_WITH_BUILD_TESTS 1
-	if [ {{parquet}} == "ON" ]
-		set -x PYARROW_WITH_PARQUET 1
-	else
-		set -x PYARROW_WITH_PARQUET 0
-	end
 	set -x PYARROW_WITH_PARQUET 1
 	set -x PYARROW_WITH_PYTHON 1
 	pushd ~/git/arrow/python
@@ -41,28 +33,23 @@ build-python: clean clone
 	conda deactivate
 
 build: build-cpp build-python
-	#!/usr/bin/env fish
 	printf "{{GREEN}}All done.{{NORMAL}}\n"
 
 clean:
-	#!/usr/bin/env fish
 	rm -rf ~/git/arrow/cpp/build
 	rm -rf ~/git/arrow/python/build
 
 clone:
-	#!/usr/bin/env fish
 	if ! test -d ~/git/arrow
 		git clone https://github.com/apache/arrow ~/git/arrow
 	end
 
 test-all:
-	#!/usr/bin/env fish
 	conda activate pyarrow-dev
 	pytest ~/git/arrow/python/pyarrow
 	conda deactivate
 
 test TEST:
-	#!/usr/bin/env fish
 	conda activate pyarrow-dev
 	pytest ~/git/arrow/python/pyarrow/tests/{{TEST}}
 	conda deactivate
