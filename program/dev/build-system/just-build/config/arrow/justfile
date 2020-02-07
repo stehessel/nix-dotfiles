@@ -2,6 +2,10 @@
 GREEN :='\033[1;32m'
 NORMAL := '\033[0m'
 
+build: build-cpp build-python
+	#!/usr/bin/env fish
+	printf "{{GREEN}}All done.{{NORMAL}}\n"
+
 build-cpp: clean clone
 	#!/usr/bin/env fish
 	printf "{{GREEN}}Building cpp...{{NORMAL}}\n"
@@ -33,10 +37,6 @@ build-python: clean clone
 	python setup.py build_ext --inplace
 	popd
 	conda deactivate
-
-build: build-cpp build-python
-	#!/usr/bin/env fish
-	printf "{{GREEN}}All done.{{NORMAL}}\n"
 
 clean:
 	#!/usr/bin/env fish
