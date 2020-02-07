@@ -16,7 +16,7 @@ build-cpp: clean clone
 		-DARROW_PYTHON=ON \
 		-DARROW_WITH_SNAPPY=ON \
 		..
-	make -j8
+	make -j4
 	make install
 	popd
 	conda deactivate
