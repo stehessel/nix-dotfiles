@@ -1,5 +1,3 @@
-parquet := "OFF"
-
 GREEN :='\033[1;32m'
 NORMAL := '\033[0m'
 
@@ -13,7 +11,7 @@ build-cpp: clean clone
 	cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \
 		-DCMAKE_INSTALL_LIBDIR=lib \
 		-DARROW_BUILD_TESTS=ON \
-		-DARROW_PARQUET={{parquet}} \
+		-DARROW_PARQUET=ON \
 		-DARROW_PYTHON=ON \
 		-DARROW_WITH_SNAPPY=ON \
 		..
@@ -28,11 +26,6 @@ build-python: clean clone
 	conda activate pyarrow-dev
 	set -x ARROW_HOME $CONDA_PREFIX
 	set -x PYARROW_WITH_BUILD_TESTS 1
-	if [ {{parquet}} == "ON" ]
-		set -x PYARROW_WITH_PARQUET 1
-	else
-		set -x PYARROW_WITH_PARQUET 0
-	end
 	set -x PYARROW_WITH_PARQUET 1
 	set -x PYARROW_WITH_PYTHON 1
 	pushd ~/git/arrow/python
