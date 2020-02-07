@@ -22,6 +22,7 @@
 		# file-viewer
 		glow
 		# shell
+		bash
 		dash
 		fish
 		starship
