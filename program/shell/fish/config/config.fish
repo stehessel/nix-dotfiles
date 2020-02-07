@@ -37,6 +37,8 @@ abbr -a -U cfn "$EDITOR ~/.config/newsboat/config"
 abbr -a -U cfmb "$EDITOR ~/.config/ncmpcpp/bindings"
 abbr -a -U cfmc "$EDITOR ~/.config/ncmpcpp/config"
 
+abbr -a -U gd "git diff"
+
 # keybinds
 bind \cb beginning-of-line
 bind \ca 'fg'
