@@ -15,7 +15,7 @@ build-cpp: clean clone
 	pushd ~/git/arrow/cpp/build
 	cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \
 		-DCMAKE_INSTALL_LIBDIR=lib \
-		-DARROW_BUILD_TESTS=ON \
+		-DARROW_BUILD_TESTS=OFF \
 		-DARROW_PARQUET=ON \
 		-DARROW_PYTHON=ON \
 		-DARROW_WITH_SNAPPY=ON \
@@ -30,7 +30,7 @@ build-python: clean clone
 	printf "{{GREEN}}Building python...{{NORMAL}}\n"
 	conda activate pyarrow-dev
 	set -x ARROW_HOME $CONDA_PREFIX
-	set -x PYARROW_WITH_BUILD_TESTS 1
+	set -x PYARROW_WITH_BUILD_TESTS 0
 	set -x PYARROW_WITH_PARQUET 1
 	set -x PYARROW_WITH_PYTHON 1
 	pushd ~/git/arrow/python
