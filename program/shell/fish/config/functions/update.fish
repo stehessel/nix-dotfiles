@@ -1,4 +1,4 @@
-function update -d "update all"
+function update --description "Update everything"
 	echo 'starting updates ...'
 	if command --search trizen >/dev/null do
 		echo 'updating pacman and aur ...'

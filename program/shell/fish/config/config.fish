@@ -37,14 +37,6 @@ abbr -a -U cfn "$EDITOR ~/.config/newsboat/config"
 abbr -a -U cfmb "$EDITOR ~/.config/ncmpcpp/bindings"
 abbr -a -U cfmc "$EDITOR ~/.config/ncmpcpp/config"
 
-# aliases
-alias cat "bat"
-alias ls "exa"
-alias tree "exa -T"
-alias dotfiles "/usr/bin/git --git-dir=/home/stephan/.dotfiles --work-tree=/home/stephan"
-alias vpn_off "sudo systemctl stop wg-quick@wg0"
-alias vpn_tunnel "sudo systemctl start wg-quick@wg0"
-
 # keybinds
 bind \cb beginning-of-line
 bind \ca 'fg'
