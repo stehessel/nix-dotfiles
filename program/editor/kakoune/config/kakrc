@@ -234,6 +234,9 @@ plug "andreyorst/fzf.kak" config %{
 # 	}
 # 	kaktree-enable
 # }
+# plug "andreyorst/powerline.kak" config %{
+# 	powerline-start
+# }
 plug "andreyorst/smarttab.kak" defer smarttab %{
 	set-option global tabstop 4
 	set-option global softtabstop 4

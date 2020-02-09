@@ -53,11 +53,15 @@ clone:
 test-all:
 	#!/usr/bin/env fish
 	conda activate pyarrow-dev
-	pytest ~/git/arrow/python/pyarrow
+	pushd ~/git/arrow/python
+	pytest pyarrow
+	popd
 	conda deactivate
 
 test TEST:
 	#!/usr/bin/env fish
 	conda activate pyarrow-dev
-	pytest ~/git/arrow/python/pyarrow/tests/{{TEST}}
+	pushd ~/git/arrow/python
+	pytest pyarrow/tests/{{TEST}}
+	popd
 	conda deactivate
