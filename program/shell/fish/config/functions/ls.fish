@@ -1,3 +1,3 @@
 function ls --description "ls alias"
-	exa
+	exa $argv
 end

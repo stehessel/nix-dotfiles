@@ -1,3 +1,3 @@
-function bat --description "cat alias"
-	bat
+function cat --description "cat alias"
+	bat $argv
 end

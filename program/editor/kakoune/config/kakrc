@@ -97,7 +97,6 @@ map global git L          ':git-log-lines<ret>'           -docstring 'log blame'
 
 hook global -always BufOpenFifo '\*grep\*' %{ map -- global normal - ':grep-next-match<ret>' }
 hook global -always BufOpenFifo '\*make\*' %{ map -- global normal - ':make-next-error<ret>' }
-
 # Enable <tab>/<s-tab> for insert completion selection
 hook global InsertCompletionShow .* %{
 	try %{
@@ -112,7 +111,6 @@ hook global InsertCompletionHide .* %{
 	unmap window insert <c-n> <tab>
 	unmap window insert <s-tab> <c-p>
 }
-
 
 # Custom commands
 define-command -override -docstring "select a word under cursor, or add cursor on next occurrence of current selection" \
@@ -283,20 +281,22 @@ plug "ul/kak-lsp" do %{
 	cargo install --force --path .
 } config %{
 	# uncomment to enable debugging
-	# eval %sh{echo ${kak_opt_lsp_cmd} >> /tmp/kak-lsp.log}
-	# set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
+	eval %sh{echo ${kak_opt_lsp_cmd} >> /tmp/kak-lsp.log}
+	set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
 
-	define-command ne                             -docstring 'go to next error/warning from lsp' %{
+	define-command ne          -docstring 'go to next error/warning from lsp' %{
 		lsp-find-error --include-warnings
 	}
-	define-command pe                             -docstring 'go to previous error/warning from lsp' %{
+	define-command pe          -docstring 'go to previous error/warning from lsp' %{
 		lsp-find-error --previous --include-warnings
 	}
-	define-command ee                             -docstring 'go to current error/warning from lsp' %{
-		lsp-find-error --include-warnings; lsp-find-error --previous --include-warnings
+	define-command ee          -docstring 'go to current error/warning from lsp' %{
+		lsp-find-error --include-warnings
+		lsp-find-error --previous --include-warnings
 	}
-	define-command lsp-restart                    -docstring 'restart lsp server' %{
-		lsp-stop; lsp-start
+	define-command lsp-restart -docstring 'restart lsp server' %{
+		lsp-stop
+		lsp-start
 	}
 
 	hook global WinSetOption filetype=(c|cpp|haskel|latex|python|rust|shell) %{

@@ -5,12 +5,15 @@ set -x FILE "vifm"
 set -x READER "zathura"
 set -x TERMINAL "kitty"
 set -x FZF_LEGACY_KEYBINDINGS "0"
+set -p fish_user_paths "$HOME/.cargo/bin"
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 switch (uname)
 	case Darwin
 		set -p fish_user_paths "$HOME/Library/Python/3.7/bin"
 		set -x LC_ALL "en_US.UTF-8"  
 		set -x LANG "en_US.UTF-8"
+		ln -s "$XDG_CONFIG_HOME/kak-lsp/kak-lsp.toml" \
+		"$HOME/Library/Preferences/kak-lsp/kak-lsp.toml" 2> /dev/null
 end
 
 # abbreviations

@@ -7,9 +7,9 @@
 	home.packages = with pkgs; [
 		# dev
 		cargo
-		ccls
 		editorconfig-core-c
 		fira-code
+		kak-lsp
 		kakoune
 		#pier
 		rustc
