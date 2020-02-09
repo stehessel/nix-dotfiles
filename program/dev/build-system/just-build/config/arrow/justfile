@@ -13,7 +13,8 @@ build-cpp: clean clone
 	set -x ARROW_HOME $CONDA_PREFIX
 	mkdir ~/git/arrow/cpp/build
 	pushd ~/git/arrow/cpp/build
-	cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \
+	cmake -P
+		-DCMAKE_INSTALL_PREFIX=$ARROW_HOME \
 		-DCMAKE_INSTALL_LIBDIR=lib \
 		-DARROW_BUILD_TESTS=OFF \
 		-DARROW_PARQUET=ON \
