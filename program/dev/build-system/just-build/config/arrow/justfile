@@ -10,8 +10,9 @@ build-cpp: clean clone
 	#!/usr/bin/env fish
 	printf "{{GREEN}}Building cpp...{{NORMAL}}\n"
 	conda activate pyarrow-dev
-	set -x ARROW_HOME $CONDA_PREFIX
 	mkdir ~/git/arrow/cpp/build
+	set -x ARROW_HOME $CONDA_PREFIX
+	set -x CMAKE_CXX_FLAGS "-g"
 	pushd ~/git/arrow/cpp/build
 	cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \
 		-DCMAKE_INSTALL_LIBDIR=lib \
@@ -33,6 +34,7 @@ build-python: clean clone
 	set -x PYARROW_WITH_BUILD_TESTS 0
 	set -x PYARROW_WITH_PARQUET 1
 	set -x PYARROW_WITH_PYTHON 1
+	set -x CMAKE_CXX_FLAGS "-g"
 	pushd ~/git/arrow/python
 	python setup.py build_ext --inplace
 	popd
