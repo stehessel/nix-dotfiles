@@ -7,6 +7,7 @@
 	home.packages = with pkgs; [
 		# dev
 		cargo
+		ccls
 		editorconfig-core-c
 		jq
 		fira-code

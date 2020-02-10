@@ -6,6 +6,9 @@ set-option global ui_options ncurses_status_on_top=true ncurses_assistant=none
 
 colorscheme gotham
 
+# Modeline
+# set-option global modelinefmt '{{mode_info}} {magenta}%val{client}{default} at {yellow}%val{session}{default} on {green}%val{bufname}{default} {{context_info}} {cyan}%val{cursor_line}{default}:{cyan}%val{cursor_char_column}{default}'
+
 # Highlighters
 # add-highlighter global/ dynregex '%reg{/}' 0:+b
 add-highlighter global/ show-matching

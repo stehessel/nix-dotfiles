@@ -13,8 +13,6 @@ switch (uname)
 		set -p fish_user_paths "$HOME/Library/Python/3.7/bin"
 		set -x LC_ALL "en_US.UTF-8"  
 		set -x LANG "en_US.UTF-8"
-		ln -s "$XDG_CONFIG_HOME/kak-lsp/kak-lsp.toml" \
-		"$HOME/Library/Preferences/kak-lsp/kak-lsp.toml" 2> /dev/null
 end
 
 # abbreviations
