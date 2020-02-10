@@ -8,8 +8,8 @@
 		# dev
 		cargo
 		editorconfig-core-c
+		jq
 		fira-code
-		kak-lsp
 		kakoune
 		#pier
 		rustc

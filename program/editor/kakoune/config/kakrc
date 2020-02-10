@@ -175,6 +175,9 @@ plug "alexherbo2/surround.kak" config %{
 	set-option global surround_end auto-pairs-enable
 }
 plug "alexherbo2/volatile-highlighter.kak"
+plug "alexherbo2/yank-ring.kak" config %{
+	map global normal <c-y> ':yank-ring<ret>'
+}
 plug "andreyorst/fzf.kak" config %{
 	map global normal '<c-p>' ': fzf-mode<ret>' -docstring 'fzf mode'
 } defer fzf %{
@@ -281,8 +284,8 @@ plug "ul/kak-lsp" do %{
 	cargo install --force --path .
 } config %{
 	# uncomment to enable debugging
-	eval %sh{echo ${kak_opt_lsp_cmd} >> /tmp/kak-lsp.log}
-	set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
+	# eval %sh{echo ${kak_opt_lsp_cmd} >> /tmp/kak-lsp.log}
+	# set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
 
 	define-command ne          -docstring 'go to next error/warning from lsp' %{
 		lsp-find-error --include-warnings
