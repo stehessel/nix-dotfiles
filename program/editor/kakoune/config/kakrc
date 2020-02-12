@@ -240,9 +240,13 @@ plug "andreyorst/fzf.kak" config %{
 # 	}
 # 	kaktree-enable
 # }
-# plug "andreyorst/powerline.kak" config %{
-# 	powerline-start
-# }
+plug "andreyorst/powerline.kak" defer powerline %{
+	set-option global powerline_format 'powerline-format git bufname filetype mode_info line_column position'
+	powerline-toggle line_column off
+	powerline-theme gruvbox
+} config %{
+	powerline-start
+}
 plug "andreyorst/smarttab.kak" defer smarttab %{
 	set-option global tabstop 4
 	set-option global softtabstop 4
@@ -280,6 +284,21 @@ plug "occivink/kakoune-vertical-selection" config %{
 	map global user v     ': vertical-selection-down<ret>'        -docstring 'vertical-selection-down'
 	map global user <a-v> ': vertical-selection-up<ret>'          -docstring 'vertical-selection-up'
 	map global user V     ': vertical-selection-up-and-down<ret>' -docstring 'vertical-selection-up-and-down'
+}
+plug "https://gitlab.com/screwtapello/kakoune-state-save" config %{
+	hook global KakBegin .* %{
+		state-save-reg-load colon
+		state-save-reg-load dquote
+		state-save-reg-load pipe
+		state-save-reg-load slash
+	}
+
+	hook global KakEnd .* %{
+		state-save-reg-save colon
+		state-save-reg-save dquote
+		state-save-reg-save pipe
+		state-save-reg-save slash
+	}
 }
 # plug "teddyDD/kakoune-wiki" config kakoune-wiki %{
 # 	wiki_setup '/home/stephan/wiki'
