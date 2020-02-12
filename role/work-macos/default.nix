@@ -35,6 +35,7 @@
 		kitty
 		neofetch
 		ripgrep
+		skim
 		tmux
 		tre-command
 		# utility

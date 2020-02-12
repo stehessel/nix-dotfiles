@@ -4,13 +4,15 @@ set -x EDITOR "kak"
 set -x FILE "vifm"
 set -x READER "zathura"
 set -x TERMINAL "kitty"
-set -x TERM "xterm-256color"
+set -x TERM "xterm-kitty"
 set -x FZF_LEGACY_KEYBINDINGS "0"
 set -p fish_user_paths "$HOME/.cargo/bin"
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 switch (uname)
 	case Darwin
 		set -p fish_user_paths "$HOME/Library/Python/3.7/bin"
+		set -p fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
+		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"  
 		set -x LANG "en_US.UTF-8"
 end
