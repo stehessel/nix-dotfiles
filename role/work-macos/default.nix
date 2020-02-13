@@ -9,10 +9,12 @@
 		cargo
 		ccls
 		editorconfig-core-c
+		gdb
 		jq
 		fira-code
 		kakoune
 		#pier
+		pypi2nix
 		rustc
 		tig
 		tokei
@@ -46,6 +48,7 @@
 		hyperfine
 		jrnl
 		just
+		nox
 		#procs
 		#pueue
 		speedtest-cli

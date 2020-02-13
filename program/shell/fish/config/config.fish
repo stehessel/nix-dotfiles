@@ -15,6 +15,7 @@ switch (uname)
 		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"  
 		set -x LANG "en_US.UTF-8"
+		set -x KAKOUNE_POSIX_SHELL (which sh)
 end
 
 # abbreviations
@@ -47,10 +48,12 @@ abbr -a -U gd "git diff"
 bind \cb beginning-of-line
 bind \ca 'fg'
 
-# plug.kak
-if not test -d "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
-	git clone "https://github.com/andreyorst/plug.kak.git" "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
-end
+# nix
+source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
+set -x -p NIX_PATH "$HOME/.nix-defexpr/channels"
+
+# link sh to dash
+ln -s (which dash) /usr/local/bin/sh 2> /dev/null
 
 # fisher
 if not functions -q fisher
@@ -58,15 +61,16 @@ if not functions -q fisher
 	fish -c fisher
 end
 
-# nix
-source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
-set -x -p NIX_PATH "$HOME/.nix-defexpr/channels"
-
 # theme
 starship init fish | source
 
-# link sh to dash
-ln -s (which dash) /usr/local/bin/sh 2> /dev/null
+# plug.kak
+if not test -d "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
+	git clone "https://github.com/andreyorst/plug.kak.git" "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
+end
+
+# direnv
+eval (direnv hook fish)
 
 # conda
 eval /Users/lgtf/miniconda3/bin/conda "shell.fish" "hook" $argv | source
