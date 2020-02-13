@@ -168,7 +168,7 @@ plug "alexherbo2/connect.kak" config %{
 	map global connect r     ':rofi-files<ret>'              -docstring 'open files in rofi'
 	map global connect R     ':rofi-buffers<ret>'            -docstring 'open buffers in rofi'
 }
-plug "alexherbo2/objectify.kak"
+# plug "alexherbo2/objectify.kak"
 plug "alexherbo2/search-highlighter.kak" config %{
 	set-face global Search default,rgb:8a8a8a
 }
@@ -178,7 +178,7 @@ plug "alexherbo2/surround.kak" config %{
 	set-option global surround_begin auto-pairs-disable
 	set-option global surround_end auto-pairs-enable
 }
-plug "alexherbo2/text-objects.kak"
+# plug "alexherbo2/text-objects.kak"
 plug "alexherbo2/volatile-highlighter.kak"
 plug "alexherbo2/yank-ring.kak" config %{
 	map global normal <c-y> ':yank-ring<ret>'
