@@ -14,7 +14,6 @@
 		fira-code
 		kakoune
 		#pier
-		pypi2nix
 		rustc
 		tig
 		tokei
@@ -24,6 +23,12 @@
 		vifm
 		# file-viewer
 		glow
+		# nix
+		arion
+		lorri
+		niv
+		nox
+		pypi2nix
 		# shell
 		dash
 		fish
@@ -48,7 +53,6 @@
 		hyperfine
 		jrnl
 		just
-		nox
 		#procs
 		#pueue
 		speedtest-cli
