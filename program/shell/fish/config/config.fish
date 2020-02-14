@@ -7,15 +7,20 @@ set -x TERMINAL "kitty"
 set -x TERM "xterm-kitty"
 set -x FZF_LEGACY_KEYBINDINGS "0"
 set -p fish_user_paths "$HOME/.cargo/bin"
+set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
+set -p fish_user_paths "$HOME/.nix-profile/bin"
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 switch (uname)
 	case Darwin
+		source "$XDG_CONFIG_HOME/nix/nix-single-user.fish"
 		set -p fish_user_paths "$HOME/Library/Python/3.7/bin"
 		set -p fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
 		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"  
 		set -x LANG "en_US.UTF-8"
 		set -x KAKOUNE_POSIX_SHELL (which sh)
+	case Arch
+		source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
 end
 
 # abbreviations
@@ -47,10 +52,6 @@ abbr -a -U gd "git diff"
 # keybinds
 bind \cb beginning-of-line
 bind \ca 'fg'
-
-# nix
-source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
-set -x -p NIX_PATH "$HOME/.nix-defexpr/channels"
 
 # link sh to dash
 ln -s (which dash) /usr/local/bin/sh 2> /dev/null

@@ -12,5 +12,6 @@
 		../../program/file-viewer/zathura
 	];
 
+	xdg.configFile."nix/nix-daemon.fish".source = config/nix-daemon.fish;
 	home.file.".profile".source = config/profile;
 }

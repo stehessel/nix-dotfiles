@@ -4,8 +4,10 @@
 		../common
 	];
 
+	xdg.configFile."nix/nix-single-user.fish".source = config/nix-single-user.fish;
+
 	home.packages = with pkgs; [
-		# dev
+		# --- dev ---
 		cargo
 		ccls
 		editorconfig-core-c
@@ -13,28 +15,29 @@
 		jq
 		fira-code
 		kakoune
-		#pier
 		rustc
 		tig
 		tokei
 		xsv
-		# file-manager
+		# --- file-manager ---
 		lf
 		vifm
-		# file-viewer
+		# --- file-viewer ---
 		glow
-		# nix
+		pandoc
+		# --- nix ---
 		arion
 		lorri
 		niv
 		nox
 		pypi2nix
-		# shell
+		# --- shell ---
 		dash
 		fish
 		starship
-		# terminal
+		# --- terminal ---
 		bat
+		broot
 		exa
 		fd
 		fzf
@@ -45,7 +48,7 @@
 		skim
 		tmux
 		tre-command
-		# utility
+		# --- utility ---
 		bandwhich
 		direnv
 		du-dust
@@ -54,7 +57,7 @@
 		jrnl
 		just
 		#procs
-		#pueue
+		pueue
 		speedtest-cli
 		svgcleaner
 		taskwarrior

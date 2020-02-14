@@ -2,6 +2,8 @@
 
 set -x NIX_USER_PROFILE_DIR "/nix/var/nix/profiles/per-user/$USER"
 set -x NIX_PROFILES "/nix/var/nix/profiles/default $HOME/.nix-profile"
+set -x NIX_PATH "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixpkgs:/nix/var/nix/profiles/per-user/root/channels"
+set -x -p NIX_PATH "$HOME/.nix-defexpr/channels"
 
 # Set $NIX_SSL_CERT_FILE so that Nixpkgs applications like curl work.
 if not set -q NIX_SSL_CERT_FILE[1] # Allow users to override the NIX_SSL_CERT_FILE
@@ -22,6 +24,3 @@ if not set -q NIX_SSL_CERT_FILE[1] # Allow users to override the NIX_SSL_CERT_FI
 		end
 	end
 end
-
-set -x NIX_PATH "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixpkgs:/nix/var/nix/profiles/per-user/root/channels"
-set -x PATH "$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
