@@ -10,7 +10,6 @@ colorscheme gotham
 # set-option global modelinefmt '{{mode_info}} {magenta}%val{client}{default} at {yellow}%val{session}{default} on {green}%val{bufname}{default} {{context_info}} {cyan}%val{cursor_line}{default}:{cyan}%val{cursor_char_column}{default}'
 
 # Highlighters
-add-highlighter global/ dynregex '%reg{/}' 0:+b
 add-highlighter global/ show-matching
 add-highlighter global/ show-whitespaces -lf " " -spc " " -tab "→" -tabpad " "
 add-highlighter global/ wrap -word
@@ -155,7 +154,7 @@ plug "andreyorst/plug.kak" noload
 
 plug "alexherbo2/auto-pairs.kak"
 plug "alexherbo2/connect.kak" config %{
-	require-module connect-fzf
+	# require-module connect-fzf
 	require-module connect-rofi
 	require-module connect-lf
 	require-module connect-dolphin
@@ -171,7 +170,7 @@ plug "alexherbo2/connect.kak" config %{
 }
 # plug "alexherbo2/objectify.kak"
 plug "alexherbo2/search-highlighter.kak" config %{
-	set-face global Search default,rgb:8a8a8a
+	set-face global Search default,rgb:8a8a8a+b
 }
 plug "alexherbo2/surround.kak" config %{
 	map global user s ':surround<ret>'                      -docstring 'Enter surround mode'
@@ -187,10 +186,11 @@ plug "alexherbo2/yank-ring.kak" config %{
 plug "andreyorst/fzf.kak" config %{
 	map global normal '<c-p>' ': fzf-mode<ret>' -docstring 'fzf mode'
 } defer fzf %{
-	set-option global fzf_preview_width '65%'
+	set-option global fzf_implementation 'sk'
+	set-option global fzf_preview_width '60%'
 	set-option global fzf_project_use_tilda true
 	declare-option str-list fzf_exclude_files "*.o" "*.bin" "*.obj" ".*cleanfiles" "*.pyc"
-	declare-option str-list fzf_exclude_dirs ".git" ".svn" "rtlrun*" "__pycache__"
+	declare-option str-list fzf_exclude_dirs ".git" ".svn" "rtlrun*" "__pycache__" ".ccls"
 	evaluate-commands %sh{
 		if [ -n "$(command -v fd)" ]; then
 			eval "set -- $kak_quoted_opt_fzf_exclude_files $kak_quoted_opt_fzf_exclude_dirs"
