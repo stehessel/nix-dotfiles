@@ -34,7 +34,8 @@ default_flags = ""
 invocation = "edit"
 key = "F2"
 shortcut = "e"
-execution = "$EDITOR {file}"
+# execution = "$EDITOR {file}"
+execution = "edit {file}"
 leave_broot = "false"
 
 [[verbs]]

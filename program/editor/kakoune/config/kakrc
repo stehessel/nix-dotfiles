@@ -10,7 +10,7 @@ colorscheme gotham
 # set-option global modelinefmt '{{mode_info}} {magenta}%val{client}{default} at {yellow}%val{session}{default} on {green}%val{bufname}{default} {{context_info}} {cyan}%val{cursor_line}{default}:{cyan}%val{cursor_char_column}{default}'
 
 # Highlighters
-# add-highlighter global/ dynregex '%reg{/}' 0:+b
+add-highlighter global/ dynregex '%reg{/}' 0:+b
 add-highlighter global/ show-matching
 add-highlighter global/ show-whitespaces -lf " " -spc " " -tab "→" -tabpad " "
 add-highlighter global/ wrap -word
@@ -163,6 +163,7 @@ plug "alexherbo2/connect.kak" config %{
 	map global user c        ':enter-user-mode connect<ret>' -docstring 'connect user mode'
 	declare-user-mode connect
 	map global connect c     ':connect-terminal<ret>'        -docstring 'open connected terminal'
+	map global connect b     ':connect-terminal br<ret>'   -docstring 'open connected broot'
 	map global connect f     ':connect-terminal vifm .<ret>' -docstring 'open connected vifm'
 	map global connect l     ':lf<ret>'                      -docstring 'open connected lf'
 	map global connect r     ':rofi-files<ret>'              -docstring 'open files in rofi'
