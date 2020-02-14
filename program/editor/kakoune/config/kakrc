@@ -240,19 +240,25 @@ plug "andreyorst/fzf.kak" config %{
 # 	}
 # 	kaktree-enable
 # }
-plug "andreyorst/powerline.kak" defer powerline %{
-	set-option global powerline_format 'powerline-format git bufname filetype mode_info line_column position'
-	powerline-toggle line_column off
-	powerline-theme gruvbox
+plug "andreyorst/powerline.kak" domain gitlab.com defer powerline %{
+	set-option global powerline_ignore_warnings true
+	set-option global powerline_format 'git bufname langmap smarttab mode_info filetype line_column position'
+	set-option global powerline_shorten_bufname 'short'
+	powerline-separator none
+	powerline-theme base16
 } config %{
 	powerline-start
 }
-plug "andreyorst/smarttab.kak" defer smarttab %{
+plug "andreyorst/smarttab.kak" domain gitlab.com defer smarttab %{
 	set-option global tabstop 4
 	set-option global softtabstop 4
+	set-option global smarttab_expandtab_mode_name   '.t.'
+	set-option global smarttab_noexpandtab_mode_name '→t→'
+	set-option global smarttab_smarttab_mode_name    '→t.'
 } config %{
-	hook global WinCreate .* smarttab
-	hook global WinSetOption filetype=(python) expandtab
+	hook global WinSetOption filetype=(markdown|python|rust) expandtab
+	hook global WinSetOption filetype=(makefile) noexpandtab
+	hook global WinSetOption filetype=(c|cpp|kak|latex|sh) smarttab
 }
 plug 'danr/kakoune-easymotion' config %{
 	map global user w     ':easy-motion-w<ret>'                   -docstring 'easy-motion-w'

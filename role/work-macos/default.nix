@@ -13,7 +13,6 @@
 		editorconfig-core-c
 		gdb
 		jq
-		fira-code
 		kakoune
 		rustc
 		tig
@@ -25,6 +24,9 @@
 		# --- file-viewer ---
 		glow
 		pandoc
+		# --- font ---
+		fira-code
+		hack-font
 		# --- nix ---
 		arion
 		lorri
