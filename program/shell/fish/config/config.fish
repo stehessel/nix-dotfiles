@@ -2,6 +2,7 @@
 set -x BROWSER "firefox"
 set -x EDITOR "kak"
 set -x FILE "vifm"
+set -x PAGER "less"
 set -x READER "zathura"
 set -x TERMINAL "kitty"
 set -x TERM "xterm-kitty"
