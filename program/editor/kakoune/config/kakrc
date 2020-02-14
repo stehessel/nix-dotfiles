@@ -161,10 +161,10 @@ plug "alexherbo2/connect.kak" config %{
 
 	map global user c        ':enter-user-mode connect<ret>' -docstring 'connect user mode'
 	declare-user-mode connect
-	map global connect c     ':connect-terminal<ret>'        -docstring 'open connected terminal'
-	map global connect b     ':connect-terminal br<ret>'   -docstring 'open connected broot'
-	map global connect f     ':connect-terminal vifm .<ret>' -docstring 'open connected vifm'
-	map global connect l     ':lf<ret>'                      -docstring 'open connected lf'
+	map global connect c     ':connect-terminal<ret>'        -docstring 'connect terminal'
+	map global connect b     ':connect-terminal br<ret>'     -docstring 'connect broot'
+	map global connect f     ':connect-terminal vifm .<ret>' -docstring 'connect vifm'
+	map global connect l     ':lf<ret>'                      -docstring 'connect lf'
 	map global connect r     ':rofi-files<ret>'              -docstring 'open files in rofi'
 	map global connect R     ':rofi-buffers<ret>'            -docstring 'open buffers in rofi'
 }
@@ -184,7 +184,7 @@ plug "alexherbo2/yank-ring.kak" config %{
 	map global normal <c-y> ':yank-ring<ret>'
 }
 plug "andreyorst/fzf.kak" config %{
-	map global normal '<c-p>' ': fzf-mode<ret>' -docstring 'fzf mode'
+	map global user f ':fzf-mode<ret>'                      -docstring 'fzf mode'
 } defer fzf %{
 	set-option global fzf_implementation 'sk'
 	set-option global fzf_preview_width '60%'
