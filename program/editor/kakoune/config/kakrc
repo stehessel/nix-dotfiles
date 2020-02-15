@@ -69,6 +69,14 @@ evaluate-commands %sh{
 	printf "map global user -docstring 'replace from clipboard' R '|%s<ret>'\n" "$paste"
 }
 
+# Functions
+def -hidden -params 1 extend-line-down %{
+	exec "<a-:>%arg{1}X"
+}
+def -hidden -params 1 extend-line-up %{
+	exec "<a-:><a-;>%arg{1}K<a-x>"
+}
+
 # Mappings
 map global normal D       '<a-l>d'                        -docstring 'delete to end of line'
 map global normal Y       '<a-l>y'                        -docstring 'yank to end of line'
@@ -78,6 +86,8 @@ map global normal =       's=<ret>&'                      -docstring 'align alon
 map global normal <c-n>   ':select-or-add-cursor<ret>'    -docstring 'add cursor on current word, and jump to the next match' 
 map global normal <c-l>   ':lint<ret>'
 map global normal <a-=>   ':prompt math: %{exec "a%val{text}<lt>esc>|bc<lt>ret>"}<ret>'
+map global normal x       ':extend-line-down %val{count}<ret>'
+map global normal X       ':extend-line-up %val{count}<ret>'
 
 map global user t         '%s^\s+<ret>@<space>'           -docstring 'convert leading tabs to spaces'
 map global user T         '%s^\s+<ret><a-@><space>'       -docstring 'convert leading spaces to tabs'
