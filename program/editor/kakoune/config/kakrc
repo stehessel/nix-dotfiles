@@ -14,7 +14,8 @@ add-highlighter global/ show-matching
 add-highlighter global/ show-whitespaces -lf " " -spc " " -tab "→" -tabpad " "
 add-highlighter global/ wrap -word
 add-highlighter global/ regex \b(?:FIXME|TODO|XXX)\b 0:default+rb
-hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor -relative }
+# hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor -relative }
+hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor }
 
 # Grep
 set-option global grepcmd 'rg -L --hidden --with-filename --column'
