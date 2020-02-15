@@ -265,20 +265,16 @@ plug "andreyorst/tagbar.kak" defer "tagbar" %{
 	set-option global tagbar_sort false
 	set-option global tagbar_size 40
 	set-option global tagbar_display_anon false
+	alias global 'q' 'tagbar-quit'
+	alias global 'wq' 'tagbar-write-quit'
 } config %{
 	map global user d ':tagbar-toggle<ret>'                       -docstring 'enable tagbar'
-
-	# if you have wrap highlighter enabled in your configuration
-	# files it's better to turn it off for tagbar, using this hook:
 	hook global WinSetOption filetype=tagbar %{
 		remove-highlighter window/wrap
-		# you can also disable rendering whitespaces here, line numbers, and
-		# matching characters
 	}
-	# hook global WinSetOption filetype=(c|cpp|make|markdown|python|rust) %{
-	# 	tagbar-enable
-	# }
-	tagbar-enable
+	hook global WinSetOption filetype=(c|cpp|make|markdown|python|rust) %{
+		tagbar-enable
+	}
 }
 plug 'danr/kakoune-easymotion' config %{
 	map global user w     ':easy-motion-w<ret>'                   -docstring 'easy-motion-w'
