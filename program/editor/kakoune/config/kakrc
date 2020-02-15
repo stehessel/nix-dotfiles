@@ -251,7 +251,6 @@ plug "andreyorst/powerline.kak" domain gitlab.com defer powerline %{
 	powerline-start
 }
 plug "andreyorst/smarttab.kak" domain gitlab.com defer smarttab %{
-	set-option global tabstop 4
 	set-option global softtabstop 4
 	set-option global smarttab_expandtab_mode_name   '.t.'
 	set-option global smarttab_noexpandtab_mode_name '→t→'
