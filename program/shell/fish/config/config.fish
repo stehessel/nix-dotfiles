@@ -33,8 +33,6 @@ abbr -a -U m "cd ~/Music and ls -a"
 abbr -a -U pp "cd ~/Pictures and ls -a"
 abbr -a -U vv "cd ~/Videos and ls -a"
 abbr -a -U cf "cd ~/.config and ls -a"
-abbr -a -U sc "cd ~/.local/bin and ls -a"
-abbr -a -U mn "cd /mnt and ls -a"
 
 abbr -a -U cfb "$EDITOR ~/nix-home/program/desktop/window-manager/bspwm/config/bspwmrc"
 abbr -a -U cfx "$EDITOR ~/nix-home/program/desktop/window-manager/xmonad/config/xmonad.hs"

@@ -10,6 +10,7 @@
 		# --- dev ---
 		cargo
 		ccls
+		universal-ctags
 		editorconfig-core-c
 		gdb
 		jq
