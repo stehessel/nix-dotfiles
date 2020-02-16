@@ -15,6 +15,7 @@
 		../../program/terminal/tmux
 		../../program/todo/taskwarrior
 		../../program/utility/broot
+		../../program/utility/file
 		# ../../program/utility/pueue
 		../../program/utility/topgrade
 	];

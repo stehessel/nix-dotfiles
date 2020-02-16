@@ -55,6 +55,7 @@
 		bandwhich
 		direnv
 		du-dust
+		file
 		htop
 		hyperfine
 		jrnl
