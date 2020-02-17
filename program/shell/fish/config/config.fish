@@ -61,9 +61,6 @@ if not functions -q fisher
 	fish -c fisher
 end
 
-# theme
-starship init fish | source
-
 # plug.kak
 if not test -d "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
 	git clone "https://github.com/andreyorst/plug.kak.git" "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
@@ -74,3 +71,9 @@ eval (direnv hook fish)
 
 # conda
 eval /Users/lgtf/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+
+# theme
+# starship
+# starship init fish | source
+# bobthefish
+source $XDG_CONFIG_HOME/bobthefish/config.fish

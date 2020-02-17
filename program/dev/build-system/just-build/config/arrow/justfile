@@ -24,7 +24,7 @@ build-cpp: clean clone
 	make -j4
 	make install 2> /dev/null
 	popd
-	conda deactivate
+	conda activate base
 
 build-python: clean clone
 	#!/usr/bin/env fish
@@ -38,7 +38,7 @@ build-python: clean clone
 	pushd ~/git/arrow/python
 	python setup.py build_ext --inplace
 	popd
-	conda deactivate
+	conda activate base
 
 clean:
 	#!/usr/bin/env fish
@@ -57,7 +57,7 @@ test-all:
 	pushd ~/git/arrow/python
 	pytest pyarrow
 	popd
-	conda deactivate
+	conda activate base
 
 test TEST:
 	#!/usr/bin/env fish
@@ -65,4 +65,4 @@ test TEST:
 	pushd ~/git/arrow/python
 	pytest pyarrow/tests/{{TEST}}
 	popd
-	conda deactivate
+	conda activate base

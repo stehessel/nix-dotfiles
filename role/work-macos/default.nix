@@ -27,6 +27,7 @@
 		pandoc
 		# --- font ---
 		fira-code
+		font-awesome
 		hack-font
 		# --- nix ---
 		arion
