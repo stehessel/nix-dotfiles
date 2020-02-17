@@ -40,13 +40,15 @@
 		fish
 		starship
 		# --- terminal ---
+		alacritty
+		kitty
+		# --- terminal tools ---
 		bat
 		broot
 		exa
 		fd
 		fzf
 		highlight
-		kitty
 		neofetch
 		ripgrep
 		skim
