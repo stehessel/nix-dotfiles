@@ -73,7 +73,9 @@ eval (direnv hook fish)
 eval /Users/lgtf/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 
 # theme
+
 # starship
 # starship init fish | source
+
 # bobthefish
 source $XDG_CONFIG_HOME/bobthefish/config.fish
