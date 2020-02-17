@@ -72,7 +72,7 @@ end
 eval (direnv hook fish)
 
 # conda
-eval /Users/lgtf/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
 
 # theme
 
