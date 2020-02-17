@@ -22,7 +22,9 @@ switch (uname)
 		set -x LC_ALL "en_US.UTF-8"  
 		set -x LANG "en_US.UTF-8"
 		set -x KAKOUNE_POSIX_SHELL (which sh)
-	case Arch
+        # link sh to dash
+        ln -s (which dash) /usr/local/bin/sh 2> /dev/null
+	case Linux
 		source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
 end
 
@@ -53,9 +55,6 @@ abbr -a -U gd "git diff"
 # keybinds
 bind \cb beginning-of-line
 bind \ca 'fg'
-
-# link sh to dash
-ln -s (which dash) /usr/local/bin/sh 2> /dev/null
 
 # fisher
 if not functions -q fisher
