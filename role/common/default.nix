@@ -12,7 +12,7 @@
 		../../program/shell/bobthefish
 		../../program/shell/fish
 		../../program/shell/starship
-		../../program/terminal/alacritty
+		# ../../program/terminal/alacritty
 		../../program/terminal/kitty
 		../../program/terminal/tmux
 		../../program/todo/taskwarrior
@@ -23,4 +23,10 @@
 	];
 
 	nixpkgs.config.allowUnfree = true;
+
+
+	programs.alacritty = {
+		enable = true;
+		settings = lib.attrsets.recursiveUpdate (import ../../program/terminal/alacritty/default-settings.nix) {};
+	};
 }
