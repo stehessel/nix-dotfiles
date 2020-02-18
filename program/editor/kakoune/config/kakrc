@@ -272,6 +272,7 @@ plug "andreyorst/smarttab.kak" domain gitlab.com defer smarttab %{
 	set-option global smarttab_noexpandtab_mode_name '→t→'
 	set-option global smarttab_smarttab_mode_name    '→t.'
 } config %{
+	hook global WinCreate .* smarttab
 	hook global WinSetOption filetype=(python|rust) expandtab
 	hook global WinSetOption filetype=(makefile) noexpandtab
 	hook global WinSetOption filetype=(c|cpp|kak|latex|markdown|sh) smarttab
