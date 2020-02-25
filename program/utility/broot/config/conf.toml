@@ -39,6 +39,11 @@ execution = "edit {file}"
 leave_broot = "false"
 
 [[verbs]]
+name = "open_stay"
+key = "Enter"
+execution = "$EDITOR {file}"
+
+[[verbs]]
 key = "ctrl-c"
 execution = ":quit"
 
