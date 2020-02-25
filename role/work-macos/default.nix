@@ -8,14 +8,13 @@
 
 	home.packages = with pkgs; [
 		# --- dev ---
-		cargo
 		ccls
 		universal-ctags
 		editorconfig-core-c
 		gdb
 		jq
 		kakoune
-		rustc
+		rustup
 		tig
 		tokei
 		xsv

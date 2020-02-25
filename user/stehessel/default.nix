@@ -11,4 +11,10 @@
 		frequency = "*:0/1";
 	};
 	xdg.configFile."mbsync/mbsyncrc".source = config/mbsync/mbsyncrc;
+
+	programs.git = {
+		enable = true;
+		userEmail = "stephan@stehessel.de";
+		userName = "stehessel";
+	};
 }
