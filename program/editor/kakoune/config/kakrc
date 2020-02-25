@@ -284,13 +284,14 @@ plug "andreyorst/tagbar.kak" defer "tagbar" %{
 	alias global 'q' 'tagbar-quit'
 	alias global 'wq' 'tagbar-write-quit'
 } config %{
-	map global user d ':tagbar-toggle<ret>'                       -docstring 'enable tagbar'
+	map global user d ':tagbar-enable<ret>'                       -docstring 'enable tagbar'
+	map global user D ':tagbar-disable<ret>'                       -docstring 'disable tagbar'
 	hook global WinSetOption filetype=tagbar %{
 		remove-highlighter window/wrap
 	}
-	hook global WinSetOption filetype=(c|cpp|make|markdown|python|rust) %{
-		tagbar-enable
-	}
+	# hook global WinSetOption filetype=(c|cpp|make|markdown|python|rust) %{
+	# 	tagbar-enable
+	# }
 }
 plug 'danr/kakoune-easymotion' config %{
 	map global user w     ':easy-motion-w<ret>'                   -docstring 'easy-motion-w'
