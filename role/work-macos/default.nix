@@ -9,7 +9,6 @@
 	home.packages = with pkgs; [
 		# --- dev ---
 		ccls
-		universal-ctags
 		editorconfig-core-c
 		gdb
 		jq
@@ -17,6 +16,7 @@
 		rustup
 		tig
 		tokei
+		universal-ctags
 		xsv
 		# --- file-manager ---
 		lf
