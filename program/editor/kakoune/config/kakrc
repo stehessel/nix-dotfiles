@@ -369,6 +369,9 @@ plug "ul/kak-lsp" do %{
 		map global user l ':enter-user-mode lsp<ret>' -docstring 'kak-lsp user mode'
 		set-option window lsp_auto_highlight_references false
 		set-option window lsp_hover_anchor false
+
+		set-option window lsp_server_configuration pyls.configurationSources=['flake8']
+
 		echo -debug "Enabling LSP for filtetype %opt{filetype}"
 		lsp-auto-hover-enable
 		lsp-auto-hover-insert-mode-disable
@@ -380,7 +383,7 @@ plug "ul/kak-lsp" do %{
 	}
 	
 	hook global WinSetOption filetype=(rust) %{
-		set-option window lsp_server_configuration rust.clippy_preference="on"
+		set-option window lsp_server_configuration rust.clippy_preference='on'
 	}
 
 	hook global WinSetOption filetype=(rust) %{

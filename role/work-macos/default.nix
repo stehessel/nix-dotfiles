@@ -62,7 +62,7 @@
 		hyperfine
 		jrnl
 		just
-		#procs
+		# procs
 		pueue
 		speedtest-cli
 		svgcleaner
