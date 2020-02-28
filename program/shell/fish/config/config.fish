@@ -29,12 +29,12 @@ end
 # abbreviations
 abbr -a -U h "cd ~/ and ls -a"
 abbr -a -U b "cd ~/backgrounds and ls -a"
-abbr -a -U d "cd ~/Documents and ls -a"
-abbr -a -U D "cd ~/Downloads and ls -a"
-abbr -a -U m "cd ~/Music and ls -a"
-abbr -a -U pp "cd ~/Pictures and ls -a"
-abbr -a -U vv "cd ~/Videos and ls -a"
-abbr -a -U cf "cd ~/.config and ls -a"
+abbr -a -U d "cd ~/Documents; and ls -a"
+abbr -a -U D "cd ~/Downloads; and ls -a"
+abbr -a -U m "cd ~/Music; and ls -a"
+abbr -a -U pp "cd ~/Pictures; and ls -a"
+abbr -a -U vv "cd ~/Videos; and ls -a"
+abbr -a -U cf "cd ~/.config; and ls -a"
 
 abbr -a -U cfb "$EDITOR ~/nix-home/program/desktop/window-manager/bspwm/config/bspwmrc"
 abbr -a -U cfx "$EDITOR ~/nix-home/program/desktop/window-manager/xmonad/config/xmonad.hs"
@@ -48,6 +48,7 @@ abbr -a -U cfn "$EDITOR ~/.config/newsboat/config"
 abbr -a -U cfmb "$EDITOR ~/.config/ncmpcpp/bindings"
 abbr -a -U cfmc "$EDITOR ~/.config/ncmpcpp/config"
 
+abbr -a -U diff "kitty +kitten diff"
 abbr -a -U gd "git diff"
 
 # keybinds
