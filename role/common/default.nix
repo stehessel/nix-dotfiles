@@ -2,6 +2,7 @@
 {
 	imports = [
 		../../program/dev/build-system/just-build
+		../../program/dev/haskell/stack
 		../../program/dev/python/flake8
 		../../program/dev/python/pycodestyle
 		../../program/dev/version-control/tig
@@ -25,13 +26,13 @@
 	nixpkgs.config.allowUnfree = true;
 
 	home.packages = with pkgs; [
-		# --- dev ---
+		# --- cpp ---
 		ccls
-		editorconfig-core-c
 		gdb
+		# --- dev ---
+		editorconfig-core-c
 		jq
 		kakoune
-		rustup
 		tig
 		tokei
 		universal-ctags
@@ -46,12 +47,16 @@
 		fira-code
 		font-awesome
 		hack-font
+		# --- haskell ---
+		stack
 		# --- nix ---
 		arion
 		lorri
 		niv
 		nox
 		pypi2nix
+		# --- rust ---
+		rustup
 		# --- shell ---
 		dash
 		fish
