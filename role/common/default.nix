@@ -49,6 +49,7 @@
 		font-awesome
 		hack-font
 		# --- haskell ---
+		cabal-install
 		stack
 		# --- nix ---
 		arion
