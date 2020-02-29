@@ -184,6 +184,10 @@ plug "alexherbo2/connect.kak" config %{
 	map global connect r     ':rofi-files<ret>'              -docstring 'open files in rofi'
 	map global connect R     ':rofi-buffers<ret>'            -docstring 'open buffers in rofi'
 }
+plug "alexherbo2/move-line.kak" config %{
+	map global normal "'" ':move-line-below<ret>'
+	map global normal "<a-'>" ':move-line-above<ret>'
+}
 # plug "alexherbo2/objectify.kak"
 plug "alexherbo2/search-highlighter.kak" config %{
 	set-face global Search default,rgb:8a8a8a+b
