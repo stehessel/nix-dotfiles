@@ -16,6 +16,7 @@
 		# ../../program/terminal/alacritty
 		../../program/terminal/kitty
 		../../program/terminal/tmux
+		../../program/todo/tasklite
 		../../program/todo/taskwarrior
 		../../program/utility/broot
 		../../program/utility/file

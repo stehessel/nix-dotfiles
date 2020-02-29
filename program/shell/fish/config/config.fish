@@ -10,6 +10,7 @@ set -x FZF_LEGACY_KEYBINDINGS "0"
 set -p fish_user_paths "$HOME/.cargo/bin"
 set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
 set -p fish_user_paths "$HOME/.nix-profile/bin"
+set -p fish_user_paths "$HOME/.local/bin"
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 switch (uname)
 	case Darwin
@@ -50,6 +51,7 @@ abbr -a -U cfmc "$EDITOR ~/.config/ncmpcpp/config"
 
 abbr -a -U diff "kitty +kitten diff"
 abbr -a -U gd "git diff"
+abbr -a -U tl "tasklite"
 
 # keybinds
 bind \cb beginning-of-line
