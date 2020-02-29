@@ -62,9 +62,6 @@
 		dash
 		fish
 		starship
-		# --- terminal ---
-		alacritty
-		kitty
 		# --- terminal tools ---
 		bat
 		broot

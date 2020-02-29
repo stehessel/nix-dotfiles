@@ -6,6 +6,12 @@
 
 	xdg.configFile."nix/nix-single-user.fish".source = config/nix-single-user.fish;
 
+	home.packages = with pkgs; [
+		# --- terminal ---
+		alacritty
+		kitty
+	];
+
 	programs.alacritty = {
 		enable = true;
 		settings = lib.attrsets.recursiveUpdate (import ../../program/terminal/alacritty/default-settings.nix) {
