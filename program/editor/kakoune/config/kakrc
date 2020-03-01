@@ -18,7 +18,13 @@ hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor 
 # hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor }
 
 # Grep
-set-option global grepcmd 'rg -L --hidden --with-filename --column'
+evaluate-commands %sh{
+	if [ -n "$(command -v rg)" ]; then
+		rg_path="$(command -v rg)"
+		echo "set-option global grepcmd '$rg_path -L --hidden --with-filename --column'"
+	fi
+}
+
 hook global BufSetOption filetype=grep %{
 	remove-highlighter buffer/wrap
 }
@@ -175,14 +181,15 @@ plug "alexherbo2/connect.kak" config %{
 	require-module connect-lf
 	require-module connect-dolphin
 
-	map global user c        ':enter-user-mode connect<ret>' -docstring 'connect user mode'
+	map global user c        ":enter-user-mode connect<ret>" -docstring "connect user mode"
 	declare-user-mode connect
-	map global connect c     ':connect-terminal<ret>'        -docstring 'connect terminal'
-	map global connect b     ':connect-terminal br<ret>'     -docstring 'connect broot'
-	map global connect f     ':connect-terminal vifm .<ret>' -docstring 'connect vifm'
-	map global connect l     ':lf<ret>'                      -docstring 'connect lf'
-	map global connect r     ':rofi-files<ret>'              -docstring 'open files in rofi'
-	map global connect R     ':rofi-buffers<ret>'            -docstring 'open buffers in rofi'
+	map global connect c     ":connect-terminal %sh{command -v fish}<ret>"  -docstring "connect terminal"
+	map global connect b     ":connect-terminal %sh{command -v broot}<ret>" -docstring "connect broot"
+	map global connect f     ":vifm .<ret>" -docstring "connect vifm"
+	map global connect l     ":lf<ret>"                      -docstring "connect lf"
+	# map global connect l     ":connect-terminal %opt{nix_path}/lf<ret>" -docstring "connect lf"
+	map global connect r     ":rofi-files<ret>"              -docstring "open files in rofi"
+	map global connect R     ":rofi-buffers<ret>"            -docstring "open buffers in rofi"
 }
 plug "alexherbo2/move-line.kak" config %{
 	map global normal "'" ':move-line-below<ret>'
@@ -206,7 +213,7 @@ plug "alexherbo2/yank-ring.kak" config %{
 plug "andreyorst/fzf.kak" config %{
 	map global user f ':fzf-mode<ret>'                      -docstring 'fzf mode'
 } defer fzf %{
-	set-option global fzf_implementation 'sk'
+	set-option global fzf_implementation "%sh{command -v sk}"
 	set-option global fzf_preview_width '60%'
 	set-option global fzf_project_use_tilda true
 	declare-option str-list fzf_exclude_files "*.o" "*.bin" "*.obj" ".*cleanfiles" "*.pyc"
@@ -218,7 +225,8 @@ plug "andreyorst/fzf.kak" config %{
 				exclude="$exclude --exclude '$1'"
 				shift
 			done
-			cmd="fd . --no-ignore --type f --follow --hidden $exclude"
+			fd_path="$(command -v fd)"
+			cmd="$fd_path . --no-ignore --type f --follow --hidden $exclude"
 		else
 			eval "set -- $kak_quoted_opt_fzf_exclude_files"
 			while [ $# -gt 0 ]; do
@@ -236,7 +244,8 @@ plug "andreyorst/fzf.kak" config %{
 		echo "set-option global fzf_file_command %{$cmd}"
 
 		if [ -n "$(command -v bat)" ]; then
-			echo "set-option global fzf_highlight_command bat"
+			bat_path="$(command -v bat)"
+			echo "set-option global fzf_highlight_command %{$bat_path}"
 		fi
 		if [ -n "${kak_opt_grepcmd}" ]; then
 			echo "set-option global fzf_sk_grep_command %{${kak_opt_grepcmd}}"
