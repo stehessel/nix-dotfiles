@@ -210,7 +210,7 @@ plug "alexherbo2/surround.kak" config %{
 	set-option global surround_begin auto-pairs-disable
 	set-option global surround_end auto-pairs-enable
 }
-plug "alexherbo2/text-objects.kak"
+# plug "alexherbo2/text-objects.kak"
 plug "alexherbo2/volatile-highlighter.kak"
 plug "alexherbo2/yank-ring.kak" config %{
 	map global normal <c-y> ':yank-ring<ret>'
@@ -260,24 +260,26 @@ plug "andreyorst/fzf.kak" config %{
 		fi
 	}
 }
-plug "andreyorst/kaktree" defer kaktree %{
-	set-option global kaktree_double_click_duration '0.5'
-	set-option global kaktree_indentation 1
-	set-option global kaktree_dir_icon_open  '▾ 🗁 '
-	set-option global kaktree_dir_icon_close '▸ 🗀 '
-	set-option global kaktree_file_icon      '  🖺'
-	set-option global kaktree_show_hidden false
-	set-option global kaktree_sort true
-} config %{
-	map global user 'n' ':kaktree-toggle<ret>' -docstring 'toggle kaktree'
-	hook global WinSetOption filetype=kaktree %{
-		remove-highlighter buffer/numbers
-		remove-highlighter buffer/matching
-		remove-highlighter buffer/wrap
-		remove-highlighter buffer/show-whitespaces
-	}
-	kaktree-enable
-}
+# plug "andreyorst/kaktree" defer kaktree %{
+# 	set-option global kaktree_double_click_duration '0.5'
+# 	set-option global kaktree_indentation 1
+# 	set-option global kaktree_dir_icon_open  '▾ 🗁 '
+# 	set-option global kaktree_dir_icon_close '▸ 🗀 '
+# 	set-option global kaktree_file_icon      '  🖺'
+# 	set-option global kaktree_show_hidden false
+# 	set-option global kaktree_sort true
+# 	declare-option -hidden str opt_termcmd
+# 	set-option global opt_termcmd "%sh{command -v fish} -c"
+# } config %{
+# 	map global user 'n' ':kaktree-toggle<ret>' -docstring 'toggle kaktree'
+# 	hook global WinSetOption filetype=kaktree %{
+# 		remove-highlighter buffer/numbers
+# 		remove-highlighter buffer/matching
+# 		remove-highlighter buffer/wrap
+# 		remove-highlighter buffer/show-whitespaces
+# 	}
+# 	kaktree-enable
+# }
 plug "andreyorst/powerline.kak" domain gitlab.com defer powerline %{
 	set-option global powerline_ignore_warnings true
 	set-option global powerline_format 'git bufname langmap smarttab mode_info filetype line_column position'
@@ -298,22 +300,25 @@ plug "andreyorst/smarttab.kak" domain gitlab.com defer smarttab %{
 	hook global WinSetOption filetype=(makefile) noexpandtab
 	hook global WinSetOption filetype=(c|cpp|kak|latex|markdown|sh) smarttab
 }
-plug "andreyorst/tagbar.kak" defer "tagbar" %{
-	set-option global tagbar_sort false
-	set-option global tagbar_size 40
-	set-option global tagbar_display_anon false
-	alias global 'q' 'tagbar-quit'
-	alias global 'wq' 'tagbar-write-quit'
-} config %{
-	map global user d ':tagbar-enable<ret>'                       -docstring 'enable tagbar'
-	map global user D ':tagbar-disable<ret>'                       -docstring 'disable tagbar'
-	hook global WinSetOption filetype=tagbar %{
-		remove-highlighter window/wrap
-	}
-	# hook global WinSetOption filetype=(c|cpp|make|markdown|python|rust) %{
-	# 	tagbar-enable
-	# }
-}
+# plug "andreyorst/tagbar.kak" defer "tagbar" %{
+# 	declare-option -hidden str opt_termcmd
+# 	set-option global opt_termcmd "%sh{command -v fish} -c"
+# 	set-option global tagbar_sort false
+# 	set-option global tagbar_size 40
+# 	set-option global tagbar_display_anon false
+# 	set-option global tagbar_ctags_cmd "%sh{command -v ctags}"
+# 	# alias global 'q' 'tagbar-quit'
+# 	# alias global 'wq' 'tagbar-write-quit'
+# } config %{
+# 	map global user d ':tagbar-enable<ret>'                       -docstring 'enable tagbar'
+# 	map global user D ':tagbar-disable<ret>'                      -docstring 'disable tagbar'
+# 	hook global WinSetOption filetype=tagbar %{
+# 		remove-highlighter window/wrap
+# 	}
+# 	# hook global WinSetOption filetype=(c|cpp|make|markdown|python|rust) %{
+# 	# 	tagbar-enable
+# 	# }
+# }
 plug 'danr/kakoune-easymotion' config %{
 	map global user w     ':easy-motion-w<ret>'                   -docstring 'easy-motion-w'
 	map global user W     ':easy-motion-b<ret>'                   -docstring 'easy-motion-b'
