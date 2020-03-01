@@ -65,6 +65,7 @@
 		exa
 		highlight
 		# --- launcher ---
+		entr
 		just
 		pueue
 		# --- network ---
