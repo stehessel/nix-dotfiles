@@ -70,8 +70,8 @@
 		fd
 		fzf
 		highlight
-		neofetch
 		ripgrep
+		screen
 		skim
 		tmux
 		tre-command
@@ -84,6 +84,7 @@
 		hyperfine
 		jrnl
 		just
+		neofetch
 		# procs
 		pueue
 		speedtest-cli
