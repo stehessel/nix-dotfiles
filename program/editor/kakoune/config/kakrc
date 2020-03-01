@@ -214,6 +214,7 @@ plug "andreyorst/fzf.kak" config %{
 	map global user f ':fzf-mode<ret>'                      -docstring 'fzf mode'
 } defer fzf %{
 	set-option global fzf_implementation "%sh{command -v sk}"
+	# set-option global fzf_implementation "%sh{command -v fzf}"
 	set-option global fzf_preview_width '60%'
 	set-option global fzf_project_use_tilda true
 	declare-option str-list fzf_exclude_files "*.o" "*.bin" "*.obj" ".*cleanfiles" "*.pyc"
