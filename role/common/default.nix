@@ -15,6 +15,7 @@
 		../../program/shell/starship
 		# ../../program/terminal/alacritty
 		../../program/terminal/kitty
+		../../program/terminal/screen
 		../../program/terminal/tmux
 		../../program/todo/tasklite
 		../../program/todo/taskwarrior
