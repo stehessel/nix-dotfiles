@@ -181,15 +181,14 @@ plug "alexherbo2/connect.kak" config %{
 	require-module connect-lf
 	require-module connect-dolphin
 
-	map global user c        ":enter-user-mode connect<ret>" -docstring "connect user mode"
+	map global user c        ":enter-user-mode connect<ret>"                -docstring "connect user mode"
 	declare-user-mode connect
 	map global connect c     ":connect-terminal %sh{command -v fish}<ret>"  -docstring "connect terminal"
 	map global connect b     ":connect-terminal %sh{command -v broot}<ret>" -docstring "connect broot"
-	map global connect f     ":vifm .<ret>" -docstring "connect vifm"
-	map global connect l     ":lf<ret>"                      -docstring "connect lf"
-	# map global connect l     ":connect-terminal %opt{nix_path}/lf<ret>" -docstring "connect lf"
-	map global connect r     ":rofi-files<ret>"              -docstring "open files in rofi"
-	map global connect R     ":rofi-buffers<ret>"            -docstring "open buffers in rofi"
+	map global connect f     ":vifm .<ret>"                                 -docstring "connect vifm"
+	map global connect l     ":lf<ret>"                                     -docstring "connect lf"
+	map global connect r     ":rofi-files<ret>"                             -docstring "open files in rofi"
+	map global connect R     ":rofi-buffers<ret>"                           -docstring "open buffers in rofi"
 }
 plug "alexherbo2/move-line.kak" config %{
 	map global normal "'" ':move-line-below<ret>'
@@ -200,18 +199,18 @@ plug "alexherbo2/search-highlighter.kak" config %{
 	set-face global Search default,rgb:8a8a8a+b
 }
 plug "alexherbo2/surround.kak" config %{
-	map global user s ':surround<ret>'                      -docstring 'Enter surround mode'
-	map global user S ':surround _ _ * *<ret>'              -docstring 'Enter surround mode with extra surrounding pairs'
+	map global user s ':surround<ret>'                                      -docstring 'Enter surround mode'
+	map global user S ':surround _ _ * *<ret>'                              -docstring 'Enter surround mode with extra surrounding pairs'
 	set-option global surround_begin auto-pairs-disable
 	set-option global surround_end auto-pairs-enable
 }
-# plug "alexherbo2/text-objects.kak"
+plug "alexherbo2/text-objects.kak"
 plug "alexherbo2/volatile-highlighter.kak"
 plug "alexherbo2/yank-ring.kak" config %{
 	map global normal <c-y> ':yank-ring<ret>'
 }
 plug "andreyorst/fzf.kak" config %{
-	map global user f ':fzf-mode<ret>'                      -docstring 'fzf mode'
+	map global user f ':fzf-mode<ret>'                                      -docstring 'fzf mode'
 } defer fzf %{
 	set-option global fzf_implementation "%sh{command -v sk}"
 	# set-option global fzf_implementation "%sh{command -v fzf}"

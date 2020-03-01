@@ -22,9 +22,9 @@ switch (uname)
 		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"  
 		set -x LANG "en_US.UTF-8"
-		set -x KAKOUNE_POSIX_SHELL (which sh)
+		set -x KAKOUNE_POSIX_SHELL (which dash)
         # link sh to dash
-        ln -s (which dash) /usr/local/bin/sh 2> /dev/null
+		ln -s (which dash) "$HOME/.local/bin/sh" 2> /dev/null
 	case Linux
 		source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
 end
