@@ -38,58 +38,66 @@
 		tokei
 		universal-ctags
 		xsv
-		# --- file-manager ---
+		# --- file manager ---
 		lf
 		vifm
-		# --- file-viewer ---
+		# --- file search ---
+		broot
+		fd
+		ripgrep
+		tre-command
+		# --- file viewer ---
 		glow
 		pandoc
 		# --- font ---
 		fira-code
 		font-awesome
 		hack-font
+		# --- fuzzy search ---
+		fzf
+		skim
 		# --- haskell ---
 		cabal-install
 		stack
+		# --- highlighters ---
+		bat
+		exa
+		highlight
+		# --- launcher ---
+		just
+		pueue
+		# --- network ---
+		bandwhich
+		speedtest-cli
 		# --- nix ---
 		arion
 		lorri
 		niv
 		nox
 		pypi2nix
+		# --- process manager ---
+		htop
+		# procs
 		# --- rust ---
 		rustup
 		# --- shell ---
 		dash
 		fish
 		starship
-		# --- terminal tools ---
-		bat
-		broot
-		exa
-		fd
-		fzf
-		highlight
-		ripgrep
+		# --- todo manager ---
+		taskwarrior
+		# --- terminal multiplexers ---
+		byobu
 		screen
-		skim
 		tmux
-		tre-command
 		# --- utility ---
-		bandwhich
 		direnv
 		du-dust
 		file
-		htop
 		hyperfine
 		jrnl
-		just
 		neofetch
-		# procs
-		pueue
-		speedtest-cli
 		svgcleaner
-		taskwarrior
 		topgrade
 	];
 
