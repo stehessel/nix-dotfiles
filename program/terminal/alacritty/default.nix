@@ -3,7 +3,7 @@
 		"TERM" = "xterm-256color";
 	};
 	
-	background_opacity = 0.92;
+	background_opacity = 1.0;
 	
 	font = {
 		normal.family = "Fira Code";
