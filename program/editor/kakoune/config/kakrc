@@ -19,8 +19,8 @@ hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor 
 
 # Grep
 evaluate-commands %sh{
-	if [ -n "$(command -v rg)" ]; then
-		rg_path="$(command -v rg)"
+	rg_path="$(command -v rg)"
+	if [ -n "${rg_path}" ]; then
 		echo "set-option global grepcmd '$rg_path -L --hidden --with-filename --column'"
 	fi
 }
@@ -222,16 +222,18 @@ plug "andreyorst/fzf.kak" config %{
 	# set-option global fzf_implementation "%sh{command -v fzf}"
 	set-option global fzf_preview_width '60%'
 	set-option global fzf_project_use_tilda true
+	set-option global fzf_terminal_command 'terminal %sh{command -v kak} -c %val{session} -e "%arg{@}"'
 	declare-option str-list fzf_exclude_files "*.o" "*.bin" "*.obj" ".*cleanfiles" "*.pyc"
 	declare-option str-list fzf_exclude_dirs ".git" ".svn" "rtlrun*" "__pycache__" ".ccls" ".mypy_cache"
 	evaluate-commands %sh{
-		if [ -n "$(command -v fd)" ]; then
+		fd_path="$(command -v fd)"
+		bat_path="$(command -v bat)"
+		if [ -n "${fd_path}" ]; then
 			eval "set -- $kak_quoted_opt_fzf_exclude_files $kak_quoted_opt_fzf_exclude_dirs"
 			while [ $# -gt 0 ]; do
 				exclude="$exclude --exclude '$1'"
 				shift
 			done
-			fd_path="$(command -v fd)"
 			cmd="$fd_path . --no-ignore --type f --follow --hidden $exclude"
 		else
 			eval "set -- $kak_quoted_opt_fzf_exclude_files"
@@ -247,11 +249,11 @@ plug "andreyorst/fzf.kak" config %{
 			exclude="$exclude -path '*/$1'"
 			cmd="find . \( $exclude \) -prune -o -type f -follow -print"
 		fi
-		echo "set-option global fzf_file_command %{$cmd}"
+		echo "set-option global fzf_file_command %{${cmd}}"
 
-		if [ -n "$(command -v bat)" ]; then
-			bat_path="$(command -v bat)"
-			echo "set-option global fzf_highlight_command %{$bat_path}"
+		if [ -n "${bat_path}" ]; then
+			bat_args="--color=always --style=plain {}"
+			echo "set-option global fzf_highlight_command %{${bat_path} ${bat_args}}"
 		fi
 		if [ -n "${kak_opt_grepcmd}" ]; then
 			echo "set-option global fzf_sk_grep_command %{${kak_opt_grepcmd}}"
