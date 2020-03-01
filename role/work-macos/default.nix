@@ -14,9 +14,10 @@
 
 	programs.alacritty = {
 		enable = true;
-		settings = lib.attrsets.recursiveUpdate (import ../../program/terminal/alacritty/default-settings.nix) {
+		settings = lib.attrsets.recursiveUpdate (import ../../program/terminal/alacritty) {
 			font.size = 14;
 			font.use_thin_strokes = true;
+			window.decorations = "buttonless";
 		};
 	};
 }

@@ -95,7 +95,7 @@
 
 	programs.alacritty = {
 		enable = true;
-		settings = lib.attrsets.recursiveUpdate (import ../../program/terminal/alacritty/default-settings.nix) {
+		settings = lib.attrsets.recursiveUpdate (import ../../program/terminal/alacritty) {
 			font.size = 8;
 		};
 	};
