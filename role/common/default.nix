@@ -2,6 +2,7 @@
 {
 	imports = [
 		../../program/dev/build-system/just-build
+		../../program/dev/haskell/hie
 		../../program/dev/haskell/stack
 		../../program/dev/python/flake8
 		../../program/dev/python/pycodestyle
@@ -9,7 +10,7 @@
 		../../program/editor/kakoune
 		../../program/file-manager/lf
 		../../program/file-manager/vifm
-		../../program/package-manager/nix
+		# ../../program/package-manager/nix
 		../../program/shell/bobthefish
 		../../program/shell/fish
 		../../program/shell/starship
@@ -59,6 +60,7 @@
 		skim
 		# --- haskell ---
 		cabal-install
+		ghc
 		stack
 		# --- highlighters ---
 		bat
@@ -73,6 +75,7 @@
 		speedtest-cli
 		# --- nix ---
 		arion
+		cachix
 		lorri
 		niv
 		nox
