@@ -220,7 +220,7 @@ plug "andreyorst/fzf.kak" config %{
 } defer fzf %{
 	set-option global fzf_implementation "%sh{command -v sk}"
 	# set-option global fzf_implementation "%sh{command -v fzf}"
-	set-option global fzf_preview_width '60%'
+	set-option global fzf_preview_width '50%'
 	set-option global fzf_project_use_tilda true
 	set-option global fzf_terminal_command 'terminal %sh{command -v kak} -c %val{session} -e "%arg{@}"'
 	declare-option str-list fzf_exclude_files "*.o" "*.bin" "*.obj" ".*cleanfiles" "*.pyc"
@@ -296,7 +296,7 @@ plug "andreyorst/smarttab.kak" domain gitlab.com defer smarttab %{
 	set-option global smarttab_smarttab_mode_name    '→t.'
 } config %{
 	hook global WinCreate .* smarttab
-	hook global WinSetOption filetype=(python|rust) expandtab
+	hook global WinSetOption filetype=(haskell|python|rust) expandtab
 	hook global WinSetOption filetype=(makefile) noexpandtab
 	hook global WinSetOption filetype=(c|cpp|kak|latex|markdown|sh) smarttab
 }
@@ -391,7 +391,7 @@ plug "ul/kak-lsp" do %{
 		lsp-start
 	}
 
-	hook global WinSetOption filetype=(c|cpp|haskel|latex|python|rust|shell) %{
+	hook global WinSetOption filetype=(c|cpp|haskell|latex|python|rust|shell) %{
 		map global lsp x  ':lsp-auto-hover-disable<ret>' -docstring 'disable auto hover'
 		map global lsp X  ':lsp-auto-hover-enable<ret>'  -docstring 'enable auto hover'
 		map global user l ':enter-user-mode lsp<ret>'    -docstring 'kak-lsp user mode'
