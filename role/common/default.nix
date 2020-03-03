@@ -59,9 +59,9 @@
 		fzf
 		skim
 		# --- haskell ---
-		cabal-install
-		ghc
-		stack
+		# cabal-install
+		# ghc
+		# stack
 		# --- highlighters ---
 		bat
 		exa
@@ -74,7 +74,7 @@
 		bandwhich
 		speedtest-cli
 		# --- nix ---
-		arion
+		# arion
 		cachix
 		lorri
 		niv
