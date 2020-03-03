@@ -1,3 +1,3 @@
 function tree --description "tree alias"
-	exa -T
+	exa -T --git-ignore -I __pycache__
 end
