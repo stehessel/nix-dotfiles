@@ -59,8 +59,8 @@
 		fzf
 		skim
 		# --- haskell ---
-		# cabal-install
-		# ghc
+		cabal-install
+		ghc
 		# stack
 		# --- highlighters ---
 		bat
