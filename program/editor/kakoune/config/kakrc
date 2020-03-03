@@ -283,7 +283,7 @@ plug "andreyorst/fzf.kak" config %{
 plug "andreyorst/powerline.kak" domain gitlab.com defer powerline %{
 	set-option global powerline_ignore_warnings true
 	set-option global powerline_format 'git bufname langmap smarttab mode_info filetype line_column position'
-	set-option global powerline_shorten_bufname 'short'
+	set-option global powerline_shorten_bufname 'full'
 	powerline-separator none
 	powerline-theme base16
 } config %{
