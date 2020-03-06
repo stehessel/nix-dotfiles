@@ -1,7 +1,4 @@
 { config, lib, pkgs, ... }:
 {
-	home.file = {
-		source = ./config;
-		recursive = true;
-	};
+	home.file.".bashrc".source = config/bashrc;
 }
