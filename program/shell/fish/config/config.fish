@@ -14,6 +14,7 @@ set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
 set -p fish_user_paths "$HOME/.nix-profile/bin"
 set -p fish_user_paths "$HOME/.local/bin"
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
+ln -s (which dash) "$HOME/.local/bin/sh" 2> /dev/null
 switch (uname)
 	case Darwin
 		source "$XDG_CONFIG_HOME/nix/nix-single-user.fish"
@@ -24,7 +25,6 @@ switch (uname)
 		set -x LANG "en_US.UTF-8"
 		set -x KAKOUNE_POSIX_SHELL (which dash)
         # link sh to dash
-		ln -s (which dash) "$HOME/.local/bin/sh" 2> /dev/null
 	case Linux
 		source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
 end

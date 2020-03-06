@@ -86,6 +86,7 @@
 		# --- rust ---
 		rustup
 		# --- shell ---
+		bash_5
 		dash
 		fish
 		starship
