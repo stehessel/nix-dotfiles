@@ -393,8 +393,8 @@ plug "ul/kak-lsp" do %{
 	}
 
 	hook global WinSetOption filetype=(c|cpp|haskell|latex|python|rust|shell) %{
-		map global lsp x  ':lsp-auto-hover-disable<ret>' -docstring 'disable auto hover'
-		map global lsp X  ':lsp-auto-hover-enable<ret>'  -docstring 'enable auto hover'
+		map global lsp x  ':lsp-auto-hover-enable<ret>'  -docstring 'enable auto hover'
+		map global lsp X  ':lsp-auto-hover-disable<ret>' -docstring 'disable auto hover'
 		map global user l ':enter-user-mode lsp<ret>'    -docstring 'kak-lsp user mode'
 		set-option window lsp_auto_highlight_references false
 		set-option window lsp_hover_anchor false
@@ -403,7 +403,7 @@ plug "ul/kak-lsp" do %{
 		set-option window lsp_server_configuration pyls.configurationSources=['flake8']
 
 		echo -debug "Enabling LSP for filtetype %opt{filetype}"
-		lsp-auto-hover-enable
+		# lsp-auto-hover-enable
 		lsp-auto-hover-insert-mode-disable
 		lsp-enable-window
 	}
