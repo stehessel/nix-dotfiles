@@ -11,6 +11,7 @@
 		../../program/file-manager/lf
 		../../program/file-manager/vifm
 		# ../../program/package-manager/nix
+		../../program/shell/bash
 		../../program/shell/bobthefish
 		../../program/shell/fish
 		../../program/shell/starship
