@@ -6,6 +6,7 @@
 		../../program/dev/haskell/stack
 		../../program/dev/python/flake8
 		../../program/dev/python/pycodestyle
+		../../program/dev/python/python
 		../../program/dev/version-control/tig
 		../../program/editor/kakoune
 		../../program/file-manager/lf

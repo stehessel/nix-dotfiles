@@ -3,6 +3,6 @@ let
 in
 {
 	home.packages = [
-		(all-hies.unstableFallback.selection { selector = p: { inherit (p) ghc865 ghc864 ghc843; }; })
+		(all-hies.unstableFallback.selection { selector = p: { inherit (p) ghc882 ghc865 ghc843; }; })
 	];
 }

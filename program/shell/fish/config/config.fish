@@ -11,6 +11,10 @@ set -x TERM "xterm-kitty"
 set -x FZF_LEGACY_KEYBINDINGS "0"
 set -p fish_user_paths "$HOME/.cargo/bin"
 set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
+# conda
+if test -d "$HOME/miniconda3"
+    eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
+end
 set -p fish_user_paths "$HOME/.nix-profile/bin"
 set -p fish_user_paths "$HOME/.local/bin"
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
@@ -18,7 +22,7 @@ ln -s (which dash) "$HOME/.local/bin/sh" 2> /dev/null
 switch (uname)
 	case Darwin
 		source "$XDG_CONFIG_HOME/nix/nix-single-user.fish"
-		set -p fish_user_paths "$HOME/Library/Python/3.7/bin"
+		# set -p fish_user_paths "$HOME/Library/Python/3.7/bin"
 		set -p fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
 		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"  
@@ -74,11 +78,6 @@ end
 
 # direnv
 eval (direnv hook fish)
-
-# conda
-if test -d "$HOME/miniconda3"
-    eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
-end
 
 # theme
 
