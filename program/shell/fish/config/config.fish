@@ -11,10 +11,10 @@ set -x TERM "xterm-kitty"
 set -x FZF_LEGACY_KEYBINDINGS "0"
 set -p fish_user_paths "$HOME/.cargo/bin"
 set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
-# conda
-if test -d "$HOME/miniconda3"
-    eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
-end
+# # conda
+# if test -d "$HOME/miniconda3"
+#     eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
+# end
 set -p fish_user_paths "$HOME/.nix-profile/bin"
 set -p fish_user_paths "$HOME/.local/bin"
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
