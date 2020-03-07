@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }:
 {
+	nixpkgs.config.allowUnfree = true;
+
 	imports = [
 		../../program/dev/build-system/just-build
 		../../program/dev/haskell/hie
@@ -27,8 +29,6 @@
 		# ../../program/utility/pueue
 		../../program/utility/topgrade
 	];
-
-	nixpkgs.config.allowUnfree = true;
 
 	home.packages = with pkgs; [
 		# --- cpp ---
