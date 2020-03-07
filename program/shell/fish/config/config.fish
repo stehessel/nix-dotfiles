@@ -1,4 +1,5 @@
 # environment variables
+set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 set -x BROWSER "firefox"
 set -x EDITOR "kak"
 set -x FILE "vifm"
@@ -10,15 +11,16 @@ set -x TERM "xterm-kitty"
 # set -x TERM "xterm-256color"
 set -x FZF_LEGACY_KEYBINDINGS "0"
 set -p fish_user_paths "$HOME/.cargo/bin"
-set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
 # # conda
-# if test -d "$HOME/miniconda3"
-#     eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
-# end
+if test -d "$HOME/miniconda3"
+    eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
+end
+set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
 set -p fish_user_paths "$HOME/.nix-profile/bin"
 set -p fish_user_paths "$HOME/.local/bin"
-set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
+# link sh to dash
 ln -s (which dash) "$HOME/.local/bin/sh" 2> /dev/null
+set -x KAKOUNE_POSIX_SHELL (which dash)
 switch (uname)
 	case Darwin
 		source "$XDG_CONFIG_HOME/nix/nix-single-user.fish"
@@ -27,8 +29,6 @@ switch (uname)
 		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"  
 		set -x LANG "en_US.UTF-8"
-		set -x KAKOUNE_POSIX_SHELL (which dash)
-        # link sh to dash
 	case Linux
 		source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
 end
