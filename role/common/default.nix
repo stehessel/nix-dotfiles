@@ -102,6 +102,7 @@
 		screen
 		tmux
 		# --- utility ---
+		diff-so-fancy
 		direnv
 		du-dust
 		file
