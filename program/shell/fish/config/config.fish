@@ -10,6 +10,7 @@ set -x TERM "xterm-kitty"
 # set -x TERMINAL "alacritty"
 # set -x TERM "xterm-256color"
 set -x FZF_LEGACY_KEYBINDINGS "0"
+set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
 set -p fish_user_paths "$HOME/.cargo/bin"
 # # conda
 if test -d "$HOME/miniconda3"
