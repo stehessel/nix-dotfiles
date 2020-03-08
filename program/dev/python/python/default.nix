@@ -12,11 +12,15 @@ in
 				numpy
 				pandas
 				pyarrow
+				pydantic
 				pyls-black
 				pyls-isort
 				pyls-mypy
 				python-language-server
 				requests
+				sqlalchemy
+				tenacity
+				toolz
 			];
 		})
 	];
