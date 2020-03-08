@@ -8,6 +8,8 @@
 		../../program/dev/haskell/stack
 		../../program/dev/python/conda
 		../../program/dev/python/flake8
+		../../program/dev/python/isort
+		../../program/dev/python/mypy
 		../../program/dev/python/pycodestyle
 		../../program/dev/python/python
 		../../program/dev/version-control/tig
