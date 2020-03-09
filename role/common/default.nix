@@ -10,8 +10,8 @@
 		../../program/dev/python/flake8
 		../../program/dev/python/isort
 		../../program/dev/python/mypy
+		../../program/dev/python/packages
 		../../program/dev/python/pycodestyle
-		../../program/dev/python/python
 		../../program/dev/version-control/tig
 		../../program/editor/kakoune
 		../../program/file-manager/lf
@@ -21,7 +21,7 @@
 		../../program/shell/bobthefish
 		../../program/shell/fish
 		../../program/shell/starship
-		# ../../program/terminal/alacritty
+		../../program/terminal/alacritty
 		../../program/terminal/kitty
 		../../program/terminal/screen
 		../../program/terminal/tmux
@@ -114,13 +114,6 @@
 		topgrade
 	];
 
-	programs.alacritty = {
-		enable = true;
-		settings = lib.attrsets.recursiveUpdate (import ../../program/terminal/alacritty) {
-			font.size = 8;
-		};
-	};
-	
 	programs.git = {
 		enable = true;
 		ignores = [
