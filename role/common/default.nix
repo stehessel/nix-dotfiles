@@ -30,6 +30,7 @@
 		../../program/utility/broot
 		../../program/utility/file
 		# ../../program/utility/pueue
+		../../program/utility/ripgrep
 		../../program/utility/topgrade
 	];
 
