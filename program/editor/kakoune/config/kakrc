@@ -107,7 +107,7 @@ map global user g         ':enter-user-mode git<ret>'     -docstring 'git user m
 map global user h         ':gdb-helper<ret>'              -docstring 'gdb helper mode'
 map global user H         ':gdb-helper-repeat<ret>'       -docstring 'gdb helper mode (repeat)'
 map global user n         ':lint-next-error<ret>'         -docstring 'next lint error'
-map global user o         ':sp<ret>'                      -docstring 'open new split'
+map global user /         ':sp<ret>'                      -docstring 'open new split'
 
 declare-user-mode git
 map global git b          ':git-toggle-blame<ret>'        -docstring 'blame (toggle)'
