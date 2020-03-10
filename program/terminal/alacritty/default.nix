@@ -2,8 +2,6 @@
 {
 	programs.alacritty = {
 		enable = true;
-		settings = lib.attrsets.recursiveUpdate (import ./default-options.nix) {
-			font.size = 8;
-		};
+		settings = import ./default-options.nix;
 	};
 }

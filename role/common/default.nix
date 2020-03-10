@@ -2,6 +2,17 @@
 {
 	nixpkgs.config.allowUnfree = true;
 
+	# nixpkgs.overlays = [
+	# 	(self: super: {
+	# 		python37 = super.python37.override {
+	# 			packageOverrides = python-self: python-super: {
+	# 				psutils = python-super.psutils.overrideAttrs (oldAttrs: {
+	# 					doCheck = false;
+	# 				});
+	# 			};
+	# 		};
+	# 	}) ];
+
 	imports = [
 		../../program/dev/build-system/just-build
 		../../program/dev/haskell/hie
@@ -10,7 +21,7 @@
 		../../program/dev/python/flake8
 		../../program/dev/python/isort
 		../../program/dev/python/mypy
-		../../program/dev/python/packages
+		# ../../program/dev/python/packages
 		../../program/dev/python/pycodestyle
 		../../program/dev/version-control/git
 		../../program/dev/version-control/tig

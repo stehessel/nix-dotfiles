@@ -6,6 +6,7 @@
 	background_opacity = 1.0;
 	
 	font = {
+		size = 8;
 		normal.family = "Fira Code";
 		normal.style = "Retina";
 		bold.family = "Fira Code";
