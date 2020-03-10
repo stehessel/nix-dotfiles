@@ -12,10 +12,6 @@ set -x TERM "xterm-kitty"
 set -x FZF_LEGACY_KEYBINDINGS "0"
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
 set -p fish_user_paths "$HOME/.cargo/bin"
-# # conda
-if test -d "$HOME/miniconda3"
-    eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
-end
 set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
 set -p fish_user_paths "$HOME/.nix-profile/bin"
 set -p fish_user_paths "$HOME/.local/bin"
@@ -79,6 +75,11 @@ end
 
 # direnv
 eval (direnv hook fish)
+
+# conda
+if test -d "$HOME/miniconda3"
+    eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
+end
 
 # theme
 
