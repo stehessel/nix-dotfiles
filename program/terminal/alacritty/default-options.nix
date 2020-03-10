@@ -1,6 +1,6 @@
 {
 	env = {
-		"TERM" = "alacritty";
+		"TERM" = "xterm-256color";
 	};
 	
 	background_opacity = 1.0;
@@ -8,7 +8,7 @@
 	draw_bold_text_with_bright_colors = false;
 	
 	font = {
-		size = 10;
+		size = 8;
 		normal.family = "Fira Code";
 		normal.style = "Retina";
 		bold.family = "Fira Code";
