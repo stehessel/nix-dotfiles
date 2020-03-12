@@ -1,8 +1,4 @@
 {
-	env = {
-		"TERM" = "xterm-256color";
-	};
-	
 	background_opacity = 1.0;
 
 	draw_bold_text_with_bright_colors = false;
