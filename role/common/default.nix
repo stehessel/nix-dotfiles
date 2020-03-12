@@ -53,7 +53,6 @@
 		# --- dev ---
 		editorconfig-core-c
 		jq
-		kakoune
 		tig
 		tokei
 		universal-ctags

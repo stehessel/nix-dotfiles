@@ -7,6 +7,8 @@
 	xdg.configFile."nix/nix-single-user.fish".source = config/nix-single-user.fish;
 
 	home.packages = with pkgs; [
+		# --- editor ---
+		kakoune
 		# --- terminal ---
 		alacritty
 		kitty
