@@ -94,7 +94,7 @@ in
 		(python.buildEnv.override {
 			extraLibs = with pypkgs;
 			[
-				dask
+				# dask
 				numpy
 				pandas
 				pdbpp
@@ -102,7 +102,7 @@ in
 				pydantic
 				pyls-black
 				pyls-isort
-				pyls-mypy
+				# pyls-mypy
 				python-language-server
 				requests
 				sqlalchemy
