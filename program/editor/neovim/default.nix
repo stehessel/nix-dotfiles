@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 {
 	xdg.configFile."nvim" = {
-		source = config;
+		source = ./config;
 		recursive = true;
 	};
 }

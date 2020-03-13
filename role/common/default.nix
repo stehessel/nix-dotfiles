@@ -26,6 +26,7 @@
 		../../program/dev/version-control/git
 		../../program/dev/version-control/tig
 		../../program/editor/kakoune
+		../../program/editor/neovim
 		../../program/file-manager/lf
 		../../program/file-manager/vifm
 		# ../../program/package-manager/nix
