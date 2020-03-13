@@ -114,10 +114,11 @@
 		screen
 		tmux
 		# --- utility ---
-		gitAndTools.diff-so-fancy
+		# ansible
 		direnv
 		du-dust
 		file
+		gitAndTools.diff-so-fancy
 		hyperfine
 		jrnl
 		neofetch
