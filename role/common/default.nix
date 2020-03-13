@@ -57,6 +57,8 @@
 		tokei
 		universal-ctags
 		xsv
+		# --- editor ---
+		neovim
 		# --- file manager ---
 		lf
 		vifm
@@ -78,7 +80,7 @@
 		# --- haskell ---
 		cabal-install
 		ghc
-		# stack
+		stack
 		# --- highlighters ---
 		bat
 		exa
@@ -91,7 +93,7 @@
 		bandwhich
 		speedtest-cli
 		# --- nix ---
-		# arion
+		arion
 		cachix
 		lorri
 		niv
