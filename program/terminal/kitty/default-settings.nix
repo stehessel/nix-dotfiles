@@ -16,7 +16,7 @@
 		"cursor"                        = "#cccccc";
 		"cursor_text_color"             = "#111111";
 		"cursor_shape"                  = "block";
-		"cursor_blink_interval"         = "-1";
+		"cursor_blink_interval"         = "0";
 		"cursor_stop_blinking_after"    = "15.0";
 
 		"scrollback_lines"              = "10000";

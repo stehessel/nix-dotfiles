@@ -47,6 +47,11 @@
 		../../program/utility/topgrade
 	];
 
+	# home.sessionVariables.LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
+	home.sessionVariables = {
+		LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
+	};
+
 	home.packages = with pkgs; [
 		# --- cpp ---
 		ccls
@@ -59,6 +64,7 @@
 		universal-ctags
 		xsv
 		# --- editor ---
+		# kakoune
 		neovim
 		# --- file manager ---
 		lf
