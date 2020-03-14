@@ -7,17 +7,19 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+Plug '/home/stephan/.nix-profile/bin/fzf'
 Plug 'adelarsq/vim-matchit'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
+Plug 'easymotion/vim-easymotion'
 Plug 'jreybert/vimagit'
-Plug '/home/stephan/.nix-profile/bin/fzf'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-slash'
 Plug 'kovetskiy/sxhkd-vim'
+Plug 'liuchengxu/vista.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-path'
