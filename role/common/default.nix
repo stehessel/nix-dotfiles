@@ -48,9 +48,9 @@
 	];
 
 	# home.sessionVariables.LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
-	home.sessionVariables = {
-		LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
-	};
+	# home.sessionVariables = {
+	# 	LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
+	# };
 
 	home.packages = with pkgs; [
 		# --- cpp ---
