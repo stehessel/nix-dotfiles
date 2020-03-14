@@ -21,7 +21,7 @@
 		../../program/dev/python/flake8
 		../../program/dev/python/isort
 		../../program/dev/python/mypy
-		# ../../program/dev/python/packages
+		../../program/dev/python/packages
 		../../program/dev/python/pycodestyle
 		../../program/dev/version-control/git
 		../../program/dev/version-control/tig
@@ -85,7 +85,7 @@
 		fzf
 		skim
 		# --- haskell ---
-		cabal-install
+		# cabal-install
 		ghc
 		stack
 		# --- highlighters ---
@@ -100,7 +100,7 @@
 		bandwhich
 		speedtest-cli
 		# --- nix ---
-		arion
+		# arion
 		cachix
 		lorri
 		niv
@@ -123,7 +123,7 @@
 		screen
 		tmux
 		# --- utility ---
-		# ansible
+		ansible
 		direnv
 		du-dust
 		file

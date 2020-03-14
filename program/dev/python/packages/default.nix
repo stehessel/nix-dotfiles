@@ -33,6 +33,12 @@ let
 
 		doCheck = false;
 
+		postPatch = ''
+			substituteInPlace setup.py \
+			--replace 'setup_requires="setupmeta"' 'setup_requires=[]' \
+			--replace 'versioning="devcommit"' 'version="${version}"'
+		'';
+
 		meta = {
 			homepage = "https://github.com/pdbpp/fancycompleter";
 			description = "colorful TAB completion for Python prompt";
@@ -94,15 +100,15 @@ in
 		(python.buildEnv.override {
 			extraLibs = with pypkgs;
 			[
-				# dask
+				dask
 				numpy
 				pandas
-				pdbpp
+				# pdbpp
 				pyarrow
 				pydantic
 				pyls-black
 				pyls-isort
-				# pyls-mypy
+				pyls-mypy
 				python-language-server
 				requests
 				sqlalchemy

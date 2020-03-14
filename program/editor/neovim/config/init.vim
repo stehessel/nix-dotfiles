@@ -7,6 +7,7 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'adelarsq/vim-matchit'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'jreybert/vimagit'
@@ -14,6 +15,7 @@ Plug '/home/stephan/.nix-profile/bin/fzf'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-slash'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'nanotech/jellybeans.vim'
@@ -21,6 +23,7 @@ Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-path'
 Plug 'roxma/nvim-yarp'
 Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -46,6 +49,7 @@ noremap <plug>(slash-after) zz
 	set number relativenumber
 	set whichwrap+=<,>,h,l,[,]
 	syntax on
+	set updatetime=100
 " Clipboard
 	set clipboard+=unnamedplus
 	set go=a
@@ -92,6 +96,10 @@ noremap <plug>(slash-after) zz
 	nm <leader>i :call ToggleIPA()<CR>
 	imap <leader>i <esc>:call ToggleIPA()<CR>a
 	nm <leader>q :call ToggleProse()<CR>
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+	xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+	nmap ga <Plug>(EasyAlign)
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
 	map <C-j> <C-w>j
