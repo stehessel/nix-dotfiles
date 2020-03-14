@@ -22,6 +22,7 @@ Plug 'ncm2/ncm2-path'
 Plug 'roxma/nvim-yarp'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
@@ -51,7 +52,10 @@ noremap <plug>(slash-after) zz
 " Mouse
 	set mouse=a
 " Search
+	set ignorecase
+	set incsearch
 	set nohlsearch
+	set smartcase
 " Filetype
 	filetype plugin indent on
 " Enable autocompletion:
