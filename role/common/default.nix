@@ -21,7 +21,7 @@
 		../../program/dev/python/flake8
 		../../program/dev/python/isort
 		../../program/dev/python/mypy
-		../../program/dev/python/packages
+		# ../../program/dev/python/packages
 		../../program/dev/python/pycodestyle
 		../../program/dev/version-control/git
 		../../program/dev/version-control/tig
@@ -65,7 +65,7 @@
 		xsv
 		# --- editor ---
 		# kakoune
-		neovim
+		# neovim
 		# --- file manager ---
 		lf
 		vifm
@@ -123,7 +123,7 @@
 		screen
 		tmux
 		# --- utility ---
-		ansible
+		# ansible
 		direnv
 		du-dust
 		file
