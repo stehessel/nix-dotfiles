@@ -10,8 +10,9 @@ call plug#begin('~/.config/nvim/plugged')
 Plug '/home/stephan/.nix-profile/bin/fzf'
 Plug 'adelarsq/vim-matchit'
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
+" Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
+Plug 'itchyny/lightline.vim'
 Plug 'jreybert/vimagit'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
@@ -19,10 +20,14 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-slash'
 Plug 'kovetskiy/sxhkd-vim'
-Plug 'liuchengxu/vista.vim'
+" Plug 'liuchengxu/vista.vim'
+Plug 'luochen1990/rainbow'
+Plug 'mbbill/undotree'
 Plug 'nanotech/jellybeans.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-path'
+Plug 'rhysd/git-messenger.vim'
 Plug 'roxma/nvim-yarp'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
@@ -46,6 +51,18 @@ noremap <plug>(slash-after) zz
 	set bg=dark
 	colorscheme jellybeans
 	set termguicolors
+	let g:rainbow_active = 1
+" Statusline
+	let g:lightline = {
+		\ 'colorscheme': 'wombat',
+		\ 'active': {
+		\ 	'left': [ [ 'mode', 'paste' ],
+		\ 		[ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+		\ },
+		\ 'component_function': {
+		\ 	'gitbranch': 'FugitiveHead'
+		\ },
+		\ }
 " Text
 	set encoding=utf-8
 	set number relativenumber
@@ -79,7 +96,7 @@ noremap <plug>(slash-after) zz
 	" Insert mode completion
 	imap <c-x><c-k> <plug>(fzf-complete-word)
 	imap <c-x><c-f> <plug>(fzf-complete-path)
-	imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+	imap <c-x><c-j> <plug>(fzf-complete-file)
 	imap <c-x><c-l> <plug>(fzf-complete-line)
 	" Advanced customization using Vim function
 	inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
@@ -88,7 +105,7 @@ noremap <plug>(slash-after) zz
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-	set splitbelow splitright
+	set splitright splitbelow
 " Nerd tree
 	map <leader>n :NERDTreeToggle<CR>
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -124,3 +141,5 @@ noremap <plug>(slash-after) zz
 	autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+" Undotree
+	nnoremap <leader>u :UndotreeToggle<CR>
