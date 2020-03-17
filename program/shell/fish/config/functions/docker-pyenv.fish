@@ -12,7 +12,7 @@ function docker-pyenv -a container_id --description "Create python environment f
 	conda env remove -n docker
 	conda create -n docker python=3.6 -y
 	conda activate docker
-	conda install turbodbc
+	conda install turbodbc -y
 
 	set index_url https://software.z.westeurope.blue-yonder.cloud/platform_dev/Debian_9/+simple
 	cat /tmp/requirements.txt \
