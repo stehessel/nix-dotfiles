@@ -55,11 +55,11 @@
 	home.packages = with pkgs; [
 		# --- cpp ---
 		ccls
+		clang
 		gdb
 		# --- dev ---
 		editorconfig-core-c
 		jq
-		gcc
 		tig
 		tokei
 		universal-ctags
