@@ -56,6 +56,7 @@
 		# --- cpp ---
 		ccls
 		clang
+		gcc-unwrapped
 		gdb
 		# --- dev ---
 		editorconfig-core-c
