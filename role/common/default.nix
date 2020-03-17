@@ -59,6 +59,7 @@
 		# --- dev ---
 		editorconfig-core-c
 		jq
+		gcc
 		tig
 		tokei
 		universal-ctags
