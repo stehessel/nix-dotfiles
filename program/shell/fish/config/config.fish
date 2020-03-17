@@ -11,6 +11,7 @@ set -x FZF_LEGACY_KEYBINDINGS "0"
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
 set -p fish_user_paths "$HOME/.cargo/bin"
 set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
+set -p fish_user_paths "/usr/local/bin"
 set -p fish_user_paths "$HOME/.nix-profile/bin"
 set -p fish_user_paths "$HOME/.local/bin"
 # link sh to dash

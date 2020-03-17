@@ -55,8 +55,8 @@
 	home.packages = with pkgs; [
 		# --- cpp ---
 		ccls
-		clang
-		gcc-unwrapped
+		# clang
+		# gcc-unwrapped
 		gdb
 		# --- dev ---
 		editorconfig-core-c
