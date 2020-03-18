@@ -61,6 +61,7 @@
 		# --- dev ---
 		editorconfig-core-c
 		jq
+		nodejs-13_x
 		tig
 		tokei
 		universal-ctags

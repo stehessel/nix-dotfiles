@@ -57,7 +57,7 @@ noremap <plug>(slash-after) zz
 	let g:rainbow_active = 1
 " Statusline
 	let g:lightline = {
-		\ 'colorscheme': 'wombat',
+		\ 'colorscheme': 'powerline',
 		\ 'active': {
 		\ 	'left': [ [ 'mode', 'paste' ],
 		\ 		[ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
