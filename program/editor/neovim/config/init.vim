@@ -41,9 +41,6 @@ Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 call plug#end()
 
-" Commands
-command! PU PlugUpdate | PlugUpgrade
-
 " Keybinds
 let mapleader =","
 map U :redo<CR>
@@ -68,6 +65,7 @@ noremap <plug>(slash-after) zz
 		\ }
 " Text
 	set encoding=utf-8
+	set tabstop=4
 	set number relativenumber
 	set whichwrap+=<,>,h,l,[,]
 	syntax on
@@ -92,6 +90,10 @@ noremap <plug>(slash-after) zz
 	set completeopt=noinsert,menuone,noselect
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" plug commands
+	command! PU PlugUpdate | PlugUpgrade
+
 " fzf mappings
 	nmap <leader><tab> <plug>(fzf-maps-n)
 	xmap <leader><tab> <plug>(fzf-maps-x)
