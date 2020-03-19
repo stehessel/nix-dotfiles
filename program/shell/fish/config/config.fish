@@ -25,8 +25,8 @@ switch (uname)
 		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"  
 		set -x LANG "en_US.UTF-8"
-		ssh-add $HOME/.ssh/lgtf_rsa &>/dev/null
-		ssh-add $HOME/.ssh/yulc_rsa &>/dev/null
+		ssh-add -K $HOME/.ssh/lgtf_rsa &>/dev/null
+		ssh-add -K $HOME/.ssh/yulc_rsa &>/dev/null
 		ln -s "$XDG_CONFIG_HOME/kak-lsp/kak-lsp.toml" 2> /dev/null "$HOME/Library/Preferences/kak-lsp/kak-lsp.toml"
 	case Linux
 		source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"

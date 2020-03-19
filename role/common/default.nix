@@ -2,17 +2,6 @@
 {
 	nixpkgs.config.allowUnfree = true;
 
-	# nixpkgs.overlays = [
-	# 	(self: super: {
-	# 		python37 = super.python37.override {
-	# 			packageOverrides = python-self: python-super: {
-	# 				psutils = python-super.psutils.overrideAttrs (oldAttrs: {
-	# 					doCheck = false;
-	# 				});
-	# 			};
-	# 		};
-	# 	}) ];
-
 	imports = [
 		../../program/dev/build-system/just-build
 		../../program/dev/haskell/hie
@@ -78,7 +67,7 @@
 		ripgrep
 		tre-command
 		# --- file viewer ---
-		glow
+		# glow
 		pandoc
 		# --- font ---
 		fira-code
