@@ -66,6 +66,7 @@ noremap <plug>(slash-after) zz
 " Text
 	set encoding=utf-8
 	set tabstop=4
+	set shiftwidth=4
 	set number relativenumber
 	set whichwrap+=<,>,h,l,[,]
 	syntax on
