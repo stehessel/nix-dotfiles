@@ -44,6 +44,7 @@ call plug#end()
 " Keybinds
 let mapleader =","
 map U :redo<CR>
+map Y y$
 nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
 noremap <plug>(slash-after) zz
 
