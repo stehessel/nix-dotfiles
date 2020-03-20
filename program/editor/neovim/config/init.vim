@@ -23,7 +23,7 @@ Plug 'junegunn/vim-slash'
 Plug 'kalekundert/vim-coiled-snake'
 Plug 'Konfekt/FastFold'
 Plug 'kovetskiy/sxhkd-vim'
-" Plug 'liuchengxu/vista.vim'
+Plug 'liuchengxu/vista.vim'
 Plug 'luochen1990/rainbow'
 Plug 'mbbill/undotree'
 Plug 'nanotech/jellybeans.vim'
@@ -58,7 +58,7 @@ noremap <plug>(slash-after) zz
 		\ 'colorscheme': 'powerline',
 		\ 'active': {
 		\ 	'left': [ [ 'mode', 'paste' ],
-		\ 		[ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+		\ 		[ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
 		\ },
 		\ 'component_function': {
 		\ 	'gitbranch': 'FugitiveHead'
