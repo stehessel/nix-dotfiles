@@ -6,6 +6,7 @@
 		../../program/dev/build-system/just-build
 		../../program/dev/haskell/hie
 		../../program/dev/haskell/stack
+		../../program/dev/javascript/npm
 		../../program/dev/python/conda
 		../../program/dev/python/flake8
 		../../program/dev/python/isort
