@@ -7,41 +7,49 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-Plug '/home/stephan/.nix-profile/bin/fzf'
-Plug 'adelarsq/vim-matchit'
-Plug 'airblade/vim-gitgutter'
-" Plug 'bling/vim-airline'
-Plug 'easymotion/vim-easymotion'
-Plug 'farmergreg/vim-lastplace'
-Plug 'itchyny/lightline.vim'
-Plug 'jreybert/vimagit'
-Plug 'jiangmiao/auto-pairs'
-Plug 'jlanzarotta/bufexplorer'
-Plug 'junegunn/fzf' ", { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/vim-slash'
-Plug 'kalekundert/vim-coiled-snake'
-Plug 'Konfekt/FastFold'
-Plug 'kovetskiy/sxhkd-vim'
-Plug 'liuchengxu/vista.vim'
-Plug 'luochen1990/rainbow'
-Plug 'mbbill/undotree'
-Plug 'nanotech/jellybeans.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-path'
-Plug 'rhysd/git-messenger.vim'
-Plug 'roxma/nvim-yarp'
-Plug 'scrooloose/nerdtree'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'vimwiki/vimwiki'
-Plug 'ryanoasis/vim-devicons'
+" Git
+	Plug 'airblade/vim-gitgutter'
+	Plug 'jreybert/vimagit'
+	Plug 'tpope/vim-fugitive'
+	Plug 'rhysd/git-messenger.vim'
+" Fuzzy finder
+	Plug '/home/stephan/.nix-profile/bin/fzf'
+	Plug 'junegunn/fzf' ", { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
+" Statusline
+	" Plug 'bling/vim-airline'
+	Plug 'itchyny/lightline.vim'
+" Auto complete
+	Plug 'liuchengxu/vista.vim'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'ncm2/ncm2'
+	Plug 'ncm2/ncm2-path'
+" Theme
+	Plug 'nanotech/jellybeans.vim'
+" Brackets
+	Plug 'adelarsq/vim-matchit'
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'luochen1990/rainbow'
+	Plug 'tpope/vim-surround'
+" Misc
+	Plug 'easymotion/vim-easymotion'
+	Plug 'farmergreg/vim-lastplace'
+	Plug 'jlanzarotta/bufexplorer'
+	Plug 'junegunn/goyo.vim'
+	Plug 'junegunn/vim-easy-align'
+	Plug 'junegunn/vim-slash'
+	Plug 'kalekundert/vim-coiled-snake'
+	Plug 'Konfekt/FastFold'
+	Plug 'kovetskiy/sxhkd-vim'
+	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+	Plug 'mbbill/undotree'
+	Plug 'roxma/nvim-yarp'
+	Plug 'scrooloose/nerdtree'
+	Plug 'terryma/vim-multiple-cursors'
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-repeat'
+	Plug 'vimwiki/vimwiki'
+	Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Keybinds
@@ -50,6 +58,14 @@ map U :redo<CR>
 map Y y$
 nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
 noremap <plug>(slash-after) zz
+" Split keybinds:
+	map <C-s> <C-w>S
+	map <C-v> <C-w>v
+	map <C-q> <C-w>q
+	map <C-h> <C-w>h
+	map <C-j> <C-w>j
+	map <C-k> <C-w>k
+	map <C-l> <C-w>l
 
 " Theme
 	set bg=dark
@@ -99,6 +115,8 @@ noremap <plug>(slash-after) zz
 " plug commands
 	command! PU PlugUpdate | PlugUpgrade
 
+" Vim-which-key
+	nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
 " fzf mappings
 	map <leader>ff :Files<CR>
 	map <leader>fg :GFiles?<CR>
@@ -116,6 +134,13 @@ noremap <plug>(slash-after) zz
 	imap <c-x><c-l> <plug>(fzf-complete-line)
 	" Advanced customization using Vim function
 	inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+" Git
+	map <leader>gb :Git blame<CR>
+	map <leader>gc :Git commit
+	map <leader>gd :Git diff<CR>
+	map <leader>gg :Git<CR>
+	map <leader>gl :Git log<CR>
+	map <leader>gs :Gitdiffsplit<CR>
 " Goyo plugin makes text more readable when writing prose:
 	map <leader>p :Goyo \| set linebreak<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
@@ -125,21 +150,10 @@ noremap <plug>(slash-after) zz
 " Nerd tree
 	map <leader>n :NERDTreeToggle<CR>
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" vimling:
-	nm <leader>d :call ToggleDeadKeys()<CR>
-	imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
-	nm <leader>i :call ToggleIPA()<CR>
-	imap <leader>i <esc>:call ToggleIPA()<CR>a
-	nm <leader>q :call ToggleProse()<CR>
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 	xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 	nmap ga <Plug>(EasyAlign)
-" Shortcutting split navigation, saving a keypress:
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
 " Check file in shellcheck:
 	map <leader>s :!clear && shellcheck %<CR>
 " Open my bibliography file in split
