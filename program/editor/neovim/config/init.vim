@@ -41,6 +41,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Keybinds

@@ -74,6 +74,7 @@
 		fira-code
 		font-awesome
 		hack-font
+		# nerdfonts
 		# --- fuzzy search ---
 		fzf
 		skim
