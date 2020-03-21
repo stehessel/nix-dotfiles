@@ -16,6 +16,8 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'itchyny/lightline.vim'
 Plug 'jreybert/vimagit'
 Plug 'jiangmiao/auto-pairs'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'junegunn/fzf' ", { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
@@ -97,9 +99,15 @@ noremap <plug>(slash-after) zz
 	command! PU PlugUpdate | PlugUpgrade
 
 " fzf mappings
-	nmap <leader><tab> <plug>(fzf-maps-n)
-	xmap <leader><tab> <plug>(fzf-maps-x)
-	omap <leader><tab> <plug>(fzf-maps-o)
+	map <leader>ff :Files<CR>
+	map <leader>fg :GFiles?<CR>
+	map <leader>fb :Buffers<CR>
+	map <leader>fl :Lines<CR>
+	map <leader>fm :Marks<CR>
+	map <leader>ft :Tags<CR>
+	map <leader>fw :Tags<CR>
+	map <leader>fh :History<CR>
+	map <leader>fh :Filetypes<CR>
 	" Insert mode completion
 	imap <c-x><c-k> <plug>(fzf-complete-word)
 	imap <c-x><c-f> <plug>(fzf-complete-path)
@@ -108,7 +116,7 @@ noremap <plug>(slash-after) zz
 	" Advanced customization using Vim function
 	inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 " Goyo plugin makes text more readable when writing prose:
-	map <leader>f :Goyo \| set linebreak<CR>
+	map <leader>p :Goyo \| set linebreak<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
