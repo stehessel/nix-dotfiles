@@ -1,8 +1,8 @@
 # environment variables
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 set -x BROWSER "firefox"
-set -x EDITOR "kak"
-set -x FILE "vifm"
+set -x EDITOR "nvim"
+set -x FILE "lf"
 set -x PAGER "less"
 set -x READER "zathura"
 set -x TERMINAL "kitty"
