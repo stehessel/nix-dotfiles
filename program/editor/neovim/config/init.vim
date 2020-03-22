@@ -29,6 +29,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 " Code folding
 	Plug 'tmhedberg/SimpylFold'
+" Syntax highlighting
+	Plug 'LnL7/vim-nix'
 " Theme
 	Plug 'nanotech/jellybeans.vim'
 " Brackets
