@@ -45,6 +45,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'Konfekt/FastFold'
 	Plug 'kovetskiy/sxhkd-vim'
 	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+	Plug 'machakann/vim-highlightedyank'
 	Plug 'mbbill/undotree'
 	Plug 'roxma/nvim-yarp'
 	Plug 'scrooloose/nerdtree'
@@ -75,6 +76,8 @@ noremap <plug>(slash-after) zz
 	colorscheme jellybeans
 	set termguicolors
 	let g:rainbow_active = 1
+" Highlighters
+	highlight HighlightedyankRegion cterm=reverse gui=reverse
 " Statusline
 	let g:lightline = {
 		\ 'colorscheme': 'powerline',
