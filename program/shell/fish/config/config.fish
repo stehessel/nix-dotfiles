@@ -48,6 +48,7 @@ abbr -a -U cfq "$EDITOR ~/nix-home/program/desktop/window-manager/qtile/config/c
 abbr -a -U cfp "$EDITOR ~/nix-home/program/desktop/compositor/picom/config/picom.conf"
 abbr -a -U cfs "$EDITOR ~/nix-home/program/desktop/sxhkd/config/sxhkdrc"
 abbr -a -U cfk "$EDITOR ~/nix-home/program/editor/kakoune/config/kakrc"
+abbr -a -U cfv "$EDITOR ~/nix-home/program/editor/neovim/config/init.vim"
 abbr -a -U cfm "$EDITOR ~/.config/neomutt/neomuttrc"
 abbr -a -U cfu "$EDITOR ~/.config/newsboat/urls"
 abbr -a -U cfn "$EDITOR ~/.config/newsboat/config"

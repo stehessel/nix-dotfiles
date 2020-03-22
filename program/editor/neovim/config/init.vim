@@ -7,25 +7,6 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-" Misc
-	Plug 'easymotion/vim-easymotion'
-	Plug 'farmergreg/vim-lastplace'
-	Plug 'jlanzarotta/bufexplorer'
-	Plug 'junegunn/goyo.vim'
-	Plug 'junegunn/vim-easy-align'
-	Plug 'kalekundert/vim-coiled-snake'
-	Plug 'kovetskiy/sxhkd-vim'
-	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-	Plug 'machakann/vim-highlightedyank'
-	Plug 'mbbill/undotree'
-	Plug 'pgdouyon/vim-evanesco'
-	Plug 'roxma/nvim-yarp'
-	Plug 'scrooloose/nerdtree'
-	Plug 'terryma/vim-multiple-cursors'
-	Plug 'tpope/vim-commentary'
-	Plug 'tpope/vim-repeat'
-	Plug 'vimwiki/vimwiki'
-	Plug 'ryanoasis/vim-devicons'
 " Git
 	Plug 'airblade/vim-gitgutter'
 	Plug 'jreybert/vimagit'
@@ -44,12 +25,15 @@ call plug#begin('~/.config/nvim/plugged')
 " Auto complete
 	Plug 'ncm2/ncm2'
 	Plug 'ncm2/ncm2-path'
+	Plug 'roxma/nvim-yarp'
 " Debugger
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 " Code folding
+	Plug 'kalekundert/vim-coiled-snake'
 	Plug 'Konfekt/FastFold'
 	Plug 'tmhedberg/SimpylFold'
 " Syntax highlighting
+	Plug 'kovetskiy/sxhkd-vim'
 	Plug 'LnL7/vim-nix'
 " Theme
 	Plug 'nanotech/jellybeans.vim'
@@ -58,6 +42,30 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'luochen1990/rainbow'
 	Plug 'tpope/vim-surround'
+" Text manipulation
+	Plug 'easymotion/vim-easymotion'
+	Plug 'junegunn/vim-easy-align'
+	Plug 'mbbill/undotree'
+	Plug 'terryma/vim-multiple-cursors'
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-repeat'
+" Buffers
+	Plug 'jlanzarotta/bufexplorer'
+" File viewer
+	Plug 'ryanoasis/vim-devicons'
+	Plug 'scrooloose/nerdtree'
+" Search
+	Plug 'pgdouyon/vim-evanesco'
+" Focus mode
+	Plug 'junegunn/goyo.vim'
+" Copy/paste
+	Plug 'machakann/vim-highlightedyank'
+" Discover keybinds
+	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+" Save position
+	Plug 'farmergreg/vim-lastplace'
+" Note taking
+	Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " Misc keybinds
