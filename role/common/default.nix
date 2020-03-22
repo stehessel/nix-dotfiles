@@ -46,7 +46,7 @@
 		# --- cpp ---
 		ccls
 		# clang
-		# gcc-unwrapped
+		gcc
 		gdb
 		# --- dev ---
 		editorconfig-core-c
@@ -57,8 +57,6 @@
 		universal-ctags
 		xsv
 		# --- editor ---
-		# kakoune
-		# neovim
 		neovim-remote
 		# --- file manager ---
 		lf
@@ -117,7 +115,7 @@
 		screen
 		tmux
 		# --- utility ---
-		# ansible
+		ansible
 		direnv
 		du-dust
 		file

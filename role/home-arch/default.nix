@@ -13,7 +13,10 @@
 	];
 
 	home.packages = with pkgs; [
-		# --- file viewer ---
+        # --- editor ---
+        kakoune
+        # neovim
+        # --- file viewer ---
 		glow
 	];
 

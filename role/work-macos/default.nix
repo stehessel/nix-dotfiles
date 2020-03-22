@@ -8,7 +8,8 @@
 
 	home.packages = with pkgs; [
 		# --- editor ---
-		kakoune
+        kakoune
+        # neovim
 		# --- terminal ---
 		alacritty
 		kitty
