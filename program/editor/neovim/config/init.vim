@@ -13,6 +13,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'rhysd/git-messenger.vim'
 " Fuzzy finder
+	Plug 'dyng/ctrlsf.vim'
 	Plug '/home/stephan/.nix-profile/bin/fzf'
 	Plug 'junegunn/fzf' ", { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
@@ -292,6 +293,21 @@ call plug#end()
 	imap <c-x><c-l> <plug>(fzf-complete-line)
 	" Advanced customization using Vim function
 	inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+" Ctrlsf
+	let g:ctrlsf_regex_pattern = 1
+	let g:ctrlsf_auto_focus = { "at": "done", "duration_less_than": 1000 }
+	let g:ctrlsf_default_root = 'project'
+	let g:ctrlsf_search_mode = 'async'
+	let g:ctrlsf_position = 'right'
+
+	nmap     <C-F>f <Plug>CtrlSFPrompt
+	vmap     <C-F>f <Plug>CtrlSFVwordPath
+	vmap     <C-F>F <Plug>CtrlSFVwordExec
+	nmap     <C-F>n <Plug>CtrlSFCwordPath
+	nmap     <C-F>p <Plug>CtrlSFPwordPath
+	nnoremap <C-F>o :CtrlSFOpen<CR>
+	nnoremap <C-F>t :CtrlSFToggle<CR>
+	inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 " Git
 	map <leader>gb :Git blame<CR>
 	map <leader>gc :Git commit
