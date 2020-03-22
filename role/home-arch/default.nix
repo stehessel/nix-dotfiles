@@ -12,9 +12,9 @@
 		../../program/file-viewer/zathura
 	];
 
-	home.packages = with pkgs; [
+    home.packages = with pkgs; [
         # --- editor ---
-        kakoune
+        # kakoune
         # neovim
         # --- file viewer ---
 		glow
