@@ -23,7 +23,7 @@ switch (uname)
 		# set -p fish_user_paths "$HOME/Library/Python/3.7/bin"
 		set -p fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
 		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
-		set -x LC_ALL "en_US.UTF-8"  
+		set -x LC_ALL "en_US.UTF-8"
 		set -x LANG "en_US.UTF-8"
 		ssh-add -K $HOME/.ssh/lgtf_rsa &>/dev/null
 		ssh-add -K $HOME/.ssh/yulc_rsa &>/dev/null

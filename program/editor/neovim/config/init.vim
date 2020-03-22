@@ -298,11 +298,6 @@ call plug#end()
 	xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 	nmap ga <Plug>(EasyAlign)
-" Check file in shellcheck:
-	map <leader>s :!clear && shellcheck %<CR>
-" Open my bibliography file in split
-	map <leader>b :vsp<space>$BIB<CR>
-	map <leader>r :vsp<space>$REFER<CR>
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
 " Enable Goyo by default for mutt writting
