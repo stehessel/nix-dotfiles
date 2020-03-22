@@ -86,9 +86,10 @@ call plug#end()
 		\ 'colorscheme': 'powerline',
 		\ 'active': {
 		\ 	'left': [ [ 'mode', 'paste' ],
-		\ 		[ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
+		\ 		[ 'gitbranch', 'readonly', 'relativepath', 'modified' ], [ 'cocstatus' ] ]
 		\ },
 		\ 'component_function': {
+		\ 	'cocstatus': 'coc#status',
 		\ 	'gitbranch': 'FugitiveHead'
 		\ },
 		\ }
