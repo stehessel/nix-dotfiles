@@ -37,11 +37,16 @@ call plug#begin('~/.config/nvim/plugged')
 " Syntax highlighting
 	Plug 'kovetskiy/sxhkd-vim'
 	Plug 'LnL7/vim-nix'
+" REPL
+	Plug 'metakirby5/codi.vim'
+" Markdown preview
+	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 " Docker
 " Theme
 	Plug 'nanotech/jellybeans.vim'
 " Brackets
 	Plug 'adelarsq/vim-matchit'
+	" Plug 'cohama/lexima.vim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'luochen1990/rainbow'
 	Plug 'tpope/vim-surround'
