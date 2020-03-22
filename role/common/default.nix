@@ -59,6 +59,7 @@
 		# --- editor ---
 		# kakoune
 		# neovim
+		neovim-remote
 		# --- file manager ---
 		lf
 		vifm

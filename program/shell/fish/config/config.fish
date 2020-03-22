@@ -6,7 +6,6 @@ set -x FILE "lf"
 set -x PAGER "less"
 set -x READER "zathura"
 set -x TERMINAL "kitty"
-# set -x TERMINAL "alacritty"
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
 set -p fish_user_paths "$HOME/.npm-packages/bin"
 set -p fish_user_paths "$HOME/.cargo/bin"
@@ -17,6 +16,7 @@ set -p fish_user_paths "$HOME/.local/bin"
 # link sh to dash
 ln -s (which dash) "$HOME/.local/bin/sh" 2> /dev/null
 set -x KAKOUNE_POSIX_SHELL (which dash)
+set -x NVIM_LISTEN_ADDRESS /tmp/nvimsocket
 switch (uname)
 	case Darwin
 		source "$XDG_CONFIG_HOME/nix/nix-single-user.fish"

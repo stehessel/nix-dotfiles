@@ -32,7 +32,7 @@ leave_broot = "false"
 [[verbs]]
 invocation = "edit"
 key = "alt-Enter"
-execution = "edit {file}"
+execution = "nvr {file}"
 leave_broot = "false"
 
 [[verbs]]
