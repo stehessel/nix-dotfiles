@@ -7,6 +7,25 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+" Misc
+	Plug 'easymotion/vim-easymotion'
+	Plug 'farmergreg/vim-lastplace'
+	Plug 'jlanzarotta/bufexplorer'
+	Plug 'junegunn/goyo.vim'
+	Plug 'junegunn/vim-easy-align'
+	Plug 'kalekundert/vim-coiled-snake'
+	Plug 'kovetskiy/sxhkd-vim'
+	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+	Plug 'machakann/vim-highlightedyank'
+	Plug 'mbbill/undotree'
+	Plug 'pgdouyon/vim-evanesco'
+	Plug 'roxma/nvim-yarp'
+	Plug 'scrooloose/nerdtree'
+	Plug 'terryma/vim-multiple-cursors'
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-repeat'
+	Plug 'vimwiki/vimwiki'
+	Plug 'ryanoasis/vim-devicons'
 " Git
 	Plug 'airblade/vim-gitgutter'
 	Plug 'jreybert/vimagit'
@@ -28,6 +47,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Debugger
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 " Code folding
+	Plug 'Konfekt/FastFold'
 	Plug 'tmhedberg/SimpylFold'
 " Syntax highlighting
 	Plug 'LnL7/vim-nix'
@@ -38,26 +58,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'luochen1990/rainbow'
 	Plug 'tpope/vim-surround'
-" Misc
-	Plug 'easymotion/vim-easymotion'
-	Plug 'farmergreg/vim-lastplace'
-	Plug 'jlanzarotta/bufexplorer'
-	Plug 'junegunn/goyo.vim'
-	Plug 'junegunn/vim-easy-align'
-	Plug 'junegunn/vim-slash'
-	Plug 'kalekundert/vim-coiled-snake'
-	Plug 'Konfekt/FastFold'
-	Plug 'kovetskiy/sxhkd-vim'
-	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-	Plug 'machakann/vim-highlightedyank'
-	Plug 'mbbill/undotree'
-	Plug 'roxma/nvim-yarp'
-	Plug 'scrooloose/nerdtree'
-	Plug 'terryma/vim-multiple-cursors'
-	Plug 'tpope/vim-commentary'
-	Plug 'tpope/vim-repeat'
-	Plug 'vimwiki/vimwiki'
-	Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Misc keybinds
@@ -101,6 +101,7 @@ call plug#end()
 	set whichwrap+=<,>,h,l,[,]
 	syntax on
 	set updatetime=100
+	set nofoldenable
 " Clipboard
 	set clipboard+=unnamedplus
 	set go=a
@@ -174,7 +175,7 @@ call plug#end()
 	nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 	" GoTo code navigation.
-	nmap <silent> gd <Plug>(coc-definition)
+	autocmd SourceCmd *plugin/evanesco.vim source <afile> | nmap <silent> gd <Plug>(coc-definition)
 	nmap <silent> gy <Plug>(coc-type-definition)
 	nmap <silent> gi <Plug>(coc-implementation)
 	nmap <silent> gr <Plug>(coc-references)
