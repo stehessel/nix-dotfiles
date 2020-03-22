@@ -12,6 +12,11 @@
 		../../program/file-viewer/zathura
 	];
 
+	home.packages = with pkgs; [
+		# --- file viewer ---
+		glow
+	];
+
 	xdg.configFile."nix/nix-daemon.fish".source = config/nix-daemon.fish;
 	home.file.".profile".source = config/profile;
 }

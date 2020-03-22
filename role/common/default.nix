@@ -69,7 +69,6 @@
 		ripgrep
 		tre-command
 		# --- file viewer ---
-		# glow
 		pandoc
 		# --- font ---
 		fira-code
