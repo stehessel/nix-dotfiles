@@ -19,11 +19,14 @@ call plug#begin('~/.config/nvim/plugged')
 " Statusline
 	" Plug 'bling/vim-airline'
 	Plug 'itchyny/lightline.vim'
-" Auto complete
-	Plug 'liuchengxu/vista.vim'
+" LSP
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'liuchengxu/vista.vim'
+" Auto complete
 	Plug 'ncm2/ncm2'
 	Plug 'ncm2/ncm2-path'
+" Debugger
+	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 " Theme
 	Plug 'nanotech/jellybeans.vim'
 " Brackets
