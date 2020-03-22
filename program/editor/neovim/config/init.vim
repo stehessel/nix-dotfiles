@@ -27,6 +27,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'ncm2/ncm2-path'
 " Debugger
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+" Code folding
+	Plug 'tmhedberg/SimpylFold'
 " Theme
 	Plug 'nanotech/jellybeans.vim'
 " Brackets
@@ -56,12 +58,12 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
-" Keybinds
-let mapleader =","
-map U :redo<CR>
-map Y y$
-nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
-noremap <plug>(slash-after) zz
+" Misc keybinds
+	let mapleader =","
+	map U :redo<CR>
+	map Y y$
+	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
+	noremap <plug>(slash-after) zz
 " Split keybinds:
 	map <C-s> <C-w>S
 	map <C-v> <C-w>v
@@ -70,7 +72,6 @@ noremap <plug>(slash-after) zz
 	map <C-j> <C-w>j
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
-
 " Theme
 	set bg=dark
 	colorscheme jellybeans
