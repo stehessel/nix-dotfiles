@@ -57,8 +57,9 @@ abbr -a -U cfmc "$EDITOR ~/.config/ncmpcpp/config"
 if test "$TERMINAL" = "kitty"
 	abbr -a -U diff "kitty +kitten diff"
 end
-abbr -a -U gd "git diff"
 abbr -a -U gc "git commit -am"
+abbr -a -U gd "git diff"
+abbr -a -U gs "git status"
 abbr -a -U tl "tasklite"
 
 # keybinds
