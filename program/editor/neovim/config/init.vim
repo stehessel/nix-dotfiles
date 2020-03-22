@@ -23,18 +23,20 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'liuchengxu/vista.vim'
 " Auto complete
-	Plug 'ncm2/ncm2'
-	Plug 'ncm2/ncm2-path'
-	Plug 'roxma/nvim-yarp'
+	" Plug 'ncm2/ncm2'
+	" Plug 'ncm2/ncm2-path'
+	" Plug 'roxma/nvim-yarp'
 " Debugger
+	Plug 'vim-vdebug/vdebug'
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 " Code folding
-	Plug 'kalekundert/vim-coiled-snake'
+	" Plug 'kalekundert/vim-coiled-snake'
 	Plug 'Konfekt/FastFold'
 	Plug 'tmhedberg/SimpylFold'
 " Syntax highlighting
 	Plug 'kovetskiy/sxhkd-vim'
 	Plug 'LnL7/vim-nix'
+" Docker
 " Theme
 	Plug 'nanotech/jellybeans.vim'
 " Brackets
@@ -66,6 +68,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'farmergreg/vim-lastplace'
 " Note taking
 	Plug 'vimwiki/vimwiki'
+" Dispatcher
+	Plug 'tpope/vim-dispatch'
 call plug#end()
 
 " Misc keybinds
@@ -123,11 +127,11 @@ call plug#end()
 " Filetype
 	filetype plugin indent on
 " Enable autocompletion:
-	set wildmode=longest,list,full
-	" enable ncm2 for all buffers
-	autocmd BufEnter * call ncm2#enable_for_buffer()
-	" set completeopt to be what ncm2 expects
-	set completeopt=noinsert,menuone,noselect
+	" set wildmode=longest,list,full
+	" " enable ncm2 for all buffers
+	" autocmd BufEnter * call ncm2#enable_for_buffer()
+	" " set completeopt to be what ncm2 expects
+	" set completeopt=noinsert,menuone,noselect
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " plug commands
