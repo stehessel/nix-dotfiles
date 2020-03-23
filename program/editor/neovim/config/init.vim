@@ -24,9 +24,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'liuchengxu/vista.vim'
 " Auto complete
-	" Plug 'ncm2/ncm2'
-	" Plug 'ncm2/ncm2-path'
-	" Plug 'roxma/nvim-yarp'
 " Debugger
 	Plug 'vim-vdebug/vdebug'
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
@@ -49,7 +46,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'cohama/lexima.vim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'luochen1990/rainbow'
-	Plug 'tpope/vim-surround'
+	Plug 'machakann/vim-sandwich'
 " Text manipulation
 	Plug 'easymotion/vim-easymotion'
 	Plug 'junegunn/vim-easy-align'
