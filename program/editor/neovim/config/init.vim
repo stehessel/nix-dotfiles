@@ -40,7 +40,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Markdown preview
 	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 " Docker
-" Theme
+" Themes
 	Plug 'nanotech/jellybeans.vim'
 " Brackets
 	Plug 'adelarsq/vim-matchit'
