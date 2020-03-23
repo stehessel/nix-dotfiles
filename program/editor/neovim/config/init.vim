@@ -11,6 +11,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'jreybert/vimagit'
 	Plug 'tpope/vim-fugitive'
+	Plug 'rbong/vim-flog'
 	Plug 'rhysd/git-messenger.vim'
 " Fuzzy finder
 	Plug 'dyng/ctrlsf.vim'
@@ -32,8 +33,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'Konfekt/FastFold'
 	Plug 'tmhedberg/SimpylFold'
 " Syntax highlighting
-	Plug 'kovetskiy/sxhkd-vim'
-	Plug 'LnL7/vim-nix'
+	" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+	Plug 'sheerun/vim-polyglot'
 " REPL
 	Plug 'metakirby5/codi.vim'
 " Markdown preview
@@ -51,7 +52,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'easymotion/vim-easymotion'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'mbbill/undotree'
-	Plug 'terryma/vim-multiple-cursors'
+	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 " Buffers
@@ -97,15 +98,21 @@ call plug#end()
 " Highlighters
 	highlight HighlightedyankRegion cterm=reverse gui=reverse
 " Statusline
+	function! NearestMethodOrFunction() abort
+		return get(b:, 'vista_nearest_method_or_function', '')
+	endfunction
+
+	set noshowmode
 	let g:lightline = {
 		\ 'colorscheme': 'powerline',
 		\ 'active': {
 		\ 	'left': [ [ 'mode', 'paste' ],
-		\ 		[ 'gitbranch', 'readonly', 'relativepath', 'modified' ], [ 'cocstatus' ] ]
+		\ 		[ 'gitbranch', 'readonly', 'relativepath', 'modified' ], [ 'cocstatus' ], [ 'vistamethod' ] ]
 		\ },
 		\ 'component_function': {
 		\ 	'cocstatus': 'coc#status',
-		\ 	'gitbranch': 'FugitiveHead'
+		\ 	'gitbranch': 'FugitiveHead',
+		\ 	'vistamethod': 'NearestMethodOrFunction'
 		\ },
 		\ }
 " Text
@@ -117,6 +124,9 @@ call plug#end()
 	syntax on
 	set updatetime=100
 	set nofoldenable
+" Undo
+	set undofile
+	set undodir=~/.config/nvim/undo
 " Clipboard
 	set clipboard+=unnamedplus
 	set go=a
@@ -278,16 +288,57 @@ call plug#end()
 	nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 	" Resume latest coc list.
 	nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-" fzf mappings
-	map <leader>ff :Files<CR>
-	map <leader>fg :GFiles?<CR>
-	map <leader>fb :Buffers<CR>
-	map <leader>fl :Lines<CR>
-	map <leader>fm :Marks<CR>
-	map <leader>ft :Tags<CR>
-	map <leader>fw :Tags<CR>
-	map <leader>fh :History<CR>
-	map <leader>fh :Filetypes<CR>
+" Vista
+	" How each level is indented and what to prepend.
+	" This could make the display more compact or more spacious.
+	" e.g., more compact: ["▸ ", ""]
+	" Note: this option only works the LSP executives, doesn't work for `:Vista ctags`.
+	let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+
+	" Executive used when opening vista sidebar without specifying it.
+	" See all the avaliable executives via `:echo g:vista#executives`.
+	let g:vista_default_executive = 'ctags'
+
+	" Set the executive for some filetypes explicitly. Use the explicit executive
+	" instead of the default one for these filetypes when using `:Vista` without
+	" specifying the executive.
+	let g:vista_executive_for = {
+	  \ 'cpp': 'coc',
+	  \ 'python': 'coc',
+	  \ }
+
+	" Declare the command including the executable and options used to generate ctags output
+	" for some certain filetypes.The file path will be appened to your custom command.
+	" For example:
+	let g:vista_ctags_cmd = {
+		  \ 'haskell': 'hasktags -x -o - -c',
+		  \ }
+
+	" To enable fzf's preview window set g:vista_fzf_preview.
+	" The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
+	" For example:
+	let g:vista_fzf_preview = ['right:50%']
+
+	" Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
+	let g:vista#renderer#enable_icon = 1
+
+	" The default icons can't be suitable for all the filetypes, you can extend it as you wish.
+	let g:vista#renderer#icons = {
+		\ "function": "\uf794",
+		\ "variable": "\uf71b" }
+
+	" Keybinds
+	nmap <leader>t :Vista!!<CR>
+" fzf
+	nmap <leader>ff :Files<CR>
+	nmap <leader>fg :GFiles?<CR>
+	nmap <leader>fb :Buffers<CR>
+	nmap <leader>fl :Lines<CR>
+	nmap <leader>fm :Marks<CR>
+	nmap <leader>ft :Tags<CR>
+	nmap <leader>fw :Tags<CR>
+	nmap <leader>fh :History<CR>
+	nmap <leader>fh :Filetypes<CR>
 	" Insert mode completion
 	imap <c-x><c-k> <plug>(fzf-complete-word)
 	imap <c-x><c-f> <plug>(fzf-complete-path)
@@ -317,6 +368,7 @@ call plug#end()
 	map <leader>gg :Git<CR>
 	map <leader>gl :Git log<CR>
 	map <leader>gs :Gitdiffsplit<CR>
+	map <leader>gt :Flog<CR>
 " Goyo plugin makes text more readable when writing prose:
 	map <leader>p :Goyo \| set linebreak<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
