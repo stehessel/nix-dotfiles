@@ -85,6 +85,7 @@ call plug#end()
 	map Y y$
 	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
 	noremap <plug>(slash-after) zz
+	imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
 " Split keybinds:
 	map <C-s> <C-w>S
 	map <C-v> <C-w>v
