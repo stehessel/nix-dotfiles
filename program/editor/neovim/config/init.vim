@@ -42,6 +42,8 @@ call plug#begin('~/.config/nvim/plugged')
 " Docker
 " Themes
 	Plug 'nanotech/jellybeans.vim'
+" Icons
+	Plug 'ryanoasis/vim-devicons'
 " Brackets
 	Plug 'adelarsq/vim-matchit'
 	" Plug 'cohama/lexima.vim'
@@ -57,10 +59,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-repeat'
 " Buffers
 	Plug 'jlanzarotta/bufexplorer'
-	Plug 'TaDaa/vimade'
-" File viewer
-	Plug 'ryanoasis/vim-devicons'
-	Plug 'scrooloose/nerdtree'
+	" Plug 'TaDaa/vimade'
 " Search
 	Plug 'pgdouyon/vim-evanesco'
 " Focus mode
@@ -106,14 +105,29 @@ call plug#end()
 		return get(b:, 'vista_nearest_method_or_function', '')
 	endfunction
 
+	function! GitBlame() abort
+		let blame = get(b:, 'coc_git_blame', '')
+		" return blame
+		return winwidth(0) > 120 ? blame : ''
+	endfunction
+
 	set noshowmode
 	let g:lightline = {
 		\ 'colorscheme': 'powerline',
 		\ 'active': {
-		\ 	'left': [ [ 'mode', 'paste' ],
-		\ 		[ 'gitbranch', 'readonly', 'relativepath', 'modified' ], [ 'cocstatus' ], [ 'vistamethod' ] ]
+		\ 	'left': [
+		\ 		[ 'mode', 'paste' ],
+		\ 		[ 'gitbranch', 'readonly', 'relativepath', 'modified' ],
+		\ 		[ 'diagnostic', 'cocstatus' ],
+		\ 		[ 'vistamethod' ]
+		\ 	],
+		\ 	'right': [
+		\     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
+		\     [ 'blame' ]
+		\ 	],
 		\ },
 		\ 'component_function': {
+		\ 	'blame': 'GitBlame',
 		\ 	'cocstatus': 'coc#status',
 		\ 	'gitbranch': 'FugitiveHead',
 		\ 	'vistamethod': 'NearestMethodOrFunction'
@@ -292,6 +306,10 @@ call plug#end()
 	nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 	" Resume latest coc list.
 	nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" coc-explorer
+	nmap <leader>e :CocCommand explorer<CR>
+" coc-yank
+	nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<CR>
 " Vista
 	" How each level is indented and what to prepend.
 	" This could make the display more compact or more spacious.
@@ -379,16 +397,13 @@ call plug#end()
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitright splitbelow
-" Nerd tree
-	map <leader>n :NERDTreeToggle<CR>
-	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 	xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 	nmap ga <Plug>(EasyAlign)
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
-" Enable Goyo by default for mutt writting
+" Enable Goyo by default for mutt writing
 	" Goyo's width will be the line limit in mutt.
 	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
 	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo \| set bg=light

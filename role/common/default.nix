@@ -48,7 +48,8 @@
 		ccls
 		# clang
 		gcc
-		gdb
+        gdb
+        # llvm
 		# --- dev ---
 		editorconfig-core-c
 		jq

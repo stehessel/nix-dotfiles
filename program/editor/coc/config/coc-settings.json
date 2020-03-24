@@ -1,7 +1,16 @@
 {
+	"explorer.icon.enableNerdfont": true,
+	"explorer.previewAction.onHover": false,
+
+	"git.addedSign.hlGroup": "GitGutterAdd",
+	"git.changedSign.hlGroup": "GitGutterChange",
+	"git.removedSign.hlGroup": "GitGutterDelete",
+	"git.topRemovedSign.hlGroup": "GitGutterDelete",
+	"git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+
 	"python.condaPath": "conda",
-	"python.jedi": false,
 	"python.formatting.provider": "black",
+	"python.jedi": false,
 	"python.linting.flake8Enabled": true,
 
 	"languageserver": {
