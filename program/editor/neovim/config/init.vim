@@ -75,6 +75,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'vimwiki/vimwiki'
 " Dispatcher
 	Plug 'tpope/vim-dispatch'
+" Unix commands
+	Plug 'tpope/vim-eunuch'
 call plug#end()
 
 " Misc keybinds
