@@ -77,6 +77,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-dispatch'
 " Unix commands
 	Plug 'tpope/vim-eunuch'
+" Root directory
+	Plug 'airblade/vim-rooter'
 call plug#end()
 
 " Misc keybinds
