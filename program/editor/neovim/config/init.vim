@@ -90,7 +90,10 @@ call plug#end()
 	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
 	noremap <plug>(slash-after) zz
 	imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
-" Split keybinds:
+" Splits
+	" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+	set splitright splitbelow
+
 	map <C-s> <C-w>S
 	map <C-v> <C-w>v
 	map <C-q> <C-w>q
@@ -98,6 +101,8 @@ call plug#end()
 	map <C-j> <C-w>j
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
+	" Open alternative file in split
+	map <c-t> :vs#<CR>
 " Theme
 	set bg=dark
 	colorscheme jellybeans
@@ -181,10 +186,6 @@ call plug#end()
 	" set completeopt=noinsert,menuone,noselect
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-" plug commands
-	command! PU PlugUpdate | PlugUpgrade
-" Vim-which-key
-	nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
 " coc
 	" TextEdit might fail if hidden is not set.
 	set hidden
@@ -407,12 +408,14 @@ call plug#end()
 	map <leader>gl :Git log<CR>
 	map <leader>gs :Gitdiffsplit<CR>
 	map <leader>gt :Flog<CR>
+" plug commands
+	command! PU PlugUpdate | PlugUpgrade
+" Vim-which-key
+	nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
 " Goyo plugin makes text more readable when writing prose:
 	map <leader>p :Goyo \| set linebreak<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-	set splitright splitbelow
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 	xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
