@@ -1,3 +1,4 @@
+set -g theme_display_git_dirty yes
 set -g theme_display_git_untracked no
 set -g theme_use_abbreviated_branch_name yes
 set -g theme_display_docker_machine yes
