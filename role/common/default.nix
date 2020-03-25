@@ -59,7 +59,11 @@
 		universal-ctags
 		xsv
 		# --- editor ---
-		neovim-remote
+        neovim-remote
+        # --- docker ---
+        docker-sync
+        unison
+        fswatch
 		# --- file manager ---
 		lf
 		vifm
@@ -67,7 +71,9 @@
 		broot
 		fd
 		ripgrep
-		tre-command
+        tre-command
+        # --- file transfer ---
+        rsync
 		# --- file viewer ---
 		pandoc
 		# --- font ---
