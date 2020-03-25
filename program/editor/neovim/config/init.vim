@@ -100,6 +100,17 @@ call plug#end()
 	let g:rainbow_active = 1
 " Highlighters
 	highlight HighlightedyankRegion cterm=reverse gui=reverse
+
+	" Highlight TODO, FIXME, NOTE, etc.
+	if has('autocmd') && v:version > 701
+		augroup todo
+			autocmd!
+			autocmd Syntax * call matchadd(
+						\ 'Debug',
+						\ '\v\W\zs<(NOTE|INFO|IDEA|TODO|FIXME|CHANGED|XXX|BUG|HACK|TRICKY)>'
+						\ )
+		augroup END
+	endif
 " Statusline
 	function! NearestMethodOrFunction() abort
 		return get(b:, 'vista_nearest_method_or_function', '')
