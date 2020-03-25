@@ -74,6 +74,8 @@ call plug#begin('~/.config/nvim/plugged')
 " Note taking
 	Plug 'vimwiki/vimwiki'
 " Dispatcher
+	Plug 'skywind3000/asynctasks.vim'
+	Plug 'skywind3000/asyncrun.vim'
 	Plug 'tpope/vim-dispatch'
 " Unix commands
 	Plug 'tpope/vim-eunuch'
@@ -522,3 +524,6 @@ call plug#end()
 	nmap <leader>mp <Plug>MarkdownPreview
 	nmap <leader>ms <Plug>MarkdownPreviewStop
 	nmap <leader>mt <Plug>MarkdownPreviewToggle
+" AsyncTasks
+	" Height of quick fix window
+	let g:asyncrun_open = 8
