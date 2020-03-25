@@ -55,6 +55,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'junegunn/vim-easy-align'
 	Plug 'mbbill/undotree'
 	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
+	Plug 'nicwest/vim-camelsnek'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 " Buffers
@@ -426,6 +427,11 @@ call plug#end()
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 " Undotree
 	nnoremap <leader>u :UndotreeToggle<CR>
+" Vim-camelsnek
+	map <leader>ss :Snek<CR>
+	map <leader>sc :Camel<CR>
+	map <leader>sb :CamelB<CR>
+	map <leader>sk :Kebab<CR>
 " Markdown preview
 	" set to 1, nvim will open the preview window after entering the markdown buffer
 	" default: 0
