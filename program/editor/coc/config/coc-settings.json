@@ -1,7 +1,7 @@
 {
 	"explorer.icon.enableNerdfont": true,
 	"explorer.previewAction.onHover": false,
-	"explorer.file.tabCD": false,
+	"explorer.openAction.for.directory": "",
 
 	"git.addedSign.hlGroup": "GitGutterAdd",
 	"git.changedSign.hlGroup": "GitGutterChange",
