@@ -381,7 +381,7 @@ call plug#end()
 	nmap <leader>ft :Tags<CR>
 	nmap <leader>fw :Tags<CR>
 	nmap <leader>fh :History<CR>
-	nmap <leader>fh :Filetypes<CR>
+	nmap <leader>fp :Filetypes<CR>
 	" Insert mode completion
 	imap <c-x><c-k> <plug>(fzf-complete-word)
 	imap <c-x><c-f> <plug>(fzf-complete-path)
@@ -391,10 +391,11 @@ call plug#end()
 	inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 " Ctrlsf
 	let g:ctrlsf_regex_pattern = 1
-	let g:ctrlsf_auto_focus = { "at": "done", "duration_less_than": 1000 }
+	let g:ctrlsf_auto_focus = { "at": "done", "duration_less_than": 5000 }
 	let g:ctrlsf_default_root = 'project'
 	let g:ctrlsf_search_mode = 'async'
 	let g:ctrlsf_position = 'right'
+    let g:ctrlsf_mapping = { "vsplit": "<C-v>" }
 
 	nmap     <C-F>f <Plug>CtrlSFPrompt
 	vmap     <C-F>f <Plug>CtrlSFVwordPath

@@ -1,6 +1,6 @@
 set -g theme_display_git_dirty yes
 set -g theme_display_git_untracked yes
-set -g theme_use_abbreviated_branch_name yes
+set -g theme_use_abbreviated_branch_name no
 set -g theme_display_docker_machine yes
 set -g theme_display_virtualenv yes
 set -g theme_display_user ssh
