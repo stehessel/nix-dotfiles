@@ -90,6 +90,10 @@ call plug#end()
 	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
 	noremap <plug>(slash-after) zz
 	imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
+" Yank whole buffer
+	nmap <leader>Y :%y<CR>
+" Delete whole buffer
+	nmap <leader>Y :%d<CR>
 " Splits
 	" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitright splitbelow
