@@ -63,6 +63,7 @@ abbr -a -U gc "git commit -am"
 abbr -a -U gd "git diff"
 abbr -a -U gs "git status"
 abbr -a -U tl "tasklite"
+abbr -a -U corona "curl 'https://corona-stats.online?source=2&top=15'"
 
 # keybinds
 bind \cb beginning-of-line
