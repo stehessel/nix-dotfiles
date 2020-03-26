@@ -93,7 +93,7 @@ call plug#end()
 " Yank whole buffer
 	nmap <leader>Y :%y<CR>
 " Delete whole buffer
-	nmap <leader>Y :%d<CR>
+	nmap <leader>D :%d<CR>
 " Splits
 	" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitright splitbelow
