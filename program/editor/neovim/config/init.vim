@@ -143,12 +143,11 @@ call plug#end()
 		\ 	'left': [
 		\ 		[ 'mode', 'paste' ],
 		\ 		[ 'gitbranch', 'readonly', 'relativepath', 'modified' ],
-		\ 		[ 'diagnostic', 'cocstatus' ],
-		\ 		[ 'vistamethod' ]
+		\ 		[ 'diagnostic', 'cocstatus', 'vistamethod' ]
 		\ 	],
 		\ 	'right': [
-		\     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
-		\     [ 'blame' ]
+		\ 		['lineinfo', 'percent' ],
+		\     	[ 'blame', 'filetype', 'fileencoding'],
 		\ 	],
 		\ },
 		\ 'component_function': {
@@ -199,7 +198,7 @@ call plug#end()
 	set nowritebackup
 
 	" Give more space for displaying messages.
-	set cmdheight=2
+	set cmdheight=1
 
 	" Don't pass messages to |ins-completion-menu|.
 	set shortmess+=c
