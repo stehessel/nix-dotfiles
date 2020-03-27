@@ -136,6 +136,9 @@ call plug#end()
 		return winwidth(0) > 120 ? blame : ''
 	endfunction
 
+	" Use auocmd to force lightline update.
+	autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
 	set noshowmode
 	let g:lightline = {
 		\ 'colorscheme': 'powerline',
@@ -161,11 +164,13 @@ call plug#end()
 	set encoding=utf-8
 	set tabstop=4
 	set shiftwidth=4
-	set number relativenumber
 	set whichwrap+=<,>,h,l,[,]
 	syntax on
 	set updatetime=100
 	set nofoldenable
+" Line numbers
+	set number relativenumber
+	nmap <leader>n :set number relativenumber!<CR>
 " Undo
 	set undofile
 	set undodir=~/.config/nvim/undo
