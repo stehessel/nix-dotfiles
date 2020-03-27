@@ -111,6 +111,8 @@
 		# procs
 		# --- rust ---
 		rustup
+        # --- ruby ---
+        ruby
 		# --- shell ---
 		bash_5
 		dash
