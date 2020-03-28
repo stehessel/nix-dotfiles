@@ -85,7 +85,7 @@ eval (direnv hook fish)
 
 # conda
 if test -d "$HOME/miniconda3"
-	source $HOME/miniconda3/bin/conda.fish
+	source $XDG_CONFIG_HOME/fish/conda.fish
     # eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
 end
 
