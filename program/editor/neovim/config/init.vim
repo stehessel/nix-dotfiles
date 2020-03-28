@@ -50,6 +50,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'luochen1990/rainbow'
 	Plug 'machakann/vim-sandwich'
+" Keybinds
+	Plug 'tpope/vim-unimpaired'
 " Text manipulation
 	Plug 'easymotion/vim-easymotion'
 	Plug 'junegunn/vim-easy-align'
@@ -145,7 +147,7 @@ call plug#end()
 		\ 'active': {
 		\ 	'left': [
 		\ 		[ 'mode', 'paste' ],
-		\ 		[ 'gitbranch', 'readonly', 'relativepath', 'modified' ],
+		\ 		[ 'readonly', 'relativepath', 'modified' ],
 		\ 		[ 'diagnostic', 'cocstatus', 'vistamethod' ]
 		\ 	],
 		\ 	'right': [
@@ -168,6 +170,8 @@ call plug#end()
 	syntax on
 	set updatetime=100
 	set nofoldenable
+" Title
+	set title
 " Line numbers
 	set number relativenumber
 	nmap <leader>n :set number relativenumber!<CR>
