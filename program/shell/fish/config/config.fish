@@ -22,13 +22,12 @@ set -x NVIM_LISTEN_ADDRESS /tmp/nvimsocket
 switch (uname)
 	case Darwin
 		source "$XDG_CONFIG_HOME/nix/nix-single-user.fish"
-		# set -p fish_user_paths "$HOME/Library/Python/3.7/bin"
 		set -p fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
 		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"
 		set -x LANG "en_US.UTF-8"
-		ssh-add -K $HOME/.ssh/lgtf_rsa &>/dev/null
-		ssh-add -K $HOME/.ssh/yulc_rsa &>/dev/null
+		# ssh-add -K $HOME/.ssh/lgtf_rsa &>/dev/null
+		# ssh-add -K $HOME/.ssh/yulc_rsa &>/dev/null
 		ln -s "$XDG_CONFIG_HOME/kak-lsp/kak-lsp.toml" 2> /dev/null "$HOME/Library/Preferences/kak-lsp/kak-lsp.toml"
 	case Linux
 		source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
@@ -86,7 +85,8 @@ eval (direnv hook fish)
 
 # conda
 if test -d "$HOME/miniconda3"
-    eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
+	source $HOME/miniconda3/bin/conda.fish
+    # eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
 end
 
 # theme
