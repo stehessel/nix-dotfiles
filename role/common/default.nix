@@ -61,7 +61,7 @@
 		# --- editor ---
         neovim-remote
         # --- docker ---
-        docker-sync
+        # docker-sync
         unison
         fswatch
 		# --- file manager ---
