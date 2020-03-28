@@ -28,15 +28,19 @@ call plug#begin('~/.config/nvim/plugged')
 " Debugger
 	Plug 'vim-vdebug/vdebug'
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+" Testing
+	Plug 'janko/vim-test'
 " Code folding
 	" Plug 'kalekundert/vim-coiled-snake'
 	Plug 'Konfekt/FastFold'
 	Plug 'tmhedberg/SimpylFold'
-" Syntax highlighting
+" Syntax highlighters
 	" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 	Plug 'sheerun/vim-polyglot'
+" Word highlighters
+	Plug 'lfv89/vim-interestingwords'
 " REPL
-	Plug 'metakirby5/codi.vim'
+	Plug 'Vigemus/iron.nvim'
 " Markdown preview
 	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 " Docker
@@ -64,6 +68,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'jlanzarotta/bufexplorer'
 	" Plug 'TaDaa/vimade'
 " Search
+	Plug 'inkarkat/vim-ingo-library'
+	Plug 'inkarkat/vim-SearchAlternatives'
 	Plug 'pgdouyon/vim-evanesco'
 " Focus mode
 	Plug 'junegunn/goyo.vim'
@@ -87,6 +93,7 @@ call plug#end()
 
 " Misc keybinds
 	let mapleader =","
+	let maplocalleader = "\\"
 	map U :redo<CR>
 	map Y y$
 	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
@@ -198,6 +205,21 @@ call plug#end()
 	" set completeopt=noinsert,menuone,noselect
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Iron.nvim REPL
+	luafile $HOME/.config/nvim/plugins.lua
+	nmap <leader>it    :IronRepl python<CR>
+	nmap <leader>if    :IronFocus python<CR>
+	nmap <leader>ir    :IronRestart<CR>
+
+	nmap <localleader>t    <Plug>(iron-send-motion)
+	vmap <localleader>v    <Plug>(iron-visual-send)
+	nmap <localleader>r    <Plug>(iron-repeat-cmd)
+	nmap <localleader>l    <Plug>(iron-send-line)
+	nmap <localleader><CR> <Plug>(iron-cr)
+	nmap <localleader>i    <plug>(iron-interrupt)
+	nmap <localleader>q    <Plug>(iron-exit)
+	nmap <localleader>c    <Plug>(iron-clear)
+
 " coc
 	" TextEdit might fail if hidden is not set.
 	set hidden
