@@ -47,9 +47,7 @@
 		# --- cpp ---
 		ccls
 		# clang
-		gcc
         gdb
-        # llvm
 		# --- dev ---
 		editorconfig-core-c
 		jq

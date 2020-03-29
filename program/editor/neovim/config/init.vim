@@ -482,6 +482,7 @@ call plug#end()
 	nmap <leader>cq  :Clap quickfix<CR>
 	nmap <leader>cr  :Clap registers<CR>
 	nmap <leader>cy  :Clap yanks<CR>
+	nmap <leader>ce  :Clap filer<CR>
 	nmap <leader>cp  :Clap providers<CR>
 " Ctrlsf
 	let g:ctrlsf_regex_pattern = 1
