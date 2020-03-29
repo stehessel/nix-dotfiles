@@ -13,11 +13,11 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'rbong/vim-flog'
 	Plug 'rhysd/git-messenger.vim'
-" Fuzzy finder
+" Finders
 	Plug 'dyng/ctrlsf.vim'
-	Plug '/home/stephan/.nix-profile/bin/fzf'
-	Plug 'junegunn/fzf' ", { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
+	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 " Statusline
 	" Plug 'bling/vim-airline'
 	Plug 'itchyny/lightline.vim'
@@ -43,6 +43,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'Vigemus/iron.nvim'
 " Markdown preview
 	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+" Tabs
+	Plug 'gcmt/taboo.vim'
 " Docker
 " Themes
 	Plug 'nanotech/jellybeans.vim'
@@ -59,13 +61,17 @@ call plug#begin('~/.config/nvim/plugged')
 " Text manipulation
 	Plug 'easymotion/vim-easymotion'
 	Plug 'junegunn/vim-easy-align'
+	Plug 'machakann/vim-swap'
 	Plug 'mbbill/undotree'
 	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 	Plug 'nicwest/vim-camelsnek'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
+" Text objects
+	Plug 'wellle/targets.vim'
 " Buffers
 	Plug 'jlanzarotta/bufexplorer'
+	Plug 'moll/vim-bbye'
 	" Plug 'TaDaa/vimade'
 " Search
 	Plug 'inkarkat/vim-ingo-library'
@@ -99,10 +105,16 @@ call plug#end()
 	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
 	noremap <plug>(slash-after) zz
 	imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
+" Sessions
+	set sessionoptions+=tabpages,globals
 " Yank whole buffer
 	nmap <leader>Y :%y<CR>
 " Delete whole buffer
 	nmap <leader>D :%d<CR>
+" Buffers
+	map gn :bn<CR>
+	map gp :bp<CR>
+	map <leader>bd :bd<CR>
 " Splits
 	" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitright splitbelow
@@ -195,8 +207,17 @@ call plug#end()
 	set incsearch
 	set nohlsearch
 	set smartcase
+	set inccommand=nosplit
+" Rendering
+	set lazyredraw
 " Filetype
 	filetype plugin indent on
+	set suffixesadd=.md
+" Vim swap
+	omap i, <Plug>(swap-textobject-i)
+	xmap i, <Plug>(swap-textobject-i)
+	omap a, <Plug>(swap-textobject-a)
+	xmap a, <Plug>(swap-textobject-a)
 " Enable autocompletion:
 	" set wildmode=longest,list,full
 	" " enable ncm2 for all buffers
@@ -219,7 +240,6 @@ call plug#end()
 	nmap <localleader>i    <plug>(iron-interrupt)
 	nmap <localleader>q    <Plug>(iron-exit)
 	nmap <localleader>c    <Plug>(iron-clear)
-
 " coc
 	" TextEdit might fail if hidden is not set.
 	set hidden
@@ -401,17 +421,28 @@ call plug#end()
 		\ "variable": "\uf71b" }
 
 	" Keybinds
-	nmap <leader>t :Vista!!<CR>
+	nmap <leader>tt :Vista!!<CR>
+" Vim-test
+	nmap <silent> <leader>tn :TestNearest<CR>
+	nmap <silent> <leader>tf :TestFile<CR>
+	nmap <silent> <leader>ts :TestSuite<CR>
+	nmap <silent> <leader>tl :TestLast<CR>
+	nmap <silent> <leader>tg :TestVisit<CR>
 " fzf
-	nmap <leader>ff :Files<CR>
-	nmap <leader>fg :GFiles?<CR>
-	nmap <leader>fb :Buffers<CR>
-	nmap <leader>fl :Lines<CR>
-	nmap <leader>fm :Marks<CR>
-	nmap <leader>ft :Tags<CR>
-	nmap <leader>fw :Tags<CR>
-	nmap <leader>fh :History<CR>
-	nmap <leader>fp :Filetypes<CR>
+	nmap <leader>ff  :Files<CR>
+	nmap <leader>fb  :Buffers<CR>
+	nmap <leader>fgc :Commits<CR>
+	nmap <leader>fgf :GFiles<CR>
+	nmap <leader>fgs :GFiles?<CR>
+	nmap <leader>fl  :Lines<CR>
+	nmap <leader>f/  :Rg
+	nmap <leader>fm  :Marks<CR>
+	nmap <leader>ft  :Tags<CR>
+	nmap <leader>fc  :History:<CR>
+	nmap <leader>fs  :History/<CR>
+	nmap <leader>fh  :History<CR>
+	nmap <leader>fw  :Windows<CR>
+	nmap <leader>fp  :Filetypes<CR>
 	" Insert mode completion
 	imap <c-x><c-k> <plug>(fzf-complete-word)
 	imap <c-x><c-f> <plug>(fzf-complete-path)
@@ -419,6 +450,25 @@ call plug#end()
 	imap <c-x><c-l> <plug>(fzf-complete-line)
 	" Advanced customization using Vim function
 	inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+" Clap
+	nmap <leader>cf  :Clap files<CR>
+	nmap <leader>cb  :Clap buffers<CR>
+	nmap <leader>cgc :Clap commits<CR>
+	nmap <leader>cgf :Clap git_files<CR>
+	nmap <leader>cgd :Clap git_diff_files<CR>
+	nmap <leader>cl  :Clap lines<CR>
+	nmap <leader>c/  :Clap grep<CR>
+	nmap <leader>cm  :Clap marks<CR>
+	nmap <leader>ct  :Clap tags<CR>
+	nmap <leader>cc  :Clap hist:<CR>
+	nmap <leader>cs  :Clap hist/<CR>
+	nmap <leader>ch  :Clap history<CR>
+	nmap <leader>cw  :Clap windows<CR>
+	nmap <leader>cj  :Clap jumps<CR>
+	nmap <leader>cq  :Clap quickfix<CR>
+	nmap <leader>cr  :Clap registers<CR>
+	nmap <leader>cy  :Clap yanks<CR>
+	nmap <leader>cp  :Clap providers<CR>
 " Ctrlsf
 	let g:ctrlsf_regex_pattern = 1
 	let g:ctrlsf_auto_focus = { "at": "done", "duration_less_than": 5000 }
@@ -427,14 +477,14 @@ call plug#end()
 	let g:ctrlsf_position = 'right'
     let g:ctrlsf_mapping = { "vsplit": "<C-v>" }
 
-	nmap     <C-F>f <Plug>CtrlSFPrompt
-	vmap     <C-F>f <Plug>CtrlSFVwordPath
-	vmap     <C-F>F <Plug>CtrlSFVwordExec
-	nmap     <C-F>n <Plug>CtrlSFCwordPath
-	nmap     <C-F>p <Plug>CtrlSFPwordPath
-	nnoremap <C-F>o :CtrlSFOpen<CR>
-	nnoremap <C-F>t :CtrlSFToggle<CR>
-	inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+	nmap     <leader>/f <Plug>CtrlSFPrompt
+	vmap     <leader>/f <Plug>CtrlSFVwordPath
+	vmap     <leader>/F <Plug>CtrlSFVwordExec
+	nmap     <leader>/n <Plug>CtrlSFCwordPath
+	nmap     <leader>/p <Plug>CtrlSFPwordPath
+	nnoremap <leader>/o :CtrlSFOpen<CR>
+	nnoremap <leader>/t :CtrlSFToggle<CR>
+	inoremap <leader>/t <Esc>:CtrlSFToggle<CR>
 " Git
 	map <leader>gb :Git blame<CR>
 	map <leader>gc :Git commit
