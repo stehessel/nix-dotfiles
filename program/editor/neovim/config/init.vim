@@ -465,6 +465,8 @@ call plug#end()
 	" Advanced customization using Vim function
 	inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 " Clap
+	let g:clap_layout = { 'relative': 'editor' }
+
 	nmap <leader>cf  :Clap files<CR>
 	nmap <leader>cb  :Clap buffers<CR>
 	nmap <leader>cgc :Clap commits<CR>
