@@ -21,6 +21,8 @@ call plug#begin('~/.config/nvim/plugged')
 " Statusline
 	" Plug 'bling/vim-airline'
 	Plug 'itchyny/lightline.vim'
+" Start screen
+	Plug 'mhinz/vim-startify'
 " LSP
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'liuchengxu/vista.vim'
@@ -106,7 +108,11 @@ call plug#end()
 	noremap <plug>(slash-after) zz
 	imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
 " Sessions
-	set sessionoptions+=tabpages,globals
+	set sessionoptions+=tabpages,globals,winpos,winsize,blank,resize
+	" do not store global and local values in a session
+	set sessionoptions-=options
+	" do not store folds
+	set sessionoptions-=folds
 " Yank whole buffer
 	nmap <leader>Y :%y<CR>
 " Delete whole buffer
@@ -115,6 +121,14 @@ call plug#end()
 	map gn :bn<CR>
 	map gp :bp<CR>
 	map <leader>bd :bd<CR>
+" Startify
+	let g:startify_session_persistence = 1
+	let g:startify_update_oldfiles = 1
+
+	nmap <leader>ss :SSave!
+	nmap <leader>sl :SLoad
+	nmap <leader>sc :SClose<CR>
+	nmap <leader>sd :SDelete<CR>
 " Splits
 	" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitright splitbelow
@@ -520,10 +534,10 @@ call plug#end()
 " Undotree
 	nnoremap <leader>u :UndotreeToggle<CR>
 " Vim-camelsnek
-	map <leader>ss :Snek<CR>
-	map <leader>sc :Camel<CR>
-	map <leader>sb :CamelB<CR>
-	map <leader>sk :Kebab<CR>
+	map <leader>xs :Snek<CR>
+	map <leader>xc :Camel<CR>
+	map <leader>xb :CamelB<CR>
+	map <leader>xk :Kebab<CR>
 " Markdown preview
 	" set to 1, nvim will open the preview window after entering the markdown buffer
 	" default: 0
