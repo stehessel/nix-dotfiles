@@ -4,7 +4,8 @@
 	ignores = [
 		"*~"
 		"*.swp"
-		"__pycache__"
+        "__pycache__"
+        ".vim"
 	];
 
 	extraConfig = {
