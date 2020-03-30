@@ -12,7 +12,8 @@
 
 	"python.condaPath": "conda",
 	"python.formatting.provider": "black",
-	"python.jediEnabled": false,
+	"python.jediEnabled": true,
+	"python.linting.enabled": true,
 	"python.linting.flake8Enabled": true,
 
 	"languageserver": {
