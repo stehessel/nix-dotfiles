@@ -8,8 +8,9 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 " Git
-	Plug 'airblade/vim-gitgutter'
+	" Plug 'airblade/vim-gitgutter'
 	Plug 'jreybert/vimagit'
+	Plug 'mhinz/vim-signify'
 	Plug 'tpope/vim-fugitive'
 	Plug 'rbong/vim-flog'
 	Plug 'rhysd/git-messenger.vim'
@@ -48,8 +49,9 @@ call plug#begin('~/.config/nvim/plugged')
 " Tabs
 	Plug 'gcmt/taboo.vim'
 " Docker
-" Themes
+" Color themes
 	Plug 'nanotech/jellybeans.vim'
+	Plug 'flazz/vim-colorschemes'
 " Icons
 	Plug 'ryanoasis/vim-devicons'
 " Brackets
@@ -113,6 +115,8 @@ call plug#end()
 	set sessionoptions-=options
 	" do not store folds
 	set sessionoptions-=folds
+" Vim rooter
+	let g:rooter_silent_chdir = 1
 " Yank whole buffer
 	nmap <leader>Y :%y<CR>
 " Delete whole buffer
@@ -144,22 +148,18 @@ call plug#end()
 	map <c-t> :vs#<CR>
 " Theme
 	set bg=dark
-	colorscheme jellybeans
 	set termguicolors
 	let g:rainbow_active = 1
+" Color theme
+	colorscheme jellybeans
+
+	let g:jellybeans_overrides = {
+		\ 'Todo': { 'ctermfg': 'Black', 'ctermbg': 'Grey', 'attr': 'bold' },
+		\ }
+	let g:jellybeans_use_lowcolor_black = 1
+	let g:jellybeans_use_term_italics = 1
 " Highlighters
 	highlight HighlightedyankRegion cterm=reverse gui=reverse
-
-	" Highlight TODO, FIXME, NOTE, etc.
-	if has('autocmd') && v:version > 701
-		augroup todo
-			autocmd!
-			autocmd Syntax * call matchadd(
-						\ 'Debug',
-						\ '\v\W\zs<(NOTE|INFO|IDEA|TODO|FIXME|CHANGED|XXX|BUG|HACK|TRICKY)>'
-						\ )
-		augroup END
-	endif
 " Statusline
 	function! NearestMethodOrFunction() abort
 		return get(b:, 'vista_nearest_method_or_function', '')
@@ -510,6 +510,25 @@ call plug#end()
 	map <leader>gl :Git log<CR>
 	map <leader>gs :Gitdiffsplit<CR>
 	map <leader>gt :Flog<CR>
+" Signify
+	map <leader>vl :SignifyList<CR>
+	map <leader>vd :SignifyDiff<CR>
+	map <leader>vf :SignifyFold<CR>
+	map <leader>vs :SignifyHunkDiff<CR>
+	map <leader>vu :SignifyHunkUndo<CR>
+	map <leader>vr :SignifyRefresh<CR>
+	map <leader>vt :SignifyToggle<CR>
+	map <leader>vv :SignifyToggleHighlight<CR>
+
+	" Text objects
+	omap ig <Plug>(signify-motion-inner-pending)
+	xmap ig <Plug>(signify-motion-inner-visual)
+	omap ag <Plug>(signify-motion-outer-pending)
+	xmap ag <Plug>(signify-motion-outer-visual)
+
+	" Highlight
+    highlight SignifySignDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred
+    highlight SignifyLineDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred
 " plug commands
 	command! PU PlugUpdate | PlugUpgrade
 " Vim-which-key
