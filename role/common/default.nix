@@ -98,7 +98,7 @@
 		bandwhich
 		speedtest-cli
 		# --- nix ---
-		# arion
+		arion
 		cachix
 		lorri
 		niv
@@ -132,6 +132,7 @@
 		jrnl
 		neofetch
 		svgcleaner
-		topgrade
+        topgrade
+        wget
 	];
 }
