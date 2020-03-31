@@ -8,6 +8,10 @@
 	"python.formatting.provider": "black",
 	"python.jediEnabled": true,
 	"python.jediMemoryLimit": -1,
+	"python.autoComplete.extraPaths": [
+		"~/miniconda3/lib/python3.7",
+		"~/miniconda3/envs/docker/lib"
+	],
 	"python.linting.enabled": true,
 	"python.linting.flake8Enabled": true,
 	"python.linting.pydocstyleEnabled": true,
@@ -16,31 +20,53 @@
 	"languageserver": {
 		"bash": {
 			"command": "bash-language-server",
-			"args": ["start"],
-			"filetypes": ["sh"],
-			"ignoredRootPaths": ["~"]
+			"args": [
+				"start"
+			],
+			"filetypes": [
+				"sh"
+			],
+			"ignoredRootPaths": [
+				"~"
+			]
 		},
 
 		"ccls": {
 			"command": "ccls",
-			"filetypes": ["c", "cpp", "objc", "objcpp"],
-			"rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+			"filetypes": [
+				"c",
+				"cpp",
+				"objc",
+				"objcpp"
+			],
+			"rootPatterns": [
+				".ccls",
+				"compile_commands.json",
+				".git/",
+				".hg/"
+			],
 			"initializationOptions": {
 				"cache": {
 					"directory": "/tmp/ccls"
 				}
-		   }
+			}
 		},
 
 		"dockerfile": {
 			"command": "docker-langserver",
-			"filetypes": ["dockerfile"],
-			"args": ["--stdio"]
+			"filetypes": [
+				"dockerfile"
+			],
+			"args": [
+				"--stdio"
+			]
 		},
 
 		"haskell": {
 			"command": "hie-wrapper",
-			"args": ["--lsp"],
+			"args": [
+				"--lsp"
+			],
 			"rootPatterns": [
 				"stack.yaml",
 				"cabal.config",

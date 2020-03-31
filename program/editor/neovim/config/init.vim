@@ -59,7 +59,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Brackets
 	Plug 'adelarsq/vim-matchit'
 	" Plug 'cohama/lexima.vim'
-	Plug 'jiangmiao/auto-pairs'
+	" Plug 'jiangmiao/auto-pairs'
 	Plug 'luochen1990/rainbow'
 	Plug 'machakann/vim-sandwich'
 " Keybinds

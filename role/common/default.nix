@@ -51,7 +51,6 @@
 		# --- dev ---
 		editorconfig-core-c
 		jq
-		nodejs-13_x
 		tig
 		tokei
 		universal-ctags
@@ -90,7 +89,10 @@
 		bat
 		exa
 		highlight
-		# --- launcher ---
+        # --- javascript ---
+        nodejs-13_x
+        yarn
+        # --- launcher ---
 		entr
 		just
 		pueue
