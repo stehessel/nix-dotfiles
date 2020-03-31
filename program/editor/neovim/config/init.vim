@@ -62,18 +62,29 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'jiangmiao/auto-pairs'
 	Plug 'luochen1990/rainbow'
 	Plug 'machakann/vim-sandwich'
+" Marks
+	Plug 'kshenoy/vim-signature'
+" Whitespaces
+	Plug 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
+	Plug 'roryokane/detectindent', { 'on': 'DetectIndent' }
 " Keybinds
 	Plug 'tpope/vim-unimpaired'
 " Text manipulation
 	Plug 'easymotion/vim-easymotion'
-	Plug 'junegunn/vim-easy-align'
+	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 	Plug 'machakann/vim-swap'
 	Plug 'mbbill/undotree'
 	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 	Plug 'nicwest/vim-camelsnek'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
+" Text splitting
+	Plug 'AndrewRadev/splitjoin.vim'
+	Plug 'sk1418/Join', {'on': 'Join'}
 " Text objects
+	Plug 'glts/vim-textobj-comment'
+	Plug 'kana/vim-textobj-user'
+	Plug 'michaeljsmith/vim-indent-object'
 	Plug 'wellle/targets.vim'
 " Buffers
 	Plug 'jlanzarotta/bufexplorer'
@@ -109,6 +120,9 @@ call plug#end()
 	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
 	noremap <plug>(slash-after) zz
 	imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
+" Line breaks
+	set linebreak
+	set breakindent
 " Sessions
 	set sessionoptions+=tabpages,globals,winpos,winsize,blank,resize
 	" do not store global and local values in a session
@@ -255,6 +269,26 @@ call plug#end()
 	nmap <localleader>q    <Plug>(iron-exit)
 	nmap <localleader>c    <Plug>(iron-clear)
 " coc
+	" Extensions
+	let g:coc_global_extensions = [
+		\ 'coc-actions',
+		\ 'coc-cmake',
+		\ 'coc-clangd',
+		\ 'coc-explorer',
+		\ 'coc-floaterm',
+		\ 'coc-git',
+		\ 'coc-highlight',
+		\ 'coc-json',
+		\ 'coc-markdownlint',
+		\ 'coc-pairs',
+		\ 'coc-python',
+		\ 'coc-rls',
+		\ 'coc-rust-analyzer',
+		\ 'coc-tabnine',
+		\ 'coc-vimlsp',
+		\ 'coc-yaml',
+		\ 'coc-yank' ]
+
 	" TextEdit might fail if hidden is not set.
 	set hidden
 
