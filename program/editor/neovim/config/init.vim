@@ -83,8 +83,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'inkarkat/vim-ingo-library'
 	Plug 'inkarkat/vim-SearchAlternatives'
 	Plug 'pgdouyon/vim-evanesco'
-" Focus mode
-	Plug 'junegunn/goyo.vim'
 " Copy/paste
 	Plug 'machakann/vim-highlightedyank'
 " Discover keybinds
@@ -328,8 +326,9 @@ call plug#end()
 	nmap <leader>rn <Plug>(coc-rename)
 
 	" Formatting selected code.
-	xmap <leader>f  <Plug>(coc-format-selected)
-	nmap <leader>f  <Plug>(coc-format-selected)
+	xmap <leader>f   <Plug>(coc-format-selected)
+	nmap <leader>f   <Plug>(coc-format)
+	nmap <leader>ps  :CocCommand python.sortImports<CR>
 
 	augroup mygroup
 		autocmd!
@@ -537,8 +536,6 @@ call plug#end()
 	command! PU PlugUpdate | PlugUpgrade
 " Vim-which-key
 	nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
-" Goyo plugin makes text more readable when writing prose:
-	map <leader>p :Goyo \| set linebreak<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -547,10 +544,6 @@ call plug#end()
 	nmap ga <Plug>(EasyAlign)
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
-" Enable Goyo by default for mutt writing
-	" Goyo's width will be the line limit in mutt.
-	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo \| set bg=light
 " Automatically deletes all trailing whitespace on save.
 	autocmd BufWritePre * %s/\s\+$//e
 " Update binds when sxhkdrc is updated.
