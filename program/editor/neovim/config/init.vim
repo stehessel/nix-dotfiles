@@ -27,6 +27,8 @@ call plug#begin('~/.config/nvim/plugged')
 " LSP
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'liuchengxu/vista.vim'
+" Linters
+	" Plug 'dense-analysis/ale'
 " Auto complete
 " Debugger
 	Plug 'vim-vdebug/vdebug'
@@ -391,6 +393,8 @@ call plug#end()
 	nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 	" Resume latest coc list.
 	nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+	" Open coc config.
+	nnoremap <silent> <space>f  :<C-u>CocConfig<CR>
 " coc-explorer
 	nmap <leader>e :CocCommand explorer<CR>
 " coc-yank

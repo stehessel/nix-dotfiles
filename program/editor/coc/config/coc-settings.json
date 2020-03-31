@@ -7,8 +7,10 @@
 	"python.condaPath": "conda",
 	"python.formatting.provider": "black",
 	"python.jediEnabled": true,
+	"python.jediMemoryLimit": -1,
 	"python.linting.enabled": true,
 	"python.linting.flake8Enabled": true,
+	"python.linting.pydocstyleEnabled": true,
 	"python.sortImports.path": "isort",
 
 	"languageserver": {
