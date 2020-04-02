@@ -26,9 +26,10 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'mhinz/vim-startify'
 " LSP
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'stsewd/sphinx.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'liuchengxu/vista.vim'
 " Linters
-	" Plug 'dense-analysis/ale'
+" 	Plug 'dense-analysis/ale'
 " Auto complete
 " Debugger
 	Plug 'vim-vdebug/vdebug'
@@ -64,7 +65,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'machakann/vim-sandwich'
 " Marks
 	Plug 'kshenoy/vim-signature'
-" Whitespaces
+" Indentation
 	Plug 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
 	Plug 'roryokane/detectindent', { 'on': 'DetectIndent' }
 " Keybinds
@@ -129,6 +130,8 @@ call plug#end()
 	set sessionoptions-=options
 	" do not store folds
 	set sessionoptions-=folds
+" Startify
+	map <leader>h :Startify<CR>
 " Vim rooter
 	let g:rooter_silent_chdir = 1
 " Yank whole buffer
@@ -158,6 +161,7 @@ call plug#end()
 	map <C-j> <C-w>j
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
+	map <C-p> <C-w>w
 	" Open alternative file in split
 	map <c-t> :vs#<CR>
 " Theme
@@ -194,7 +198,7 @@ call plug#end()
 		\ 'active': {
 		\ 	'left': [
 		\ 		[ 'mode', 'paste' ],
-		\ 		[ 'readonly', 'relativepath', 'modified' ],
+		\ 		[ 'readonly', 'filename', 'modified' ],
 		\ 		[ 'diagnostic', 'cocstatus', 'vistamethod' ]
 		\ 	],
 		\ 	'right': [

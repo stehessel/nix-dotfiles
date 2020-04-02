@@ -36,4 +36,10 @@ function docker-pyenv -a container_id --description "Create python environment f
 		install \
 			--extra-index-url $index_url \
 			-r /tmp/requirements.txt
+	pip --cert $HOME/certs/Certificates.pem \
+		--trusted-host pypi.org \
+		--trusted-host files.pythonhosted.org \
+		install \
+			--extra-index-url $index_url \
+			byflow
 end
