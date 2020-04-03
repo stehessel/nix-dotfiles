@@ -203,7 +203,7 @@ call plug#end()
 		\ 	],
 		\ 	'right': [
 		\ 		['lineinfo', 'percent' ],
-		\     	[ 'blame', 'filetype', 'fileencoding'],
+		\     	[ 'blame', 'filetype' ],
 		\ 	],
 		\ },
 		\ 'component_function': {

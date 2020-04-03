@@ -1,4 +1,9 @@
 {
+	"coc.preferences.formatOnType": false,
+	"coc.preferences.formatOnSaveFiletypes": [
+		"python"
+	],
+
 	"explorer.icon.enableNerdfont": true,
 	"explorer.previewAction.onHover": false,
 	"explorer.file.tabCD": false,

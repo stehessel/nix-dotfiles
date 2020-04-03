@@ -112,7 +112,7 @@
 		# --- rust ---
 		rustup
         # --- ruby ---
-        ruby
+        # ruby
 		# --- shell ---
 		bash_5
 		dash
