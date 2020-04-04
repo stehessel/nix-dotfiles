@@ -59,11 +59,12 @@ abbr -a -U cfmc "$EDITOR ~/.config/ncmpcpp/config"
 if test "$TERMINAL" = "kitty"
 	abbr -a -U diff "kitty +kitten diff"
 end
-abbr -a -U gb "git branch"
-abbr -a -U gc "git commit -am"
-abbr -a -U gd "git diff"
-abbr -a -U gs "git status"
-abbr -a -U tl "tasklite"
+abbr -a -U gb  "git branch"
+abbr -a -U gc  "git commit -am"
+abbr -a -U gco "git checkout"
+abbr -a -U gd  "git diff"
+abbr -a -U gs  "git status"
+abbr -a -U tl  "tasklite"
 abbr -a -U corona "curl 'https://corona-stats.online?source=2&top=15'"
 
 # keybinds
