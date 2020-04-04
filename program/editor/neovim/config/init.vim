@@ -288,6 +288,7 @@ call plug#end()
 		\ 'coc-python',
 		\ 'coc-rls',
 		\ 'coc-rust-analyzer',
+		\ 'coc-snippets',
 		\ 'coc-tabnine',
 		\ 'coc-vimlsp',
 		\ 'coc-yaml',
@@ -345,6 +346,7 @@ call plug#end()
 	nmap <silent> gy <Plug>(coc-type-definition)
 	nmap <silent> gi <Plug>(coc-implementation)
 	nmap <silent> gr <Plug>(coc-references)
+	nmap <silent> gl <Plug>(coc-codelense-action)
 
 	" Use K to show documentation in preview window.
 	nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -364,8 +366,8 @@ call plug#end()
 	nmap <leader>rn <Plug>(coc-rename)
 
 	" Formatting selected code.
-	xmap <leader>f   <Plug>(coc-format-selected)
-	nmap <leader>f   <Plug>(coc-format)
+	xmap <leader>F   <Plug>(coc-format-selected)
+	nmap <leader>F   <Plug>(coc-format)
 	nmap <leader>ps  :CocCommand python.sortImports<CR>
 
 	augroup mygroup
@@ -535,14 +537,14 @@ call plug#end()
 	let g:ctrlsf_position = 'right'
     let g:ctrlsf_mapping = { "vsplit": "<C-v>" }
 
-	nmap     <leader>/f <Plug>CtrlSFPrompt
-	vmap     <leader>/f <Plug>CtrlSFVwordPath
-	vmap     <leader>/F <Plug>CtrlSFVwordExec
-	nmap     <leader>/n <Plug>CtrlSFCwordPath
-	nmap     <leader>/p <Plug>CtrlSFPwordPath
-	nnoremap <leader>/o :CtrlSFOpen<CR>
-	nnoremap <leader>/t :CtrlSFToggle<CR>
-	inoremap <leader>/t <Esc>:CtrlSFToggle<CR>
+	nmap     <leader>jj <Plug>CtrlSFPrompt
+	vmap     <leader>jJ <Plug>CtrlSFVwordPath
+	vmap     <leader>jj <Plug>CtrlSFVwordExec
+	nmap     <leader>jn <Plug>CtrlSFCwordPath
+	nmap     <leader>jp <Plug>CtrlSFPwordPath
+	nnoremap <leader>jo :CtrlSFOpen<CR>
+	nnoremap <leader>jt :CtrlSFToggle<CR>
+	inoremap <leader>jt <Esc>:CtrlSFToggle<CR>
 " Git
 	map <leader>gb :Git blame<CR>
 	map <leader>gc :Git commit
