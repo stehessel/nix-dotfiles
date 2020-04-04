@@ -9,6 +9,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 " Git
 	" Plug 'airblade/vim-gitgutter'
+	Plug 'APZelos/blamer.nvim'
 	Plug 'jreybert/vimagit'
 	Plug 'mhinz/vim-signify'
 	Plug 'tpope/vim-fugitive'
@@ -553,6 +554,9 @@ call plug#end()
 	map <leader>gl :Git log<CR>
 	map <leader>gs :Gitdiffsplit<CR>
 	map <leader>gt :Flog<CR>
+	map <leader>gB :BlamerToggle<CR>
+
+	let g:blamer_delay = 500
 " Signify
 	map <leader>vl :SignifyList<CR>
 	map <leader>vd :SignifyDiff<CR>
