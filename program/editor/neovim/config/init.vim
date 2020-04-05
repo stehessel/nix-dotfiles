@@ -265,11 +265,19 @@ call plug#end()
 	" set completeopt=noinsert,menuone,noselect
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Terminal
+	tnoremap <C-q> <C-\><C-n>:q<CR>
+	tnoremap <C-h> <C-\><C-n><C-w>h
+	tnoremap <C-j> <C-\><C-n><C-w>j
+	tnoremap <C-k> <C-\><C-n><C-w>k
+	tnoremap <C-l> <C-\><C-n><C-w>l
 " Iron.nvim REPL
 	luafile $HOME/.config/nvim/plugins.lua
-	nmap <leader>it    :IronRepl python<CR>
-	nmap <leader>if    :IronFocus python<CR>
-	nmap <leader>ir    :IronRestart<CR>
+	nmap <leader>it  :IronRepl python<CR>
+	nmap <leader>if  :IronFocus python<CR>
+	nmap <leader>ir  :IronRestart<CR>
+	nmap <leader>iw  :IronWatchCurrentFile
+	nmap <leader>iu  :IronUnwatchCurrentFile<CR>
 
 	nmap <localleader>t    <Plug>(iron-send-motion)
 	vmap <localleader>v    <Plug>(iron-visual-send)
@@ -545,7 +553,7 @@ call plug#end()
 	nmap <leader>cl  :Clap lines<CR>
 	nmap <leader>c/  :Clap grep<CR>
 	nmap <leader>cm  :Clap marks<CR>
-	nmap <leader>ct  :Clap tags<CR>
+	nmap <leader>ct  :Clap tags coc<CR>
 	nmap <leader>cc  :Clap hist:<CR>
 	nmap <leader>cs  :Clap hist/<CR>
 	nmap <leader>ch  :Clap history<CR>
@@ -573,6 +581,8 @@ call plug#end()
 	nnoremap <leader>jt :CtrlSFToggle<CR>
 	inoremap <leader>jt <Esc>:CtrlSFToggle<CR>
 " Git
+	let g:blamer_delay = 250
+
 	map <leader>gb :Git blame<CR>
 	map <leader>gc :Git commit
 	map <leader>gd :Git diff<CR>
@@ -581,8 +591,6 @@ call plug#end()
 	map <leader>gs :Gitdiffsplit<CR>
 	map <leader>gt :Flog<CR>
 	map <leader>gB :BlamerToggle<CR>
-
-	let g:blamer_delay = 250
 " Signify
 	map <leader>vl :SignifyList<CR>
 	map <leader>vd :SignifyDiff<CR>
