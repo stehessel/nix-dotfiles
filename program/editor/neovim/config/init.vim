@@ -442,15 +442,15 @@ call plug#end()
 	" Show commands.
 	nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 	" Find symbol of current document.
-	nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+	nnoremap <silent> <space>o  :<C-u>CocList --auto-preview outline<cr>
 	" Search workspace symbols.
-	nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+	nnoremap <silent> <space>s  :<C-u>CocList --interactive --auto-preview symbols<cr>
 	" Do default action for next item.
 	nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 	" Do default action for previous item.
 	nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 	" Resume latest coc list.
-	nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+	nnoremap <silent> <space>l  :<C-u>CocListResume<CR>
 	" Open coc config.
 	nnoremap <silent> <space>f  :<C-u>CocConfig<CR>
 " coc-explorer
@@ -498,13 +498,20 @@ call plug#end()
 
 	" Keybinds
 	nmap <leader>tt :Vista!!<CR>
+	nmap <leader>tf :Vista finder<CR>
+	nmap <leader>tr :Vista finder!<CR>
+	nmap <leader>tc :Vista toc<CR>
+	nmap <leader>tj :Vista focus<CR>
+	nmap <leader>ti :Vista info<CR>
 " Vim-test
-	nmap <silent> <leader>tn :TestNearest<CR>
-	nmap <silent> <leader>tf :TestFile<CR>
-	nmap <silent> <leader>ts :TestSuite<CR>
-	nmap <silent> <leader>tl :TestLast<CR>
-	nmap <silent> <leader>tg :TestVisit<CR>
+	nmap <silent> <leader>Tn :TestNearest<CR>
+	nmap <silent> <leader>Tf :TestFile<CR>
+	nmap <silent> <leader>Ts :TestSuite<CR>
+	nmap <silent> <leader>Tl :TestLast<CR>
+	nmap <silent> <leader>Tg :TestVisit<CR>
 " fzf
+	let g:fzf_tags_command = 'ctags -R'
+
 	nmap <leader>ff  :Files<CR>
 	nmap <leader>fb  :Buffers<CR>
 	nmap <leader>fgc :Commits<CR>
@@ -514,6 +521,7 @@ call plug#end()
 	nmap <leader>f/  :Rg
 	nmap <leader>fm  :Marks<CR>
 	nmap <leader>ft  :Tags<CR>
+	nmap <leader>fbt :BTags<CR>
 	nmap <leader>fc  :History:<CR>
 	nmap <leader>fs  :History/<CR>
 	nmap <leader>fh  :History<CR>
