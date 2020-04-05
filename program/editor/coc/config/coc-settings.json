@@ -25,6 +25,8 @@
 	"python.linting.pydocstyleEnabled": false,
 	"python.sortImports.path": "isort",
 
+	"snippets.userSnippetsDirectory": "~/.config/nvim/plugged/vim-snippets/UltiSnips",
+
 	"languageserver": {
 		"bash": {
 			"command": "bash-language-server",

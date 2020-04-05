@@ -32,6 +32,8 @@ call plug#begin('~/.config/nvim/plugged')
 " Linters
 " 	Plug 'dense-analysis/ale'
 " Auto complete
+" Snippets
+	Plug 'honza/vim-snippets'
 " Debugger
 	Plug 'vim-vdebug/vdebug'
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
@@ -137,6 +139,8 @@ call plug#end()
 	let g:rooter_silent_chdir = 1
 " Yank whole buffer
 	nmap <leader>Y :%y<CR>
+" Select whole buffer
+	nmap <leader>V ggVG
 " Delete whole buffer
 	nmap <leader>D :%d<CR>
 " Buffers
@@ -179,6 +183,8 @@ call plug#end()
 	let g:jellybeans_use_term_italics = 1
 " Highlighters
 	highlight HighlightedyankRegion cterm=reverse gui=reverse
+	highlight CursorColumn cterm=reverse gui=reverse
+	highlight CursorLine cterm=reverse gui=reverse
 " Statusline
 	function! NearestMethodOrFunction() abort
 		return get(b:, 'vista_nearest_method_or_function', '')
@@ -338,6 +344,18 @@ call plug#end()
 		imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 	endif
 
+	"Snippets
+	" Use <C-l> for trigger snippet expand.
+	imap <C-l> <Plug>(coc-snippets-expand)
+	" Use <C-j> for select text for visual placeholder of snippet.
+	vmap <C-j> <Plug>(coc-snippets-select)
+	" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+	let g:coc_snippet_next = '<c-j>'
+	" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+	let g:coc_snippet_prev = '<c-k>'
+	" Use <C-j> for both expand and jump (make expand higher priority.)
+	imap <C-j> <Plug>(coc-snippets-expand-jump)
+
 	" Use `[g` and `]g` to navigate diagnostics
 	nmap <silent> [g <Plug>(coc-diagnostic-prev)
 	nmap <silent> ]g <Plug>(coc-diagnostic-next)
@@ -361,7 +379,7 @@ call plug#end()
 	endfunction
 
 	" Highlight the symbol and its references when holding the cursor.
-	autocmd CursorHold * silent call CocActionAsync('highlight')
+	" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 	" Symbol renaming.
 	nmap <leader>rn <Plug>(coc-rename)
@@ -556,7 +574,7 @@ call plug#end()
 	map <leader>gt :Flog<CR>
 	map <leader>gB :BlamerToggle<CR>
 
-	let g:blamer_delay = 500
+	let g:blamer_delay = 250
 " Signify
 	map <leader>vl :SignifyList<CR>
 	map <leader>vd :SignifyDiff<CR>
