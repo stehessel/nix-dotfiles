@@ -146,10 +146,13 @@ call plug#end()
 " Delete whole buffer
 	nmap <leader>D :%d<CR>
 " Buffers
-	map gn :bn<CR>
-	map gp :bp<CR>
-	map <leader>bd :bd<CR>
+	nmap gn :bn<CR>
+	nmap gp :bp<CR>
+	nmap <leader>bd :bd<CR>
 	nnoremap gj <C-^>
+" Tabs
+	nmap g^ :tabm 0<CR>
+	nmap g$ :tabm<CR>
 " Startify
 	let g:startify_session_persistence = 1
 	let g:startify_update_oldfiles = 1
