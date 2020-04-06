@@ -84,6 +84,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nicwest/vim-camelsnek'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
+" Text substitution
+	Plug 'svermeulen/vim-subversive'
 " Text splitting
 	Plug 'AndrewRadev/splitjoin.vim'
 	Plug 'sk1418/Join', {'on': 'Join'}
@@ -159,10 +161,10 @@ call plug#end()
 	let g:startify_session_persistence = 1
 	let g:startify_update_oldfiles = 1
 
-	nmap <leader>ss :SSave!
-	nmap <leader>sl :SLoad
-	nmap <leader>sc :SClose<CR>
-	nmap <leader>sd :SDelete<CR>
+	nmap <leader>Ss :SSave!
+	nmap <leader>Sl :SLoad
+	nmap <leader>Sc :SClose<CR>
+	nmap <leader>Sd :SDelete<CR>
 " Splits
 	" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitright splitbelow
@@ -265,12 +267,18 @@ call plug#end()
 	xmap i, <Plug>(swap-textobject-i)
 	omap a, <Plug>(swap-textobject-a)
 	xmap a, <Plug>(swap-textobject-a)
-" Enable autocompletion:
-	" set wildmode=longest,list,full
-	" " enable ncm2 for all buffers
-	" autocmd BufEnter * call ncm2#enable_for_buffer()
-	" " set completeopt to be what ncm2 expects
-	" set completeopt=noinsert,menuone,noselect
+" Vim subversive
+	nmap s <plug>(SubversiveSubstitute)
+	nmap ss <plug>(SubversiveSubstituteLine)
+	nmap sl <plug>(SubversiveSubstituteToEndOfLine)
+	nmap <leader>s <plug>(SubversiveSubstituteRange)
+	xmap <leader>s <plug>(SubversiveSubstituteRange)
+	nmap <leader>ss <plug>(SubversiveSubstituteWordRange)
+" Text objects
+	" ie = inner entire buffer
+	onoremap ie :exec "normal! ggVG"<cr>
+	" iv = current viewable text in the buffer
+	onoremap iv :exec "normal! HVL"<cr>
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Terminal
