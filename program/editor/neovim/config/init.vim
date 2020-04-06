@@ -35,6 +35,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Snippets
 	Plug 'honza/vim-snippets'
 " Debugger
+	Plug 'puremourning/vimspector'
 	Plug 'vim-vdebug/vdebug'
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 " Testing
@@ -148,6 +149,7 @@ call plug#end()
 	map gn :bn<CR>
 	map gp :bp<CR>
 	map <leader>bd :bd<CR>
+	nnoremap gj <C-^>
 " Startify
 	let g:startify_session_persistence = 1
 	let g:startify_update_oldfiles = 1
