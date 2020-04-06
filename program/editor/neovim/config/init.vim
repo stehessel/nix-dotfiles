@@ -50,8 +50,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'lfv89/vim-interestingwords'
 " REPL
 	Plug 'Vigemus/iron.nvim'
-" Markdown preview
+" Markdown
 	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+	Plug 'tpope/vim-markdown'
 " Tabs
 	Plug 'gcmt/taboo.vim'
 " Docker
