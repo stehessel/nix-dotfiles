@@ -151,6 +151,8 @@ call plug#end()
 	nmap <leader>bd :bd<CR>
 	nnoremap gj <C-^>
 " Tabs
+	nmap g[ :-tabmove<CR>
+	nmap g] :+tabmove<CR>
 	nmap g^ :tabm 0<CR>
 	nmap g$ :tabm<CR>
 " Startify
