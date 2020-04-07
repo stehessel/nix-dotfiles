@@ -128,6 +128,7 @@ call plug#end()
 	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
 	noremap <plug>(slash-after) zz
 	imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
+	set nocompatible
 " Line breaks
 	set linebreak
 	set breakindent
@@ -303,6 +304,8 @@ call plug#end()
 	nmap <localleader>i    <plug>(iron-interrupt)
 	nmap <localleader>q    <Plug>(iron-exit)
 	nmap <localleader>c    <Plug>(iron-clear)
+" Vim-wiki
+	" let g:vimwiki_list = [ {'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'} ]
 " coc
 	" Extensions
 	let g:coc_global_extensions = [
