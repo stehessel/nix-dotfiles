@@ -97,6 +97,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'jlanzarotta/bufexplorer'
 	Plug 'moll/vim-bbye'
 	" Plug 'TaDaa/vimade'
+" Splits
+	" Plug 'camspiers/lens.vim'
 " Search
 	Plug 'inkarkat/vim-ingo-library'
 	Plug 'inkarkat/vim-SearchAlternatives'
@@ -179,6 +181,8 @@ call plug#end()
 	map <C-p> <C-w>w
 	" Open alternative file in split
 	map <c-t> :vs#<CR>
+" Lens
+	" let g:lens#disabled_filetypes = ['coc-explorer', 'nerdtree', 'fzf']
 " Theme
 	set bg=dark
 	set termguicolors
