@@ -8,7 +8,6 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 " Git
-	" Plug 'airblade/vim-gitgutter'
 	Plug 'APZelos/blamer.nvim'
 	Plug 'jreybert/vimagit'
 	Plug 'mhinz/vim-signify'
@@ -614,11 +613,11 @@ call plug#end()
 	map <leader>vl :SignifyList<CR>
 	map <leader>vd :SignifyDiff<CR>
 	map <leader>vf :SignifyFold<CR>
-	map <leader>vs :SignifyHunkDiff<CR>
+	map <leader>vv :SignifyHunkDiff<CR>
 	map <leader>vu :SignifyHunkUndo<CR>
 	map <leader>vr :SignifyRefresh<CR>
 	map <leader>vt :SignifyToggle<CR>
-	map <leader>vv :SignifyToggleHighlight<CR>
+	map <leader>vh :SignifyToggleHighlight<CR>
 
 	" Text objects
 	omap ig <Plug>(signify-motion-inner-pending)
