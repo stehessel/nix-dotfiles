@@ -2,14 +2,14 @@
 	background_opacity = 1.0;
 
 	draw_bold_text_with_bright_colors = false;
-	
+
 	font = {
 		size = 8;
-		normal.family = "Fira Code";
+		normal.family = "FiraCode Nerd Font";
 		normal.style = "Retina";
-		bold.family = "Fira Code";
+		bold.family = "FiraCode Nerd Font";
 		bold.style = "Bold";
-		italic.family = "Fira Code";
+		italic.family = "FiraCode Nerd Font";
 		italic.style = "Medium Italic";
 	};
 
