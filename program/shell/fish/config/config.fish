@@ -26,8 +26,6 @@ switch (uname)
 		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"
 		set -x LANG "en_US.UTF-8"
-		# ssh-add -K $HOME/.ssh/lgtf_rsa &>/dev/null
-		# ssh-add -K $HOME/.ssh/yulc_rsa &>/dev/null
 		ln -s "$XDG_CONFIG_HOME/kak-lsp/kak-lsp.toml" 2> /dev/null "$HOME/Library/Preferences/kak-lsp/kak-lsp.toml"
 	case Linux
 		source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
@@ -83,18 +81,28 @@ if not test -d "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
 end
 
 # direnv
-eval (direnv hook fish)
+if command -q direnv
+	eval (direnv hook fish)
+end
 
 # conda
 if test -d "$HOME/miniconda3"
-	source $XDG_CONFIG_HOME/fish/conda.fish
-    # eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
+	set conda_config_file "$XDG_CONFIG_HOME/fish/conda.fish"
+	if not test -f $conda_config_file
+    	eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv > $conda_config_file
+	end
+	source $conda_config_file
 end
 
 # theme
 
 # starship
-# starship init fish | source
+# if command -q starship
+# 	starship init fish | source
+# end
 
 # bobthefish
-source $XDG_CONFIG_HOME/bobthefish/config.fish
+set bobthefish_config_file "$XDG_CONFIG_HOME/bobthefish/config.fish"
+if test -f $conda_config_file
+	source $bobthefish_config_file
+end
