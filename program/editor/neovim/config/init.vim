@@ -643,7 +643,7 @@ call plug#end()
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 	nmap ga <Plug>(EasyAlign)
 " Replace all is aliased to S.
-	nnoremap S :%s//g<Left><Left>
+	nnoremap S :%s//<Left><Left>
 " Automatically deletes all trailing whitespace on save.
 	autocmd BufWritePre * %s/\s\+$//e
 " Update binds when sxhkdrc is updated.

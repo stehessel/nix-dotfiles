@@ -3,18 +3,18 @@
 	nixpkgs.config.allowUnfree = true;
 
 	imports = [
-		../../program/dev/build-system/just-build
-		../../program/dev/haskell/hie
-		../../program/dev/haskell/stack
-		../../program/dev/javascript/npm
-		../../program/dev/python/conda
-		../../program/dev/python/flake8
-		../../program/dev/python/isort
-		../../program/dev/python/mypy
-		# ../../program/dev/python/packages
-		../../program/dev/python/pycodestyle
-		../../program/dev/version-control/git
-		../../program/dev/version-control/tig
+		../../dev/build-system/just-build
+		../../dev/haskell/hie
+		../../dev/haskell/stack
+		../../dev/javascript/npm
+		../../dev/python/conda
+		../../dev/python/flake8
+		../../dev/python/isort
+		../../dev/python/mypy
+		# ../../dev/python/packages
+		../../dev/python/pycodestyle
+		../../dev/version-control/git
+		../../dev/version-control/tig
 		../../program/editor/kakoune
 		../../program/editor/neovim
 		../../program/editor/coc
@@ -44,6 +44,8 @@
 	# };
 
 	home.packages = with pkgs; [
+		# --- backup ---
+        restic
 		# --- cpp ---
 		ccls
 		# clang
@@ -100,7 +102,7 @@
 		bandwhich
 		speedtest-cli
 		# --- nix ---
-		arion
+		# arion
 		cachix
 		lorri
 		niv
