@@ -1,0 +1,6 @@
+# Prevent recursion
+~/backup
+
+# Do not backup caches
+__pycache__
+.cache
