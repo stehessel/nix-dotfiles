@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+restic -r ~/backup backup ~ \
+	--exclude-file ~/.config/restic/exclude \
+	--password-file ~/.config/restic/secret
