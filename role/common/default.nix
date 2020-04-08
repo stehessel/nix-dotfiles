@@ -15,6 +15,7 @@
 		../../dev/python/pycodestyle
 		../../dev/version-control/git
 		../../dev/version-control/tig
+		../../program/backup/restic
 		../../program/editor/kakoune
 		../../program/editor/neovim
 		../../program/editor/coc
@@ -36,6 +37,7 @@
 		# ../../program/utility/pueue
 		../../program/utility/ripgrep
 		../../program/utility/topgrade
+		../../script
 	];
 
 	# home.sessionVariables.LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
