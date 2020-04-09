@@ -74,8 +74,10 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'roryokane/detectindent', { 'on': 'DetectIndent' }
 " Keybinds
 	Plug 'tpope/vim-unimpaired'
-" Text manipulation
+" Movement
 	Plug 'easymotion/vim-easymotion'
+	Plug 'unblevable/quick-scope'
+" Text manipulation
 	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 	Plug 'machakann/vim-swap'
 	Plug 'mbbill/undotree'
@@ -85,6 +87,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-repeat'
 " Text substitution
 	Plug 'svermeulen/vim-subversive'
+	Plug 'tpope/vim-abolish'
 " Text splitting
 	Plug 'AndrewRadev/splitjoin.vim'
 	Plug 'sk1418/Join', {'on': 'Join'}
@@ -484,7 +487,8 @@ call plug#end()
 	" Open coc config.
 	nnoremap <silent> <space>f  :<C-u>CocConfig<CR>
 " coc-explorer
-	nmap <leader>e :CocCommand explorer<CR>
+	nmap <silent> <leader>ee :CocCommand explorer --no-toggle<CR>
+	nmap <silent> <leader>et :CocCommand explorer<CR>
 " coc-yank
 	nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<CR>
 " Vista

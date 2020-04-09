@@ -6,7 +6,12 @@ set -x FILE "lf"
 set -x PAGER "less"
 set -x READER "zathura"
 set -x TERMINAL "kitty"
+
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
+set -x FZF_ENABLE_OPEN_PREVIEW 1
+set -x FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always"
+set -x FZF_PREVIEW_DIR_CMD "tree"
+
 set -p fish_user_paths "$HOME/.npm-packages/bin"
 set -p fish_user_paths "$HOME/.cargo/bin"
 set -p fish_user_paths "$HOME/.gem/ruby/2.6.0/bin"
@@ -15,6 +20,7 @@ set -p fish_user_paths "/usr/local/bin"
 set -p fish_user_paths "/usr/local/opt/llvm/bin"
 set -p fish_user_paths "$HOME/.nix-profile/bin"
 set -p fish_user_paths "$HOME/.local/bin"
+
 # link sh to dash
 ln -s (which dash) "$HOME/.local/bin/sh" 2> /dev/null
 set -x KAKOUNE_POSIX_SHELL (which dash)
