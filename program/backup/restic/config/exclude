@@ -1,5 +1,6 @@
 # Prevent recursion
 ~/backup
+/Users/lgtf/backup
 
 # Do not backup caches
 __pycache__

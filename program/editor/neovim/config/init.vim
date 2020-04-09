@@ -76,7 +76,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-unimpaired'
 " Movement
 	Plug 'easymotion/vim-easymotion'
-	Plug 'unblevable/quick-scope'
+	" Plug 'unblevable/quick-scope'
 " Text manipulation
 	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 	Plug 'machakann/vim-swap'
