@@ -54,11 +54,6 @@ abbr -a -U cfp "$EDITOR ~/nix-home/program/desktop/compositor/picom/config/picom
 abbr -a -U cfs "$EDITOR ~/nix-home/program/desktop/sxhkd/config/sxhkdrc"
 abbr -a -U cfk "$EDITOR ~/nix-home/program/editor/kakoune/config/kakrc"
 abbr -a -U cfv "$EDITOR ~/nix-home/program/editor/neovim/config/init.vim"
-abbr -a -U cfm "$EDITOR ~/.config/neomutt/neomuttrc"
-abbr -a -U cfu "$EDITOR ~/.config/newsboat/urls"
-abbr -a -U cfn "$EDITOR ~/.config/newsboat/config"
-abbr -a -U cfmb "$EDITOR ~/.config/ncmpcpp/bindings"
-abbr -a -U cfmc "$EDITOR ~/.config/ncmpcpp/config"
 
 if test "$TERMINAL" = "kitty"
 	abbr -a -U diff "kitty +kitten diff"
@@ -69,6 +64,7 @@ abbr -a -U gco "git checkout"
 abbr -a -U gd  "git diff"
 abbr -a -U gs  "git status"
 abbr -a -U tl  "tasklite"
+abbr -a -U restic "restic -r ~/backup --password-file ~/.config/restic/secret"
 abbr -a -U corona "curl 'https://corona-stats.online?source=2&top=15'"
 
 # keybinds
