@@ -133,7 +133,6 @@ call plug#end()
 	noremap <plug>(slash-after) zz
 	imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
 	set nocompatible
-	set autoread
 " Line breaks
 	set linebreak
 	set breakindent
@@ -171,6 +170,14 @@ call plug#end()
 	nmap <leader>Sl :SLoad
 	nmap <leader>Sc :SClose<CR>
 	nmap <leader>Sd :SDelete<CR>
+" Reloading
+	set autoread
+	" Triger `autoread` when files changes on disk
+	autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+		\ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+	" Notification after file change
+	autocmd FileChangedShellPost *
+		\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 " Splits
 	" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitright splitbelow
