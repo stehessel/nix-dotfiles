@@ -9,9 +9,6 @@
 	];
 
 	extraConfig = {
-		core = {
-			pager = "diff-so-fancy | less --tabs=4 -RFX";
-		};
 		color = {
 			ui = "true";
 			diff-highlight = {
@@ -29,5 +26,11 @@
 				whitespace = "red reverse";
 			};
 		};
+		core = {
+			pager = "diff-so-fancy | less --tabs=4 -RFX";
+        };
+        pull = {
+            ff = "only";
+        };
 	};
 }
