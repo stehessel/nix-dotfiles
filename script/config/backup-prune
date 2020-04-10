@@ -3,6 +3,6 @@
 $HOME/.nix-profile/bin/restic \
 	-r $HOME/backup \
 	--password-file $HOME/.config/restic/secret \
-	backup $HOME \
-	--exclude-caches \
-	--exclude-file $HOME/.config/restic/exclude
+	forget \
+	--keep-last 14 \
+	--prune

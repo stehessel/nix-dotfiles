@@ -133,6 +133,7 @@ call plug#end()
 	noremap <plug>(slash-after) zz
 	imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
 	set nocompatible
+	set autoread
 " Line breaks
 	set linebreak
 	set breakindent
