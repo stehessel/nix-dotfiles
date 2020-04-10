@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-
-$HOME/.nix-profile/bin/restic \
-	-r $HOME/backup \
-	--password-file $HOME/.config/restic/secret \
-	forget \
-	--keep-last 14 \
-	--prune

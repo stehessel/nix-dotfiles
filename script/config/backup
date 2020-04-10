@@ -1,8 +1,40 @@
 #!/usr/bin/env sh
 
-$HOME/.nix-profile/bin/restic \
-	-r $HOME/backup \
-	--password-file $HOME/.config/restic/secret \
-	backup $HOME \
-	--exclude-caches \
-	--exclude-file $HOME/.config/restic/exclude
+case $1 in
+	create)
+		$HOME/.nix-profile/bin/restic \
+			-r $HOME/backup \
+			--password-file $HOME/.config/restic/secret \
+			backup $HOME \
+			--exclude-caches \
+			--exclude-file $HOME/.config/restic/exclude
+		;;
+
+	list)
+		$HOME/.nix-profile/bin/restic \
+		-r $HOME/backup \
+		--password-file $HOME/.config/restic/secret \
+		snapshots
+		;;
+
+	prune)
+		$HOME/.nix-profile/bin/restic \
+			-r $HOME/backup \
+			--password-file $HOME/.config/restic/secret \
+			forget \
+			--keep-last $2 \
+			--prune
+		;;
+
+	help)
+		echo '
+USAGE: backup COMMAND [OPTIONS]
+
+COMMANDS
+
+    create    Create a snapshot of the home directory in ~/backup.
+    list      List snapshots in ~/backup.
+    prune     Keep last N snapshots and remove older ones. Takes N as an argument.
+    help      Print this help message.'
+		;;
+esac
