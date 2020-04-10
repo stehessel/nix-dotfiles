@@ -3,7 +3,7 @@
 case $1 in
 	create)
 		$HOME/.nix-profile/bin/restic \
-			-r $HOME/backup \
+			--repo $HOME/backup \
 			--password-file $HOME/.config/restic/secret \
 			backup $HOME \
 			--exclude-caches \
@@ -12,14 +12,14 @@ case $1 in
 
 	list)
 		$HOME/.nix-profile/bin/restic \
-		-r $HOME/backup \
+		--repo $HOME/backup \
 		--password-file $HOME/.config/restic/secret \
 		snapshots
 		;;
 
 	prune)
 		$HOME/.nix-profile/bin/restic \
-			-r $HOME/backup \
+			--repo $HOME/backup \
 			--password-file $HOME/.config/restic/secret \
 			forget \
 			--keep-last $2 \
