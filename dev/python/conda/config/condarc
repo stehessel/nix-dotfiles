@@ -1,4 +1,4 @@
-auto_activate_base: True
+auto_activate_base: False
 changeps1: False
 channel_priority: strict
 channels:
