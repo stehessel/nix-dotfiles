@@ -1,3 +1,7 @@
 function tree --description "tree alias"
-	exa -T --git-ignore -I __pycache__
+	if command -q exa
+		exa --tree --icons --git-ignore --ignore-glob __pycache__ $argv
+	else
+		/usr/bin/env tree $argv
+	end
 end
