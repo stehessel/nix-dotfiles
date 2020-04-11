@@ -328,7 +328,6 @@ call plug#end()
 		\ 'coc-clangd',
 		\ 'coc-explorer',
 		\ 'coc-floaterm',
-		\ 'coc-git',
 		\ 'coc-highlight',
 		\ 'coc-json',
 		\ 'coc-markdownlint',
