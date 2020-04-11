@@ -1,6 +1,5 @@
 # environment variables
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
-set -x BROWSER "firefox"
 set -x EDITOR "nvim"
 set -x FILE "lf"
 set -x PAGER "less"
@@ -32,8 +31,10 @@ switch (uname)
 		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"
 		set -x LANG "en_US.UTF-8"
-		ln -s "$XDG_CONFIG_HOME/kak-lsp/kak-lsp.toml" 2> /dev/null "$HOME/Library/Preferences/kak-lsp/kak-lsp.toml"
+		ln -s "/Applications/Firefox.app/Contents/MacOS/firefox" "$HOME/.local/bin/firefox" 2> /dev/null
+		ln -s "$XDG_CONFIG_HOME/kak-lsp/kak-lsp.toml" "$HOME/Library/Preferences/kak-lsp/kak-lsp.toml" 2> /dev/null
 	case Linux
+		set -x BROWSER "firefox"
 		source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
 end
 

@@ -79,6 +79,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'unblevable/quick-scope'
 " Text manipulation
 	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
+	Plug 'matze/vim-move'
 	Plug 'machakann/vim-swap'
 	Plug 'mbbill/undotree'
 	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
@@ -102,6 +103,8 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'TaDaa/vimade'
 " Splits
 	" Plug 'camspiers/lens.vim'
+" Tmux
+	Plug 'christoomey/vim-tmux-navigator'
 " Search
 	Plug 'inkarkat/vim-ingo-library'
 	Plug 'inkarkat/vim-SearchAlternatives'
@@ -185,10 +188,10 @@ call plug#end()
 	map <C-s> <C-w>S
 	map <C-v> <C-w>v
 	map <C-q> <C-w>q
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
+	" map <C-h> <C-w>h
+	" map <C-j> <C-w>j
+	" map <C-k> <C-w>k
+	" map <C-l> <C-w>l
 	map <C-p> <C-w>w
 	" Open alternative file in split
 	map <c-t> :vs#<CR>

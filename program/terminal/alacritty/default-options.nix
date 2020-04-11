@@ -2,6 +2,7 @@
 	background_opacity = 1.0;
 
 	draw_bold_text_with_bright_colors = false;
+    dynamic_title = true;
 
 	font = {
 		size = 8;
@@ -14,6 +15,16 @@
 		bold_italic.family = "FiraCode Nerd Font";
 		bold_italic.style = "Medium";
 	};
+
+    mouse = {
+        url = {
+            launcher = {
+                program = "open";
+                args = [];
+            };
+            modifiers = "None";
+        };
+    };
 
 	key_bindings = [
 		{
