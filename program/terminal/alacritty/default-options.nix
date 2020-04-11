@@ -10,7 +10,9 @@
 		bold.family = "FiraCode Nerd Font";
 		bold.style = "Bold";
 		italic.family = "FiraCode Nerd Font";
-		italic.style = "Medium Italic";
+		italic.style = "Light";
+		bold_italic.family = "FiraCode Nerd Font";
+		bold_italic.style = "Medium";
 	};
 
 	key_bindings = [
