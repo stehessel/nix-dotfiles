@@ -1,3 +1,7 @@
+if not status is-interactive
+	exit
+end
+
 # environment variables
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 set -x EDITOR "nvim"
@@ -19,6 +23,8 @@ set -p fish_user_paths "/usr/local/bin"
 set -p fish_user_paths "/usr/local/opt/llvm/bin"
 set -p fish_user_paths "$HOME/.nix-profile/bin"
 set -p fish_user_paths "$HOME/.local/bin"
+source "$XDG_CONFIG_HOME/nix/nix-single-user.fish" 2> /dev/null
+source "$XDG_CONFIG_HOME/nix/nix-daemon.fish" 2> /dev/null
 
 # link sh to dash
 ln -s (which dash) "$HOME/.local/bin/sh" 2> /dev/null
@@ -26,7 +32,6 @@ set -x KAKOUNE_POSIX_SHELL (which dash)
 set -x NVIM_LISTEN_ADDRESS /tmp/nvimsocket
 switch (uname)
 	case Darwin
-		source "$XDG_CONFIG_HOME/nix/nix-single-user.fish"
 		set -p fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
 		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"
@@ -35,7 +40,6 @@ switch (uname)
 		ln -s "$XDG_CONFIG_HOME/kak-lsp/kak-lsp.toml" "$HOME/Library/Preferences/kak-lsp/kak-lsp.toml" 2> /dev/null
 	case Linux
 		set -x BROWSER "firefox"
-		source "$XDG_CONFIG_HOME/nix/nix-daemon.fish"
 end
 
 # abbreviations
