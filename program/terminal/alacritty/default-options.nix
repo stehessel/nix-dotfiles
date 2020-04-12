@@ -1,6 +1,6 @@
 {
+    alt_send_esc = true;
 	background_opacity = 1.0;
-
 	draw_bold_text_with_bright_colors = false;
     dynamic_title = true;
 
