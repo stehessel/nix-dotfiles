@@ -1,5 +1,5 @@
 function cat --description "cat alias"
-	if command -q bat
+	if command -v bat >/dev/null 2>&1
 		bat $argv
 	else
 		/usr/bin/env cat $argv

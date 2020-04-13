@@ -28,8 +28,8 @@ source "$XDG_CONFIG_HOME/nix/nix-single-user.fish" 2> /dev/null
 source "$XDG_CONFIG_HOME/nix/nix-daemon.fish" 2> /dev/null
 
 # link sh to dash
-ln -s (which dash) "$HOME/.local/bin/sh" 2> /dev/null
-set -x KAKOUNE_POSIX_SHELL (which dash)
+ln -s (command -v dash) "$HOME/.local/bin/sh" 2> /dev/null
+set -x KAKOUNE_POSIX_SHELL (command -v dash)
 set -x NVIM_LISTEN_ADDRESS /tmp/nvimsocket
 switch (uname)
 	case Darwin
@@ -89,7 +89,7 @@ if not test -d "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
 end
 
 # direnv
-if command -q direnv
+if command -v direnv >/dev/null 2>&1
 	eval (direnv hook fish)
 end
 
@@ -105,7 +105,7 @@ end
 # theme
 
 # starship
-# if command -q starship
+# if command -v starship >/dev/null 2>&1
 # 	starship init fish | source
 # end
 
