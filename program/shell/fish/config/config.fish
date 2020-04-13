@@ -15,15 +15,42 @@ set -x FZF_ENABLE_OPEN_PREVIEW 1
 set -x FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always"
 set -x FZF_PREVIEW_DIR_CMD "tree"
 
-set -p fish_user_paths "$HOME/.npm-packages/bin"
-set -p fish_user_paths "$HOME/go/bin"
-set -p fish_user_paths "$HOME/.cargo/bin"
-set -p fish_user_paths "$HOME/.gem/ruby/2.6.0/bin"
-set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
-set -p fish_user_paths "/usr/local/bin"
-set -p fish_user_paths "/usr/local/opt/llvm/bin"
-set -p fish_user_paths "$HOME/.nix-profile/bin"
-set -p fish_user_paths "$HOME/.local/bin"
+if test -d $HOME/.npm-packages/bin
+	set -x fish_user_paths "$HOME/.npm-packages/bin" fish_user_paths
+end
+if test -d $HOME/go/bin
+	set -x fish_user_paths "$HOME/go/bin" fish_user_paths
+end
+if test -d $HOME/.cargo/bin
+	set -x fish_user_paths "$HOME/.cargo/bin" fish_user_paths
+end
+if test -d $HOME/.gem/ruby/2.6.0/bin
+	set -x fish_user_paths "$HOME/.gem/ruby/2.6.0/bin" fish_user_paths
+end
+if test -d /nix/var/nix/profiles/default/bin
+	set -x fish_user_paths "/nix/var/nix/profiles/default/bin" fish_user_paths
+end
+if test -d /usr/local/bin
+	set -x fish_user_paths "/usr/local/bin" fish_user_paths
+end
+if test -d /usr/local/opt/llvm/bin
+	set -x fish_user_paths "/usr/local/opt/llvm/bin" fish_user_paths
+end
+if test -d $HOME/.nix-profile/bin
+	set -x fish_user_paths "$HOME/.nix-profile/bin" fish_user_paths
+end
+if test -d $HOME/.local/bin
+	set -x fish_user_paths "$HOME/.local/bin" fish_user_paths
+end
+# set -p fish_user_paths "$HOME/.npm-packages/bin"
+# set -p fish_user_paths "$HOME/go/bin"
+# set -p fish_user_paths "$HOME/.cargo/bin"
+# set -p fish_user_paths "$HOME/.gem/ruby/2.6.0/bin"
+# set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
+# set -p fish_user_paths "/usr/local/bin"
+# set -p fish_user_paths "/usr/local/opt/llvm/bin"
+# set -p fish_user_paths "$HOME/.nix-profile/bin"
+# set -p fish_user_paths "$HOME/.local/bin"
 source "$XDG_CONFIG_HOME/nix/nix-single-user.fish" 2> /dev/null
 source "$XDG_CONFIG_HOME/nix/nix-daemon.fish" 2> /dev/null
 
@@ -44,34 +71,34 @@ switch (uname)
 end
 
 # abbreviations
-abbr -a -U h "cd ~/ and ls -a"
-abbr -a -U b "cd ~/backgrounds and ls -a"
-abbr -a -U d "cd ~/Documents; and ls -a"
-abbr -a -U D "cd ~/Downloads; and ls -a"
-abbr -a -U m "cd ~/Music; and ls -a"
-abbr -a -U pp "cd ~/Pictures; and ls -a"
-abbr -a -U vv "cd ~/Videos; and ls -a"
-abbr -a -U cf "cd ~/.config; and ls -a"
+abbr -a h "cd ~/ and ls -a"
+abbr -a b "cd ~/backgrounds and ls -a"
+abbr -a d "cd ~/Documents; and ls -a"
+abbr -a D "cd ~/Downloads; and ls -a"
+abbr -a m "cd ~/Music; and ls -a"
+abbr -a pp "cd ~/Pictures; and ls -a"
+abbr -a vv "cd ~/Videos; and ls -a"
+abbr -a cf "cd ~/.config; and ls -a"
 
-abbr -a -U cfb "$EDITOR ~/nix-home/program/desktop/window-manager/bspwm/config/bspwmrc"
-abbr -a -U cfx "$EDITOR ~/nix-home/program/desktop/window-manager/xmonad/config/xmonad.hs"
-abbr -a -U cfq "$EDITOR ~/nix-home/program/desktop/window-manager/qtile/config/config.py"
-abbr -a -U cfp "$EDITOR ~/nix-home/program/desktop/compositor/picom/config/picom.conf"
-abbr -a -U cfs "$EDITOR ~/nix-home/program/desktop/sxhkd/config/sxhkdrc"
-abbr -a -U cfk "$EDITOR ~/nix-home/program/editor/kakoune/config/kakrc"
-abbr -a -U cfv "$EDITOR ~/nix-home/program/editor/neovim/config/init.vim"
+abbr -a cfb "$EDITOR ~/nix-home/program/desktop/window-manager/bspwm/config/bspwmrc"
+abbr -a cfx "$EDITOR ~/nix-home/program/desktop/window-manager/xmonad/config/xmonad.hs"
+abbr -a cfq "$EDITOR ~/nix-home/program/desktop/window-manager/qtile/config/config.py"
+abbr -a cfp "$EDITOR ~/nix-home/program/desktop/compositor/picom/config/picom.conf"
+abbr -a cfs "$EDITOR ~/nix-home/program/desktop/sxhkd/config/sxhkdrc"
+abbr -a cfk "$EDITOR ~/nix-home/program/editor/kakoune/config/kakrc"
+abbr -a cfv "$EDITOR ~/nix-home/program/editor/neovim/config/init.vim"
 
 if test "$TERMINAL" = "kitty"
-	abbr -a -U diff "kitty +kitten diff"
+	abbr -a diff "kitty +kitten diff"
 end
-abbr -a -U gb  "git branch"
-abbr -a -U gc  "git commit -am"
-abbr -a -U gco "git checkout"
-abbr -a -U gd  "git diff"
-abbr -a -U gs  "git status"
-abbr -a -U tl  "tasklite"
-abbr -a -U restic "restic -r ~/backup --password-file ~/.config/restic/secret"
-abbr -a -U corona "curl 'https://corona-stats.online?source=2&top=15'"
+abbr -a gb  "git branch"
+abbr -a gc  "git commit -am"
+abbr -a gco "git checkout"
+abbr -a gd  "git diff"
+abbr -a gs  "git status"
+abbr -a tl  "tasklite"
+abbr -a restic "restic -r ~/backup --password-file ~/.config/restic/secret"
+abbr -a corona "curl 'https://corona-stats.online?source=2&top=15'"
 
 # keybinds
 bind \cb beginning-of-line

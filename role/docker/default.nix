@@ -58,7 +58,7 @@
     htop
     # --- shell ---
     dash
-    fish
+    # fish
     starship
     # --- utility ---
     direnv
