@@ -70,8 +70,8 @@ call plug#begin('~/.config/nvim/plugged')
 " Marks
 	Plug 'kshenoy/vim-signature'
 " Indentation
-	Plug 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
-	Plug 'roryokane/detectindent', { 'on': 'DetectIndent' }
+	" Plug 'lukas-reineke/indent-blankline.nvim'
+	Plug 'Yggdroot/indentLine'
 " Keybinds
 	Plug 'tpope/vim-unimpaired'
 " Movement
