@@ -23,5 +23,6 @@
 	];
 
 	xdg.configFile."nix/nix-daemon.fish".source = config/nix-daemon.fish;
+	xdg.configFile."fish/fishfile".source = ../../program/shell/fish/linux/fishfile;
 	home.file.".profile".source = config/profile;
 }

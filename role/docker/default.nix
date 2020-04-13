@@ -10,7 +10,7 @@
 		../../program/editor/coc
 		../../program/file-manager/lf
 		../../program/file-manager/vifm
-		../../program/shell/bobthefish
+		# ../../program/shell/bobthefish
 		../../program/shell/fish
 		../../program/shell/starship
 		../../program/utility/broot
@@ -20,6 +20,7 @@
 	];
 
     xdg.configFile."nix/nix-single-user.fish".source = config/nix-single-user.fish;
+	xdg.configFile."fish/fishfile".source = ../../program/shell/fish/linux/fishfile;
 
 	home.packages = with pkgs; [
         # --- azure ---

@@ -87,6 +87,8 @@
 		# --- fuzzy search ---
 		fzf
 		skim
+        # --- go ---
+        go
 		# --- haskell ---
 		# cabal-install
 		ghc

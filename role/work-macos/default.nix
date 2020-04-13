@@ -5,6 +5,7 @@
 	];
 
 	xdg.configFile."nix/nix-single-user.fish".source = config/nix-single-user.fish;
+	xdg.configFile."fish/fishfile".source = ../../program/shell/fish/macos/fishfile;
 
 	home.packages = with pkgs; [
 		# --- editor ---

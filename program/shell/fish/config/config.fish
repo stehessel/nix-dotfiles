@@ -16,6 +16,7 @@ set -x FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always"
 set -x FZF_PREVIEW_DIR_CMD "tree"
 
 set -p fish_user_paths "$HOME/.npm-packages/bin"
+set -p fish_user_paths "$HOME/go/bin"
 set -p fish_user_paths "$HOME/.cargo/bin"
 set -p fish_user_paths "$HOME/.gem/ruby/2.6.0/bin"
 set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
@@ -110,6 +111,6 @@ end
 
 # bobthefish
 set bobthefish_config_file "$XDG_CONFIG_HOME/bobthefish/config.fish"
-if test -f $conda_config_file
+if test -f $bobthefish_config_file
 	source $bobthefish_config_file
 end
