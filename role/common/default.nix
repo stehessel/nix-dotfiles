@@ -137,6 +137,7 @@
 		direnv
 		du-dust
 		file
+        gawk
 		gitAndTools.diff-so-fancy
 		hyperfine
 		jrnl

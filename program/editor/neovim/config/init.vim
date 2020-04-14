@@ -105,6 +105,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'camspiers/lens.vim'
 " Tmux
 	Plug 'christoomey/vim-tmux-navigator'
+	Plug 'tmux-plugins/vim-tmux-focus-events'
 " Search
 	Plug 'inkarkat/vim-ingo-library'
 	Plug 'inkarkat/vim-SearchAlternatives'
