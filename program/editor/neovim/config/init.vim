@@ -337,7 +337,6 @@ call plug#end()
 		\ 'coc-markdownlint',
 		\ 'coc-pairs',
 		\ 'coc-python',
-		\ 'coc-rls',
 		\ 'coc-rust-analyzer',
 		\ 'coc-snippets',
 		\ 'coc-tabnine',
@@ -498,8 +497,8 @@ call plug#end()
 	" Open coc config.
 	nnoremap <silent> <space>f  :<C-u>CocConfig<CR>
 " coc-explorer
-	nmap <silent> <leader>ee :CocCommand explorer --no-toggle<CR>
-	nmap <silent> <leader>et :CocCommand explorer<CR>
+	nmap <silent> <leader>ef :CocCommand explorer --no-toggle<CR>
+	nmap <silent> <leader>ee :CocCommand explorer<CR>
 " coc-yank
 	nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<CR>
 " Vista
@@ -542,18 +541,18 @@ call plug#end()
 		\ "variable": "\uf71b" }
 
 	" Keybinds
-	nmap <leader>tt :Vista!!<CR>
-	nmap <leader>tf :Vista finder<CR>
-	nmap <leader>tr :Vista finder!<CR>
-	nmap <leader>tc :Vista toc<CR>
-	nmap <leader>tj :Vista focus<CR>
-	nmap <leader>ti :Vista info<CR>
+	nmap <leader>Tt :Vista!!<CR>
+	nmap <leader>Tf :Vista finder<CR>
+	nmap <leader>Tr :Vista finder!<CR>
+	nmap <leader>Tc :Vista toc<CR>
+	nmap <leader>Tj :Vista focus<CR>
+	nmap <leader>Ti :Vista info<CR>
 " Vim-test
-	nmap <silent> <leader>Tn :TestNearest<CR>
-	nmap <silent> <leader>Tf :TestFile<CR>
-	nmap <silent> <leader>Ts :TestSuite<CR>
-	nmap <silent> <leader>Tl :TestLast<CR>
-	nmap <silent> <leader>Tg :TestVisit<CR>
+	nmap <silent> <leader>tn :TestNearest<CR>
+	nmap <silent> <leader>tf :TestFile<CR>
+	nmap <silent> <leader>ts :TestSuite<CR>
+	nmap <silent> <leader>tl :TestLast<CR>
+	nmap <silent> <leader>tg :TestVisit<CR>
 " fzf
 	let g:fzf_tags_command = 'ctags -R'
 

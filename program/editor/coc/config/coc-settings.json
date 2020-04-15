@@ -1,6 +1,7 @@
 {
 	"coc.preferences.formatOnSaveFiletypes": [
-		"python"
+		"python",
+		"rust"
 	],
 
 	"suggest.numberSelect": true,
