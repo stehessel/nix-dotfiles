@@ -15,42 +15,43 @@ set -x FZF_ENABLE_OPEN_PREVIEW 1
 set -x FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always"
 set -x FZF_PREVIEW_DIR_CMD "tree"
 
-if test -d $HOME/.npm-packages/bin
-	set -x fish_user_paths "$HOME/.npm-packages/bin" fish_user_paths
-end
-if test -d $HOME/go/bin
-	set -x fish_user_paths "$HOME/go/bin" fish_user_paths
-end
-if test -d $HOME/.cargo/bin
-	set -x fish_user_paths "$HOME/.cargo/bin" fish_user_paths
-end
-if test -d $HOME/.gem/ruby/2.6.0/bin
-	set -x fish_user_paths "$HOME/.gem/ruby/2.6.0/bin" fish_user_paths
-end
-if test -d /nix/var/nix/profiles/default/bin
-	set -x fish_user_paths "/nix/var/nix/profiles/default/bin" fish_user_paths
-end
-if test -d /usr/local/bin
-	set -x fish_user_paths "/usr/local/bin" fish_user_paths
-end
-if test -d /usr/local/opt/llvm/bin
-	set -x fish_user_paths "/usr/local/opt/llvm/bin" fish_user_paths
-end
-if test -d $HOME/.nix-profile/bin
-	set -x fish_user_paths "$HOME/.nix-profile/bin" fish_user_paths
-end
-if test -d $HOME/.local/bin
-	set -x fish_user_paths "$HOME/.local/bin" fish_user_paths
-end
-# set -p fish_user_paths "$HOME/.npm-packages/bin"
-# set -p fish_user_paths "$HOME/go/bin"
-# set -p fish_user_paths "$HOME/.cargo/bin"
-# set -p fish_user_paths "$HOME/.gem/ruby/2.6.0/bin"
-# set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
-# set -p fish_user_paths "/usr/local/bin"
-# set -p fish_user_paths "/usr/local/opt/llvm/bin"
-# set -p fish_user_paths "$HOME/.nix-profile/bin"
-# set -p fish_user_paths "$HOME/.local/bin"
+# if test -d $HOME/.npm-packages/bin
+# 	set -x fish_user_paths "$HOME/.npm-packages/bin" fish_user_paths
+# end
+# if test -d $HOME/go/bin
+# 	set -x fish_user_paths "$HOME/go/bin" fish_user_paths
+# end
+# if test -d $HOME/.cargo/bin
+# 	set -x fish_user_paths "$HOME/.cargo/bin" fish_user_paths
+# end
+# if test -d $HOME/.gem/ruby/2.6.0/bin
+# 	set -x fish_user_paths "$HOME/.gem/ruby/2.6.0/bin" fish_user_paths
+# end
+# if test -d /nix/var/nix/profiles/default/bin
+# 	set -x fish_user_paths "/nix/var/nix/profiles/default/bin" fish_user_paths
+# end
+# if test -d /usr/local/bin
+# 	set -x fish_user_paths "/usr/local/bin" fish_user_paths
+# end
+# if test -d /usr/local/opt/llvm/bin
+# 	set -x fish_user_paths "/usr/local/opt/llvm/bin" fish_user_paths
+# end
+# if test -d $HOME/.nix-profile/bin
+# 	set -x fish_user_paths "$HOME/.nix-profile/bin" fish_user_paths
+# end
+# if test -d $HOME/.local/bin
+# 	set -x fish_user_paths "$HOME/.local/bin" fish_user_paths
+# end
+set -p fish_user_paths "$HOME/.npm-packages/bin"
+set -p fish_user_paths "$HOME/go/bin"
+set -p fish_user_paths "$HOME/.cargo/bin"
+set -p fish_user_paths "$HOME/.gem/ruby/2.6.0/bin"
+set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
+set -p fish_user_paths "/usr/local/bin"
+set -p fish_user_paths "/usr/local/opt/llvm/bin"
+set -p fish_user_paths "$HOME/.nix-profile/bin"
+set -p fish_user_paths "$HOME/.local/bin"
+
 source "$XDG_CONFIG_HOME/nix/nix-single-user.fish" 2> /dev/null
 source "$XDG_CONFIG_HOME/nix/nix-daemon.fish" 2> /dev/null
 
