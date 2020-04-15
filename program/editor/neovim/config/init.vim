@@ -671,6 +671,9 @@ call plug#end()
 	map <leader>xc :Camel<CR>
 	map <leader>xb :CamelB<CR>
 	map <leader>xk :Kebab<CR>
+" AsyncTasks
+	" Height of quick fix window
+	let g:asyncrun_open = 12
 " Markdown preview
 	" set to 1, nvim will open the preview window after entering the markdown buffer
 	" default: 0
@@ -759,6 +762,3 @@ call plug#end()
 	nmap <leader>mp <Plug>MarkdownPreview
 	nmap <leader>ms <Plug>MarkdownPreviewStop
 	nmap <leader>mt <Plug>MarkdownPreviewToggle
-" AsyncTasks
-	" Height of quick fix window
-	let g:asyncrun_open = 8
