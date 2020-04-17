@@ -330,6 +330,7 @@ call plug#end()
 		\ 'coc-actions',
 		\ 'coc-cmake',
 		\ 'coc-clangd',
+		\ 'coc-emoji',
 		\ 'coc-explorer',
 		\ 'coc-floaterm',
 		\ 'coc-highlight',
@@ -341,6 +342,7 @@ call plug#end()
 		\ 'coc-snippets',
 		\ 'coc-tabnine',
 		\ 'coc-vimlsp',
+		\ 'coc-word',
 		\ 'coc-yaml',
 		\ 'coc-yank' ]
 
