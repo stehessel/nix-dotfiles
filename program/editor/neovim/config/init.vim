@@ -103,6 +103,8 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'TaDaa/vimade'
 " Splits
 	" Plug 'camspiers/lens.vim'
+" Tabs
+	Plug 'caenrique/nvim-maximize-window-toggle'
 " Tmux
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -166,6 +168,7 @@ call plug#end()
 	nmap g] :+tabmove<CR>
 	nmap g^ :tabm 0<CR>
 	nmap g$ :tabm<CR>
+	nnoremap <leader><space> :ToggleOnly<Enter>
 " Startify
 	let g:startify_session_persistence = 1
 	let g:startify_update_oldfiles = 1
@@ -176,7 +179,7 @@ call plug#end()
 	nmap <leader>Sd :SDelete<CR>
 " Reloading
 	set autoread
-	" Triger `autoread` when files changes on disk
+	" Trigger `autoread` when files changes on disk
 	autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
 		\ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
 	" Notification after file change
