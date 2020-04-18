@@ -57,6 +57,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'gcmt/taboo.vim'
 " Docker
 " Color themes
+	Plug 'arcticicestudio/nord-vim'
+	Plug 'cocopon/iceberg.vim'
+	Plug 'haishanh/night-owl.vim'
 	Plug 'nanotech/jellybeans.vim'
 	Plug 'flazz/vim-colorschemes'
 " Icons
@@ -206,7 +209,7 @@ call plug#end()
 	set termguicolors
 	let g:rainbow_active = 1
 " Color theme
-	colorscheme jellybeans
+	colorscheme night-owl
 
 	let g:jellybeans_overrides = {
 		\ 'Todo': { 'ctermfg': 'Black', 'ctermbg': 'Grey', 'attr': 'bold' },
@@ -302,7 +305,7 @@ call plug#end()
 	" iv = current viewable text in the buffer
 	onoremap iv :exec "normal! HVL"<cr>
 " Disables automatic commenting on newline:
-	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+	" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Terminal
 	tnoremap <C-q> <C-\><C-n>:q<CR>
 	tnoremap <C-h> <C-\><C-n><C-w>h
