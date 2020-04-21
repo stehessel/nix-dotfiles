@@ -4,7 +4,7 @@
 
 	imports = [
 		../../dev/build-system/just-build
-		../../dev/haskell/hie
+		# ../../dev/haskell/hie
 		../../dev/haskell/stack
 		../../dev/javascript/npm
 		../../dev/python/conda
