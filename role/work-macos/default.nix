@@ -10,7 +10,7 @@
 	home.packages = with pkgs; [
 		# --- editor ---
         kakoune
-        # neovim
+        neovim
 		# --- terminal ---
 		alacritty
 		kitty
