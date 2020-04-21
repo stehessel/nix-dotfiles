@@ -21,13 +21,16 @@ function docker-pyenv -a container_id --description "Create python environment f
 	conda env remove -n docker
 	conda create -n docker python=3.6 -y
 	conda activate docker
-	conda install cython
-				\ pdbpp
-				\ pipdeptree
-				\ python-language-server
-				\ pynvim
-				\ turbodbc
-				\ -y
+	conda install \
+				black \
+				cython \
+				pdbpp \
+				pipdeptree \
+				pydantic \
+				pynvim \
+				python-language-server \
+				turbodbc \
+				-y
 
 	set index_url https://software.z.westeurope.blue-yonder.cloud/platform_dev/Debian_9/+simple
 	pip --cert $HOME/certs/Certificates.pem \
@@ -41,5 +44,5 @@ function docker-pyenv -a container_id --description "Create python environment f
 		--trusted-host files.pythonhosted.org \
 		install \
 			--extra-index-url $index_url \
-			byflow
+			byflow dataset_diff pricing-columns
 end

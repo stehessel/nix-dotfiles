@@ -213,7 +213,7 @@ call plug#end()
 	set termguicolors
 	let g:rainbow_active = 1
 " Color theme
-	colorscheme tender
+	colorscheme jellybeans
 
 	let g:jellybeans_overrides = {
 		\ 'Todo': { 'ctermfg': 'Black', 'ctermbg': 'Grey', 'attr': 'bold' },
