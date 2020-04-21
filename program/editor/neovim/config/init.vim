@@ -80,6 +80,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-unimpaired'
 " Movement
 	Plug 'easymotion/vim-easymotion'
+	Plug 'tpope/vim-rsi'
 	" Plug 'unblevable/quick-scope'
 " Text manipulation
 	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
