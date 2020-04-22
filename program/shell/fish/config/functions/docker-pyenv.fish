@@ -14,7 +14,7 @@ function docker-pyenv -a container_id --description "Create python environment f
 		| sed '/^neurobayes-runtime/d' \
 		| sed '/^ps-app/d' \
 		| sed 's/^psycopg2/psycopg2-binary/g' \
-		| sed "s+/home/docker/venv3.6+$HOME/pyenv+g" \
+		| sed "s+/home/docker/venv3.6+$HOME/git/raq-bootstrap+g" \
 		> /tmp/requirements.txt
 
 	conda deactivate
