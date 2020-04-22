@@ -5,7 +5,7 @@ from urllib.parse import unquote
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Convert hazure url to azure sas uri.")
+    parser = argparse.ArgumentParser(description="Convert hazure url to azure sas url.")
     parser.add_argument(
         "hazure", type=str, help="Hazure url string.",
     )
@@ -19,8 +19,7 @@ def main():
     container = match.group("container")
     sas = unquote(match.group("sas"))
 
-    output = f"https://{account_name}.blob.core.windows.net/{container}?{sas}"
-    print(output)
+    print(f"https://{account_name}.blob.core.windows.net/{container}?{sas}")
 
 
 if __name__ == "__main__":
