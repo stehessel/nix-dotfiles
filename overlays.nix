@@ -1,4 +1,13 @@
 [
+  (self: super:
+  {
+    neovim = super.neovim.overrideAttrs (old: rec {
+      src = builtins.fetchGit {
+        url = "https://github.com/neovim/neovim.git";
+        ref = "refs/tags/nightly";
+      };
+    });
+  })
   # (self: super:
   # {
   #   fish = super.fish.overrideAttrs (old: rec {
