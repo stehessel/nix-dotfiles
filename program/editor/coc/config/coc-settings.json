@@ -27,8 +27,9 @@
 		"~/git/dataset-diff"
 	],
 	"python.linting.enabled": true,
-	"python.linting.flake8Enabled": false,
+	"python.linting.flake8Enabled": true,
 	"python.linting.pydocstyleEnabled": false,
+	"python.linting.pylintEnabled": false,
 	"python.sortImports.path": "isort",
 
 	"snippets.userSnippetsDirectory": "~/.config/nvim/plugged/vim-snippets/UltiSnips",

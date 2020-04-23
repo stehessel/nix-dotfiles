@@ -63,6 +63,8 @@
 		xsv
 		# --- editor ---
         neovim-remote
+        # --- encryption ---
+        gnupg
         # --- docker ---
         # docker-sync
         unison

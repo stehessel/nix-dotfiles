@@ -5,8 +5,8 @@ function docker-pyenv -a container_id --description "Create python environment f
 	end
 
 	docker exec -it $container_id /home/docker/venv3.6/bin/pip freeze \
-		| sed 's/==.*$//g' \
 		| sed '/^#/d' \
+		| sed 's/==.*//g' \
 		| sed '/^by.atalaia/d' \
 		| sed '/^Bottleneck/d' \
 		| sed '/^crick/d' \
@@ -15,6 +15,7 @@ function docker-pyenv -a container_id --description "Create python environment f
 		| sed '/^ps-app/d' \
 		| sed 's/^psycopg2/psycopg2-binary/g' \
 		| sed "s+/home/docker/venv3.6+$HOME/git/raq-bootstrap+g" \
+		| sed 's/^[^[:graph:]]*//;s/[^[:graph:]]*$//' \
 		> /tmp/requirements.txt
 
 	conda deactivate
@@ -24,6 +25,7 @@ function docker-pyenv -a container_id --description "Create python environment f
 	conda install \
 				black \
 				cython \
+				dask \
 				pdbpp \
 				pipdeptree \
 				pydantic \
@@ -39,10 +41,11 @@ function docker-pyenv -a container_id --description "Create python environment f
 		install \
 			--extra-index-url $index_url \
 			-r /tmp/requirements.txt
+	pip install -e $HOME/git/raq-bootstrap/raq/raqbundle
 	pip --cert $HOME/certs/Certificates.pem \
 		--trusted-host pypi.org \
 		--trusted-host files.pythonhosted.org \
 		install \
 			--extra-index-url $index_url \
-			byflow dataset_diff pricing-columns
+			byflow dataset_diff==0.2.1.dev5+gb14aca7 pricing-columns retrying stratosphere-client vascomodel vsi-client
 end
