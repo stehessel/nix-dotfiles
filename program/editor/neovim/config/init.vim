@@ -80,6 +80,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-unimpaired'
 " Movement
 	Plug 'easymotion/vim-easymotion'
+	Plug 'justinmk/vim-sneak'
 	Plug 'tpope/vim-rsi'
 	" Plug 'unblevable/quick-scope'
 " Text manipulation
@@ -303,6 +304,15 @@ call plug#end()
 	nmap <leader>s <plug>(SubversiveSubstituteRange)
 	xmap <leader>s <plug>(SubversiveSubstituteRange)
 	nmap <leader>ss <plug>(SubversiveSubstituteWordRange)
+" Replace all is aliased to S.
+	nnoremap S :%s//<Left>
+" Vim sneak
+	" map f <Plug>Sneak_s
+	" map F <Plug>Sneak_S
+	" map f <Plug>Sneak_f
+	" map F <Plug>Sneak_F
+	" map t <Plug>Sneak_t
+	" map T <Plug>Sneak_T
 " Text objects
 	" ie = inner entire buffer
 	onoremap ie :exec "normal! ggVG"<cr>
@@ -416,7 +426,7 @@ call plug#end()
 	nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 	" GoTo code navigation.
-	autocmd SourceCmd *plugin/evanesco.vim source <afile> | nmap <silent> gd <Plug>(coc-definition)
+	autocmd SourceCmd *plugin/evanesco.vim source <afile> | nmap <silent> gd <Plug>(coc-definition) | noremap ? ,
 	nmap <silent> gy <Plug>(coc-type-definition)
 	nmap <silent> gi <Plug>(coc-implementation)
 	nmap <silent> gr <Plug>(coc-references)
@@ -658,7 +668,7 @@ call plug#end()
 	" Highlight
     highlight SignifySignDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred
     highlight SignifyLineDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred
-" plug commands
+" Plug commands
 	command! PU PlugUpdate | PlugUpgrade
 " Vim-which-key
 	nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
@@ -668,8 +678,6 @@ call plug#end()
 	xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 	nmap ga <Plug>(EasyAlign)
-" Replace all is aliased to S.
-	nnoremap S :%s//<Left><Left>
 " Automatically deletes all trailing whitespace on save.
 	autocmd BufWritePre * %s/\s\+$//e
 " Update binds when sxhkdrc is updated.
