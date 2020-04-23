@@ -15,11 +15,14 @@ def main():
         ("hazure://(?P<account_name>[^:]+):(?P<sas>[^@]+)@(?P<container>[^?]+)?"),
         args.hazure,
     )
-    account_name = match.group("account_name")
-    container = match.group("container")
-    sas = unquote(match.group("sas"))
 
-    print(f"https://{account_name}.blob.core.windows.net/{container}?{sas}")
+    if match is None:
+        print("Cannot parse hazure url input string.")
+    else:
+        account_name = match.group("account_name")
+        container = match.group("container")
+        sas = unquote(match.group("sas"))
+        print(f"https://{account_name}.blob.core.windows.net/{container}?{sas}")
 
 
 if __name__ == "__main__":
