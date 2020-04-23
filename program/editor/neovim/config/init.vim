@@ -120,6 +120,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'pgdouyon/vim-evanesco'
 " Copy/paste
 	Plug 'machakann/vim-highlightedyank'
+	Plug 'svermeulen/vim-yoink'
 " Discover keybinds
 	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Save position
@@ -279,6 +280,20 @@ call plug#end()
 " Clipboard
 	set clipboard+=unnamedplus
 	set go=a
+" Vim yoink
+	nmap <m-]> <plug>(YoinkPostPasteSwapBack)
+	nmap <m-[> <plug>(YoinkPostPasteSwapForward)
+
+	nmap y <plug>(YoinkYankPreserveCursorPosition)
+	xmap y <plug>(YoinkYankPreserveCursorPosition)
+
+	nmap p <plug>(YoinkPaste_p)
+	nmap P <plug>(YoinkPaste_P)
+
+	nmap [y <plug>(YoinkRotateBack)
+	nmap ]y <plug>(YoinkRotateForward)
+
+	nmap <c-=> <plug>(YoinkPostPasteToggleFormat)
 " Mouse
 	set mouse=a
 " Search
@@ -301,9 +316,19 @@ call plug#end()
 	nmap s <plug>(SubversiveSubstitute)
 	nmap ss <plug>(SubversiveSubstituteLine)
 	nmap sl <plug>(SubversiveSubstituteToEndOfLine)
-	nmap <leader>s <plug>(SubversiveSubstituteRange)
-	xmap <leader>s <plug>(SubversiveSubstituteRange)
-	nmap <leader>ss <plug>(SubversiveSubstituteWordRange)
+
+	nmap <leader><leader>s <plug>(SubversiveSubvertRange)
+	xmap <leader><leader>s <plug>(SubversiveSubvertRange)
+	nmap <leader><leader>ss <plug>(SubversiveSubvertWordRange)
+
+	nmap <leader>cs <plug>(SubversiveSubstituteRangeConfirm)
+	xmap <leader>cs <plug>(SubversiveSubstituteRangeConfirm)
+	nmap <leader>css <plug>(SubversiveSubstituteWordRangeConfirm)
+
+	" ie = inner entire buffer
+	onoremap ie :exec "normal! ggVG"<cr>
+	" iv = current viewable text in the buffer
+	onoremap iv :exec "normal! HVL"<cr>
 " Replace all is aliased to S.
 	nnoremap S :%s//<Left>
 " Vim sneak
@@ -313,11 +338,6 @@ call plug#end()
 	" map F <Plug>Sneak_F
 	" map t <Plug>Sneak_t
 	" map T <Plug>Sneak_T
-" Text objects
-	" ie = inner entire buffer
-	onoremap ie :exec "normal! ggVG"<cr>
-	" iv = current viewable text in the buffer
-	onoremap iv :exec "normal! HVL"<cr>
 " Disables automatic commenting on newline:
 	" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Terminal
