@@ -47,5 +47,5 @@ function docker-pyenv -a container_id --description "Create python environment f
 		--trusted-host files.pythonhosted.org \
 		install \
 			--extra-index-url $index_url \
-			byflow dataset_diff==0.2.1.dev5+gb14aca7 pricing-columns retrying stratosphere-client vascomodel vsi-client
+			byflow dataset_diff==0.2.1.dev5+gb14aca7 pricing-columns replenishment-interface retail-interface retrying stratosphere-client vascomodel vsi-client
 end
