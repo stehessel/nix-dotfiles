@@ -1,0 +1,99 @@
+#!/usr/bin/env python
+import argparse
+import re
+from datetime import datetime, timedelta
+from typing import Optional
+from urllib.parse import quote_plus, unquote
+
+
+def generate_container_sas_token(
+    account_name: str,
+    account_key: str,
+    container_name: str,
+    expiry: datetime,
+    with_write_permission: bool = False,
+):
+    """
+    Generate a sas token for the given container
+    """
+    try:
+        # try using  azure-storage-blob >= 12:
+        from azure.storage.blob import generate_container_sas, ContainerSasPermissions
+
+        token = generate_container_sas(
+            account_name=account_name,
+            container_name=container_name,
+            account_key=account_key,
+            expiry=expiry,
+            permission=ContainerSasPermissions(
+                read=True, write=True, delete=True, list=True
+            )
+            if with_write_permission
+            else ContainerSasPermissions(read=True, list=True),
+        )
+    except ImportError:
+        # fall back to azure-storage-blob < 12
+        from azure.storage.blob import BlockBlobService, ContainerPermissions
+
+        service = BlockBlobService(account_name=account_name, account_key=account_key)
+        permissions = ContainerPermissions.LIST + ContainerPermissions.READ
+        if with_write_permission:
+            permissions += ContainerPermissions.WRITE + ContainerPermissions.DELETE
+        token = service.generate_container_shared_access_signature(
+            container_name=container_name, permission=permissions, expiry=expiry
+        )
+
+    return token
+
+
+def hazure2sas(hazure_url: str) -> Optional[str]:
+    match = re.search(
+        ("hazure://(?P<account_name>[^:]+):(?P<sas>[^@]+)@(?P<container>[^?]+)?"),
+        hazure_url,
+    )
+
+    if match is None:
+        print("Cannot parse hazure url")
+        return None
+    else:
+        account_name = match.group("account_name")
+        container = match.group("container")
+        sas = unquote(match.group("sas"))
+        return f"https://{account_name}.blob.core.windows.net/{container}?{sas}"
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Convert hazure url to azure sas url.")
+    parser.add_argument("--hazure", type=str, help="Hazure url string.")
+    parser.add_argument("--account", type=str, help="Azure storage account name.")
+    parser.add_argument("--key", type=str, help="Azure storage account key.")
+    parser.add_argument(
+        "--container", type=str, help="Azure storage container name.",
+    )
+    parser.add_argument(
+        "--lease", type=int, default=90, help="Lease time in days.",
+    )
+    parser.add_argument(
+        "--write", action="store_true", help="Include write privilege.",
+    )
+    args = parser.parse_args()
+
+    if args.hazure_url:
+        print(hazure2sas(args.hazure))
+    elif args.account and args.key and args.container:
+        expiry = datetime.utcnow() + timedelta(days=args.lease_time_days)
+        token = generate_container_sas_token(
+            account_name=args.account,
+            account_key=args.key,
+            container_name=args.container,
+            expiry=expiry,
+            with_write_permission=args.write,
+        )
+        hazure_url = f"hazure://{args.account}:{quote_plus(token)}@{args.container}/?use_sas=true&create_if_missing=false"
+        print(hazure2sas(hazure_url))
+    else:
+        print("Cannot parse input arguments.")
+
+
+if __name__ == "__main__":
+    main()
