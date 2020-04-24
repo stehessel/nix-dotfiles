@@ -277,6 +277,19 @@ call plug#end()
 " Undo
 	set undofile
 	set undodir=~/.config/nvim/undo
+" Mouse
+	set mouse=a
+" Search
+	set ignorecase
+	set incsearch
+	set nohlsearch
+	set smartcase
+	set inccommand=nosplit
+" Rendering
+	set lazyredraw
+" Filetype
+	filetype plugin indent on
+	set suffixesadd=.md
 " Clipboard
 	set clipboard+=unnamedplus
 	set go=a
@@ -294,19 +307,6 @@ call plug#end()
 	nmap ]y <plug>(YoinkRotateForward)
 
 	nmap <c-=> <plug>(YoinkPostPasteToggleFormat)
-" Mouse
-	set mouse=a
-" Search
-	set ignorecase
-	set incsearch
-	set nohlsearch
-	set smartcase
-	set inccommand=nosplit
-" Rendering
-	set lazyredraw
-" Filetype
-	filetype plugin indent on
-	set suffixesadd=.md
 " Vim swap
 	omap i, <Plug>(swap-textobject-i)
 	xmap i, <Plug>(swap-textobject-i)
@@ -316,6 +316,10 @@ call plug#end()
 	nmap s <plug>(SubversiveSubstitute)
 	nmap ss <plug>(SubversiveSubstituteLine)
 	nmap sl <plug>(SubversiveSubstituteToEndOfLine)
+
+	xmap s <plug>(SubversiveSubstitute)
+	xmap p <plug>(SubversiveSubstitute)
+	xmap P <plug>(SubversiveSubstitute)
 
 	nmap <leader><leader>s <plug>(SubversiveSubvertRange)
 	xmap <leader><leader>s <plug>(SubversiveSubvertRange)
