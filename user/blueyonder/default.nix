@@ -5,7 +5,7 @@
 	];
 
 	programs.git = {
-		userEmail = "stephan.hesselmann@jda.com";
+		userEmail = "stephan.hesselmann@blueyonder.com";
 		userName = "Stephan Heßelmann (lgtf/39809)";
 	};
 }

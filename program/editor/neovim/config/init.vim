@@ -58,6 +58,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Docker
 " Color themes
 	Plug 'arcticicestudio/nord-vim'
+	Plug 'chuling/vim-equinusocio-material'
 	Plug 'cocopon/iceberg.vim'
 	Plug 'flazz/vim-colorschemes'
 	Plug 'haishanh/night-owl.vim'
@@ -81,6 +82,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Movement
 	Plug 'easymotion/vim-easymotion'
 	Plug 'justinmk/vim-sneak'
+	Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'tpope/vim-rsi'
 	" Plug 'unblevable/quick-scope'
 " Text manipulation
@@ -115,6 +117,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'tmux-plugins/vim-tmux-focus-events'
 " Search
+	Plug 'brooth/far.vim'
 	Plug 'inkarkat/vim-ingo-library'
 	Plug 'inkarkat/vim-SearchAlternatives'
 	Plug 'pgdouyon/vim-evanesco'
@@ -215,7 +218,10 @@ call plug#end()
 	set termguicolors
 	let g:rainbow_active = 1
 " Color theme
-	colorscheme jellybeans
+	colorscheme equinusocio_material
+
+	let g:equinusocio_material_darker = 1
+	let g:equinusocio_material_hide_vertsplit = 0
 
 	let g:jellybeans_overrides = {
 		\ 'Todo': { 'ctermfg': 'Black', 'ctermbg': 'Grey', 'attr': 'bold' },
@@ -342,6 +348,14 @@ call plug#end()
 	" map F <Plug>Sneak_F
 	" map t <Plug>Sneak_t
 	" map T <Plug>Sneak_T
+" Aerojump
+	nmap <Leader>as <Plug>(AerojumpSpace)
+	nmap <Leader>ab <Plug>(AerojumpBolt)
+	nmap <Leader>aa <Plug>(AerojumpFromCursorBolt)
+	nmap <Leader>ad <Plug>(AerojumpDefault) " Boring mode
+	nmap <space><space> <Plug>(AerojumpSpace)
+
+	let g:aerojump_keymaps = { "<Esc>": "AerojumpExit" }
 " Disables automatic commenting on newline:
 	" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Terminal
@@ -488,11 +502,11 @@ call plug#end()
 
 	" Applying codeAction to the selected region.
 	" Example: `<leader>aap` for current paragraph
-	xmap <leader>a  <Plug>(coc-codeaction-selected)
-	nmap <leader>a  <Plug>(coc-codeaction-selected)
+	xmap <leader>A  <Plug>(coc-codeaction-selected)
+	nmap <leader>A  <Plug>(coc-codeaction-selected)
 
 	" Remap keys for applying codeAction to the current line.
-	nmap <leader>ac  <Plug>(coc-codeaction)
+	nmap <leader>Ac  <Plug>(coc-codeaction)
 	" Apply AutoFix to problem on the current line.
 	nmap <leader>qf  <Plug>(coc-fix-current)
 

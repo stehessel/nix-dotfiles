@@ -2,6 +2,6 @@ auto_activate_base: True
 changeps1: False
 channel_priority: strict
 channels:
-  - defaults
   - conda-forge
+  - defaults
 env_prompt: '({name})'
