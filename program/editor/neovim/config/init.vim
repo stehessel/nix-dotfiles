@@ -35,7 +35,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'honza/vim-snippets'
 " Debugger
 	Plug 'puremourning/vimspector'
-	Plug 'vim-vdebug/vdebug'
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 " Testing
 	Plug 'janko/vim-test'
@@ -117,7 +116,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'tmux-plugins/vim-tmux-focus-events'
 " Search
-	Plug 'brooth/far.vim'
+	Plug 'brooth/far.vim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'inkarkat/vim-ingo-library'
 	Plug 'inkarkat/vim-SearchAlternatives'
 	Plug 'pgdouyon/vim-evanesco'
@@ -663,7 +662,7 @@ call plug#end()
 	nmap <leader>ce  :Clap filer<CR>
 	nmap <leader>cp  :Clap providers<CR>
 " Far.vim
-	" let g:far#source = 'rgnvim'
+	let g:far#source = 'rgnvim'
 
 	" shortcut for far.vim find
 	nnoremap <silent> <leader>rf  :Farf<cr>
