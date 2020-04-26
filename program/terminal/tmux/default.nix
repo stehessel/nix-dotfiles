@@ -1,4 +1,7 @@
 { config, lib, pkgs, ... }:
 {
-	home.file.".tmux.conf".source = config/tmux.conf;
+	xdg.configFile."tmux" = {
+		source = ./config;
+		recursive = true;
+	};
 }
