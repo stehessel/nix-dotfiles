@@ -16,7 +16,6 @@
 	"explorer.file.tabCD": false,
 	"explorer.openAction.for.directory": "",
 
-	"python.condaPath": "conda",
 	"python.formatting.provider": "black",
 	"python.jediEnabled": true,
 	"python.jediMemoryLimit": -1,

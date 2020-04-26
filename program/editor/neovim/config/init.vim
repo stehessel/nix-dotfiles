@@ -396,6 +396,7 @@ call plug#end()
 		\ 'coc-json',
 		\ 'coc-markdownlint',
 		\ 'coc-pairs',
+		\ 'coc-pyright',
 		\ 'coc-python',
 		\ 'coc-rust-analyzer',
 		\ 'coc-snippets',
