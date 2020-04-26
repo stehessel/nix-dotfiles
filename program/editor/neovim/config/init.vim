@@ -35,7 +35,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'honza/vim-snippets'
 " Debugger
 	Plug 'puremourning/vimspector'
-	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+	" Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 " Testing
 	Plug 'janko/vim-test'
 " Code folding
@@ -170,8 +170,8 @@ call plug#end()
 " Delete whole buffer
 	nmap <leader>D :%d<CR>
 " Buffers
-	nmap gn :bn<CR>
-	nmap gp :bp<CR>
+	nmap <leader>bn :bn<CR>
+	nmap <leader>bp :bp<CR>
 	nmap <leader>bd :bd<CR>
 	nnoremap gj <C-^>
 " Tabs
@@ -382,6 +382,18 @@ call plug#end()
 	nmap <localleader>c    <Plug>(iron-clear)
 " Vim-wiki
 	" let g:vimwiki_list = [ {'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'} ]
+" Vimspector
+	" let g:vimspector_enable_mappings='VISUAL_STUDIO'
+    nmap <leader>dd <Plug>VimspectorContinue
+    nmap <leader>ds <Plug>VimspectorStop
+    nmap <leader>dr <Plug>VimspectorRestart
+    nmap <leader>dp <Plug>VimspectorPause
+    nmap gb <Plug>VimspectorToggleBreakpoint
+    nmap <leader>dc <Plug>VimspectorToggleConditionalBreakpoint
+    nmap <leader>df <Plug>VimspectorAddFunctionBreakpoint
+    nmap gn <Plug>VimspectorStepOver
+    nmap gi <Plug>VimspectorStepInto
+    nmap go <Plug>VimspectorStepOut
 " coc
 	" Extensions
 	let g:coc_global_extensions = [
@@ -467,7 +479,7 @@ call plug#end()
 	" GoTo code navigation.
 	autocmd SourceCmd *plugin/evanesco.vim source <afile> | nmap <silent> gd <Plug>(coc-definition) | noremap ? ,
 	nmap <silent> gy <Plug>(coc-type-definition)
-	nmap <silent> gi <Plug>(coc-implementation)
+	nmap <silent> gp <Plug>(coc-implementation)
 	nmap <silent> gr <Plug>(coc-references)
 	nmap <silent> gl <Plug>(coc-codelense-action)
 
