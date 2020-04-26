@@ -91,6 +91,7 @@
     skim
     # --- git ---
     gitAndTools.diff-so-fancy
+    gitAndTools.git-bug
     gitAndTools.hub
     # --- go ---
     go
