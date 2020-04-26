@@ -110,6 +110,9 @@
     entr
     just
     pueue
+    # --- lua ---
+    luajitPackages.lua-lsp
+    luajitPackages.luarocks
     # --- network ---
     bandwhich
     speedtest-cli

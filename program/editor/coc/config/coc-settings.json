@@ -98,6 +98,11 @@
 					"hlintOn": true
 				}
 			}
+		},
+
+		"lua": {
+			"command": "lua-lsp",
+			"filetypes": ["lua"]
 		}
 	}
 }
