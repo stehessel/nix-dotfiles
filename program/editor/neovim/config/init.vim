@@ -367,7 +367,7 @@ call plug#end()
 	tnoremap <C-l> <C-\><C-n><C-w>l
 " Iron.nvim REPL
 	luafile $HOME/.config/nvim/plugins.lua
-	nmap <leader>it  :IronRepl python<CR>
+	nmap <leader>it  :IronRepl python<CR><ESC>
 	nmap <leader>if  :IronFocus python<CR>
 	nmap <leader>ir  :IronRestart<CR>
 	nmap <leader>iw  :IronWatchCurrentFile
