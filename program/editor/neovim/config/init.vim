@@ -179,6 +179,7 @@ call plug#end()
 	nmap g] :+tabmove<CR>
 	nmap g^ :tabm 0<CR>
 	nmap g$ :tabm<CR>
+	nmap bD :tabclose!
 	nnoremap <leader><space> :ToggleOnly<Enter>
 " Startify
 	let g:startify_session_persistence = 1
