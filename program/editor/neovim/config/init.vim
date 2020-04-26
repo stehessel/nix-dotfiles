@@ -218,7 +218,8 @@ call plug#end()
 	set termguicolors
 	let g:rainbow_active = 1
 " Color theme
-	colorscheme equinusocio_material
+	colorscheme jellybeans
+	" colorscheme equinusocio_material
 
 	let g:equinusocio_material_darker = 1
 	let g:equinusocio_material_hide_vertsplit = 0
