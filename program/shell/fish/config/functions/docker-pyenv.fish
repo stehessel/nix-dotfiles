@@ -27,11 +27,13 @@ function docker-pyenv -a container_id --description "Create python environment f
 				cython \
 				dask \
 				flake8 \
+				ipython \
 				isort \
 				jedi \
 				pdbpp \
 				pipdeptree \
 				pydantic \
+				pylint \
 				pynvim \
 				turbodbc \
 				-y
