@@ -26,11 +26,13 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'mhinz/vim-startify'
 " LSP
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'neovim/nvim-lsp'
 	Plug 'stsewd/sphinx.nvim', { 'do': ':UpdateRemotePlugins' }
 	" Plug 'liuchengxu/vista.vim'
 " Linters
 " 	Plug 'dense-analysis/ale'
 " Auto complete
+	Plug 'haorenW1025/completion-nvim'
 " Snippets
 	Plug 'honza/vim-snippets'
 " Debugger
@@ -274,7 +276,7 @@ call plug#end()
 	set shiftwidth=4
 	set whichwrap+=<,>,h,l,[,]
 	syntax on
-	set updatetime=100
+	set updatetime=200
 	set nofoldenable
 " Title
 	set title
@@ -798,7 +800,7 @@ call plug#end()
 	nmap <silent> <leader>ee :CocCommand explorer<CR>
 " coc-yank
 	nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<CR>
-" " Vista
+" Vista
 " 	" How each level is indented and what to prepend.
 " 	" This could make the display more compact or more spacious.
 " 	" e.g., more compact: ["▸ ", ""]
@@ -844,3 +846,27 @@ call plug#end()
 " 	nmap <leader>Tc :Vista toc<CR>
 " 	nmap <leader>Tj :Vista focus<CR>
 " 	nmap <leader>Ti :Vista info<CR>
+
+" Nvim-LSP
+" lua << EOF
+" 	require'nvim_lsp'.pyls.setup{}
+" EOF
+
+" 	" Diagnostic signs
+" 	sign define LspDiagnosticsErrorSign text=!
+" 	sign define LspDiagnosticsWarningSign text=?
+" 	sign define LspDiagnosticsInformationSign text=i
+" 	sign define LspDiagnosticsHintSign text=.
+
+" 	" Complete nvim
+" 	autocmd BufEnter * lua require'completion'.on_attach()
+
+" 	" Use <Tab> and <S-Tab> to navigate through popup menu
+" 	inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" 	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" 	" Set completeopt to have a better completion experience
+" 	set completeopt=menuone,noinsert,noselect
+
+" 	" Avoid showing message extra message when using completion
+" 	set shortmess+=c

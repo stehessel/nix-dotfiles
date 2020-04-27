@@ -23,20 +23,20 @@ function docker-pyenv -a container_id --description "Create python environment f
 	conda create -n docker python=3.6 -y
 	conda activate docker
 	conda install \
-				black \
-				cython \
-				dask \
-				flake8 \
-				ipython \
-				isort \
-				jedi \
-				pdbpp \
-				pipdeptree \
-				pydantic \
-				pylint \
-				pynvim \
-				turbodbc \
-				-y
+		black \
+		cython \
+		dask \
+		flake8 \
+		ipython \
+		isort \
+		jedi \
+		pdbpp \
+		pipdeptree \
+		pydantic \
+		pylint \
+		pynvim \
+		turbodbc \
+		-y
 
 	set index_url https://software.z.westeurope.blue-yonder.cloud/platform_dev/Debian_9/+simple
 	pip --cert $HOME/certs/Certificates.pem \
@@ -51,5 +51,13 @@ function docker-pyenv -a container_id --description "Create python environment f
 		--trusted-host files.pythonhosted.org \
 		install \
 			--extra-index-url $index_url \
-			byflow dataset_diff==0.2.1.dev5+gb14aca7 pricing-columns replenishment-interface retail-interface retrying stratosphere-client vascomodel vsi-client
+			byflow \
+			dataset_diff==0.2.1.dev5+gb14aca7 \
+			pricing-columns \
+			replenishment-interface \
+			retail-interface \
+			retrying \
+			stratosphere-client \
+			vascomodel \
+			vsi-client
 end
