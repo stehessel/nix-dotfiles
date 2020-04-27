@@ -5,5 +5,5 @@ function proxy --description "Set proxy settings."
 	set -gx HTTPS_PROXY $https_proxy
 	set -gx no_proxy "localhost,127.0.0.1,.blue-yonder.cloud,.blue-yonder.org,.phi-tps.local,blue-yonder.cloud,blue-yonder.org,phi-tps.local"
 	set -gx NO_PROXY $no_proxy
-	set -gx REQUESTS_CA_BUNDLE /etc/ssl/cert.pem
+	set -gx REQUESTS_CA_BUNDLE $HOME/certs/Certificates.pem
 end
