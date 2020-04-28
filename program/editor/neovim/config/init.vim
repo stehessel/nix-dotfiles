@@ -281,7 +281,7 @@ call plug#end()
 " Title
 	set title
 " Line numbers
-	set number relativenumber
+	set number
 	nmap <leader>n :set number relativenumber!<CR>
 " Undo
 	set undofile
