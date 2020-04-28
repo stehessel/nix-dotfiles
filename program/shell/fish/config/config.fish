@@ -43,6 +43,7 @@ set -x TMUX_PLUGIN_MANAGER_PATH "~/.config/tmux/plugins"
 # if test -d $HOME/.local/bin
 # 	set -x fish_user_paths "$HOME/.local/bin" fish_user_paths
 # end
+set -p fish_user_paths "$HOME/.dotnet"
 set -p fish_user_paths "$HOME/.npm-packages/bin"
 set -p fish_user_paths "$HOME/go/bin"
 set -p fish_user_paths "$HOME/.cargo/bin"
