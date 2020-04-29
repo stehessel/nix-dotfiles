@@ -12,10 +12,10 @@
   (self: super:
   {
     tmux = super.tmux.overrideAttrs (old: rec {
-      version = "3.1";
+      version = "HEAD";
       src = builtins.fetchGit {
         url = "https://github.com/tmux/tmux.git";
-        ref = "refs/tags/3.1";
+        ref = "refs/heads/master";
       };
     });
   })

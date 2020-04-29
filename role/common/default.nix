@@ -140,7 +140,6 @@
     # --- todo manager ---
     taskwarrior
     # --- terminal multiplexers ---
-    byobu
     screen
     tmux
     # --- utility ---
