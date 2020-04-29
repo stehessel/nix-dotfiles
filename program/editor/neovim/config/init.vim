@@ -30,6 +30,8 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'liuchengxu/vista.vim'
 " Linters
 " 	Plug 'dense-analysis/ale'
+" Auto format
+	Plug 'Chiel92/vim-autoformat'
 " Auto complete
 	Plug 'haorenW1025/completion-nvim'
 " Snippets
@@ -845,6 +847,9 @@ call plug#end()
 	"nmap <silent> <leader>ee :CocCommand explorer<CR>
 	"" coc-yank
 	"nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<CR>
+" Auto format
+	let g:formatters_python = ['black']
+	noremap <silent> <leader>F :Autoformat<cr>
 " Nvim-LSP
 lua << EOF
 	-- require'nvim_lsp'.pyls.setup{}
