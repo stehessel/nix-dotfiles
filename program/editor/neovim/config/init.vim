@@ -47,8 +47,6 @@ call plug#begin('~/.config/nvim/plugged')
 " Syntax highlighters
 	" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 	Plug 'sheerun/vim-polyglot'
-" Word highlighters
-	Plug 'lfv89/vim-interestingwords'
 " REPL
 	Plug 'Vigemus/iron.nvim'
 " Markdown
@@ -69,11 +67,12 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'ryanoasis/vim-devicons'
 " Brackets
 	Plug 'adelarsq/vim-matchit'
-	" Plug 'cohama/lexima.vim'
+	Plug 'cohama/lexima.vim'
 	" Plug 'jiangmiao/auto-pairs'
 	Plug 'luochen1990/rainbow'
 	Plug 'machakann/vim-sandwich'
 " Marks
+	Plug 'inkarkat/vim-mark'
 	Plug 'kshenoy/vim-signature'
 " Indentation
 	" Plug 'lukas-reineke/indent-blankline.nvim'
@@ -282,7 +281,7 @@ call plug#end()
 	set title
 " Line numbers
 	set number
-	nmap <leader>n :set number relativenumber!<CR>
+	nmap <leader>N :set number relativenumber!<CR>
 " Undo
 	set undofile
 	set undodir=~/.config/nvim/undo
@@ -617,9 +616,9 @@ call plug#end()
 	let g:mkdp_page_title = '「${name}」'
 
 	" keybinds
-	nmap <leader>mp <Plug>MarkdownPreview
-	nmap <leader>ms <Plug>MarkdownPreviewStop
-	nmap <leader>mt <Plug>MarkdownPreviewToggle
+	nmap <leader>Mp <Plug>MarkdownPreview
+	nmap <leader>Ms <Plug>MarkdownPreviewStop
+	nmap <leader>Mt <Plug>MarkdownPreviewToggle
 " Vista
 " 	" How each level is indented and what to prepend.
 " 	" This could make the display more compact or more spacious.
@@ -863,8 +862,8 @@ EOF
 	nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 
 	" Diagnostic signs
-	sign define LspDiagnosticsErrorSign text=!
-	sign define LspDiagnosticsWarningSign text=?
+	sign define LspDiagnosticsErrorSign text=e
+	sign define LspDiagnosticsWarningSign text=w
 	sign define LspDiagnosticsInformationSign text=i
 	sign define LspDiagnosticsHintSign text=.
 
