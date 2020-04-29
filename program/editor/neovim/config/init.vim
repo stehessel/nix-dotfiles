@@ -20,7 +20,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'junegunn/fzf.vim'
 	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 " Statusline
-	" Plug 'bling/vim-airline'
 	Plug 'itchyny/lightline.vim'
 " Start screen
 	Plug 'mhinz/vim-startify'
@@ -68,7 +67,6 @@ call plug#begin('~/.config/nvim/plugged')
 " Brackets
 	Plug 'adelarsq/vim-matchit'
 	Plug 'cohama/lexima.vim'
-	" Plug 'jiangmiao/auto-pairs'
 	Plug 'luochen1990/rainbow'
 	Plug 'machakann/vim-sandwich'
 " Marks
@@ -145,6 +143,7 @@ call plug#end()
 	let maplocalleader = "\\"
 	map U :redo<CR>
 	map Y y$
+	noremap ? ,
 	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
 	noremap <plug>(slash-after) zz
 	imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
@@ -283,16 +282,17 @@ call plug#end()
 	set number
 	nmap <leader>N :set number relativenumber!<CR>
 " Undo
-	set undofile
-	set undodir=~/.config/nvim/undo
+	" set undofile
+	" set undodir=~/.config/nvim/undo
 " Mouse
 	set mouse=a
 " Search
 	set ignorecase
 	set incsearch
-	set nohlsearch
-	set smartcase
+	set hlsearch
+	set ignorecase smartcase
 	set inccommand=nosplit
+	nmap <silent> <space>/ :nohl<cr>
 " Rendering
 	set lazyredraw
 " Filetype
@@ -748,7 +748,7 @@ call plug#end()
 	"nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 	"" GoTo code navigation.
-	"autocmd SourceCmd *plugin/evanesco.vim source <afile> | nmap <silent> gd <Plug>(coc-definition) | noremap ? ,
+	"nmap <silent> gd <Plug>(coc-definition)
 	"nmap <silent> gy <Plug>(coc-type-definition)
 	"nmap <silent> gp <Plug>(coc-implementation)
 	"nmap <silent> gr <Plug>(coc-references)
