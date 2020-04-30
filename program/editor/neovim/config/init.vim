@@ -38,7 +38,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'honza/vim-snippets'
 " Debugger
 	Plug 'puremourning/vimspector'
-	" Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 " Testing
 	Plug 'janko/vim-test'
 " Code folding
@@ -46,7 +45,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'Konfekt/FastFold'
 	Plug 'tmhedberg/SimpylFold'
 " Syntax highlighters
-	" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+	Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 	Plug 'sheerun/vim-polyglot'
 " REPL
 	Plug 'Vigemus/iron.nvim'
@@ -84,7 +83,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'justinmk/vim-sneak'
 	Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'tpope/vim-rsi'
-	" Plug 'unblevable/quick-scope'
+	Plug 'unblevable/quick-scope'
 " Text manipulation
 	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 	Plug 'matze/vim-move'
@@ -352,6 +351,8 @@ call plug#end()
 	" map F <Plug>Sneak_F
 	" map t <Plug>Sneak_t
 	" map T <Plug>Sneak_T
+" Quick-scope
+	let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " Aerojump
 	nmap <Leader>as <Plug>(AerojumpSpace)
 	nmap <Leader>ab <Plug>(AerojumpBolt)
@@ -850,6 +851,23 @@ call plug#end()
 " Auto format
 	let g:formatters_python = ['black']
 	noremap <silent> <leader>F :Autoformat<cr>
+" Semshi
+	nmap <silent> <leader>rn :Semshi rename<CR>
+
+	nmap <silent> <space><Tab> :Semshi goto name next<CR>
+	nmap <silent> <space><S-Tab> :Semshi goto name prev<CR>
+
+	nmap <silent> <space>c :Semshi goto class next<CR>
+	nmap <silent> <space>C :Semshi goto class prev<CR>
+
+	nmap <silent> <space>f :Semshi goto function next<CR>
+	nmap <silent> <space>F :Semshi goto function prev<CR>
+
+	nmap <silent> <space>gu :Semshi goto unresolved first<CR>
+	nmap <silent> <space>gp :Semshi goto parameterUnused first<CR>
+
+	nmap <silent> <space>ee :Semshi error<CR>
+	nmap <silent> <space>ge :Semshi goto error<CR>
 " Nvim-LSP
 lua << EOF
 	require'nvim_lsp'.bashls.setup{}
