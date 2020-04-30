@@ -877,6 +877,7 @@ lua << EOF
 	require'nvim_lsp'.pyls_ms.setup{}
 	-- require'nvim_lsp'.rls.setup{}
 	require'nvim_lsp'.rust_analyzer.setup{}
+	-- require'nvim_lsp'.sumneko_lua.setup{}
 	require'nvim_lsp'.vimls.setup{}
 EOF
 
