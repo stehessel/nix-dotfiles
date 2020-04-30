@@ -852,13 +852,18 @@ call plug#end()
 	noremap <silent> <leader>F :Autoformat<cr>
 " Nvim-LSP
 lua << EOF
-	-- require'nvim_lsp'.pyls.setup{}
+	require'nvim_lsp'.bashls.setup{}
+	require'nvim_lsp'.ccls.setup{}
+	require'nvim_lsp'.dockerls.setup{}
+	require'nvim_lsp'.jsonls.setup{}
 	require'nvim_lsp'.pyls_ms.setup{}
+	require'nvim_lsp'.rust_analyzer.setup{}
+	require'nvim_lsp'.vimls.setup{}
 EOF
 
 	" Keybinds
-	nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-	nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+	nnoremap <silent> gD    <cmd>lua vim.lsp.buf.declaration()<CR>
+	nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 	nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 	nnoremap <silent> gi    <cmd>lua vim.lsp.buf.implementation()<CR>
 	nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>

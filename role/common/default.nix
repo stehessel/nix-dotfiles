@@ -130,6 +130,7 @@
     # procs
     # --- rust ---
     rustup
+    rust-analyzer
     # --- ruby ---
     # ruby
     # --- shell ---
