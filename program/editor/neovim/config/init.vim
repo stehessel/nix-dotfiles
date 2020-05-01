@@ -115,6 +115,9 @@ call plug#begin('~/.config/nvim/plugged')
 " Tmux
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'tmux-plugins/vim-tmux-focus-events'
+" File explorer
+	Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'lambdalisue/fern.vim'
 " Search
 	Plug 'brooth/far.vim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'inkarkat/vim-ingo-library'
