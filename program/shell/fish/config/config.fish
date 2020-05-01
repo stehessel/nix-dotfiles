@@ -75,7 +75,6 @@ end
 
 # abbreviations
 abbr -a h "cd ~/ and ls -a"
-abbr -a b "cd ~/backgrounds and ls -a"
 abbr -a d "cd ~/Documents; and ls -a"
 abbr -a D "cd ~/Downloads; and ls -a"
 abbr -a m "cd ~/Music; and ls -a"
@@ -102,6 +101,7 @@ abbr -a gs  "git status"
 abbr -a tl  "tasklite"
 abbr -a restic "restic -r ~/backup --password-file ~/.config/restic/secret"
 abbr -a corona "curl 'https://corona-stats.online?source=2&top=15'"
+abbr -a b "buku --suggest"
 
 # keybinds
 bind \cb beginning-of-line
