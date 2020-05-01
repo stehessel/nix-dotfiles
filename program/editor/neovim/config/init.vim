@@ -88,7 +88,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 	Plug 'matze/vim-move'
 	Plug 'machakann/vim-swap'
-	Plug 'mbbill/undotree'
+	" Plug 'mbbill/undotree'
 	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 	Plug 'nicwest/vim-camelsnek'
 	Plug 'tpope/vim-commentary'
@@ -283,8 +283,8 @@ call plug#end()
 	set number
 	nmap <leader>N :set number relativenumber!<CR>
 " Undo
-	" set undofile
-	" set undodir=~/.config/nvim/undo
+	set undofile
+	set undodir=~/.config/nvim/undo
 " Mouse
 	set mouse=a
 " Search
@@ -388,7 +388,6 @@ call plug#end()
 " Vim-wiki
 	" let g:vimwiki_list = [ {'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'} ]
 " Vimspector
-	" let g:vimspector_enable_mappings='VISUAL_STUDIO'
     nmap <leader>dd <Plug>VimspectorContinue
     nmap <leader>ds <Plug>VimspectorStop
     nmap <leader>dr <Plug>VimspectorRestart
