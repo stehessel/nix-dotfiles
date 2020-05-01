@@ -209,7 +209,7 @@ call plug#end()
 	" map <C-j> <C-w>j
 	" map <C-k> <C-w>k
 	" map <C-l> <C-w>l
-	map <C-p> <C-w>w
+	nnoremap <C-u> <C-w>w
 	" Open alternative file in split
 	map <c-t> :vs#<CR>
 " Lens
@@ -882,6 +882,9 @@ lua << EOF
 EOF
 
 	" Keybinds
+	imap <c-j> <cmd>lua require'source'.prevCompletion()<CR>
+	imap <c-k> <cmd>lua require'source'.nextCompletion()<CR>
+
 	nnoremap <silent> gD    <cmd>lua vim.lsp.buf.declaration()<CR>
 	nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 	nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -897,8 +900,14 @@ EOF
 	sign define LspDiagnosticsInformationSign text=i
 	sign define LspDiagnosticsHintSign text=.
 
-	" Complete nvim
+	" Completion
 	autocmd BufEnter * lua require'completion'.on_attach()
+	let g:completion_auto_change_source = 1
+	let g:completion_max_items = 25
+	let g:completion_chain_complete_list = [
+		\{'complete_items': ['lsp', 'snippet']},
+		\{'mode': '<c-p>'},
+	\]
 
 	" Use <Tab> and <S-Tab> to navigate through popup menu
 	inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
