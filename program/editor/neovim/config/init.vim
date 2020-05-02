@@ -694,6 +694,7 @@ call plug#end()
 		\ 'coc-python',
 		\ 'coc-rust-analyzer',
 		\ 'coc-snippets',
+		\ 'coc-sql',
 		\ 'coc-tabnine',
 		\ 'coc-vimlsp',
 		\ 'coc-word',
