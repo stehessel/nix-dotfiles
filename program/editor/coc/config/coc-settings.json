@@ -16,8 +16,9 @@
 	"explorer.file.tabCD": false,
 	"explorer.openAction.for.directory": "",
 
+	"python.analysis.memory.keepLibraryAst": true,
 	"python.formatting.provider": "black",
-	"python.jediEnabled": true,
+	"python.jediEnabled": false,
 	"python.jediMemoryLimit": -1,
 	"python.autoComplete.extraPaths": [
 		"~/miniconda3/lib/python3.7/site-packages",

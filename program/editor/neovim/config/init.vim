@@ -36,6 +36,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'Chiel92/vim-autoformat'
 " Auto complete
 	Plug 'haorenW1025/completion-nvim'
+	Plug 'nvim-treesitter/completion-treesitter'
 " Snippets
 	Plug 'honza/vim-snippets'
 " Debugger
@@ -364,7 +365,7 @@ call plug#end()
 	nmap <Leader>ab <Plug>(AerojumpBolt)
 	nmap <Leader>aa <Plug>(AerojumpFromCursorBolt)
 	nmap <Leader>ad <Plug>(AerojumpDefault) " Boring mode
-	nmap <space><space> <Plug>(AerojumpSpace)
+	nmap <space>j <Plug>(AerojumpSpace)
 
 	let g:aerojump_keymaps = { "<Esc>": "AerojumpExit" }
 " Disables automatic commenting on newline:
@@ -376,24 +377,24 @@ call plug#end()
 	tnoremap <C-k> <C-\><C-n><C-w>k
 	tnoremap <C-l> <C-\><C-n><C-w>l
 " Treesitter
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-	highlight = {
-		enable = false,
-		disable = { 'rust' },
-	},
-	-- this enables incremental selection
-	textobj = {
-		enable = true,
-		disable = {},
-		keymaps = {
-			node_incremental = "<leader>k",
-			scope_incremental = "<leader>K"
-		}
-	},
-	ensure_installed = 'all'
-}
-EOF
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+" 	highlight = {
+" 		enable = false,
+" 		disable = { 'rust' },
+" 	},
+" 	-- this enables incremental selection
+" 	textobj = {
+" 		enable = true,
+" 		disable = {},
+" 		keymaps = {
+" 			node_incremental = "<leader>k",
+" 			scope_incremental = "<leader>K"
+" 		}
+" 	},
+" 	ensure_installed = 'all'
+" }
+" EOF
 " Iron.nvim REPL
 	luafile $HOME/.config/nvim/plugins.lua
 	nmap <leader>it  :IronRepl python<CR><ESC>
@@ -894,9 +895,9 @@ EOF
 	" Search workspace symbols.
 	nnoremap <silent> <space>s  :<C-u>CocList --interactive --auto-preview symbols<cr>
 	" Do default action for next item.
-	nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+	nnoremap <silent> <space>]  :<C-u>CocNext<CR>
 	" Do default action for previous item.
-	nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+	nnoremap <silent> <space>[  :<C-u>CocPrev<CR>
 	" Resume latest coc list.
 	nnoremap <silent> <space>l  :<C-u>CocListResume<CR>
 	" Open coc config.
@@ -915,8 +916,8 @@ EOF
 	nmap <silent> <space><Tab> :Semshi goto name next<CR>
 	nmap <silent> <space><S-Tab> :Semshi goto name prev<CR>
 
-	nmap <silent> <space>c :Semshi goto class next<CR>
-	nmap <silent> <space>C :Semshi goto class prev<CR>
+	nmap <silent> <space>k :Semshi goto class next<CR>
+	nmap <silent> <space>K :Semshi goto class prev<CR>
 
 	nmap <silent> <space>f :Semshi goto function next<CR>
 	nmap <silent> <space>F :Semshi goto function prev<CR>
@@ -962,10 +963,25 @@ EOF
 " 	autocmd BufEnter * lua require'completion'.on_attach()
 " 	let g:completion_auto_change_source = 1
 " 	let g:completion_max_items = 25
-" 	let g:completion_chain_complete_list = [
-" 		\{'complete_items': ['lsp', 'snippet']},
-" 		\{'mode': '<c-p>'},
-" 	\]
+" 	let g:completion_chain_complete_list = {
+" 		\'default' : {
+" 		\	'default' : [
+" 		\		{ 'complete_items' : ['lsp', 'snippet'] },
+" 		\		{ 'mode' : ['<c-p>', 'file'] }
+" 		\	],
+" 		\	'comment' : [],
+" 		\	'string' : []
+" 		\	},
+" 		\'c' : [
+" 		\	{'complete_items': ['ts']}
+" 		\	],
+" 		\'python' : [
+" 		\	{'complete_items': ['ts']}
+" 		\	],
+" 		\'lua' : [
+" 		\	{'complete_items': ['ts']}
+" 		\	],
+" 		\}
 
 " 	" Use <Tab> and <S-Tab> to navigate through popup menu
 " 	inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
