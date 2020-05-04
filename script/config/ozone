@@ -5,5 +5,9 @@ project=$(CURL_CA_BUNDLE=${HOME}/certs/Certificates.pem \
 	-H "Authorization: Token ${STRATOSPHERE_AZURE_WESTEUROPE_A_API_TOKEN}" \
 	-H "Accept: application/json; version=4.0" 2> /dev/null \
 	| jq --raw-output .[].alias \
-	| fzf)
-open "https://stratosphere.a.westeurope.blue-yonder.cloud/projects/${project}"
+	| choose)
+
+if ! test -z "${project}"
+then
+	open "https://stratosphere.a.westeurope.blue-yonder.cloud/projects/${project}"
+fi
