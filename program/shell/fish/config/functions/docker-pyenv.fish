@@ -35,6 +35,7 @@ function docker-pyenv -a container_id --description "Create python environment f
 		pydantic \
 		pylint \
 		pynvim \
+		pytest \
 		turbodbc \
 		-y
 

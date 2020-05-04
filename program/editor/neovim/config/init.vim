@@ -145,6 +145,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-eunuch'
 " Root directory
 	Plug 'airblade/vim-rooter'
+" Local
+	Plug '~/git/nvim-jira'
 call plug#end()
 
 " Misc keybinds
@@ -782,7 +784,7 @@ call plug#end()
 	" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 	" Symbol renaming.
-	nmap <leader>rn <Plug>(coc-rename)
+	nmap <space>r <Plug>(coc-rename)
 
 	" Formatting selected code.
 	xmap <leader>F   <Plug>(coc-format-selected)
