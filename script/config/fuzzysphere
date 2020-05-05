@@ -13,7 +13,6 @@ project=$(
 		| jq --raw-output '.[].identifier'"
 )
 
-if ! test -z "${project}"
-then
+if ! test -z "${project}"; then
 	open "https://stratosphere.a.westeurope.blue-yonder.cloud/projects/${project}"
 fi
