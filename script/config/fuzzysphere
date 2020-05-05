@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+project=$(
+	CURL_CA_BUNDLE=${HOME}/certs/Certificates.pem \
+	curl -X GET https://stratosphere.a.westeurope.blue-yonder.cloud/api/projects \
+	-H "Authorization: Token ${STRATOSPHERE_AZURE_WESTEUROPE_A_API_TOKEN}" \
+	-H "Accept: application/json; version=4.0" 2> /dev/null \
+	| jq --raw-output ".[].alias" \
+	| fzf --preview "
+		CURL_CA_BUNDLE=${HOME}/certs/Certificates.pem \
+		curl -X GET 'https://stratosphere.a.westeurope.blue-yonder.cloud/api/projects/{}/services' \
+		-H 'Authorization: Token ${STRATOSPHERE_AZURE_WESTEUROPE_A_API_TOKEN}' \
+		-H 'Accept: application/json; version=4.0' 2> /dev/null \
+		| jq --raw-output '.[].identifier'"
+)
+
+if ! test -z "${project}"
+then
+	open "https://stratosphere.a.westeurope.blue-yonder.cloud/projects/${project}"
+fi
