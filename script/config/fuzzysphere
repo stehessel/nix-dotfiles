@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-export CURL_CA_BUNDLE=${HOME}/certs/Certificates.pem
+export CURL_CA_BUNDLE=${BY_ROOT_CERT}
 project=$(
 	curl -X GET https://stratosphere.a.westeurope.blue-yonder.cloud/api/projects \
 	-H "Authorization: Token ${STRATOSPHERE_AZURE_WESTEUROPE_A_API_TOKEN}" \

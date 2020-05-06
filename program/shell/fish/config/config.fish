@@ -63,6 +63,7 @@ set -x KAKOUNE_POSIX_SHELL (command -v dash)
 set -x NVIM_LISTEN_ADDRESS /tmp/nvimsocket
 switch (uname)
 	case Darwin
+		set -x BY_ROOT_CERT $HOME/certs/rootca-2016-07.crt
 		set -p fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
 		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"
