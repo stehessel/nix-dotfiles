@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+# Quinn Comendant <quinn@strangecode.com>
+# https://gist.github.com/quinncomendant/3be731567e529415d5ee
+# Since 25 Jan 2015
+# Version 1.2
+
+CMD=$1;
+
+if [[ `id -u` = 0 ]]; then
+    echo "You mustn't be root when executing this script";
+    exit;
+fi
+
+function usage {
+    echo "CLI tool to manage the Cisco Umbrella Roaming Client on macOS.
+https://docs.umbrella.com/product/umbrella/umbrella-roaming-security/
+This script will invoke sudo to start (launchctl) and stop (killall) services.
+Usage: $(basename $0) COMMAND
+  COMMANDS:
+    stop        Stop the umbrella services via launchctl.
+    start       Start the umbrella services via launchctl.
+    restart     Stop umbrella, then start again.
+    status      Show some info about umbrella's status.
+    quickstatus Return exit code 0 if umbrella is running, otherwise exit code 1.
+    sleep [N]   Stop umbrella for N seconds (default 60), then start it again (time enough to open a banned URL).
+";
+    exit 1;
+}
+function start () {
+    echo "Starting umbrella…";
+    sudo launchctl load /Library/LaunchDaemons/com.opendns.osx.RoamingClientConfigUpdater.plist;
+    sudo launchctl bootstrap system/com.apple.Dock.plist /Library/LaunchAgents/com.opendns.osx.RoamingClientMenubar.plist
+    launchctl load /Library/LaunchAgents/com.opendns.osx.RoamingClientMenubar.plist
+}
+function stop () {
+    echo "Stopping umbrella…";
+    sudo launchctl remove com.opendns.osx.RoamingClientConfigUpdater;
+    launchctl remove com.opendns.osx.RoamingClientMenubar;
+    sudo killall OpenDNSDiagnostic &>/dev/null;
+    sleep 1;
+    $0 quickstatus || echo "Umbrella is stopped";
+}
+function status () {
+    if $0 quickstatus; then
+        echo "Umbrella is running. Checking debug.opendns.com DNS…";
+        dig debug.opendns.com txt +time=2 +tries=1 +short | sed 's/^"/  "/' | grep '"';
+        [[ 1 == $? ]] && echo "Umbrella is not functioning correctly!"
+    else
+        # Some part of umbrella is stopped. Let's stop it all to remain consistent.
+        stop &>/dev/null
+        echo "Umbrella is stopped";
+        grep -q 127.0.0.1 /etc/resolv.conf && echo "Without umbrella running, you'll need to remove 127.0.0.1 from your DNS servers before you can resolve domains.";
+    fi
+    echo "Currently using name servers: $(cat /etc/resolv.conf | grep nameserver | sed 's/nameserver //' | tr '\n' ' ') (akamai says $(dig whoami.akamai.net +short); ultradns says $(dig whoami.ultradns.net +short))";
+}
+function quickstatus () {
+    # Exit status 0 = dnscrypt is running.
+    if [[ 3 -eq $(ps auwwx | egrep "/(dnscrypt|RoamingClientMenubar|dns-updater)" | grep -v egrep | wc -l) ]]; then
+        exit 0;
+    else
+        exit 1;
+    fi;
+}
+
+case $CMD in
+    (start) start;;
+    (stop) stop;;
+    (restart) stop && start;;
+    (sleep) duration=${2:-60}; stop && echo "Sleeping $duration seconds…" && sleep $duration && start;;
+    (status) status;;
+    (quickstatus) quickstatus;;
+    (*) usage;;
+esac
+
+exit 0;
