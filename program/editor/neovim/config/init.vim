@@ -711,7 +711,7 @@ call plug#end()
 	set nowritebackup
 
 	" Give more space for displaying messages.
-	set cmdheight=1
+	set cmdheight=2
 
 	" Don't pass messages to |ins-completion-menu|.
 	set shortmess+=c
