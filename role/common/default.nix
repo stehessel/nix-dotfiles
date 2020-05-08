@@ -47,7 +47,7 @@
 
   home.packages = with pkgs; [
     # --- azure ---
-    azure-cli
+    # azure-cli
     # --- backup ---
     restic
     # --- cpp ---
