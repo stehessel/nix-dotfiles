@@ -66,7 +66,7 @@ def main():
     parser = argparse.ArgumentParser(
         description=(
             "Either convert hazure url to azure sas url (--hazure),"
-            "or generate new sas from azure credentials."
+            " or generate new sas from azure credentials."
         )
     )
     parser.add_argument("--hazure", type=str, help="Hazure url string.")
