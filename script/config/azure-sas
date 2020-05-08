@@ -63,7 +63,12 @@ def hazure2sas(hazure_url: str) -> Optional[str]:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Convert hazure url to azure sas url.")
+    parser = argparse.ArgumentParser(
+        description=(
+            "Either convert hazure url to azure sas url (--hazure),"
+            "or generate new sas from azure credentials."
+        )
+    )
     parser.add_argument("--hazure", type=str, help="Hazure url string.")
     parser.add_argument("--account", type=str, help="Azure storage account name.")
     parser.add_argument("--key", type=str, help="Azure storage account key.")
