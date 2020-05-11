@@ -5,7 +5,7 @@ project=$(
 	curl -X GET https://stratosphere.a.westeurope.blue-yonder.cloud/api/projects \
 	-H "Authorization: Token ${STRATOSPHERE_AZURE_WESTEUROPE_A_API_TOKEN}" \
 	-H "Accept: application/json; version=4.0" 2> /dev/null \
-	| jq --raw-output "[.[].identifier] | unique | .[]" \
+	| jq --raw-output ".[].identifier" \
 	| fzf --preview "
 		curl -X GET 'https://stratosphere.a.westeurope.blue-yonder.cloud/api/projects/{}/services' \
 		-H 'Authorization: Token ${STRATOSPHERE_AZURE_WESTEUROPE_A_API_TOKEN}' \
