@@ -47,6 +47,8 @@
     # --- fuzzy search ---
     fzf
     skim
+    # --- git ---
+    hub
     # --- highlighters ---
     bat
     exa
@@ -58,7 +60,7 @@
     htop
     # --- shell ---
     dash
-    # fish
+    fish
     starship
     # --- utility ---
     direnv
