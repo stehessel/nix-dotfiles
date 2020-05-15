@@ -6,13 +6,18 @@ function docker-pyenv -a container_id --description "Create python environment f
 
 	docker exec -it $container_id /home/docker/venv3.6/bin/pip freeze \
 		| sed '/^#/d' \
-		| sed 's/==.*//g' \
+		# | sed 's/==.*//g' \
 		| sed '/^by.atalaia/d' \
 		| sed '/^Bottleneck/d' \
+		| sed '/^boost-gcc-5/d' \
 		| sed '/^crick/d' \
 		| sed '/^http-parser/d' \
 		| sed '/^neurobayes-runtime/d' \
-		| sed '/^ps-app/d' \
+		| sed '/^nbpy/d' \
+		| sed '/^NBSystem/d' \
+		| sed '/^psapp/d' \
+		| sed '/^turbodbc/d' \
+		| sed '/^yamal-nbsystem/d' \
 		| sed 's/^psycopg2/psycopg2-binary/g' \
 		| sed "s+/home/docker/venv3.6+$HOME/git/raq-bootstrap+g" \
 		| sed 's/^[^[:graph:]]*//;s/[^[:graph:]]*$//' \
@@ -24,6 +29,7 @@ function docker-pyenv -a container_id --description "Create python environment f
 	conda activate docker
 	conda install \
 		black \
+		crick \
 		cython \
 		dask \
 		flake8 \
@@ -42,23 +48,7 @@ function docker-pyenv -a container_id --description "Create python environment f
 	set index_url https://software.z.westeurope.blue-yonder.cloud/platform_dev/Debian_9/+simple
 	pip --cert $HOME/certs/Certificates.pem \
 		--trusted-host pypi.org \
-		--trusted-host files.pythonhosted.org \
 		install \
 			--extra-index-url $index_url \
 			-r /tmp/requirements.txt
-	pip install -e $HOME/git/raq-bootstrap/raq/raqbundle
-	pip --cert $HOME/certs/Certificates.pem \
-		--trusted-host pypi.org \
-		--trusted-host files.pythonhosted.org \
-		install \
-			--extra-index-url $index_url \
-			byflow \
-			dataset_diff==0.2.1.dev5+gb14aca7 \
-			pricing-columns \
-			replenishment-interface \
-			retail-interface \
-			retrying \
-			stratosphere-client \
-			vascomodel \
-			vsi-client
 end
