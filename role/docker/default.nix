@@ -48,7 +48,9 @@
     fzf
     skim
     # --- git ---
-    hub
+    gitAndTools.diff-so-fancy
+    gitAndTools.git-bug
+    gitAndTools.hub
     # --- highlighters ---
     bat
     exa
@@ -66,7 +68,6 @@
     direnv
     du-dust
     file
-    gitAndTools.diff-so-fancy
     hyperfine
     neofetch
     svgcleaner
