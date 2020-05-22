@@ -3,6 +3,7 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
+    # ../../dev/python/packages
     ../../dev/version-control/git
     ../../dev/version-control/tig
     ../../program/editor/kakoune
@@ -10,7 +11,6 @@
     ../../program/editor/coc
     ../../program/file-manager/lf
     ../../program/file-manager/vifm
-    ../../program/shell/bobthefish
     ../../program/shell/fish
     ../../program/shell/starship
     ../../program/utility/broot
@@ -21,6 +21,7 @@
 
   xdg.configFile."nix/nix-single-user.fish".source = config/nix-single-user.fish;
   xdg.configFile."fish/fishfile".source = ../../program/shell/fish/linux/fishfile;
+  xdg.configFile."bobthefish/config.fish".source = ../../program/shell/bobthefish/docker/config.fish;
 
   home.packages = with pkgs; [
     # --- azure ---
