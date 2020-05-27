@@ -26,9 +26,10 @@
   home.packages = with pkgs; [
     # --- azure ---
     azure-cli
-    # --- dev ---
+    # --- data ---
     jq
-    tig
+    visidata
+    # --- dev ---
     tokei
     universal-ctags
     xsv
@@ -52,6 +53,7 @@
     gitAndTools.diff-so-fancy
     gitAndTools.git-bug
     gitAndTools.hub
+    tig
     # --- highlighters ---
     bat
     exa

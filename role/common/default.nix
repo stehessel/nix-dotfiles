@@ -54,21 +54,22 @@
     ccls
     # clang
     gdb
+    # --- data ---
+    jq
+    visidata
     # --- dev ---
     editorconfig-core-c
-    jq
-    tig
     tokei
     universal-ctags
     xsv
-    # --- editor ---
-    neovim-remote
-    # --- encryption ---
-    gnupg
     # --- docker ---
     # docker-sync
     unison
     fswatch
+    # --- editor ---
+    neovim-remote
+    # --- encryption ---
+    gnupg
     # --- file manager ---
     lf
     vifm
@@ -93,6 +94,7 @@
     gitAndTools.diff-so-fancy
     gitAndTools.git-bug
     gitAndTools.hub
+    tig
     # --- go ---
     go
     # --- haskell ---
