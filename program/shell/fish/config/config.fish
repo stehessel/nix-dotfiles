@@ -88,9 +88,9 @@ if not functions -q fisher
 end
 
 # plug.kak
-if not test -d "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
-	git clone "https://github.com/andreyorst/plug.kak.git" "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
-end
+# if not test -d "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
+# 	git clone "https://github.com/andreyorst/plug.kak.git" "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
+# end
 
 # direnv
 if command -v direnv >/dev/null 2>&1
