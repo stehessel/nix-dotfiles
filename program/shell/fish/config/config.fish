@@ -76,6 +76,7 @@ abbr -a tl  "tasklite"
 abbr -a restic "restic -r ~/backup --password-file $XDG_CONFIG_HOME/restic/secret"
 abbr -a corona "curl 'https://corona-stats.online?source=2&top=15'"
 abbr -a b "buku --suggest"
+abbr -a f "fuzzysphere"
 
 # keybinds
 bind \cb beginning-of-line
