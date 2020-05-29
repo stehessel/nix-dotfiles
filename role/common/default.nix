@@ -33,6 +33,7 @@
     ../../program/todo/tasklite
     ../../program/todo/taskwarrior
     ../../program/utility/broot
+    ../../program/utility/espanso
     ../../program/utility/file
     # ../../program/utility/pueue
     ../../program/utility/ripgrep
