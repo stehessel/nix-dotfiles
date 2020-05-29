@@ -2,7 +2,7 @@ if not status is-interactive
 	exit
 end
 
-# environment variables
+# Environment variables
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 set -x EDITOR "nvim"
 set -x FILE "lf"
@@ -30,7 +30,7 @@ set -p fish_user_paths "$HOME/.local/bin"
 source "$XDG_CONFIG_HOME/nix/nix-single-user.fish" 2> /dev/null
 source "$XDG_CONFIG_HOME/nix/nix-daemon.fish" 2> /dev/null
 
-# link sh to dash
+# Link sh to dash
 ln -s (command -v dash) "$HOME/.local/bin/sh" 2> /dev/null
 set -x KAKOUNE_POSIX_SHELL (command -v dash)
 set -x NVIM_LISTEN_ADDRESS /tmp/nvimsocket
@@ -47,7 +47,7 @@ switch (uname)
 		set -x BROWSER "firefox"
 end
 
-# abbreviations
+# Abbreviations
 abbr -a h "cd ~/ and ls -a"
 abbr -a d "cd ~/Documents; and ls -a"
 abbr -a D "cd ~/Downloads; and ls -a"
@@ -78,27 +78,27 @@ abbr -a corona "curl 'https://corona-stats.online?source=2&top=15'"
 abbr -a b "buku --suggest"
 abbr -a f "fuzzysphere"
 
-# keybinds
+# Keybinds
 bind \cb beginning-of-line
 bind \ca 'fg'
 
-# fisher
+# Fisher
 if not functions -q fisher
 	curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
 	fish -c fisher
 end
 
-# plug.kak
+# Plug.kak
 # if not test -d "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
 # 	git clone "https://github.com/andreyorst/plug.kak.git" "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
 # end
 
-# direnv
+# Direnv
 if command -v direnv >/dev/null 2>&1
 	eval (direnv hook fish)
 end
 
-# conda
+# Conda
 if test -d "$HOME/miniconda3"
 	set conda_config_file "$XDG_CONFIG_HOME/fish/conda.fish"
 	if not test -f $conda_config_file
@@ -107,14 +107,13 @@ if test -d "$HOME/miniconda3"
 	source $conda_config_file
 end
 
-# theme
-
-# starship
+# Theme
+# Starship
 # if command -v starship >/dev/null 2>&1
 # 	starship init fish | source
 # end
 
-# bobthefish
+# Bobthefish
 set bobthefish_config_file "$XDG_CONFIG_HOME/bobthefish/config.fish"
 if test -f $bobthefish_config_file
 	source $bobthefish_config_file
