@@ -31,6 +31,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'stsewd/sphinx.nvim', { 'do': ':UpdateRemotePlugins' }
 " Linters
 " 	Plug 'dense-analysis/ale'
+" Python
+	Plug 'python-rope/ropevim'
 " Treesitter
 	Plug 'nvim-treesitter/nvim-treesitter'
 " Auto format

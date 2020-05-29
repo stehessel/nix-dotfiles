@@ -42,6 +42,9 @@ function docker-pyenv -a container_id --description "Create python environment f
 		pylint \
 		pynvim \
 		pytest \
+		rope \
+		ropemode \
+		ropevim \
 		turbodbc \
 		-y
 
