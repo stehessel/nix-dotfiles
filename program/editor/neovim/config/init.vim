@@ -796,6 +796,7 @@ call plug#end()
 
 	" GoTo code navigation.
 	nmap <silent> gd <Plug>(coc-definition)
+	nmap <silent> gD <Plug>(coc-declaration)
 	nmap <silent> gy <Plug>(coc-type-definition)
 	nmap <silent> gp <Plug>(coc-implementation)
 	nmap <silent> gr <Plug>(coc-references)
@@ -895,6 +896,14 @@ call plug#end()
 " Auto format
 	let g:formatters_python = ['black']
 	noremap <silent> <leader>F :Autoformat<cr>
+" Rope
+	let ropevim_local_prefix = "<M-r>"
+	let ropevim_global_prefix = "<M-p>"
+	let g:ropevim_autoimport_modules = ["kartothek"]
+
+	nmap <M-/> :call RopeCodeAssist()<CR>
+	nmap <M-?> :call RopeLuckyAssist()<CR>
+	nmap <M-d> :call RopeGotoDefinition()<CR>
 " Semshi
 	nmap <silent> <leader>rn :Semshi rename<CR>
 
