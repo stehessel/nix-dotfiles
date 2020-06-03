@@ -69,7 +69,9 @@ def main():
             " or generate new sas from azure credentials."
         )
     )
-    parser.add_argument("--hazure", type=str, help="Hazure url string.")
+    parser.add_argument(
+        "--hazure-url", dest="hazure_url", type=str, help="Hazure url string."
+    )
     parser.add_argument("--account", type=str, help="Azure storage account name.")
     parser.add_argument("--key", type=str, help="Azure storage account key.")
     parser.add_argument(
@@ -84,7 +86,7 @@ def main():
     args = parser.parse_args()
 
     if args.hazure_url:
-        print(hazure2sas(args.hazure))
+        print(hazure2sas(args.hazure_url))
     elif args.account and args.key and args.container:
         expiry = datetime.utcnow() + timedelta(days=args.lease_time_days)
         token = generate_container_sas_token(
