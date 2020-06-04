@@ -428,12 +428,17 @@ call plug#end()
 " EOF
 " Neoterm
 	let g:neoterm_default_mod = "rightbelow"
+	let g:neoterm_autoinsert = 1
 
 	nnoremap <leader>Tt :vert Ttoggle<CR>
 	nnoremap <leader>Tr :TREPLSetTerm<CR>
 	nnoremap <leader>Tf :TREPLSendFile<CR>
 	nnoremap <leader>Tl :TREPLSendLine<CR>
 	vnoremap <leader>Tl :TREPLSendSelection<CR>
+    " Use gx{text-object} in normal mode
+    nmap gx <Plug>(neoterm-repl-send)
+    " Send selected contents in visual mode.
+    xmap gx <Plug>(neoterm-repl-send)
 
 	nnoremap <leader>Tc :<c-u>exec v:count.'Tclear'<CR>
 " Iron.nvim REPL
