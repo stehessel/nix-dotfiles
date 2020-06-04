@@ -54,6 +54,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 	Plug 'sheerun/vim-polyglot'
 " REPL
+	Plug 'kassio/neoterm'
 	Plug 'Vigemus/iron.nvim'
 " Markdown
 	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
@@ -425,6 +426,16 @@ call plug#end()
 " 	ensure_installed = 'all'
 " }
 " EOF
+" Neoterm
+	let g:neoterm_default_mod = "rightbelow"
+
+	nnoremap <leader>Tt :vert Ttoggle<CR>
+	nnoremap <leader>Tr :TREPLSetTerm<CR>
+	nnoremap <leader>Tf :TREPLSendFile<CR>
+	nnoremap <leader>Tl :TREPLSendLine<CR>
+	vnoremap <leader>Tl :TREPLSendSelection<CR>
+
+	nnoremap <leader>Tc :<c-u>exec v:count.'Tclear'<CR>
 " Iron.nvim REPL
 	luafile $HOME/.config/nvim/plugins.lua
 	nmap <leader>it  :IronRepl python<CR><ESC>
