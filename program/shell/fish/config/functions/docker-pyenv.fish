@@ -53,6 +53,7 @@ function docker-pyenv -a container_id --description "Create python environment f
 		install \
 			--extra-index-url $index_url \
 			-r /tmp/requirements.txt \
+			httpretty \
 			ropemode \
 			ropevim
 end
