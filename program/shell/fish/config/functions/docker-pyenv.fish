@@ -43,15 +43,16 @@ function docker-pyenv -a container_id --description "Create python environment f
 		pynvim \
 		pytest \
 		rope \
-		ropemode \
-		ropevim \
 		turbodbc \
 		-y
 
 	set index_url https://software.z.westeurope.blue-yonder.cloud/platform_dev/Debian_9/+simple
 	pip --cert $HOME/certs/Certificates.pem \
 		--trusted-host pypi.org \
+		--trusted-host files.pythonhosted.org \
 		install \
 			--extra-index-url $index_url \
-			-r /tmp/requirements.txt
+			-r /tmp/requirements.txt \
+			ropemode \
+			ropevim
 end
