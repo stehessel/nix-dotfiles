@@ -1,4 +1,4 @@
-function docker-pyenv -a container_id --description "Create python environment from docker container"
+function docker-env -a container_id --description "Create python environment from docker container"
 	if not test -n "$container_id"
 		# Use latest container
 		set container_id (docker ps -lq)
