@@ -31,7 +31,6 @@ function docker-pyenv -a container_id --description "Create python environment f
 		black \
 		crick \
 		cython \
-		dask \
 		flake8 \
 		ipython \
 		isort \
