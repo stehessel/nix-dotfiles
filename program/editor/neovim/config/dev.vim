@@ -1,6 +1,10 @@
 " Auto format
-	let g:formatters_python = ['black']
-	noremap <silent> <leader>F :Autoformat<cr>
+	augroup autoformat_settings
+		autocmd FileType python AutoFormatBuffer black
+		autocmd FileType rust AutoFormatBuffer rustfmt
+	augroup END
+	nnoremap <leader>F :FormatCode<CR>
+	vnoremap <leader>F :FormatLines<CR>
 " Vimspector
     nmap <leader>dd <Plug>VimspectorContinue
     nmap <leader>ds <Plug>VimspectorStop

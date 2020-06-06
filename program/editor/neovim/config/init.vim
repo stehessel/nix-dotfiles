@@ -36,7 +36,9 @@ call plug#begin('~/.config/nvim/plugged')
 " Treesitter
 	Plug 'nvim-treesitter/nvim-treesitter'
 " Auto format
-	Plug 'Chiel92/vim-autoformat'
+	Plug 'google/vim-codefmt'
+	Plug 'google/vim-glaive'
+	Plug 'google/vim-maktaba'
 " Auto complete
 	Plug 'haorenW1025/completion-nvim'
 	Plug 'nvim-treesitter/completion-treesitter'
@@ -151,6 +153,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Local
 	Plug '~/git/nvim-jira'
 call plug#end()
+call glaive#Install()
 
 " Misc keybinds
 	let mapleader =","
@@ -324,6 +327,8 @@ call plug#end()
 	nmap ]y <plug>(YoinkRotateForward)
 
 	nmap <c-=> <plug>(YoinkPostPasteToggleFormat)
+" Sort
+	xnoremap <leader>s :sort<CR>
 " Move lines up or down
 	function! s:swap_lines(n1, n2)
 		let line1 = getline(a:n1)
