@@ -37,6 +37,8 @@ brew "tmux"
 brew "urlview"
 # Enhances tmux's to provide multiuser terminal multiplexing
 brew "wemux"
+# Homebrew, but with Docker images
+brew "whalebrew"
 brew "atlassian/tap/atlassian-plugin-sdk"
 # Cross-platform Text Expander written in Rust
 brew "federico-terzi/espanso/espanso"
@@ -60,3 +62,4 @@ cask "rectangle"
 cask "ukelele"
 cask "visual-studio-code"
 cask "zoomus"
+whalebrew "whalebrew/whalesay"
