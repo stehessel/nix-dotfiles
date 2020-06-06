@@ -1,8 +1,8 @@
 " Auto format
-	augroup autoformat_settings
-		autocmd FileType python AutoFormatBuffer black
-		autocmd FileType rust AutoFormatBuffer rustfmt
-	augroup END
+	" augroup autoformat_settings
+	" 	autocmd FileType python AutoFormatBuffer black
+	" 	autocmd FileType rust AutoFormatBuffer rustfmt
+	" augroup END
 	nnoremap <leader>F :FormatCode<CR>
 	vnoremap <leader>F :FormatLines<CR>
 " Vimspector
