@@ -5,10 +5,10 @@
 	tnoremap <C-k> <C-\><C-n><C-w>k
 	tnoremap <C-l> <C-\><C-n><C-w>l
 " Neoterm
-	let g:neoterm_default_mod = "rightbelow"
+	let g:neoterm_default_mod = "rightbelow vertical"
 	let g:neoterm_autoinsert = 1
 
-	nnoremap <leader>Tt :vert Ttoggle<CR>
+	nnoremap <leader>Tt :Ttoggle<CR>
 	nnoremap <leader>Tr :TREPLSetTerm<CR>
 	nnoremap <leader>Tf :TREPLSendFile<CR>
 	nnoremap <leader>Tl :TREPLSendLine<CR>

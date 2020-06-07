@@ -100,8 +100,8 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'mbbill/undotree'
 	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 	Plug 'nicwest/vim-camelsnek'
-	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
+	Plug 'tyru/caw.vim'
 " Text substitution
 	Plug 'svermeulen/vim-subversive'
 	Plug 'tpope/vim-abolish'
