@@ -37,6 +37,7 @@ function docker-env -a container_id --description "Create python environment fro
 		jedi \
 		pdbpp \
 		pipdeptree \
+		pre-commit \
 		pydantic \
 		pylint \
 		pynvim \
