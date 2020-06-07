@@ -222,7 +222,7 @@ call plug#end()
 	" map <C-j> <C-w>j
 	" map <C-k> <C-w>k
 	" map <C-l> <C-w>l
-	nnoremap <C-u> <C-w>w
+	nnoremap <C-p> <C-w>w
 	" Open alternative file in split
 	map <c-t> :vs#<CR>
 " Lens
@@ -326,36 +326,6 @@ call plug#end()
 	nmap <c-=> <plug>(YoinkPostPasteToggleFormat)
 " Sort
 	xnoremap <leader>s :sort<CR>
-" Move lines up or down
-	function! s:swap_lines(n1, n2)
-		let line1 = getline(a:n1)
-		let line2 = getline(a:n2)
-		call setline(a:n1, line2)
-		call setline(a:n2, line1)
-	endfunction
-
-	function! s:swap_up()
-		let n = line('.')
-		if n == 1
-			return
-		endif
-
-		call s:swap_lines(n, n - 1)
-		exec n - 1
-	endfunction
-
-	function! s:swap_down()
-		let n = line('.')
-		if n == line('$')
-			return
-		endif
-
-		call s:swap_lines(n, n + 1)
-		exec n + 1
-	endfunction
-
-	noremap <silent> <c-y> :call <SID>swap_up()<CR>
-	noremap <silent> <c-u> :call <SID>swap_down()<CR>
 " Vim swap
 	omap i, <Plug>(swap-textobject-i)
 	xmap i, <Plug>(swap-textobject-i)
