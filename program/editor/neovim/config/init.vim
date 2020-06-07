@@ -36,9 +36,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Treesitter
 	Plug 'nvim-treesitter/nvim-treesitter'
 " Auto format
-	Plug 'google/vim-codefmt'
-	Plug 'google/vim-glaive'
-	Plug 'google/vim-maktaba'
+	Plug 'sbdchd/neoformat'
 " Auto complete
 	Plug 'haorenW1025/completion-nvim'
 	Plug 'nvim-treesitter/completion-treesitter'
@@ -153,7 +151,6 @@ call plug#begin('~/.config/nvim/plugged')
 " Local
 	Plug '~/git/nvim-jira'
 call plug#end()
-call glaive#Install()
 
 " Misc keybinds
 	let mapleader =","

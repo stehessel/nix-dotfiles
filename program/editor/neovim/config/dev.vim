@@ -1,10 +1,10 @@
 " Auto format
-	" augroup autoformat_settings
-	" 	autocmd FileType python AutoFormatBuffer black
-	" 	autocmd FileType rust AutoFormatBuffer rustfmt
+	" augroup fmt
+	" 	autocmd!
+	" 	autocmd BufWritePre * undojoin | Neoformat
 	" augroup END
-	nnoremap <leader>F :FormatCode<CR>
-	vnoremap <leader>F :FormatLines<CR>
+	let g:neoformat_enabled_python = ['black']
+	nnoremap <leader>F :Neoformat<CR>
 " Vimspector
     nmap <leader>dd <Plug>VimspectorContinue
     nmap <leader>ds <Plug>VimspectorStop
