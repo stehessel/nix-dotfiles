@@ -9,6 +9,8 @@ tap "ul/kak-lsp"
 tap "zegervdv/zathura"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
+# Microsoft Azure CLI 2.0
+brew "azure-cli"
 # C++ library for C++/Python3 interoperability
 brew "boost-python3"
 # Powerful command-line bookmark manager
