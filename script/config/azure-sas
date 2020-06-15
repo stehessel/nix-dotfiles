@@ -88,7 +88,7 @@ def main():
     if args.hazure_url:
         print(hazure2sas(args.hazure_url))
     elif args.account and args.key and args.container:
-        expiry = datetime.utcnow() + timedelta(days=args.lease_time_days)
+        expiry = datetime.utcnow() + timedelta(days=args.lease)
         token = generate_container_sas_token(
             account_name=args.account,
             account_key=args.key,

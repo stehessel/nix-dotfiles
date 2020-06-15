@@ -6,6 +6,7 @@
 		"*.swp"
         "__pycache__"
         ".vim"
+        ".ropeproject"
 	];
 
 	extraConfig = {
