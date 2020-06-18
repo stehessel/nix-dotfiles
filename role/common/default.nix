@@ -106,6 +106,8 @@
     bat
     exa
     highlight
+    # --- http ---
+    httpie
     # --- javascript ---
     nodejs-13_x
     yarn
