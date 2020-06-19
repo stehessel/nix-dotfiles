@@ -12,7 +12,6 @@
         kakoune
         neovim
 		# --- terminal ---
-		alacritty
 		kitty
 	];
 
