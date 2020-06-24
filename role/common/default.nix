@@ -56,7 +56,7 @@
     # clang
     gdb
     # --- data ---
-    # jq
+    jq
     # visidata
     # --- dev ---
     editorconfig-core-c
@@ -122,7 +122,7 @@
     bandwhich
     speedtest-cli
     # --- nix ---
-    # arion
+    arion
     cachix
     lorri
     niv
