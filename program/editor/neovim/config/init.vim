@@ -72,6 +72,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nanotech/jellybeans.vim'
 " Icons
 	Plug 'ryanoasis/vim-devicons'
+" Cursor
+	Plug 'danilamihailov/beacon.nvim'
 " Brackets
 	Plug 'adelarsq/vim-matchit'
 	Plug 'cohama/lexima.vim'
@@ -183,6 +185,8 @@ call plug#end()
 	nmap <leader>V ggVG
 " Delete whole buffer
 	nmap <leader>D :%d<CR>
+" Visual mode
+	nnoremap <M-v> <C-v>
 " Buffers
 	nmap <leader>bn :bn<CR>
 	nmap <leader>bp :bp<CR>

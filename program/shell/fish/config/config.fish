@@ -16,6 +16,7 @@ set -x FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always"
 set -x FZF_PREVIEW_DIR_CMD "tree"
 set -x NVIM_LOG_FILE "$XDG_CONFIG_HOME/nvim/.nvimlog"
 set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
+set -x ODBCSYSINI "$HOME/git/raq"
 
 set -p fish_user_paths "$HOME/.dotnet"
 set -p fish_user_paths "$HOME/.npm-packages/bin"

@@ -1,6 +1,7 @@
 # Prevent recursion
 ~/backup
 /Users/lgtf/backup
+/Users/lgtf/rwth-data
 
 # Do not backup caches
 __pycache__

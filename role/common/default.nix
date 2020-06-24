@@ -26,7 +26,7 @@
     ../../program/shell/bobthefish
     ../../program/shell/fish
     ../../program/shell/starship
-    ../../program/terminal/alacritty
+    # ../../program/terminal/alacritty
     ../../program/terminal/kitty
     ../../program/terminal/screen
     ../../program/terminal/tmux
@@ -56,8 +56,8 @@
     # clang
     gdb
     # --- data ---
-    jq
-    visidata
+    # jq
+    # visidata
     # --- dev ---
     editorconfig-core-c
     tokei
@@ -65,7 +65,7 @@
     xsv
     # --- docker ---
     # docker-sync
-    unison
+    # unison
     fswatch
     # --- editor ---
     neovim-remote
