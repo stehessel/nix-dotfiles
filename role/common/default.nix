@@ -128,6 +128,7 @@
     niv
     nox
     pypi2nix
+    rnix-lsp
     # --- plotting ---
     gnuplot
     # --- process manager ---
