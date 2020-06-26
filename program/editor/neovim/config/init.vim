@@ -369,25 +369,6 @@ call plug#end()
 	let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " Disables automatic commenting on newline:
 	" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-" Treesitter
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-" 	highlight = {
-" 		enable = false,
-" 		disable = { 'rust' },
-" 	},
-" 	-- this enables incremental selection
-" 	textobj = {
-" 		enable = true,
-" 		disable = {},
-" 		keymaps = {
-" 			node_incremental = "<leader>k",
-" 			scope_incremental = "<leader>K"
-" 		}
-" 	},
-" 	ensure_installed = 'all'
-" }
-" EOF
 " Fern
 	let g:fern#renderer = "devicons"
 	let g:fern#disable_default_mappings = 1
@@ -460,3 +441,4 @@ call plug#end()
 	source ~/.config/nvim/python.vim
 	source ~/.config/nvim/repl.vim
 	source ~/.config/nvim/search.vim
+	source ~/.config/nvim/treesitter.vim
