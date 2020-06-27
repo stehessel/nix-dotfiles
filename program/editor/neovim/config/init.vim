@@ -147,6 +147,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'skywind3000/asynctasks.vim'
 	Plug 'skywind3000/asyncrun.vim'
 	Plug 'tpope/vim-dispatch'
+" Todo
+	Plug 'vuciv/vim-bujo'
 " Unix commands
 	Plug 'tpope/vim-eunuch'
 " Root directory
