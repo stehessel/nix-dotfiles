@@ -94,6 +94,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-rsi'
 	Plug 'unblevable/quick-scope'
 " Text manipulation
+	Plug 'AndrewRadev/switch.vim'
 	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
 	Plug 'matze/vim-move'
 	Plug 'machakann/vim-swap'
@@ -335,6 +336,8 @@ call plug#end()
 	xmap i, <Plug>(swap-textobject-i)
 	omap a, <Plug>(swap-textobject-a)
 	xmap a, <Plug>(swap-textobject-a)
+" Vim switch
+	let g:switch_mapping = "-"
 " Vim subversive
 	nmap s <plug>(SubversiveSubstitute)
 	nmap ss <plug>(SubversiveSubstituteLine)
