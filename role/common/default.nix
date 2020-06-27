@@ -30,7 +30,7 @@ in
     ../../program/shell/bobthefish
     ../../program/shell/fish
     ../../program/shell/starship
-    # ../../program/terminal/alacritty
+    ../../program/terminal/alacritty
     ../../program/terminal/kitty
     ../../program/terminal/screen
     ../../program/terminal/tmux
