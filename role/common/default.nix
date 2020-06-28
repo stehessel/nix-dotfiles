@@ -5,6 +5,7 @@ let
 in
 {
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnsupportedSystem = true;
 
   imports = [
     ../../dev/build-system/just-build
