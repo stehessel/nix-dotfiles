@@ -17,6 +17,7 @@
     nmap gi <Plug>VimspectorStepInto
     nmap go <Plug>VimspectorStepOut
 " Vim-test
+	let test#python#runner = "pytest"
 	let test#strategy = "neoterm"
 
 	nmap <silent> <leader>tn :TestNearest<CR>
