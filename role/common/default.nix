@@ -17,6 +17,7 @@ in
     ../../dev/python/isort
     ../../dev/python/mypy
     # ../../dev/python/packages
+    ../../dev/python/pdb
     ../../dev/python/pycodestyle
     ../../dev/version-control/git
     ../../dev/version-control/tig
