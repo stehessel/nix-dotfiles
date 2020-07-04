@@ -27,8 +27,8 @@
 	nmap <leader>iw  :IronWatchCurrentFile
 	nmap <leader>iu  :IronUnwatchCurrentFile<CR>
 
-	nmap <localleader>t    <Plug>(iron-send-motion)
-	vmap <localleader>v    <Plug>(iron-visual-send)
+	nmap <localleader>s    <Plug>(iron-send-motion)
+	vmap <localleader>s    <Plug>(iron-visual-send)
 	nmap <localleader>r    <Plug>(iron-repeat-cmd)
 	nmap <localleader>l    <Plug>(iron-send-line)
 	nmap <localleader><CR> <Plug>(iron-cr)

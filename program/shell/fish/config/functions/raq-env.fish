@@ -5,6 +5,7 @@ function raq-env --description "Create raq environment."
 	conda activate raq-env
 
 	conda install \
+		debugpy \
 		httpretty \
 		ipython \
 		jedi \
