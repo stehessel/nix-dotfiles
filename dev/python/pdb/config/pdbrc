@@ -1,0 +1,3 @@
+sticky
+alias emb from IPython import embed; embed()
+alias bb import os; os.system(f"echo b {__file__}:{%1} >> .pdbrc")
