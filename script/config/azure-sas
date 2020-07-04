@@ -1,6 +1,8 @@
 #!/usr/bin/env python
+
 import argparse
 import re
+import sys
 from datetime import datetime, timedelta
 from typing import Optional
 from urllib.parse import quote_plus, unquote
@@ -62,32 +64,56 @@ def hazure2sas(hazure_url: str) -> Optional[str]:
         return f"https://{account_name}.blob.core.windows.net/{container}?{sas}"
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description=(
-            "Either convert hazure url to azure sas url (--hazure),"
-            " or generate new sas from azure credentials."
-        )
-    )
-    parser.add_argument(
-        "--hazure-url", dest="hazure_url", type=str, help="Hazure url string."
-    )
-    parser.add_argument("--account", type=str, help="Azure storage account name.")
-    parser.add_argument("--key", type=str, help="Azure storage account key.")
-    parser.add_argument(
-        "--container", type=str, help="Azure storage container name.",
-    )
-    parser.add_argument(
-        "--lease", type=int, default=90, help="Lease time in days.",
-    )
-    parser.add_argument(
-        "--write", action="store_true", help="Include write privilege.",
-    )
-    args = parser.parse_args()
+class AzureSasCli(object):
+    def __init__(self):
+        parser = argparse.ArgumentParser(
+            description="Either convert a hazure url to a azure sas token"
+            " or create new azure sas token from credentials.",
+            usage="""azure-sas <command> [<args>]
 
-    if args.hazure_url:
-        print(hazure2sas(args.hazure_url))
-    elif args.account and args.key and args.container:
+The possible commands are:
+   convert     Convert hazure url to azure sas token.
+   create      Create new azure sas token from credentials.
+""",
+        )
+        parser.add_argument("command", help="Subcommand to run.")
+        # parse_args defaults to [1:] for args, but you need to
+        # exclude the rest of the args too, or validation will fail.
+        args = parser.parse_args(sys.argv[1:2])
+        if not hasattr(self, args.command):
+            print("Unrecognized command.")
+            parser.print_help()
+            exit(1)
+        # Use dispatch pattern to invoke method with same name.
+        getattr(self, args.command)()
+
+    def convert(self):
+        parser = argparse.ArgumentParser(
+            description="Convert hazure url to azure sas token."
+        )
+        # Prefixing the argument with -- means it's optional.
+        parser.add_argument("hazure", type=str, help="Hazure url string.")
+        args = parser.parse_args(sys.argv[2:])
+
+        print(hazure2sas(args.hazure))
+
+    def create(self):
+        parser = argparse.ArgumentParser(
+            description="Create new azure sas token from credentials."
+        )
+        parser.add_argument("--account", type=str, help="Azure storage account name.")
+        parser.add_argument("--key", type=str, help="Azure storage account key.")
+        parser.add_argument(
+            "--container", type=str, help="Azure storage container name.",
+        )
+        parser.add_argument(
+            "--lease", type=int, default=90, help="Lease time in days.",
+        )
+        parser.add_argument(
+            "--write", action="store_true", help="Include write privilege.",
+        )
+        args = parser.parse_args(sys.argv[2:])
+
         expiry = datetime.utcnow() + timedelta(days=args.lease)
         token = generate_container_sas_token(
             account_name=args.account,
@@ -98,8 +124,10 @@ def main():
         )
         hazure_url = f"hazure://{args.account}:{quote_plus(token)}@{args.container}/?use_sas=true&create_if_missing=false"
         print(hazure2sas(hazure_url))
-    else:
-        print("Cannot parse input arguments.")
+
+
+def main():
+    AzureSasCli()
 
 
 if __name__ == "__main__":
