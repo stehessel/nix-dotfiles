@@ -103,12 +103,22 @@ end
 
 # Conda
 if test -d "$HOME/miniconda3"
-	set conda_config_file "$XDG_CONFIG_HOME/fish/conda.fish"
-	if not test -f $conda_config_file
-    	eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv > $conda_config_file
+	set conda_source_file "$XDG_CONFIG_HOME/fish/conda.fish"
+	if not test -f $conda_source_file
+    	eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv > $conda_source_file
 	end
-	source $conda_config_file
+	source $conda_source_file
 end
+
+# Pyenv
+# if command -v pyenv > /dev/null
+# 	set -x PYENV_ROOT $XDG_CONFIG_HOME/pyenv
+# 	set pyenv_source_file "$XDG_CONFIG_HOME/fish/pyenv.fish"
+# 	if not test -f $pyenv_source_file
+# 		pyenv init - > $pyenv_source_file
+# 	end
+# 	source $pyenv_source_file
+# end
 
 # Theme
 # Starship
