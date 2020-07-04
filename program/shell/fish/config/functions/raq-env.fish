@@ -4,28 +4,28 @@ function raq-env --description "Create raq environment."
 	conda create -n raq-env python=3.6 -y
 	conda activate raq-env
 
+	conda install \
+		httpretty \
+		ipython \
+		jedi \
+		pdbpp \
+		pipdeptree \
+		pre-commit \
+		pylint \
+		pynvim \
+		rope \
+		turbodbc \
+		-y
+
 	cd $HOME/git/raq
 	set -x RAQ_SKIP_REQUIREMENTS nbsystem,psapp,nbpy,neurobayes_runtime,boost_gcc_5,vasco_payload_db_lite,nbsystem_local_executor,bydbaccess,turbodbc
 	proxy
 	./bootstrap
 	raq rinstall numpy cython pybind11 pyarrow
 	raq install data-catalog[test]
-
-	conda install \
-		httpretty \
-		ipython \
-		jedi \
-		pdbpp \
-		pdrops \
-		pipdeptree \
-		pre-commit \
-		pylint \
-		pynvim \
-		rope \
-		ropevim \
-		turbodbc \
-		-y
+	proxy clear
 
 	pip install \
-		ropemode
+		ropemode \
+		ropevim
 end
