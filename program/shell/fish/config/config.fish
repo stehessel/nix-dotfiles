@@ -80,6 +80,7 @@ abbr -a restic "restic -r ~/backup --password-file $XDG_CONFIG_HOME/restic/secre
 abbr -a corona "curl 'https://corona-stats.online?source=2&top=15'"
 abbr -a b "buku --suggest"
 abbr -a f "fuzzysphere"
+abbr -a p "pytest tests/unit --ignore tests/unit/compat_pricing --ignore tests/unit/test_log_stats.py"
 
 # Keybinds
 bind \cb beginning-of-line
