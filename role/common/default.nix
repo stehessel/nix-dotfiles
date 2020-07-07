@@ -113,6 +113,7 @@ in
     exa
     highlight
     # --- http ---
+    http-prompt
     httpie
     # --- javascript ---
     nodejs-13_x
