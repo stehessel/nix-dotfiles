@@ -54,6 +54,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 	Plug 'sheerun/vim-polyglot'
 " REPL
+	" Plug 'ipselium/vim-cpyvke'
 	Plug 'kassio/neoterm'
 	Plug 'Vigemus/iron.nvim'
 " Markdown
