@@ -1,5 +1,6 @@
 tap "atlassian/tap"
 tap "federico-terzi/espanso"
+tap "getsentry/tools"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -58,6 +59,8 @@ brew "zlib"
 brew "atlassian/tap/atlassian-plugin-sdk"
 # Cross-platform Text Expander written in Rust
 brew "federico-terzi/espanso/espanso"
+# Sentry command-line client for some generic tasks
+brew "getsentry/tools/sentry-cli"
 # Convert CSV to Blue Yonder Supply & Demand API compatible XML
 brew "stephan-hesselmann-by/blueyonder/di-csv2xml"
 cask "amethyst"

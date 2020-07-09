@@ -100,6 +100,7 @@ in
     # --- git ---
     gitAndTools.diff-so-fancy
     gitAndTools.git-bug
+    gitAndTools.git-fame
     gitAndTools.hub
     tig
     # --- go ---

@@ -1,4 +1,16 @@
 {
+    "alacritty": {
+        "branch": "master",
+        "description": "A cross-platform, GPU-accelerated terminal emulator",
+        "homepage": "",
+        "owner": "alacritty",
+        "repo": "alacritty",
+        "rev": "9974bc8baa45fda0b4ba3db2ae615fb7f90f7029",
+        "sha256": "0p644rqqm0iqsci5zafay9ln7plhas1fj2y8q852n4mfqs3cwifa",
+        "type": "tarball",
+        "url": "https://github.com/alacritty/alacritty/archive/9974bc8baa45fda0b4ba3db2ae615fb7f90f7029.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "dash": {
         "sha256": "15mhzqnlhjlpzgy6vbjfriymiflnrbh0yb63hb4mi9ic10s0jbw4",
         "type": "tarball",
@@ -12,10 +24,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "91572ddad185c2c4f6d266543d66919543c5bb2a",
-        "sha256": "1fw7dkknjf46bipan4ai4przgz20v0h3fd4j2pbxpf7iaa8274cg",
+        "rev": "b39edb5b605b545843482c70a3a3d03e2331a059",
+        "sha256": "1xmfs8i04f84vgicnjjfzhm5iakz4dpdqa78njny6hhk3yway3az",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/91572ddad185c2c4f6d266543d66919543c5bb2a.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/b39edb5b605b545843482c70a3a3d03e2331a059.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -36,10 +48,10 @@
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "NixOS",
         "repo": "nixpkgs-channels",
-        "rev": "4855aa62fa13052fb1a3daea68971503ab07a744",
-        "sha256": "17sk264qw397zzw12x11ry5vj9qidgbmjsyj544ysg857b4qq9sj",
+        "rev": "1d8018068278a717771e9ec4054dff1ebd3252b0",
+        "sha256": "1vi3wbvlvpd4200swd3594vps1fsnd7775mgzm3nnfs1imzkg00i",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/4855aa62fa13052fb1a3daea68971503ab07a744.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/1d8018068278a717771e9ec4054dff1ebd3252b0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
