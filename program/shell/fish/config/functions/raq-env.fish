@@ -27,6 +27,7 @@ function raq-env --description "Create raq environment."
 	proxy clear
 
 	pip install \
+		pytest-xdist \
 		ropemode \
 		ropevim
 end
