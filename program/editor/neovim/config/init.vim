@@ -197,12 +197,26 @@ call plug#end()
 	nmap <leader>bd :bd<CR>
 	nnoremap gj <C-^>
 " Tabs
-	nmap g[ :-tabmove<CR>
-	nmap g] :+tabmove<CR>
-	nmap g^ :tabm 0<CR>
-	nmap g$ :tabm<CR>
-	nmap bD :tabclose!<CR>
+	nnoremap g[ :-tabmove<CR>
+	nnoremap g] :+tabmove<CR>
+	nnoremap g^ :tabm 0<CR>
+	nnoremap g$ :tabm<CR>
+	nnoremap <C-t> :tabnew<CR>
 	nnoremap <leader><space> :ToggleOnly<Enter>
+" Splits
+	" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+	set splitright splitbelow
+
+	noremap <C-s> <C-w>S
+	noremap <C-v> <C-w>v
+	noremap <C-q> <C-w>q
+	" map <C-h> <C-w>h
+	" map <C-j> <C-w>j
+	" map <C-k> <C-w>k
+	" map <C-l> <C-w>l
+	nnoremap <C-p> <C-w>w
+	" Open alternative file in split
+	noremap gt :vs#<CR>
 " Startify
 	let g:startify_session_persistence = 1
 	let g:startify_update_oldfiles = 1
@@ -219,20 +233,6 @@ call plug#end()
 	" Notification after file change
 	autocmd FileChangedShellPost *
 		\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-" Splits
-	" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-	set splitright splitbelow
-
-	map <C-s> <C-w>S
-	map <C-v> <C-w>v
-	map <C-q> <C-w>q
-	" map <C-h> <C-w>h
-	" map <C-j> <C-w>j
-	" map <C-k> <C-w>k
-	" map <C-l> <C-w>l
-	nnoremap <C-p> <C-w>w
-	" Open alternative file in split
-	map <c-t> :vs#<CR>
 " Lens
 	" let g:lens#disabled_filetypes = ['coc-explorer', 'nerdtree', 'fzf']
 " Theme
