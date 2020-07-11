@@ -25,7 +25,7 @@ set -p fish_user_paths "$HOME/.cargo/bin"
 set -p fish_user_paths "$HOME/.gem/ruby/2.6.0/bin"
 set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
 set -p fish_user_paths "/usr/local/bin"
-set -p fish_user_paths "/usr/local/opt/llvm/bin"
+# set -p fish_user_paths "/usr/local/opt/llvm/bin"
 set -p fish_user_paths "$HOME/.nix-profile/bin"
 set -p fish_user_paths "$HOME/.local/bin"
 
