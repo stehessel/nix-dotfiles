@@ -11,6 +11,7 @@ set -x READER "zathura"
 set -x TERMINAL "kitty"
 
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
+set -x FZF_FIND_FILE_COMMAND "rg --files --hidden"
 set -x FZF_ENABLE_OPEN_PREVIEW 1
 set -x FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always"
 set -x FZF_PREVIEW_DIR_CMD "tree"
