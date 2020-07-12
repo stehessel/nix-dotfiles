@@ -214,7 +214,7 @@ call plug#end()
 	" map <C-j> <C-w>j
 	" map <C-k> <C-w>k
 	" map <C-l> <C-w>l
-	nnoremap <C-p> <C-w>w
+	nnoremap <C-m> <C-w>w
 	" Open alternative file in split
 	noremap gt :vs#<CR>
 " Startify
