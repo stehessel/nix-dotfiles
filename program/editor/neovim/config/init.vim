@@ -28,11 +28,11 @@ call plug#begin('~/.config/nvim/plugged')
 " LSP
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'neovim/nvim-lsp'
-	Plug 'stsewd/sphinx.nvim', { 'do': ':UpdateRemotePlugins' }
 " Linters
 " 	Plug 'dense-analysis/ale'
 " Python
 	Plug 'python-rope/ropevim'
+	Plug 'stsewd/sphinx.nvim', { 'do': ':UpdateRemotePlugins' }
 " Treesitter
 	Plug 'nvim-treesitter/nvim-treesitter'
 " Auto format
@@ -216,7 +216,7 @@ call plug#end()
 	" map <C-l> <C-w>l
 	nnoremap <C-m> <C-w>w
 	" Open alternative file in split
-	noremap gt :vs#<CR>
+	noremap gk :vs#<CR>
 " Startify
 	let g:startify_session_persistence = 1
 	let g:startify_update_oldfiles = 1
@@ -444,6 +444,7 @@ call plug#end()
 	source ~/.config/nvim/dev.vim
 	source ~/.config/nvim/git.vim
 	" source ~/.config/nvim/lsp.vim
+	source ~/.config/nvim/providers.vim
 	source ~/.config/nvim/python.vim
 	source ~/.config/nvim/repl.vim
 	source ~/.config/nvim/search.vim

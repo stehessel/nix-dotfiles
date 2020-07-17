@@ -9,8 +9,8 @@ require'nvim-treesitter.configs'.setup {
     	enable = true,
     	keymaps = {                       -- mappings for incremental selection (visual mappings)
     		init_selection = 'gk',       -- maps in normal mode to init the node/scope selection
-    		node_incremental = "l",       -- increment to the upper named parent
-    		node_decremental = "h",       -- decrement to the previous node
+    		node_incremental = "j",       -- increment to the upper named parent
+    		node_decremental = "k",       -- decrement to the previous node
     		scope_incremental = "u",      -- increment to the upper scope (as defined in locals.scm)
     		scope_decremental = "d",      -- increment to the lower scope (as defined in locals.scm)
     	}

@@ -18,8 +18,6 @@
   "python.jediMemoryLimit": -1,
   "python.autoComplete.extraPaths": [
     "~/miniconda3/lib/python3.7/site-packages",
-    "~/git/raq/data-engineering",
-    "~/git/dataset-diff"
   ],
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,

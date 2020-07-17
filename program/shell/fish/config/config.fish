@@ -29,6 +29,7 @@ set -p fish_user_paths "/usr/local/bin"
 # set -p fish_user_paths "/usr/local/opt/llvm/bin"
 set -p fish_user_paths "$HOME/.nix-profile/bin"
 set -p fish_user_paths "$HOME/.local/bin"
+set -p fish_user_paths "$HOME/miniconda3/bin"
 
 source "$XDG_CONFIG_HOME/nix/nix-single-user.fish" 2> /dev/null
 source "$XDG_CONFIG_HOME/nix/nix-daemon.fish" 2> /dev/null
@@ -113,14 +114,14 @@ if test -d "$HOME/miniconda3"
 end
 
 # Pyenv
-# if command -v pyenv > /dev/null
-# 	set -x PYENV_ROOT $XDG_CONFIG_HOME/pyenv
-# 	set pyenv_source_file "$XDG_CONFIG_HOME/fish/pyenv.fish"
-# 	if not test -f $pyenv_source_file
-# 		pyenv init - > $pyenv_source_file
-# 	end
-# 	source $pyenv_source_file
-# end
+if command -v pyenv > /dev/null
+	set -x PYENV_ROOT $XDG_CONFIG_HOME/pyenv
+	set pyenv_source_file "$XDG_CONFIG_HOME/fish/pyenv.fish"
+	if not test -f $pyenv_source_file
+		pyenv init - > $pyenv_source_file
+	end
+	# source $pyenv_source_file
+end
 
 # Theme
 # Starship
