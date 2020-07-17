@@ -5,8 +5,9 @@
 	let g:ropevim_enable_autoimport = 1
 	let g:ropevim_guess_project = 1
 
-	nmap <M-a> :call RopeCodeAssist()<CR>
-	nmap <M-CR> :call RopeLuckyAssist()<CR>
+	nmap <M-,> :call RopeCodeAssist()<CR>
+	nmap <M-.> :call RopeLuckyAssist()<CR>
+	nmap <M-CR> :call RopeAutoImport()<CR>
 	nmap <M-d> :call RopeGotoDefinition()<CR>
 " Semshi
 	nmap <silent> <leader>rn :Semshi rename<CR>
