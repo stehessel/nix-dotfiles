@@ -1,3 +1,12 @@
+" Search
+	set ignorecase
+	set incsearch
+	set hlsearch
+	set ignorecase smartcase
+	set inccommand=nosplit
+	nmap <silent> <space>/ :nohl<cr>
+" Replace all is aliased to S.
+	nnoremap S :%s//<Left>
 " Fzf
 	let g:fzf_tags_command = 'ctags -R'
 

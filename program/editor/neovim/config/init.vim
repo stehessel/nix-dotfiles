@@ -90,10 +90,10 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-unimpaired'
 " Movement
 	Plug 'easymotion/vim-easymotion'
-	Plug 'justinmk/vim-sneak'
+	" Plug 'justinmk/vim-sneak'
+	Plug 'rhysd/clever-f.vim'
 	Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'tpope/vim-rsi'
-	Plug 'unblevable/quick-scope'
 " Text manipulation
 	Plug 'AndrewRadev/switch.vim'
 	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
@@ -111,7 +111,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'AndrewRadev/splitjoin.vim'
 	Plug 'sk1418/Join', {'on': 'Join'}
 " Text objects
+	Plug 'chaoren/vim-wordmotion'
 	Plug 'glts/vim-textobj-comment'
+	Plug 'julian/vim-textobj-variable-segment'
 	Plug 'kana/vim-textobj-user'
 	Plug 'michaeljsmith/vim-indent-object'
 	Plug 'wellle/targets.vim'
@@ -255,36 +257,6 @@ call plug#end()
 	highlight HighlightedyankRegion cterm=reverse gui=reverse
 	highlight CursorColumn cterm=reverse gui=reverse
 	highlight CursorLine cterm=reverse gui=reverse
-" Statusline
-	function! GitBlame() abort
-		let blame = get(b:, 'coc_git_blame', '')
-		" return blame
-		return winwidth(0) > 120 ? blame : ''
-	endfunction
-
-	" Use auocmd to force lightline update.
-	autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-
-	set noshowmode
-	let g:lightline = {
-		\ 'colorscheme': 'powerline',
-		\ 'active': {
-		\ 	'left': [
-		\ 		[ 'mode', 'paste' ],
-		\ 		[ 'readonly', 'filename', 'modified' ],
-		\ 		[ 'diagnostic', 'cocstatus' ],
-		\ 	],
-		\ 	'right': [
-		\ 		['lineinfo', 'percent' ],
-		\     	[ 'blame', 'filetype' ],
-		\ 	],
-		\ },
-		\ 'component_function': {
-		\ 	'blame': 'GitBlame',
-		\ 	'cocstatus': 'coc#status',
-		\ 	'gitbranch': 'FugitiveHead',
-		\ },
-		\ }
 " Text
 	set encoding=utf-8
 	set tabstop=4
@@ -303,67 +275,11 @@ call plug#end()
 	set undodir=~/.config/nvim/undo
 " Mouse
 	set mouse=a
-" Search
-	set ignorecase
-	set incsearch
-	set hlsearch
-	set ignorecase smartcase
-	set inccommand=nosplit
-	nmap <silent> <space>/ :nohl<cr>
 " Rendering
 	set lazyredraw
 " Filetype
 	filetype plugin indent on
 	set suffixesadd=.md
-" Clipboard
-	set clipboard+=unnamedplus
-	set go=a
-" Vim yoink
-	nmap <m-]> <plug>(YoinkPostPasteSwapBack)
-	nmap <m-[> <plug>(YoinkPostPasteSwapForward)
-
-	nmap y <plug>(YoinkYankPreserveCursorPosition)
-	xmap y <plug>(YoinkYankPreserveCursorPosition)
-
-	nmap p <plug>(YoinkPaste_p)
-	nmap P <plug>(YoinkPaste_P)
-
-	nmap [y <plug>(YoinkRotateBack)
-	nmap ]y <plug>(YoinkRotateForward)
-
-	nmap <c-=> <plug>(YoinkPostPasteToggleFormat)
-" Sort
-	xnoremap <leader>s :sort<CR>
-" Vim swap
-	omap i, <Plug>(swap-textobject-i)
-	xmap i, <Plug>(swap-textobject-i)
-	omap a, <Plug>(swap-textobject-a)
-	xmap a, <Plug>(swap-textobject-a)
-" Vim switch
-	let g:switch_mapping = "-"
-" Vim subversive
-	nmap s <plug>(SubversiveSubstitute)
-	nmap ss <plug>(SubversiveSubstituteLine)
-	nmap sl <plug>(SubversiveSubstituteToEndOfLine)
-
-	xmap s <plug>(SubversiveSubstitute)
-	xmap p <plug>(SubversiveSubstitute)
-	xmap P <plug>(SubversiveSubstitute)
-
-	nmap <leader><leader>s <plug>(SubversiveSubvertRange)
-	xmap <leader><leader>s <plug>(SubversiveSubvertRange)
-	nmap <leader><leader>ss <plug>(SubversiveSubvertWordRange)
-
-	nmap <leader>cs <plug>(SubversiveSubstituteRangeConfirm)
-	xmap <leader>cs <plug>(SubversiveSubstituteRangeConfirm)
-	nmap <leader>css <plug>(SubversiveSubstituteWordRangeConfirm)
-
-	" ie = inner entire buffer
-	onoremap ie :exec "normal! ggVG"<cr>
-	" iv = current viewable text in the buffer
-	onoremap iv :exec "normal! HVL"<cr>
-" Replace all is aliased to S.
-	nnoremap S :%s//<Left>
 " Vim sneak
 	" map f <Plug>Sneak_s
 	" map F <Plug>Sneak_S
@@ -419,10 +335,6 @@ call plug#end()
 	nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-	xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-	nmap ga <Plug>(EasyAlign)
 " Automatically deletes all trailing whitespace on save.
 	autocmd BufWritePre * %s/\s\+$//e
 " Update binds when sxhkdrc is updated.
@@ -431,16 +343,12 @@ call plug#end()
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 " Undotree
 	nnoremap <leader>u :UndotreeToggle<CR>
-" Vim-camelsnek
-	map <leader>xs :Snek<CR>
-	map <leader>xc :Camel<CR>
-	map <leader>xb :CamelB<CR>
-	map <leader>xk :Kebab<CR>
 " AsyncTasks
 	" Height of quick fix window
 	let g:asyncrun_open = 12
 " Sources
 	source ~/.config/nvim/coc.vim
+	source ~/.config/nvim/copy.vim
 	source ~/.config/nvim/dev.vim
 	source ~/.config/nvim/git.vim
 	" source ~/.config/nvim/lsp.vim
@@ -448,4 +356,6 @@ call plug#end()
 	source ~/.config/nvim/python.vim
 	source ~/.config/nvim/repl.vim
 	source ~/.config/nvim/search.vim
+	source ~/.config/nvim/statusline.vim
+	source ~/.config/nvim/text.vim
 	source ~/.config/nvim/treesitter.vim
