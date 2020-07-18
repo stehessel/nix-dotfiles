@@ -81,12 +81,13 @@ abbr -a tl  "tasklite"
 abbr -a restic "restic -r ~/backup --password-file $XDG_CONFIG_HOME/restic/secret"
 abbr -a corona "curl 'https://corona-stats.online?source=2&top=15'"
 abbr -a b "buku --suggest"
-abbr -a f "fuzzysphere"
+abbr -a s "fuzzysphere"
 abbr -a p "pytest --ignore tests/unit/compat_pricing/test_build_data_db.py --ignore tests/unit/test_log_stats.py -n auto tests/unit"
 
 # Keybinds
 bind \cb beginning-of-line
-bind \ca 'fg'
+bind \ca fg
+bind \cn "f --pick"
 
 # Fisher
 if not functions -q fisher
