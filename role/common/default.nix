@@ -66,6 +66,7 @@ in
     # visidata
     # --- dev ---
     editorconfig-core-c
+    pgformatter
     tokei
     universal-ctags
     xsv
