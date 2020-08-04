@@ -123,7 +123,8 @@ The possible commands are:
             with_write_permission=args.write,
         )
         hazure_url = f"hazure://{args.account}:{quote_plus(token)}@{args.container}/?use_sas=true&create_if_missing=false"
-        print(hazure2sas(hazure_url))
+        print(f"Quoted: {hazure_url}")
+        print(f"Unquoted: {hazure2sas(hazure_url)}")
 
 
 def main():
