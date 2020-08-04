@@ -118,7 +118,7 @@ in
     http-prompt
     httpie
     # --- javascript ---
-    nodejs-13_x
+    nodejs-14_x
     yarn
     # --- launcher ---
     entr
