@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "alacritty",
         "repo": "alacritty",
-        "rev": "de84ab2072288ea609ef9ae8e6521b537baab75d",
-        "sha256": "0rzs3ypwd6w7nmd4ssvh04raypzfbws38czn1k7h63jivydli4jp",
+        "rev": "99c34c7ce92fe02c733b5fd19dd054783038f037",
+        "sha256": "0k67b3434j9sf7v4d1g2k3ngqn0d5anjcqhqayijcdibhcklpqvh",
         "type": "tarball",
-        "url": "https://github.com/alacritty/alacritty/archive/de84ab2072288ea609ef9ae8e6521b537baab75d.tar.gz",
+        "url": "https://github.com/alacritty/alacritty/archive/99c34c7ce92fe02c733b5fd19dd054783038f037.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "dash": {
@@ -48,10 +48,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b421e80b744c8e9fd7c732eebbb9bcf43b478461",
-        "sha256": "1m12jip0yb7wc610kl9h30d1s6yx1v0c716n1a6w827ikyxr8h05",
+        "rev": "e5b91d92a01178f9eecc0c7dd09a89e29fe9cc6f",
+        "sha256": "0zvkdwacjfngphgnakii0vmljp5g289qz6ccy6j9a0irgrp3kkws",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/b421e80b744c8e9fd7c732eebbb9bcf43b478461.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/e5b91d92a01178f9eecc0c7dd09a89e29fe9cc6f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
