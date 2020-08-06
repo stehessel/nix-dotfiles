@@ -24,6 +24,7 @@
   "python.linting.pydocstyleEnabled": false,
   "python.linting.pylintEnabled": true,
   "python.linting.pylintArgs": [
+	"--disable=no-self-argument,no-self-use",
     "--extension-pkg-whitelist=pydantic",
     "--ignored-classes=TablesCollection"
   ],
