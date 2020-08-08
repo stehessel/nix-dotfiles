@@ -1,20 +1,64 @@
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-	highlight = {
-		enable = false,
-		disable = { 'rust' },
-	},
-	-- this enables incremental selection
-	incremental_selection = {
-    	enable = true,
-    	keymaps = {                       -- mappings for incremental selection (visual mappings)
-    		init_selection = 'gk',       -- maps in normal mode to init the node/scope selection
-    		node_incremental = "j",       -- increment to the upper named parent
-    		node_decremental = "k",       -- decrement to the previous node
-    		scope_incremental = "u",      -- increment to the upper scope (as defined in locals.scm)
-    		scope_decremental = "d",      -- increment to the lower scope (as defined in locals.scm)
-    	}
+    highlight = {
+        enable = false
     },
-	ensure_installed = 'all'
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = "gk",
+            node_incremental = "j",
+            node_decremental = "k",
+            scope_incremental = "u",
+            scope_decremental = "d"
+        }
+    },
+    refactor = {
+        highlight_definitions = {
+            enable = true
+        },
+        highlight_current_scope = {
+            enable = true
+        },
+        smart_rename = {
+            enable = true,
+            keymaps = {
+                smart_rename = "<leader>R"
+            }
+        },
+        navigation = {
+            enable = true,
+            keymaps = {
+                goto_definition = "gnd",
+                list_definitions = "gnD"
+            }
+        }
+    },
+    textobjects = {
+        enable = true,
+        disable = {},
+        keymaps = {
+            ["iL"] = { -- you can define your own textobjects directly here
+                python = "(function_definition) @function",
+            },
+            -- or you use the queries from supported languages with textobjects.scm
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["aC"] = "@class.outer",
+            ["iC"] = "@class.inner",
+            ["ac"] = "@conditional.outer",
+            ["ic"] = "@conditional.inner",
+            ["ae"] = "@block.outer",
+            ["ie"] = "@block.inner",
+            ["al"] = "@loop.outer",
+            ["il"] = "@loop.inner",
+            ["is"] = "@statement.inner",
+            ["as"] = "@statement.outer",
+            ["ad"] = "@comment.outer",
+            ["am"] = "@call.outer",
+            ["im"] = "@call.inner"
+        }
+    },
+    ensure_installed = "all"
 }
 EOF

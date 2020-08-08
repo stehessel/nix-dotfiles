@@ -28,6 +28,11 @@ call plug#begin('~/.config/nvim/plugged')
 " LSP
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'neovim/nvim-lsp'
+	Plug 'nvim-lua/diagnostic-nvim'
+" Completion
+	Plug 'nvim-lua/completion-nvim'
+	Plug 'nvim-treesitter/completion-treesitter'
+	Plug 'steelsojka/completion-buffers'
 " Linters
 " 	Plug 'dense-analysis/ale'
 " Python
@@ -37,9 +42,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-treesitter/nvim-treesitter'
 " Auto format
 	Plug 'sbdchd/neoformat'
-" Auto complete
-	Plug 'haorenW1025/completion-nvim'
-	Plug 'nvim-treesitter/completion-treesitter'
 " Snippets
 	Plug 'honza/vim-snippets'
 " Debugger

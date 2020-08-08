@@ -4,7 +4,7 @@ lua << EOF
 	require'nvim_lsp'.ccls.setup{}
 	require'nvim_lsp'.dockerls.setup{}
 	require'nvim_lsp'.jsonls.setup{}
-	require'nvim_lsp'.pyls_ms.setup{}
+	require'nvim_lsp'.pyls.setup{}
 	-- require'nvim_lsp'.rls.setup{}
 	require'nvim_lsp'.rust_analyzer.setup{}
 	-- require'nvim_lsp'.sumneko_lua.setup{}
@@ -32,27 +32,17 @@ EOF
 
 " Completion
 	autocmd BufEnter * lua require'completion'.on_attach()
+	autocmd BufEnter * lua require'diagnostic'.on_attach()
 	let g:completion_auto_change_source = 1
-	let g:completion_max_items = 25
-	let g:completion_chain_complete_list = {
-		\'default' : {
-		\	'default' : [
-		\		{ 'complete_items' : ['lsp', 'snippet'] },
-		\		{ 'mode' : ['<c-p>', 'file'] }
-		\	],
-		\	'comment' : [],
-		\	'string' : []
-		\	},
-		\'c' : [
-		\	{'complete_items': ['ts']}
-		\	],
-		\'python' : [
-		\	{'complete_items': ['ts']}
-		\	],
-		\'lua' : [
-		\	{'complete_items': ['ts']}
-		\	],
-		\}
+	let g:completion_matching_ignore_case = 1
+	let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+	let g:completion_chain_complete_list = [
+		\ {'complete_items': ['lsp']},
+		\ {'complete_items': ['path'], 'triggered_only': ['/']},
+		\ {'complete_items': ['buffer']},
+		\ {'complete_items': ['snippet']},
+		\ {'mode' : ['<c-p>', 'file']}
+	\]
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 	inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
