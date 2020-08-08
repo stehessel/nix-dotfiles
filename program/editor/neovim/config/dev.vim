@@ -1,8 +1,10 @@
-" Auto format
-	" augroup fmt
-	" 	autocmd!
-	" 	autocmd BufWritePre * undojoin | Neoformat
-	" augroup END
+" Neoformat
+	" Format on save
+	augroup format
+		autocmd!
+		autocmd BufWritePre * undojoin | Neoformat
+	augroup END
+
 	let g:neoformat_enabled_python = ['black']
 	let g:neoformat_enabled_sql = ['pg_format']
 	nnoremap <leader>F :Neoformat<CR>

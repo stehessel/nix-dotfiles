@@ -1,9 +1,5 @@
 {
   "coc.preferences.colorSupport": false,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "python",
-    "rust"
-  ],
   "suggest.numberSelect": false,
   "suggest.maxCompleteItemCount": 20,
   "suggest.triggerCompletionWait": 50,
@@ -24,7 +20,7 @@
   "python.linting.pydocstyleEnabled": false,
   "python.linting.pylintEnabled": true,
   "python.linting.pylintArgs": [
-	"--disable=no-self-argument, no-self-use, bad-continuation",
+    "--disable=no-self-argument, no-self-use, bad-continuation",
     "--extension-pkg-whitelist=pydantic",
     "--ignored-classes=TablesCollection"
   ],
