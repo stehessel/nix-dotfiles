@@ -1,23 +1,4 @@
 {
-    "alacritty": {
-        "branch": "master",
-        "description": "A cross-platform, GPU-accelerated terminal emulator",
-        "homepage": "",
-        "owner": "alacritty",
-        "repo": "alacritty",
-        "rev": "576252294d09c1f52ec73bde03652349bdf5a529",
-        "sha256": "0v6j2birzvlf5vmpaadg4kvhg1bprdpmkqd49pybc671zk2a7607",
-        "type": "tarball",
-        "url": "https://github.com/alacritty/alacritty/archive/576252294d09c1f52ec73bde03652349bdf5a529.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "dash": {
-        "sha256": "15mhzqnlhjlpzgy6vbjfriymiflnrbh0yb63hb4mi9ic10s0jbw4",
-        "type": "tarball",
-        "url": "https://git.kernel.org/pub/scm/utils/dash/dash.git/snapshot/dash-0.5.10.2.tar.gz",
-        "url_template": "https://git.kernel.org/pub/scm/utils/dash/dash.git/snapshot/dash-<version>.tar.gz",
-        "version": "0.5.10.2"
-    },
     "neovim": {
         "branch": "master",
         "description": "Vim-fork focused on extensibility and usability",
