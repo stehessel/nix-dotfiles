@@ -42,6 +42,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-treesitter/nvim-treesitter'
 " Auto format
 	Plug 'sbdchd/neoformat'
+	Plug 'tpope/vim-endwise'
 " Snippets
 	Plug 'honza/vim-snippets'
 " Debugger
