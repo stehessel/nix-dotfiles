@@ -34,7 +34,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-treesitter/completion-treesitter'
 	Plug 'steelsojka/completion-buffers'
 " Linters
-" 	Plug 'dense-analysis/ale'
+	" Plug 'dense-analysis/ale'
 " Python
 	Plug 'python-rope/ropevim'
 	Plug 'stsewd/sphinx.nvim', { 'do': ':UpdateRemotePlugins' }
