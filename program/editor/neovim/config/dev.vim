@@ -2,7 +2,7 @@
 	" Format on save
 	augroup format
 		autocmd!
-		autocmd BufWritePre *.lua *.py *.sql undojoin | Neoformat
+		autocmd BufWritePre *.lua,*.py,*.sql undojoin | Neoformat
 	augroup END
 
 	let g:neoformat_enabled_lua = ['luafmt']
