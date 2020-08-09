@@ -360,4 +360,5 @@ call plug#end()
 	source ~/.config/nvim/search.vim
 	source ~/.config/nvim/statusline.vim
 	source ~/.config/nvim/text.vim
-	source ~/.config/nvim/treesitter.vim
+
+	lua require('treesitter')
