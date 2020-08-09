@@ -267,7 +267,7 @@ call plug#end()
 	set shiftwidth=4
 	set whichwrap+=<,>,h,l,[,]
 	syntax on
-	set updatetime=200
+	set updatetime=100
 	set nofoldenable
 " Title
 	set title
