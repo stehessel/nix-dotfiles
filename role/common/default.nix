@@ -132,7 +132,7 @@ in
     speedtest-cli
     # --- nix ---
     arion
-    cachix
+    # cachix
     lorri
     niv
     nox
@@ -142,7 +142,7 @@ in
     gnuplot
     # --- process manager ---
     htop
-    # procs
+    procs
     # --- rust ---
     rustup
     rust-analyzer
