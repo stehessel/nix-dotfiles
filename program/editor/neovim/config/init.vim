@@ -67,6 +67,8 @@ call plug#begin('~/.config/nvim/plugged')
 " Docker
 " Color themes
 	Plug 'arcticicestudio/nord-vim'
+	Plug 'bluz71/vim-moonfly-colors'
+	Plug 'bluz71/vim-nightfly-guicolors'
 	Plug 'chuling/vim-equinusocio-material'
 	Plug 'cocopon/iceberg.vim'
 	Plug 'flazz/vim-colorschemes'
@@ -244,8 +246,7 @@ call plug#end()
 	set termguicolors
 	let g:rainbow_active = 1
 " Color theme
-	colorscheme jellybeans
-	" colorscheme equinusocio_material
+	colorscheme nightfly
 
 	let g:equinusocio_material_darker = 1
 	let g:equinusocio_material_hide_vertsplit = 0
