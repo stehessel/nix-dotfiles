@@ -37,4 +37,9 @@
 	endfunction
 
 	let g:test#custom_transformations = {'docker': function('DockerTransform')}
-	let g:test#transformation = 'docker'
+
+	" Raq test execution
+	augroup raq_tests
+		autocmd!
+		autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#transformation = "docker"'
+	augroup END

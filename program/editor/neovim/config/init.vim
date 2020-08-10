@@ -137,6 +137,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'lambdalisue/fern.vim'
 	Plug 'lambdalisue/fern-renderer-devicons.vim'
 	Plug 'lambdalisue/fern-bookmark.vim'
+" Projects
+	Plug 'tpope/vim-projectionist'
 " Search
 	Plug 'brooth/far.vim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'inkarkat/vim-ingo-library'
@@ -357,6 +359,7 @@ call plug#end()
 	source ~/.config/nvim/git.vim
 	" source ~/.config/nvim/linters.vim
 	" source ~/.config/nvim/lsp.vim
+	source ~/.config/nvim/projects.vim
 	source ~/.config/nvim/providers.vim
 	source ~/.config/nvim/python.vim
 	source ~/.config/nvim/repl.vim

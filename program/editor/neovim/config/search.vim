@@ -37,6 +37,7 @@
 
 	nmap <leader>cf  :Clap files<CR>
 	nmap <leader>cb  :Clap buffers<CR>
+	nmap <leader>cgb :Clap bcommits<CR>
 	nmap <leader>cgc :Clap commits<CR>
 	nmap <leader>cgf :Clap git_files<CR>
 	nmap <leader>cgd :Clap git_diff_files<CR>
