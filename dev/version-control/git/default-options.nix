@@ -3,8 +3,7 @@
 
   ignores = [
     # Python
-     "__pycache__/"
-     "*.pyc"
+     "**/__pycache__/**"
     ".ropeproject"
 
     # Temp files

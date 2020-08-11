@@ -115,8 +115,8 @@ in
     exa
     highlight
     # --- http ---
-    http-prompt
-    httpie
+    # http-prompt
+    # httpie
     # --- javascript ---
     nodejs-14_x
     yarn
