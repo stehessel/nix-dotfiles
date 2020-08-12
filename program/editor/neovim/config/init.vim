@@ -90,6 +90,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'kshenoy/vim-signature'
 " Indentation
 	" Plug 'lukas-reineke/indent-blankline.nvim'
+	Plug 'tpope/sleuth'
 	Plug 'Yggdroot/indentLine'
 " Keybinds
 	Plug 'tpope/vim-unimpaired'
@@ -163,6 +164,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-eunuch'
 " Root directory
 	Plug 'airblade/vim-rooter'
+" Autosave
+	Plug '907th/vim-auto-save'
 " Local
 	Plug '~/git/nvim-jira'
 call plug#end()
@@ -182,6 +185,10 @@ call plug#end()
 " Line breaks
 	set linebreak
 	set breakindent
+" Auto save
+	let g:auto_save        = 0
+	let g:auto_save_silent = 1
+	let g:auto_save_events = ["InsertLeave", "FocusLost"]
 " Sessions
 	set sessionoptions+=tabpages,globals,winpos,winsize,blank,resize
 	" do not store global and local values in a session
