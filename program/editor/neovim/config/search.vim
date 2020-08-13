@@ -7,6 +7,7 @@
 	nmap <silent> <space>/ :nohl<cr>
 " Replace all is aliased to S.
 	nnoremap S :%s//<Left>
+	xnoremap S :s//<Left>
 " Fzf
 	let g:fzf_tags_command = 'ctags -R'
 
