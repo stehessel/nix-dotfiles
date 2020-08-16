@@ -85,6 +85,7 @@ abbr -a b "buku --suggest"
 abbr -a s "fuzzysphere"
 abbr -a p "pytest --ignore tests/unit/compat_pricing/test_build_data_db.py --ignore tests/unit/test_log_stats.py --ignore tests/unit/test_build_datasets.py::test_get_source_data_logging -n auto tests/unit"
 abbr -a t "topgrade"
+abbr -a c "clear"
 
 # Keybinds
 bind \cb beginning-of-line
