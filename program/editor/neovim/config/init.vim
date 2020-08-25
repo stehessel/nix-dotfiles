@@ -64,6 +64,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 	Plug 'tpope/vim-markdown'
 " Tabs
+	" Plug 'akinsho/nvim-bufferline.lua'
 	Plug 'gcmt/taboo.vim'
 " Docker
 " Color themes
@@ -77,6 +78,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'jacoborus/tender.vim'
 	Plug 'nanotech/jellybeans.vim'
 " Icons
+	" Plug "kyazdani42/nvim-web-devicons"
 	Plug 'ryanoasis/vim-devicons'
 " Cursor
 	Plug 'danilamihailov/beacon.nvim'
@@ -90,7 +92,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'kshenoy/vim-signature'
 " Indentation
 	" Plug 'lukas-reineke/indent-blankline.nvim'
-	Plug 'tpope/sleuth'
+	Plug 'tpope/vim-sleuth'
 	Plug 'Yggdroot/indentLine'
 " Keybinds
 	Plug 'tpope/vim-unimpaired'
@@ -374,4 +376,6 @@ call plug#end()
 	source ~/.config/nvim/statusline.vim
 	source ~/.config/nvim/text.vim
 
+	" lua require'bufferline'.setup()
+	" lua require'nvim-web-devicons'.setup()
 	lua require('treesitter')
