@@ -5,10 +5,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "43202964f39eed4e28fd8ad6ad0ec79a1868c33f",
-        "sha256": "14ihky8j3c6559k5748mxw1906yzkh42vl411yd0ja57m9b388dq",
+        "rev": "91109ffda23d0ce61cec245b1f4ffb99e7591b62",
+        "sha256": "1rq7j6r1hfkxwmbf688fkwy9j86zam8rywy4796fwkb3imxw64rs",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/43202964f39eed4e28fd8ad6ad0ec79a1868c33f.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/91109ffda23d0ce61cec245b1f4ffb99e7591b62.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -29,10 +29,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7db58b93d0d1d3ae0afba9b5aec67d9bd722b2f2",
-        "sha256": "02j9fjy35v0rcp1kcdpxlp28xrznmklxg5g0hwcf46q9inlchzxw",
+        "rev": "e453860b8f6963879141adc56be9ec763f10ecd5",
+        "sha256": "00dic7g3l86a111128k4974z529lq0vqlj9sw7qaa9z56lj4zrxq",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/7db58b93d0d1d3ae0afba9b5aec67d9bd722b2f2.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/e453860b8f6963879141adc56be9ec763f10ecd5.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
