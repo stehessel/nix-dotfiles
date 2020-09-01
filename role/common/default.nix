@@ -82,7 +82,7 @@ in
     lf
     vifm
     # --- file search ---
-    broot
+    # broot
     fd
     ripgrep
     tre-command
@@ -131,11 +131,11 @@ in
     bandwhich
     speedtest-cli
     # --- nix ---
-    arion
+    # arion
     # cachix
     lorri
     niv
-    nox
+    # nox
     pypi2nix
     rnix-lsp
     # --- plotting ---
@@ -159,7 +159,6 @@ in
     screen
     tmux
     # --- utility ---
-    ansible
     direnv
     du-dust
     file
