@@ -11,11 +11,11 @@ set -x READER "zathura"
 set -x TERMINAL "kitty"
 
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
-set -x FZF_DEFAULT_OPTS "--cycle --layout=reverse --border --height 75%"
+set -x FZF_DEFAULT_OPTS "--cycle --layout=reverse --border --height 75% --info=inline --tiebreak=index"
 set -x FZF_ENABLE_OPEN_PREVIEW 1
-set -x FZF_FIND_FILE_COMMAND "rg --files --hidden"
-set -x FZF_PREVIEW_DIR_CMD "tree"
-set -x FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always"
+set -x FZF_FIND_FILE_COMMAND (command -v fd)"--hidden --follow --color=always --exclude=.git"
+set -x FZF_PREVIEW_DIR_CMD (command -v tree)
+set -x FZF_PREVIEW_FILE_CMD (command -v bat)" --color=always --style=numbers"
 set -x NVIM_LOG_FILE "$XDG_CONFIG_HOME/nvim/.nvimlog"
 set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
 set -x ODBCSYSINI "$HOME/git/raq"
@@ -75,6 +75,7 @@ end
 abbr -a gb  "git branch"
 abbr -a gc  "git commit -am"
 abbr -a gco "git checkout"
+abbr -a gw  "git switch"
 abbr -a gd  "git diff"
 abbr -a gs  "git status"
 abbr -a gl  "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"

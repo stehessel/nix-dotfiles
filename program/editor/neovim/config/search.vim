@@ -5,13 +5,26 @@
 	set ignorecase smartcase
 	set inccommand=nosplit
 	nmap <silent> <space>/ :nohl<cr>
+
+	let g:grep_params = " --files --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
 " Replace all is aliased to S.
 	nnoremap S :%s//<Left>
 	xnoremap S :s//<Left>
 " Fzf
+	function! g:FzfFilesSource()
+	    let l:base = fnamemodify(expand('%'), ':h:.:S')
+	    let l:proximity_sort_path = $HOME . '/.cargo/bin/proximity-sort'
+
+	    if base == '.'
+		return "rg" . g:grep_params
+	    else
+		return printf("rg" . g:grep_params . " | %s %s", l:proximity_sort_path, expand('%'))
+	    endif
+	endfunction
+
 	let g:fzf_tags_command = 'ctags -R'
 
-	nmap <leader>ff  :Files<CR>
+	nmap <silent> <leader>ff  :call fzf#vim#files('', {'source': g:FzfFilesSource(), 'options': ['--info=inline', '--preview', 'bat --color=always --style=numbers {}']})<CR>
 	nmap <leader>fb  :Buffers<CR>
 	nmap <leader>fgc :Commits<CR>
 	nmap <leader>fgf :GFiles<CR>
@@ -35,6 +48,8 @@
 	inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 " Clap
 	let g:clap_layout = { 'relative': 'editor' }
+	let g:clap_provider_grep_delay = 100
+	let g:clap_provider_grep_opts = g:grep_params
 
 	nmap <leader>cf  :Clap files<CR>
 	nmap <leader>cb  :Clap buffers<CR>
