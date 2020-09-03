@@ -13,8 +13,8 @@ set -x TERMINAL "kitty"
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
 set -x FZF_DEFAULT_OPTS "--cycle --layout=reverse --border --height 75% --info=inline --tiebreak=index"
 set -x FZF_ENABLE_OPEN_PREVIEW 1
-set -x FZF_FIND_FILE_COMMAND (command -v fd)"--hidden --follow --color=always --exclude=.git"
-set -x FZF_PREVIEW_DIR_CMD (command -v tree)
+set -x FZF_FIND_FILE_COMMAND "fd --type=file --hidden --follow --color=always . \$dir"
+set -x FZF_PREVIEW_DIR_CMD tree
 set -x FZF_PREVIEW_FILE_CMD (command -v bat)" --color=always --style=numbers"
 set -x NVIM_LOG_FILE "$XDG_CONFIG_HOME/nvim/.nvimlog"
 set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
