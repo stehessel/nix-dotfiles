@@ -1,0 +1,104 @@
+{
+  "adapters": {
+    "debugpy-docker": {
+      "port": "6000",
+      "launch": {
+        "remote": {
+          "container": "3676a1605108",
+          "launchCommmand": [
+            "/home/docker/venv3.6/bin/python",
+            "-m",
+            "debugpy",
+            "--listen",
+            "0.0.0.0:6000",
+            "--wait-for-client",
+            "%CMD%"
+          ]
+        }
+      },
+      "attach": {
+        "remote": {
+          "container": "3676a1605108",
+          "pidCommand": ["pgrep", "-fo", "debugpy"],
+          "attachCommand": [
+            "/home/docker/venv3.6/bin/python",
+            "-m",
+            "debugpy",
+            "--listen",
+            "0.0.0.0:6000",
+            "--pid",
+            "%PID%"
+          ]
+        }
+      }
+    }
+  },
+  "configurations": {
+    "pytest - local": {
+      "adapter": "debugpy",
+      "configuration": {
+        "request": "launch",
+        "type": "python",
+        "python": "${HOME}/miniconda3/envs/raq-env/bin/python",
+        "module": "pytest",
+        "args": [
+          "--rootdir=${workspaceRoot}",
+          "--no-cov",
+          "--capture=no",
+          "--verbose",
+          "${file}"
+        ],
+        "cwd": "${workspaceRoot}",
+        "console": "integratedTerminal"
+      },
+      "breakpoints": {
+        "exception": {
+          "raised": "N",
+          "uncaught": "",
+          "userUnhandled": ""
+        }
+      }
+    },
+    "pytest - docker launch": {
+      "adapter": "debugpy-docker",
+      "remote-request": "launch",
+      "remote-cmdLine": "-m pytest ${file}",
+      "configuration": {
+        "request": "attach",
+        "pathMappings": [
+          {
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": "${workspaceRoot}"
+          }
+        ]
+      },
+      "breakpoints": {
+        "exception": {
+          "raised": "N",
+          "uncaught": "",
+          "userUnhandled": ""
+        }
+      }
+    },
+    "pytest - docker attach": {
+      "adapter": "debugpy-docker",
+      "remote-request": "attach",
+      "configuration": {
+        "request": "attach",
+        "pathMappings": [
+          {
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": "${workspaceRoot}"
+          }
+        ]
+      },
+      "breakpoints": {
+        "exception": {
+          "raised": "N",
+          "uncaught": "",
+          "userUnhandled": ""
+        }
+      }
+    }
+  }
+}
