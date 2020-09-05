@@ -11,16 +11,16 @@
 	let g:neoformat_enabled_yaml = ['prettier']
 	nnoremap <leader>F :Neoformat<CR>
 " Vimspector
-    " nnoremap <leader>dd <Plug>VimspectorContinue
-    " nnoremap <leader>ds <Plug>VimspectorStop
-    " nnoremap <leader>dr <Plug>VimspectorRestart
-    " nnoremap <leader>dp <Plug>VimspectorPause
-    " nnoremap gb <Plug>VimspectorToggleBreakpoint
-    " nnoremap <leader>dc <Plug>VimspectorToggleConditionalBreakpoint
-    " nnoremap <leader>df <Plug>VimspectorAddFunctionBreakpoint
-    " nnoremap <CR> <Plug>VimspectorStepOver
-    " nnoremap <S-CR> <Plug>VimspectorStepInto
-    " nnoremap <BS> <Plug>VimspectorStepOut
+	" nnoremap <leader>dd <Plug>VimspectorContinue
+	" nnoremap <leader>ds <Plug>VimspectorStop
+	" nnoremap <leader>dr <Plug>VimspectorRestart
+	" nnoremap <leader>dp <Plug>VimspectorPause
+	" nnoremap gb <Plug>VimspectorToggleBreakpoint
+	" nnoremap <leader>dc <Plug>VimspectorToggleConditionalBreakpoint
+	" nnoremap <leader>df <Plug>VimspectorAddFunctionBreakpoint
+	" nnoremap <CR> <Plug>VimspectorStepOver
+	" nnoremap <S-CR> <Plug>VimspectorStepInto
+	" nnoremap <BS> <Plug>VimspectorStepOut
 
 	let g:vimspector_enable_mappings = 'HUMAN'
 	let g:vimspector_install_gadgets = [ 'debugpy', 'CodeLLDB' ]
@@ -35,15 +35,17 @@
 	nnoremap <silent> <leader>tg :TestVisit<CR>
 
 	" Transformations
-	function! DockerTransform(cmd) abort
+	function! DockerPythonTransform(cmd) abort
 		let container_id = system("docker ps --filter 'name=raq' --quiet")
-		return 'docker exec -it '.container_id.' bash -l -c '.shellescape("cd /Users/lgtf/git/raq && ".a:cmd)
+		" return 'docker exec -it '.container_id.' bash -l -c '.shellescape("cd /Users/lgtf/git/raq && ".a:cmd)
+		let port = 6000
+		return 'docker exec '.container_id.' /home/docker/venv3.6/bin/python -m debugpy --listen 0.0.0.0:'.port.' --wait-for-client -m '.a:cmd
 	endfunction
 
-	let g:test#custom_transformations = {'docker': function('DockerTransform')}
+	let g:test#custom_transformations = {'docker-python': function('DockerPythonTransform')}
 
 	" Raq test execution
 	augroup raq_tests
 		autocmd!
-		autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#transformation = "docker"'
+		autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#transformation = "docker-python"'
 	augroup END
