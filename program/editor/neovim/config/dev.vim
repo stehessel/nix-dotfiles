@@ -24,6 +24,9 @@
 
 	let g:vimspector_enable_mappings = 'HUMAN'
 	let g:vimspector_install_gadgets = [ 'debugpy', 'CodeLLDB' ]
+	let g:vimspector_sidebar_width = 60
+	let g:vimspector_code_minwidth = 100
+	let g:vimspector_terminal_minwidth = 80
 " Vim-test
 	let test#python#runner = "pytest"
 	let test#strategy = "neoterm"
