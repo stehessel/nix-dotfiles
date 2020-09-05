@@ -2,15 +2,21 @@
   "adapters": {
     "debugpy-docker": {
       "port": "6000",
+      "variables": {
+        "container": {
+          "shell": "docker ps --filter 'name=raq' -q"
+        },
+        "port": "6000"
+      },
       "launch": {
         "remote": {
-          "container": "3676a1605108",
+          "container": "${container}",
           "launchCommmand": [
             "/home/docker/venv3.6/bin/python",
             "-m",
             "debugpy",
             "--listen",
-            "0.0.0.0:6000",
+            "0.0.0.0:${port}",
             "--wait-for-client",
             "%CMD%"
           ]
@@ -18,14 +24,14 @@
       },
       "attach": {
         "remote": {
-          "container": "3676a1605108",
+          "container": "${container}",
           "pidCommand": ["pgrep", "-fo", "debugpy"],
           "attachCommand": [
             "/home/docker/venv3.6/bin/python",
             "-m",
             "debugpy",
             "--listen",
-            "0.0.0.0:6000",
+            "0.0.0.0:${port}",
             "--pid",
             "%PID%"
           ]
@@ -82,6 +88,7 @@
     },
     "pytest - docker attach": {
       "adapter": "debugpy-docker",
+      "default": true,
       "remote-request": "attach",
       "configuration": {
         "request": "attach",
