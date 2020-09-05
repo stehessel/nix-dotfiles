@@ -3,7 +3,8 @@
 
   ignores = [
     # Python
-     "**/__pycache__/**"
+    "__pycache__/"
+    "*.pyc"
     ".ropeproject"
 
     # Temp files
@@ -12,6 +13,7 @@
     # Vim
     "*.swp"
     ".vim"
+    ".vimspector.json"
   ];
 
   extraConfig = {
