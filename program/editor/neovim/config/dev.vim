@@ -27,8 +27,15 @@
 	let g:vimspector_sidebar_width = 65
 	let g:vimspector_code_minwidth = 100
 	let g:vimspector_terminal_minwidth = 80
+	let g:vimspector_sign_priority = {
+	  \    'vimspectorBP':         50,
+	  \    'vimspectorBPCond':     40,
+	  \    'vimspectorBPDisabled': 30,
+	  \    'vimspectorPC':         999,
+	  \ }
 " Vim-test
 	let test#python#runner = "pytest"
+	let test#python#pytest#options# = {'all': '--capture=no'}
 	let test#strategy = "neoterm"
 
 	nnoremap <silent> <leader>tn :TestNearest<CR>

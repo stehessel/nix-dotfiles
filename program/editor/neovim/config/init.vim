@@ -81,7 +81,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug "kyazdani42/nvim-web-devicons"
 	Plug 'ryanoasis/vim-devicons'
 " Cursor
-	Plug 'danilamihailov/beacon.nvim'
+	" Plug 'danilamihailov/beacon.nvim'
 " Brackets
 	Plug 'adelarsq/vim-matchit'
 	Plug 'cohama/lexima.vim'
@@ -177,6 +177,7 @@ call plug#end()
 	let maplocalleader = "\\"
 	map U :redo<CR>
 	map Y y$
+	noremap <leader>s :w<CR>
 	noremap ? ,
 	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
 	noremap <plug>(slash-after) zz

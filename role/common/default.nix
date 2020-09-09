@@ -108,8 +108,8 @@ in
     go
     # --- haskell ---
     # cabal-install
-    ghc
-    stack
+    # ghc
+    # stack
     # --- highlighters ---
     bat
     exa

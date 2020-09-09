@@ -65,7 +65,7 @@ brew "federico-terzi/espanso/espanso"
 # Sentry command-line client for some generic tasks
 brew "getsentry/tools/sentry-cli"
 # Fast file synchronization and network forwarding for remote development
-brew "mutagen-io/mutagen/mutagen"
+brew "mutagen-io/mutagen/mutagen-beta"
 # Convert CSV to Blue Yonder Supply & Demand API compatible XML
 brew "stephan-hesselmann-by/blueyonder/di-csv2xml"
 cask "amethyst"

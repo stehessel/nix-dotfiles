@@ -5,10 +5,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "bedab7e87b038da11f93484c1bc1e036fea520b9",
-        "sha256": "01vp45rbhqmnfrdfy0hfip4y91416n0za36kmvw30pyvvhps96iq",
+        "rev": "a621c45ba07e3608aad714403178e3aaded15df7",
+        "sha256": "05rffvifdcwbmplgxrm2c649x2cg7hzfjnj5vm7fjr48wj695vpa",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/bedab7e87b038da11f93484c1bc1e036fea520b9.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/a621c45ba07e3608aad714403178e3aaded15df7.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -17,10 +17,10 @@
         "homepage": "https://github.com/nmattia/niv",
         "owner": "nmattia",
         "repo": "niv",
-        "rev": "fad2a6cbfb2e7cdebb7cb0ad2f5cc91e2c9bc06b",
-        "sha256": "0mghc1j0rd15spdjx81bayjqr0khc062cs25y5dcfzlxk4ynyc6m",
+        "rev": "dd13098d01eaa6be68237e7e38f96782b0480755",
+        "sha256": "1cfjdbsn0219fjzam1k7nqzkz8fb1ypab50rhyj026qbklqq2kvq",
         "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/fad2a6cbfb2e7cdebb7cb0ad2f5cc91e2c9bc06b.tar.gz",
+        "url": "https://github.com/nmattia/niv/archive/dd13098d01eaa6be68237e7e38f96782b0480755.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
@@ -29,10 +29,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f29a7c66d1de627e6906b18ff850fcba8c7bee44",
-        "sha256": "0z248rar27ldf3mhficlxly3wly6yk40avq6sn8726pfb4p62baf",
+        "rev": "63e11623578aaaf13db496c3069460ea49901277",
+        "sha256": "0hvmvi6p0i9laa8wf6m0gcd5iiai2y9p9ndki6v2dzhrfxmw04l6",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/f29a7c66d1de627e6906b18ff850fcba8c7bee44.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/63e11623578aaaf13db496c3069460ea49901277.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

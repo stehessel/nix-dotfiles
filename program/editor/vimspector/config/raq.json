@@ -55,7 +55,8 @@
           "${file}"
         ],
         "cwd": "${workspaceRoot}",
-        "console": "integratedTerminal"
+        "console": "integratedTerminal",
+        "justMyCode": false
       },
       "breakpoints": {
         "exception": {
@@ -71,6 +72,7 @@
       "remote-cmdLine": "-m pytest ${file}",
       "configuration": {
         "request": "attach",
+        "justMyCode": false,
         "pathMappings": [
           {
             "localRoot": "${workspaceRoot}",
@@ -92,6 +94,7 @@
       "remote-request": "attach",
       "configuration": {
         "request": "attach",
+        "justMyCode": false,
         "pathMappings": [
           {
             "localRoot": "${workspaceRoot}",
