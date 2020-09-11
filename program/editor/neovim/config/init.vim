@@ -27,8 +27,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'mhinz/vim-startify'
 " LSP
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'neovim/nvim-lsp'
-	Plug 'nvim-lua/diagnostic-nvim'
+	" Plug 'neovim/nvim-lsp'
+	" Plug 'nvim-lua/diagnostic-nvim'
 " Completion
 	Plug 'nvim-lua/completion-nvim'
 	Plug 'nvim-treesitter/completion-treesitter'
