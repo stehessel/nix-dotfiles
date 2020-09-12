@@ -57,6 +57,9 @@ in
     # azure-cli
     # --- backup ---
     restic
+    # --- clojure ---
+    clojure
+    jdk11
     # --- cpp ---
     ccls
     # clang
