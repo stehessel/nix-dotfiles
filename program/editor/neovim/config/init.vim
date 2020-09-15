@@ -59,6 +59,7 @@ call plug#begin('~/.config/nvim/plugged')
 " REPL
 	" Plug 'ipselium/vim-cpyvke'
 	Plug 'kassio/neoterm'
+	Plug 'Olical/conjure', {'tag': 'v4.4.0'}
 	Plug 'Vigemus/iron.nvim'
 " Markdown
 	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
@@ -178,6 +179,7 @@ call plug#end()
 	map U :redo<CR>
 	map Y y$
 	noremap <leader>s :w<CR>
+	noremap <leader>q :q<CR>
 	noremap ? ,
 	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
 	noremap <plug>(slash-after) zz
