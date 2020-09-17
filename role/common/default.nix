@@ -60,6 +60,7 @@ in
     # --- clojure ---
     clojure
     jdk11
+    leiningen
     # --- cpp ---
     ccls
     # clang
