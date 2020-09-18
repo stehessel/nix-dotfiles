@@ -59,6 +59,7 @@ in
     restic
     # --- clojure ---
     clojure
+    clojure-lsp
     jdk11
     leiningen
     # --- cpp ---
