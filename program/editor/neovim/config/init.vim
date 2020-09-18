@@ -40,7 +40,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'stsewd/sphinx.nvim', { 'do': ':UpdateRemotePlugins' }
 " Treesitter
 	Plug 'nvim-treesitter/nvim-treesitter'
-" Auto format
+" Format
+	Plug 'mhartington/formatter.nvim'
 	Plug 'sbdchd/neoformat'
 	Plug 'tpope/vim-endwise'
 " Snippets
@@ -368,6 +369,7 @@ call plug#end()
 	source ~/.config/nvim/coc.vim
 	source ~/.config/nvim/copy.vim
 	source ~/.config/nvim/dev.vim
+	source ~/.config/nvim/format.vim
 	source ~/.config/nvim/git.vim
 	" source ~/.config/nvim/linters.vim
 	" source ~/.config/nvim/lsp.vim
