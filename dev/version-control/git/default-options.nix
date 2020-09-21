@@ -37,8 +37,17 @@
     core = {
       pager = "diff-so-fancy | less --tabs=4 -RFX";
     };
+    diff = {
+      submodule = "log";
+    };
     pull = {
       ff = "only";
+    };
+    push = {
+      recurseSubmodules = "check";
+    };
+    status = {
+      submoduesummary = 1;
     };
     url = {
       "git@github.com:" = {
