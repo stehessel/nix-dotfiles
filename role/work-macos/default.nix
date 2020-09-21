@@ -6,6 +6,7 @@ in
 {
   imports = [
     ../common
+    ../../dev/python/pip
     ../../program/editor/vimspector
   ];
 
