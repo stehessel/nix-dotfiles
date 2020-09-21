@@ -16,4 +16,5 @@ function proxy --description "Set proxy settings."
 		set -gx NO_PROXY $no_proxy
 		set -gx REQUESTS_CA_BUNDLE $HOME/certs/Certificates.pem
 	end
+	return 0
 end
