@@ -54,7 +54,7 @@ in
 
   home.packages = with pkgs; [
     # --- azure ---
-    # azure-cli
+    azure-cli
     # --- backup ---
     restic
     # --- clojure ---
@@ -77,7 +77,7 @@ in
     xsv
     # --- docker ---
     # docker-sync
-    # unison
+    unison
     fswatch
     # --- editor ---
     neovim-remote
@@ -87,7 +87,7 @@ in
     lf
     vifm
     # --- file search ---
-    # broot
+    broot
     fd
     ripgrep
     tre-command
@@ -137,7 +137,7 @@ in
     speedtest-cli
     # --- nix ---
     # arion
-    # cachix
+    cachix
     lorri
     niv
     # nox
