@@ -41,7 +41,6 @@ call plug#begin('~/.config/nvim/plugged')
 " Treesitter
 	Plug 'nvim-treesitter/nvim-treesitter'
 " Format
-	Plug 'mhartington/formatter.nvim'
 	Plug 'sbdchd/neoformat'
 	Plug 'tpope/vim-endwise'
 " Snippets
