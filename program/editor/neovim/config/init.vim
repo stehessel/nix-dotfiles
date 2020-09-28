@@ -372,6 +372,7 @@ call plug#end()
 	source ~/.config/nvim/coc.vim
 	source ~/.config/nvim/copy.vim
 	source ~/.config/nvim/dev.vim
+	source ~/.config/nvim/edit.vim
 	source ~/.config/nvim/format.vim
 	source ~/.config/nvim/git.vim
 	" source ~/.config/nvim/linters.vim
