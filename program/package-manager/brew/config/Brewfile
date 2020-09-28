@@ -6,7 +6,9 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
+tap "homebrew/services"
 tap "homebrew/test-bot"
+tap "koekeishiya/formulae"
 tap "mutagen-io/mutagen"
 tap "stephan-hesselmann-by/blueyonder"
 tap "ul/kak-lsp"
@@ -64,6 +66,10 @@ brew "atlassian/tap/atlassian-plugin-sdk"
 brew "federico-terzi/espanso/espanso"
 # Sentry command-line client for some generic tasks
 brew "getsentry/tools/sentry-cli"
+# Simple hotkey-daemon for macOS.
+brew "koekeishiya/formulae/skhd"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "koekeishiya/formulae/yabai"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen-beta"
 # Convert CSV to Blue Yonder Supply & Demand API compatible XML
