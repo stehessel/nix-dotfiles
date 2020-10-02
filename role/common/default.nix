@@ -86,7 +86,7 @@ in
     gnupg
     # --- file manager ---
     lf
-    vifm
+    # vifm
     # --- file search ---
     broot
     fd
