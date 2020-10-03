@@ -242,6 +242,9 @@ call plug#end()
 	nnoremap <C-m> <C-w>w
 	" Open alternative file in split
 	noremap gk :vs#<CR>
+" Quickfix
+	nnoremap <leader>ko :copen<CR>
+	nnoremap <leader>kc :cclose<CR>
 " Startify
 	let g:startify_session_persistence = 1
 	let g:startify_update_oldfiles = 1

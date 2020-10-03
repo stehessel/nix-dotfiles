@@ -24,5 +24,7 @@ function raq-env --description "Create raq environment."
 	raq install core-data-snapshotter:dev
 	proxy clear
 
-	pip install pytest-xdist
+	pip install \
+		pycln \
+		pytest-xdist
 end
