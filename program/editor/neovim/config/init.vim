@@ -40,6 +40,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'stsewd/sphinx.nvim', { 'do': ':UpdateRemotePlugins' }
 " Clojure
 	Plug 'clojure-vim/vim-jack-in'
+	Plug 'tpope/vim-fireplace', { 'for': 'clojure', 'on': 'FireplaceConnect' }
 " Treesitter
 	Plug 'nvim-treesitter/nvim-treesitter'
 " Format
@@ -108,14 +109,13 @@ call plug#begin('~/.config/nvim/plugged')
 " Text manipulation
 	Plug 'AndrewRadev/switch.vim'
 	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
-	Plug 'guns/vim-sexp'
+	Plug 'guns/vim-sexp' | 	Plug 'tpope/vim-sexp-mappings-for-regular-people'
 	Plug 'matze/vim-move'
 	Plug 'machakann/vim-swap'
 	" Plug 'mbbill/undotree'
 	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 	Plug 'nicwest/vim-camelsnek'
 	Plug 'tpope/vim-repeat'
-	Plug 'tpope/vim-sexp-mappings-for-regular-people'
 	Plug 'tyru/caw.vim'
 " Text substitution
 	Plug 'svermeulen/vim-subversive'
