@@ -97,7 +97,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Indentation
 	" Plug 'lukas-reineke/indent-blankline.nvim'
 	Plug 'tpope/vim-sleuth'
-	Plug 'Yggdroot/indentLine'
+	" Plug 'Yggdroot/indentLine'
 " Keybinds
 	Plug 'tpope/vim-unimpaired'
 " Movement
