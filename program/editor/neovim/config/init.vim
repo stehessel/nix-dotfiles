@@ -30,9 +30,9 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'neovim/nvim-lsp'
 	" Plug 'nvim-lua/diagnostic-nvim'
 " Completion
-	Plug 'nvim-lua/completion-nvim'
-	Plug 'nvim-treesitter/completion-treesitter'
-	Plug 'steelsojka/completion-buffers'
+	" Plug 'nvim-lua/completion-nvim'
+	" Plug 'nvim-treesitter/completion-treesitter'
+	" Plug 'steelsojka/completion-buffers'
 " Linters
 	" Plug 'dense-analysis/ale'
 " Python
@@ -47,7 +47,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'sbdchd/neoformat'
 	Plug 'tpope/vim-endwise'
 " Snippets
-	Plug 'honza/vim-snippets'
+	" Plug 'honza/vim-snippets'
 " Debugger
 	Plug 'puremourning/vimspector'
 " Testing
@@ -104,7 +104,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'easymotion/vim-easymotion'
 	" Plug 'justinmk/vim-sneak'
 	Plug 'rhysd/clever-f.vim'
-	Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
+	" Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'tpope/vim-rsi'
 " Text manipulation
 	Plug 'AndrewRadev/switch.vim'
@@ -142,9 +142,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'tmux-plugins/vim-tmux-focus-events'
 " File explorer
-	Plug 'lambdalisue/fern.vim'
-	Plug 'lambdalisue/fern-renderer-devicons.vim'
-	Plug 'lambdalisue/fern-bookmark.vim'
+	" Plug 'lambdalisue/fern.vim'
+	" Plug 'lambdalisue/fern-bookmark.vim'
+	" Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 " Projects
 	Plug 'tpope/vim-projectionist'
 " Search
@@ -317,7 +317,7 @@ call plug#end()
 " Disables automatic commenting on newline:
 	" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Fern
-	let g:fern#renderer = "devicons"
+	let g:fern#renderer = "nerdfont"
 	let g:fern#disable_default_mappings = 1
 
 	nmap <silent> <leader>Ee :Fern . -drawer -reveal=% -toggle<CR>

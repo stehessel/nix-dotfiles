@@ -8,7 +8,7 @@
   "explorer.previewAction.onHover": false,
   "explorer.file.tabCD": false,
   "explorer.openAction.for.directory": "",
-  "snippets.userSnippetsDirectory": "~/.config/nvim/plugged/vim-snippets/UltiSnips",
+  //"snippets.userSnippetsDirectory": "~/.config/nvim/plugged/vim-snippets/UltiSnips",
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
