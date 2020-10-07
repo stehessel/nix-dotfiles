@@ -6,8 +6,8 @@ require "nvim-treesitter.configs".setup {
         enable = true,
         keymaps = {
             init_selection = "gk",
-            node_incremental = "j",
-            node_decremental = "k",
+            node_incremental = "i",
+            node_decremental = "o",
             scope_incremental = "u",
             scope_decremental = "d"
         }
