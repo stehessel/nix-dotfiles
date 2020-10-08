@@ -7,7 +7,7 @@ in
   imports = [
     ../common
     # ../../dev/python/pip
-    # ../../program/editor/vimspector
+    ../../program/editor/vimspector
   ];
 
   xdg.configFile."nix/nix-single-user.fish".source = config/nix-single-user.fish;
