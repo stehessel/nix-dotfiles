@@ -62,7 +62,7 @@ call plug#begin('~/.config/nvim/plugged')
 " REPL
 	" Plug 'ipselium/vim-cpyvke'
 	Plug 'kassio/neoterm'
-	Plug 'Olical/conjure', {'tag': 'v4.4.0'}
+	Plug 'Olical/conjure', {'tag': 'v4.5.0'}
 	Plug 'Vigemus/iron.nvim'
 " Markdown
 	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
@@ -243,8 +243,8 @@ call plug#end()
 	" Open alternative file in split
 	noremap gk :vs#<CR>
 " Quickfix
-	nnoremap <leader>ko :copen<CR>
-	nnoremap <leader>kc :cclose<CR>
+	nnoremap <silent> <leader>ko :copen<CR>
+	nnoremap <silent> <leader>kc :cclose<CR>
 " Startify
 	let g:startify_session_persistence = 1
 	let g:startify_update_oldfiles = 1

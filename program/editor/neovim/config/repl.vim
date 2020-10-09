@@ -35,3 +35,5 @@
 	nmap <localleader>i    <plug>(iron-interrupt)
 	nmap <localleader>q    <Plug>(iron-exit)
 	nmap <localleader>c    <Plug>(iron-clear)
+" Conjure
+	let g:conjure#log#hud#width = 0.42
