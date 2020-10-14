@@ -115,6 +115,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'mbbill/undotree'
 	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 	Plug 'nicwest/vim-camelsnek'
+	Plug 'tommcdo/vim-exchange'
 	Plug 'tpope/vim-repeat'
 	Plug 'tyru/caw.vim'
 " Text substitution
