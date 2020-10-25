@@ -37,6 +37,8 @@ brew "cmatrix"
 brew "coreutils"
 # GNU compiler collection
 brew "gcc"
+# Distributed revision control system
+brew "git"
 # Render markdown on the CLI
 brew "glow"
 # GNU implementation of the famous stream editor
@@ -44,7 +46,7 @@ brew "gnu-sed"
 # Next-gen compiler infrastructure
 brew "llvm"
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 # Python version management
 brew "pyenv"
 # Send macOS User Notifications from the command-line
@@ -76,6 +78,7 @@ brew "koekeishiya/formulae/yabai"
 brew "mutagen-io/mutagen/mutagen-beta"
 # Convert CSV to Blue Yonder Supply & Demand API compatible XML
 brew "stephan-hesselmann-by/blueyonder/di-csv2xml"
+cask "alacritty"
 cask "amethyst"
 cask "app-cleaner"
 cask "azure-data-studio"
