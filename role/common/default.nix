@@ -56,6 +56,7 @@ in
   home.packages = with pkgs; [
     # --- azure ---
     azure-cli
+    azure-storage-azcopy
     # --- backup ---
     restic
     # --- clojure ---
