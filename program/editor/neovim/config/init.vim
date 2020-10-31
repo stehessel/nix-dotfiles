@@ -1,178 +1,180 @@
 " Plugins
-if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
-	echo "Downloading junegunn/vim-plug to manage plugins..."
-	silent !mkdir -p ~/.config/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
-	autocmd VimEnter * PlugInstall --sync
-endif
+" if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
+" 	echo 'Downloading junegunn/vim-plug to manage plugins...'
+" 	silent !mkdir -p ~/.config/nvim/autoload/
+" 	silent !curl 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > ~/.config/nvim/autoload/plug.vim
+" 	autocmd VimEnter * PlugInstall --sync
+" endif
 
-call plug#begin('~/.config/nvim/plugged')
-" Git
-	Plug 'APZelos/blamer.nvim'
-	Plug 'jreybert/vimagit'
-	Plug 'mhinz/vim-signify'
-	Plug 'tpope/vim-fugitive'
-	Plug 'rbong/vim-flog'
-	Plug 'rhysd/git-messenger.vim'
-" Github
-	Plug 'mattn/vim-gist'
-" Finders
-	Plug 'dyng/ctrlsf.vim'
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
-	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-" Statusline
-	Plug 'itchyny/lightline.vim'
-" Start screen
-	Plug 'mhinz/vim-startify'
-" LSP
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	" Plug 'neovim/nvim-lsp'
-	" Plug 'nvim-lua/diagnostic-nvim'
-" Completion
-	" Plug 'nvim-lua/completion-nvim'
-	" Plug 'nvim-treesitter/completion-treesitter'
-	" Plug 'steelsojka/completion-buffers'
-" Linters
-	" Plug 'dense-analysis/ale'
-" Python
-	Plug 'python-rope/ropevim'
-	Plug 'stsewd/sphinx.nvim', { 'do': ':UpdateRemotePlugins' }
-" Clojure
-	Plug 'clojure-vim/vim-jack-in'
-	Plug 'tpope/vim-fireplace', { 'for': 'clojure', 'on': 'FireplaceConnect' }
-" Treesitter
-	Plug 'nvim-treesitter/nvim-treesitter'
-" Format
-	Plug 'sbdchd/neoformat'
-	Plug 'tpope/vim-endwise'
-" Snippets
-	" Plug 'honza/vim-snippets'
-" Debugger
-	Plug 'puremourning/vimspector'
-" Testing
-	Plug 'janko/vim-test'
-" Code folding
-	" Plug 'kalekundert/vim-coiled-snake'
-	Plug 'Konfekt/FastFold'
-	Plug 'tmhedberg/SimpylFold'
-" Syntax highlighters
-	Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-	Plug 'sheerun/vim-polyglot'
-" REPL
-	" Plug 'ipselium/vim-cpyvke'
-	Plug 'kassio/neoterm'
-	Plug 'Olical/conjure', {'tag': 'v4.5.0'}
-	Plug 'Vigemus/iron.nvim'
-" Markdown
-	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-	Plug 'tpope/vim-markdown'
-" Tabs
-	" Plug 'akinsho/nvim-bufferline.lua'
-	Plug 'gcmt/taboo.vim'
-" Docker
-" Color themes
-	Plug 'glepnir/zephyr-nvim'
-" Icons
-	" Plug "kyazdani42/nvim-web-devicons"
-	Plug 'ryanoasis/vim-devicons'
-" Cursor
-	" Plug 'danilamihailov/beacon.nvim'
-" Brackets
-	Plug 'adelarsq/vim-matchit'
-	Plug 'cohama/lexima.vim'
-	Plug 'luochen1990/rainbow'
-	Plug 'machakann/vim-sandwich'
-" Marks
-	Plug 'inkarkat/vim-mark'
-	Plug 'kshenoy/vim-signature'
-" Indentation
-	" Plug 'lukas-reineke/indent-blankline.nvim'
-	Plug 'tpope/vim-sleuth'
-	" Plug 'Yggdroot/indentLine'
-" Keybinds
-	Plug 'tpope/vim-unimpaired'
-" Movement
-	Plug 'easymotion/vim-easymotion'
-	" Plug 'justinmk/vim-sneak'
-	Plug 'rhysd/clever-f.vim'
-	" Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'tpope/vim-rsi'
-" Text manipulation
-	Plug 'AndrewRadev/switch.vim'
-	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
-	Plug 'guns/vim-sexp' | 	Plug 'tpope/vim-sexp-mappings-for-regular-people'
-	Plug 'matze/vim-move'
-	Plug 'machakann/vim-swap'
-	" Plug 'mbbill/undotree'
-	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
-	Plug 'nicwest/vim-camelsnek'
-	Plug 'tommcdo/vim-exchange'
-	Plug 'tpope/vim-repeat'
-	Plug 'tyru/caw.vim'
-" Text substitution
-	Plug 'svermeulen/vim-subversive'
-	Plug 'tpope/vim-abolish'
-" Text splitting
-	Plug 'AndrewRadev/splitjoin.vim'
-	Plug 'sk1418/Join', {'on': 'Join'}
-" Text objects
-	Plug 'chaoren/vim-wordmotion'
-	Plug 'glts/vim-textobj-comment'
-	Plug 'julian/vim-textobj-variable-segment'
-	Plug 'kana/vim-textobj-user'
-	Plug 'michaeljsmith/vim-indent-object'
-	Plug 'wellle/targets.vim'
-" Buffers
-	Plug 'jlanzarotta/bufexplorer'
-	Plug 'moll/vim-bbye'
-	" Plug 'TaDaa/vimade'
-" Splits
-	" Plug 'camspiers/lens.vim'
-" Tabs
-	Plug 'caenrique/nvim-maximize-window-toggle'
-" Tmux
-	Plug 'christoomey/vim-tmux-navigator'
-	Plug 'tmux-plugins/vim-tmux-focus-events'
-" File explorer
-	" Plug 'lambdalisue/fern.vim'
-	" Plug 'lambdalisue/fern-bookmark.vim'
-	" Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-" Projects
-	Plug 'tpope/vim-projectionist'
-" Search
-	Plug 'brooth/far.vim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'inkarkat/vim-ingo-library'
-	Plug 'inkarkat/vim-SearchAlternatives'
-	" Plug 'pgdouyon/vim-evanesco'
-" Copy/paste
-	Plug 'machakann/vim-highlightedyank'
-	Plug 'svermeulen/vim-yoink'
-" Discover keybinds
-	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-" Save position
-	Plug 'farmergreg/vim-lastplace'
-" Note taking
-	Plug 'vimwiki/vimwiki'
-" Dispatcher
-	Plug 'skywind3000/asynctasks.vim'
-	Plug 'skywind3000/asyncrun.vim'
-	Plug 'tpope/vim-dispatch'
-" Todo
-	Plug 'vuciv/vim-bujo'
-" Unix commands
-	Plug 'tpope/vim-eunuch'
-" Root directory
-	Plug 'airblade/vim-rooter'
-" Autosave
-	Plug '907th/vim-auto-save'
-" Local
-	Plug '~/git/nvim-jira'
-call plug#end()
+" call plug#begin('~/.config/nvim/plugged')
+" " Git
+" 	Plug 'APZelos/blamer.nvim'
+" 	Plug 'jreybert/vimagit'
+" 	Plug 'mhinz/vim-signify'
+" 	Plug 'tpope/vim-fugitive'
+" 	Plug 'rbong/vim-flog'
+" 	Plug 'rhysd/git-messenger.vim'
+" " Github
+" 	Plug 'mattn/vim-gist'
+" " Finders
+" 	Plug 'dyng/ctrlsf.vim'
+" 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" 	Plug 'junegunn/fzf.vim'
+" 	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+" " Statusline
+" 	Plug 'itchyny/lightline.vim'
+" " Start screen
+" 	Plug 'mhinz/vim-startify'
+" " LSP
+" 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" 	" Plug 'neovim/nvim-lsp'
+" 	" Plug 'nvim-lua/diagnostic-nvim'
+" " Completion
+" 	" Plug 'nvim-lua/completion-nvim'
+" 	" Plug 'nvim-treesitter/completion-treesitter'
+" 	" Plug 'steelsojka/completion-buffers'
+" " Linters
+" 	" Plug 'dense-analysis/ale'
+" " Python
+" 	Plug 'python-rope/ropevim'
+" 	Plug 'stsewd/sphinx.nvim', { 'do': ':UpdateRemotePlugins' }
+" " Clojure
+" 	Plug 'clojure-vim/vim-jack-in'
+" 	Plug 'tpope/vim-fireplace', { 'for': 'clojure', 'on': 'FireplaceConnect' }
+" " Treesitter
+" 	Plug 'nvim-treesitter/nvim-treesitter'
+" " Format
+" 	Plug 'sbdchd/neoformat'
+" 	Plug 'tpope/vim-endwise'
+" " Snippets
+" 	" Plug 'honza/vim-snippets'
+" " Debugger
+" 	Plug 'puremourning/vimspector'
+" " Testing
+" 	Plug 'janko/vim-test'
+" " Code folding
+" 	" Plug 'kalekundert/vim-coiled-snake'
+" 	Plug 'Konfekt/FastFold'
+" 	Plug 'tmhedberg/SimpylFold'
+" " Syntax highlighters
+" 	Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+" 	Plug 'sheerun/vim-polyglot'
+" " REPL
+" 	" Plug 'ipselium/vim-cpyvke'
+" 	Plug 'kassio/neoterm'
+" 	Plug 'Olical/conjure', {'tag': 'v4.5.0'}
+" 	Plug 'Vigemus/iron.nvim'
+" " Markdown
+" 	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+" 	Plug 'tpope/vim-markdown'
+" " Tabs
+" 	" Plug 'akinsho/nvim-bufferline.lua'
+" 	Plug 'gcmt/taboo.vim'
+" " Docker
+" " Color themes
+" 	Plug 'glepnir/zephyr-nvim'
+" " Icons
+" 	" Plug 'kyazdani42/nvim-web-devicons'
+" 	Plug 'ryanoasis/vim-devicons'
+" " Cursor
+" 	" Plug 'danilamihailov/beacon.nvim'
+" " Brackets
+" 	Plug 'adelarsq/vim-matchit'
+" 	Plug 'cohama/lexima.vim'
+" 	Plug 'luochen1990/rainbow'
+" 	Plug 'machakann/vim-sandwich'
+" " Marks
+" 	Plug 'inkarkat/vim-mark'
+" 	Plug 'kshenoy/vim-signature'
+" " Indentation
+" 	" Plug 'lukas-reineke/indent-blankline.nvim'
+" 	Plug 'tpope/vim-sleuth'
+" 	" Plug 'Yggdroot/indentLine'
+" " Keybinds
+" 	Plug 'tpope/vim-unimpaired'
+" " Movement
+" 	Plug 'easymotion/vim-easymotion'
+" 	" Plug 'justinmk/vim-sneak'
+" 	Plug 'rhysd/clever-f.vim'
+" 	" Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
+" 	Plug 'tpope/vim-rsi'
+" " Text manipulation
+" 	Plug 'AndrewRadev/switch.vim'
+" 	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
+" 	Plug 'guns/vim-sexp' | 	Plug 'tpope/vim-sexp-mappings-for-regular-people'
+" 	Plug 'matze/vim-move'
+" 	Plug 'machakann/vim-swap'
+" 	" Plug 'mbbill/undotree'
+" 	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
+" 	Plug 'nicwest/vim-camelsnek'
+" 	Plug 'tommcdo/vim-exchange'
+" 	Plug 'tpope/vim-repeat'
+" 	Plug 'tyru/caw.vim'
+" " Text substitution
+" 	Plug 'svermeulen/vim-subversive'
+" 	Plug 'tpope/vim-abolish'
+" " Text splitting
+" 	Plug 'AndrewRadev/splitjoin.vim'
+" 	Plug 'sk1418/Join', {'on': 'Join'}
+" " Text objects
+" 	Plug 'chaoren/vim-wordmotion'
+" 	Plug 'glts/vim-textobj-comment'
+" 	Plug 'julian/vim-textobj-variable-segment'
+" 	Plug 'kana/vim-textobj-user'
+" 	Plug 'michaeljsmith/vim-indent-object'
+" 	Plug 'wellle/targets.vim'
+" " Buffers
+" 	Plug 'jlanzarotta/bufexplorer'
+" 	Plug 'moll/vim-bbye'
+" 	" Plug 'TaDaa/vimade'
+" " Splits
+" 	" Plug 'camspiers/lens.vim'
+" " Tabs
+" 	Plug 'caenrique/nvim-maximize-window-toggle'
+" " Tmux
+" 	Plug 'christoomey/vim-tmux-navigator'
+" 	Plug 'tmux-plugins/vim-tmux-focus-events'
+" " File explorer
+" 	" Plug 'lambdalisue/fern.vim'
+" 	" Plug 'lambdalisue/fern-bookmark.vim'
+" 	" Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+" " Projects
+" 	Plug 'tpope/vim-projectionist'
+" " Search
+" 	Plug 'brooth/far.vim', { 'do': ':UpdateRemotePlugins' }
+" 	Plug 'inkarkat/vim-ingo-library'
+" 	Plug 'inkarkat/vim-SearchAlternatives'
+" 	" Plug 'pgdouyon/vim-evanesco'
+" " Copy/paste
+" 	Plug 'machakann/vim-highlightedyank'
+" 	Plug 'svermeulen/vim-yoink'
+" " Discover keybinds
+" 	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+" " Save position
+" 	Plug 'farmergreg/vim-lastplace'
+" " Note taking
+" 	Plug 'vimwiki/vimwiki'
+" " Dispatcher
+" 	Plug 'skywind3000/asynctasks.vim'
+" 	Plug 'skywind3000/asyncrun.vim'
+" 	Plug 'tpope/vim-dispatch'
+" " Todo
+" 	Plug 'vuciv/vim-bujo'
+" " Unix commands
+" 	Plug 'tpope/vim-eunuch'
+" " Root directory
+" 	Plug 'airblade/vim-rooter'
+" " Autosave
+" 	Plug '907th/vim-auto-save'
+" " Local
+" 	Plug '~/git/nvim-jira'
+" call plug#end()
+
+lua require('plugins')
 
 " Misc keybinds
-	let mapleader =","
-	let maplocalleader = "\\"
+	let mapleader = ','
+	let maplocalleader = '\\'
 	map U :redo<CR>
 	map Y y$
 	noremap <leader>s :w<CR>
@@ -262,7 +264,6 @@ call plug#end()
 	let g:rainbow_active = 1
 " Color theme
 	" colorscheme jellybeans
-	lua require('zephyr')
 
 	let g:jellybeans_overrides = {
 		\ 'Todo': { 'ctermfg': 'Black', 'ctermbg': 'Grey', 'attr': 'bold' },
@@ -381,4 +382,4 @@ call plug#end()
 
 	" lua require'bufferline'.setup()
 	" lua require'nvim-web-devicons'.setup()
-	lua require('treesitter')
+	" lua require('treesitter')
