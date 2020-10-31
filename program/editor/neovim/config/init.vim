@@ -72,15 +72,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'gcmt/taboo.vim'
 " Docker
 " Color themes
-	Plug 'arcticicestudio/nord-vim'
-	Plug 'bluz71/vim-moonfly-colors'
-	Plug 'bluz71/vim-nightfly-guicolors'
-	Plug 'chuling/vim-equinusocio-material'
-	Plug 'cocopon/iceberg.vim'
-	Plug 'flazz/vim-colorschemes'
-	Plug 'haishanh/night-owl.vim'
-	Plug 'jacoborus/tender.vim'
-	Plug 'nanotech/jellybeans.vim'
+	Plug 'glepnir/zephyr-nvim'
 " Icons
 	" Plug "kyazdani42/nvim-web-devicons"
 	Plug 'ryanoasis/vim-devicons'
@@ -269,10 +261,8 @@ call plug#end()
 	set termguicolors
 	let g:rainbow_active = 1
 " Color theme
-	colorscheme nightfly
-
-	let g:equinusocio_material_darker = 1
-	let g:equinusocio_material_hide_vertsplit = 0
+	" colorscheme jellybeans
+	lua require('zephyr')
 
 	let g:jellybeans_overrides = {
 		\ 'Todo': { 'ctermfg': 'Black', 'ctermbg': 'Grey', 'attr': 'bold' },

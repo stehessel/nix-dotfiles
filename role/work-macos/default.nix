@@ -16,7 +16,7 @@ in
   home.packages = with pkgs; [
     # --- editor ---
     kakoune
-    neovim
+    # neovim
     # --- terminal ---
     kitty
   ];
