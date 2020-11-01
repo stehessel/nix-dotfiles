@@ -58,8 +58,8 @@ return require("packer").startup(
         use {
             "mhinz/vim-startify",
             config = function()
-                vim.cmd [[ let g:startify_session_persistence = 1 ]]
-                vim.cmd [[ let g:startify_update_oldfiles = 1 ]]
+                vim.g.startify_session_persistence = 1
+                vim.g.startify_update_oldfiles = 1
 
                 vim.cmd [[ nnoremap <leader>h :Startify<CR> ]]
                 vim.cmd [[ nnoremap <leader>Ss :SSave! ]]
@@ -74,6 +74,9 @@ return require("packer").startup(
             run = function()
                 vim.fn["coc#util#install"]()
             end
+            -- config = function()
+            --     require("coc")
+            -- end
         }
         -- use 'neovim/nvim-lsp'
         -- use 'nvim-lua/diagnostic-nvim'
@@ -154,7 +157,12 @@ return require("packer").startup(
         -- Brackets
         use "adelarsq/vim-matchit"
         use "cohama/lexima.vim"
-        use "luochen1990/rainbow"
+        use {
+            "luochen1990/rainbow",
+            setup = function()
+                vim.g.rainbow_active = 1
+            end
+        }
         use "machakann/vim-sandwich"
         -- Marks
         use "inkarkat/vim-mark"
@@ -234,8 +242,16 @@ return require("packer").startup(
         -- Note taking
         use "vimwiki/vimwiki"
         -- Dispatcher
-        use "skywind3000/asynctasks.vim"
-        use "skywind3000/asyncrun.vim"
+        use {
+            "skywind3000/asynctasks.vim",
+            cmd = {"AsyncTask", "AsyncTaskEdit", "AsyncTaskList", "AsyncTaskMacro", "AsyncTaskProfile"},
+            requires = {
+                "skywind3000/asyncrun.vim",
+                setup = function()
+                    vim.g.asyncrun_open = 12
+                end
+            }
+        }
         use {"tpope/vim-dispatch", cmd = {"Dispatch", "Make", "Focus", "Start"}}
         -- Todo
         use "vuciv/vim-bujo"
@@ -247,9 +263,9 @@ return require("packer").startup(
         use {
             "907th/vim-auto-save",
             setup = function()
-                vim.cmd [[ let g:auto_save = 0 ]]
-                vim.cmd [[ let g:auto_save_silent = 1 ]]
-                vim.cmd [[ let g:auto_save_events = ["InsertLeave", "FocusLost"] ]]
+                vim.g.auto_save = 0
+                vim.g.auto_save_silent = 1
+                vim.g.auto_save_events = {"InsertLeave", "FocusLost"}
             end
         }
         -- Benchmark

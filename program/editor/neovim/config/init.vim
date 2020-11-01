@@ -247,7 +247,6 @@ lua require('plugins')
 " Theme
 	set bg=dark
 	set termguicolors
-	let g:rainbow_active = 1
 " Color theme
 	" colorscheme jellybeans
 
@@ -346,9 +345,6 @@ lua require('plugins')
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 " Undotree
 	nnoremap <leader>u :UndotreeToggle<CR>
-" AsyncTasks
-	" Height of quick fix window
-	let g:asyncrun_open = 12
 " Sources
 	source ~/.config/nvim/coc.vim
 	source ~/.config/nvim/copy.vim
