@@ -224,8 +224,7 @@ return require("packer").startup(
         -- use 'akinsho/nvim-bufferline.lua'
         use "gcmt/taboo.vim"
         -- Docker
-
-        -- Color themes
+        -- Color schemes
         -- use {"glepnir/zephyr-nvim", config = "require('zephyr')"}
         -- use {"joshdick/onedark.vim", config = "vim.cmd [[colorscheme onedark]]"}
         use {
@@ -234,10 +233,8 @@ return require("packer").startup(
                 vim.cmd [[ colorscheme blue-moon ]]
             end
         }
-
         -- Icons
-        -- use "kyazdani42/nvim-web-devicons"
-        use "ryanoasis/vim-devicons"
+        use "kyazdani42/nvim-web-devicons"
         -- Cursor
         -- use 'danilamihailov/beacon.nvim'
         -- Brackets
