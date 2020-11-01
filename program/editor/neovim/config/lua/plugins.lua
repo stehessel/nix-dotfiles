@@ -37,15 +37,32 @@ return require("packer").startup(
         use "mattn/vim-gist"
         -- Finders
         use "dyng/ctrlsf.vim"
-        use "junegunn/fzf"
-        use "junegunn/fzf.vim"
-        use "liuchengxu/vim-clap"
+        use {
+            "junegunn/fzf.vim",
+            requires = {
+                "junegunn/fzf",
+                run = function()
+                    vim.fn["fzf#install"]()
+                end
+            }
+        }
+        use {
+            "liuchengxu/vim-clap",
+            run = function()
+                vim.fn["clap#installer#build_all"]()
+            end
+        }
         -- Statusline
         use "itchyny/lightline.vim"
         -- Start screen
         use "mhinz/vim-startify"
         -- LSP
-        use "neoclide/coc.nvim"
+        use {
+            "neoclide/coc.nvim",
+            run = function()
+                vim.fn["coc#util#install"]()
+            end
+        }
         -- use 'neovim/nvim-lsp'
         -- use 'nvim-lua/diagnostic-nvim'
         -- Completion
@@ -56,10 +73,15 @@ return require("packer").startup(
         -- use 'dense-analysis/ale'
         -- Python
         use "python-rope/ropevim"
-        use "stsewd/sphinx.nvim"
+        use {
+            "stsewd/sphinx.nvim",
+            run = function()
+                vim.cmd [[:UpdateRemotePlugins]]
+            end
+        }
         -- Clojure
         use "clojure-vim/vim-jack-in"
-        use "tpope/vim-fireplace"
+        use {"tpope/vim-fireplace", ft = "clojure", cmd = "FireplaceConnect"}
         -- Treesitter
         use {"nvim-treesitter/nvim-treesitter", config = "require('treesitter')"}
         -- Format
@@ -76,23 +98,37 @@ return require("packer").startup(
         use "Konfekt/FastFold"
         use "tmhedberg/SimpylFold"
         -- Syntax highlighters
-        use "numirias/semshi"
-        use "sheerun/vim-polyglot"
+        use {
+            "numirias/semshi",
+            ft = "python",
+            run = function()
+                vim.cmd [[:UpdateRemotePlugins]]
+            end
+        }
+        -- use "sheerun/vim-polyglot"
         -- REPL
         -- use 'ipselium/vim-cpyvke'
         use "kassio/neoterm"
-        use "Olical/conjure"
+        use {"Olical/conjure", ft = {"clojure", "fennel"}}
         -- use "Vigemus/iron.nvim"
         -- Markdown
-        use "iamcco/markdown-preview.nvim"
+        use {
+            "iamcco/markdown-preview.nvim",
+            run = function()
+                vim.fn["mkdp#util#install"]()
+            end
+        }
         use "tpope/vim-markdown"
         -- Tabs
         -- use 'akinsho/nvim-bufferline.lua'
         use "gcmt/taboo.vim"
         -- Docker
+
         -- Color themes
         -- use {"glepnir/zephyr-nvim", config = "require('zephyr')"}
-        use {"joshdick/onedark.vim", config = "vim.cmd[[colorscheme onedark]]"}
+        -- use {"joshdick/onedark.vim", config = "vim.cmd[[colorscheme onedark]]"}
+        use {"kyazdani42/blue-moon", config = "vim.cmd[[colorscheme blue-moon]]"}
+
         -- Icons
         -- use "kyazdani42/nvim-web-devicons"
         use "ryanoasis/vim-devicons"
@@ -120,9 +156,9 @@ return require("packer").startup(
         use "tpope/vim-rsi"
         -- Text manipulation
         use "AndrewRadev/switch.vim"
-        use "junegunn/vim-easy-align"
-        use "guns/vim-sexp"
-        use "tpope/vim-sexp-mappings-for-regular-people"
+        use {"junegunn/vim-easy-align", cmd = "EasyAlign"}
+        use {"tpope/vim-sexp-mappings-for-regular-people", ft = "clojure"}
+        use {"guns/vim-sexp", ft = "clojure"}
         use "matze/vim-move"
         use "machakann/vim-swap"
         -- use 'mbbill/undotree'
@@ -136,11 +172,11 @@ return require("packer").startup(
         use "tpope/vim-abolish"
         -- Text splitting
         use "AndrewRadev/splitjoin.vim"
-        use "sk1418/Join"
+        use {"sk1418/Join", cmd = "Join"}
         -- Text objects
         use "chaoren/vim-wordmotion"
-        -- use "glts/vim-textobj-comment"
-        -- use "julian/vim-textobj-variable-segment"
+        use "glts/vim-textobj-comment"
+        use "julian/vim-textobj-variable-segment"
         use "kana/vim-textobj-user"
         use "michaeljsmith/vim-indent-object"
         use "wellle/targets.vim"
@@ -162,7 +198,12 @@ return require("packer").startup(
         -- Projects
         use "tpope/vim-projectionist"
         -- Search
-        use "brooth/far.vim"
+        use {
+            "brooth/far.vim",
+            run = function()
+                vim.cmd [[:UpdateRemotePlugins]]
+            end
+        }
         use "inkarkat/vim-ingo-library"
         use "inkarkat/vim-SearchAlternatives"
         -- use 'pgdouyon/vim-evanesco'
@@ -170,7 +211,7 @@ return require("packer").startup(
         use "machakann/vim-highlightedyank"
         use "svermeulen/vim-yoink"
         -- Discover keybinds
-        use "liuchengxu/vim-which-key"
+        use {"liuchengxu/vim-which-key", cmd = {"WhichKey"}}
         -- Save position
         use "farmergreg/vim-lastplace"
         -- Note taking
@@ -178,7 +219,7 @@ return require("packer").startup(
         -- Dispatcher
         use "skywind3000/asynctasks.vim"
         use "skywind3000/asyncrun.vim"
-        use "tpope/vim-dispatch"
+        use {"tpope/vim-dispatch", cmd = {"Dispatch", "Make", "Focus", "Start"}}
         -- Todo
         use "vuciv/vim-bujo"
         -- Unix commands
@@ -187,5 +228,7 @@ return require("packer").startup(
         use "airblade/vim-rooter"
         -- Autosave
         use "907th/vim-auto-save"
+        -- Benchmark
+        use "tweekmonster/startuptime.vim"
     end
 )
