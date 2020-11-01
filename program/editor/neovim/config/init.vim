@@ -354,7 +354,6 @@ lua require('plugins')
 	source ~/.config/nvim/git.vim
 	" source ~/.config/nvim/linters.vim
 	" source ~/.config/nvim/lsp.vim
-	source ~/.config/nvim/projects.vim
 	source ~/.config/nvim/providers.vim
 	source ~/.config/nvim/python.vim
 	source ~/.config/nvim/repl.vim
