@@ -189,18 +189,12 @@ lua require('plugins')
 " Line breaks
 	set linebreak
 	set breakindent
-" Auto save
-	let g:auto_save        = 0
-	let g:auto_save_silent = 1
-	let g:auto_save_events = ["InsertLeave", "FocusLost"]
 " Sessions
 	set sessionoptions+=tabpages,globals,winpos,winsize,blank,resize
 	" do not store global and local values in a session
 	set sessionoptions-=options
 	" do not store folds
 	set sessionoptions-=folds
-" Startify
-	map <leader>h :Startify<CR>
 " Vim rooter
 	let g:rooter_silent_chdir = 1
 " Yank whole buffer
@@ -240,14 +234,6 @@ lua require('plugins')
 " Quickfix
 	nnoremap <silent> <leader>ko :copen<CR>
 	nnoremap <silent> <leader>kc :cclose<CR>
-" Startify
-	let g:startify_session_persistence = 1
-	let g:startify_update_oldfiles = 1
-
-	nmap <leader>Ss :SSave!
-	nmap <leader>Sl :SLoad
-	nmap <leader>Sc :SClose<CR>
-	nmap <leader>Sd :SDelete<CR>
 " Reloading
 	set autoread
 	" Trigger `autoread` when files changes on disk

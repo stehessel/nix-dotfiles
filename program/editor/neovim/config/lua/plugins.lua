@@ -1,5 +1,5 @@
 -- Only required if you have packer in your `opt` pack
-local packer_exists = pcall(vim.cmd, [[packadd packer.nvim]])
+local packer_exists = pcall(vim.cmd, [[ packadd packer.nvim ]])
 
 if not packer_exists then
     if vim.fn.input("Download Packer? (y for yes)") ~= "y" then
@@ -55,7 +55,19 @@ return require("packer").startup(
         -- Statusline
         use "itchyny/lightline.vim"
         -- Start screen
-        use "mhinz/vim-startify"
+        use {
+            "mhinz/vim-startify",
+            config = function()
+                vim.cmd [[ let g:startify_session_persistence = 1 ]]
+                vim.cmd [[ let g:startify_update_oldfiles = 1 ]]
+
+                vim.cmd [[ nnoremap <leader>h :Startify<CR> ]]
+                vim.cmd [[ nnoremap <leader>Ss :SSave! ]]
+                vim.cmd [[ nnoremap <leader>Sl :SLoad ]]
+                vim.cmd [[ nnoremap <leader>Sc :SClose<CR> ]]
+                vim.cmd [[ nnoremap <leader>Sd :SDelete<CR> ]]
+            end
+        }
         -- LSP
         use {
             "neoclide/coc.nvim",
@@ -76,7 +88,7 @@ return require("packer").startup(
         use {
             "stsewd/sphinx.nvim",
             run = function()
-                vim.cmd [[:UpdateRemotePlugins]]
+                vim.cmd [[ :UpdateRemotePlugins ]]
             end
         }
         -- Clojure
@@ -102,7 +114,7 @@ return require("packer").startup(
             "numirias/semshi",
             ft = "python",
             run = function()
-                vim.cmd [[:UpdateRemotePlugins]]
+                vim.cmd [[ :UpdateRemotePlugins ]]
             end
         }
         -- use "sheerun/vim-polyglot"
@@ -126,8 +138,13 @@ return require("packer").startup(
 
         -- Color themes
         -- use {"glepnir/zephyr-nvim", config = "require('zephyr')"}
-        -- use {"joshdick/onedark.vim", config = "vim.cmd[[colorscheme onedark]]"}
-        use {"kyazdani42/blue-moon", config = "vim.cmd[[colorscheme blue-moon]]"}
+        -- use {"joshdick/onedark.vim", config = "vim.cmd [[colorscheme onedark]]"}
+        use {
+            "kyazdani42/blue-moon",
+            config = function()
+                vim.cmd [[ colorscheme blue-moon ]]
+            end
+        }
 
         -- Icons
         -- use "kyazdani42/nvim-web-devicons"
@@ -227,7 +244,14 @@ return require("packer").startup(
         -- Root directory
         use "airblade/vim-rooter"
         -- Autosave
-        use "907th/vim-auto-save"
+        use {
+            "907th/vim-auto-save",
+            setup = function()
+                vim.cmd [[ let g:auto_save = 0 ]]
+                vim.cmd [[ let g:auto_save_silent = 1 ]]
+                vim.cmd [[ let g:auto_save_events = ["InsertLeave", "FocusLost"] ]]
+            end
+        }
         -- Benchmark
         use "tweekmonster/startuptime.vim"
     end
