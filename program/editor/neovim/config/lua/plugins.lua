@@ -171,7 +171,7 @@ return require("packer").startup(
                     vim.cmd [[:UpdateRemotePlugins]]
                 end
             }
-            -- use "sheerun/vim-polyglot"
+            use "sheerun/vim-polyglot"
             -- REPL
             -- use 'ipselium/vim-cpyvke'
             use {
