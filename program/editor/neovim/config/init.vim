@@ -360,7 +360,3 @@ lua require('plugins')
 	source ~/.config/nvim/search.vim
 	source ~/.config/nvim/statusline.vim
 	source ~/.config/nvim/text.vim
-
-	" lua require'bufferline'.setup()
-	" lua require'nvim-web-devicons'.setup()
-	" lua require('treesitter')
