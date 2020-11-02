@@ -171,7 +171,7 @@ nnoremap <silent> <space>[  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>l  :<C-u>CocListResume<CR>
 " Open coc config.
-nnoremap <silent> <space>f  :<C-u>CocConfig<CR>
+nnoremap <silent> <space>i  :<C-u>CocConfig<CR>
 " coc-explorer
 nmap <silent> <leader>ef :CocCommand explorer --no-toggle<CR>
 nmap <silent> <leader>ee :CocCommand explorer<CR>

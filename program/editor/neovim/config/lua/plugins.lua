@@ -65,17 +65,16 @@ return require("packer").startup(
             -- Start screen
             use {
                 "mhinz/vim-startify",
-                -- after = "vimpeccable",
                 config = function()
                     vim.g.startify_session_persistence = 1
                     vim.g.startify_update_oldfiles = 1
 
-                    -- vimp.nnoremap({"silent"}, "<leader>h", ":Startify<CR>")
-                    -- vimp.nnoremap({"silent"}, "<leader>if", ":Startify<CR>")
-                    -- vimp.nnoremap({"silent"}, "<leader>Ss", ":SSave!")
-                    -- vimp.nnoremap({"silent"}, "<leader>Sl", ":SLoad")
-                    -- vimp.nnoremap({"silent"}, "<leader>Sc", ":SClose<CR>")
-                    -- vimp.nnoremap({"silent"}, "<leader>Sd", ":SDelete<CR>")
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>h", ":Startify<CR>")
+                    vimp.nnoremap({"silent"}, "<leader>Ss", ":SSave!")
+                    vimp.nnoremap({"silent"}, "<leader>Sl", ":SLoad")
+                    vimp.nnoremap({"silent"}, "<leader>Sc", ":SClose<CR>")
+                    vimp.nnoremap({"silent"}, "<leader>Sd", ":SDelete<CR>")
                 end
             }
             -- LSP
@@ -107,10 +106,11 @@ return require("packer").startup(
                     vim.g.ropevim_enable_autoimport = 1
                     vim.g.ropevim_guess_project = 1
 
-                    -- vimp.nnoremap({"silent"}, "<M-,>", ":call RopeCodeAssist<CR>")
-                    -- vimp.nnoremap({"silent"}, "<M-.>", ":call RopeLuckyAssist<CR>")
-                    -- vimp.nnoremap({"silent"}, "<M-CR>", ":call RopeAutoImport<CR>")
-                    -- vimp.nnoremap({"silent"}, "<M-d>", ":call RopeGotoDefinition<CR>")
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<M-,>", ":call RopeCodeAssist<CR>")
+                    vimp.nnoremap({"silent"}, "<M-.>", ":call RopeLuckyAssist<CR>")
+                    vimp.nnoremap({"silent"}, "<M-CR>", ":call RopeAutoImport<CR>")
+                    vimp.nnoremap({"silent"}, "<M-d>", ":call RopeGotoDefinition<CR>")
                 end,
                 ft = "python"
             }
@@ -148,22 +148,23 @@ return require("packer").startup(
                 "numirias/semshi",
                 -- after = "vimpeccable",
                 config = function()
-                    -- vimp.nnoremap({"silent"}, "<leader>rn", ":Semshi rename<CR>")
-                    --
-                    -- vimp.nnoremap({"silent"}, "<Space><Tab>", ":Semshi goto name next<CR>")
-                    -- vimp.nnoremap({"silent"}, "<Space><S-Tab>", ":Semshi goto name prev<CR>")
-                    --
-                    -- vimp.nnoremap({"silent"}, "<Space>k", ":Semshi goto class next<CR>")
-                    -- vimp.nnoremap({"silent"}, "<Space>K", ":Semshi goto class prev<CR>")
-                    --
-                    -- vimp.nnoremap({"silent"}, "<Space>f", ":Semshi goto function next<CR>")
-                    -- vimp.nnoremap({"silent"}, "<Space>F", ":Semshi goto function prev<CR>")
-                    --
-                    -- vimp.nnoremap({"silent"}, "<Space>gu", ":Semshi goto unresolved first<CR>")
-                    -- vimp.nnoremap({"silent"}, "<Space>gp", ":Semshi goto parameterUnused first<CR>")
-                    --
-                    -- vimp.nnoremap({"silent"}, "<Space>ee", ":Semshi error<CR>")
-                    -- vimp.nnoremap({"silent"}, "<Space>ge", ":Semshi goto error<CR>")
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>rn", ":Semshi rename<CR>")
+
+                    vimp.nnoremap({"silent"}, "<Space><Tab>", ":Semshi goto name next<CR>")
+                    vimp.nnoremap({"silent"}, "<Space><S-Tab>", ":Semshi goto name prev<CR>")
+
+                    vimp.nnoremap({"silent"}, "<Space>k", ":Semshi goto class next<CR>")
+                    vimp.nnoremap({"silent"}, "<Space>K", ":Semshi goto class prev<CR>")
+
+                    vimp.nnoremap({"silent"}, "<Space>f", ":Semshi goto function next<CR>")
+                    vimp.nnoremap({"silent"}, "<Space>F", ":Semshi goto function prev<CR>")
+
+                    vimp.nnoremap({"silent"}, "<Space>gu", ":Semshi goto unresolved first<CR>")
+                    vimp.nnoremap({"silent"}, "<Space>gp", ":Semshi goto parameterUnused first<CR>")
+
+                    vimp.nnoremap({"silent"}, "<Space>ee", ":Semshi error<CR>")
+                    vimp.nnoremap({"silent"}, "<Space>ge", ":Semshi goto error<CR>")
                 end,
                 ft = "python",
                 run = function()
@@ -180,15 +181,16 @@ return require("packer").startup(
                     vim.g.neoterm_default_mod = "rightbelow vertical"
                     vim.g.neoterm_autoinsert = 1
 
-                    -- vimp.nnoremap({"silent"}, "<leader>Tt", ":Ttoggle<CR>")
-                    -- vimp.nnoremap({"silent"}, "<leader>Tr", ":TREPLSetTerm<CR>")
-                    -- vimp.nnoremap({"silent"}, "<leader>Tf", ":TREPLSendFile<CR>")
-                    -- vimp.nnoremap({"silent"}, "<leader>Tl", ":TREPLSendLine<CR>")
-                    -- vimp.vnoremap({"silent"}, "<leader>Tl", ":TREPLSendSelection<CR>")
-                    -- -- Use gx{text-object} in normal mode
-                    -- vimp.nnoremap({"silent"}, "gx", "<Plug>(neoterm-repl-send)")
-                    -- -- Send selected contents in visual mode.
-                    -- vimp.xnoremap({"silent"}, "gx", "<Plug>(neoterm-repl-send)")
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>Tt", ":Ttoggle<CR>")
+                    vimp.nnoremap({"silent"}, "<leader>Tr", ":TREPLSetTerm<CR>")
+                    vimp.nnoremap({"silent"}, "<leader>Tf", ":TREPLSendFile<CR>")
+                    vimp.nnoremap({"silent"}, "<leader>Tl", ":TREPLSendLine<CR>")
+                    vimp.vnoremap({"silent"}, "<leader>Tl", ":TREPLSendSelection<CR>")
+                    -- Use gx{text-object} in normal mode
+                    vimp.nnoremap({"silent"}, "gx", "<Plug>(neoterm-repl-send)")
+                    -- Send selected contents in visual mode.
+                    vimp.xnoremap({"silent"}, "gx", "<Plug>(neoterm-repl-send)")
                 end
             }
             use {
