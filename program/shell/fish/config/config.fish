@@ -104,6 +104,11 @@ end
 # 	git clone "https://github.com/andreyorst/plug.kak.git" "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
 # end
 
+# Tmux
+# if test -n "$TMUX"
+#     eval (tmux show-environment -s $NVIM_LISTEN_ADDRESS)
+# end
+
 # Direnv
 if command -v direnv >/dev/null 2>&1
 	eval (direnv hook fish)

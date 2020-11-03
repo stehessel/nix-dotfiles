@@ -50,10 +50,10 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<leader>vt", ":SignifyToggle<cr>")
                     vimp.nnoremap({"silent"}, "<leader>vh", ":SignifyToggleHighlight<cr>")
 
-                    vimp.onoremap({"silent"}, "ig", "<plug>(signify-motion-inner-pending)")
-                    vimp.xnoremap({"silent"}, "ig", "<plug>(signify-motion-inner-visual)")
-                    vimp.onoremap({"silent"}, "ag", "<plug>(signify-motion-outer-pending)")
-                    vimp.xnoremap({"silent"}, "ag", "<plug>(signify-motion-outer-visual)")
+                    vimp.onoremap({"silent"}, "ig", "<Plug>(signify-motion-inner-pending)")
+                    vimp.xnoremap({"silent"}, "ig", "<Plug>(signify-motion-inner-visual)")
+                    vimp.onoremap({"silent"}, "ag", "<Plug>(signify-motion-outer-pending)")
+                    vimp.xnoremap({"silent"}, "ag", "<Plug>(signify-motion-outer-visual)")
 
                     vim.cmd [[highlight SignifySignDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred]]
                     vim.cmd [[highlight SignifyLineDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred]]
@@ -224,9 +224,9 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<leader>Tl", ":TREPLSendLine<cr>")
                     vimp.xnoremap({"silent"}, "<leader>Tl", ":TREPLSendSelection<cr>")
                     -- Use gx{text-object} in normal mode
-                    vimp.nnoremap({"silent"}, "gx", "<plug>(neoterm-repl-send)")
+                    vimp.nnoremap({"silent"}, "gx", "<Plug>(neoterm-repl-send)")
                     -- Send selected contents in visual mode.
-                    vimp.xnoremap({"silent"}, "gx", "<plug>(neoterm-repl-send)")
+                    vimp.xnoremap({"silent"}, "gx", "<Plug>(neoterm-repl-send)")
                 end
             }
             use {
@@ -256,14 +256,14 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<leader>iw", ":IronWatchCurrentFile")
                     vimp.nnoremap({"silent"}, "<leader>iu", ":IronUnwatchCurrentFile<cr>")
 
-                    vimp.nnoremap({"silent"}, "<localleader>s", "<plug>(iron-send-motion)")
-                    vimp.vnoremap({"silent"}, "<localleader>s", "<plug>(iron-visual-send)")
-                    vimp.vnoremap({"silent"}, "<localleader>r", "<plug>(iron-repeat-cmd)")
-                    vimp.vnoremap({"silent"}, "<localleader>l", "<plug>(iron-send-line)")
-                    vimp.vnoremap({"silent"}, "<localleader><cr>", "<plug>(iron-cr)")
-                    vimp.vnoremap({"silent"}, "<localleader>i", "<plug>(iron-interrupt)")
-                    vimp.vnoremap({"silent"}, "<localleader>q", "<plug>(iron-exit)")
-                    vimp.vnoremap({"silent"}, "<localleader>c", "<plug>(iron-clear)")
+                    vimp.nnoremap({"silent"}, "<localleader>s", "<Plug>(iron-send-motion)")
+                    vimp.vnoremap({"silent"}, "<localleader>s", "<Plug>(iron-visual-send)")
+                    vimp.vnoremap({"silent"}, "<localleader>r", "<Plug>(iron-repeat-cmd)")
+                    vimp.vnoremap({"silent"}, "<localleader>l", "<Plug>(iron-send-line)")
+                    vimp.vnoremap({"silent"}, "<localleader><cr>", "<Plug>(iron-cr)")
+                    vimp.vnoremap({"silent"}, "<localleader>i", "<Plug>(iron-interrupt)")
+                    vimp.vnoremap({"silent"}, "<localleader>q", "<Plug>(iron-exit)")
+                    vimp.vnoremap({"silent"}, "<localleader>c", "<Plug>(iron-clear)")
                 end
             }
             -- Markdown
@@ -345,10 +345,10 @@ return require("packer").startup(
                 -- after = "vimpeccable",
                 config = function()
                     require("vimp")
-                    vimp.onoremap({"silent"}, "i,", "<plug>(swap-textobject-i)")
-                    vimp.xnoremap({"silent"}, "i,", "<plug>(swap-textobject-i)")
-                    vimp.onoremap({"silent"}, "a,", "<plug>(swap-textobject-a)")
-                    vimp.xnoremap({"silent"}, "a,", "<plug>(swap-textobject-a)")
+                    vimp.onoremap({"silent"}, "i,", "<Plug>(swap-textobject-i)")
+                    vimp.xnoremap({"silent"}, "i,", "<Plug>(swap-textobject-i)")
+                    vimp.onoremap({"silent"}, "a,", "<Plug>(swap-textobject-a)")
+                    vimp.xnoremap({"silent"}, "a,", "<Plug>(swap-textobject-a)")
                 end
             }
             use "mg979/vim-visual-multi"
@@ -375,21 +375,21 @@ return require("packer").startup(
                 "svermeulen/vim-subversive",
                 -- after = "vimpeccable",
                 config = function()
-                    vim.cmd [[nmap s <plug>(SubversiveSubstitute)]]
-                    vim.cmd [[nmap ss <plug>(SubversiveSubstituteLine)]]
-                    vim.cmd [[nmap sl <plug>(SubversiveSubstituteToEndOfLine)]]
+                    vim.cmd [[nmap s <Plug>(SubversiveSubstitute)]]
+                    vim.cmd [[nmap ss <Plug>(SubversiveSubstituteLine)]]
+                    vim.cmd [[nmap sl <Plug>(SubversiveSubstituteToEndOfLine)]]
 
-                    vim.cmd [[xmap s <plug>(SubversiveSubstitute)]]
-                    vim.cmd [[xmap p <plug>(SubversiveSubstitute)]]
-                    vim.cmd [[xmap P <plug>(SubversiveSubstitute)]]
+                    vim.cmd [[xmap s <Plug>(SubversiveSubstitute)]]
+                    vim.cmd [[xmap p <Plug>(SubversiveSubstitute)]]
+                    vim.cmd [[xmap P <Plug>(SubversiveSubstitute)]]
 
-                    vim.cmd [[nmap <leader><leader>s <plug>(SubversiveSubvertRange)]]
-                    vim.cmd [[xmap <leader><leader>s <plug>(SubversiveSubvertRange)]]
-                    vim.cmd [[nmap <leader><leader>ss <plug>(SubversiveSubvertWordRange)]]
+                    vim.cmd [[nmap <leader><leader>s <Plug>(SubversiveSubvertRange)]]
+                    vim.cmd [[xmap <leader><leader>s <Plug>(SubversiveSubvertRange)]]
+                    vim.cmd [[nmap <leader><leader>ss <Plug>(SubversiveSubvertWordRange)]]
 
-                    vim.cmd [[nmap <leader>cs <plug>(SubversiveSubstituteRangeConfirm)]]
-                    vim.cmd [[xmap <leader>cs <plug>(SubversiveSubstituteRangeConfirm)]]
-                    vim.cmd [[nmap <leader>css <plug>(SubversiveSubstituteWordRangeConfirm)]]
+                    vim.cmd [[nmap <leader>cs <Plug>(SubversiveSubstituteRangeConfirm)]]
+                    vim.cmd [[xmap <leader>cs <Plug>(SubversiveSubstituteRangeConfirm)]]
+                    vim.cmd [[nmap <leader>css <Plug>(SubversiveSubstituteWordRangeConfirm)]]
 
                     require("vimp")
                     -- ie = inner entire buffer
@@ -462,19 +462,19 @@ return require("packer").startup(
                 "svermeulen/vim-yoink",
                 config = function()
                     require("vimp")
-                    vimp.nnoremap({"silent"}, "<M-]>", "YoinkPostPasteSwapBack")
-                    vimp.nnoremap({"silent"}, "<M-[>", "YoinkPostPasteSwapForward")
+                    vimp.nmap({"silent"}, "<M-]>", "<Plug>(YoinkPostPasteSwapBack)")
+                    vimp.nmap({"silent"}, "<M-[>", "<Plug>(YoinkPostPasteSwapForward)")
 
-                    vimp.nnoremap({"silent"}, "y", "YoinkYankPreserveCursorPosition")
-                    vimp.xnoremap({"silent"}, "y", "YoinkYankPreserveCursorPosition")
+                    vimp.nmap({"silent"}, "y", "<Plug>(YoinkYankPreserveCursorPosition)")
+                    vimp.xmap({"silent"}, "y", "<Plug>(YoinkYankPreserveCursorPosition)")
 
-                    vimp.nnoremap({"silent"}, "p", "YoinkPaste_p")
-                    vimp.nnoremap({"silent"}, "P", "YoinkPaste_P")
+                    vimp.nmap({"silent"}, "p", "<Plug>(YoinkPaste_p)")
+                    vimp.nmap({"silent"}, "P", "<Plug>(YoinkPaste_P)")
 
-                    vimp.nnoremap({"silent"}, "[y", "YoinkRotateBack")
-                    vimp.nnoremap({"silent"}, "]y", "YoinkRotateForward")
+                    vimp.nmap({"silent"}, "[y", "<Plug>(YoinkRotateBack)")
+                    vimp.nmap({"silent"}, "]y", "<Plug>(YoinkRotateForward)")
 
-                    vimp.nnoremap({"silent"}, "<C-=>", "YoinkPostPasteToggleFormat")
+                    vimp.nmap({"silent"}, "<C-=>", "<Plug>(YoinkPostPasteToggleFormat)")
                 end
             }
             -- Discover keybinds

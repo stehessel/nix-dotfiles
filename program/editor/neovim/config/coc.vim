@@ -104,8 +104,8 @@ endfunction
 nmap <space>r <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <space>F   <Plug>(coc-format-selected)
-nmap <space>F   <Plug>(coc-format)
+xmap <space>G   <Plug>(coc-format-selected)
+nmap <space>G   <Plug>(coc-format)
 nmap <leader>ps  :CocCommand python.sortImports<CR>
 
 augroup mygroup
