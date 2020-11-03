@@ -153,15 +153,29 @@ lua require('plugins')
 " Clipboard
 	set clipboard+=unnamedplus
 	set go=a
+" Javescript
+	let g:loaded_node_provider = 0
+	let g:node_host_prog = "$HOME/.nix-profile/bin/npm"
+" Perl
+	let g:loaded_perl_provider = 0
+" Python
+	let g:loaded_python_provider = 0
+	let g:python3_host_prog  = "$HOME/miniconda3/bin/python"
+" Pycln
+	nnoremap <leader>I :AsyncRun pycln %<CR>
+" Sort
+	xnoremap <leader>s :sort<CR>
+" Terminal navigation
+	tnoremap <C-q> <C-\><C-n>:q<CR>
+	tnoremap <C-h> <C-\><C-n><C-w>h
+	tnoremap <C-j> <C-\><C-n><C-w>j
+	tnoremap <C-k> <C-\><C-n><C-w>k
+	tnoremap <C-l> <C-\><C-n><C-w>l
 " Sources
 	source ~/.config/nvim/coc.vim
 	source ~/.config/nvim/dev.vim
 	source ~/.config/nvim/git.vim
 	" source ~/.config/nvim/linters.vim
 	" source ~/.config/nvim/lsp.vim
-	source ~/.config/nvim/providers.vim
-	source ~/.config/nvim/python.vim
-	source ~/.config/nvim/repl.vim
 	source ~/.config/nvim/search.vim
 	source ~/.config/nvim/statusline.vim
-	source ~/.config/nvim/text.vim

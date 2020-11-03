@@ -70,24 +70,6 @@
 	nmap <leader>cy  :Clap yanks<CR>
 	nmap <leader>ce  :Clap filer<CR>
 	nmap <leader>cp  :Clap providers<CR>
-" Aerojump
-	nmap <Leader>as <Plug>(AerojumpSpace)
-	nmap <Leader>ab <Plug>(AerojumpBolt)
-	nmap <Leader>aa <Plug>(AerojumpFromCursorBolt)
-	nmap <Leader>ad <Plug>(AerojumpDefault) " Boring mode
-	nmap <space>j <Plug>(AerojumpSpace)
-
-	let g:aerojump_keymaps = { "<Esc>": "AerojumpExit" }
-" Far.vim
-	let g:far#source = 'rgnvim'
-
-	" shortcut for far.vim find
-	nnoremap <silent> <leader>rf  :Farf<cr>
-	vnoremap <silent> <leader>rf  :Farf<cr>
-
-	" shortcut for far.vim replace
-	nnoremap <silent> <leader>rr  :Farr<cr>
-	vnoremap <silent> <leader>rr  :Farr<cr>
 " Ctrlsf
 	let g:ctrlsf_regex_pattern = 1
 	let g:ctrlsf_auto_focus = { "at": "done", "duration_less_than": 5000 }

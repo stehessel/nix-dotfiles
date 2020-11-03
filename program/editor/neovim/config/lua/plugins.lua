@@ -280,7 +280,7 @@ return require("packer").startup(
             use {
                 "sainnhe/sonokai",
                 config = function()
-                    vim.g.sonokai_style = "atlantis"
+                    vim.g.sonokai_style = "andromeda"
                     vim.g.sonokai_enable_itatlic = 1
                     vim.g.sonokai_diagnostic_line_highlight = 1
                     vim.g.sonokai_better_performance = 1
@@ -450,6 +450,15 @@ return require("packer").startup(
             -- Search
             use {
                 "brooth/far.vim",
+                config = function()
+                    vim.g["far#source"] = "rgnvim"
+
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>rf", ":Farf<cr>")
+                    vimp.xnoremap({"silent"}, "<leader>rf", ":Farf<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>rr", ":Farr<cr>")
+                    vimp.xnoremap({"silent"}, "<leader>rr", ":Farr<cr>")
+                end,
                 run = function()
                     vim.cmd [[:UpdateRemotePlugins]]
                 end
