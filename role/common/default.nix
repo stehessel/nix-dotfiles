@@ -125,7 +125,7 @@ in
     # http-prompt
     # httpie
     # --- javascript ---
-    nodejs-14_x
+    nodejs-slim-15_x
     yarn
     # --- launcher ---
     entr
