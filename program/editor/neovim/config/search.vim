@@ -62,7 +62,6 @@
 	nmap <leader>cm  :Clap marks<CR>
 	nmap <leader>ct  :Clap tags coc<CR>
 	nmap <leader>cc  :Clap hist:<CR>
-	nmap <leader>cs  :Clap hist/<CR>
 	nmap <leader>ch  :Clap history<CR>
 	nmap <leader>cw  :Clap windows<CR>
 	nmap <leader>cj  :Clap jumps<CR>

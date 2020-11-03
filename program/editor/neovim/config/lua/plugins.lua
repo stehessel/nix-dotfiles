@@ -1,5 +1,5 @@
 -- Only required if you have packer in your `opt` pack
-local packer_exists = pcall(vim.cmd, [[ packadd packer.nvim ]])
+local packer_exists = pcall(vim.cmd, "packadd packer.nvim")
 
 if not packer_exists then
     if vim.fn.input("Download Packer? (y for yes)") ~= "y" then
@@ -70,11 +70,11 @@ return require("packer").startup(
                     vim.g.startify_update_oldfiles = 1
 
                     require("vimp")
-                    vimp.nnoremap({"silent"}, "<leader>h", ":Startify<CR>")
+                    vimp.nnoremap({"silent"}, "<leader>h", ":Startify<cr>")
                     vimp.nnoremap({"silent"}, "<leader>Ss", ":SSave!")
                     vimp.nnoremap({"silent"}, "<leader>Sl", ":SLoad")
-                    vimp.nnoremap({"silent"}, "<leader>Sc", ":SClose<CR>")
-                    vimp.nnoremap({"silent"}, "<leader>Sd", ":SDelete<CR>")
+                    vimp.nnoremap({"silent"}, "<leader>Sc", ":SClose<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>Sd", ":SDelete<cr>")
                 end
             }
             -- LSP
@@ -107,10 +107,10 @@ return require("packer").startup(
                     vim.g.ropevim_guess_project = 1
 
                     require("vimp")
-                    vimp.nnoremap({"silent"}, "<M-,>", ":call RopeCodeAssist<CR>")
-                    vimp.nnoremap({"silent"}, "<M-.>", ":call RopeLuckyAssist<CR>")
-                    vimp.nnoremap({"silent"}, "<M-CR>", ":call RopeAutoImport<CR>")
-                    vimp.nnoremap({"silent"}, "<M-d>", ":call RopeGotoDefinition<CR>")
+                    vimp.nnoremap({"silent"}, "<M-,>", ":call RopeCodeAssist<cr>")
+                    vimp.nnoremap({"silent"}, "<M-.>", ":call RopeLuckyAssist<cr>")
+                    vimp.nnoremap({"silent"}, "<M-CR>", ":call RopeAutoImport<cr>")
+                    vimp.nnoremap({"silent"}, "<M-d>", ":call RopeGotoDefinition<cr>")
                 end,
                 ft = "python"
             }
@@ -149,22 +149,22 @@ return require("packer").startup(
                 -- after = "vimpeccable",
                 config = function()
                     require("vimp")
-                    vimp.nnoremap({"silent"}, "<leader>rn", ":Semshi rename<CR>")
+                    vimp.nnoremap({"silent"}, "<leader>rn", ":Semshi rename<cr>")
 
-                    vimp.nnoremap({"silent"}, "<Space><Tab>", ":Semshi goto name next<CR>")
-                    vimp.nnoremap({"silent"}, "<Space><S-Tab>", ":Semshi goto name prev<CR>")
+                    vimp.nnoremap({"silent"}, "<Space><Tab>", ":Semshi goto name next<cr>")
+                    vimp.nnoremap({"silent"}, "<Space><S-Tab>", ":Semshi goto name prev<cr>")
 
-                    vimp.nnoremap({"silent"}, "<Space>k", ":Semshi goto class next<CR>")
-                    vimp.nnoremap({"silent"}, "<Space>K", ":Semshi goto class prev<CR>")
+                    vimp.nnoremap({"silent"}, "<Space>k", ":Semshi goto class next<cr>")
+                    vimp.nnoremap({"silent"}, "<Space>K", ":Semshi goto class prev<cr>")
 
-                    vimp.nnoremap({"silent"}, "<Space>f", ":Semshi goto function next<CR>")
-                    vimp.nnoremap({"silent"}, "<Space>F", ":Semshi goto function prev<CR>")
+                    vimp.nnoremap({"silent"}, "<Space>f", ":Semshi goto function next<cr>")
+                    vimp.nnoremap({"silent"}, "<Space>F", ":Semshi goto function prev<cr>")
 
-                    vimp.nnoremap({"silent"}, "<Space>gu", ":Semshi goto unresolved first<CR>")
-                    vimp.nnoremap({"silent"}, "<Space>gp", ":Semshi goto parameterUnused first<CR>")
+                    vimp.nnoremap({"silent"}, "<Space>gu", ":Semshi goto unresolved first<cr>")
+                    vimp.nnoremap({"silent"}, "<Space>gp", ":Semshi goto parameterUnused first<cr>")
 
-                    vimp.nnoremap({"silent"}, "<Space>ee", ":Semshi error<CR>")
-                    vimp.nnoremap({"silent"}, "<Space>ge", ":Semshi goto error<CR>")
+                    vimp.nnoremap({"silent"}, "<Space>ee", ":Semshi error<cr>")
+                    vimp.nnoremap({"silent"}, "<Space>ge", ":Semshi goto error<cr>")
                 end,
                 ft = "python",
                 run = function()
@@ -182,15 +182,15 @@ return require("packer").startup(
                     vim.g.neoterm_autoinsert = 1
 
                     require("vimp")
-                    vimp.nnoremap({"silent"}, "<leader>Tt", ":Ttoggle<CR>")
-                    vimp.nnoremap({"silent"}, "<leader>Tr", ":TREPLSetTerm<CR>")
-                    vimp.nnoremap({"silent"}, "<leader>Tf", ":TREPLSendFile<CR>")
-                    vimp.nnoremap({"silent"}, "<leader>Tl", ":TREPLSendLine<CR>")
-                    vimp.vnoremap({"silent"}, "<leader>Tl", ":TREPLSendSelection<CR>")
+                    vimp.nnoremap({"silent"}, "<leader>Tt", ":Ttoggle<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>Tr", ":TREPLSetTerm<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>Tf", ":TREPLSendFile<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>Tl", ":TREPLSendLine<cr>")
+                    vimp.xnoremap({"silent"}, "<leader>Tl", ":TREPLSendSelection<cr>")
                     -- Use gx{text-object} in normal mode
-                    vimp.nnoremap({"silent"}, "gx", "<Plug>(neoterm-repl-send)")
+                    vimp.nnoremap({"silent"}, "gx", "<plug>(neoterm-repl-send)")
                     -- Send selected contents in visual mode.
-                    vimp.xnoremap({"silent"}, "gx", "<Plug>(neoterm-repl-send)")
+                    vimp.xnoremap({"silent"}, "gx", "<plug>(neoterm-repl-send)")
                 end
             }
             use {
@@ -212,20 +212,22 @@ return require("packer").startup(
                         }
                     }
 
-                    vim.cmd [[nmap <leader>it  :IronRepl python<CR><ESC>]]
-                    vim.cmd [[nmap <leader>if  :IronFocus python<CR>]]
-                    vim.cmd [[nmap <leader>ir  :IronRestart<CR>]]
-                    vim.cmd [[nmap <leader>iw  :IronWatchCurrentFile]]
-                    vim.cmd [[nmap <leader>iu  :IronUnwatchCurrentFile<CR>]]
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<M-,>", ":IronRepl python<cr><esc>")
+                    vimp.nnoremap({"silent"}, "<leader>it", ":IronRepl python<cr><ESC>")
+                    vimp.nnoremap({"silent"}, "<leader>if", ":IronFocus python<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>ir", ":IronRestart<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>iw", ":IronWatchCurrentFile")
+                    vimp.nnoremap({"silent"}, "<leader>iu", ":IronUnwatchCurrentFile<cr>")
 
-                    vim.cmd [[nmap <localleader>s    <Plug>(iron-send-motion)]]
-                    vim.cmd [[vmap <localleader>s    <Plug>(iron-visual-send)]]
-                    vim.cmd [[nmap <localleader>r    <Plug>(iron-repeat-cmd)]]
-                    vim.cmd [[nmap <localleader>l    <Plug>(iron-send-line)]]
-                    vim.cmd [[nmap <localleader><CR> <Plug>(iron-cr)]]
-                    vim.cmd [[nmap <localleader>i    <plug>(iron-interrupt)]]
-                    vim.cmd [[nmap <localleader>q    <Plug>(iron-exit)]]
-                    vim.cmd [[nmap <localleader>c    <Plug>(iron-clear)]]
+                    vimp.nnoremap({"silent"}, "<localleader>s", "<plug>(iron-send-motion)")
+                    vimp.vnoremap({"silent"}, "<localleader>s", "<plug>(iron-visual-send)")
+                    vimp.vnoremap({"silent"}, "<localleader>r", "<plug>(iron-repeat-cmd)")
+                    vimp.vnoremap({"silent"}, "<localleader>l", "<plug>(iron-send-line)")
+                    vimp.vnoremap({"silent"}, "<localleader><cr>", "<plug>(iron-cr)")
+                    vimp.vnoremap({"silent"}, "<localleader>i", "<plug>(iron-interrupt)")
+                    vimp.vnoremap({"silent"}, "<localleader>q", "<plug>(iron-exit)")
+                    vimp.vnoremap({"silent"}, "<localleader>c", "<plug>(iron-clear)")
                 end
             }
             -- Markdown
@@ -240,13 +242,15 @@ return require("packer").startup(
             -- use 'akinsho/nvim-bufferline.lua'
             use "gcmt/taboo.vim"
             -- Docker
-            -- Color schemes
-            -- use {"glepnir/zephyr-nvim", config = "require('zephyr')"}
-            -- use {"joshdick/onedark.vim", config = "vim.cmd [[colorscheme onedark]]"}
+            -- Color scheme
             use {
-                "kyazdani42/blue-moon",
+                "sainnhe/sonokai",
                 config = function()
-                    vim.cmd [[ colorscheme blue-moon ]]
+                    vim.g.sonokai_style = "atlantis"
+                    vim.g.sonokai_enable_itatlic = 1
+                    vim.g.sonokai_diagnostic_line_highlight = 1
+                    vim.g.sonokai_better_performance = 1
+                    vim.cmd("colorscheme sonokai")
                 end
             }
             -- Icons
@@ -289,23 +293,25 @@ return require("packer").startup(
                 -- after = "vimpeccable",
                 cmd = "EasyAlign",
                 setup = function()
+                    require("vimp")
                     -- Start interactive EasyAlign in visual mode (e.g. vipga)
-                    vim.cmd [[xmap <silent> ga :EasyAlign<CR>]]
+                    vimp.xnoremap({"silent"}, "ga", ":EasyAlign<cr>")
                     -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
-                    vim.cmd [[nmap <silent> ga :EasyAlign<CR>]]
+                    vimp.nnoremap({"silent"}, "ga", ":EasyAlign<cr>")
                 end
             }
-            use {"tpope/vim-sexp-mappings-for-regular-people", ft = "clojure", after = "vim-sexp"}
-            use {"guns/vim-sexp", ft = "clojure"}
+            use {"tpope/vim-sexp-mappings-for-regular-people", ft = {"clojure", "fennel"}, after = "vim-sexp"}
+            use {"guns/vim-sexp", ft = {"clojure", "fennel"}}
             use "matze/vim-move"
             use {
                 "machakann/vim-swap",
                 -- after = "vimpeccable",
                 config = function()
-                    vim.cmd [[omap i, <Plug>(swap-textobject-i)]]
-                    vim.cmd [[xmap i, <Plug>(swap-textobject-i)]]
-                    vim.cmd [[omap a, <Plug>(swap-textobject-a)]]
-                    vim.cmd [[xmap a, <Plug>(swap-textobject-a)]]
+                    require("vimp")
+                    vimp.onoremap({"silent"}, "i,", "<plug>(swap-textobject-i)")
+                    vimp.xnoremap({"silent"}, "i,", "<plug>(swap-textobject-i)")
+                    vimp.onoremap({"silent"}, "a,", "<plug>(swap-textobject-a)")
+                    vimp.xnoremap({"silent"}, "a,", "<plug>(swap-textobject-a)")
                 end
             }
             -- use 'mbbill/undotree'
@@ -314,10 +320,15 @@ return require("packer").startup(
                 "nicwest/vim-camelsnek",
                 -- after = "vimpeccable",
                 config = function()
-                    vim.cmd [[map <leader>xs :Snek<CR>]]
-                    vim.cmd [[map <leader>xc :Camel<CR>]]
-                    vim.cmd [[map <leader>xb :CamelB<CR>]]
-                    vim.cmd [[map <leader>xk :Kebab<CR>]]
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>xs", ":Snek<cr>")
+                    vimp.xnoremap({"silent"}, "<leader>xs", ":Snek<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>xc", ":Camel<cr>")
+                    vimp.xnoremap({"silent"}, "<leader>xc", ":Camel<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>xb", ":CamelB<cr>")
+                    vimp.xnoremap({"silent"}, "<leader>xb", ":CamelB<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>xk", ":Kebab<cr>")
+                    vimp.xnoremap({"silent"}, "<leader>xk", ":Kebab<cr>")
                 end
             }
             use "tommcdo/vim-exchange"
@@ -344,10 +355,11 @@ return require("packer").startup(
                     vim.cmd [[xmap <leader>cs <plug>(SubversiveSubstituteRangeConfirm)]]
                     vim.cmd [[nmap <leader>css <plug>(SubversiveSubstituteWordRangeConfirm)]]
 
+                    require("vimp")
                     -- ie = inner entire buffer
-                    vim.cmd [[onoremap ie :exec "normal! ggVG"<cr>]]
+                    vimp.onoremap({"silent"}, "ie", [[:exec "normal! ggVG"<cr>]])
                     -- iv = current viewable text in the buffer
-                    vim.cmd [[onoremap iv :exec "normal! HVL"<cr>]]
+                    vimp.onoremap({"silent"}, "iv", [[:exec "normal! HVL"<cr>]])
                 end
             }
             use "tpope/vim-abolish"
@@ -355,7 +367,20 @@ return require("packer").startup(
             use "AndrewRadev/splitjoin.vim"
             use {"sk1418/Join", cmd = "Join"}
             -- Text objects
-            use "chaoren/vim-wordmotion"
+            use {
+                "chaoren/vim-wordmotion",
+                config = function()
+                    vim.g.wordmotion_mappings = {
+                        ["w"] = "<M-w>",
+                        ["b"] = "<M-b>",
+                        ["e"] = "<M-e>",
+                        ["ge"] = "g<M-e>",
+                        ["aw"] = "a<M-w>",
+                        ["iw"] = "i<M-w>",
+                        ["<C-R><C-W>"] = "<C-R><M-w>"
+                    }
+                end
+            }
             use "glts/vim-textobj-comment"
             use "julian/vim-textobj-variable-segment"
             use "kana/vim-textobj-user"
@@ -382,7 +407,8 @@ return require("packer").startup(
                 config = function()
                     vim.g.projectionist_heuristics = {["data_catalog/*.py"] = {["alternate"] = "tests/unit/test_{}.py"}}
 
-                    vim.cmd [[ nnoremap go :A<CR> ]]
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "go", ":A<cr>")
                 end
             }
             -- Search
@@ -392,8 +418,7 @@ return require("packer").startup(
                     vim.cmd [[:UpdateRemotePlugins]]
                 end
             }
-            use "inkarkat/vim-ingo-library"
-            use "inkarkat/vim-SearchAlternatives"
+            use {"inkarkat/vim-SearchAlternatives", requires = "inkarkat/vim-ingo-library"}
             -- use 'pgdouyon/vim-evanesco'
             -- Copy/paste
             use "machakann/vim-highlightedyank"
@@ -434,6 +459,6 @@ return require("packer").startup(
             -- Benchmark
             use "tweekmonster/startuptime.vim"
         end,
-        config = {max_jobs = 50}
+        config = {max_jobs = 64}
     }
 )
