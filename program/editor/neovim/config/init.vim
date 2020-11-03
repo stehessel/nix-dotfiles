@@ -1,175 +1,3 @@
-" Plugins
-" if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
-" 	echo 'Downloading junegunn/vim-plug to manage plugins...'
-" 	silent !mkdir -p ~/.config/nvim/autoload/
-" 	silent !curl 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > ~/.config/nvim/autoload/plug.vim
-" 	autocmd VimEnter * PlugInstall --sync
-" endif
-
-" call plug#begin('~/.config/nvim/plugged')
-" " Git
-" 	Plug 'APZelos/blamer.nvim'
-" 	Plug 'jreybert/vimagit'
-" 	Plug 'mhinz/vim-signify'
-" 	Plug 'tpope/vim-fugitive'
-" 	Plug 'rbong/vim-flog'
-" 	Plug 'rhysd/git-messenger.vim'
-" " Github
-" 	Plug 'mattn/vim-gist'
-" " Finders
-" 	Plug 'dyng/ctrlsf.vim'
-" 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" 	Plug 'junegunn/fzf.vim'
-" 	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-" " Statusline
-" 	Plug 'itchyny/lightline.vim'
-" " Start screen
-" 	Plug 'mhinz/vim-startify'
-" " LSP
-" 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" 	" Plug 'neovim/nvim-lsp'
-" 	" Plug 'nvim-lua/diagnostic-nvim'
-" " Completion
-" 	" Plug 'nvim-lua/completion-nvim'
-" 	" Plug 'nvim-treesitter/completion-treesitter'
-" 	" Plug 'steelsojka/completion-buffers'
-" " Linters
-" 	" Plug 'dense-analysis/ale'
-" " Python
-" 	Plug 'python-rope/ropevim'
-" 	Plug 'stsewd/sphinx.nvim', { 'do': ':UpdateRemotePlugins' }
-" " Clojure
-" 	Plug 'clojure-vim/vim-jack-in'
-" 	Plug 'tpope/vim-fireplace', { 'for': 'clojure', 'on': 'FireplaceConnect' }
-" " Treesitter
-" 	Plug 'nvim-treesitter/nvim-treesitter'
-" " Format
-" 	Plug 'sbdchd/neoformat'
-" 	Plug 'tpope/vim-endwise'
-" " Snippets
-" 	" Plug 'honza/vim-snippets'
-" " Debugger
-" 	Plug 'puremourning/vimspector'
-" " Testing
-" 	Plug 'janko/vim-test'
-" " Code folding
-" 	" Plug 'kalekundert/vim-coiled-snake'
-" 	Plug 'Konfekt/FastFold'
-" 	Plug 'tmhedberg/SimpylFold'
-" " Syntax highlighters
-" 	Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-" 	Plug 'sheerun/vim-polyglot'
-" " REPL
-" 	" Plug 'ipselium/vim-cpyvke'
-" 	Plug 'kassio/neoterm'
-" 	Plug 'Olical/conjure', {'tag': 'v4.5.0'}
-" 	Plug 'Vigemus/iron.nvim'
-" " Markdown
-" 	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-" 	Plug 'tpope/vim-markdown'
-" " Tabs
-" 	" Plug 'akinsho/nvim-bufferline.lua'
-" 	Plug 'gcmt/taboo.vim'
-" " Docker
-" " Color themes
-" 	Plug 'glepnir/zephyr-nvim'
-" " Icons
-" 	" Plug 'kyazdani42/nvim-web-devicons'
-" 	Plug 'ryanoasis/vim-devicons'
-" " Cursor
-" 	" Plug 'danilamihailov/beacon.nvim'
-" " Brackets
-" 	Plug 'adelarsq/vim-matchit'
-" 	Plug 'cohama/lexima.vim'
-" 	Plug 'luochen1990/rainbow'
-" 	Plug 'machakann/vim-sandwich'
-" " Marks
-" 	Plug 'inkarkat/vim-mark'
-" 	Plug 'kshenoy/vim-signature'
-" " Indentation
-" 	" Plug 'lukas-reineke/indent-blankline.nvim'
-" 	Plug 'tpope/vim-sleuth'
-" 	" Plug 'Yggdroot/indentLine'
-" " Keybinds
-" 	Plug 'tpope/vim-unimpaired'
-" " Movement
-" 	Plug 'easymotion/vim-easymotion'
-" 	" Plug 'justinmk/vim-sneak'
-" 	Plug 'rhysd/clever-f.vim'
-" 	" Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
-" 	Plug 'tpope/vim-rsi'
-" " Text manipulation
-" 	Plug 'AndrewRadev/switch.vim'
-" 	Plug 'junegunn/vim-easy-align', { 'on': 'EasyAlign' }
-" 	Plug 'guns/vim-sexp' | 	Plug 'tpope/vim-sexp-mappings-for-regular-people'
-" 	Plug 'matze/vim-move'
-" 	Plug 'machakann/vim-swap'
-" 	" Plug 'mbbill/undotree'
-" 	Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
-" 	Plug 'nicwest/vim-camelsnek'
-" 	Plug 'tommcdo/vim-exchange'
-" 	Plug 'tpope/vim-repeat'
-" 	Plug 'tyru/caw.vim'
-" " Text substitution
-" 	Plug 'svermeulen/vim-subversive'
-" 	Plug 'tpope/vim-abolish'
-" " Text splitting
-" 	Plug 'AndrewRadev/splitjoin.vim'
-" 	Plug 'sk1418/Join', {'on': 'Join'}
-" " Text objects
-" 	Plug 'chaoren/vim-wordmotion'
-" 	Plug 'glts/vim-textobj-comment'
-" 	Plug 'julian/vim-textobj-variable-segment'
-" 	Plug 'kana/vim-textobj-user'
-" 	Plug 'michaeljsmith/vim-indent-object'
-" 	Plug 'wellle/targets.vim'
-" " Buffers
-" 	Plug 'jlanzarotta/bufexplorer'
-" 	Plug 'moll/vim-bbye'
-" 	" Plug 'TaDaa/vimade'
-" " Splits
-" 	" Plug 'camspiers/lens.vim'
-" " Tabs
-" 	Plug 'caenrique/nvim-maximize-window-toggle'
-" " Tmux
-" 	Plug 'christoomey/vim-tmux-navigator'
-" 	Plug 'tmux-plugins/vim-tmux-focus-events'
-" " File explorer
-" 	" Plug 'lambdalisue/fern.vim'
-" 	" Plug 'lambdalisue/fern-bookmark.vim'
-" 	" Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-" " Projects
-" 	Plug 'tpope/vim-projectionist'
-" " Search
-" 	Plug 'brooth/far.vim', { 'do': ':UpdateRemotePlugins' }
-" 	Plug 'inkarkat/vim-ingo-library'
-" 	Plug 'inkarkat/vim-SearchAlternatives'
-" 	" Plug 'pgdouyon/vim-evanesco'
-" " Copy/paste
-" 	Plug 'machakann/vim-highlightedyank'
-" 	Plug 'svermeulen/vim-yoink'
-" " Discover keybinds
-" 	Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-" " Save position
-" 	Plug 'farmergreg/vim-lastplace'
-" " Note taking
-" 	Plug 'vimwiki/vimwiki'
-" " Dispatcher
-" 	Plug 'skywind3000/asynctasks.vim'
-" 	Plug 'skywind3000/asyncrun.vim'
-" 	Plug 'tpope/vim-dispatch'
-" " Todo
-" 	Plug 'vuciv/vim-bujo'
-" " Unix commands
-" 	Plug 'tpope/vim-eunuch'
-" " Root directory
-" 	Plug 'airblade/vim-rooter'
-" " Autosave
-" 	Plug '907th/vim-auto-save'
-" " Local
-" 	Plug '~/git/nvim-jira'
-" call plug#end()
-
 lua require('plugins')
 
 " Misc keybinds
@@ -247,14 +75,6 @@ lua require('plugins')
 " Theme
 	set bg=dark
 	set termguicolors
-" Color theme
-	" colorscheme jellybeans
-
-	let g:jellybeans_overrides = {
-		\ 'Todo': { 'ctermfg': 'Black', 'ctermbg': 'Grey', 'attr': 'bold' },
-		\ }
-	let g:jellybeans_use_lowcolor_black = 1
-	let g:jellybeans_use_term_italics = 1
 " Highlighters
 	highlight HighlightedyankRegion cterm=reverse gui=reverse
 	highlight CursorColumn cterm=reverse gui=reverse
@@ -282,15 +102,6 @@ lua require('plugins')
 " Filetype
 	filetype plugin indent on
 	set suffixesadd=.md
-" Vim sneak
-	" map f <Plug>Sneak_s
-	" map F <Plug>Sneak_S
-	" map f <Plug>Sneak_f
-	" map F <Plug>Sneak_F
-	" map t <Plug>Sneak_t
-	" map T <Plug>Sneak_T
-" Quick-scope
-	let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " Disables automatic commenting on newline:
 	" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Fern
@@ -331,10 +142,6 @@ lua require('plugins')
 	" augroup END
 " Vim-wiki
 	" let g:vimwiki_list = [ {'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'} ]
-" Plug commands
-	command! PU PlugUpdate | PlugUpgrade
-" Vim-which-key
-	nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Automatically deletes all trailing whitespace on save.
@@ -343,14 +150,12 @@ lua require('plugins')
 	autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
-" Undotree
-	nnoremap <leader>u :UndotreeToggle<CR>
+" Clipboard
+	set clipboard+=unnamedplus
+	set go=a
 " Sources
 	source ~/.config/nvim/coc.vim
-	source ~/.config/nvim/copy.vim
 	source ~/.config/nvim/dev.vim
-	source ~/.config/nvim/edit.vim
-	source ~/.config/nvim/format.vim
 	source ~/.config/nvim/git.vim
 	" source ~/.config/nvim/linters.vim
 	" source ~/.config/nvim/lsp.vim

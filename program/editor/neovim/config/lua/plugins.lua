@@ -37,7 +37,28 @@ return require("packer").startup(
             -- Git
             use "APZelos/blamer.nvim"
             use "jreybert/vimagit"
-            use "mhinz/vim-signify"
+            use {
+                "mhinz/vim-signify",
+                config = function()
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>vl", ":SignifyList<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>vd", ":SignifyDiff<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>vf", ":SignifyFold<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>vv", ":SignifyHunkDiff<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>vu", ":SignifyHunkUndo<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>vr", ":SignifyRefresh<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>vt", ":SignifyToggle<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>vh", ":SignifyToggleHighlight<cr>")
+
+                    vimp.onoremap({"silent"}, "ig", "<plug>(signify-motion-inner-pending)")
+                    vimp.xnoremap({"silent"}, "ig", "<plug>(signify-motion-inner-visual)")
+                    vimp.onoremap({"silent"}, "ag", "<plug>(signify-motion-outer-pending)")
+                    vimp.xnoremap({"silent"}, "ag", "<plug>(signify-motion-outer-visual)")
+
+                    vim.cmd [[highlight SignifySignDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred]]
+                    vim.cmd [[highlight SignifyLineDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred]]
+                end
+            }
             use "tpope/vim-fugitive"
             use "rbong/vim-flog"
             use "rhysd/git-messenger.vim"
@@ -107,10 +128,10 @@ return require("packer").startup(
                     vim.g.ropevim_guess_project = 1
 
                     require("vimp")
-                    vimp.nnoremap({"silent"}, "<M-,>", ":call RopeCodeAssist<cr>")
-                    vimp.nnoremap({"silent"}, "<M-.>", ":call RopeLuckyAssist<cr>")
-                    vimp.nnoremap({"silent"}, "<M-CR>", ":call RopeAutoImport<cr>")
-                    vimp.nnoremap({"silent"}, "<M-d>", ":call RopeGotoDefinition<cr>")
+                    vimp.nnoremap({"silent"}, "<M-,>", ":RopeCodeAssist<cr>")
+                    vimp.nnoremap({"silent"}, "<M-.>", ":RopeLuckyAssist<cr>")
+                    vimp.nnoremap({"silent"}, "<M-CR>", ":RopeAutoImport<cr>")
+                    vimp.nnoremap({"silent"}, "<M-d>", ":RopeGotoDefinition<cr>")
                 end,
                 ft = "python"
             }
@@ -131,7 +152,22 @@ return require("packer").startup(
                 end
             }
             -- Format
-            use "sbdchd/neoformat"
+            use {
+                "sbdchd/neoformat",
+                config = function()
+                    vim.cmd [[augroup format]]
+                    vim.cmd [[autocmd!]]
+                    vim.cmd [[autocmd BufWritePre *.lua,*.py,*.sql undojoin | Neoformat]]
+                    vim.cmd [[augroup END]]
+
+                    vim.g.neoformat_enabled_lua = {"luafmt"}
+                    vim.g.neoformat_enabled_python = {"black"}
+                    vim.g.neoformat_enabled_sql = {"pg_format"}
+                    vim.g.neoformat_enabled_yaml = {"prettier"}
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>F", ":Neoformat<cr>")
+                end
+            }
             use "tpope/vim-endwise"
             -- Snippets
             -- use 'honza/vim-snippets'
@@ -239,9 +275,7 @@ return require("packer").startup(
             }
             use "tpope/vim-markdown"
             -- Tabs
-            -- use 'akinsho/nvim-bufferline.lua'
             use "gcmt/taboo.vim"
-            -- Docker
             -- Color scheme
             use {
                 "sainnhe/sonokai",
@@ -255,8 +289,6 @@ return require("packer").startup(
             }
             -- Icons
             use "kyazdani42/nvim-web-devicons"
-            -- Cursor
-            -- use 'danilamihailov/beacon.nvim'
             -- Brackets
             use "adelarsq/vim-matchit"
             use "cohama/lexima.vim"
@@ -278,7 +310,6 @@ return require("packer").startup(
             use "tpope/vim-unimpaired"
             -- Movement
             use "easymotion/vim-easymotion"
-            -- use 'justinmk/vim-sneak'
             use "rhysd/clever-f.vim"
             use "tpope/vim-rsi"
             -- Text manipulation
@@ -301,7 +332,13 @@ return require("packer").startup(
                 end
             }
             use {"tpope/vim-sexp-mappings-for-regular-people", ft = {"clojure", "fennel"}, after = "vim-sexp"}
-            use {"guns/vim-sexp", ft = {"clojure", "fennel"}}
+            use {
+                "guns/vim-sexp",
+                config = function()
+                    vim.g.sexp_enable_insert_mode_mappings = 0
+                end,
+                ft = {"clojure", "fennel"}
+            }
             use "matze/vim-move"
             use {
                 "machakann/vim-swap",
@@ -314,7 +351,6 @@ return require("packer").startup(
                     vimp.xnoremap({"silent"}, "a,", "<plug>(swap-textobject-a)")
                 end
             }
-            -- use 'mbbill/undotree'
             use "mg979/vim-visual-multi"
             use {
                 "nicwest/vim-camelsnek",
@@ -422,9 +458,34 @@ return require("packer").startup(
             -- use 'pgdouyon/vim-evanesco'
             -- Copy/paste
             use "machakann/vim-highlightedyank"
-            use "svermeulen/vim-yoink"
+            use {
+                "svermeulen/vim-yoink",
+                config = function()
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<M-]>", "YoinkPostPasteSwapBack")
+                    vimp.nnoremap({"silent"}, "<M-[>", "YoinkPostPasteSwapForward")
+
+                    vimp.nnoremap({"silent"}, "y", "YoinkYankPreserveCursorPosition")
+                    vimp.xnoremap({"silent"}, "y", "YoinkYankPreserveCursorPosition")
+
+                    vimp.nnoremap({"silent"}, "p", "YoinkPaste_p")
+                    vimp.nnoremap({"silent"}, "P", "YoinkPaste_P")
+
+                    vimp.nnoremap({"silent"}, "[y", "YoinkRotateBack")
+                    vimp.nnoremap({"silent"}, "]y", "YoinkRotateForward")
+
+                    vimp.nnoremap({"silent"}, "<C-=>", "YoinkPostPasteToggleFormat")
+                end
+            }
             -- Discover keybinds
-            use {"liuchengxu/vim-which-key", cmd = {"WhichKey"}}
+            use {
+                "liuchengxu/vim-which-key",
+                cmd = {"WhichKey"},
+                config = function()
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>", ":WhichKey '<leader>'<cr>")
+                end
+            }
             -- Save position
             use "farmergreg/vim-lastplace"
             -- Note taking
