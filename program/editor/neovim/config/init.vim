@@ -173,9 +173,6 @@ lua require('plugins')
 	tnoremap <C-l> <C-\><C-n><C-w>l
 " Sources
 	source ~/.config/nvim/coc.vim
-	source ~/.config/nvim/dev.vim
 	source ~/.config/nvim/git.vim
-	" source ~/.config/nvim/linters.vim
-	" source ~/.config/nvim/lsp.vim
 	source ~/.config/nvim/search.vim
 	source ~/.config/nvim/statusline.vim

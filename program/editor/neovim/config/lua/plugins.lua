@@ -50,10 +50,10 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<leader>vt", ":SignifyToggle<cr>")
                     vimp.nnoremap({"silent"}, "<leader>vh", ":SignifyToggleHighlight<cr>")
 
-                    vimp.onoremap({"silent"}, "ig", "<Plug>(signify-motion-inner-pending)")
-                    vimp.xnoremap({"silent"}, "ig", "<Plug>(signify-motion-inner-visual)")
-                    vimp.onoremap({"silent"}, "ag", "<Plug>(signify-motion-outer-pending)")
-                    vimp.xnoremap({"silent"}, "ag", "<Plug>(signify-motion-outer-visual)")
+                    vimp.omap({"silent"}, "ig", "<Plug>(signify-motion-inner-pending)")
+                    vimp.xmap({"silent"}, "ig", "<Plug>(signify-motion-inner-visual)")
+                    vimp.omap({"silent"}, "ag", "<Plug>(signify-motion-outer-pending)")
+                    vimp.xmap({"silent"}, "ag", "<Plug>(signify-motion-outer-visual)")
 
                     vim.cmd [[highlight SignifySignDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred]]
                     vim.cmd [[highlight SignifyLineDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred]]
@@ -65,7 +65,26 @@ return require("packer").startup(
             -- Github
             use "mattn/vim-gist"
             -- Finders
-            use "dyng/ctrlsf.vim"
+            use {
+                "dyng/ctrlsf.vim",
+                config = function()
+                    vim.g.ctrlsf_regex_pattern = 1
+                    vim.g.ctrlsf_auto_focus = {["at"] = "done", ["duration_less_than"] = 5000}
+                    vim.g.ctrlsf_default_root = "project"
+                    vim.g.ctrlsf_search_mode = "async"
+                    vim.g.ctrlsf_position = "right"
+                    vim.g.ctrlsf_mapping = {["vsplit"] = "<C-v>"}
+
+                    require("vimp")
+                    vimp.nmap("<leader>jj", "<Plug>CtrlSFPrompt")
+                    vimp.xmap({"silent"}, "<leader>jj", "<Plug>CtrlSFVwordExec")
+                    vimp.xmap({"silent"}, "<leader>jJ", "<Plug>CtrlSFVwordPath")
+                    vimp.nmap({"silent"}, "<leader>jn", "<Plug>CtrlSFCwordPath")
+                    vimp.nmap({"silent"}, "<leader>jp", "<Plug>CtrlSFPwordPath")
+                    vimp.nnoremap({"silent"}, "<leader>jo", ":CtrlSFOpen<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>jt", ":CtrlSFToggle<cr>")
+                end
+            }
             use {
                 "junegunn/fzf.vim",
                 requires = {
@@ -115,7 +134,14 @@ return require("packer").startup(
             -- use 'nvim-treesitter/completion-treesitter'
             -- use 'steelsojka/completion-buffers'
             -- Linters
-            -- use 'dense-analysis/ale'
+            -- use {
+            --     "dense-analysis/ale",
+            --     config = function()
+            --         vim.g.ale_fixers = {["python"] = {"black"}}
+            --         vim.g.ale_linters = {["python:"] = {"flake8", "pylint", "pyright"}}
+            --         vim.g.ale_disable_lsp = 1
+            --     end
+            -- }
             -- Python
             use {
                 "python-rope/ropevim",
@@ -172,9 +198,53 @@ return require("packer").startup(
             -- Snippets
             -- use 'honza/vim-snippets'
             -- Debugger
-            use "puremourning/vimspector"
+            use {
+                "puremourning/vimspector",
+                config = function()
+                    vim.g.vimspector_enable_mappings = "HUMAN"
+                    vim.g.vimspector_install_gadgets = {"debugpy", "CodeLLDB"}
+                    vim.g.vimspector_sign_priority = {
+                        ["vimspectorBP"] = 50,
+                        ["vimspectorBPCond"] = 40,
+                        ["vimspectorBPDisabled"] = 30,
+                        ["vimspectorPC"] = 999
+                    }
+                end
+            }
             -- Testing
-            use "janko/vim-test"
+            use {
+                "janko/vim-test",
+                config = function()
+                    vim.g["test#python#runner"] = "pytest"
+                    vim.g["test#python#pytest#options#"] = {["all"] = "--capture=no"}
+                    vim.g["test#strategy"] = "neoterm"
+
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>tn", ":TestNearest<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>tf", ":TestFile<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>ts", ":TestSuite<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>tl", ":TestLast<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>tg", ":TestVisit<cr>")
+
+                    vim.api.nvim_exec(
+                        [[
+                        function! DockerPythonTransform(cmd) abort
+                            let container_id = system("docker ps --filter 'name=raq' --quiet")
+                            let port = 6000
+                            return 'docker exec '.container_id.' /home/docker/venv3.6/bin/python -m debugpy --listen 0.0.0.0:'.port.' --wait-for-client -m '.a:cmd
+                        endfunction
+
+                        let g:test#custom_transformations = {'docker-python': function('DockerPythonTransform')}
+                        ]],
+                        false
+                    )
+
+                    vim.cmd [[augroup raq_tests]]
+                    vim.cmd [[autocmd!]]
+                    vim.cmd [[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#transformation = "docker-python"']]
+                    vim.cmd [[augroup END]]
+                end
+            }
             -- Code folding
             -- use 'kalekundert/vim-coiled-snake'
             use "Konfekt/FastFold"
@@ -223,10 +293,7 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<leader>Tf", ":TREPLSendFile<cr>")
                     vimp.nnoremap({"silent"}, "<leader>Tl", ":TREPLSendLine<cr>")
                     vimp.xnoremap({"silent"}, "<leader>Tl", ":TREPLSendSelection<cr>")
-                    -- Use gx{text-object} in normal mode
-                    vimp.nnoremap({"silent"}, "gx", "<Plug>(neoterm-repl-send)")
-                    -- Send selected contents in visual mode.
-                    vimp.xnoremap({"silent"}, "gx", "<Plug>(neoterm-repl-send)")
+                    vimp.rbind("nx", "gx", "<Plug>neoterm-repl-send")
                 end
             }
             use {
@@ -256,21 +323,14 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<leader>iw", ":IronWatchCurrentFile")
                     vimp.nnoremap({"silent"}, "<leader>iu", ":IronUnwatchCurrentFile<cr>")
 
-                    vimp.nnoremap({"silent"}, "<localleader>s", "<Plug>(iron-send-motion)")
-                    vimp.vnoremap({"silent"}, "<localleader>s", "<Plug>(iron-visual-send)")
-                    vimp.vnoremap({"silent"}, "<localleader>r", "<Plug>(iron-repeat-cmd)")
-                    vimp.vnoremap({"silent"}, "<localleader>l", "<Plug>(iron-send-line)")
-                    vimp.vnoremap({"silent"}, "<localleader><cr>", "<Plug>(iron-cr)")
-                    vimp.vnoremap({"silent"}, "<localleader>i", "<Plug>(iron-interrupt)")
-                    vimp.vnoremap({"silent"}, "<localleader>q", "<Plug>(iron-exit)")
-                    vimp.vnoremap({"silent"}, "<localleader>c", "<Plug>(iron-clear)")
-                end
-            }
-            -- Markdown
-            use {
-                "iamcco/markdown-preview.nvim",
-                run = function()
-                    vim.fn["mkdp#util#install"]()
+                    vimp.nmap({"silent"}, "<localleader>s", "<Plug>iron-send-motion")
+                    vimp.vmap({"silent"}, "<localleader>s", "<Plug>iron-visual-send")
+                    vimp.vmap({"silent"}, "<localleader>r", "<Plug>iron-repeat-cmd")
+                    vimp.vmap({"silent"}, "<localleader>l", "<Plug>iron-send-line")
+                    vimp.vmap({"silent"}, "<localleader><cr>", "<Plug>iron-cr")
+                    vimp.vmap({"silent"}, "<localleader>i", "<Plug>iron-interrupt")
+                    vimp.vmap({"silent"}, "<localleader>q", "<Plug>iron-exit")
+                    vimp.vmap({"silent"}, "<localleader>c", "<Plug>iron-clear")
                 end
             }
             use "tpope/vim-markdown"
@@ -345,10 +405,8 @@ return require("packer").startup(
                 -- after = "vimpeccable",
                 config = function()
                     require("vimp")
-                    vimp.onoremap({"silent"}, "i,", "<Plug>(swap-textobject-i)")
-                    vimp.xnoremap({"silent"}, "i,", "<Plug>(swap-textobject-i)")
-                    vimp.onoremap({"silent"}, "a,", "<Plug>(swap-textobject-a)")
-                    vimp.xnoremap({"silent"}, "a,", "<Plug>(swap-textobject-a)")
+                    vimp.rbind("ox", "i,", "<Plug>(swap-textobject-i)")
+                    vimp.rbind("ox", "a,", "<Plug>(swap-textobject-a)")
                 end
             }
             use "mg979/vim-visual-multi"
@@ -474,8 +532,7 @@ return require("packer").startup(
                     vimp.nmap({"silent"}, "<M-]>", "<Plug>(YoinkPostPasteSwapBack)")
                     vimp.nmap({"silent"}, "<M-[>", "<Plug>(YoinkPostPasteSwapForward)")
 
-                    vimp.nmap({"silent"}, "y", "<Plug>(YoinkYankPreserveCursorPosition)")
-                    vimp.xmap({"silent"}, "y", "<Plug>(YoinkYankPreserveCursorPosition)")
+                    vimp.rbind("nx", {"silent"}, "y", "<Plug>(YoinkYankPreserveCursorPosition)")
 
                     vimp.nmap({"silent"}, "p", "<Plug>(YoinkPaste_p)")
                     vimp.nmap({"silent"}, "P", "<Plug>(YoinkPaste_P)")
@@ -490,9 +547,13 @@ return require("packer").startup(
             use {
                 "liuchengxu/vim-which-key",
                 cmd = {"WhichKey"},
-                config = function()
-                    require("vimp")
-                    vimp.nnoremap({"silent"}, "<leader>", ":WhichKey '<leader>'<cr>")
+                setup = function()
+                    vim.api.nvim_set_keymap(
+                        "n",
+                        "<leader>",
+                        ":WhichKey '<leader>'<cr>",
+                        {noremap = true, silent = true}
+                    )
                 end
             }
             -- Save position

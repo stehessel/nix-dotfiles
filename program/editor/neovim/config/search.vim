@@ -70,19 +70,3 @@
 	nmap <leader>cy  :Clap yanks<CR>
 	nmap <leader>ce  :Clap filer<CR>
 	nmap <leader>cp  :Clap providers<CR>
-" Ctrlsf
-	let g:ctrlsf_regex_pattern = 1
-	let g:ctrlsf_auto_focus = { "at": "done", "duration_less_than": 5000 }
-	let g:ctrlsf_default_root = 'project'
-	let g:ctrlsf_search_mode = 'async'
-	let g:ctrlsf_position = 'right'
-    let g:ctrlsf_mapping = { "vsplit": "<C-v>" }
-
-	nmap     <leader>jj <Plug>CtrlSFPrompt
-	vmap     <leader>jJ <Plug>CtrlSFVwordPath
-	vmap     <leader>jj <Plug>CtrlSFVwordExec
-	nmap     <leader>jn <Plug>CtrlSFCwordPath
-	nmap     <leader>jp <Plug>CtrlSFPwordPath
-	nnoremap <leader>jo :CtrlSFOpen<CR>
-	nnoremap <leader>jt :CtrlSFToggle<CR>
-	inoremap <leader>jt <Esc>:CtrlSFToggle<CR>
