@@ -107,9 +107,6 @@ return require("packer").startup(
                                     "--ignore-case",
                                     "-g",
                                     "!.git"
-                                    -- "|",
-                                    -- os.getenv("HOME") .. ".cargo/bin/proximity-sort",
-                                    -- "%f"
                                 }
                             }
                         end
@@ -175,6 +172,12 @@ return require("packer").startup(
             --         vim.g.ale_disable_lsp = 1
             --     end
             -- }
+            use {
+                "kkoomen/vim-doge",
+                config = function()
+                    vim.g.doge_doc_standard_python = "numpy"
+                end
+            }
             -- Python
             use {
                 "python-rope/ropevim",
