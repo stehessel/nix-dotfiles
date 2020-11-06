@@ -176,6 +176,9 @@ return require("packer").startup(
                 "kkoomen/vim-doge",
                 config = function()
                     vim.g.doge_doc_standard_python = "numpy"
+                end,
+                run = function()
+                    vim.fn["doge#install"]()
                 end
             }
             -- Python
