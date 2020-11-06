@@ -16,6 +16,10 @@
     ".vimspector.json"
   ];
 
+  attributes = [
+    "coc-settings.json filter=sourcery"
+  ];
+
   extraConfig = {
     color = {
       ui = "true";
@@ -39,6 +43,12 @@
     };
     diff = {
       submodule = "log";
+    };
+    filter = {
+      "sourcery" = {
+        clean = "sed -e 's/\"token\":.*/\"token\": \"<XXX>\"/g'";
+        smudge = "sed -e 's/\"token\":.*/\"token\": \"<secret-token>\"/g'";
+      };
     };
     pull = {
       ff = "only";

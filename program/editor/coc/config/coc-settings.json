@@ -61,6 +61,22 @@
       "transport": "stdio",
       "filetypes": ["python_test"],
       "trace.server": "verbose"
+    },
+    "sourcery": {
+      "command": "sourcery",
+      "args": ["lsp"],
+      "filetypes": ["python"],
+      "initializationOptions": {
+        "token": "user_n80vzPEXsMA5mzvpZ25FPpNqbMGX_F_V696MKkMbrQtU9B7ZFj390TX8_GI",
+        "extension_version": "coc.vim",
+        "editor_version": "vim"
+      },
+      "settings": {
+        "sourcery": {
+          "token": "user_n80vzPEXsMA5mzvpZ25FPpNqbMGX_F_V696MKkMbrQtU9B7ZFj390TX8_GI",
+          "metricsEnabled": true
+        }
+      }
     }
   }
 }

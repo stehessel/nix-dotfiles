@@ -86,6 +86,45 @@ return require("packer").startup(
                 end
             }
             use {
+                "nvim-lua/telescope.nvim",
+                config = function()
+                    require("telescope").setup {
+                        defaults = {
+                            shorten_path = false
+                        }
+                    }
+
+                    require("vimp")
+                    vimp.nnoremap(
+                        {"silent"},
+                        "<leader>uf",
+                        function()
+                            require "telescope.builtin".find_files {
+                                find_command = {
+                                    "rg",
+                                    "--files",
+                                    "--hidden",
+                                    "--ignore-case",
+                                    "-g",
+                                    "!.git"
+                                    -- "|",
+                                    -- os.getenv("HOME") .. ".cargo/bin/proximity-sort",
+                                    -- "%f"
+                                }
+                            }
+                        end
+                    )
+                    vimp.nnoremap(
+                        {"silent"},
+                        "<leader>ur",
+                        function()
+                            require "telescope.builtin".lsp_references {shorten_path = true}
+                        end
+                    )
+                end,
+                requires = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"}
+            }
+            use {
                 "junegunn/fzf.vim",
                 requires = {
                     "junegunn/fzf",
@@ -93,12 +132,6 @@ return require("packer").startup(
                         vim.fn["fzf#install"]()
                     end
                 }
-            }
-            use {
-                "liuchengxu/vim-clap",
-                run = function()
-                    vim.fn["clap#installer#build_all"]()
-                end
             }
             -- Statusline
             use "itchyny/lightline.vim"

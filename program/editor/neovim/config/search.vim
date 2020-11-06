@@ -6,7 +6,7 @@
 	set inccommand=nosplit
 	nmap <silent> <space>/ :nohl<cr>
 
-	let g:grep_params = " --files --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
+	let g:grep_params = " --files --ignore-case --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
 " Replace all is aliased to S.
 	nnoremap S :%s//<Left>
 	xnoremap S :s//<Left>
@@ -46,27 +46,3 @@
 	imap <c-x><c-l> <plug>(fzf-complete-line)
 	" Advanced customization using Vim function
 	inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
-" Clap
-	let g:clap_layout = { 'relative': 'editor' }
-	let g:clap_provider_grep_delay = 100
-	let g:clap_provider_grep_opts = g:grep_params
-
-	nmap <leader>cf  :Clap files<CR>
-	nmap <leader>cb  :Clap buffers<CR>
-	nmap <leader>cgb :Clap bcommits<CR>
-	nmap <leader>cgc :Clap commits<CR>
-	nmap <leader>cgf :Clap git_files<CR>
-	nmap <leader>cgd :Clap git_diff_files<CR>
-	nmap <leader>cl  :Clap lines<CR>
-	nmap <leader>c/  :Clap grep<CR>
-	nmap <leader>cm  :Clap marks<CR>
-	nmap <leader>ct  :Clap tags coc<CR>
-	nmap <leader>cc  :Clap hist:<CR>
-	nmap <leader>ch  :Clap history<CR>
-	nmap <leader>cw  :Clap windows<CR>
-	nmap <leader>cj  :Clap jumps<CR>
-	nmap <leader>cq  :Clap quickfix<CR>
-	nmap <leader>cr  :Clap registers<CR>
-	nmap <leader>cy  :Clap yanks<CR>
-	nmap <leader>ce  :Clap filer<CR>
-	nmap <leader>cp  :Clap providers<CR>

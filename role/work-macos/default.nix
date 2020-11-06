@@ -11,12 +11,12 @@ in
   ];
 
   xdg.configFile."nix/nix-single-user.fish".source = config/nix-single-user.fish;
-  xdg.configFile."fish/fishfile".source = ../../program/shell/fish/macos/fishfile;
+  xdg.configFile."fish/fish_plugins".source = ../../program/shell/fish/macos/fish_plugins;
 
   home.packages = with pkgs; [
     # --- editor ---
     kakoune
-    neovim
+    # neovim
     # --- terminal ---
     kitty
   ];

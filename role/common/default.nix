@@ -152,7 +152,7 @@ in
     procs
     # --- rust ---
     rustup
-    rust-analyzer
+    # rust-analyzer
     # --- ruby ---
     # ruby_2_7
     # --- shell ---
