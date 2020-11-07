@@ -200,12 +200,8 @@ return require("packer").startup(
                 end,
                 ft = "python"
             }
-            use {
-                "stsewd/sphinx.nvim",
-                run = function()
-                    vim.cmd [[UpdateRemotePlugins]]
-                end
-            }
+            -- use {"anihm136/importmagic.nvim", ft = "python"}
+            use "stsewd/sphinx.nvim"
             -- Clojure
             use "clojure-vim/vim-jack-in"
             use {"tpope/vim-fireplace", ft = "clojure", cmd = "FireplaceConnect"}
@@ -311,10 +307,7 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<Space>ee", ":Semshi error<cr>")
                     vimp.nnoremap({"silent"}, "<Space>ge", ":Semshi goto error<cr>")
                 end,
-                ft = "python",
-                run = function()
-                    vim.cmd [[UpdateRemotePlugins]]
-                end
+                ft = "python"
             }
             use "sheerun/vim-polyglot"
             -- REPL
@@ -343,7 +336,7 @@ return require("packer").startup(
                 ft = {"clojure", "fennel"}
             }
             use {
-                "Vigemus/iron.nvim",
+                "hkupty/iron.nvim",
                 -- after = "vimpeccable",
                 config = function()
                     local iron = require("iron")
@@ -355,7 +348,6 @@ return require("packer").startup(
                     }
 
                     require("vimp")
-                    vimp.nnoremap({"silent"}, "<M-,>", ":IronRepl python<cr><esc>")
                     vimp.nnoremap({"silent"}, "<leader>it", ":IronRepl python<cr><ESC>")
                     vimp.nnoremap({"silent"}, "<leader>if", ":IronFocus python<cr>")
                     vimp.nnoremap({"silent"}, "<leader>ir", ":IronRestart<cr>")
@@ -555,9 +547,6 @@ return require("packer").startup(
                     vimp.xnoremap({"silent"}, "<leader>rf", ":Farf<cr>")
                     vimp.nnoremap({"silent"}, "<leader>rr", ":Farr<cr>")
                     vimp.xnoremap({"silent"}, "<leader>rr", ":Farr<cr>")
-                end,
-                run = function()
-                    vim.cmd [[:UpdateRemotePlugins]]
                 end
             }
             use {"inkarkat/vim-SearchAlternatives", requires = "inkarkat/vim-ingo-library"}
