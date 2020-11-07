@@ -203,7 +203,7 @@ return require("packer").startup(
             use {
                 "stsewd/sphinx.nvim",
                 run = function()
-                    vim.cmd [[:UpdateRemotePlugins]]
+                    vim.cmd [[UpdateRemotePlugins]]
                 end
             }
             -- Clojure
@@ -313,7 +313,7 @@ return require("packer").startup(
                 end,
                 ft = "python",
                 run = function()
-                    vim.cmd [[:UpdateRemotePlugins]]
+                    vim.cmd [[UpdateRemotePlugins]]
                 end
             }
             use "sheerun/vim-polyglot"
