@@ -37,7 +37,10 @@ lua require('plugins')
 	nmap <leader>bn :bn<CR>
 	nmap <leader>bp :bp<CR>
 	nmap <leader>bd :bd<CR>
-	nnoremap gj <C-^>
+	" Open alternative file
+	nnoremap gi <C-^>
+	" Open alternative file in split
+	nnoremap go :vs#<CR>
 " Tabs
 	nnoremap g[ :-tabmove<CR>
 	nnoremap g] :+tabmove<CR>
@@ -57,8 +60,6 @@ lua require('plugins')
 	" map <C-k> <C-w>k
 	" map <C-l> <C-w>l
 	nnoremap <C-m> <C-w>w
-	" Open alternative file in split
-	noremap gk :vs#<CR>
 " Quickfix
 	nnoremap <silent> <leader>ko :copen<CR>
 	nnoremap <silent> <leader>kc :cclose<CR>

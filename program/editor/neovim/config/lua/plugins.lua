@@ -541,7 +541,7 @@ return require("packer").startup(
                     vim.g.projectionist_heuristics = {["data_catalog/*.py"] = {["alternate"] = "tests/unit/test_{}.py"}}
 
                     require("vimp")
-                    vimp.nnoremap({"silent"}, "go", ":A<cr>")
+                    -- vimp.nnoremap({"silent"}, "go", ":A<cr>")
                 end
             }
             -- Search
