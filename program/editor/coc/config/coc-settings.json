@@ -56,12 +56,6 @@
       "command": "rnix-lsp",
       "filetypes": ["nix"]
     },
-    "python": {
-      "module": "/Users/lgtf/.vscode/extensions/ms-python.vscode-pylance-2020.9.6/dist/server.bundle.js",
-      "transport": "stdio",
-      "filetypes": ["python_test"],
-      "trace.server": "verbose"
-    },
     "sourcery": {
       "command": "sourcery",
       "args": ["lsp"],
