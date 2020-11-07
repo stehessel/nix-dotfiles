@@ -25,6 +25,8 @@ function raq-env --description "Create raq environment."
 	proxy clear
 
 	pip install \
+		data-science-types \
 		pycln \
-		pytest-xdist
+		pytest-xdist \
+		sqlalchemy-stubs
 end
