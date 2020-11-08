@@ -33,14 +33,25 @@ lua require('plugins')
 	nmap <leader>D :%d<CR>
 " Visual mode
 	nnoremap <M-v> <C-v>
+" Search
+	set ignorecase
+	set incsearch
+	set hlsearch
+	set ignorecase smartcase
+	nmap <silent> <space>/ :nohl<cr>
+
+	let g:grep_params = " --files --ignore-case --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
+" Replace all is aliased to S.
+	nnoremap S :%s//<Left>
+	xnoremap S :s//<Left>
 " Buffers
 	nmap <leader>bn :bn<CR>
 	nmap <leader>bp :bp<CR>
 	nmap <leader>bd :bd<CR>
 	" Open alternative file
-	nnoremap gi <C-^>
+	nnoremap gj <C-^>
 	" Open alternative file in split
-	nnoremap go :vs#<CR>
+	nnoremap gk :vs#<CR>
 " Tabs
 	nnoremap g[ :-tabmove<CR>
 	nnoremap g] :+tabmove<CR>
@@ -174,6 +185,3 @@ lua require('plugins')
 	tnoremap <C-l> <C-\><C-n><C-w>l
 " Sources
 	source ~/.config/nvim/coc.vim
-	source ~/.config/nvim/git.vim
-	source ~/.config/nvim/search.vim
-	source ~/.config/nvim/statusline.vim

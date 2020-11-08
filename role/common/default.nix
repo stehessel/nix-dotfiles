@@ -82,6 +82,8 @@ in
     unison
     fswatch
     # --- editor ---
+    kakoune
+    # neovim
     neovim-remote
     # --- encryption ---
     gnupg

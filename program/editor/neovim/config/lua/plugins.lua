@@ -25,7 +25,10 @@ return require("packer").startup(
     {
         function()
             -- Packer can manage itself as an optional plugin
-            use {"wbthomason/packer.nvim", opt = true}
+            use {
+                "wbthomason/packer.nvim",
+                opt = true
+            }
 
             use {
                 "svermeulen/vimpeccable",
@@ -35,7 +38,14 @@ return require("packer").startup(
             }
 
             -- Git
-            use "APZelos/blamer.nvim"
+            use {
+                "APZelos/blamer.nvim",
+                config = function()
+                    vim.g.blamer_delay = 250
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>gB", ":BlamerToggle<cr>")
+                end
+            }
             use "jreybert/vimagit"
             use {
                 "mhinz/vim-signify",
@@ -59,8 +69,24 @@ return require("packer").startup(
                     vim.cmd [[highlight SignifyLineDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred]]
                 end
             }
-            use "tpope/vim-fugitive"
-            use "rbong/vim-flog"
+            use {
+                "tpope/vim-fugitive",
+                config = function()
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>gg", ":Git<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>gb", ":Git blame<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>gc", ":Git commit<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>gd", ":Git diff<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>gl", ":Git log<cr>")
+                end
+            }
+            use {
+                "rbong/vim-flog",
+                config = function()
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>gt", ":Flog<CR>")
+                end
+            }
             use "rhysd/git-messenger.vim"
             -- Github
             use "mattn/vim-gist"
@@ -128,10 +154,73 @@ return require("packer").startup(
                     run = function()
                         vim.fn["fzf#install"]()
                     end
-                }
+                },
+                config = function()
+                    vim.api.nvim_exec(
+                        [[
+                            function! g:FzfFilesSource()
+                                let l:base = fnamemodify(expand('%'), ':h:.:S')
+                                let l:proximity_sort_path = $HOME . '/.cargo/bin/proximity-sort'
+
+                                if base == '.'
+                                return "rg" . g:grep_params
+                                else
+                                return printf("rg" . g:grep_params . " | %s %s", l:proximity_sort_path, expand('%'))
+                                endif
+                            endfunction
+
+                            let g:fzf_tags_command = 'ctags -R'
+
+                            nmap <silent> <leader>ff  :call fzf#vim#files('', {'source': g:FzfFilesSource(), 'options': ['--info=inline', '--preview', 'bat --color=always --style=numbers {}'], 'window': { 'width': 0.9, 'height': 0.9}})<CR>
+                            nmap <leader>fb  :Buffers<CR>
+                            nmap <leader>fgc :Commits<CR>
+                            nmap <leader>fgf :GFiles<CR>
+                            nmap <leader>fgs :GFiles?<CR>
+                            nmap <leader>fl  :Lines<CR>
+                            nmap <leader>f/  :Rg
+                            nmap <leader>fm  :Marks<CR>
+                            nmap <leader>ft  :Tags<CR>
+                            nmap <leader>fbt :BTags<CR>
+                            nmap <leader>fc  :History:<CR>
+                            nmap <leader>fs  :History/<CR>
+                            nmap <leader>fh  :History<CR>
+                            nmap <leader>fw  :Windows<CR>
+                            nmap <leader>fp  :Filetypes<CR>
+                            " Insert mode completion
+                            imap <c-x><c-k> <plug>(fzf-complete-word)
+                            imap <c-x><c-f> <plug>(fzf-complete-path)
+                            imap <c-x><c-j> <plug>(fzf-complete-file)
+                            imap <c-x><c-l> <plug>(fzf-complete-line)
+                            " Advanced customization using Vim function
+                            inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+                        ]],
+                        false
+                    )
+                end
             }
             -- Statusline
-            use "itchyny/lightline.vim"
+            use {
+                "itchyny/lightline.vim",
+                config = function()
+                    vim.cmd("autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()")
+                    vim.cmd("set noshowmode")
+                    vim.g.lightline = {
+                        ["colorscheme"] = "powerline",
+                        ["active"] = {
+                            ["left"] = {
+                                {"mode", "paste"},
+                                {"readonly", "filename", "modified"},
+                                {"diagnostic", "cocstatus"}
+                            },
+                            ["right"] = {{"lineinfo", "percent"}, {"blame", "filetype"}}
+                        },
+                        ["component_function"] = {
+                            ["cocstatus"] = "coc#status",
+                            ["gitbranch"] = "FugitiveHead"
+                        }
+                    }
+                end
+            }
             -- Start screen
             use {
                 "mhinz/vim-startify",
@@ -225,6 +314,7 @@ return require("packer").startup(
                     vim.g.neoformat_enabled_python = {"black"}
                     vim.g.neoformat_enabled_sql = {"pg_format"}
                     vim.g.neoformat_enabled_yaml = {"prettier"}
+
                     require("vimp")
                     vimp.nnoremap({"silent"}, "<leader>F", ":Neoformat<cr>")
                 end
@@ -263,13 +353,13 @@ return require("packer").startup(
 
                     vim.api.nvim_exec(
                         [[
-                        function! DockerPythonTransform(cmd) abort
-                            let container_id = system("docker ps --filter 'name=raq' --quiet")
-                            let port = 6000
-                            return 'docker exec '.container_id.' /home/docker/venv3.6/bin/python -m debugpy --listen 0.0.0.0:'.port.' --wait-for-client -m '.a:cmd
-                        endfunction
+                            function! DockerPythonTransform(cmd) abort
+                                let container_id = system("docker ps --filter 'name=raq' --quiet")
+                                let port = 6000
+                                return 'docker exec '.container_id.' /home/docker/venv3.6/bin/python -m debugpy --listen 0.0.0.0:'.port.' --wait-for-client -m '.a:cmd
+                            endfunction
 
-                        let g:test#custom_transformations = {'docker-python': function('DockerPythonTransform')}
+                            let g:test#custom_transformations = {'docker-python': function('DockerPythonTransform')}
                         ]],
                         false
                     )
@@ -291,19 +381,14 @@ return require("packer").startup(
                 config = function()
                     require("vimp")
                     vimp.nnoremap({"silent"}, "<leader>rn", ":Semshi rename<cr>")
-
                     vimp.nnoremap({"silent"}, "<Space><Tab>", ":Semshi goto name next<cr>")
                     vimp.nnoremap({"silent"}, "<Space><S-Tab>", ":Semshi goto name prev<cr>")
-
                     vimp.nnoremap({"silent"}, "<Space>k", ":Semshi goto class next<cr>")
                     vimp.nnoremap({"silent"}, "<Space>K", ":Semshi goto class prev<cr>")
-
                     vimp.nnoremap({"silent"}, "<Space>f", ":Semshi goto function next<cr>")
                     vimp.nnoremap({"silent"}, "<Space>F", ":Semshi goto function prev<cr>")
-
                     vimp.nnoremap({"silent"}, "<Space>gu", ":Semshi goto unresolved first<cr>")
                     vimp.nnoremap({"silent"}, "<Space>gp", ":Semshi goto parameterUnused first<cr>")
-
                     vimp.nnoremap({"silent"}, "<Space>ee", ":Semshi error<cr>")
                     vimp.nnoremap({"silent"}, "<Space>ge", ":Semshi goto error<cr>")
                 end,
@@ -537,6 +622,7 @@ return require("packer").startup(
                 end
             }
             -- Search
+            use "markonm/traces.vim"
             use {
                 "brooth/far.vim",
                 config = function()
@@ -559,15 +645,11 @@ return require("packer").startup(
                     require("vimp")
                     vimp.nmap({"silent"}, "<M-]>", "<Plug>(YoinkPostPasteSwapBack)")
                     vimp.nmap({"silent"}, "<M-[>", "<Plug>(YoinkPostPasteSwapForward)")
-
                     vimp.rbind("nx", {"silent"}, "y", "<Plug>(YoinkYankPreserveCursorPosition)")
-
                     vimp.nmap({"silent"}, "p", "<Plug>(YoinkPaste_p)")
                     vimp.nmap({"silent"}, "P", "<Plug>(YoinkPaste_P)")
-
                     vimp.nmap({"silent"}, "[y", "<Plug>(YoinkRotateBack)")
                     vimp.nmap({"silent"}, "]y", "<Plug>(YoinkRotateForward)")
-
                     vimp.nmap({"silent"}, "<C-=>", "<Plug>(YoinkPostPasteToggleFormat)")
                 end
             }
