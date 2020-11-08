@@ -66,10 +66,6 @@ lua require('plugins')
 	noremap <C-s> <C-w>S
 	noremap <C-v> <C-w>v
 	noremap <C-q> <C-w>q
-	" map <C-h> <C-w>h
-	" map <C-j> <C-w>j
-	" map <C-k> <C-w>k
-	" map <C-l> <C-w>l
 	nnoremap <C-m> <C-w>w
 " Quickfix
 	nnoremap <silent> <leader>ko :copen<CR>

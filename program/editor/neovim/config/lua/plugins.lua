@@ -199,6 +199,12 @@ return require("packer").startup(
                 end
             }
             -- Statusline
+            -- use {
+            --     "glepnir/galaxyline.nvim",
+            --     config = function()
+            --         require "spaceline"
+            --     end
+            -- }
             use {
                 "itchyny/lightline.vim",
                 config = function()
