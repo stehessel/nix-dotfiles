@@ -78,7 +78,7 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<leader>gc", ":Git commit<cr>")
                     vimp.nnoremap({"silent"}, "<leader>gd", ":Git diff<cr>")
                     vimp.nnoremap({"silent"}, "<leader>gl", ":Git log<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>gt", ":Gdiffsplit<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>gi", ":Gdiffsplit<cr>")
                 end
             }
             use "lambdalisue/gina.vim"
@@ -607,6 +607,13 @@ return require("packer").startup(
             -- Buffers
             use "jlanzarotta/bufexplorer"
             use "moll/vim-bbye"
+            use {
+                "wfxr/minimap.vim",
+                config = function()
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<leader>C", ":MinimapToggle<cr>")
+                end
+            }
             -- use 'TaDaa/vimade'
             -- Splits
             -- use 'camspiers/lens.vim'
