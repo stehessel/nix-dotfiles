@@ -78,8 +78,10 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<leader>gc", ":Git commit<cr>")
                     vimp.nnoremap({"silent"}, "<leader>gd", ":Git diff<cr>")
                     vimp.nnoremap({"silent"}, "<leader>gl", ":Git log<cr>")
+                    vimp.nnoremap({"silent"}, "<leader>gt", ":Gdiffsplit<cr>")
                 end
             }
+            use "lambdalisue/gina.vim"
             use {
                 "rbong/vim-flog",
                 config = function()
