@@ -472,7 +472,14 @@ return require("packer").startup(
                 end
             }
             -- Icons
-            use "kyazdani42/nvim-web-devicons"
+            use {
+                "kyazdani42/nvim-web-devicons",
+                config = function()
+                    require "nvim-web-devicons".setup {
+                        default = true
+                    }
+                end
+            }
             -- Brackets
             use "adelarsq/vim-matchit"
             use "cohama/lexima.vim"

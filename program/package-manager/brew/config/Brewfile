@@ -12,6 +12,7 @@ tap "koekeishiya/formulae"
 tap "mutagen-io/mutagen"
 tap "stephan-hesselmann-by/blueyonder"
 tap "ul/kak-lsp"
+tap "wfxr/code-minimap"
 tap "zegervdv/zathura"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
@@ -65,6 +66,7 @@ brew "wemux"
 brew "whalebrew"
 # General-purpose lossless data-compression library
 brew "zlib"
+# Set of tools and dependencies for plugins on Atlassian server applications
 brew "atlassian/tap/atlassian-plugin-sdk"
 # Cross-platform Text Expander written in Rust
 brew "federico-terzi/espanso/espanso"
@@ -75,9 +77,11 @@ brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
 brew "koekeishiya/formulae/yabai"
 # Fast file synchronization and network forwarding for remote development
-brew "mutagen-io/mutagen/mutagen-beta"
+brew "mutagen-io/mutagen/mutagen-edge"
 # Convert CSV to Blue Yonder Supply & Demand API compatible XML
 brew "stephan-hesselmann-by/blueyonder/di-csv2xml"
+# A high performance code minimap generator written in rust
+brew "wfxr/code-minimap/code-minimap"
 cask "alacritty"
 cask "amethyst"
 cask "app-cleaner"

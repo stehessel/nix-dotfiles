@@ -1,8 +1,6 @@
-lua require('plugins')
+lua require("core.init")
 
 " Misc keybinds
-	let mapleader = ','
-	let maplocalleader = '\\'
 	map U :redo<CR>
 	map Y y$
 	noremap <leader>s :w<CR>
@@ -11,7 +9,6 @@ lua require('plugins')
 	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
 	noremap <plug>(slash-after) zz
 	imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
-	set nocompatible
 " Macros
 	nnoremap Q @q
 " Line breaks
