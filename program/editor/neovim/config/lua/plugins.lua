@@ -34,12 +34,15 @@ return require("packer").startup(
                 "svermeulen/vimpeccable",
                 config = function()
                     require("vimp")
+                    require("core.mappings")
+                    require("core.settings")
                 end
             }
 
             -- Git
             use {
                 "APZelos/blamer.nvim",
+                cmd = {"BlamerToggle", "BlamerShow", "BlamerHide"},
                 config = function()
                     vim.g.blamer_delay = 250
                     require("vimp")
@@ -81,7 +84,7 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<leader>gi", ":Gdiffsplit<cr>")
                 end
             }
-            use "lambdalisue/gina.vim"
+            -- use "lambdalisue/gina.vim"
             use {
                 "rbong/vim-flog",
                 config = function()
@@ -447,9 +450,9 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<leader>iw", ":IronWatchCurrentFile")
                     vimp.nnoremap({"silent"}, "<leader>iu", ":IronUnwatchCurrentFile<cr>")
 
-                    vimp.nmap({"silent"}, "<localleader>s", "<Plug>iron-send-motion")
-                    vimp.vmap({"silent"}, "<localleader>s", "<Plug>iron-visual-send")
-                    vimp.vmap({"silent"}, "<localleader>r", "<Plug>iron-repeat-cmd")
+                    -- vimp.nmap({"silent"}, "<localleader>s", "<Plug>iron-send-motion")
+                    -- vimp.vmap({"silent"}, "<localleader>s", "<Plug>iron-visual-send")
+                    -- vimp.vmap({"silent"}, "<localleader>r", "<Plug>iron-repeat-cmd")
                     vimp.vmap({"silent"}, "<localleader>l", "<Plug>iron-send-line")
                     vimp.vmap({"silent"}, "<localleader><cr>", "<Plug>iron-cr")
                     vimp.vmap({"silent"}, "<localleader>i", "<Plug>iron-interrupt")
@@ -522,7 +525,11 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "ga", ":EasyAlign<cr>")
                 end
             }
-            use {"tpope/vim-sexp-mappings-for-regular-people", ft = {"clojure", "fennel"}, after = "vim-sexp"}
+            use {
+                "tpope/vim-sexp-mappings-for-regular-people",
+                after = "vim-sexp",
+                ft = {"clojure", "fennel"}
+            }
             use {
                 "guns/vim-sexp",
                 config = function()
@@ -651,10 +658,10 @@ return require("packer").startup(
                     vim.g["far#source"] = "rgnvim"
 
                     require("vimp")
-                    vimp.nnoremap({"silent"}, "<leader>rf", ":Farf<cr>")
-                    vimp.xnoremap({"silent"}, "<leader>rf", ":Farf<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>rr", ":Farr<cr>")
-                    vimp.xnoremap({"silent"}, "<leader>rr", ":Farr<cr>")
+                    -- vimp.nnoremap({"silent"}, "<leader>rf", ":Farf<cr>")
+                    -- vimp.xnoremap({"silent"}, "<leader>rf", ":Farf<cr>")
+                    -- vimp.nnoremap({"silent"}, "<leader>rr", ":Farr<cr>")
+                    -- vimp.xnoremap({"silent"}, "<leader>rr", ":Farr<cr>")
                 end
             }
             use {"inkarkat/vim-SearchAlternatives", requires = "inkarkat/vim-ingo-library"}
@@ -709,7 +716,12 @@ return require("packer").startup(
             -- Unix commands
             use "tpope/vim-eunuch"
             -- Root directory
-            use "airblade/vim-rooter"
+            use {
+                "airblade/vim-rooter",
+                config = function()
+                    vim.g.rooter_silent_chdir = 1
+                end
+            }
             -- Autosave
             use {
                 "907th/vim-auto-save",

@@ -1,16 +1,8 @@
 lua require("core.init")
 
-" Misc keybinds
-	map U :redo<CR>
-	map Y y$
-	noremap <leader>s :w<CR>
-	noremap <leader>q :q<CR>
-	noremap ? ,
-	nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
-	noremap <plug>(slash-after) zz
-	imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
-" Macros
-	nnoremap Q @q
+let g:mapleader = ","
+let g:maplocalleader = "\\"
+
 " Line breaks
 	set linebreak
 	set breakindent
@@ -20,8 +12,6 @@ lua require("core.init")
 	set sessionoptions-=options
 	" do not store folds
 	set sessionoptions-=folds
-" Vim rooter
-	let g:rooter_silent_chdir = 1
 " Yank whole buffer
 	nmap <leader>Y :%y<CR>
 " Select whole buffer
