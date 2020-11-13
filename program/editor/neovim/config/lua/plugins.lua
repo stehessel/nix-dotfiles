@@ -469,7 +469,7 @@ return require("packer").startup(
                 config = function()
                     vim.g.sonokai_style = "andromeda"
                     vim.g.sonokai_enable_itatlic = 1
-                    vim.g.sonokai_diagnostic_line_highlight = 1
+                    vim.g.sonokai_diagnostic_line_highlight = 0
                     vim.g.sonokai_better_performance = 1
                     vim.cmd("colorscheme sonokai")
                 end

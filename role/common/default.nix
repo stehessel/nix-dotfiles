@@ -83,7 +83,7 @@ in
     fswatch
     # --- editor ---
     kakoune
-    # neovim
+    neovim
     neovim-remote
     # --- encryption ---
     gnupg
