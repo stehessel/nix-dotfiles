@@ -36,6 +36,8 @@ brew "choose-gui"
 brew "cmatrix"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Fast, simple fuzzy text selector with an advanced scoring algorithm
+brew "fzy"
 # GNU compiler collection
 brew "gcc"
 # Distributed revision control system
