@@ -380,6 +380,20 @@ return require("packer").startup(
                     }
                 end
             }
+            use {
+                "mfussenegger/nvim-dap-python",
+                config = function()
+                    require("dap-python").setup("~/miniconda3/bin/python")
+                end,
+                requires = {"mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter"}
+            }
+            use {
+                "theHamsta/nvim-dap-virtual-text",
+                config = function()
+                    vim.g.dap_virtual_text = true
+                end,
+                requires = {"mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter"}
+            }
             -- Testing
             use {
                 "janko/vim-test",

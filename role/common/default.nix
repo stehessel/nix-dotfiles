@@ -162,11 +162,13 @@ in
     dash
     fish
     starship
-    # --- todo manager ---
-    taskwarrior
     # --- terminal multiplexers ---
     screen
     tmux
+    # --- text ---
+    asciidoctor
+    # --- todo manager ---
+    taskwarrior
     # --- utility ---
     direnv
     du-dust
