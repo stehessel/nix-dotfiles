@@ -367,23 +367,52 @@ return require("packer").startup(
             -- Snippets
             -- use 'honza/vim-snippets'
             -- Debugger
-            use {
-                "puremourning/vimspector",
-                config = function()
-                    vim.g.vimspector_enable_mappings = "HUMAN"
-                    vim.g.vimspector_install_gadgets = {"debugpy", "CodeLLDB"}
-                    vim.g.vimspector_sign_priority = {
-                        ["vimspectorBP"] = 50,
-                        ["vimspectorBPCond"] = 40,
-                        ["vimspectorBPDisabled"] = 30,
-                        ["vimspectorPC"] = 999
-                    }
-                end
-            }
+            -- use {
+            --     "puremourning/vimspector",
+            --     config = function()
+            --         vim.g.vimspector_enable_mappings = "HUMAN"
+            --         vim.g.vimspector_install_gadgets = {"debugpy", "CodeLLDB"}
+            --         vim.g.vimspector_sign_priority = {
+            --             ["vimspectorBP"] = 50,
+            --             ["vimspectorBPCond"] = 40,
+            --             ["vimspectorBPDisabled"] = 30,
+            --             ["vimspectorPC"] = 999
+            --         }
+            --     end
+            -- }
             use {
                 "mfussenegger/nvim-dap-python",
                 config = function()
-                    require("dap-python").setup("~/miniconda3/bin/python")
+                    -- require("dap-python").setup("~/miniconda3/bin/python")
+                    require("dap-python").setup("python")
+                    require("dap-python").test_runner = "pytest"
+
+                    require("vimp")
+                    vimp.nnoremap({"silent"}, "<F4>", require("dap").list_breakpoints)
+                    vimp.nnoremap({"silent"}, "<F5>", require("dap").continue)
+                    vimp.nnoremap({"silent"}, "<F6>", require("dap").repl.toggle)
+                    vimp.nnoremap({"silent"}, "<F8>", require("dap").goto_)
+                    vimp.nnoremap({"silent"}, "<F9>", require("dap").toggle_breakpoint)
+                    vimp.nnoremap(
+                        {"silent"},
+                        "<leader><F9>",
+                        function()
+                            require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+                        end
+                    )
+                    vimp.nnoremap({"silent"}, "<F10>", require("dap").step_over)
+                    vimp.nnoremap({"silent"}, "<F11>", require("dap").step_into)
+                    vimp.nnoremap({"silent"}, "<F12>", require("dap").step_out)
+
+                    -- nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
+                    -- nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
+                    -- nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
+                    -- nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
+                    -- nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
+                    -- nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+                    -- nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+                    -- nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
+                    -- nnoremap <silent> <leader>dl :lua require'dap'.repl.run_last()<CR>
                 end,
                 requires = {"mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter"}
             }

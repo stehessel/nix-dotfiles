@@ -55,8 +55,12 @@ let g:maplocalleader = "\\"
 	noremap <C-q> <C-w>q
 	nnoremap <C-m> <C-w>w
 " Quickfix
-	nnoremap <silent> <leader>ko :copen<CR>
-	nnoremap <silent> <leader>kc :cclose<CR>
+	nnoremap <silent> <leader>co :copen<cr>
+	nnoremap <silent> <leader>cc :cclose<cr>
+	nnoremap <silent> <leader>cw :cw<cr>
+	nnoremap <silent> <leader>cn :cn<cr>
+	nnoremap <silent> <leader>cp :cp<cr>
+	nnoremap <expr> <cr> &buftype ==# "quickfix" ? "\<cr>" : "za"
 " Reloading
 	set autoread
 	" Trigger `autoread` when files changes on disk
