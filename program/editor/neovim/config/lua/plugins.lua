@@ -328,7 +328,7 @@ return require("packer").startup(
                     require("vimp")
                     vimp.nnoremap({"silent"}, "<M-,>", ":RopeCodeAssist<cr>")
                     vimp.nnoremap({"silent"}, "<M-.>", ":RopeLuckyAssist<cr>")
-                    vimp.nnoremap({"silent"}, "<M-CR>", ":RopeAutoImport<cr>")
+                    vimp.nnoremap({"silent"}, "<M-cr>", ":RopeAutoImport<cr>")
                     vimp.nnoremap({"silent"}, "<M-d>", ":RopeGotoDefinition<cr>")
                 end,
                 ft = "python"
@@ -338,6 +338,8 @@ return require("packer").startup(
             -- Clojure
             use "clojure-vim/vim-jack-in"
             use {"tpope/vim-fireplace", ft = "clojure", cmd = "FireplaceConnect"}
+            -- Lua
+            use "bfredl/nvim-luadev"
             -- Treesitter
             use {
                 "nvim-treesitter/nvim-treesitter",
@@ -345,6 +347,7 @@ return require("packer").startup(
                     require("treesitter")
                 end
             }
+            use {"nvim-treesitter/playground", requires = "nvim-treesitter/nvim-treesitter"}
             -- Format
             use {
                 "sbdchd/neoformat",
@@ -383,9 +386,42 @@ return require("packer").startup(
             use {
                 "mfussenegger/nvim-dap-python",
                 config = function()
-                    -- require("dap-python").setup("~/miniconda3/bin/python")
                     require("dap-python").setup("python")
                     require("dap-python").test_runner = "pytest"
+
+                    -- require("dap").dap.adapters.python = function(cb, config)
+                    --     if config.request == "attach" then
+                    --         if config.mode == "remote" then
+                    --             local container = config.container or "raq"
+                    --             local port = config.port or 6000
+                    --
+                    --             vim.fn.system({"pgrep -fo debugpy", container, port})
+                    --             cb(
+                    --                 {
+                    --                     type = "server",
+                    --                     host = "127.0.0.1",
+                    --                     port = port
+                    --                 }
+                    --             )
+                    --         end
+                    --     end
+                    -- end
+                    -- local dap = require("dap")
+                    -- dap.adapters.python = {
+                    --     type = "executable",
+                    --     command = "/Users/lgtf/miniconda3/envs/raq-env/bin/python",
+                    --     args = {"-m", "debugpy.adapter"}
+                    -- }
+                    -- dap.configurations.python = {
+                    --     {
+                    --         type = "python",
+                    --         request = "launch",
+                    --         name = "Launch file",
+                    --         console = "internalConsole",
+                    --         program = "${file}",
+                    --         pythonPath = "python"
+                    --     }
+                    -- }
 
                     require("vimp")
                     vimp.nnoremap({"silent"}, "<F4>", require("dap").list_breakpoints)
@@ -403,16 +439,6 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<F10>", require("dap").step_over)
                     vimp.nnoremap({"silent"}, "<F11>", require("dap").step_into)
                     vimp.nnoremap({"silent"}, "<F12>", require("dap").step_out)
-
-                    -- nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
-                    -- nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
-                    -- nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
-                    -- nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
-                    -- nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
-                    -- nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-                    -- nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
-                    -- nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
-                    -- nnoremap <silent> <leader>dl :lua require'dap'.repl.run_last()<CR>
                 end,
                 requires = {"mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter"}
             }
