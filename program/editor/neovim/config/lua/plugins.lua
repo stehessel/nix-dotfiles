@@ -389,40 +389,6 @@ return require("packer").startup(
                     require("dap-python").setup("python")
                     require("dap-python").test_runner = "pytest"
 
-                    -- require("dap").dap.adapters.python = function(cb, config)
-                    --     if config.request == "attach" then
-                    --         if config.mode == "remote" then
-                    --             local container = config.container or "raq"
-                    --             local port = config.port or 6000
-                    --
-                    --             vim.fn.system({"pgrep -fo debugpy", container, port})
-                    --             cb(
-                    --                 {
-                    --                     type = "server",
-                    --                     host = "127.0.0.1",
-                    --                     port = port
-                    --                 }
-                    --             )
-                    --         end
-                    --     end
-                    -- end
-                    -- local dap = require("dap")
-                    -- dap.adapters.python = {
-                    --     type = "executable",
-                    --     command = "/Users/lgtf/miniconda3/envs/raq-env/bin/python",
-                    --     args = {"-m", "debugpy.adapter"}
-                    -- }
-                    -- dap.configurations.python = {
-                    --     {
-                    --         type = "python",
-                    --         request = "launch",
-                    --         name = "Launch file",
-                    --         console = "internalConsole",
-                    --         program = "${file}",
-                    --         pythonPath = "python"
-                    --     }
-                    -- }
-
                     require("vimp")
                     vimp.nnoremap({"silent"}, "<F4>", require("dap").list_breakpoints)
                     vimp.nnoremap({"silent"}, "<F5>", require("dap").continue)
