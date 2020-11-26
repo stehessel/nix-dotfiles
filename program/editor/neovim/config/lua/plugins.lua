@@ -347,6 +347,7 @@ return require("packer").startup(
                     require("treesitter")
                 end
             }
+            use {"nvim-treesitter/nvim-treesitter-refactor", requires = "nvim-treesitter/nvim-treesitter"}
             use {"nvim-treesitter/playground", requires = "nvim-treesitter/nvim-treesitter"}
             -- Format
             use {
@@ -565,9 +566,14 @@ return require("packer").startup(
             use "inkarkat/vim-mark"
             use "kshenoy/vim-signature"
             -- Indentation
-            -- use 'lukas-reineke/indent-blankline.nvim'
+            use {
+                "lukas-reineke/indent-blankline.nvim",
+                config = function()
+                    vim.g.indent_blankline_char = "¦"
+                end
+            }
             use "tpope/vim-sleuth"
-            -- use 'Yggdroot/indentLine'
+            use "Yggdroot/indentLine"
             -- Keybinds
             use "tpope/vim-unimpaired"
             -- Movement
