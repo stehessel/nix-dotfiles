@@ -1,6 +1,6 @@
-if not status is-interactive
-	exit
-end
+# if not status is-interactive
+# 	exit
+# end
 
 # Environment variables
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
