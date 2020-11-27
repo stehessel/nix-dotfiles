@@ -33,9 +33,7 @@ return require("packer").startup(
             use {
                 "svermeulen/vimpeccable",
                 config = function()
-                    require("vimp")
                     require("core.mappings")
-                    require("core.settings")
                 end
             }
 
@@ -285,10 +283,10 @@ return require("packer").startup(
                 "neoclide/coc.nvim",
                 run = function()
                     vim.fn["coc#util#install"]()
+                end,
+                config = function()
+                    require("plugins.coc")
                 end
-                -- config = function()
-                --     require("coc")
-                -- end
             }
             -- use 'neovim/nvim-lsp'
             -- use 'nvim-lua/diagnostic-nvim'
@@ -344,7 +342,7 @@ return require("packer").startup(
             use {
                 "nvim-treesitter/nvim-treesitter",
                 config = function()
-                    require("treesitter")
+                    require("plugins.treesitter")
                 end
             }
             use {"nvim-treesitter/nvim-treesitter-refactor", requires = "nvim-treesitter/nvim-treesitter"}
