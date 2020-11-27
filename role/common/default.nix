@@ -13,6 +13,7 @@ in
     # ../../dev/haskell/hie
     ../../dev/haskell/stack
     ../../dev/javascript/npm
+    ../../dev/lua/luacheck
     ../../dev/python/conda
     ../../dev/python/flake8
     ../../dev/python/isort
@@ -66,6 +67,7 @@ in
     leiningen
     # --- cpp ---
     ccls
+    ninja
     # clang
     gdb
     # --- data ---
@@ -135,6 +137,7 @@ in
     pueue
     # --- lua ---
     luajitPackages.lua-lsp
+    luajitPackages.luacheck
     luajitPackages.luarocks
     # --- network ---
     bandwhich

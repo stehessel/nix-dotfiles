@@ -9,7 +9,6 @@ let g:coc_global_extensions = [
 	\ 'coc-json',
 	\ 'coc-markdownlint',
 	\ 'coc-pyright',
-	\ 'coc-python',
 	\ 'coc-rust-analyzer',
 	\ 'coc-snippets',
 	\ 'coc-sql',
