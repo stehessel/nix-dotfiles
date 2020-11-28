@@ -102,4 +102,4 @@ vim.g.node_host_prog = "$HOME/.nix-profile/bin/npm"
 vim.g.loaded_perl_provider = 0
 -- Python
 vim.g.loaded_python_provider = 0
--- vim.g.python3_host_prog = "$HOME/miniconda3/bin/python"
+vim.g.python3_host_prog = "$HOME/miniconda3/bin/python"
