@@ -37,7 +37,7 @@ vim.cmd("set shortmess+=c")
 
 -- Always show the signcolumn, otherwise it would shift the text each time
 -- diagnostics appear/become resolved.
-vim.o.signcolumn = "yes"
+vim.wo.signcolumn = "yes"
 
 -- Use tab for trigger completion with characters ahead and navigate.
 -- NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -87,8 +87,10 @@ vim.api.nvim_exec(
         function! Show_documentation()
           if (index(['vim','help'], &filetype) >= 0)
             execute 'h '.expand('<cword>')
+          elseif (coc#rpc#ready())
+            call CocActionAsync('doHover')
           else
-            call CocAction('doHover')
+            execute '!' . &keywordprg . " " . expand('<cword>')
           endif
         endfunction
 
@@ -136,10 +138,27 @@ vimp.xnoremap({"silent"}, "if", "<Plug>(coc-funcobj-i)")
 vimp.xnoremap({"silent"}, "af", "<Plug>(coc-funcobj-a)")
 vimp.onoremap({"silent"}, "if", "<Plug>(coc-funcobj-i)")
 vimp.onoremap({"silent"}, "af", "<Plug>(coc-funcobj-a)")
+vimp.xnoremap({"silent"}, "ic", "<Plug>(coc-classobj-i)")
+vimp.xnoremap({"silent"}, "ac", "<Plug>(coc-classobj-a)")
+vimp.onoremap({"silent"}, "ic", "<Plug>(coc-classobj-i)")
+vimp.onoremap({"silent"}, "ac", "<Plug>(coc-classobj-a)")
 
--- Use <TAB> for selections ranges.
--- NOTE: Requires 'textDocument/selectionRange' support from the language server.
--- coc-tsserver, coc-python are the examples of servers that support it.
+-- Remap <C-f> and <C-b> for scroll float windows/popups.
+vim.cmd([[nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"]])
+vim.cmd([[nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"]])
+vim.cmd(
+    [[inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"]]
+)
+vim.cmd(
+    [[inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"]]
+)
+vim.cmd([[vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"]])
+vim.cmd([[vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"]])
+vim.cmd([[vnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#nvim_scroll(1, 1) : "\<C-f>"]])
+vim.cmd([[vnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#nvim_scroll(0, 1) : "\<C-b>"]])
+
+-- Use <leader><tab> for selections ranges.
+-- Requires 'textDocument/selectionRange' support of language server.
 vimp.nnoremap({"silent"}, "<leader><tab>", "<Plug>(coc-range-select)")
 vimp.xnoremap({"silent"}, "<leader><tab>", "<Plug>(coc-range-select)")
 
