@@ -9,6 +9,9 @@
   "explorer.file.tabCD": false,
   "explorer.openAction.for.directory": "",
   //"snippets.userSnippetsDirectory": "~/.config/nvim/plugged/vim-snippets/UltiSnips",
+  //"Lua.diagnostics.globals": ["vim"],
+  //"lua.useSumnekoLs": true,
+  //"lua.version": "LuaJIT",
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
@@ -32,6 +35,17 @@
       "rootPatterns": ["project.clj", ".git/"],
       "additionalSchemes": ["jar", "zipfile"]
     },
+    //"diagnostic-languageserver.filetypes": {
+    //  "sh": "shellcheck"
+    //},
+    //"diagnostic-languageserver.formatFiletypes": {
+    //  "json": "prettier",
+    //  "lua": "luafmt",
+    //  "python": "black",
+    //  "sh": "shfmt",
+    //  "sql": "pg_format",
+    //  "yaml": "prettier"
+    //},
     "dockerfile": {
       "command": "docker-langserver",
       "args": ["--stdio"],
@@ -47,43 +61,20 @@
           "hlintOn": true
         }
       }
-    },
+	},
     "lua": {
       "command": "lua-lsp",
       "filetypes": ["lua"]
 	},
-    //"lua": {
-    //  "command": "lua-language-server",
-    //  "filetypes": ["lua"],
-    //  "rootPatterns": [".git/"],
-    //  "settings": {
-    //    "Lua": {
-    //      "workspace": {
-    //        "maxPreload": 2000,
-    //        "preloadFileSize": 1000
-    //      },
-    //      "runtime": {
-    //        "version": "LuaJIT"
-    //      },
-    //      "diagnostics": {
-    //        "enable": true,
-    //        "globals": [
-    //          "hs",
-    //          "vim",
-    //          "it",
-    //          "describe",
-    //          "before_each",
-    //          "after_each"
-    //        ],
-    //        "disable": ["lowercase-global"]
-    //      }
-    //    }
-    //  }
-    //},
     "nix": {
       "command": "rnix-lsp",
       "filetypes": ["nix"]
     },
+    //"sonarlint": {
+    //  "command": "java",
+    //  "args": ["-jar", "$HOME/programs/sonarlint-language-server/target/sonarlint-language-server-1.6-SNAPSHOT.jar", "4333"],
+    //  "filetypes": ["python"]
+    //},
     "sourcery": {
       "command": "sourcery",
       "args": ["lsp"],

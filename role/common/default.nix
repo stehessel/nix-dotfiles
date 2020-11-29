@@ -128,8 +128,10 @@ in
     # --- http ---
     # http-prompt
     # httpie
+    # --- java ---
+    maven
     # --- javascript ---
-    nodejs-slim-15_x
+    nodejs-15_x
     yarn
     # --- launcher ---
     entr
@@ -164,6 +166,7 @@ in
     bash_5
     dash
     fish
+    shellcheck
     starship
     # --- terminal multiplexers ---
     screen

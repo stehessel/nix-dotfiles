@@ -6,10 +6,12 @@ vim.g.coc_global_extensions = {
     "coc-actions",
     "coc-cmake",
     "coc-clangd",
+    "coc-diagnostic",
     "coc-emoji",
     "coc-explorer",
     "coc-floaterm",
     "coc-json",
+    "coc-lua",
     "coc-markdownlint",
     "coc-pyright",
     "coc-rust-analyzer",
@@ -77,7 +79,7 @@ vimp.nmap({"silent"}, "]g", "<Plug>(coc-diagnostic-next)")
 vimp.nmap({"silent"}, "gd", "<Plug>(coc-definition)")
 vimp.nmap({"silent"}, "gD", "<Plug>(coc-declaration)")
 vimp.nmap({"silent"}, "gy", "<Plug>(coc-type-definition)")
-vimp.nmap({"silent"}, "gp", "<Plug>(coc-implementation)")
+vimp.nmap({"silent"}, "gI", "<Plug>(coc-implementation)")
 vimp.nmap({"silent"}, "gr", "<Plug>(coc-references)")
 vimp.nmap({"silent"}, "<space>l", "<Plug>(coc-codelense-action)")
 

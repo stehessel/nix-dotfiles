@@ -1,6 +1,3 @@
-vim.g.mapleader = ","
-vim.g.maplocalleader = "\\"
-
 -- Compatibility with vi
 vim.o.compatible = false
 -- Line breaks

@@ -288,6 +288,13 @@ return require("packer").startup(
                     require("plugins.coc")
                 end
             }
+            use {
+                "voldikss/vim-skylight",
+                config = function()
+                    vimp.nnoremap({"silent"}, "go", ":SkylightJumpTo<cr>")
+                    vimp.nnoremap({"silent"}, "gp", ":SkylightPreview<cr>")
+                end
+            }
             -- use 'neovim/nvim-lsp'
             -- use 'nvim-lua/diagnostic-nvim'
             -- Completion
@@ -356,6 +363,7 @@ return require("packer").startup(
                     vim.cmd [[autocmd BufWritePre *.lua,*.py,*.sql undojoin | Neoformat]]
                     vim.cmd [[augroup END]]
 
+                    vim.g.neoformat_enabled_json = {"prettier"}
                     vim.g.neoformat_enabled_lua = {"luafmt"}
                     vim.g.neoformat_enabled_python = {"black"}
                     vim.g.neoformat_enabled_sql = {"pg_format"}
