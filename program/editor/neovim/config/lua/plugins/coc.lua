@@ -44,17 +44,40 @@ vim.wo.signcolumn = "yes"
 -- Use tab for trigger completion with characters ahead and navigate.
 -- NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 -- other plugin before putting this into your config.
-vim.api.nvim_exec(
-    [[
-        function! Check_back_space() abort
-          let col = col('.') - 1
-          return !col || getline('.')[col - 1]  =~# '\s'
-        endfunction
+function _G.check_back_space()
+    local col = vim.fn.col(".") - 1
+    if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+        return true
+    else
+        return false
+    end
+end
 
-        inoremap <silent><expr> <tab> pumvisible() ? "\<C-n>" : Check_back_space() ? "\<TAB>" : coc#refresh()
-        inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<C-h>"
-    ]],
-    false
+vimp.inoremap(
+    {"expr", "silent"},
+    "<tab>",
+    function()
+        if vim.fn.pumvisible() then
+            return "<C-n>"
+        else
+            if check_back_space() then
+                return "<tab>"
+            else
+                return vim.fn["coc#refresh"]()
+            end
+        end
+    end
+)
+vimp.inoremap(
+    {"expr"},
+    "<S-tab>",
+    function()
+        if vim.fn.pumvisible() then
+            return "<C-p>"
+        else
+            return "<C-h>"
+        end
+    end
 )
 
 -- Use <c-space> to trigger completion.
@@ -62,7 +85,17 @@ vimp.inoremap({"expr", "silent"}, "<C-space>", vim.fn["coc#refresh"])
 
 -- Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 -- position. Coc only does snippet and additional edit on confirm.
-vim.cmd([[inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<cr>"]])
+vimp.inoremap(
+    {"expr"},
+    "<cr>",
+    function()
+        if vim.fn.complete_info()["selected"] ~= "-1" then
+            return "<C-y>"
+        else
+            return "<C-g>u<cr>"
+        end
+    end
+)
 
 --Snippets
 vimp.inoremap({"silent"}, "<C-l>", "<Plug>(coc-snippets-expand)")
@@ -130,7 +163,7 @@ vim.api.nvim_exec(
 vimp.nnoremap({"silent"}, "<leader>a", "<Plug>(coc-code-action-selected)")
 vimp.xnoremap({"silent"}, "<leader>a", "<Plug>(coc-code-action-selected)")
 -- Remap keys for applying codeAction to the current line.
-vim.cmd("nnoremap <silent> <leader>aa :CocAction<cr>")
+vim.api.nvim_set_keymap("n", "<leader>aa", ":CocAction<cr>", {noremap = true, silent = true})
 -- Apply AutoFix to problem on the current line.
 vimp.nnoremap({"silent"}, "<leader>A", "<Plug>(coc-fix-current)")
 
@@ -156,8 +189,6 @@ vim.cmd(
 )
 vim.cmd([[vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"]])
 vim.cmd([[vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"]])
-vim.cmd([[vnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#nvim_scroll(1, 1) : "\<C-f>"]])
-vim.cmd([[vnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#nvim_scroll(0, 1) : "\<C-b>"]])
 
 -- Use <leader><tab> for selections ranges.
 -- Requires 'textDocument/selectionRange' support of language server.
@@ -176,7 +207,7 @@ vim.cmd([[command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.orga
 -- Add (Neo)Vim's native statusline support.
 -- NOTE: Please see `:h coc-status` for integrations with external plugins that
 -- provide custom statusline: lightline.vim, vim-airline.
-vim.cmd([[set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}]])
+vim.o.statusline = "%{coc#status()}%{get(b:,'coc_current_function','')}" .. vim.o.statusline
 
 -- Mappings using CoCList:
 -- Show all diagnostics.

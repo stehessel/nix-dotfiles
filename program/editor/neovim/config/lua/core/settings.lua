@@ -8,8 +8,6 @@ vim.o.breakindent = true
 vim.cmd("set sessionoptions+=tabpages,globals,winpos,winsize,blank,resize")
 -- do not store global and local values in a session
 vim.cmd("set sessionoptions-=options")
--- do not store folds
-vim.cmd("set sessionoptions-=folds")
 
 -- Search
 vim.o.ignorecase = true
@@ -54,7 +52,7 @@ vim.o.shiftwidth = 4
 vim.cmd("set whichwrap+=<,>,h,l,[,]")
 vim.cmd("syntax on")
 vim.o.updatetime = 100
-vim.o.foldenable = false
+vim.wo.foldenable = false
 
 -- Title
 vim.o.title = true

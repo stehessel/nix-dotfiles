@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "alacritty",
         "repo": "alacritty",
-        "rev": "a2727d06f77973c47e1909a5f426789d6531bda9",
-        "sha256": "189fyhvab5s6615bszr6fwidagb9wi2nxl2a8hsi9v1fx14svi3n",
+        "rev": "de9ed259667588285891eda1665cd3edefcd3297",
+        "sha256": "13x4wih9y2r0bc22r2r8fj5h9jqiffg43x872h5bikr0smarcjrq",
         "type": "tarball",
-        "url": "https://github.com/alacritty/alacritty/archive/a2727d06f77973c47e1909a5f426789d6531bda9.tar.gz",
+        "url": "https://github.com/alacritty/alacritty/archive/de9ed259667588285891eda1665cd3edefcd3297.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "version": "0.6.0-rc2"
     },
@@ -18,10 +18,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "d956842751aaf88656825b236c27020596d96b6a",
-        "sha256": "0hvgsvhw4kd445iayaiz9c9cpikgqa93mfrr670rqkm4khl6rkck",
+        "rev": "aec61074a97bac3290f1afef309429b35a71d1a2",
+        "sha256": "1n96qi8apac6b6s4bkrw72gpgkfbx6x86by65x5afpwa2c2q53jl",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/d956842751aaf88656825b236c27020596d96b6a.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/aec61074a97bac3290f1afef309429b35a71d1a2.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -42,10 +42,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f7be7976903f7be2c15dadef1449219132e13a64",
-        "sha256": "1c9dgb0ix599l5xafqnjnw6yqz8di569vxmkx2sm4j42jwpmjlaj",
+        "rev": "d554addf6c5f7024b44fc214df03af25dbcf3bfc",
+        "sha256": "1awcbj79h2j234cshhgzybgyf0jwcpp7nhlxg16s8p469fg308yy",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/f7be7976903f7be2c15dadef1449219132e13a64.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/d554addf6c5f7024b44fc214df03af25dbcf3bfc.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
