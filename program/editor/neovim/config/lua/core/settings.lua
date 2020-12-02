@@ -58,6 +58,7 @@ vim.wo.foldenable = false
 vim.o.title = true
 
 -- Line numbers
+vim.wo.number = true
 vim.wo.relativenumber = true
 
 -- Undo

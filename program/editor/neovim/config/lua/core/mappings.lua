@@ -63,7 +63,6 @@ vimp.nnoremap(
     {"silent"},
     "<leader>N",
     function()
-        vim.wo.number = not vim.wo.number
         vim.wo.relativenumber = not vim.wo.relativenumber
     end
 )

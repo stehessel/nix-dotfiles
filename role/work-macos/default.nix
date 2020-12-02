@@ -16,6 +16,9 @@ in
   home.packages = with pkgs; [
     # --- terminal ---
     kitty
+    # --- latex ---
+    texlive.combined.scheme-full
+    tectonic
   ];
 
   programs.alacritty = {
