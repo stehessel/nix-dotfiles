@@ -53,6 +53,7 @@ vim.cmd("set whichwrap+=<,>,h,l,[,]")
 vim.cmd("syntax on")
 vim.o.updatetime = 100
 vim.wo.foldenable = false
+vim.wo.foldmethod = "syntax"
 
 -- Title
 vim.o.title = true

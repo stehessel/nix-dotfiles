@@ -847,6 +847,6 @@ return require("packer").startup(
             -- Benchmark
             use "tweekmonster/startuptime.vim"
         end,
-        config = {max_jobs = 64}
+        config = {max_jobs = 32}
     }
 )
