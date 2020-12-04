@@ -846,6 +846,8 @@ return require("packer").startup(
             }
             -- Benchmark
             use "tweekmonster/startuptime.vim"
+            -- Folds
+            use "Jorengarenar/vim-syntaxMarkerFold"
         end,
         config = {max_jobs = 32}
     }
