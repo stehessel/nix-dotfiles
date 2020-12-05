@@ -345,6 +345,8 @@ return require("packer").startup(
             use {"tpope/vim-fireplace", ft = "clojure", cmd = "FireplaceConnect"}
             -- Lua
             use "bfredl/nvim-luadev"
+            -- Database
+            use "tpope/vim-dadbod"
             -- Treesitter
             use {
                 "nvim-treesitter/nvim-treesitter",

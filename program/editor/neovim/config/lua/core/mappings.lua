@@ -23,9 +23,9 @@ vimp.nnoremap({"silent"}, "<M-v>", "<C-v>")
 -- Disable highlight
 vimp.nnoremap({"silent"}, "<space>/", ":nohl<cr>")
 
--- Replace all is aliased to S.
-vimp.nnoremap({"silent"}, "S", ":%s//<left>")
-vimp.xnoremap({"silent"}, "S", ":s//<Left>")
+--  all is aliased to S.
+vimp.nnoremap("S", ":%s//<left>")
+vimp.xnoremap("S", ":s//<Left>")
 
 -- Buffers
 vimp.nnoremap({"silent"}, "<leader>bn", ":bn<cr>")
