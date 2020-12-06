@@ -422,7 +422,10 @@ return require("packer").startup(
                 config = function()
                     vim.g.dap_virtual_text = true
                 end,
-                requires = {"mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter"}
+                requires = {"mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter"},
+                run = function()
+                    vim.cmd("TSUpdate")
+                end
             }
             -- Testing
             use {
