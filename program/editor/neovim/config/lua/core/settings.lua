@@ -52,8 +52,11 @@ vim.o.shiftwidth = 4
 vim.cmd("set whichwrap+=<,>,h,l,[,]")
 vim.cmd("syntax on")
 vim.o.updatetime = 100
-vim.wo.foldenable = false
-vim.wo.foldmethod = "syntax"
+
+-- Folds
+vim.o.foldlevelstart = 99
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Title
 vim.o.title = true
