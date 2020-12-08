@@ -1,27 +1,14 @@
 {
-    "alacritty": {
-        "branch": "master",
-        "description": "A cross-platform, GPU-accelerated terminal emulator",
-        "homepage": "",
-        "owner": "alacritty",
-        "repo": "alacritty",
-        "rev": "de9ed259667588285891eda1665cd3edefcd3297",
-        "sha256": "13x4wih9y2r0bc22r2r8fj5h9jqiffg43x872h5bikr0smarcjrq",
-        "type": "tarball",
-        "url": "https://github.com/alacritty/alacritty/archive/de9ed259667588285891eda1665cd3edefcd3297.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
-        "version": "0.6.0-rc2"
-    },
     "neovim": {
         "branch": "master",
         "description": "Vim-fork focused on extensibility and usability",
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "b940cbb85875d4dce8dd20620b093be5a9b66283",
-        "sha256": "1ci7x2ic6pfrxrwzwlx9f0pnsrrpbqa141161qza05a9ckf5cxzk",
+        "rev": "4383c0f95245d1b98cac28177ade270bf73f008f",
+        "sha256": "0cg6ybqg1har2m5p415b10ib0nx39ibf8w0mn1casba4ld6myz99",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/b940cbb85875d4dce8dd20620b093be5a9b66283.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/4383c0f95245d1b98cac28177ade270bf73f008f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -42,10 +29,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "0cc6e0a4106f3fc1cc0b765ab0f17b697c3d910d",
-        "sha256": "1pk3sigp3v7kycdfpmizq0w6khk4m5a3zylvd3wrvmknwd3s0cb2",
+        "rev": "e4a7c4268b2f6a4382bdd5e17265c7df145139f0",
+        "sha256": "16hq80m7q1flfny01gwm5598n7qajl5rn2fmmbbcx5dly7r5mlnz",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/0cc6e0a4106f3fc1cc0b765ab0f17b697c3d910d.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/e4a7c4268b2f6a4382bdd5e17265c7df145139f0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

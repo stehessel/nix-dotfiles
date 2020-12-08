@@ -30,6 +30,8 @@ brew "boost"
 brew "boost-python3"
 # Powerful command-line bookmark manager
 brew "buku"
+# Emacs dependency management
+brew "cask"
 # Fuzzy matcher that uses std{in,out} and a native GUI
 brew "choose-gui"
 # Console Matrix
@@ -84,6 +86,7 @@ brew "mutagen-io/mutagen/mutagen-edge"
 brew "stephan-hesselmann-by/blueyonder/di-csv2xml"
 # A high performance code minimap generator written in rust
 brew "wfxr/code-minimap/code-minimap"
+cask "adobe-acrobat-reader"
 cask "alacritty"
 cask "amethyst"
 cask "app-cleaner"
@@ -104,8 +107,9 @@ cask "mumble"
 cask "omnigraffle"
 cask "pycharm"
 cask "rectangle"
+cask "skim"
 cask "ukelele"
 cask "virtualbox"
 cask "visual-studio-code"
-cask "zoomus"
+cask "zoom"
 whalebrew "whalebrew/whalesay"
