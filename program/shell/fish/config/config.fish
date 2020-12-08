@@ -11,11 +11,6 @@ set -x READER "zathura"
 set -x TERMINAL "kitty"
 
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
-set -x FZF_DEFAULT_OPTS "--cycle --layout=reverse --border --height 75% --info=inline --tiebreak=index"
-set -x FZF_ENABLE_OPEN_PREVIEW 1
-set -x FZF_FIND_FILE_COMMAND "fd --type=file --hidden --follow --color=always . \$dir"
-set -x FZF_PREVIEW_DIR_CMD tree
-set -x FZF_PREVIEW_FILE_CMD (command -v bat)" --color=always --style=numbers"
 set -x NVIM_LOG_FILE "$XDG_CONFIG_HOME/nvim/.nvimlog"
 set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
 set -x ODBCSYSINI "$HOME/git/raq"
@@ -82,6 +77,7 @@ abbr -a gl  "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Crese
 abbr -a tl  "tasklite"
 abbr -a restic "restic -r ~/backup --password-file $XDG_CONFIG_HOME/restic/secret"
 abbr -a corona "curl 'https://corona-stats.online?source=2&top=15'"
+abbr -a e "$EDITOR"
 abbr -a b "buku --suggest"
 abbr -a a "fuzzycred"
 abbr -a s "fuzzysphere"

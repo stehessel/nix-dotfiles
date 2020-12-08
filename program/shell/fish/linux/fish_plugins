@@ -1,6 +1,5 @@
 danhper/fish-ssh-agent
 franciscolourenco/done
-jethrokuan/fzf
 jethrokuan/z
 jorgebucaran/fish-bax
 laughedelic/pisces
@@ -9,3 +8,4 @@ oh-my-fish/plugin-bang-bang
 oh-my-fish/plugin-extract
 oh-my-fish/plugin-sudope
 oh-my-fish/theme-bobthefish
+PatrickF1/fzf.fish
