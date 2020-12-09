@@ -138,12 +138,12 @@ vim.api.nvim_exec(
 -- autocmd CursorHold * silent call CocActionAsync('highlight')
 
 -- Symbol renaming.
-vimp.nnoremap({"silent"}, "<space>r", "<Plug>(coc-rename)")
+vimp.nmap({"silent"}, "<space>r", "<Plug>(coc-rename)")
 
 -- Formatting selected code.
-vimp.nnoremap({"silent"}, "<space>G", "<Plug>(coc-format)")
-vimp.xnoremap({"silent"}, "<space>G", "<Plug>(coc-format-selected)")
-vimp.nnoremap({"silent"}, "<leader>ps", ":CocCommand python.sortImports<cr>")
+vimp.nmap({"silent"}, "<space>G", "<Plug>(coc-format)")
+vimp.xmap({"silent"}, "<space>G", "<Plug>(coc-format-selected)")
+vimp.nmap({"silent"}, "<leader>ps", ":CocCommand python.sortImports<cr>")
 
 vim.api.nvim_exec(
     [[
@@ -160,23 +160,23 @@ vim.api.nvim_exec(
 
 -- Applying codeAction to the selected region.
 -- Example: `<leader>aap` for current paragraph
-vimp.nnoremap({"silent"}, "<leader>a", "<Plug>(coc-code-action-selected)")
-vimp.xnoremap({"silent"}, "<leader>a", "<Plug>(coc-code-action-selected)")
+vimp.nmap("<leader>a", "<Plug>(coc-code-action-selected)")
+vimp.xmap("<leader>a", "<Plug>(coc-code-action-selected)")
 -- Remap keys for applying codeAction to the current line.
-vim.api.nvim_set_keymap("n", "<leader>aa", ":CocAction<cr>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>aa", "<Plug>(coc-code-action)", {})
 -- Apply AutoFix to problem on the current line.
-vimp.nnoremap({"silent"}, "<leader>A", "<Plug>(coc-fix-current)")
+vimp.nmap("<leader>A", "<Plug>(coc-fix-current)")
 
 -- Introduce function text object
 -- NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-vimp.xnoremap({"silent"}, "if", "<Plug>(coc-funcobj-i)")
-vimp.xnoremap({"silent"}, "af", "<Plug>(coc-funcobj-a)")
-vimp.onoremap({"silent"}, "if", "<Plug>(coc-funcobj-i)")
-vimp.onoremap({"silent"}, "af", "<Plug>(coc-funcobj-a)")
-vimp.xnoremap({"silent"}, "ic", "<Plug>(coc-classobj-i)")
-vimp.xnoremap({"silent"}, "ac", "<Plug>(coc-classobj-a)")
-vimp.onoremap({"silent"}, "ic", "<Plug>(coc-classobj-i)")
-vimp.onoremap({"silent"}, "ac", "<Plug>(coc-classobj-a)")
+vimp.xmap({"silent"}, "if", "<Plug>(coc-funcobj-i)")
+vimp.xmap({"silent"}, "af", "<Plug>(coc-funcobj-a)")
+vimp.omap({"silent"}, "if", "<Plug>(coc-funcobj-i)")
+vimp.omap({"silent"}, "af", "<Plug>(coc-funcobj-a)")
+vimp.xmap({"silent"}, "ic", "<Plug>(coc-classobj-i)")
+vimp.xmap({"silent"}, "ac", "<Plug>(coc-classobj-a)")
+vimp.omap({"silent"}, "ic", "<Plug>(coc-classobj-i)")
+vimp.omap({"silent"}, "ac", "<Plug>(coc-classobj-a)")
 
 -- Remap <C-f> and <C-b> for scroll float windows/popups.
 vim.cmd([[nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"]])
@@ -192,8 +192,8 @@ vim.cmd([[vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#flo
 
 -- Use <leader><tab> for selections ranges.
 -- Requires 'textDocument/selectionRange' support of language server.
-vimp.nnoremap({"silent"}, "<leader><tab>", "<Plug>(coc-range-select)")
-vimp.xnoremap({"silent"}, "<leader><tab>", "<Plug>(coc-range-select)")
+vimp.nmap({"silent"}, "<leader><tab>", "<Plug>(coc-range-select)")
+vimp.xmap({"silent"}, "<leader><tab>", "<Plug>(coc-range-select)")
 
 -- Add `:Format` command to format current buffer.
 vim.cmd([[command! -nargs=0 Format :call CocAction('format')]])

@@ -21,12 +21,16 @@ function raq-env --description "Create raq environment."
 	popd
 	proxy
 	raq rinstall numpy cython pybind11
-	raq install core-data-snapshotter:dev
+	raq install core-data-snapshotter:dev --install-separately
 	proxy clear
 
 	pip install \
 		data-science-types \
 		pycln \
 		pytest-xdist \
+		rope \
+		ropemode \
+		ropevim \
+		sourcery-cli \
 		sqlalchemy-stubs
 end

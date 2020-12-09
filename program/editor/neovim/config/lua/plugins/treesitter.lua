@@ -34,7 +34,7 @@ require "nvim-treesitter.configs".setup {
         }
     },
     textobjects = {
-        enable = true,
+        enable = false,
         disable = {},
         keymaps = {
             ["iL"] = {
