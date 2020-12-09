@@ -159,7 +159,7 @@ vim.api.nvim_exec(
 )
 
 -- Apply code actions
-vimp.nmap({"silent"}, "<leader>a", "<Plug>(coc-codeaction)")
+vimp.nmap({"silent"}, "<leader>a", ":CocAction<cr>")
 vimp.xmap({"silent"}, "<leader>a", "<Plug>(coc-codeaction-selected)")
 -- Apply AutoFix to problem on the current line.
 vimp.nmap({"silent"}, "<leader>A", "<Plug>(coc-fix-current)")
