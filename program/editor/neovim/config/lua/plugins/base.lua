@@ -335,8 +335,8 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<M-.>", ":RopeLuckyAssist<cr>")
                     vimp.nnoremap({"silent"}, "<M-cr>", ":RopeAutoImport<cr>")
                     vimp.nnoremap({"silent"}, "<M-d>", ":RopeGotoDefinition<cr>")
-                end,
-                ft = "python"
+                end
+                -- ft = "python"
             }
             -- use {"anihm136/importmagic.nvim", ft = "python"}
             use "stsewd/sphinx.nvim"
@@ -480,7 +480,7 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<Space>F", ":Semshi goto function prev<cr>")
                     vimp.nnoremap({"silent"}, "<Space>gu", ":Semshi goto unresolved first<cr>")
                     vimp.nnoremap({"silent"}, "<Space>gp", ":Semshi goto parameterUnused first<cr>")
-                    vimp.nnoremap({"silent"}, "<Space>ee", ":Semshi error<cr>")
+                    vimp.nnoremap({"silent"}, "<Space>E", ":Semshi error<cr>")
                     vimp.nnoremap({"silent"}, "<Space>ge", ":Semshi goto error<cr>")
                 end,
                 ft = "python"

@@ -32,7 +32,7 @@ vim.o.backup = false
 vim.o.writebackup = false
 
 -- Give more space for displaying messages.
-vim.o.cmdheight = 1
+vim.o.cmdheight = 2
 
 -- Don't pass messages to |ins-completion-menu|.
 vim.cmd("set shortmess+=c")
@@ -158,14 +158,11 @@ vim.api.nvim_exec(
     false
 )
 
--- Applying codeAction to the selected region.
--- Example: `<leader>aap` for current paragraph
-vimp.nmap("<leader>a", "<Plug>(coc-code-action-selected)")
-vimp.xmap("<leader>a", "<Plug>(coc-code-action-selected)")
--- Remap keys for applying codeAction to the current line.
-vim.api.nvim_set_keymap("n", "<leader>aa", "<Plug>(coc-code-action)", {})
+-- Apply code actions
+vimp.nmap({"silent"}, "<leader>a", "<Plug>(coc-codeaction)")
+vimp.xmap({"silent"}, "<leader>a", "<Plug>(coc-codeaction-selected)")
 -- Apply AutoFix to problem on the current line.
-vimp.nmap("<leader>A", "<Plug>(coc-fix-current)")
+vimp.nmap({"silent"}, "<leader>A", "<Plug>(coc-fix-current)")
 
 -- Introduce function text object
 -- NOTE: Requires 'textDocument.documentSymbol' support from the language server.
