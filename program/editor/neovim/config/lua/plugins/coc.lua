@@ -117,22 +117,17 @@ vimp.nmap({"silent"}, "gr", "<Plug>(coc-references)")
 vimp.nmap({"silent"}, "<space>l", "<Plug>(coc-codelense-action)")
 
 -- Use K to show documentation in preview window.
-vim.api.nvim_exec(
-    [[
-        function! Show_documentation()
-          if (index(['vim','help'], &filetype) >= 0)
-            execute 'h '.expand('<cword>')
-          elseif (coc#rpc#ready())
-            call CocActionAsync('doHover')
-          else
-            execute '!' . &keywordprg . " " . expand('<cword>')
-          endif
-        endfunction
-
-        nnoremap <silent> K :call Show_documentation()<cr>
-    ]],
-    false
-)
+function show_docs()
+    local cw = vim.fn.expand("<cword>")
+    if vim.fn.index({"vim", "help"}, vim.bo.filetype) >= 0 then
+        vim.cmd("h " .. cw)
+    elseif vim.fn["coc#rpc#ready"]() then
+        vim.fn.CocActionAsync("doHover")
+    else
+        vim.cmd("!" .. vim.o.keywordprg .. " " .. cw)
+    end
+end
+vimp.nmap({"silent"}, "K", ":lua show_docs()<cr>")
 
 -- Highlight the symbol and its references when holding the cursor.
 -- autocmd CursorHold * silent call CocActionAsync('highlight')
