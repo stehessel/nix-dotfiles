@@ -235,17 +235,64 @@ return require("packer").startup(
                 end
             }
             -- Statusline
-            -- use {
-            --     "glepnir/galaxyline.nvim",
-            --     config = function()
-            --         require "spaceline"
-            --     end
-            -- }
+            use {
+                "datwaft/bubbly.nvim",
+                config = function()
+                    vim.o.showmode = false
+
+                    vim.g.bubbly_tags = {
+                        filetype = {
+                            noft = "" -- If it's empty the bubble disappears
+                        }
+                    }
+                    vim.g.bubbly_palette = {
+                        background = "#34343c",
+                        foreground = "#c5cdd9",
+                        black = "#3e4249",
+                        red = "#ec7279",
+                        green = "#a0c980",
+                        yellow = "#deb974",
+                        blue = "#6cb6eb",
+                        purple = "#d38aea",
+                        cyan = "#5dbbc1",
+                        white = "#c5cdd9",
+                        lightgrey = "#57595e",
+                        darkgrey = "#404247"
+                    }
+                    vim.g.bubbly_styles = {
+                        mode = "bold",
+                        path = {
+                            readonly = "bold",
+                            unmodifiable = "",
+                            path = "",
+                            modified = ""
+                        },
+                        branch = "bold",
+                        signify = {
+                            added = "bold",
+                            modified = "bold",
+                            removed = "bold"
+                        },
+                        paste = "bold",
+                        coc = {
+                            error = "bold",
+                            warning = "bold",
+                            status = ""
+                        }
+                    }
+                    vim.g.bubbly_symbols = {
+                        coc = {
+                            error = "Errors: ",
+                            warning = "Warnings: "
+                        }
+                    }
+                end
+            }
             use {
                 "itchyny/lightline.vim",
                 config = function()
                     vim.cmd("autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()")
-                    vim.cmd("set noshowmode")
+                    vim.o.showmode = false
                     vim.g.lightline = {
                         ["colorscheme"] = "powerline",
                         ["active"] = {
@@ -254,14 +301,14 @@ return require("packer").startup(
                                 {"readonly", "filename", "modified"},
                                 {"diagnostic", "cocstatus"}
                             },
-                            ["right"] = {{"lineinfo", "percent"}, {"blame", "filetype"}}
+                            ["right"] = {{"lineinfo", "percent"}, {"filetype"}}
                         },
                         ["component_function"] = {
-                            ["cocstatus"] = "coc#status",
-                            ["gitbranch"] = "FugitiveHead"
+                            ["cocstatus"] = "coc#status"
                         }
                     }
-                end
+                end,
+                disable = true
             }
             -- Start screen
             use {
@@ -483,9 +530,58 @@ return require("packer").startup(
                     vimp.nnoremap({"silent"}, "<Space>E", ":Semshi error<cr>")
                     vimp.nnoremap({"silent"}, "<Space>ge", ":Semshi goto error<cr>")
                 end,
+                disable = true,
                 ft = "python"
             }
-            use "sheerun/vim-polyglot"
+            use {
+                "sheerun/vim-polyglot",
+                setup = function()
+                    vim.g.polyglot_disabled = {
+                        "bash.plugin",
+                        "c.plugin",
+                        "clojure.plugin",
+                        "cpp.plugin",
+                        "c_sharp.plugin",
+                        "css.plugin",
+                        "dart.plugin",
+                        "elm.plugin",
+                        "erlang.plugin",
+                        "fennel.plugin",
+                        "go.plugin",
+                        "graphql.plugin",
+                        "haskell.plugin",
+                        "html.plugin",
+                        "java.plugin",
+                        "javascript.plugin",
+                        "jsdoc.plugin",
+                        "json.plugin",
+                        "julia.plugin",
+                        "kotlin.plugin",
+                        "lua.plugin",
+                        "nix.plugin",
+                        "ocaml.plugin",
+                        "ocaml_interface.plugin",
+                        "ocamllex.plugin",
+                        "php.plugin",
+                        "python.plugin",
+                        "ql.plugin",
+                        "query.plugin",
+                        "regex.plugin",
+                        "rst.plugin",
+                        "ruby.plugin",
+                        "rust.plugin",
+                        "scala.plugin",
+                        "swift.plugin",
+                        "teal.plugin",
+                        "toml.plugin",
+                        "tsx.plugin",
+                        "typescript.plugin",
+                        "verilog.plugin",
+                        "vue.plugin",
+                        "yaml.plugin"
+                    }
+                end
+            }
             -- REPL
             -- use 'ipselium/vim-cpyvke'
             use {
@@ -545,13 +641,16 @@ return require("packer").startup(
             use "gcmt/taboo.vim"
             -- Color scheme
             use {
-                "sainnhe/sonokai",
+                "bluz71/vim-nightfly-guicolors",
                 config = function()
-                    vim.g.sonokai_style = "andromeda"
-                    vim.g.sonokai_enable_itatlic = 1
-                    vim.g.sonokai_diagnostic_line_highlight = 0
-                    vim.g.sonokai_better_performance = 1
-                    vim.cmd("colorscheme sonokai")
+                    vim.cmd("colorscheme nightfly")
+                end,
+                disable = true
+            }
+            use {
+                "bluz71/vim-moonfly-colors",
+                config = function()
+                    vim.cmd("colorscheme moonfly")
                 end
             }
             -- Icons
@@ -583,7 +682,6 @@ return require("packer").startup(
                     vim.g.indent_blankline_char = "¦"
                 end
             }
-            use "tpope/vim-sleuth"
             use "Yggdroot/indentLine"
             -- Keybinds
             use "tpope/vim-unimpaired"
@@ -853,6 +951,7 @@ return require("packer").startup(
             use "tweekmonster/startuptime.vim"
             -- Folds
             use "Jorengarenar/vim-syntaxMarkerFold"
+            use "~/dev/neovim/test.nvim"
         end,
         config = {max_jobs = 32}
     }
