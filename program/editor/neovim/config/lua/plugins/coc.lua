@@ -44,7 +44,7 @@ vim.wo.signcolumn = "yes"
 -- Use tab for trigger completion with characters ahead and navigate.
 -- NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 -- other plugin before putting this into your config.
-local function check_back_space()
+function check_back_space()
     local col = vim.fn.col(".") - 1
     if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
         return true
@@ -57,7 +57,7 @@ vimp.inoremap(
     {"expr", "silent"},
     "<tab>",
     function()
-        if vim.fn.pumvisible() then
+        if vim.fn.pumvisible() ~= 0 then
             return "<C-n>"
         else
             if check_back_space() then
@@ -69,10 +69,10 @@ vimp.inoremap(
     end
 )
 vimp.inoremap(
-    {"expr"},
+    {"expr", "silent"},
     "<S-tab>",
     function()
-        if vim.fn.pumvisible() then
+        if vim.fn.pumvisible() ~= 0 then
             return "<C-p>"
         else
             return "<C-h>"
