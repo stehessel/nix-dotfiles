@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-export SC_DEPLOY_HOME=${HOME}/git/sc-deploy
+SC_DEPLOY_HOME=${HOME}/git/sc-deploy
 fd 	. ${SC_DEPLOY_HOME}/deploy/projects \
 	--extension=ini \
 	--exec-batch realpath --relative-to="${SC_DEPLOY_HOME}/deploy" \
