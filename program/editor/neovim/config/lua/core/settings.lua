@@ -1,8 +1,13 @@
 -- Compatibility with vi
 vim.o.compatible = false
+
 -- Line breaks
 vim.o.linebreak = true
 vim.o.breakindent = true
+
+-- Shell
+-- vim.o.shell = "$HOME/.nix-profile/bin/bash"
+-- vim.cmd("let $SHELL='/Users/lgtf/.nix-profile/bin/bash'")
 
 -- Sessions
 vim.cmd("set sessionoptions+=tabpages,globals,winpos,winsize,blank,resize")
@@ -97,7 +102,7 @@ vim.cmd("set go=a")
 
 -- Javescript
 vim.g.loaded_node_provider = 0
-vim.g.node_host_prog = "$HOME/.nix-profile/bin/npm"
+vim.g.node_host_prog = "$HOME/.npm-packages/bin/neovim-node-host"
 -- Perl
 vim.g.loaded_perl_provider = 0
 -- Python

@@ -10,6 +10,7 @@ vim.g.coc_global_extensions = {
     "coc-emoji",
     "coc-explorer",
     "coc-floaterm",
+    "coc-fzf-preview",
     "coc-json",
     "coc-lua",
     "coc-markdownlint",

@@ -185,12 +185,6 @@ return require("packer").startup(
             }
             use {
                 "junegunn/fzf.vim",
-                requires = {
-                    "junegunn/fzf",
-                    run = function()
-                        vim.fn["fzf#install"]()
-                    end
-                },
                 config = function()
                     vim.api.nvim_exec(
                         [[
@@ -234,58 +228,20 @@ return require("packer").startup(
                     )
                 end
             }
+            use {
+                "junegunn/fzf",
+                config = function()
+                    require("plugins.fzf")
+                end,
+                run = function()
+                    vim.fn["fzf#install"]()
+                end
+            }
             -- Statusline
             use {
                 "datwaft/bubbly.nvim",
                 config = function()
-                    vim.o.showmode = false
-
-                    vim.g.bubbly_tags = {
-                        filetype = {
-                            noft = "" -- If it's empty the bubble disappears
-                        }
-                    }
-                    vim.g.bubbly_palette = {
-                        background = "#34343c",
-                        foreground = "#c5cdd9",
-                        black = "#3e4249",
-                        red = "#ec7279",
-                        green = "#a0c980",
-                        yellow = "#deb974",
-                        blue = "#6cb6eb",
-                        purple = "#d38aea",
-                        cyan = "#5dbbc1",
-                        white = "#c5cdd9",
-                        lightgrey = "#57595e",
-                        darkgrey = "#404247"
-                    }
-                    vim.g.bubbly_styles = {
-                        mode = "bold",
-                        path = {
-                            readonly = "bold",
-                            unmodifiable = "",
-                            path = "",
-                            modified = ""
-                        },
-                        branch = "bold",
-                        signify = {
-                            added = "bold",
-                            modified = "bold",
-                            removed = "bold"
-                        },
-                        paste = "bold",
-                        coc = {
-                            error = "bold",
-                            warning = "bold",
-                            status = ""
-                        }
-                    }
-                    vim.g.bubbly_symbols = {
-                        coc = {
-                            error = "Errors: ",
-                            warning = "Warnings: "
-                        }
-                    }
+                    require(plugins.bubbly)
                 end
             }
             use {
@@ -644,14 +600,14 @@ return require("packer").startup(
                 "bluz71/vim-nightfly-guicolors",
                 config = function()
                     vim.cmd("colorscheme nightfly")
-                end,
-                disable = true
+                end
             }
             use {
                 "bluz71/vim-moonfly-colors",
                 config = function()
                     vim.cmd("colorscheme moonfly")
-                end
+                end,
+                disable = true
             }
             -- Icons
             use {
