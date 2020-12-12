@@ -51,23 +51,7 @@ return require("packer").startup(
             use {
                 "mhinz/vim-signify",
                 config = function()
-                    require("vimp")
-                    vimp.nnoremap({"silent"}, "<leader>vl", ":SignifyList<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>vd", ":SignifyDiff<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>vf", ":SignifyFold<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>vv", ":SignifyHunkDiff<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>vu", ":SignifyHunkUndo<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>vr", ":SignifyRefresh<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>vt", ":SignifyToggle<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>vh", ":SignifyToggleHighlight<cr>")
-
-                    vimp.omap({"silent"}, "ig", "<Plug>(signify-motion-inner-pending)")
-                    vimp.xmap({"silent"}, "ig", "<Plug>(signify-motion-inner-visual)")
-                    vimp.omap({"silent"}, "ag", "<Plug>(signify-motion-outer-pending)")
-                    vimp.xmap({"silent"}, "ag", "<Plug>(signify-motion-outer-visual)")
-
-                    vim.cmd [[highlight SignifySignDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred]]
-                    vim.cmd [[highlight SignifyLineDelete ctermfg=black ctermbg=darkred guifg=lightgrey guibg=darkred]]
+                    require("plugins.signify")
                 end
             }
             use {
@@ -97,89 +81,13 @@ return require("packer").startup(
             use {
                 "dyng/ctrlsf.vim",
                 config = function()
-                    vim.g.ctrlsf_regex_pattern = 1
-                    vim.g.ctrlsf_auto_focus = {["at"] = "done", ["duration_less_than"] = 5000}
-                    vim.g.ctrlsf_default_root = "project"
-                    vim.g.ctrlsf_search_mode = "async"
-                    vim.g.ctrlsf_position = "right"
-                    vim.g.ctrlsf_mapping = {["vsplit"] = "<C-v>"}
-
-                    require("vimp")
-                    vimp.nmap("<leader>jj", "<Plug>CtrlSFPrompt")
-                    vimp.xmap({"silent"}, "<leader>jj", "<Plug>CtrlSFVwordExec")
-                    vimp.xmap({"silent"}, "<leader>jJ", "<Plug>CtrlSFVwordPath")
-                    vimp.nmap({"silent"}, "<leader>jn", "<Plug>CtrlSFCwordPath")
-                    vimp.nmap({"silent"}, "<leader>jp", "<Plug>CtrlSFPwordPath")
-                    vimp.nnoremap({"silent"}, "<leader>jo", ":CtrlSFOpen<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>jt", ":CtrlSFToggle<cr>")
+                    require("plugins.ctrlsf")
                 end
             }
             use {
                 "nvim-lua/telescope.nvim",
                 config = function()
-                    local actions = require("telescope.actions")
-                    local sorters = require("telescope.sorters")
-                    local themes = require("telescope.themes")
-                    require("telescope").setup {
-                        defaults = {
-                            prompt_prefix = " >",
-                            winblend = 0,
-                            preview_cutoff = 120,
-                            scroll_strategy = "cycle",
-                            layout_strategy = "horizontal",
-                            layout_defaults = {
-                                horizontal = {
-                                    width_padding = 0.1,
-                                    height_padding = 0.1,
-                                    preview_width = 0.6
-                                },
-                                vertical = {
-                                    width_padding = 0.05,
-                                    height_padding = 1,
-                                    preview_height = 0.5
-                                }
-                            },
-                            sorting_strategy = "descending",
-                            prompt_position = "bottom",
-                            color_devicons = true,
-                            mappings = {
-                                i = {
-                                    ["<c-x>"] = false,
-                                    ["<c-s>"] = actions.goto_file_selection_split
-                                }
-                            },
-                            borderchars = {
-                                {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
-                                preview = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"}
-                            },
-                            file_sorter = sorters.get_fzy_sorter
-                        }
-                    }
-
-                    require("vimp")
-                    vimp.nnoremap(
-                        {"silent"},
-                        "<leader>uf",
-                        function()
-                            require "telescope.builtin".find_files {
-                                find_command = {
-                                    "rg",
-                                    "--files",
-                                    "--hidden",
-                                    "--ignore-case",
-                                    "-g",
-                                    "!.git"
-                                }
-                            }
-                        end
-                    )
-                    vimp.nnoremap(
-                        {"silent"},
-                        "<leader>ur",
-                        function()
-                            require "telescope.builtin".lsp_references {shorten_path = true}
-                        end
-                    )
+                    require("plugins.telescope")
                 end,
                 requires = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"}
             }
@@ -363,38 +271,13 @@ return require("packer").startup(
             use {
                 "sbdchd/neoformat",
                 config = function()
-                    vim.cmd [[augroup format]]
-                    vim.cmd [[autocmd!]]
-                    vim.cmd [[autocmd BufWritePre *.lua,*.py,*.sql undojoin | Neoformat]]
-                    vim.cmd [[augroup END]]
-
-                    vim.g.neoformat_enabled_json = {"prettier"}
-                    vim.g.neoformat_enabled_lua = {"luafmt"}
-                    vim.g.neoformat_enabled_python = {"black"}
-                    vim.g.neoformat_enabled_sql = {"pg_format"}
-                    vim.g.neoformat_enabled_yaml = {"prettier"}
-
-                    require("vimp")
-                    vimp.nnoremap({"silent"}, "<leader>F", ":Neoformat<cr>")
+                    require("plugins.neoformat")
                 end
             }
             use "tpope/vim-endwise"
             -- Snippets
             -- use 'honza/vim-snippets'
             -- Debugger
-            -- use {
-            --     "puremourning/vimspector",
-            --     config = function()
-            --         vim.g.vimspector_enable_mappings = "HUMAN"
-            --         vim.g.vimspector_install_gadgets = {"debugpy", "CodeLLDB"}
-            --         vim.g.vimspector_sign_priority = {
-            --             ["vimspectorBP"] = 50,
-            --             ["vimspectorBPCond"] = 40,
-            --             ["vimspectorBPDisabled"] = 30,
-            --             ["vimspectorPC"] = 999
-            --         }
-            --     end
-            -- }
             use {
                 "mfussenegger/nvim-dap-python",
                 config = function()
@@ -434,34 +317,7 @@ return require("packer").startup(
             use {
                 "janko/vim-test",
                 config = function()
-                    vim.g["test#python#runner"] = "pytest"
-                    vim.g["test#python#pytest#options#"] = {["all"] = "--capture=no"}
-                    vim.g["test#strategy"] = "neoterm"
-
-                    require("vimp")
-                    vimp.nnoremap({"silent"}, "<leader>tn", ":TestNearest<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>tf", ":TestFile<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>ts", ":TestSuite<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>tl", ":TestLast<cr>")
-                    vimp.nnoremap({"silent"}, "<leader>tg", ":TestVisit<cr>")
-
-                    vim.api.nvim_exec(
-                        [[
-                            function! DockerPythonTransform(cmd) abort
-                                let container_id = system("docker ps --filter 'name=raq' --quiet")
-                                let port = 6000
-                                return 'docker exec '.container_id.' /home/docker/venv3.6/bin/python -m debugpy --listen 0.0.0.0:'.port.' --wait-for-client -m '.a:cmd
-                            endfunction
-
-                            let g:test#custom_transformations = {'docker-python': function('DockerPythonTransform')}
-                        ]],
-                        false
-                    )
-
-                    vim.cmd [[augroup raq_tests]]
-                    vim.cmd [[autocmd!]]
-                    vim.cmd [[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#transformation = "docker-python"']]
-                    vim.cmd [[augroup END]]
+                    require("plugins.test")
                 end
             }
             -- Code folding
