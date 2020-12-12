@@ -41,10 +41,6 @@ vim.cmd(
 -- Lens
 -- vim.g["lens#disabled_filetypes"] = ['coc-explorer', 'nerdtree', 'fzf']
 
--- Theme
-vim.o.bg = "dark"
-vim.o.termguicolors = true
-
 -- Highlighters
 vim.cmd("highlight HighlightedyankRegion cterm=reverse gui=reverse")
 vim.cmd("highlight CursorColumn cterm=reverse gui=reverse")

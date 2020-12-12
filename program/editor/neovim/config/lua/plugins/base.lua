@@ -241,7 +241,7 @@ return require("packer").startup(
             use {
                 "datwaft/bubbly.nvim",
                 config = function()
-                    require(plugins.bubbly)
+                    require("plugins.bubbly")
                 end
             }
             use {
