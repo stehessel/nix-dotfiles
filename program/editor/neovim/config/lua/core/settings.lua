@@ -13,6 +13,8 @@ vim.o.breakindent = true
 vim.cmd("set sessionoptions+=tabpages,globals,winpos,winsize,blank,resize")
 -- do not store global and local values in a session
 vim.cmd("set sessionoptions-=options")
+-- do not store folds
+vim.cmd("set sessionoptions-=folds")
 
 -- Search
 vim.o.ignorecase = true
@@ -41,17 +43,12 @@ vim.cmd(
 -- Lens
 -- vim.g["lens#disabled_filetypes"] = ['coc-explorer', 'nerdtree', 'fzf']
 
--- Highlighters
-vim.cmd("highlight HighlightedyankRegion cterm=reverse gui=reverse")
-vim.cmd("highlight CursorColumn cterm=reverse gui=reverse")
-vim.cmd("highlight CursorLine cterm=reverse gui=reverse")
-
 -- Text
 vim.o.encoding = "utf-8"
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.cmd("set whichwrap+=<,>,h,l,[,]")
-vim.cmd("syntax on")
+vim.cmd("syntax off")
 vim.o.updatetime = 100
 
 -- Folds
@@ -67,7 +64,7 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 
 -- Undo
-vim.o.undofile = true
+vim.bo.undofile = true
 vim.o.undodir = "~/.config/nvim/undo"
 
 -- Mouse

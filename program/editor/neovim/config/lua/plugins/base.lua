@@ -279,30 +279,43 @@ return require("packer").startup(
             -- use 'honza/vim-snippets'
             -- Debugger
             use {
-                "mfussenegger/nvim-dap-python",
+                "puremourning/vimspector",
                 config = function()
-                    require("dap-python").setup("python")
-                    require("dap-python").test_runner = "pytest"
-
-                    require("vimp")
-                    vimp.nnoremap({"silent"}, "<F4>", require("dap").list_breakpoints)
-                    vimp.nnoremap({"silent"}, "<F5>", require("dap").continue)
-                    vimp.nnoremap({"silent"}, "<F6>", require("dap").repl.toggle)
-                    vimp.nnoremap({"silent"}, "<F8>", require("dap").goto_)
-                    vimp.nnoremap({"silent"}, "<F9>", require("dap").toggle_breakpoint)
-                    vimp.nnoremap(
-                        {"silent"},
-                        "<leader><F9>",
-                        function()
-                            require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-                        end
-                    )
-                    vimp.nnoremap({"silent"}, "<F10>", require("dap").step_over)
-                    vimp.nnoremap({"silent"}, "<F11>", require("dap").step_into)
-                    vimp.nnoremap({"silent"}, "<F12>", require("dap").step_out)
-                end,
-                requires = {"mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter"}
+                    vim.g.vimspector_enable_mappings = "HUMAN"
+                    vim.g.vimspector_install_gadgets = {"debugpy", "CodeLLDB"}
+                    vim.g.vimspector_sign_priority = {
+                        ["vimspectorBP"] = 50,
+                        ["vimspectorBPCond"] = 40,
+                        ["vimspectorBPDisabled"] = 30,
+                        ["vimspectorPC"] = 999
+                    }
+                end
             }
+            -- use {
+            --     "mfussenegger/nvim-dap-python",
+            --     config = function()
+            --         require("dap-python").setup("python")
+            --         require("dap-python").test_runner = "pytest"
+            --
+            --         require("vimp")
+            --         vimp.nnoremap({"silent"}, "<F4>", require("dap").list_breakpoints)
+            --         vimp.nnoremap({"silent"}, "<F5>", require("dap").continue)
+            --         vimp.nnoremap({"silent"}, "<F6>", require("dap").repl.toggle)
+            --         vimp.nnoremap({"silent"}, "<F8>", require("dap").goto_)
+            --         vimp.nnoremap({"silent"}, "<F9>", require("dap").toggle_breakpoint)
+            --         vimp.nnoremap(
+            --             {"silent"},
+            --             "<leader><F9>",
+            --             function()
+            --                 require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+            --             end
+            --         )
+            --         vimp.nnoremap({"silent"}, "<F10>", require("dap").step_over)
+            --         vimp.nnoremap({"silent"}, "<F11>", require("dap").step_into)
+            --         vimp.nnoremap({"silent"}, "<F12>", require("dap").step_out)
+            --     end,
+            --     requires = {"mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter"}
+            -- }
             use {
                 "theHamsta/nvim-dap-virtual-text",
                 config = function()
@@ -560,7 +573,7 @@ return require("packer").startup(
             }
             use "tommcdo/vim-exchange"
             use "tpope/vim-repeat"
-            use "tyru/caw.vim"
+            use "tomtom/tcomment_vim"
             -- Text substitution
             use {
                 "svermeulen/vim-subversive",
