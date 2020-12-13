@@ -139,7 +139,7 @@ vimp.nmap({"silent"}, "<space>r", "<Plug>(coc-rename)")
 -- Formatting selected code.
 vimp.nmap({"silent"}, "<space>G", "<Plug>(coc-format)")
 vimp.xmap({"silent"}, "<space>G", "<Plug>(coc-format-selected)")
-vimp.nmap({"silent"}, "<leader>ps", ":CocCommand python.sortImports<cr>")
+vimp.nmap({"silent"}, "<leader>ps", ":CocAction('runCommand', 'editor.action.organizeImport')<cr>")
 
 vim.api.nvim_exec(
     [[
@@ -193,9 +193,6 @@ vim.cmd([[command! -nargs=0 Format :call CocAction('format')]])
 
 -- Add `:Fold` command to fold current buffer.
 vim.cmd([[command! -nargs=? Fold :call CocAction('fold', <f-args>)]])
-
--- Add `:OR` command for organize imports of the current buffer.
-vim.cmd([[command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')]])
 
 -- Add (Neo)Vim's native statusline support.
 -- NOTE: Please see `:h coc-status` for integrations with external plugins that
