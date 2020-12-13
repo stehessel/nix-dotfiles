@@ -237,7 +237,20 @@ return require("packer").startup(
                 config = function()
                     vim.g.ropevim_local_prefix = "<M-r>"
                     vim.g.ropevim_global_prefix = "<M-p>"
-                    vim.g.ropevim_autoimport_modules = {"*"}
+                    vim.g.ropevim_autoimport_modules = {
+                        "contextlib",
+                        "dask.*"
+                        "datetime",
+                        "functools",
+                        "json",
+                        "kartothek.*"
+                        "logging",
+                        "os",
+                        "pandas.*",
+                        "pickle",
+                        "typing",
+                        "uuid"
+                    }
                     vim.g.ropevim_enable_autoimport = 1
                     vim.g.ropevim_guess_project = 1
 
