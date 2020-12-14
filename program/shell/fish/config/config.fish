@@ -10,6 +10,7 @@ set -x PAGER "less"
 set -x READER "zathura"
 set -x TERMINAL "kitty"
 
+set -x FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height 85% --preview-window=wrap --info=inline'
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
 set -x NVIM_LOG_FILE "$XDG_CONFIG_HOME/nvim/.nvimlog"
 set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"

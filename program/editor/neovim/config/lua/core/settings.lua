@@ -48,7 +48,7 @@ vim.o.encoding = "utf-8"
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.cmd("set whichwrap+=<,>,h,l,[,]")
-vim.cmd("syntax off")
+vim.cmd("syntax on")
 vim.o.updatetime = 100
 
 -- Folds
