@@ -242,6 +242,7 @@ return require("packer").startup(
                         "dask.*",
                         "datetime",
                         "functools",
+                        "itertools",
                         "json",
                         "kartothek.*",
                         "logging",
