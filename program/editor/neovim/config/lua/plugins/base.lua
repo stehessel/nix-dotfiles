@@ -97,19 +97,13 @@ return require("packer").startup(
                     vim.api.nvim_exec(
                         [[
                             function! g:FzfFilesSource()
-                                let l:base = fnamemodify(expand('%'), ':h:.:S')
                                 let l:proximity_sort_path = $HOME . '/.cargo/bin/proximity-sort'
-
-                                if base == '.'
-                                return "rg" . g:grep_params
-                                else
-                                return printf("rg" . g:grep_params . " | %s %s", l:proximity_sort_path, expand('%'))
-                                endif
+                                return printf("fd --type=file --hidden --follow --color=always --exclude=.git | %s %s", l:proximity_sort_path, expand('%'))
                             endfunction
 
                             let g:fzf_tags_command = 'ctags -R'
 
-                            nmap <silent> <leader>ff  :call fzf#vim#files('', {'source': g:FzfFilesSource(), 'options': ['--info=inline', '--preview', 'bat --color=always --style=numbers {}'], 'window': { 'width': 0.9, 'height': 0.9}})<CR>
+                            nmap <silent> <leader>ff :call fzf#vim#files('', {'source': g:FzfFilesSource(), 'options': ['--ansi', '--tiebreak=index', '--layout=reverse', '--info=inline', '--preview', 'bat --color=always --style=numbers {}']})<CR>
                             nmap <leader>fb  :Buffers<CR>
                             nmap <leader>fgc :Commits<CR>
                             nmap <leader>fgf :GFiles<CR>
@@ -246,6 +240,7 @@ return require("packer").startup(
                         "json",
                         "kartothek.*",
                         "logging",
+                        "numpy.*",
                         "os",
                         "pandas.*",
                         "pickle",
