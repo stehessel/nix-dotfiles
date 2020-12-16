@@ -1,9 +1,9 @@
 require("vimp")
 
-vim.cmd [[augroup format]]
-vim.cmd [[autocmd!]]
-vim.cmd [[autocmd BufWritePre *.lua,*.py,*.sql undojoin | Neoformat]]
-vim.cmd [[augroup END]]
+-- vim.cmd [[augroup format]]
+-- vim.cmd [[autocmd!]]
+-- vim.cmd [[autocmd BufWritePre *.lua,*.py,*.sql undojoin | Neoformat]]
+-- vim.cmd [[augroup END]]
 
 vim.g.neoformat_enabled_json = {"prettier"}
 vim.g.neoformat_enabled_lua = {"luafmt"}

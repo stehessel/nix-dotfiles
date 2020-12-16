@@ -36,21 +36,15 @@
       "rootPatterns": ["project.clj", ".git/"],
       "additionalSchemes": ["jar", "zipfile"]
     },
-    //"diagnostic-languageserver.filetypes": {
-    //  "sh": "shellcheck"
-    //},
-    //"diagnostic-languageserver.formatFiletypes": {
-    //  "json": "prettier",
-    //  "lua": "luafmt",
-    //  "python": "black",
-    //  "sh": "shfmt",
-    //  "sql": "pg_format",
-    //  "yaml": "prettier"
-    //},
     "dockerfile": {
       "command": "docker-langserver",
       "args": ["--stdio"],
       "filetypes": ["dockerfile"]
+    },
+    "efm": {
+      "command": "efm-langserver",
+      "args": [],
+      "filetypes": ["lua", "markdown", "yaml"]
     },
     "haskell": {
       "command": "hie-wrapper",

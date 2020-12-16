@@ -14,6 +14,7 @@ in
     ../../dev/haskell/stack
     ../../dev/javascript/npm
     ../../dev/lua/luacheck
+    ../../dev/lua/luaformatter
     ../../dev/python/conda
     ../../dev/python/flake8
     ../../dev/python/isort
@@ -24,6 +25,7 @@ in
     ../../dev/version-control/git
     ../../dev/version-control/tig
     ../../program/backup/restic
+    ../../program/editor/efm-langserver
     ../../program/editor/kakoune
     ../../program/editor/neovim
     ../../program/editor/coc

@@ -4,4 +4,4 @@ vim.g.maplocalleader = "\\"
 vim.o.bg = "dark"
 vim.o.termguicolors = true
 
-require("plugins.base")
+require("plugins")

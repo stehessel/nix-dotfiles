@@ -17,6 +17,7 @@ set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
 set -x ODBCSYSINI "$HOME/git/raq"
 
 set -p fish_user_paths "$HOME/.dotnet"
+set -p fish_user_paths "$HOME/.luarocks/bin"
 set -p fish_user_paths "$HOME/.npm-packages/bin"
 set -p fish_user_paths "$HOME/go/bin"
 set -p fish_user_paths "$HOME/.cargo/bin"

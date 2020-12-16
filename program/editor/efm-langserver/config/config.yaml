@@ -1,0 +1,16 @@
+version: 2
+root-markers:
+  - .git/
+commands:
+  - command: nvim
+    arguments:
+      - ${INPUT}
+
+tools:
+  lua-lua-format: &lua-lua-format
+    format-command: 'lua-format -i'
+    format-stdin: true
+
+languages:
+  lua:
+    - <<: *lua-lua-format

@@ -6,7 +6,6 @@ vim.g.coc_global_extensions = {
     "coc-actions",
     "coc-cmake",
     "coc-clangd",
-    "coc-diagnostic",
     "coc-emoji",
     "coc-explorer",
     "coc-floaterm",
