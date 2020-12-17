@@ -60,7 +60,7 @@
       "breakpoints": {
         "exception": {
           "raised": "N",
-          "uncaught": "",
+          "uncaught": "Y",
           "userUnhandled": ""
         }
       }
@@ -81,7 +81,7 @@
       "breakpoints": {
         "exception": {
           "raised": "N",
-          "uncaught": "",
+          "uncaught": "Y",
           "userUnhandled": ""
         }
       }
@@ -102,7 +102,7 @@
       "breakpoints": {
         "exception": {
           "raised": "N",
-          "uncaught": "",
+          "uncaught": "Y",
           "userUnhandled": ""
         }
       }
