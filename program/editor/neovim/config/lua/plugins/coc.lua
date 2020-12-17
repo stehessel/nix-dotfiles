@@ -136,8 +136,8 @@ vimp.nmap({"silent"}, "K", ":lua show_docs()<cr>")
 vimp.nmap({"silent"}, "<space>r", "<Plug>(coc-rename)")
 
 -- Formatting selected code.
-vimp.nmap({"silent"}, "<space>G", "<Plug>(coc-format)")
-vimp.xmap({"silent"}, "<space>G", "<Plug>(coc-format-selected)")
+vimp.nmap({"silent"}, "<space>f", "<Plug>(coc-format)")
+vimp.xmap({"silent"}, "<space>f", "<Plug>(coc-format-selected)")
 vimp.nmap({"silent"}, "<leader>ps", ":CocAction('runCommand', 'editor.action.organizeImport')<cr>")
 
 vim.api.nvim_exec(
