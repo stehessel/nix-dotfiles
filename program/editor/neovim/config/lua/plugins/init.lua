@@ -240,11 +240,6 @@ return require("packer").startup({
             "nvim-treesitter/playground",
             requires = "nvim-treesitter/nvim-treesitter"
         }
-        -- Format
-        use {
-            "sbdchd/neoformat",
-            config = function() require("plugins.neoformat") end
-        }
         use "tpope/vim-endwise"
         -- Snippets
         -- use 'honza/vim-snippets'

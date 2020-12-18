@@ -1,5 +1,6 @@
 {
   "coc.preferences.colorSupport": false,
+  "coc.preferences.formatOnSaveFiletypes": ["lua", "python", "rust"],
   "suggest.numberSelect": false,
   "suggest.maxCompleteItemCount": 20,
   "suggest.triggerCompletionWait": 50,
@@ -9,10 +10,7 @@
   "explorer.icon.enableNerdfont": true,
   "explorer.openAction.for.directory": "",
   "explorer.previewAction.onHover": false,
-  //"snippets.userSnippetsDirectory": "~/.config/nvim/plugged/vim-snippets/UltiSnips",
-  //"Lua.diagnostics.globals": ["vim"],
-  //"lua.useSumnekoLs": true,
-  //"lua.version": "LuaJIT",
+  "python.formatting.provider": "black",
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
@@ -44,7 +42,7 @@
     "efm": {
       "command": "efm-langserver",
       "args": [],
-      "filetypes": ["lua", "markdown", "yaml"]
+      "filetypes": ["*"]
     },
     "haskell": {
       "command": "hie-wrapper",
@@ -56,20 +54,15 @@
           "hlintOn": true
         }
       }
-	},
+    },
     "lua": {
       "command": "lua-lsp",
       "filetypes": ["lua"]
-	},
+    },
     "nix": {
       "command": "rnix-lsp",
       "filetypes": ["nix"]
     },
-    //"sonarlint": {
-    //  "command": "java",
-    //  "args": ["-jar", "$HOME/programs/sonarlint-language-server/target/sonarlint-language-server-1.6-SNAPSHOT.jar", "4333"],
-    //  "filetypes": ["python"]
-    //},
     "sourcery": {
       "command": "sourcery",
       "args": ["lsp"],
