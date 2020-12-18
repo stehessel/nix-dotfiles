@@ -25,7 +25,11 @@
       "attach": {
         "remote": {
           "container": "${container}",
-          "pidCommand": ["pgrep", "-fo", "debugpy"],
+          "pidCommand": [
+            "pgrep",
+            "-fo",
+            "debugpy"
+          ],
           "attachCommand": [
             "/home/docker/venv3.6/bin/python",
             "-m",
