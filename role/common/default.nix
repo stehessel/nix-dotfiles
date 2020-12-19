@@ -22,6 +22,7 @@ in
     # ../../dev/python/packages
     ../../dev/python/pdb
     ../../dev/python/pycodestyle
+    ../../dev/text/vale
     ../../dev/version-control/git
     ../../dev/version-control/tig
     ../../program/backup/restic
@@ -169,12 +170,14 @@ in
     dash
     fish
     shellcheck
+    shfmt
     starship
     # --- terminal multiplexers ---
     screen
     tmux
     # --- text ---
     asciidoctor
+    vale
     # --- todo manager ---
     taskwarrior
     # --- utility ---
