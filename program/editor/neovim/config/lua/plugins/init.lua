@@ -350,6 +350,8 @@ return require("packer").startup({
                     }
             end
         }
+        -- Asciidoc
+        use "habamax/vim-asciidoctor"
         -- REPL
         -- use 'ipselium/vim-cpyvke'
         use {
