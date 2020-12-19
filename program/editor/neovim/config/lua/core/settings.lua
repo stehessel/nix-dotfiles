@@ -1,6 +1,9 @@
 -- Compatibility with vi
 vim.o.compatible = false
 
+-- Set hidden buffers
+vim.o.hidden = true
+
 -- Line breaks
 vim.o.linebreak = true
 vim.o.breakindent = true
@@ -22,7 +25,8 @@ vim.o.smartcase = true
 vim.o.incsearch = true
 vim.o.hlsearch = true
 
-vim.g.grep_params = " --files --ignore-case --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
+vim.g.grep_params =
+    " --files --ignore-case --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
 -- Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 vim.o.splitright = true
 vim.o.splitbelow = true
@@ -30,15 +34,11 @@ vim.o.splitbelow = true
 -- Reloading
 vim.o.autoread = true
 -- Trigger `autoread` when files changes on disk
-vim.cmd(
-    [[autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
-		\ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif]]
-)
+vim.cmd([[autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+		\ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif]])
 -- Notification after file change
-vim.cmd(
-    [[autocmd FileChangedShellPost *
-		\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]]
-)
+vim.cmd([[autocmd FileChangedShellPost *
+		\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]])
 
 -- Lens
 -- vim.g["lens#disabled_filetypes"] = ['coc-explorer', 'nerdtree', 'fzf']
@@ -87,7 +87,8 @@ vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])
 -- Update binds when sxhkdrc is updated.
 vim.cmd([[autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd]])
 -- Save file as sudo on files that require root permission
-vim.cmd([[cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!]])
+vim.cmd(
+    [[cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!]])
 
 -- Clipboard
 vim.cmd("set clipboard+=unnamedplus")

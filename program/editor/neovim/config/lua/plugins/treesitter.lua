@@ -1,7 +1,5 @@
-require "nvim-treesitter.configs".setup {
-    highlight = {
-        enable = true
-    },
+require"nvim-treesitter.configs".setup {
+    highlight = {enable = true},
     incremental_selection = {
         enable = true,
         keymaps = {
@@ -13,24 +11,12 @@ require "nvim-treesitter.configs".setup {
         }
     },
     refactor = {
-        highlight_definitions = {
-            enable = false
-        },
-        highlight_current_scope = {
-            enable = false
-        },
-        smart_rename = {
-            enable = true,
-            keymaps = {
-                smart_rename = "<leader>R"
-            }
-        },
+        highlight_definitions = {enable = false},
+        highlight_current_scope = {enable = false},
+        smart_rename = {enable = true, keymaps = {smart_rename = "<leader>R"}},
         navigation = {
             enable = true,
-            keymaps = {
-                goto_definition = "gnd",
-                list_definitions = "gnD"
-            }
+            keymaps = {goto_definition = "gnd", list_definitions = "gnD"}
         }
     },
     textobjects = {
