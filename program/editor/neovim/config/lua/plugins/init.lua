@@ -205,7 +205,8 @@ return require("packer").startup({
                     {
                         "abc", "contextlib", "dask.*", "datetime", "functools",
                         "itertools", "json", "kartothek.*", "logging",
-                        "numpy.*", "os", "pandas.*", "pickle", "typing", "uuid"
+                        "numpy.*", "os", "pandas.*", "pickle", "pytest",
+                        "requests", "tenacity", "typing", "uuid"
                     }
                 vim.g.ropevim_enable_autoimport = 1
                 vim.g.ropevim_guess_project = 1
