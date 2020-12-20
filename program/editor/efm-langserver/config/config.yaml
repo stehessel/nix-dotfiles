@@ -35,7 +35,7 @@ tools:
     format-stdin: true
 
   lua-lua-format: &lua-lua-format
-    format-command: "lua-format -i"
+    format-command: "lua-format --config=$HOME/.config/luaformatter/config.yaml -i"
     format-stdin: true
 
   pandoc-rst: &pandoc-rst
@@ -67,7 +67,7 @@ tools:
     format-stdin: true
 
   vale: &vale
-    lint-command: "vale --config=${XDG_CONFIG_HOME}/vale/vale.ini --relative --output=line ${INPUT}"
+    lint-command: "vale --config=$HOME/.config/vale/vale.ini --relative --output=line ${INPUT}"
     lint-stdin: false
     lint-ignore-exit-code: true
     lint-formats:

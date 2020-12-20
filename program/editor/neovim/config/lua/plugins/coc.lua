@@ -3,10 +3,25 @@ require("core.settings")
 
 -- Extensions
 vim.g.coc_global_extensions = {
-    "coc-actions", "coc-cmake", "coc-clangd", "coc-emoji", "coc-explorer",
-    "coc-floaterm", "coc-fzf-preview", "coc-json", "coc-lua",
-    "coc-markdownlint", "coc-pyright", "coc-rust-analyzer", "coc-snippets",
-    "coc-sql", "coc-tabnine", "coc-vimlsp", "coc-word", "coc-yaml", "coc-yank"
+  "coc-actions",
+  "coc-cmake",
+  "coc-clangd",
+  "coc-emoji",
+  "coc-explorer",
+  "coc-floaterm",
+  "coc-fzf-preview",
+  "coc-json",
+  "coc-lua",
+  "coc-markdownlint",
+  "coc-pyright",
+  "coc-rust-analyzer",
+  "coc-snippets",
+  "coc-sql",
+  "coc-tabnine",
+  "coc-vimlsp",
+  "coc-word",
+  "coc-yaml",
+  "coc-yank",
 }
 
 -- Some servers have issues with backup files, see #649.
@@ -27,31 +42,31 @@ vim.wo.signcolumn = "yes"
 -- NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 -- other plugin before putting this into your config.
 function check_back_space()
-    local col = vim.fn.col(".") - 1
-    if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
-        return true
-    else
-        return false
-    end
+  local col = vim.fn.col(".") - 1
+  if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+    return true
+  else
+    return false
+  end
 end
 
 vimp.inoremap({"expr", "silent"}, "<tab>", function()
-    if vim.fn.pumvisible() ~= 0 then
-        return "<C-n>"
+  if vim.fn.pumvisible() ~= 0 then
+    return "<C-n>"
+  else
+    if check_back_space() then
+      return "<tab>"
     else
-        if check_back_space() then
-            return "<tab>"
-        else
-            return vim.fn["coc#refresh"]()
-        end
+      return vim.fn["coc#refresh"]()
     end
+  end
 end)
 vimp.inoremap({"expr", "silent"}, "<S-tab>", function()
-    if vim.fn.pumvisible() ~= 0 then
-        return "<C-p>"
-    else
-        return "<C-h>"
-    end
+  if vim.fn.pumvisible() ~= 0 then
+    return "<C-p>"
+  else
+    return "<C-h>"
+  end
 end)
 
 -- Use <c-space> to trigger completion.
@@ -60,11 +75,11 @@ vimp.inoremap({"expr", "silent"}, "<C-space>", vim.fn["coc#refresh"])
 -- Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 -- position. Coc only does snippet and additional edit on confirm.
 vimp.inoremap({"expr"}, "<cr>", function()
-    if vim.fn.complete_info()["selected"] ~= "-1" then
-        return "<C-y>"
-    else
-        return "<C-g>u<cr>"
-    end
+  if vim.fn.complete_info()["selected"] ~= "-1" then
+    return "<C-y>"
+  else
+    return "<C-g>u<cr>"
+  end
 end)
 
 -- Snippets
@@ -88,14 +103,14 @@ vimp.nmap({"silent"}, "<space>l", "<Plug>(coc-codelense-action)")
 
 -- Use K to show documentation in preview window.
 function show_docs()
-    local cw = vim.fn.expand("<cword>")
-    if vim.fn.index({"vim", "help"}, vim.bo.filetype) >= 0 then
-        vim.cmd("h " .. cw)
-    elseif vim.fn["coc#rpc#ready"]() then
-        vim.fn.CocActionAsync("doHover")
-    else
-        vim.cmd("!" .. vim.o.keywordprg .. " " .. cw)
-    end
+  local cw = vim.fn.expand("<cword>")
+  if vim.fn.index({"vim", "help"}, vim.bo.filetype) >= 0 then
+    vim.cmd("h " .. cw)
+  elseif vim.fn["coc#rpc#ready"]() then
+    vim.fn.CocActionAsync("doHover")
+  else
+    vim.cmd("!" .. vim.o.keywordprg .. " " .. cw)
+  end
 end
 vimp.nmap({"silent"}, "K", ":lua show_docs()<cr>")
 
@@ -109,7 +124,7 @@ vimp.nmap({"silent"}, "<space>r", "<Plug>(coc-rename)")
 vimp.nmap({"silent"}, "<space>f", "<Plug>(coc-format)")
 vimp.xmap({"silent"}, "<space>f", "<Plug>(coc-format-selected)")
 vimp.nmap({"silent"}, "<leader>ps",
-          ":CocAction('runCommand', 'editor.action.organizeImport')<cr>")
+  ":CocAction('runCommand', 'editor.action.organizeImport')<cr>")
 
 vim.api.nvim_exec([[
         augroup mygroup
@@ -140,17 +155,17 @@ vimp.omap({"silent"}, "ac", "<Plug>(coc-classobj-a)")
 
 -- Remap <C-f> and <C-b> for scroll float windows/popups.
 vim.cmd(
-    [[nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"]])
+  [[nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"]])
 vim.cmd(
-    [[nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"]])
+  [[nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"]])
 vim.cmd(
-    [[inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"]])
+  [[inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"]])
 vim.cmd(
-    [[inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"]])
+  [[inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"]])
 vim.cmd(
-    [[vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"]])
+  [[vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"]])
 vim.cmd(
-    [[vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"]])
+  [[vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"]])
 
 -- Use <leader><tab> for selections ranges.
 -- Requires 'textDocument/selectionRange' support of language server.
@@ -166,8 +181,8 @@ vim.cmd([[command! -nargs=? Fold :call CocAction('fold', <f-args>)]])
 -- Add (Neo)Vim's native statusline support.
 -- NOTE: Please see `:h coc-status` for integrations with external plugins that
 -- provide custom statusline: lightline.vim, vim-airline.
-vim.o.statusline = "%{coc#status()}%{get(b:,'coc_current_function','')}" ..
-                       vim.o.statusline
+vim.o.statusline = "%{coc#status()}%{get(b:,'coc_current_function','')}"
+                     .. vim.o.statusline
 
 -- Mappings using CoCList:
 -- Show all diagnostics.
@@ -180,7 +195,7 @@ vimp.nnoremap({"silent"}, "<space>c", ":<C-u>CocList commands<cr>")
 vimp.nnoremap({"silent"}, "<space>o", ":<C-u>CocList --auto-preview outline<cr>")
 -- Search workspace symbols.
 vimp.nnoremap({"silent"}, "<space>s",
-              ":<C-u>CocList --interactive --auto-preview symbols<cr>")
+  ":<C-u>CocList --interactive --auto-preview symbols<cr>")
 -- Do default action for next item.
 vimp.nnoremap({"silent"}, "<space>]", ":<C-u>CocNext<cr>")
 -- Do default action for previous item.
