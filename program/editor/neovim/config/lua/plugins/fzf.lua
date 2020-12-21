@@ -1,8 +1,9 @@
-vim.api.nvim_exec(
-    [[
+vim.api.nvim_exec([[
 	nmap <Leader>p [fzf-p]
 	xmap <Leader>p [fzf-p]
 
+	nnoremap <silent> [fzf-p]f     :<C-u>CocCommand fzf-preview.ProjectFiles<cr>
+	nnoremap <silent> [fzf-p]h     :<C-u>CocCommand fzf-preview.FzfPreviewOldFiles<cr>
 	nnoremap <silent> [fzf-p]p     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
 	nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
 	nnoremap <silent> [fzf-p]ga    :<C-u>CocCommand fzf-preview.GitActions<CR>
@@ -18,6 +19,4 @@ vim.api.nvim_exec(
 	nnoremap <silent> [fzf-p]t     :<C-u>CocCommand fzf-preview.BufferTags<CR>
 	nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
 	nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
-	]],
-    false
-)
+	]], false)

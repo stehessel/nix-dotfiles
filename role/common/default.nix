@@ -84,8 +84,8 @@ in
     xsv
     # --- docker ---
     # docker-sync
-    unison
     fswatch
+    unison
     # --- editor ---
     kakoune
     neovim
@@ -129,8 +129,8 @@ in
     exa
     highlight
     # --- http ---
-    # http-prompt
-    # httpie
+    http-prompt
+    httpie
     # --- java ---
     maven
     # --- javascript ---

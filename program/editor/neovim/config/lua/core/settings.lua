@@ -1,6 +1,9 @@
 -- Compatibility with vi
 vim.o.compatible = false
 
+vim.o.shell = "bash"
+vim.cmd("let $SHELL = 'bash'")
+
 -- Set hidden buffers
 vim.o.hidden = true
 
@@ -26,7 +29,7 @@ vim.o.incsearch = true
 vim.o.hlsearch = true
 
 vim.g.grep_params =
-    " --files --ignore-case --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
+  " --files --ignore-case --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
 -- Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 vim.o.splitright = true
 vim.o.splitbelow = true
@@ -87,8 +90,7 @@ vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])
 -- Update binds when sxhkdrc is updated.
 vim.cmd([[autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd]])
 -- Save file as sudo on files that require root permission
-vim.cmd(
-    [[cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!]])
+vim.cmd([[cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!]])
 
 -- Clipboard
 vim.cmd("set clipboard+=unnamedplus")
