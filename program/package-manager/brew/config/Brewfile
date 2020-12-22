@@ -53,6 +53,8 @@ brew "glow"
 brew "gnu-sed"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
+# Little helper to run Rancher Lab's k3s in Docker
+brew "k3d"
 # Next-gen compiler infrastructure
 brew "llvm"
 # Ambitious Vim-fork focused on extensibility and agility
