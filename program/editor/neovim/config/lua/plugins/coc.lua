@@ -42,7 +42,7 @@ vim.cmd("set shortmess+=c")
 vim.wo.signcolumn = "yes"
 
 -- Use tab for trigger completion with characters ahead and navigate.
--- NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+-- NOTE: Use command ':verbose imap <Tab>' to make sure tab is not mapped by
 -- other plugin before putting this into your config.
 function check_back_space()
   local col = vim.fn.col(".") - 1
@@ -53,18 +53,18 @@ function check_back_space()
   end
 end
 
-vimp.inoremap({"expr", "silent"}, "<tab>", function()
+vimp.inoremap({"expr", "silent"}, "<Tab>", function()
   if vim.fn.pumvisible() ~= 0 then
     return "<C-n>"
   else
     if check_back_space() then
-      return "<tab>"
+      return "<Tab>"
     else
       return vim.fn["coc#refresh"]()
     end
   end
 end)
-vimp.inoremap({"expr", "silent"}, "<S-tab>", function()
+vimp.inoremap({"expr", "silent"}, "<S-Tab>", function()
   if vim.fn.pumvisible() ~= 0 then
     return "<C-p>"
   else
@@ -86,11 +86,8 @@ vimp.inoremap({"expr"}, "<cr>", function()
 end)
 
 -- Snippets
-vimp.inoremap({"silent"}, "<C-l>", "<Plug>(coc-snippets-expand)")
-vimp.vnoremap({"silent"}, "<C-j>", "<Plug>(coc-snippets-select)")
-vimp.inoremap({"silent"}, "<C-j>", "<Plug>(coc-snippets-expand-jump)")
-vim.g.coc_snippet_next = "<C-j>"
-vim.g.coc_snippet_prev = "<C-k>"
+vim.g.coc_snippet_next = "<Tab>"
+vim.g.coc_snippet_prev = "<S-Tab>"
 
 -- Use `[g` and `]g` to navigate diagnostics
 vimp.nmap({"silent"}, "[g", "<Plug>(coc-diagnostic-prev)")
@@ -170,10 +167,10 @@ vim.cmd(
 vim.cmd(
   [[vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"]])
 
--- Use <leader><tab> for selections ranges.
+-- Use <leader><Tab> for selections ranges.
 -- Requires 'textDocument/selectionRange' support of language server.
-vimp.nmap({"silent"}, "<leader><tab>", "<Plug>(coc-range-select)")
-vimp.xmap({"silent"}, "<leader><tab>", "<Plug>(coc-range-select)")
+vimp.nmap({"silent"}, "<leader><Tab>", "<Plug>(coc-range-select)")
+vimp.xmap({"silent"}, "<leader><Tab>", "<Plug>(coc-range-select)")
 
 -- Add `:Format` command to format current buffer.
 vim.cmd([[command! -nargs=0 Format :call CocAction('format')]])

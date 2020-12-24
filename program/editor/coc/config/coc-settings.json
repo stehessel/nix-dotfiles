@@ -11,6 +11,7 @@
   "explorer.openAction.for.directory": "",
   "explorer.previewAction.onHover": false,
   "python.formatting.provider": "black",
+  "snippets.textmateSnippetsRoots": ["~/dev/snippets"],
   "languageserver": {
     "bash": {
       "command": "bash-language-server",

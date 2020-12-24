@@ -274,7 +274,6 @@ return require("packer").startup({
     use {"nvim-treesitter/playground", requires = "nvim-treesitter/nvim-treesitter"}
     use "tpope/vim-endwise"
     -- Snippets
-    -- use 'honza/vim-snippets'
     -- Debugger
     use {
       "puremourning/vimspector",

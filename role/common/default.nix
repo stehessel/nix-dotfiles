@@ -191,5 +191,7 @@ in
     svgcleaner
     topgrade
     wget
+    # --- web ---
+    hugo
   ];
 }
