@@ -10,6 +10,8 @@
   "explorer.icon.enableNerdfont": true,
   "explorer.openAction.for.directory": "",
   "explorer.previewAction.onHover": false,
+  "Lua.runtime.version": "LuaJIT",
+  "Lua.diagnostics.globals": ["use", "vim", "vimp"],
   "python.formatting.provider": "black",
   "snippets.textmateSnippetsRoots": ["~/dev/snippets"],
   "languageserver": {
@@ -55,10 +57,6 @@
           "hlintOn": true
         }
       }
-    },
-    "lua": {
-      "command": "lua-lsp",
-      "filetypes": ["lua"]
     },
     "nix": {
       "command": "rnix-lsp",

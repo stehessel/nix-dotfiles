@@ -34,10 +34,11 @@ return require("packer").startup({
     -- Git
     use {
       "APZelos/blamer.nvim",
+      after = "vimpeccable",
       cmd = {"BlamerToggle", "BlamerShow", "BlamerHide"},
       config = function()
-        vim.g.blamer_delay = 250
         require("vimp")
+        vim.g.blamer_delay = 250
         vimp.nnoremap({"silent"}, "<leader>gB", ":BlamerToggle<cr>")
       end,
     }
@@ -50,6 +51,7 @@ return require("packer").startup({
     }
     use {
       "tpope/vim-fugitive",
+      after = "vimpeccable",
       config = function()
         require("vimp")
         vimp.nnoremap({"silent"}, "<leader>gg", ":Git<cr>")
@@ -63,6 +65,7 @@ return require("packer").startup({
     -- use "lambdalisue/gina.vim"
     use {
       "rbong/vim-flog",
+      after = "vimpeccable",
       config = function()
         require("vimp")
         vimp.nnoremap({"silent"}, "<leader>gt", ":Flog<CR>")
@@ -102,7 +105,7 @@ return require("packer").startup({
                             nmap <leader>fgf :GFiles<CR>
                             nmap <leader>fgs :GFiles?<CR>
                             nmap <leader>fl  :Lines<CR>
-                            nmap <leader>f/  :Rg
+                            nmap <leader>f/  :Rg<CR>
                             nmap <leader>fm  :Marks<CR>
                             nmap <leader>ft  :Tags<CR>
                             nmap <leader>fbt :BTags<CR>
@@ -160,6 +163,7 @@ return require("packer").startup({
     -- Start screen
     use {
       "mhinz/vim-startify",
+      after = "vimpeccable",
       config = function()
         vim.g.startify_session_persistence = 1
         vim.g.startify_update_oldfiles = 1
@@ -184,7 +188,9 @@ return require("packer").startup({
     }
     use {
       "voldikss/vim-skylight",
+      after = "vimpeccable",
       config = function()
+        require("vimp")
         vimp.nnoremap({"silent"}, "go", ":SkylightJumpTo<cr>")
         vimp.nnoremap({"silent"}, "gp", ":SkylightPreview<cr>")
       end,
@@ -216,7 +222,7 @@ return require("packer").startup({
     -- Python
     use {
       "python-rope/ropevim",
-      -- after = "vimpeccable",
+      after = "vimpeccable",
       config = function()
         vim.g.ropevim_local_prefix = "<M-r>"
         vim.g.ropevim_global_prefix = "<M-p>"
@@ -273,7 +279,6 @@ return require("packer").startup({
     }
     use {"nvim-treesitter/playground", requires = "nvim-treesitter/nvim-treesitter"}
     use "tpope/vim-endwise"
-    -- Snippets
     -- Debugger
     use {
       "puremourning/vimspector",
@@ -294,7 +299,6 @@ return require("packer").startup({
     --         require("dap-python").setup("python")
     --         require("dap-python").test_runner = "pytest"
     --
-    --         require("vimp")
     --         vimp.nnoremap({"silent"}, "<F4>", require("dap").list_breakpoints)
     --         vimp.nnoremap({"silent"}, "<F5>", require("dap").continue)
     --         vimp.nnoremap({"silent"}, "<F6>", require("dap").repl.toggle)
@@ -337,7 +341,7 @@ return require("packer").startup({
     -- Syntax highlighters
     use {
       "numirias/semshi",
-      -- after = "vimpeccable",
+      after = "vimpeccable",
       config = function()
         require("vimp")
         vimp.nnoremap({"silent"}, "<leader>rn", ":Semshi rename<cr>")
@@ -410,7 +414,7 @@ return require("packer").startup({
     -- use 'ipselium/vim-cpyvke'
     use {
       "kassio/neoterm",
-      -- after = "vimpeccable",
+      after = "vimpeccable",
       config = function()
         vim.g.neoterm_default_mod = "rightbelow vertical"
         vim.g.neoterm_autoinsert = 1
@@ -433,7 +437,7 @@ return require("packer").startup({
     }
     use {
       "hkupty/iron.nvim",
-      -- after = "vimpeccable",
+      after = "vimpeccable",
       config = function()
         local iron = require("iron")
 
@@ -516,7 +520,7 @@ return require("packer").startup({
     }
     use {
       "junegunn/vim-easy-align",
-      -- after = "vimpeccable",
+      after = "vimpeccable",
       cmd = "EasyAlign",
       setup = function()
         require("vimp")
@@ -541,7 +545,7 @@ return require("packer").startup({
     use "matze/vim-move"
     use {
       "machakann/vim-swap",
-      -- after = "vimpeccable",
+      after = "vimpeccable",
       config = function()
         require("vimp")
         vimp.rbind("ox", "i,", "<Plug>(swap-textobject-i)")
@@ -551,7 +555,7 @@ return require("packer").startup({
     use "mg979/vim-visual-multi"
     use {
       "nicwest/vim-camelsnek",
-      -- after = "vimpeccable",
+      after = "vimpeccable",
       config = function()
         require("vimp")
         vimp.nnoremap({"silent"}, "<leader>xs", ":Snek<cr>")
@@ -570,7 +574,7 @@ return require("packer").startup({
     -- Text substitution
     use {
       "svermeulen/vim-subversive",
-      -- after = "vimpeccable",
+      after = "vimpeccable",
       config = function()
         vim.cmd [[nmap s <Plug>(SubversiveSubstitute)]]
         vim.cmd [[nmap ss <Plug>(SubversiveSubstituteLine)]]
@@ -624,6 +628,7 @@ return require("packer").startup({
     use "moll/vim-bbye"
     use {
       "wfxr/minimap.vim",
+      after = "vimpeccable",
       config = function()
         require("vimp")
         vimp.nnoremap({"silent"}, "<leader>C", ":MinimapToggle<cr>")
@@ -647,7 +652,6 @@ return require("packer").startup({
           ["data_catalog/*.py"] = {["alternate"] = "tests/unit/test_{}.py"},
         }
 
-        require("vimp")
         -- vimp.nnoremap({"silent"}, "go", ":A<cr>")
       end,
     }
@@ -658,7 +662,6 @@ return require("packer").startup({
       config = function()
         vim.g["far#source"] = "rgnvim"
 
-        require("vimp")
         -- vimp.nnoremap({"silent"}, "<leader>rf", ":Farf<cr>")
         -- vimp.xnoremap({"silent"}, "<leader>rf", ":Farf<cr>")
         -- vimp.nnoremap({"silent"}, "<leader>rr", ":Farr<cr>")
@@ -667,10 +670,17 @@ return require("packer").startup({
     }
     use {"inkarkat/vim-SearchAlternatives", requires = "inkarkat/vim-ingo-library"}
     -- use 'pgdouyon/vim-evanesco'
+    -- use {
+    --   "gabrielpoca/replacer.nvim",
+    --   config = function()
+    --     vimp.nnoremap({"silent"}, "<leader>R", require("replacer").run())
+    --   end,
+    -- }
     -- Copy/paste
     use "machakann/vim-highlightedyank"
     use {
       "svermeulen/vim-yoink",
+      after = "vimpeccable",
       config = function()
         require("vimp")
         vimp.nmap({"silent"}, "<M-]>", "<Plug>(YoinkPostPasteSwapBack)")
