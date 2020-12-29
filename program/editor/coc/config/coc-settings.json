@@ -14,6 +14,7 @@
   "Lua.diagnostics.globals": ["use", "vim", "vimp"],
   "python.formatting.provider": "black",
   "snippets.textmateSnippetsRoots": ["~/dev/snippets"],
+  "yaml.schemas": {"/Users/lgtf/dev/schemas/cds/cds-schema.json": ["/core_data_snapshotter.yml"]},
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
