@@ -82,10 +82,6 @@ in
     tokei
     universal-ctags
     xsv
-    # --- docker ---
-    # docker-sync
-    fswatch
-    unison
     # --- editor ---
     kakoune
     neovim
