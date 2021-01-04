@@ -1,4 +1,5 @@
 tap "atlassian/tap"
+tap "austinjones/taps"
 tap "federico-terzi/espanso"
 tap "getsentry/tools"
 tap "homebrew/bundle"
@@ -79,6 +80,8 @@ brew "whalebrew"
 brew "zlib"
 # Set of tools and dependencies for plugins on Atlassian server applications
 brew "atlassian/tap/atlassian-plugin-sdk"
+# The intuitive, config-driven terminal multiplexer designed for software & systems engineers
+brew "austinjones/taps/tab"
 # Cross-platform Text Expander written in Rust
 brew "federico-terzi/espanso/espanso"
 # Sentry command-line client for some generic tasks

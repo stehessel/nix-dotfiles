@@ -11,10 +11,6 @@ vim.o.hidden = true
 vim.o.linebreak = true
 vim.o.breakindent = true
 
--- Shell
--- vim.o.shell = "$HOME/.nix-profile/bin/bash"
--- vim.cmd("let $SHELL='/Users/lgtf/.nix-profile/bin/bash'")
-
 -- Sessions
 vim.cmd("set sessionoptions+=tabpages,globals,winpos,winsize,blank,resize")
 -- do not store global and local values in a session
@@ -98,7 +94,7 @@ vim.cmd("set go=a")
 
 -- Javescript
 vim.g.loaded_node_provider = 0
-vim.g.node_host_prog = "$HOME/.npm-packages/bin/neovim-node-host"
+vim.g.node_host_prog = "$HOME/.npm-packages/lib/node_modules/neovim/bin/cli.js"
 -- Perl
 vim.g.loaded_perl_provider = 0
 -- Python

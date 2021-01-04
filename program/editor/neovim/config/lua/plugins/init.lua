@@ -37,7 +37,6 @@ return require("packer").startup({
       after = "vimpeccable",
       cmd = {"BlamerToggle", "BlamerShow", "BlamerHide"},
       config = function()
-        require("vimp")
         vim.g.blamer_delay = 250
         vimp.nnoremap({"silent"}, "<leader>gB", ":BlamerToggle<cr>")
       end,
@@ -53,7 +52,6 @@ return require("packer").startup({
       "tpope/vim-fugitive",
       after = "vimpeccable",
       config = function()
-        require("vimp")
         vimp.nnoremap({"silent"}, "<leader>gg", ":Git<cr>")
         vimp.nnoremap({"silent"}, "<leader>gb", ":Git blame<cr>")
         vimp.nnoremap({"silent"}, "<leader>gc", ":Git commit<cr>")
@@ -67,7 +65,6 @@ return require("packer").startup({
       "rbong/vim-flog",
       after = "vimpeccable",
       config = function()
-        require("vimp")
         vimp.nnoremap({"silent"}, "<leader>gt", ":Flog<CR>")
       end,
     }
@@ -168,7 +165,6 @@ return require("packer").startup({
         vim.g.startify_session_persistence = 1
         vim.g.startify_update_oldfiles = 1
 
-        require("vimp")
         vimp.nnoremap({"silent"}, "<leader>h", ":Startify<cr>")
         vimp.nnoremap({"silent"}, "<leader>Ss", ":SSave!")
         vimp.nnoremap({"silent"}, "<leader>Sl", ":SLoad")
@@ -190,7 +186,6 @@ return require("packer").startup({
       "voldikss/vim-skylight",
       after = "vimpeccable",
       config = function()
-        require("vimp")
         vimp.nnoremap({"silent"}, "go", ":SkylightJumpTo<cr>")
         vimp.nnoremap({"silent"}, "gp", ":SkylightPreview<cr>")
       end,
@@ -249,7 +244,6 @@ return require("packer").startup({
         vim.g.ropevim_enable_autoimport = 1
         vim.g.ropevim_guess_project = 1
 
-        require("vimp")
         vimp.nnoremap({"silent"}, "<M-,>", ":RopeCodeAssist<cr>")
         vimp.nnoremap({"silent"}, "<M-.>", ":RopeLuckyAssist<cr>")
         vimp.nnoremap({"silent"}, "<M-cr>", ":RopeAutoImport<cr>")
@@ -343,7 +337,6 @@ return require("packer").startup({
       "numirias/semshi",
       after = "vimpeccable",
       config = function()
-        require("vimp")
         vimp.nnoremap({"silent"}, "<leader>rn", ":Semshi rename<cr>")
         vimp.nnoremap({"silent"}, "<Space><Tab>", ":Semshi goto name next<cr>")
         vimp.nnoremap({"silent"}, "<Space><S-Tab>", ":Semshi goto name prev<cr>")
@@ -416,10 +409,10 @@ return require("packer").startup({
       "kassio/neoterm",
       after = "vimpeccable",
       config = function()
-        vim.g.neoterm_default_mod = "rightbelow vertical"
         vim.g.neoterm_autoinsert = 1
+        vim.g.neoterm_default_mod = "rightbelow vertical"
+        vim.g.neoterm_shell = "fish"
 
-        require("vimp")
         vimp.nnoremap({"silent"}, "<leader>Tt", ":Ttoggle<cr>")
         vimp.nnoremap({"silent"}, "<leader>Tr", ":TREPLSetTerm<cr>")
         vimp.nnoremap({"silent"}, "<leader>Tf", ":TREPLSendFile<cr>")
@@ -439,25 +432,22 @@ return require("packer").startup({
       "hkupty/iron.nvim",
       after = "vimpeccable",
       config = function()
-        local iron = require("iron")
+        require("iron").core.set_config({preferred = {python = "ipython"}})
 
-        iron.core.set_config {preferred = {python = "ipython"}}
-
-        require("vimp")
         vimp.nnoremap({"silent"}, "<leader>it", ":IronRepl python<cr><ESC>")
         vimp.nnoremap({"silent"}, "<leader>if", ":IronFocus python<cr>")
         vimp.nnoremap({"silent"}, "<leader>ir", ":IronRestart<cr>")
         vimp.nnoremap({"silent"}, "<leader>iw", ":IronWatchCurrentFile")
         vimp.nnoremap({"silent"}, "<leader>iu", ":IronUnwatchCurrentFile<cr>")
 
-        -- vimp.nmap({"silent"}, "<localleader>s", "<Plug>iron-send-motion")
-        -- vimp.vmap({"silent"}, "<localleader>s", "<Plug>iron-visual-send")
-        -- vimp.vmap({"silent"}, "<localleader>r", "<Plug>iron-repeat-cmd")
-        vimp.vmap({"silent"}, "<localleader>l", "<Plug>iron-send-line")
-        vimp.vmap({"silent"}, "<localleader><cr>", "<Plug>iron-cr")
-        vimp.vmap({"silent"}, "<localleader>i", "<Plug>iron-interrupt")
-        vimp.vmap({"silent"}, "<localleader>q", "<Plug>iron-exit")
-        vimp.vmap({"silent"}, "<localleader>c", "<Plug>iron-clear")
+        vimp.nmap({"silent"}, "<localleader>s", "<Plug>(iron-send-motion)")
+        vimp.vmap({"silent"}, "<localleader>s", "<Plug>iron-visual-send")
+        vimp.vmap({"silent"}, "<localleader>r", "<Plug>iron-repeat-cmd")
+        vimp.vmap({"silent"}, "<localleader>l", "<Plug>(iron-send-line)")
+        vimp.vmap({"silent"}, "<localleader><cr>", "<Plug>(iron-cr)")
+        vimp.vmap({"silent"}, "<localleader>i", "<Plug>(iron-interrupt)")
+        vimp.vmap({"silent"}, "<localleader>q", "<Plug>(iron-exit)")
+        vimp.vmap({"silent"}, "<localleader>c", "<Plug>(iron-clear)")
       end,
     }
     use "tpope/vim-markdown"
@@ -547,7 +537,6 @@ return require("packer").startup({
       "machakann/vim-swap",
       after = "vimpeccable",
       config = function()
-        require("vimp")
         vimp.rbind("ox", "i,", "<Plug>(swap-textobject-i)")
         vimp.rbind("ox", "a,", "<Plug>(swap-textobject-a)")
       end,
@@ -557,7 +546,6 @@ return require("packer").startup({
       "nicwest/vim-camelsnek",
       after = "vimpeccable",
       config = function()
-        require("vimp")
         vimp.nnoremap({"silent"}, "<leader>xs", ":Snek<cr>")
         vimp.xnoremap({"silent"}, "<leader>xs", ":Snek<cr>")
         vimp.nnoremap({"silent"}, "<leader>xc", ":Camel<cr>")
@@ -592,7 +580,6 @@ return require("packer").startup({
         vim.cmd [[xmap <leader>cs <Plug>(SubversiveSubstituteRangeConfirm)]]
         vim.cmd [[nmap <leader>css <Plug>(SubversiveSubstituteWordRangeConfirm)]]
 
-        require("vimp")
         -- ie = inner entire buffer
         vimp.onoremap({"silent"}, "ie", [[:exec "normal! ggVG"<cr>]])
         -- iv = current viewable text in the buffer
@@ -630,7 +617,6 @@ return require("packer").startup({
       "wfxr/minimap.vim",
       after = "vimpeccable",
       config = function()
-        require("vimp")
         vimp.nnoremap({"silent"}, "<leader>C", ":MinimapToggle<cr>")
       end,
     }
@@ -682,7 +668,6 @@ return require("packer").startup({
       "svermeulen/vim-yoink",
       after = "vimpeccable",
       config = function()
-        require("vimp")
         vimp.nmap({"silent"}, "<M-]>", "<Plug>(YoinkPostPasteSwapBack)")
         vimp.nmap({"silent"}, "<M-[>", "<Plug>(YoinkPostPasteSwapForward)")
         vimp.rbind("nx", {"silent"}, "y", "<Plug>(YoinkYankPreserveCursorPosition)")
