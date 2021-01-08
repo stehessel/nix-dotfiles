@@ -1,6 +1,6 @@
 {
   "coc.preferences.colorSupport": false,
-  "coc.preferences.formatOnSaveFiletypes": ["lua", "python", "rust"],
+  "coc.preferences.formatOnSaveFiletypes": ["lua", "rust"],
   "suggest.numberSelect": false,
   "suggest.maxCompleteItemCount": 20,
   "suggest.triggerCompletionWait": 50,
