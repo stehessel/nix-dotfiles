@@ -25,15 +25,20 @@ default_flags = ""
 [[verbs]]
 invocation = "edit"
 key = "Enter"
-# execution = "edit {file}; or $EDITOR {file}"
 execution = "$EDITOR {file}"
-leave_broot = "false"
+apply_to = "file"
+
+[[verbs]]
+invocation = "edit"
+key = "Enter"
+execution = "cd {directory}"
+apply_to = "directory"
 
 [[verbs]]
 invocation = "edit"
 key = "alt-Enter"
 execution = "nvr {file}"
-leave_broot = "false"
+leave_broot = false
 
 [[verbs]]
 key = "ctrl-c"

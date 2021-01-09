@@ -64,7 +64,7 @@ vim.wo.relativenumber = true
 
 -- Undo
 vim.bo.undofile = true
-vim.o.undodir = "~/.config/nvim/undo"
+vim.o.undodir = os.getenv("HOME") .. "/.config/nvim/undo"
 
 -- Mouse
 vim.o.mouse = "a"
