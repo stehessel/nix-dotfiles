@@ -30,6 +30,11 @@ tools:
     format-command: "goimports"
     format-stdin: true
 
+  hadolint: &hadolint
+    lint-command: "hadolint"
+    lint-formats:
+      - "%f:%l %m"
+
   isort: &isort
     format-command: "isort --stdout -"
     format-stdin: true
@@ -52,10 +57,6 @@ tools:
     lint-formats:
       - "%t%*[A-Z] %f:%l %m"
 
-  terraform: &terraform
-    format-command: "terraform fmt -"
-    format-stdin: true
-
   shellcheck: &shellcheck
     lint-command: "shellcheck -f gcc -x -"
     lint-stdin: true
@@ -64,6 +65,19 @@ tools:
 
   shfmt: &shfmt
     format-command: "shfmt -ln bash -i 2 -bn -ci -sr -kp"
+    format-stdin: true
+
+  spectral: &spectral
+    lint-command: "spectral lint --format=text ${INPUT}"
+    lint-stdin: false
+    lint-ignore-exit-code: true
+    lint-formats:
+      - "%f:%l:%c %trror %m"
+      - "%f:%l:%c %tarning %m"
+      - "%f:%l:%c %tnfo %m"
+
+  terraform: &terraform
+    format-command: "terraform fmt -"
     format-stdin: true
 
   vale: &vale
@@ -82,6 +96,8 @@ tools:
 languages:
   css:
     - <<: *prettier
+  dockerfile:
+    - <<: *hadolint
   go:
     - <<: *goimports
     - <<: *golint
@@ -99,6 +115,7 @@ languages:
     - <<: *prettier
   json:
     - <<: *prettier
+    - <<: *spectral
   markdown:
     - <<: *prettier
     - <<: *vale
@@ -128,3 +145,4 @@ languages:
     - <<: *vim-vint
   yaml:
     - <<: *prettier
+    - <<: *spectral

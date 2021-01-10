@@ -75,14 +75,16 @@ in
     gdb
     # --- data ---
     jq
-    yq
     # visidata
+    yq
     # --- dev ---
     editorconfig-core-c
     pgformatter
     tokei
     universal-ctags
     xsv
+    # ---  docker ---
+    hadolint
     # --- editor ---
     kakoune
     neovim
