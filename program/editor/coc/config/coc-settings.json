@@ -12,7 +12,10 @@
   "explorer.previewAction.onHover": false,
   "Lua.runtime.version": "LuaJIT",
   "Lua.diagnostics.globals": ["use", "vim", "vimp"],
+  "python.analysis.typeCheckingMode": "off",
   "python.formatting.provider": "black",
+  "python.linting.pylintEnabled": true,
+  "python.linting.flake8Enabled": true,
   "snippets.textmateSnippetsRoots": ["~/dev/snippets"],
   "yaml.schemas": {"/Users/lgtf/dev/schemas/cds/cds-schema.json": ["/core_data_snapshotter.yml"]},
   "languageserver": {
