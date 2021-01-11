@@ -223,6 +223,7 @@ return require("packer").startup({
         vim.g.ropevim_global_prefix = "<M-p>"
         vim.g.ropevim_autoimport_modules = {
           "abc",
+          "ansible",
           "contextlib",
           "dask.*",
           "datetime",
@@ -237,6 +238,8 @@ return require("packer").startup({
           "pickle",
           "pytest",
           "requests",
+          "scipy",
+          "subprocess",
           "tenacity",
           "typing",
           "uuid",
