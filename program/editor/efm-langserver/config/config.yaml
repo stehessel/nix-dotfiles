@@ -47,6 +47,10 @@ tools:
     format-command: "pandoc -f rst -t rst -s --columns=90"
     format-stdin: true
 
+  pgformatter: &pgformatter
+    format-command: "pg_format --maxlength=120 -"
+    format-stdin: true
+
   prettier: &prettier
     format-command: "prettier ${--config-precedence:configPrecedence} ${--tab-width:tabWidth} ${--single-quote:singleQuote} ${--trailing-comma:trailingComma}"
 
@@ -133,6 +137,8 @@ languages:
   sh:
     - <<: *shellcheck
     - <<: *shfmt
+  sql:
+    - <<: *pgformatter
   text:
     - <<: *vale
   tf:
