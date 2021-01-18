@@ -16,7 +16,7 @@
   "python.formatting.provider": "black",
   "python.linting.pylintEnabled": true,
   "snippets.textmateSnippetsRoots": ["~/dev/snippets"],
-  "yaml.schemas": {"/Users/lgtf/git/sc-deploy/deploy/schemas/core-data-snapshotter/schema.json": ["/core_data_snapshotter.yml"]},
+  "yaml.schemas": {"/Users/lgtf/git/sc-deploy/deploy/schemas/core-data-snapshotter/schema_ide.json": ["/core_data_snapshotter.yml"]},
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
