@@ -14,7 +14,7 @@
   "Lua.diagnostics.globals": ["use", "vim", "vimp"],
   "python.analysis.typeCheckingMode": "off",
   "python.formatting.provider": "black",
-  "python.linting.pylintEnabled": true,
+  "python.linting.flake8Enabled": true,
   "snippets.textmateSnippetsRoots": ["~/dev/snippets"],
   "yaml.schemas": {"/Users/lgtf/git/sc-deploy/deploy/schemas/core-data-snapshotter/schema_ide.json": ["/core_data_snapshotter.yml"]},
   "languageserver": {
