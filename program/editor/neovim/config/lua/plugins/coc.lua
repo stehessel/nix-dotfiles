@@ -3,7 +3,6 @@ require("core.settings")
 
 -- Extensions
 vim.g.coc_global_extensions = {
-  "coc-actions",
   "coc-cmake",
   "coc-clangd",
   "coc-emoji",
@@ -19,7 +18,7 @@ vim.g.coc_global_extensions = {
   "coc-snippets",
   "coc-sql",
   "coc-swagger",
-  "coc-tabnine",
+  -- "coc-tabnine",
   "coc-toml",
   "coc-vimlsp",
   "coc-word",
@@ -44,7 +43,7 @@ vim.wo.signcolumn = "yes"
 -- Use tab for trigger completion with characters ahead and navigate.
 -- NOTE: Use command ':verbose imap <Tab>' to make sure tab is not mapped by
 -- other plugin before putting this into your config.
-function check_back_space()
+function Check_back_space()
   local col = vim.fn.col(".") - 1
   if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
     return true
@@ -57,7 +56,7 @@ vimp.inoremap({"expr", "silent"}, "<Tab>", function()
   if vim.fn.pumvisible() ~= 0 then
     return "<C-n>"
   else
-    if check_back_space() then
+    if Check_back_space() then
       return "<Tab>"
     else
       return vim.fn["coc#refresh"]()
@@ -102,7 +101,7 @@ vimp.nmap({"silent"}, "gr", "<Plug>(coc-references)")
 vimp.nmap({"silent"}, "<space>l", "<Plug>(coc-codelense-action)")
 
 -- Use K to show documentation in preview window.
-function show_docs()
+function Show_docs()
   local cw = vim.fn.expand("<cword>")
   if vim.fn.index({"vim", "help"}, vim.bo.filetype) >= 0 then
     vim.cmd("h " .. cw)
@@ -112,7 +111,7 @@ function show_docs()
     vim.cmd("!" .. vim.o.keywordprg .. " " .. cw)
   end
 end
-vimp.nmap({"silent"}, "K", ":lua show_docs()<cr>")
+vimp.nmap({"silent"}, "K", ":lua Show_docs()<cr>")
 
 -- Highlight the symbol and its references when holding the cursor.
 -- autocmd CursorHold * silent call CocActionAsync('highlight')

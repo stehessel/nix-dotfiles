@@ -1,6 +1,12 @@
 {
   "coc.preferences.colorSupport": false,
   "coc.preferences.formatOnSaveFiletypes": ["lua", "rust"],
+  "coc.preferences.rootPatterns": [
+  	".git",
+  	".hg",
+  	".projections.json",
+	".root"
+  ],
   "suggest.numberSelect": false,
   "suggest.maxCompleteItemCount": 20,
   "suggest.triggerCompletionWait": 50,

@@ -1,6 +1,7 @@
 version: 2
 root-markers:
   - .git/
+  - .root
 
 provide-definition: true
 
@@ -120,6 +121,9 @@ languages:
     - <<: *eslint
     - <<: *prettier
   json:
+    - <<: *prettier
+    - <<: *spectral
+  jsonc:
     - <<: *prettier
     - <<: *spectral
   markdown:

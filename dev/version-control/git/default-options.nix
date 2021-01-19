@@ -7,6 +7,9 @@
     "*.pyc"
     ".ropeproject"
 
+    # Custom root marker
+    ".root"
+
     # Temp files
     "*~"
 

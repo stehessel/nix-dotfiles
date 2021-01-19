@@ -175,13 +175,39 @@ return require("packer").startup({
     -- LSP
     use {
       "neoclide/coc.nvim",
-      run = function()
-        vim.fn["coc#util#install"]()
-      end,
+	  after = "vimpeccable",
       config = function()
         require("plugins.coc")
       end,
+      run = function()
+        vim.fn["coc#util#install"]()
+      end,
     }
+    use {
+      "neovim/nvim-lspconfig",
+	  after = "completion-nvim",
+      config = function()
+        require("plugins.lsp")
+      end,
+      disable=true,
+    }
+	use {
+		"nvim-lua/completion-nvim",
+		config = function()
+      vim.api.nvim_exec([[
+      inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+      inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+      set completeopt=menuone,noinsert,noselect
+
+      set shortmess+=c
+
+      imap <tab> <Plug>(completion_smart_tab)
+      imap <s-tab> <Plug>(completion_smart_s_tab)
+      ]], false)
+		end,
+    disable=true
+	}
     use {
       "voldikss/vim-skylight",
       after = "vimpeccable",
@@ -720,7 +746,8 @@ return require("packer").startup({
     use {
       "airblade/vim-rooter",
       config = function()
-        vim.g.rooter_silent_chdir = 1
+        vim.g.rooter_silent_chdir = 0
+        vim.g.rooter_patterns = {".git", ".root"}
       end,
     }
     -- Autosave
