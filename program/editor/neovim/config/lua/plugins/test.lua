@@ -38,4 +38,5 @@ vim.api.nvim_exec([[
 vim.cmd [[augroup raq_tests]]
 vim.cmd [[autocmd!]]
 vim.cmd [[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#transformation = "pytest-debug"']]
+vim.cmd [[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#project_root = "$HOME/git/raq"']]
 vim.cmd [[augroup END]]
