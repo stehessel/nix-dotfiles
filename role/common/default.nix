@@ -190,6 +190,8 @@ in
     svgcleaner
     topgrade
     wget
+    # --- watcher ---
+    watchman
     # --- web ---
     hugo
   ];
