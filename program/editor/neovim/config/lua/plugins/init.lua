@@ -189,25 +189,9 @@ return require("packer").startup({
       config = function()
         require("plugins.lsp")
       end,
-      disable = true,
+	  disable = true
     }
-    use {
-      "nvim-lua/completion-nvim",
-      config = function()
-        vim.api.nvim_exec([[
-      inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-      inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-      set completeopt=menuone,noinsert,noselect
-
-      set shortmess+=c
-
-      imap <tab> <Plug>(completion_smart_tab)
-      imap <s-tab> <Plug>(completion_smart_s_tab)
-      ]], false)
-      end,
-      disable = true,
-    }
+    use { "nvim-lua/completion-nvim" }
     use {
       "voldikss/vim-skylight",
       after = "vimpeccable",
@@ -215,22 +199,11 @@ return require("packer").startup({
         vimp.nnoremap({"silent"}, "go", ":SkylightJumpTo<cr>")
         vimp.nnoremap({"silent"}, "gp", ":SkylightPreview<cr>")
       end,
+	  disable = true
     }
-    -- use 'neovim/nvim-lsp'
-    -- use 'nvim-lua/diagnostic-nvim'
-    -- Completion
-    -- use 'nvim-lua/completion-nvim'
     -- use 'nvim-treesitter/completion-treesitter'
     -- use 'steelsojka/completion-buffers'
-    -- Linters
-    -- use {
-    --     "dense-analysis/ale",
-    --     config = function()
-    --         vim.g.ale_fixers = {["python"] = {"black"}}
-    --         vim.g.ale_linters = {["python:"] = {"flake8", "pylint", "pyright"}}
-    --         vim.g.ale_disable_lsp = 1
-    --     end
-    -- }
+    -- use 'nvim-lua/diagnostic-nvim'
     use {
       "kkoomen/vim-doge",
       config = function()
