@@ -10,12 +10,11 @@ function raq-env --description "Create raq environment."
 		ipython \
 		pdbpp \
 		pipdeptree \
-		pre-commit \
 		pylint \
 		turbodbc \
 		-y
 
-	set -x RAQ_SKIP_REQUIREMENTS nbsystem,psapp,nbpy,neurobayes_runtime,boost_gcc_5,vasco_payload_db_lite,nbsystem_local_executor,bydbaccess,turbodbc,pyarrow
+	set -x RAQ_SKIP_REQUIREMENTS vasco_payload_db_lite,turbodbc,pyarrow
 	pushd $HOME/git/raq
 	./bootstrap
 	popd
@@ -26,6 +25,7 @@ function raq-env --description "Create raq environment."
 
 	pip install \
 		data-science-types \
+		pre-commit \
 		pycln \
 		pytest-xdist \
 		rope \

@@ -659,7 +659,13 @@ return require("packer").startup({
     use "tmux-plugins/vim-tmux-focus-events"
     -- File explorer
     -- use {"kyazdani42/nvim-tree.lua"}
-    use {"ms-jpq/chadtree", run = "python3 -m chadtree deps"}
+    use {
+      "ms-jpq/chadtree",
+      config = function()
+        require("chadtree")
+      end,
+      run = "python3 -m chadtree deps",
+    }
     -- Projects
     use {
       "tpope/vim-projectionist",
