@@ -175,7 +175,7 @@ return require("packer").startup({
     -- LSP
     use {
       "neoclide/coc.nvim",
-	  after = "vimpeccable",
+      after = "vimpeccable",
       config = function()
         require("plugins.coc")
       end,
@@ -185,16 +185,16 @@ return require("packer").startup({
     }
     use {
       "neovim/nvim-lspconfig",
-	  after = "completion-nvim",
+      after = "completion-nvim",
       config = function()
         require("plugins.lsp")
       end,
-      disable=true,
+      disable = true,
     }
-	use {
-		"nvim-lua/completion-nvim",
-		config = function()
-      vim.api.nvim_exec([[
+    use {
+      "nvim-lua/completion-nvim",
+      config = function()
+        vim.api.nvim_exec([[
       inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
       inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
@@ -205,9 +205,9 @@ return require("packer").startup({
       imap <tab> <Plug>(completion_smart_tab)
       imap <s-tab> <Plug>(completion_smart_s_tab)
       ]], false)
-		end,
-    disable=true
-	}
+      end,
+      disable = true,
+    }
     use {
       "voldikss/vim-skylight",
       after = "vimpeccable",
@@ -504,8 +504,8 @@ return require("packer").startup({
       end,
     }
     -- Brackets
-    use "adelarsq/vim-matchit"
-    use "cohama/lexima.vim"
+    use "adelarsq/vim-matchit" -- Extends % operator
+    use {"cohama/lexima.vim", disable = true}
     use {
       "luochen1990/rainbow",
       setup = function()
@@ -659,6 +659,7 @@ return require("packer").startup({
     use "tmux-plugins/vim-tmux-focus-events"
     -- File explorer
     -- use {"kyazdani42/nvim-tree.lua"}
+    use {"ms-jpq/chadtree", run = "python3 -m chadtree deps"}
     -- Projects
     use {
       "tpope/vim-projectionist",
