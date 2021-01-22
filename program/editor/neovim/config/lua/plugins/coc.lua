@@ -6,7 +6,6 @@ vim.g.coc_global_extensions = {
   "coc-cmake",
   "coc-clangd",
   "coc-emoji",
-  "coc-explorer",
   "coc-fish",
   "coc-floaterm",
   "coc-fzf-preview",
@@ -18,7 +17,6 @@ vim.g.coc_global_extensions = {
   "coc-snippets",
   "coc-sql",
   "coc-swagger",
-  -- "coc-tabnine",
   "coc-toml",
   "coc-vimlsp",
   "coc-word",
@@ -203,10 +201,6 @@ vimp.nnoremap({"silent"}, "<space>[", ":<C-u>CocPrev<cr>")
 vimp.nnoremap({"silent"}, "<space>R", ":<C-u>CocListResume<cr>")
 -- Open coc config.
 vimp.nnoremap({"silent"}, "<space>i", ":<C-u>CocConfig<cr>")
-
--- coc-explorer
-vimp.nnoremap({"silent"}, "<leader>ef", ":CocCommand explorer --no-toggle<cr>")
-vimp.nnoremap({"silent"}, "<leader>ee", ":CocCommand explorer<cr>")
 
 -- coc-yank
 vimp.nnoremap({"silent"}, "<leader>y", ":<C-u>CocList -A --normal yank<cr>")

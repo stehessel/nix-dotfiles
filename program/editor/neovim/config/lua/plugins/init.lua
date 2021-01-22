@@ -662,7 +662,7 @@ return require("packer").startup({
     use {
       "ms-jpq/chadtree",
       config = function()
-        require("chadtree")
+        require("plugins.chadtree")
       end,
       run = "python3 -m chadtree deps",
     }
