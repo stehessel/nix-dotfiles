@@ -182,16 +182,24 @@ return require("packer").startup({
       run = function()
         vim.fn["coc#util#install"]()
       end,
+      -- disable = true,
     }
     use {
       "neovim/nvim-lspconfig",
-      after = "completion-nvim",
       config = function()
         require("plugins.lsp")
       end,
-	  disable = true
+      disable = true,
     }
-    use { "nvim-lua/completion-nvim" }
+    -- use {"nvim-lua/completion-nvim"}
+    -- use {"ms-jpq/kok",
+      -- config = function()
+      --   lua require("kok/recommends").all()
+      -- end,
+    -- }
+    -- use 'nvim-treesitter/completion-treesitter'
+    -- use 'steelsojka/completion-buffers'
+    -- use 'nvim-lua/diagnostic-nvim'
     use {
       "voldikss/vim-skylight",
       after = "vimpeccable",
@@ -199,11 +207,8 @@ return require("packer").startup({
         vimp.nnoremap({"silent"}, "go", ":SkylightJumpTo<cr>")
         vimp.nnoremap({"silent"}, "gp", ":SkylightPreview<cr>")
       end,
-	  disable = true
+      disable = true,
     }
-    -- use 'nvim-treesitter/completion-treesitter'
-    -- use 'steelsojka/completion-buffers'
-    -- use 'nvim-lua/diagnostic-nvim'
     use {
       "kkoomen/vim-doge",
       config = function()
