@@ -157,6 +157,15 @@ return require("packer").startup({
       end,
       disable = true,
     }
+    -- Notes
+    use {
+      "oberblastmeister/neuron.nvim",
+      after = {"plenary.nvim", "telescope.nvim", "vimpeccable"},
+      config = function()
+        require("plugins.neuron")
+      end,
+      requires = {"nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim"},
+    }
     -- Start screen
     use {
       "mhinz/vim-startify",
@@ -193,9 +202,9 @@ return require("packer").startup({
     }
     -- use {"nvim-lua/completion-nvim"}
     -- use {"ms-jpq/kok",
-      -- config = function()
-      --   lua require("kok/recommends").all()
-      -- end,
+    -- config = function()
+    --   lua require("kok/recommends").all()
+    -- end,
     -- }
     -- use 'nvim-treesitter/completion-treesitter'
     -- use 'steelsojka/completion-buffers'

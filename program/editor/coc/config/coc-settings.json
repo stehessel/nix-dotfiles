@@ -1,12 +1,7 @@
 {
   "coc.preferences.colorSupport": false,
   "coc.preferences.formatOnSaveFiletypes": ["lua", "rust"],
-  "coc.preferences.rootPatterns": [
-  	".git",
-  	".hg",
-  	".projections.json",
-	".root"
-  ],
+  "coc.preferences.rootPatterns": [".git", ".hg", ".projections.json", ".root"],
   "suggest.numberSelect": false,
   "suggest.maxCompleteItemCount": 20,
   "suggest.triggerCompletionWait": 50,
@@ -22,7 +17,11 @@
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
   "snippets.textmateSnippetsRoots": ["~/dev/snippets"],
-  "yaml.schemas": {"/Users/lgtf/git/sc-deploy/deploy/schemas/core-data-snapshotter/schema_ide.json": ["/core_data_snapshotter.yml"]},
+  "yaml.schemas": {
+    "/Users/lgtf/git/sc-deploy/deploy/schemas/core-data-snapshotter/schema_ide.json": [
+      "/core_data_snapshotter.yml"
+    ]
+  },
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
@@ -66,6 +65,10 @@
           "hlintOn": true
         }
       }
+    },
+    "neuron": {
+      "command": "neuron-language-server",
+      "filetypes": ["markdown"]
     },
     "nix": {
       "command": "rnix-lsp",

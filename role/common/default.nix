@@ -154,6 +154,8 @@ in
     # nox
     pypi2nix
     rnix-lsp
+    # --- notes ---
+    neuron-notes
     # --- plotting ---
     gnuplot
     # --- process manager ---
