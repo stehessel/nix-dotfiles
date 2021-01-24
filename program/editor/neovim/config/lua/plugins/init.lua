@@ -757,7 +757,7 @@ return require("packer").startup({
     use "tweekmonster/startuptime.vim"
     -- Folds
     use "Jorengarenar/vim-syntaxMarkerFold"
-    use "~/dev/neovim/test.nvim"
+    use "~/dev/neovim/pytest.nvim"
   end,
   config = {max_jobs = 32},
 })
