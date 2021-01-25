@@ -4,8 +4,8 @@ require("core.settings")
 -- Misc keybinds
 vimp.nnoremap("U", ":redo<CR>")
 vimp.nmap("Y", "y$")
-vimp.nmap("<leader>s", ":w<cr>")
-vimp.nmap("<leader>q", ":q<cr>")
+vimp.nnoremap({"silent"}, "<leader>s", ":update<cr>")
+vimp.nnoremap({"silent"}, "<leader>q", ":quit<cr>")
 vimp.nmap("?", ",")
 -- vimp.nnoremap({"silent"}, "<C-l>", ":<C-u>nohl<cr><C-l>")
 -- vimp.nnoremap("<plug>(slash-after)", "zz")
@@ -59,13 +59,9 @@ vimp.nnoremap({"silent"}, "<leader>cp", ":cp<cr>")
 vim.cmd([[nnoremap <expr> <cr> &buftype ==# "quickfix" ? "\<cr>" : "za"]])
 
 -- Line numbers
-vimp.nnoremap(
-    {"silent"},
-    "<leader>N",
-    function()
-        vim.wo.relativenumber = not vim.wo.relativenumber
-    end
-)
+vimp.nnoremap({"silent"}, "<leader>N", function()
+  vim.wo.relativenumber = not vim.wo.relativenumber
+end)
 
 -- Spell-check set to <leader>o, 'o' for 'orthography'
 vim.cmd("map <leader>o :setlocal spell! spelllang=en_us<CR>")

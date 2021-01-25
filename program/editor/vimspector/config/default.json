@@ -1,0 +1,26 @@
+{
+  "configurations": {
+    "pytest - local": {
+      "adapter": "debugpy",
+      "configuration": {
+        "request": "launch",
+        "type": "python",
+        "python": "python",
+        "module": "pytest",
+        "args": [
+          "--no-cov",
+          "${Test}"
+        ],
+        "cwd": "${cwd}",
+        "console": "integratedTerminal"
+      },
+      "breakpoints": {
+        "exception": {
+          "raised": "N",
+          "uncaught": "Y",
+          "userUnhandled": ""
+        }
+      }
+    }
+  }
+}

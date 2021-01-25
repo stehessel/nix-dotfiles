@@ -49,16 +49,13 @@
       "configuration": {
         "request": "launch",
         "type": "python",
-        "python": "${HOME}/miniconda3/envs/raq-env/bin/python",
+        "python": "python",
         "module": "pytest",
         "args": [
-          "--rootdir=${workspaceRoot}",
           "--no-cov",
-          "--capture=no",
-          "--verbose",
           "${file}"
         ],
-        "cwd": "${workspaceRoot}",
+        "cwd": "${cwd}",
         "console": "integratedTerminal"
       },
       "breakpoints": {
@@ -77,8 +74,8 @@
         "request": "attach",
         "pathMappings": [
           {
-            "localRoot": "${workspaceRoot}",
-            "remoteRoot": "${workspaceRoot}"
+            "localRoot": "${cwd}",
+            "remoteRoot": "${cwd}"
           }
         ]
       },
@@ -98,8 +95,8 @@
         "request": "attach",
         "pathMappings": [
           {
-            "localRoot": "${workspaceRoot}",
-            "remoteRoot": "${workspaceRoot}"
+            "localRoot": "${cwd}",
+            "remoteRoot": "${cwd}"
           }
         ]
       },
