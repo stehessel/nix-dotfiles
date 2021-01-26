@@ -21,6 +21,7 @@ in
     ../../dev/python/mypy
     # ../../dev/python/packages
     ../../dev/python/pdb
+    ../../dev/python/pip
     ../../dev/python/pycodestyle
     ../../dev/text/vale
     ../../dev/version-control/git

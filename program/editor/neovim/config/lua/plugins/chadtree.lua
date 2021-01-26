@@ -13,6 +13,7 @@ vim.g.chadtree_settings = {
   options = {show_hidden = false},
   theme = {text_colour_set = "solarized_light"},
   ignore = {
+    name_glob = {".*"},
     name_exact = {
       ".DS_Store",
       ".directory",
