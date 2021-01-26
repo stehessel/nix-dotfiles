@@ -94,11 +94,12 @@ vim.cmd("set go=a")
 
 -- Javescript
 vim.g.loaded_node_provider = 0
-vim.g.node_host_prog = "$HOME/.npm-packages/lib/node_modules/neovim/bin/cli.js"
+vim.g.node_host_prog = os.getenv("HOME")
+                         .. "/.npm-packages/lib/node_modules/neovim/bin/cli.js"
 -- Perl
 vim.g.loaded_perl_provider = 0
 -- Python
 vim.g.loaded_python_provider = 0
-vim.g.python3_host_prog = "$HOME/miniconda3/bin/python"
+vim.g.python3_host_prog = os.getenv("HOME") .. "/miniconda3/bin/python"
 -- Ruby
 vim.g.loaded_ruby_provider = 0
