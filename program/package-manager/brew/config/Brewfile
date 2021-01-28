@@ -99,33 +99,54 @@ brew "stephan-hesselmann-by/blueyonder/di-csv2xml"
 brew "wfxr/code-minimap/code-minimap"
 # ⚡️ nat - the 'ls' replacement you never knew you needed⚡️
 brew "willdoescode/natls/natls"
+# View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
+# GPU-accelerated terminal emulator
 cask "alacritty"
+# Automatic tiling window manager similar to xmonad
 cask "amethyst"
 cask "app-cleaner"
+# Data management tool that enables working with SQL Server
 cask "azure-data-studio"
+# E-books management software
 cask "calibre"
+# Clipboard extension app
 cask "clipy"
+# Free universal database tool and SQL client
 cask "dbeaver-community"
+# App to build and share containerized applications and microservices
 cask "docker-edge"
 cask "eloston-chromium"
+# Web browser
 cask "firefox"
 cask "font-firacode-nerd-font"
+# GUI for the Neovim text editor
 cask "fvim"
+# Vector graphics editor
 cask "inkscape"
+# Keyboard customizer
 cask "karabiner-elements"
+# Password manager app
 cask "keepassxc"
 cask "microsoft-azure-storage-explorer"
 cask "microsoft-office"
 cask "microsoft-teams"
+# Open-source, low-latency, high quality voice chat software for gaming
 cask "mumble"
+# Visual communication software
 cask "omnigraffle"
+# IDE for professional Python development
 cask "pycharm"
+# Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# PDF reader and note-taking application
 cask "skim"
 cask "ukelele"
+# Free and open-source hosted hypervisor for x86 virtualization
 cask "virtualbox"
+# Open-source code editor
 cask "visual-studio-code"
 cask "vulkan-sdk"
+# Video communication and virtual meeting platform
 cask "zoom"
 whalebrew "whalebrew/whalesay"
