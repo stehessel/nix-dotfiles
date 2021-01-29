@@ -181,6 +181,8 @@ return require("packer").startup({
         vimp.nnoremap({"silent"}, "<leader>Sd", ":SDelete<cr>")
       end,
     }
+	-- Quickfix
+	use { "kevinhwang91/nvim-bqf" }
     -- LSP
     use {
       "neoclide/coc.nvim",
@@ -200,7 +202,13 @@ return require("packer").startup({
       end,
       disable = true,
     }
-    -- use {"nvim-lua/completion-nvim"}
+    use {
+      "hrsh7th/nvim-compe",
+      config = function()
+        require("plugins.completion")
+      end,
+      disable = true,
+    }
     -- use {"ms-jpq/kok",
     -- config = function()
     --   lua require("kok/recommends").all()
@@ -209,6 +217,7 @@ return require("packer").startup({
     -- use 'nvim-treesitter/completion-treesitter'
     -- use 'steelsojka/completion-buffers'
     -- use 'nvim-lua/diagnostic-nvim'
+	-- Documentation
     use {
       "voldikss/vim-skylight",
       after = "vimpeccable",
