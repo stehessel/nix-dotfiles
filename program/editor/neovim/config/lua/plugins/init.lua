@@ -174,7 +174,7 @@ return require("packer").startup({
         vim.g.startify_session_persistence = 1
         vim.g.startify_update_oldfiles = 1
 
-        vimp.nnoremap({"silent"}, "<leader>h", ":Startify<cr>")
+        vimp.nnoremap({"silent"}, "<leader>H", ":Startify<cr>")
         vimp.nnoremap({"silent"}, "<leader>Ss", ":SSave!")
         vimp.nnoremap({"silent"}, "<leader>Sl", ":SLoad")
         vimp.nnoremap({"silent"}, "<leader>Sc", ":SClose<cr>")
