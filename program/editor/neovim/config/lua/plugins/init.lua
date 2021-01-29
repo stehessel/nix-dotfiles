@@ -181,8 +181,8 @@ return require("packer").startup({
         vimp.nnoremap({"silent"}, "<leader>Sd", ":SDelete<cr>")
       end,
     }
-	-- Quickfix
-	use { "kevinhwang91/nvim-bqf" }
+    -- Quickfix
+    use {"kevinhwang91/nvim-bqf"}
     -- LSP
     use {
       "neoclide/coc.nvim",
@@ -217,7 +217,7 @@ return require("packer").startup({
     -- use 'nvim-treesitter/completion-treesitter'
     -- use 'steelsojka/completion-buffers'
     -- use 'nvim-lua/diagnostic-nvim'
-	-- Documentation
+    -- Documentation
     use {
       "voldikss/vim-skylight",
       after = "vimpeccable",
@@ -516,7 +516,12 @@ return require("packer").startup({
     -- Keybinds
     use "tpope/vim-unimpaired"
     -- Movement
-    use "easymotion/vim-easymotion"
+    use {
+      "easymotion/vim-easymotion",
+      config = function()
+        require("plugins.easymotion")
+      end,
+    }
     use "rhysd/clever-f.vim"
     use "tpope/vim-rsi"
     -- Text manipulation
@@ -582,9 +587,9 @@ return require("packer").startup({
       "svermeulen/vim-subversive",
       after = "vimpeccable",
       config = function()
-        vim.cmd [[nmap s <Plug>(SubversiveSubstitute)]]
-        vim.cmd [[nmap ss <Plug>(SubversiveSubstituteLine)]]
-        vim.cmd [[nmap sl <Plug>(SubversiveSubstituteToEndOfLine)]]
+        vim.cmd [[nmap <leader>s <Plug>(SubversiveSubstitute)]]
+        vim.cmd [[nmap <leader>ss <Plug>(SubversiveSubstituteLine)]]
+        vim.cmd [[nmap <leader>sl <Plug>(SubversiveSubstituteToEndOfLine)]]
 
         vim.cmd [[xmap s <Plug>(SubversiveSubstitute)]]
         vim.cmd [[xmap p <Plug>(SubversiveSubstitute)]]
@@ -647,7 +652,28 @@ return require("packer").startup({
     use "christoomey/vim-tmux-navigator"
     use "tmux-plugins/vim-tmux-focus-events"
     -- File explorer
-    -- use {"kyazdani42/nvim-tree.lua"}
+    use {
+      "kyazdani42/nvim-tree.lua",
+      config = function()
+        vim.g.nvim_tree_follow = 1
+        vim.g.nvim_tree_hide_dotfiles = 1
+        vim.g.nvim_tree_git_hl = 1
+        vim.g.nvim_tree_ignore = {
+          ".DS_Store",
+          ".directory",
+          ".git",
+          ".idea",
+          ".mypy_cache",
+          ".ropeproject",
+          ".vim",
+          ".vscode",
+          "__pycache__",
+          "dask-worker-space",
+          "thumbs.db",
+        }
+      end,
+      disable = true,
+    }
     use {
       "ms-jpq/chadtree",
       config = function()
@@ -715,7 +741,7 @@ return require("packer").startup({
     -- Save position
     use "farmergreg/vim-lastplace"
     -- Note taking
-    use "vimwiki/vimwiki"
+    use {"vimwiki/vimwiki", disable = true}
     -- Dispatcher
     use {
       "skywind3000/asynctasks.vim",
