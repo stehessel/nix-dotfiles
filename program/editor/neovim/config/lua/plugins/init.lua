@@ -429,6 +429,13 @@ return require("packer").startup({
       end,
     }
     use {
+      "voldikss/vim-floaterm",
+      config = function()
+        vimp.nnoremap({"silent"}, "<leader>G",
+          ":FloatermNew --width=0.9 --height=0.9 --wintype=float --autoclose=2 lazygit<cr>")
+      end,
+    }
+    use {
       "Olical/conjure",
       config = function()
         vim.cmd [[let g:conjure#log#hud#width = 0.42]]
