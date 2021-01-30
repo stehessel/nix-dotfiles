@@ -1,0 +1,14 @@
+clone:
+	#!/usr/bin/env fish
+	rm -rf lua-language-server
+	git clone https://github.com/sumneko/lua-language-server
+	cd lua-language-server
+	git submodule update --init --recursive
+
+build: clone
+	#!/usr/bin/env fish
+	cd lua-language-server/3rd/luamake
+	ninja -f ninja/macos.ninja
+	cd ../..
+	./3rd/luamake/luamake rebuild
+	cp bin/macOS/lua-language-server $HOME/.local/bin/lua-language-server
