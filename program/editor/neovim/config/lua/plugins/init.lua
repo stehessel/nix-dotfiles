@@ -19,6 +19,8 @@ if not packer_exists then
   return
 end
 
+local use_coc = true
+
 return require("packer").startup({
   function()
     -- Packer can manage itself as an optional plugin
@@ -137,26 +139,6 @@ return require("packer").startup({
         require("plugins.bubbly")
       end,
     }
-    use {
-      "itchyny/lightline.vim",
-      config = function()
-        vim.cmd("autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()")
-        vim.o.showmode = false
-        vim.g.lightline = {
-          ["colorscheme"] = "powerline",
-          ["active"] = {
-            ["left"] = {
-              {"mode", "paste"},
-              {"readonly", "filename", "modified"},
-              {"diagnostic", "cocstatus"},
-            },
-            ["right"] = {{"lineinfo", "percent"}, {"filetype"}},
-          },
-          ["component_function"] = {["cocstatus"] = "coc#status"},
-        }
-      end,
-      disable = true,
-    }
     -- Notes
     use {
       "oberblastmeister/neuron.nvim",
@@ -193,21 +175,28 @@ return require("packer").startup({
       run = function()
         vim.fn["coc#util#install"]()
       end,
-      -- disable = true,
+      disable = not use_coc,
     }
     use {
       "neovim/nvim-lspconfig",
       config = function()
         require("plugins.lsp")
       end,
-      disable = true,
+      disable = use_coc,
+    }
+    use {
+      "glepnir/lspsaga.nvim",
+      config = function()
+        require("lspsaga").init_lsp_saga()
+      end,
+      disable = use_coc,
     }
     use {
       "hrsh7th/nvim-compe",
       config = function()
         require("plugins.completion")
       end,
-      disable = true,
+      disable = use_coc,
     }
     -- use {"ms-jpq/kok",
     -- config = function()
