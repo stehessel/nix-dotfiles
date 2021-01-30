@@ -99,7 +99,7 @@ vimp.nmap({"silent"}, "gr", "<Plug>(coc-references)")
 vimp.nmap({"silent"}, "<space>l", "<Plug>(coc-codelense-action)")
 
 -- Use K to show documentation in preview window.
-function Show_docs()
+local function show_docs()
   local cw = vim.fn.expand("<cword>")
   if vim.fn.index({"vim", "help"}, vim.bo.filetype) >= 0 then
     vim.cmd("h " .. cw)
@@ -109,7 +109,7 @@ function Show_docs()
     vim.cmd("!" .. vim.o.keywordprg .. " " .. cw)
   end
 end
-vimp.nmap({"silent"}, "K", ":lua Show_docs()<cr>")
+vimp.nnoremap({"silent"}, "K", show_docs)
 
 -- Highlight the symbol and its references when holding the cursor.
 -- autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -120,8 +120,9 @@ vimp.nmap({"silent"}, "<space>r", "<Plug>(coc-rename)")
 -- Formatting selected code.
 vimp.nmap({"silent"}, "<space>f", "<Plug>(coc-format)")
 vimp.xmap({"silent"}, "<space>f", "<Plug>(coc-format-selected)")
-vimp.nmap({"silent"}, "<leader>ps",
-  ":CocAction('runCommand', 'editor.action.organizeImport')<cr>")
+vimp.nnoremap({"silent"}, "<leader>ps", function()
+  vim.fn.CocAction("runCommand", "editor.action.organizeImport")
+end)
 
 vim.api.nvim_exec([[
         augroup mygroup
@@ -164,10 +165,10 @@ vim.cmd(
 vim.cmd(
   [[vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"]])
 
--- Use <leader><Tab> for selections ranges.
+-- Use <leader>l for selections ranges.
 -- Requires 'textDocument/selectionRange' support of language server.
-vimp.nmap({"silent"}, "<leader><Tab>", "<Plug>(coc-range-select)")
-vimp.xmap({"silent"}, "<leader><Tab>", "<Plug>(coc-range-select)")
+vimp.nmap({"silent"}, "<space>L", "<Plug>(coc-range-select)")
+vimp.xmap({"silent"}, "<space>L", "<Plug>(coc-range-select)")
 
 -- Add `:Format` command to format current buffer.
 vim.cmd([[command! -nargs=0 Format :call CocAction('format')]])
@@ -197,10 +198,18 @@ vimp.nnoremap({"silent"}, "<space>s",
 vimp.nnoremap({"silent"}, "<space>]", ":<C-u>CocNext<cr>")
 -- Do default action for previous item.
 vimp.nnoremap({"silent"}, "<space>[", ":<C-u>CocPrev<cr>")
+-- Do default action for next item.
+vimp.nnoremap({"silent"}, "<space>j", function()
+  vim.fn.CocAction("runCommand", "document.jumpToNextSymbol")
+end)
+-- Do default action for previous item.
+vimp.nnoremap({"silent"}, "<space>k", function()
+  vim.fn.CocAction("runCommand", "document.jumpToPrevSymbol")
+end)
 -- Resume latest coc list.
 vimp.nnoremap({"silent"}, "<space>R", ":<C-u>CocListResume<cr>")
 -- Open coc config.
 vimp.nnoremap({"silent"}, "<space>i", ":<C-u>CocConfig<cr>")
 
 -- coc-yank
-vimp.nnoremap({"silent"}, "<leader>y", ":<C-u>CocList -A --normal yank<cr>")
+vimp.nnoremap({"silent"}, "<space>y", ":<C-u>CocList -A --normal yank<cr>")
