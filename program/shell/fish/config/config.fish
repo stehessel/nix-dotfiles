@@ -69,6 +69,7 @@ abbr -a cfv "$EDITOR ~/nix-home/program/editor/neovim/config/init.vim"
 if test "$TERMINAL" = "kitty"
 	abbr -a diff "kitty +kitten diff"
 end
+abbr -a lg  "lazygit"
 abbr -a gb  "git branch"
 abbr -a gc  "git commit -am"
 abbr -a gco "git checkout"
