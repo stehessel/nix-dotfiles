@@ -154,7 +154,6 @@ in
     lorri
     niv
     # nox
-    pypi2nix
     rnix-lsp
     # --- notes ---
     neuron-notes
