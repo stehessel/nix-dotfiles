@@ -49,7 +49,7 @@ tools:
     format-stdin: true
 
   pgformatter: &pgformatter
-    format-command: "pg_format --maxlength=120 -"
+    format-command: "pg_format -"
     format-stdin: true
 
   prettier: &prettier
