@@ -12,7 +12,7 @@ neuron.setup {
 }
 
 -- click enter on [[my_link]] or [[[my_link]]] to enter it
-vimp.nnoremap({"buffer"}, "<CR>", neuron.enter_link)
+vimp.nnoremap({"buffer"}, "<leader>kk", neuron.enter_link)
 
 -- create a new note
 vimp.nnoremap("<leader>kn", function()
