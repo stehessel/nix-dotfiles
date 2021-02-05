@@ -1,7 +1,7 @@
 -- Disable default mappings
 vim.g.EasyMotion_do_mapping = 0
 
-vimp.nmap({"silent"}, "s", "<Plug>(easymotion-overwin-f2)")
+vimp.nmap({"silent"}, "<leader>s", "<Plug>(easymotion-overwin-f2)")
 
 vim.g.EasyMotion_smartcase = 1
 

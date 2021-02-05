@@ -583,9 +583,9 @@ return require("packer").startup({
       "svermeulen/vim-subversive",
       after = "vimpeccable",
       config = function()
-        vim.cmd [[nmap <leader>s <Plug>(SubversiveSubstitute)]]
-        vim.cmd [[nmap <leader>ss <Plug>(SubversiveSubstituteLine)]]
-        vim.cmd [[nmap <leader>sl <Plug>(SubversiveSubstituteToEndOfLine)]]
+        vim.cmd [[nmap s <Plug>(SubversiveSubstitute)]]
+        vim.cmd [[nmap ss <Plug>(SubversiveSubstituteLine)]]
+        vim.cmd [[nmap sl <Plug>(SubversiveSubstituteToEndOfLine)]]
 
         vim.cmd [[xmap s <Plug>(SubversiveSubstitute)]]
         vim.cmd [[xmap p <Plug>(SubversiveSubstitute)]]
