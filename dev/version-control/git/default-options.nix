@@ -3,6 +3,7 @@
 
   ignores = [
     # Python
+    ".mutmut-cache"
     "__pycache__/"
     "*.pyc"
     ".ropeproject"
