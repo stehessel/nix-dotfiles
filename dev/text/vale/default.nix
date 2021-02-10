@@ -1,4 +1,9 @@
 { config, lib, pkgs, ... }:
 {
-  xdg.configFile."vale".source = config/vale.ini;
+  xdg.configFile = {
+    "vale" = {
+      source = ./config;
+      recursive = true;
+    };
+  };
 }

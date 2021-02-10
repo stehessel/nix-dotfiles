@@ -101,6 +101,8 @@ tools:
       - "%f:%l:%c: %m"
 
 languages:
+  asciidoctor:
+    - <<: *vale
   css:
     - <<: *prettier
   dockerfile:
