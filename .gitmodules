@@ -1,0 +1,3 @@
+[submodule "dev/text/vale/config/styles/write-good"]
+	path = dev/text/vale/config/styles/write-good
+	url = git@github.com:errata-ai/write-good.git
