@@ -574,11 +574,13 @@ return require("packer").startup({
     use "tommcdo/vim-exchange"
     use "tpope/vim-repeat"
     -- Comments
+    use "tomtom/tcomment_vim"
     use {
       "terrortylor/nvim-comment",
       config = function()
         require("nvim_comment").setup()
       end,
+      disable = true,
     }
     -- Text substitution
     use {
