@@ -101,8 +101,8 @@ tools:
       - "%f:%l:%c: %m"
 
 languages:
-  asciidoctor:
-    - <<: *vale
+  # asciidoctor:
+  #   - <<: *vale
   css:
     - <<: *prettier
   dockerfile:
@@ -110,8 +110,8 @@ languages:
   go:
     - <<: *goimports
     - <<: *golint
-  help:
-    - <<: *vale
+  # help:
+  #   - <<: *vale
   html:
     - <<: *prettier
   lua:
@@ -130,14 +130,14 @@ languages:
     - <<: *spectral
   markdown:
     - <<: *prettier
-    - <<: *vale
+    # - <<: *vale
   python:
     - <<: *black
     - <<: *isort
   rst:
     - <<: *rst-lint
     - <<: *pandoc-rst
-    - <<: *vale
+    # - <<: *vale
   scss:
     - <<: *prettier
   sh:
@@ -145,8 +145,8 @@ languages:
     - <<: *shfmt
   sql:
     - <<: *pgformatter
-  text:
-    - <<: *vale
+  # text:
+  #   - <<: *vale
   tf:
     - <<: *terraform
   typescript:
