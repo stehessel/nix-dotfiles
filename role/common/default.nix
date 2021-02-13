@@ -141,7 +141,7 @@ in
     # --- launcher ---
     entr
     just
-    pueue
+    # pueue
     # --- lua ---
     luajitPackages.lua-lsp
     luajitPackages.luacheck
