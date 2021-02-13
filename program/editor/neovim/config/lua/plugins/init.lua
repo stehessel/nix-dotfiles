@@ -634,7 +634,6 @@ return require("packer").startup({
     use "michaeljsmith/vim-indent-object"
     use "wellle/targets.vim"
     -- Buffers
-    use "jlanzarotta/bufexplorer"
     use "moll/vim-bbye"
     use {
       "wfxr/minimap.vim",
