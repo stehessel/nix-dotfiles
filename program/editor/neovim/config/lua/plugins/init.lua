@@ -713,6 +713,7 @@ return require("packer").startup({
     --   end,
     -- }
     -- Copy/paste
+    use "gennaro-tedesco/nvim-peekup"
     use "machakann/vim-highlightedyank"
     use {
       "svermeulen/vim-yoink",
