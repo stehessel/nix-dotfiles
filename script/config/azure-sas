@@ -19,7 +19,7 @@ def generate_container_sas_token(
     Generate a sas token for the given container
     """
     try:
-        # try using  azure-storage-blob >= 12:
+        # try using azure-storage-blob >= 12:
         from azure.storage.blob import generate_container_sas, ContainerSasPermissions
 
         token = generate_container_sas(
@@ -104,13 +104,20 @@ The possible commands are:
         parser.add_argument("--account", type=str, help="Azure storage account name.")
         parser.add_argument("--key", type=str, help="Azure storage account key.")
         parser.add_argument(
-            "--container", type=str, help="Azure storage container name.",
+            "--container",
+            type=str,
+            help="Azure storage container name.",
         )
         parser.add_argument(
-            "--lease", type=int, default=90, help="Lease time in days.",
+            "--lease",
+            type=int,
+            default=90,
+            help="Lease time in days.",
         )
         parser.add_argument(
-            "--write", action="store_true", help="Include write privilege.",
+            "--write",
+            action="store_true",
+            help="Include write privilege.",
         )
         args = parser.parse_args(sys.argv[2:])
 
@@ -122,7 +129,7 @@ The possible commands are:
             expiry=expiry,
             with_write_permission=args.write,
         )
-        hazure_url = f"hazure://{args.account}:{quote_plus(token)}@{args.container}/?use_sas=true&create_if_missing=false"
+        hazure_url = f"hazure://{args.account}:{quote_plus(token)}@{args.container}?use_sas=true&create_if_missing=false"
         print(f"Quoted: {hazure_url}")
         print(f"Unquoted: {hazure2sas(hazure_url)}")
 
