@@ -40,6 +40,7 @@ vim.api.nvim_exec([[
 		endfunction
 
 		let g:test#custom_transformations = { "docker-pytest-debug": function("DockerPytestDebugTransform"), "docker-pytest-run": function("DockerPytestRunTransform") }
+
 		let g:test#custom_strategies = {"debug": function("PytestDebug")}
 		let g:test#strategy = "debug"
 	]], false)
@@ -47,5 +48,6 @@ vim.api.nvim_exec([[
 vim.cmd [[augroup raq_tests]]
 vim.cmd [[autocmd!]]
 vim.cmd [[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#transformation = "docker-pytest-debug"']]
+vim.cmd [[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#strategy = "neoterm"']]
 vim.cmd [[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#project_root = "$HOME/git/raq"']]
 vim.cmd [[augroup END]]
