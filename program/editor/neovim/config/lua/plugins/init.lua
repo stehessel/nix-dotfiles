@@ -38,7 +38,7 @@ return require("packer").startup({
       "APZelos/blamer.nvim",
       after = "vimpeccable",
       cmd = {"BlamerToggle", "BlamerShow", "BlamerHide"},
-      config = function()
+      setup = function()
         vim.g.blamer_delay = 250
         vimp.nnoremap({"silent"}, "<leader>gB", ":BlamerToggle<cr>")
       end,
@@ -713,7 +713,6 @@ return require("packer").startup({
     --   end,
     -- }
     -- Copy/paste
-    use "gennaro-tedesco/nvim-peekup"
     use "machakann/vim-highlightedyank"
     use {
       "svermeulen/vim-yoink",
