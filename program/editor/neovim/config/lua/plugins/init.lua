@@ -39,11 +39,12 @@ return require("packer").startup({
       after = "vimpeccable",
       cmd = {"BlamerToggle", "BlamerShow", "BlamerHide"},
       setup = function()
+        require("vimp")
         vim.g.blamer_delay = 250
         vimp.nnoremap({"silent"}, "<leader>gB", ":BlamerToggle<cr>")
       end,
     }
-    use "jreybert/vimagit"
+    use "jreybert/vimagit" -- UI for git add --patch
     use {
       "mhinz/vim-signify",
       config = function()
@@ -63,16 +64,7 @@ return require("packer").startup({
       end,
     }
     -- use "lambdalisue/gina.vim"
-    use {
-      "rbong/vim-flog",
-      after = "vimpeccable",
-      config = function()
-        vimp.nnoremap({"silent"}, "<leader>gt", ":Flog<CR>")
-      end,
-    }
     use "rhysd/git-messenger.vim"
-    -- Github
-    use "mattn/vim-gist"
     -- Finders
     use {
       "dyng/ctrlsf.vim",
@@ -208,15 +200,6 @@ return require("packer").startup({
     -- use 'nvim-lua/diagnostic-nvim'
     -- Documentation
     use {
-      "voldikss/vim-skylight",
-      after = "vimpeccable",
-      config = function()
-        vimp.nnoremap({"silent"}, "go", ":SkylightJumpTo<cr>")
-        vimp.nnoremap({"silent"}, "gp", ":SkylightPreview<cr>")
-      end,
-      disable = true,
-    }
-    use {
       "kkoomen/vim-doge",
       config = function()
         vim.g.doge_doc_standard_python = "numpy"
@@ -261,7 +244,6 @@ return require("packer").startup({
       end,
       -- ft = "python"
     }
-    -- use {"anihm136/importmagic.nvim", ft = "python"}
     use "stsewd/sphinx.nvim"
     -- Clojure
     use "clojure-vim/vim-jack-in"
@@ -290,30 +272,27 @@ return require("packer").startup({
         require("plugins.debugger")
       end,
     }
-    -- use {
-    --     "mfussenegger/nvim-dap-python",
-    --     config = function()
-    --         require("dap-python").setup("python")
-    --         require("dap-python").test_runner = "pytest"
-    --
-    --         vimp.nnoremap({"silent"}, "<F4>", require("dap").list_breakpoints)
-    --         vimp.nnoremap({"silent"}, "<F5>", require("dap").continue)
-    --         vimp.nnoremap({"silent"}, "<F6>", require("dap").repl.toggle)
-    --         vimp.nnoremap({"silent"}, "<F8>", require("dap").goto_)
-    --         vimp.nnoremap({"silent"}, "<F9>", require("dap").toggle_breakpoint)
-    --         vimp.nnoremap(
-    --             {"silent"},
-    --             "<leader><F9>",
-    --             function()
-    --                 require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-    --             end
-    --         )
-    --         vimp.nnoremap({"silent"}, "<F10>", require("dap").step_over)
-    --         vimp.nnoremap({"silent"}, "<F11>", require("dap").step_into)
-    --         vimp.nnoremap({"silent"}, "<F12>", require("dap").step_out)
-    --     end,
-    --     requires = {"mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter"}
-    -- }
+    use {
+      "mfussenegger/nvim-dap-python",
+      config = function()
+        require("dap-python").setup("python")
+        require("dap-python").test_runner = "pytest"
+
+        vimp.nnoremap({"silent"}, "<F4>", require("dap").list_breakpoints)
+        vimp.nnoremap({"silent"}, "<F5>", require("dap").continue)
+        vimp.nnoremap({"silent"}, "<F6>", require("dap").repl.toggle)
+        vimp.nnoremap({"silent"}, "<F8>", require("dap").goto_)
+        vimp.nnoremap({"silent"}, "<F9>", require("dap").toggle_breakpoint)
+        vimp.nnoremap({"silent"}, "<leader><F9>", function()
+          require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+        end)
+        vimp.nnoremap({"silent"}, "<F10>", require("dap").step_over)
+        vimp.nnoremap({"silent"}, "<F11>", require("dap").step_into)
+        vimp.nnoremap({"silent"}, "<F12>", require("dap").step_out)
+      end,
+      requires = {"mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter"},
+      disable = true,
+    }
     use {
       "theHamsta/nvim-dap-virtual-text",
       config = function()
@@ -323,6 +302,7 @@ return require("packer").startup({
       run = function()
         vim.cmd("TSUpdate")
       end,
+      disable = true,
     }
     -- Testing
     use {
@@ -332,9 +312,8 @@ return require("packer").startup({
       end,
     }
     -- Code folding
-    -- use 'kalekundert/vim-coiled-snake'
+    use "kalekundert/vim-coiled-snake"
     use "Konfekt/FastFold"
-    use "tmhedberg/SimpylFold"
     -- Syntax highlighters
     use {
       "numirias/semshi",
