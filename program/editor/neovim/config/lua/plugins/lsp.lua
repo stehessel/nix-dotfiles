@@ -7,6 +7,10 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
 
+  if client.config.flags then
+    client.config.flags.allow_incremental_sync = true
+  end
+
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
   -- Mappings.
@@ -56,5 +60,8 @@ end
 -- and map buffer local keybindings when the language server attaches
 local servers = {"pyright"}
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup({on_attach = on_attach, root_dir = nvim_lsp.util.root_pattern(".root", ".git")})
+  nvim_lsp[lsp].setup({
+    on_attach = on_attach,
+    root_dir = nvim_lsp.util.root_pattern(".root", ".git"),
+  })
 end
