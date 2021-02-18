@@ -38,10 +38,9 @@ vimp.nnoremap({"silent"}, "gj", "<C-^>")
 vimp.nnoremap({"silent"}, "gk", ":vs#<cr>")
 
 -- Splits
-vimp.nnoremap({"silent"}, "<C-s>", "<C-w>S")
-vimp.nnoremap({"silent"}, "<C-v>", "<C-w>v")
-vimp.nnoremap({"silent"}, "<C-q>", "<C-w>q")
-vimp.nnoremap({"silent"}, "<C-m>", "<C-w>w")
+vimp.nmap({"silent"}, "<C-s>", "<C-w>S")
+vimp.nmap({"silent"}, "<C-v>", "<C-w>v")
+vimp.nmap({"silent"}, "<C-p>", "<C-w>w")
 
 -- Tabs
 vimp.nnoremap({"silent"}, "g[", ":-tabmove<cr>")
