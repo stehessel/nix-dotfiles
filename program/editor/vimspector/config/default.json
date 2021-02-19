@@ -7,10 +7,7 @@
         "type": "python",
         "python": "python",
         "module": "pytest",
-        "args": [
-          "--no-cov",
-          "${Test}"
-        ],
+        "args": ["${Test}", "--verbose"],
         "cwd": "${cwd}",
         "console": "integratedTerminal"
       },

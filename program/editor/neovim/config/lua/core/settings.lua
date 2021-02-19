@@ -93,7 +93,7 @@ vim.cmd("set clipboard+=unnamedplus")
 vim.cmd("set go=a")
 
 -- Javescript
-vim.g.loaded_node_provider = 0
+-- vim.g.loaded_node_provider = 0
 vim.g.node_host_prog = os.getenv("HOME")
                          .. "/.npm-packages/lib/node_modules/neovim/bin/cli.js"
 -- Perl

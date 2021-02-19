@@ -52,7 +52,6 @@
         "python": "python",
         "module": "pytest",
         "args": [
-          "--no-cov",
           "${file}"
         ],
         "cwd": "${cwd}",
