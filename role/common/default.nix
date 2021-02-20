@@ -67,7 +67,7 @@ in
     restic
     # --- clojure ---
     clojure
-    clojure-lsp
+    # clojure-lsp
     jdk11
     leiningen
     # --- cpp ---
@@ -108,8 +108,6 @@ in
     # --- font ---
     fira-code
     font-awesome
-    hack-font
-    # nerdfonts
     # --- fuzzy search ---
     fzf
     skim
@@ -151,11 +149,10 @@ in
     bandwhich
     speedtest-cli
     # --- nix ---
-    # arion
+    arion
     cachix
     lorri
     niv
-    # nox
     rnix-lsp
     # --- notes ---
     neuron-notes
