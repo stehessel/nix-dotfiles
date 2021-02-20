@@ -15,6 +15,7 @@ set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
 set -x NVIM_LOG_FILE "$XDG_CONFIG_HOME/nvim/.nvimlog"
 set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
 set -x ODBCSYSINI "$HOME/git/raq"
+set -x CARGO_HOME "$XDG_CONFIG_HOME/cargo"
 
 set -p fish_user_paths "$HOME/.dotnet"
 set -p fish_user_paths "$HOME/.luarocks/bin"

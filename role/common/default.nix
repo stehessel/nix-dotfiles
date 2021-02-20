@@ -23,6 +23,7 @@ in
     ../../dev/python/pdb
     ../../dev/python/pip
     ../../dev/python/pycodestyle
+    ../../dev/rust/cargo
     ../../dev/text/vale
     ../../dev/version-control/git
     ../../dev/version-control/tig
@@ -167,7 +168,7 @@ in
     rustup
     # rust-analyzer
     # --- ruby ---
-    # ruby_2_7
+    ruby_2_7
     # --- shell ---
     bash_5
     dash

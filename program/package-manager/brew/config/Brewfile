@@ -1,6 +1,7 @@
 tap "apenngrace/vulkan"
 tap "atlassian/tap"
 tap "austinjones/taps"
+tap "by-stehessel/blueyonder"
 tap "federico-terzi/espanso"
 tap "getsentry/tools"
 tap "homebrew/bundle"
@@ -83,6 +84,8 @@ brew "zlib"
 brew "atlassian/tap/atlassian-plugin-sdk"
 # The intuitive, config-driven terminal multiplexer designed for software & systems engineers
 brew "austinjones/taps/tab"
+# Convert CSV to Blue Yonder Supply & Demand API compatible XML
+brew "by-stehessel/blueyonder/di-csv2xml"
 # Cross-platform Text Expander written in Rust
 brew "federico-terzi/espanso/espanso"
 # Sentry command-line client for some generic tasks
@@ -93,8 +96,6 @@ brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen-edge"
-# Convert CSV to Blue Yonder Supply & Demand API compatible XML
-brew "stephan-hesselmann-by/blueyonder/di-csv2xml"
 # A high performance code minimap generator written in rust
 brew "wfxr/code-minimap/code-minimap"
 # ⚡️ nat - the 'ls' replacement you never knew you needed⚡️
