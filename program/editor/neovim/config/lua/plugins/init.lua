@@ -675,12 +675,7 @@ return require("packer").startup({
     use {
       "brooth/far.vim",
       config = function()
-        vim.g["far#source"] = "rgnvim"
-
-        -- vimp.nnoremap({"silent"}, "<leader>rf", ":Farf<cr>")
-        -- vimp.xnoremap({"silent"}, "<leader>rf", ":Farf<cr>")
-        -- vimp.nnoremap({"silent"}, "<leader>rr", ":Farr<cr>")
-        -- vimp.xnoremap({"silent"}, "<leader>rr", ":Farr<cr>")
+        require("plugins.far")
       end,
     }
     use {"inkarkat/vim-SearchAlternatives", requires = "inkarkat/vim-ingo-library"}
