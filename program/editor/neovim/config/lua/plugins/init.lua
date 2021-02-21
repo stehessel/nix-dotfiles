@@ -264,7 +264,6 @@ return require("packer").startup({
       requires = "nvim-treesitter/nvim-treesitter",
     }
     use {"nvim-treesitter/playground", requires = "nvim-treesitter/nvim-treesitter"}
-    use "tpope/vim-endwise"
     -- Debugger
     use {
       "puremourning/vimspector",
@@ -448,13 +447,13 @@ return require("packer").startup({
       config = function()
         vim.cmd("colorscheme nightfly")
       end,
+      disable = true,
     }
     use {
       "bluz71/vim-moonfly-colors",
       config = function()
         vim.cmd("colorscheme moonfly")
       end,
-      disable = true,
     }
     -- Icons
     use {
