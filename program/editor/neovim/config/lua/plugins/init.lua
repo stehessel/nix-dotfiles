@@ -686,22 +686,6 @@ return require("packer").startup({
     --     vimp.nnoremap({"silent"}, "<leader>R", require("replacer").run())
     --   end,
     -- }
-    -- Copy/paste
-    use "machakann/vim-highlightedyank"
-    use {
-      "svermeulen/vim-yoink",
-      after = "vimpeccable",
-      config = function()
-        vimp.nmap({"silent"}, "<M-]>", "<Plug>(YoinkPostPasteSwapBack)")
-        vimp.nmap({"silent"}, "<M-[>", "<Plug>(YoinkPostPasteSwapForward)")
-        vimp.rbind("nx", {"silent"}, "y", "<Plug>(YoinkYankPreserveCursorPosition)")
-        vimp.nmap({"silent"}, "p", "<Plug>(YoinkPaste_p)")
-        vimp.nmap({"silent"}, "P", "<Plug>(YoinkPaste_P)")
-        vimp.nmap({"silent"}, "[y", "<Plug>(YoinkRotateBack)")
-        vimp.nmap({"silent"}, "]y", "<Plug>(YoinkRotateForward)")
-        vimp.nmap({"silent"}, "<C-=>", "<Plug>(YoinkPostPasteToggleFormat)")
-      end,
-    }
     -- Discover keybinds
     use {
       "liuchengxu/vim-which-key",
