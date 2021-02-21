@@ -60,8 +60,8 @@ brew "graphviz"
 brew "k3d"
 # Next-gen compiler infrastructure
 brew "llvm"
-# Ambitious Vim-fork focused on extensibility and agility
-brew "neovim", args: ["HEAD"]
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
 # Python version management
 brew "pyenv"
 # Send macOS User Notifications from the command-line

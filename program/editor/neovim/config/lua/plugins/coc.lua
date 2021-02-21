@@ -69,8 +69,8 @@ vimp.inoremap({"expr", "silent"}, "<S-Tab>", function()
   end
 end)
 
--- Use <Space><Space> to trigger completion.
-vimp.inoremap({"expr", "silent"}, "<Space><Space>", vim.fn["coc#refresh"])
+-- -- Use <Space><Space> to trigger completion.
+-- vimp.inoremap({"expr", "silent"}, "<Space><Space>", vim.fn["coc#refresh"])
 
 -- Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 -- position. Coc only does snippet and additional edit on confirm.
