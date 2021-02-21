@@ -671,7 +671,6 @@ return require("packer").startup({
       end,
     }
     -- Search
-    use "markonm/traces.vim"
     use {
       "brooth/far.vim",
       config = function()

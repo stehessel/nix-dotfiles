@@ -21,6 +21,7 @@ vim.cmd("set sessionoptions-=folds")
 -- Search
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.o.inccommand = "nosplit"
 vim.o.incsearch = true
 vim.o.hlsearch = true
 
