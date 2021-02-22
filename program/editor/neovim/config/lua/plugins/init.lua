@@ -482,6 +482,7 @@ return require("packer").startup({
       config = function()
         vim.g.indent_blankline_buftype_exclude = {"nofile", "terminal"}
         vim.g.indent_blankline_char = "¦"
+        vim.g.indent_blankline_filetype_exclude = {"startify"}
       end,
     }
     -- Keybinds
