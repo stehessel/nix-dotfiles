@@ -478,11 +478,11 @@ return require("packer").startup({
     -- Indentation
     use {
       "lukas-reineke/indent-blankline.nvim",
+      branch = "lua",
       config = function()
         vim.g.indent_blankline_char = "¦"
       end,
     }
-    use "Yggdroot/indentLine"
     -- Keybinds
     use "tpope/vim-unimpaired"
     -- Movement
