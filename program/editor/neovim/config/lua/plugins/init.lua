@@ -480,7 +480,7 @@ return require("packer").startup({
       "lukas-reineke/indent-blankline.nvim",
       branch = "lua",
       config = function()
-        vim.g.indent_blankline_buftype_exclude = {"nofile", "terminal"}
+        vim.g.indent_blankline_buftype_exclude = {"nofile", "prompt", "terminal"}
         vim.g.indent_blankline_char = "¦"
         vim.g.indent_blankline_filetype_exclude = {"startify"}
       end,
