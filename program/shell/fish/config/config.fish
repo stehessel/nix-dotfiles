@@ -73,6 +73,7 @@ end
 abbr -a lg  "lazygit"
 abbr -a gb  "git branch"
 abbr -a gc  "git commit -am"
+abbr -a gp  "git push"
 abbr -a gco "git checkout"
 abbr -a gw  "git switch"
 abbr -a gd  "git diff"
