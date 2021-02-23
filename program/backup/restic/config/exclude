@@ -1,8 +1,10 @@
 # Prevent recursion
-~/backup
-/Users/lgtf/backup
+/Users/lgtf/OneDrive - Blue Yonder
 /Users/lgtf/rwth-data
 
 # Do not backup caches
 __pycache__
 .cache
+/Users/lgtf/Library/Caches
+
+/Users/lgtf/.Trash

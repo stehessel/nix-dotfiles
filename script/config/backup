@@ -1,44 +1,44 @@
 #!/usr/bin/env sh
 
 case $1 in
-	create)
-		$HOME/.nix-profile/bin/restic \
-			--repo $HOME/backup \
-			--password-file $HOME/.config/restic/secret \
-			backup $HOME \
-			--exclude-caches \
-			--exclude-file $HOME/.config/restic/exclude
-		;;
+  create)
+    "$HOME"/.nix-profile/bin/restic \
+      --repo "$HOME"/OneDrive\ -\ Blue\ Yonder/backup \
+      --password-file "$HOME"/.config/restic/secret \
+      backup "$HOME" \
+      --exclude-caches \
+      --exclude-file "$HOME"/.config/restic/exclude
+    ;;
 
-	list)
-		$HOME/.nix-profile/bin/restic \
-		--repo $HOME/backup \
-		--password-file $HOME/.config/restic/secret \
-		snapshots
-		;;
+  list)
+    "$HOME"/.nix-profile/bin/restic \
+      --repo "$HOME"/OneDrive\ -\ Blue\ Yonder/backup \
+      --password-file "$HOME"/.config/restic/secret \
+      snapshots
+    ;;
 
-	prune)
-		$HOME/.nix-profile/bin/restic \
-			--repo $HOME/backup \
-			--password-file $HOME/.config/restic/secret \
-			forget \
-			--keep-last $2 \
-			--prune
-		;;
+  prune)
+    "$HOME"/.nix-profile/bin/restic \
+      --repo "$HOME"/OneDrive\ -\ Blue\ Yonder/backup \
+      --password-file "$HOME"/.config/restic/secret \
+      forget \
+      --keep-last $2 \
+      --prune
+    ;;
 
-	*)
-		echo
-'USAGE: backup COMMAND [OPTIONS]
+  *)
+    echo
+    'USAGE: backup COMMAND [OPTIONS]
 
 COMMANDS
 
-    create    Create a snapshot of the home directory in ~/backup.
-    list      List snapshots in ~/backup.
+    create    Create a snapshot of the home directory in "~/OneDrive - Blue Yonder/backup".
+    list      List snapshots in "~/OneDrive - Blue Yonder/backup".
     prune     Keep last N snapshots and remove older ones. Takes N as an option.
     help      Print this help message.
 
 OPTIONS
     prune
         N     Number of snapshots to keep.'
-		;;
+    ;;
 esac

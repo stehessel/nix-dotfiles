@@ -64,6 +64,7 @@ in
     azure-cli
     azure-storage-azcopy
     # --- backup ---
+    rclone
     restic
     # --- clojure ---
     clojure
