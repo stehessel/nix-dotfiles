@@ -553,6 +553,18 @@ return require("packer").startup({
     }
     use "tommcdo/vim-exchange"
     use "tpope/vim-repeat"
+    -- Increment / Decrement
+    use {
+      "monaqa/dial.nvim",
+      config = function()
+        vimp.nmap({"silent"}, "<C-a>", "<Plug>(dial-increment)")
+        vimp.xmap({"silent"}, "<C-a>", "<Plug>(dial-increment)")
+        vimp.nmap({"silent"}, "<C-x>", "<Plug>(dial-decrement)")
+        vimp.xmap({"silent"}, "<C-x>", "<Plug>(dial-decrement)")
+        vimp.nmap({"silent"}, "g<C-a>", "<Plug>(dial-increment-additional)")
+        vimp.nmap({"silent"}, "g<C-x>", "<Plug>(dial-decrement-additional)")
+      end,
+    }
     -- Comments
     use "tomtom/tcomment_vim"
     use {
