@@ -69,7 +69,7 @@ in
     # --- clojure ---
     clojure
     # clojure-lsp
-    jdk11
+    # jdk11
     leiningen
     # --- cpp ---
     ccls

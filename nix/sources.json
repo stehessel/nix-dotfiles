@@ -1,14 +1,26 @@
 {
+    "home-manager": {
+        "branch": "master",
+        "description": "Manage a user environment using Nix  [maintainer=@rycee] ",
+        "homepage": "https://nix-community.github.io/home-manager/",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "e7b1491fb8dfb1d2bdb90432312e88d03c8d803d",
+        "sha256": "1y1acyavv7n5pjr3yhpj1glcxs8fk72x38m67c1ppqnr0xq63jjh",
+        "type": "tarball",
+        "url": "https://github.com/nix-community/home-manager/archive/e7b1491fb8dfb1d2bdb90432312e88d03c8d803d.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "neovim": {
         "branch": "master",
         "description": "Vim-fork focused on extensibility and usability",
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "0450e155d48cb2d8a73358e193931d8966a9d2e0",
-        "sha256": "0nwxjyk3r98jld67cw535z7bhywjk7l59aj1v7jwk9ahv9qxznri",
+        "rev": "e55ded00cfb8432a7bc8af40b477aaf0cba70405",
+        "sha256": "0a7wzvsv1cp2dnc9scpd643q3vh0aib9s9k4r7vh5y9bgk2qzd0r",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/0450e155d48cb2d8a73358e193931d8966a9d2e0.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/e55ded00cfb8432a7bc8af40b477aaf0cba70405.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -29,10 +41,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "37997b17c81857d4a27ef3218419f0aa2a6a6a4b",
-        "sha256": "0f7w5zqypzyivd5jm8x1saqy1wnzr3fdp4l3hrbihklipqlahl1c",
+        "rev": "ed8a12065521dcbd6504fabadcc023bf0b90e064",
+        "sha256": "1raglv6ypwa540l5471qhywbsjfrlh89kjmqi8r854llaz1gdryd",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/37997b17c81857d4a27ef3218419f0aa2a6a6a4b.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/ed8a12065521dcbd6504fabadcc023bf0b90e064.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
