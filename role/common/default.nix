@@ -166,7 +166,7 @@ in
     rustup
     # rust-analyzer
     # --- ruby ---
-    ruby_2_7
+    # ruby_2_7
     # --- shell ---
     bash_5
     dash
