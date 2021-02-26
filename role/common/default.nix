@@ -150,7 +150,7 @@ in
     bandwhich
     speedtest-cli
     # --- nix ---
-    arion
+    # arion
     cachix
     lorri
     niv
