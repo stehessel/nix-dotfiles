@@ -1,62 +1,40 @@
 local actions = require("telescope.actions")
+local builtin = require("telescope.builtin")
 local sorters = require("telescope.sorters")
 local themes = require("telescope.themes")
-require("telescope").setup {
-    defaults = {
-        prompt_prefix = " >",
-        winblend = 0,
-        preview_cutoff = 120,
-        scroll_strategy = "cycle",
-        layout_strategy = "horizontal",
-        layout_defaults = {
-            horizontal = {
-                width_padding = 0.1,
-                height_padding = 0.1,
-                preview_width = 0.6
-            },
-            vertical = {
-                width_padding = 0.05,
-                height_padding = 1,
-                preview_height = 0.5
-            }
-        },
-        sorting_strategy = "descending",
-        prompt_position = "bottom",
-        color_devicons = true,
-        mappings = {
-            i = {
-                ["<c-x>"] = false,
-            }
-        },
-        borderchars = {
-            {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
-            preview = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"}
-        },
-        file_sorter = sorters.get_fzy_sorter
-    }
-}
+
+require("telescope").setup({
+  defaults = {
+    prompt_position = "top",
+    prompt_prefix = "🔍 ",
+    sorting_strategy = "ascending",
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--ignore-case",
+    },
+  },
+})
+require("telescope").load_extension("fzy_native")
+require("telescope").load_extension("gh")
+require("telescope").load_extension("vimspector")
 
 require("vimp")
-vimp.nnoremap(
-    {"silent"},
-    "<leader>uf",
-    function()
-        require "telescope.builtin".find_files {
-            find_command = {
-                "rg",
-                "--files",
-                "--hidden",
-                "--ignore-case",
-                "-g",
-                "!.git"
-            }
-        }
-    end
-)
-vimp.nnoremap(
-    {"silent"},
-    "<leader>ur",
-    function()
-        require "telescope.builtin".lsp_references {shorten_path = true}
-    end
-)
+vimp.nnoremap({"silent"}, "<leader>ff", builtin.find_files)
+vimp.nnoremap({"silent"}, "<leader>fg", builtin.live_grep)
+vimp.nnoremap({"silent"}, "<leader>fl", builtin.current_buffer_fuzzy_find)
+vimp.nnoremap({"silent"}, "<leader>fb", builtin.buffers)
+vimp.nnoremap({"silent"}, "<leader>fh", builtin.oldfiles)
+vimp.nnoremap({"silent"}, "<leader>fm", builtin.marks)
+vimp.nnoremap({"silent"}, "<leader>fc", builtin.git_bcommits)
+vimp.nnoremap({"silent"}, "<leader>fi", require("telescope").extensions.gh.issues)
+vimp.nnoremap({"silent"}, "<leader>fp", require("telescope").extensions.gh.pull_request)
+vimp.nnoremap({"silent"}, "<leader>fd",
+  require("telescope").extensions.vimspector.configurations)
+vimp.nnoremap({"silent"}, "<leader>fr", function()
+  require"telescope.builtin".lsp_references {shorten_path = true}
+end)
