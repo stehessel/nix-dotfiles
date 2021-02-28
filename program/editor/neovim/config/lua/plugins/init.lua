@@ -81,11 +81,7 @@ return require("packer").startup({
     }
     use {"nvim-telescope/telescope-fzy-native.nvim", requires = "nvim-lua/telescope.nvim"}
     use {"nvim-telescope/telescope-github.nvim", requires = "nvim-lua/telescope.nvim"}
-    use {
-      "nvim-telescope/telescope-vimspector.nvim",
-      requires = "nvim-lua/telescope.nvim",
-      after = "vimspector"
-    }
+    use {"nvim-telescope/telescope-vimspector.nvim", requires = "nvim-lua/telescope.nvim"}
     -- use {
     --   "junegunn/fzf.vim",
     --   config = function()
