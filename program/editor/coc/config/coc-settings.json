@@ -13,6 +13,7 @@
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": ["--quiet", "-"],
   "python.linting.flake8Enabled": true,
+  "pyright.organizeimports.provider": "isort",
   "snippets.textmateSnippetsRoots": ["~/dev/snippets"],
   "yaml.schemas": {
     "/Users/lgtf/git/sc-deploy/deploy/schemas/core-data-snapshotter/schema.json": [

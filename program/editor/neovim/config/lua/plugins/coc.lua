@@ -120,7 +120,7 @@ vimp.nmap({"silent"}, "<space>r", "<Plug>(coc-rename)")
 -- Formatting selected code.
 vimp.nmap({"silent"}, "<space>f", "<Plug>(coc-format)")
 vimp.xmap({"silent"}, "<space>f", "<Plug>(coc-format-selected)")
-vimp.nnoremap({"silent"}, "<leader>ps", function()
+vimp.nnoremap({"silent"}, "<space>i", function()
   vim.fn.CocAction("runCommand", "editor.action.organizeImport")
 end)
 
@@ -209,7 +209,7 @@ end)
 -- Resume latest coc list.
 vimp.nnoremap({"silent"}, "<space>R", ":<C-u>CocListResume<cr>")
 -- Open coc config.
-vimp.nnoremap({"silent"}, "<space>i", ":<C-u>CocConfig<cr>")
+vimp.nnoremap({"silent"}, "<space>C", ":<C-u>CocConfig<cr>")
 
 -- coc-yank
 vimp.nnoremap({"silent"}, "<space>y", ":<C-u>CocList -A --normal yank<cr>")
