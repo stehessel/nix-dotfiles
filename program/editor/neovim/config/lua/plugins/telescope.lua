@@ -31,6 +31,7 @@ vimp.nnoremap({"silent"}, "<leader>fb", builtin.buffers)
 vimp.nnoremap({"silent"}, "<leader>fh", builtin.oldfiles)
 vimp.nnoremap({"silent"}, "<leader>fm", builtin.marks)
 vimp.nnoremap({"silent"}, "<leader>fc", builtin.git_bcommits)
+vimp.nnoremap({"silent"}, "<leader>fk", builtin.keymaps)
 vimp.nnoremap({"silent"}, "<leader>fi", require("telescope").extensions.gh.issues)
 vimp.nnoremap({"silent"}, "<leader>fp", require("telescope").extensions.gh.pull_request)
 vimp.nnoremap({"silent"}, "<leader>fd",
