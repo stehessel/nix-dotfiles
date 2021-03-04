@@ -11,7 +11,6 @@
   "Lua.diagnostics.globals": ["use", "vim", "vimp"],
   "python.analysis.typeCheckingMode": "off",
   "python.formatting.provider": "black",
-  "python.formatting.blackArgs": ["--quiet", "-"],
   "python.linting.flake8Enabled": true,
   "pyright.organizeimports.provider": "isort",
   "snippets.textmateSnippetsRoots": ["~/dev/snippets"],

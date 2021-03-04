@@ -131,9 +131,9 @@ languages:
   markdown:
     - <<: *prettier
     # - <<: *vale
-  # python:
-  #   - <<: *black
-  #   - <<: *isort
+  python:
+    - <<: *black
+    - <<: *isort
   rst:
     - <<: *rst-lint
     - <<: *pandoc-rst
