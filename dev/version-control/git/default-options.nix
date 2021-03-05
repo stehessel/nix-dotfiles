@@ -18,6 +18,9 @@
     "*.swp"
     ".vim"
     ".vimspector.json"
+
+    # MacOS
+    ".DS_Store"
   ];
 
   attributes = [
