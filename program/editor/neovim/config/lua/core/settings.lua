@@ -61,7 +61,7 @@ vim.o.title = true
 
 -- Line numbers
 vim.wo.number = true
-vim.wo.relativenumber = true
+vim.wo.relativenumber = false
 
 -- Undo
 vim.bo.undofile = true
