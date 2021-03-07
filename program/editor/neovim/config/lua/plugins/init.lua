@@ -148,14 +148,6 @@ return require("packer").startup({
       end,
       disable = use_coc,
     }
-    -- use {"ms-jpq/kok",
-    -- config = function()
-    --   lua require("kok/recommends").all()
-    -- end,
-    -- }
-    -- use 'nvim-treesitter/completion-treesitter'
-    -- use 'steelsojka/completion-buffers'
-    -- use 'nvim-lua/diagnostic-nvim'
     -- Documentation
     use {
       "kkoomen/vim-doge",
@@ -208,8 +200,6 @@ return require("packer").startup({
     use {"tpope/vim-fireplace", ft = "clojure", cmd = "FireplaceConnect"}
     -- Lua
     use "bfredl/nvim-luadev"
-    -- Database
-    use "tpope/vim-dadbod"
     -- Treesitter
     use {
       "nvim-treesitter/nvim-treesitter",
@@ -273,25 +263,6 @@ return require("packer").startup({
     use "Konfekt/FastFold"
     -- Syntax highlighters
     use {
-      "numirias/semshi",
-      after = "vimpeccable",
-      config = function()
-        vimp.nnoremap({"silent"}, "<leader>rn", ":Semshi rename<cr>")
-        vimp.nnoremap({"silent"}, "<Space><Tab>", ":Semshi goto name next<cr>")
-        vimp.nnoremap({"silent"}, "<Space><S-Tab>", ":Semshi goto name prev<cr>")
-        vimp.nnoremap({"silent"}, "<Space>k", ":Semshi goto class next<cr>")
-        vimp.nnoremap({"silent"}, "<Space>K", ":Semshi goto class prev<cr>")
-        vimp.nnoremap({"silent"}, "<Space>f", ":Semshi goto function next<cr>")
-        vimp.nnoremap({"silent"}, "<Space>F", ":Semshi goto function prev<cr>")
-        vimp.nnoremap({"silent"}, "<Space>gu", ":Semshi goto unresolved first<cr>")
-        vimp.nnoremap({"silent"}, "<Space>gp", ":Semshi goto parameterUnused first<cr>")
-        vimp.nnoremap({"silent"}, "<Space>E", ":Semshi error<cr>")
-        vimp.nnoremap({"silent"}, "<Space>ge", ":Semshi goto error<cr>")
-      end,
-      disable = true,
-      ft = "python",
-    }
-    use {
       "sheerun/vim-polyglot",
       setup = function()
         vim.g.polyglot_disabled = {
@@ -343,7 +314,6 @@ return require("packer").startup({
     -- Asciidoc
     use "habamax/vim-asciidoctor"
     -- REPL
-    -- use 'ipselium/vim-cpyvke'
     use {
       "kassio/neoterm",
       after = "vimpeccable",

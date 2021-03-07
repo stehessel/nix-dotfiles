@@ -1,6 +1,6 @@
 vim.g["test#python#runner"] = "pytest"
 vim.g["test#python#pytest#options#"] = {["all"] = "--capture=no"}
-vim.g["test#strategy"] = "neoterm"
+vim.g["test#strategy"] = "kitty"
 
 require("vimp")
 vimp.nnoremap({"silent"}, "<leader>tn", ":TestNearest<cr>")
