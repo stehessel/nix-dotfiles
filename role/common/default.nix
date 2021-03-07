@@ -61,8 +61,8 @@ in
 
   home.packages = with pkgs; [
     # --- azure ---
-    azure-cli
-    azure-storage-azcopy
+    # azure-cli
+    # azure-storage-azcopy
     # --- backup ---
     rclone
     restic
@@ -173,7 +173,7 @@ in
     fish
     shellcheck
     shfmt
-    starship
+    # starship
     # --- terminal multiplexers ---
     screen
     tmux

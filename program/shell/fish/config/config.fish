@@ -19,18 +19,18 @@ set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
 set -x ODBCSYSINI "$HOME/git/raq"
 set -x CARGO_HOME "$XDG_CONFIG_HOME/cargo"
 
-set -p fish_user_paths "$HOME/.dotnet"
-set -p fish_user_paths "$HOME/.luarocks/bin"
-set -p fish_user_paths "$HOME/.npm-packages/bin"
-set -p fish_user_paths "$HOME/go/bin"
-set -p fish_user_paths "$HOME/.cargo/bin"
-set -p fish_user_paths "$HOME/.gem/ruby/2.6.0/bin"
-set -p fish_user_paths "/nix/var/nix/profiles/default/bin"
-set -p fish_user_paths "/usr/local/bin"
-# set -p fish_user_paths "/usr/local/opt/llvm/bin"
-set -p fish_user_paths "$HOME/.nix-profile/bin"
-set -p fish_user_paths "$HOME/.local/bin"
-set -p fish_user_paths "$HOME/miniconda3/bin"
+fish_add_path "$HOME/.dotnet"
+fish_add_path "$HOME/.luarocks/bin"
+fish_add_path "$HOME/.npm-packages/bin"
+fish_add_path "$HOME/go/bin"
+fish_add_path "$HOME/.cargo/bin"
+fish_add_path "$HOME/.gem/ruby/2.6.0/bin"
+fish_add_path "/nix/var/nix/profiles/default/bin"
+fish_add_path "/usr/local/bin"
+# fish_add_path "/usr/local/opt/llvm/bin"
+fish_add_path "$HOME/.nix-profile/bin"
+fish_add_path "$HOME/.local/bin"
+fish_add_path "$HOME/miniconda3/bin"
 
 source "$XDG_CONFIG_HOME/nix/nix-single-user.fish" 2> /dev/null
 source "$XDG_CONFIG_HOME/nix/nix-daemon.fish" 2> /dev/null
@@ -42,8 +42,8 @@ set -x NVIM_LISTEN_ADDRESS /tmp/nvimsocket
 switch (uname)
 	case Darwin
 		set -x BY_ROOT_CERT $HOME/certs/rootca-2016-07.crt
-		set -p fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
-		set -p fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
+		fish_add_path /usr/local/opt/coreutils/libexec/gnubin
+		fish_add_path /usr/local/opt/gnu-sed/libexec/gnubin
 		set -x LC_ALL "en_US.UTF-8"
 		set -x LANG "en_US.UTF-8"
 		ln -s "/Applications/Firefox.app/Contents/MacOS/firefox" "$HOME/.local/bin/firefox" 2> /dev/null

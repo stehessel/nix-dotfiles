@@ -694,6 +694,7 @@ return require("packer").startup({
       end,
     }
     use {"inkarkat/vim-SearchAlternatives", requires = "inkarkat/vim-ingo-library"}
+    use "romainl/vim-cool"
     -- use 'pgdouyon/vim-evanesco'
     -- use {
     --   "gabrielpoca/replacer.nvim",
