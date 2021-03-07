@@ -82,51 +82,6 @@ return require("packer").startup({
     use {"nvim-telescope/telescope-fzy-native.nvim", requires = "nvim-lua/telescope.nvim"}
     use {"nvim-telescope/telescope-github.nvim", requires = "nvim-lua/telescope.nvim"}
     use {"nvim-telescope/telescope-vimspector.nvim", requires = "nvim-lua/telescope.nvim"}
-    -- use {
-    --   "junegunn/fzf.vim",
-    --   config = function()
-    --     vim.api.nvim_exec([[
-    --                         function! g:FzfFilesSource()
-    --                             let l:proximity_sort_path = $HOME . '/.cargo/bin/proximity-sort'
-    --                             return printf("fd --type=file --hidden --follow --color=always --exclude=.git | %s %s", l:proximity_sort_path, expand('%'))
-    --                         endfunction
-    --
-    --                         let g:fzf_tags_command = 'ctags -R'
-    --
-    --                         nmap <silent> <leader>ff :call fzf#vim#files('', {'source': g:FzfFilesSource(), 'options': ['--ansi', '--tiebreak=index', '--layout=reverse', '--info=inline', '--preview', 'bat --color=always --style=numbers {}']})<CR>
-    --                         nmap <leader>fb  :Buffers<CR>
-    --                         nmap <leader>fgc :Commits<CR>
-    --                         nmap <leader>fgf :GFiles<CR>
-    --                         nmap <leader>fgs :GFiles?<CR>
-    --                         nmap <leader>fl  :Lines<CR>
-    --                         nmap <leader>f/  :Rg<CR>
-    --                         nmap <leader>fm  :Marks<CR>
-    --                         nmap <leader>ft  :Tags<CR>
-    --                         nmap <leader>fbt :BTags<CR>
-    --                         nmap <leader>fc  :History:<CR>
-    --                         nmap <leader>fs  :History/<CR>
-    --                         nmap <leader>fh  :History<CR>
-    --                         nmap <leader>fw  :Windows<CR>
-    --                         nmap <leader>fp  :Filetypes<CR>
-    --                         " Insert mode completion
-    --                         imap <c-x><c-k> <plug>(fzf-complete-word)
-    --                         imap <c-x><c-f> <plug>(fzf-complete-path)
-    --                         imap <c-x><c-j> <plug>(fzf-complete-file)
-    --                         imap <c-x><c-l> <plug>(fzf-complete-line)
-    --                         " Advanced customization using Vim function
-    --                         inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
-    --                     ]], false)
-    --   end,
-    -- }
-    use {
-      "junegunn/fzf",
-      config = function()
-        require("plugins.fzf")
-      end,
-      run = function()
-        vim.fn["fzf#install"]()
-      end,
-    }
     -- Statusline
     use {
       "datwaft/bubbly.nvim",

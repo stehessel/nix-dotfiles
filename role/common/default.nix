@@ -111,6 +111,7 @@ in
     font-awesome
     # --- fuzzy search ---
     fzf
+    fzy
     skim
     # --- git ---
     gitAndTools.diff-so-fancy

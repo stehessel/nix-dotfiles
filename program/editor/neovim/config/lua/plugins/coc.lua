@@ -8,7 +8,6 @@ vim.g.coc_global_extensions = {
   "coc-emoji",
   "coc-fish",
   "coc-floaterm",
-  "coc-fzf-preview",
   "coc-json",
   "coc-lua",
   "coc-markdownlint",
