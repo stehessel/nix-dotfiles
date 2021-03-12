@@ -61,8 +61,8 @@ in
 
   home.packages = with pkgs; [
     # --- azure ---
-    # azure-cli
-    # azure-storage-azcopy
+    azure-cli
+    azure-storage-azcopy
     # --- backup ---
     rclone
     restic
@@ -193,7 +193,7 @@ in
     neofetch
     svgcleaner
     topgrade
-    wget
+    # wget
     # --- watcher ---
     watchman
     # --- web ---

@@ -4,7 +4,7 @@
   draw_bold_text_with_bright_colors = false;
 
   font = {
-    size = 14;
+    size = 16;
     normal.family = "FiraCode Nerd Font";
     normal.style = "Retina";
     bold.family = "FiraCode Nerd Font";
