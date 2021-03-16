@@ -76,6 +76,8 @@ brew "unixodbc"
 brew "urlview"
 # Enhances tmux's to provide multiuser terminal multiplexing
 brew "wemux"
+# Internet file retriever
+brew "wget"
 # Homebrew, but with Docker images
 brew "whalebrew"
 # General-purpose lossless data-compression library
