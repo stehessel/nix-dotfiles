@@ -38,7 +38,6 @@ in
     ../../program/shell/bash
     ../../program/shell/bobthefish
     ../../program/shell/fish
-    ../../program/shell/starship
     ../../program/terminal/alacritty
     ../../program/terminal/kitty
     ../../program/terminal/screen
@@ -78,7 +77,7 @@ in
     gdb
     # --- data ---
     jq
-    # visidata
+    visidata
     yq
     # --- dev ---
     editorconfig-core-c
@@ -142,7 +141,7 @@ in
     # --- launcher ---
     entr
     just
-    # pueue
+    pueue
     # --- lua ---
     luajitPackages.lua-lsp
     luajitPackages.luacheck
@@ -151,7 +150,7 @@ in
     bandwhich
     speedtest-cli
     # --- nix ---
-    # arion
+    arion
     cachix
     lorri
     niv
@@ -162,7 +161,7 @@ in
     gnuplot
     # --- process manager ---
     htop
-    procs
+    # procs
     # --- rust ---
     rustup
     # rust-analyzer
@@ -174,7 +173,6 @@ in
     fish
     shellcheck
     shfmt
-    # starship
     # --- terminal multiplexers ---
     screen
     tmux
@@ -193,7 +191,7 @@ in
     neofetch
     svgcleaner
     topgrade
-    # wget
+    wget
     # --- watcher ---
     watchman
     # --- web ---
