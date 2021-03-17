@@ -5,10 +5,10 @@
         "homepage": "https://nix-community.github.io/home-manager/",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "07f6c6481e0cbbcaf3447f43e964baf99465c8e1",
-        "sha256": "0f3r4yjlysglx9a2z0qpinzilv0rhh5kdc3f0d003695yhgay7hm",
+        "rev": "920ea74afee92d321a4ff7dc714b165daaad78ec",
+        "sha256": "0775liysgj9h820fkiflfpqh0d79zcqm0xrs3s8l89wj06ggxj51",
         "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/07f6c6481e0cbbcaf3447f43e964baf99465c8e1.tar.gz",
+        "url": "https://github.com/nix-community/home-manager/archive/920ea74afee92d321a4ff7dc714b165daaad78ec.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "neovim": {
@@ -41,10 +41,22 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d300102c970e3a3b2603562ce9b0bcb8a660773d",
-        "sha256": "00m68ad9z94nss0dp0rh9c62dlhygmcr1w48877j53jhfspp0ajb",
+        "rev": "b9a840e8cebeacc1a0f64ec7848cd3dabe32a747",
+        "sha256": "0pyrxi36dz9z3q3ny7nkkq4jwv7m6hbd4gvxf28ifsqwka9kpyl9",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/d300102c970e3a3b2603562ce9b0bcb8a660773d.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/b9a840e8cebeacc1a0f64ec7848cd3dabe32a747.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "tree-sitter": {
+        "branch": "master",
+        "description": "An incremental parsing system for programming tools",
+        "homepage": "https://tree-sitter.github.io",
+        "owner": "tree-sitter",
+        "repo": "tree-sitter",
+        "rev": "f3910c649e5c90438e6a86a7d29e4554ca7aeb12",
+        "sha256": "0z9gdbwrvg6idmfm708h4vk6pdjy3zv4dar2ci5snfsfmk7p3vfx",
+        "type": "tarball",
+        "url": "https://github.com/tree-sitter/tree-sitter/archive/f3910c649e5c90438e6a86a7d29e4554ca7aeb12.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
