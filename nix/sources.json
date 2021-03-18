@@ -5,10 +5,10 @@
         "homepage": "https://nix-community.github.io/home-manager/",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ffbc3819e4f8aedb0bbd3a12e3dc70e35c0dbcea",
-        "sha256": "1cbflh6969nmwi6j1ldw6az16rfav191ha180k73rdwgb9by0mlp",
+        "rev": "6245dd11cf59698aacdf8b153e3e7070abbef36f",
+        "sha256": "0pwq8kjmhbxxsbfkv2nh1kj1y601ggcxahlm7n8gi8dv8ib0xlwr",
         "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/ffbc3819e4f8aedb0bbd3a12e3dc70e35c0dbcea.tar.gz",
+        "url": "https://github.com/nix-community/home-manager/archive/6245dd11cf59698aacdf8b153e3e7070abbef36f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "neovim": {
@@ -41,10 +41,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9a7d264f595e191f7dc38c6dc132f4910a932496",
-        "sha256": "0729azfx06x3pisapzp3jg2dv9l8k500r1pzjc2416n71d6c0djm",
+        "rev": "de4012ac80df34f1b77f07c70e935e4908729e71",
+        "sha256": "0fmwj8npzhp7hc9r2v390vg3dxdmjqqxq4k9aanp7z3512dk7s2w",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/9a7d264f595e191f7dc38c6dc132f4910a932496.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/de4012ac80df34f1b77f07c70e935e4908729e71.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "tree-sitter": {
@@ -53,10 +53,10 @@
         "homepage": "https://tree-sitter.github.io",
         "owner": "tree-sitter",
         "repo": "tree-sitter",
-        "rev": "beaa02331e73791ef34db0c6acfe16bae5f1788f",
-        "sha256": "189ybhk7ss20zz3in7va27lyzgw8lpbwsrqbi5q1q2y5x043rb1w",
+        "rev": "e94b208da29ac351480112c484929dfadfa1e12b",
+        "sha256": "0qhs42j361l4067drixay1b0xgyz2dnsqnr3a46ikzk904ka97bs",
         "type": "tarball",
-        "url": "https://github.com/tree-sitter/tree-sitter/archive/beaa02331e73791ef34db0c6acfe16bae5f1788f.tar.gz",
+        "url": "https://github.com/tree-sitter/tree-sitter/archive/e94b208da29ac351480112c484929dfadfa1e12b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
