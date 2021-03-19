@@ -563,8 +563,7 @@ return require("packer").startup({
     -- Tabs
     use "caenrique/nvim-maximize-window-toggle"
     -- Tmux
-    use "christoomey/vim-tmux-navigator"
-    use "tmux-plugins/vim-tmux-focus-events"
+    use {"christoomey/vim-tmux-navigator", disable = true}
     -- File explorer
     use {
       "ms-jpq/chadtree",
