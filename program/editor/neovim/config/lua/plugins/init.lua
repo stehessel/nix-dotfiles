@@ -63,7 +63,6 @@ return require("packer").startup({
         vimp.nnoremap({"silent"}, "<leader>gi", ":Gdiffsplit<cr>")
       end,
     }
-    -- use "lambdalisue/gina.vim"
     use "rhysd/git-messenger.vim"
     -- Finders
     use {
@@ -113,8 +112,6 @@ return require("packer").startup({
         vimp.nnoremap({"silent"}, "<leader>Sd", ":SDelete<cr>")
       end,
     }
-    -- Quickfix
-    use {"kevinhwang91/nvim-bqf"}
     -- LSP
     use {
       "neoclide/coc.nvim",
@@ -205,6 +202,9 @@ return require("packer").startup({
       "nvim-treesitter/nvim-treesitter",
       config = function()
         require("plugins.treesitter")
+      end,
+      run = function()
+        vim.cmd("TSUpdate")
       end,
     }
     use {
@@ -423,7 +423,6 @@ return require("packer").startup({
       end,
     }
     use "rhysd/clever-f.vim"
-    use "tpope/vim-rsi"
     -- Text manipulation
     use {
       "AndrewRadev/switch.vim",
@@ -479,7 +478,6 @@ return require("packer").startup({
         vimp.xnoremap({"silent"}, "<leader>xk", ":Kebab<cr>")
       end,
     }
-    use "tommcdo/vim-exchange"
     use "tpope/vim-repeat"
     -- Increment / Decrement
     use {
@@ -562,37 +560,12 @@ return require("packer").startup({
         vimp.nnoremap({"silent"}, "<leader>C", ":MinimapToggle<cr>")
       end,
     }
-    -- use 'TaDaa/vimade'
-    -- Splits
-    -- use 'camspiers/lens.vim'
     -- Tabs
     use "caenrique/nvim-maximize-window-toggle"
     -- Tmux
     use "christoomey/vim-tmux-navigator"
     use "tmux-plugins/vim-tmux-focus-events"
     -- File explorer
-    use {
-      "kyazdani42/nvim-tree.lua",
-      config = function()
-        vim.g.nvim_tree_follow = 1
-        vim.g.nvim_tree_hide_dotfiles = 1
-        vim.g.nvim_tree_git_hl = 1
-        vim.g.nvim_tree_ignore = {
-          ".DS_Store",
-          ".directory",
-          ".git",
-          ".idea",
-          ".mypy_cache",
-          ".ropeproject",
-          ".vim",
-          ".vscode",
-          "__pycache__",
-          "dask-worker-space",
-          "thumbs.db",
-        }
-      end,
-      disable = true,
-    }
     use {
       "ms-jpq/chadtree",
       config = function()
@@ -638,8 +611,6 @@ return require("packer").startup({
     }
     -- Save position
     use "farmergreg/vim-lastplace"
-    -- Note taking
-    use {"vimwiki/vimwiki", disable = true}
     -- Dispatcher
     use {
       "skywind3000/asynctasks.vim",
@@ -658,10 +629,6 @@ return require("packer").startup({
       },
     }
     use {"tpope/vim-dispatch", cmd = {"Dispatch", "Make", "Focus", "Start"}}
-    -- Todo
-    use "vuciv/vim-bujo"
-    -- Unix commands
-    use "tpope/vim-eunuch"
     -- Root directory
     use {
       "airblade/vim-rooter",
@@ -679,10 +646,6 @@ return require("packer").startup({
         vim.g.auto_save_events = {"InsertLeave", "FocusLost"}
       end,
     }
-    -- Benchmark
-    use "tweekmonster/startuptime.vim"
-    -- Folds
-    use "Jorengarenar/vim-syntaxMarkerFold"
     use "~/dev/neovim/pytest.nvim"
   end,
   config = {max_jobs = 32},
