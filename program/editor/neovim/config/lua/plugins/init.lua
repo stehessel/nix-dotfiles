@@ -44,8 +44,13 @@ return require("packer").startup({
         vimp.nnoremap({"silent"}, "<leader>gB", ":BlamerToggle<cr>")
       end,
     }
-    use "jreybert/vimagit" -- UI for git add --patch
-    use "TimUntersberger/neogit"
+    use {
+      "TimUntersberger/neogit", -- UI for git add --patch
+      -- config = function()
+      --   local neogit = require("neogit")
+      --   vimp.nnoremap({"silent"}, "<leader>M", neogit.status.create("split"))
+      -- end,
+    }
     use {
       "mhinz/vim-signify",
       config = function()
