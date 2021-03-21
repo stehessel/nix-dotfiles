@@ -45,6 +45,7 @@ return require("packer").startup({
       end,
     }
     use "jreybert/vimagit" -- UI for git add --patch
+    use "TimUntersberger/neogit"
     use {
       "mhinz/vim-signify",
       config = function()
