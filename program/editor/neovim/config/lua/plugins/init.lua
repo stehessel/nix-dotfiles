@@ -44,31 +44,6 @@ return require("packer").startup({
         vimp.nnoremap({"silent"}, "<leader>gB", ":BlamerToggle<cr>")
       end,
     }
-    use {
-      "TimUntersberger/neogit", -- UI for git add --patch
-      -- config = function()
-      --   local neogit = require("neogit")
-      --   vimp.nnoremap({"silent"}, "<leader>M", neogit.status.create("split"))
-      -- end,
-    }
-    use {
-      "mhinz/vim-signify",
-      config = function()
-        require("plugins.signify")
-      end,
-    }
-    use {
-      "tpope/vim-fugitive",
-      after = "vimpeccable",
-      config = function()
-        vimp.nnoremap({"silent"}, "<leader>gg", ":Git<cr>")
-        vimp.nnoremap({"silent"}, "<leader>gb", ":Git blame<cr>")
-        vimp.nnoremap({"silent"}, "<leader>gc", ":Git commit<cr>")
-        vimp.nnoremap({"silent"}, "<leader>gd", ":Git diff<cr>")
-        vimp.nnoremap({"silent"}, "<leader>gl", ":Git log<cr>")
-        vimp.nnoremap({"silent"}, "<leader>gi", ":Gdiffsplit<cr>")
-      end,
-    }
     use "rhysd/git-messenger.vim"
     -- Finders
     use {

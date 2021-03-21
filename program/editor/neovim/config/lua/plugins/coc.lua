@@ -6,6 +6,7 @@ vim.g.coc_global_extensions = {
   "coc-cmake",
   "coc-clangd",
   "coc-emoji",
+  "coc-git",
   "coc-fish",
   "coc-floaterm",
   "coc-json",
