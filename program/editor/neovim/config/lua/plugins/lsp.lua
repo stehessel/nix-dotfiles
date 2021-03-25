@@ -7,10 +7,6 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
 
-  if client.config.flags then
-    client.config.flags.allow_incremental_sync = true
-  end
-
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
   -- Mappings.
