@@ -147,6 +147,8 @@ cask "rectangle"
 # PDF reader and note-taking application
 cask "skim"
 cask "ukelele"
+# Development environment
+cask "vagrant"
 # Free and open-source hosted hypervisor for x86 virtualization
 cask "virtualbox"
 # Open-source code editor

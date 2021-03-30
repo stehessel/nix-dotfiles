@@ -174,7 +174,6 @@ in
     shellcheck
     shfmt
     # --- terminal multiplexers ---
-    screen
     tmux
     # --- text ---
     asciidoctor
