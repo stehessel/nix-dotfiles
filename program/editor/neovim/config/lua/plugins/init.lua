@@ -363,6 +363,13 @@ return require("packer").startup({
       config = function()
         vim.cmd("colorscheme moonfly")
       end,
+      disable = true,
+    }
+    use {
+      "ChristianChiarulli/nvcode-color-schemes.vim",
+      config = function()
+        vim.cmd("colorscheme onedark")
+      end,
     }
     -- Icons
     use {
