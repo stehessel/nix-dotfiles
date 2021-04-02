@@ -87,10 +87,10 @@ return require("packer").startup({
         vim.g.startify_update_oldfiles = 1
 
         vimp.nnoremap({"silent"}, "<leader>H", ":Startify<cr>")
-        vimp.nnoremap({"silent"}, "<leader>Ss", ":SSave!")
-        vimp.nnoremap({"silent"}, "<leader>Sl", ":SLoad")
-        vimp.nnoremap({"silent"}, "<leader>Sc", ":SClose<cr>")
-        vimp.nnoremap({"silent"}, "<leader>Sd", ":SDelete<cr>")
+        -- vimp.nnoremap({"silent"}, "<leader>Ss", ":SSave!")
+        -- vimp.nnoremap({"silent"}, "<leader>Sl", ":SLoad")
+        -- vimp.nnoremap({"silent"}, "<leader>Sc", ":SClose<cr>")
+        -- vimp.nnoremap({"silent"}, "<leader>Sd", ":SDelete<cr>")
       end,
     }
     -- LSP
@@ -576,6 +576,13 @@ return require("packer").startup({
       "brooth/far.vim",
       config = function()
         require("plugins.far")
+      end,
+    }
+    use {
+      "windwp/nvim-spectre",
+      config = function()
+        vimp.nnoremap({"silent"}, "<leader>S", require("spectre").open)
+        vimp.vnoremap({"silent"}, "<leader>S", require("spectre").open_visual)
       end,
     }
     use {"inkarkat/vim-SearchAlternatives", requires = "inkarkat/vim-ingo-library"}
