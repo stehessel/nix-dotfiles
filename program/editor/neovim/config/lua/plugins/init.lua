@@ -684,6 +684,8 @@ return require("packer").startup({
         vim.g.auto_save_events = {"InsertLeave", "FocusLost"}
       end,
     }
+    -- Filetypes
+    use "isobit/vim-caddyfile"
     use "~/dev/neovim/pytest.nvim"
   end,
   config = {max_jobs = 32},

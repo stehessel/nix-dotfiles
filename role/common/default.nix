@@ -152,7 +152,7 @@ in
     # --- nix ---
     arion
     cachix
-    lorri
+    # lorri
     niv
     rnix-lsp
     # --- notes ---
@@ -189,7 +189,7 @@ in
     jrnl
     neofetch
     svgcleaner
-    topgrade
+    # topgrade
     wget
     # --- watcher ---
     watchman
