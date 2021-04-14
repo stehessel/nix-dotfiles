@@ -88,8 +88,6 @@ brew "atlassian/tap/atlassian-plugin-sdk"
 brew "austinjones/taps/tab"
 # Convert CSV to Blue Yonder Supply & Demand API compatible XML
 brew "by-stehessel/blueyonder/di-csv2xml"
-# Cross-platform Text Expander written in Rust
-brew "federico-terzi/espanso/espanso"
 # Sentry command-line client for some generic tasks
 brew "getsentry/tools/sentry-cli"
 # Simple hotkey-daemon for macOS.
@@ -144,6 +142,8 @@ cask "pycharm"
 cask "rectangle"
 # PDF reader and note-taking application
 cask "skim"
+# Free and open-source OpenVPN client
+cask "tunnelblick"
 cask "ukelele"
 # Development environment
 cask "vagrant"
