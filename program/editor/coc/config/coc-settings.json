@@ -92,7 +92,7 @@
     },
     "neuron": {
       "command": "neuron-language-server",
-      "filetypes": ["markdown"]
+      "filetypes": []
     },
     "nix": {
       "command": "rnix-lsp",
