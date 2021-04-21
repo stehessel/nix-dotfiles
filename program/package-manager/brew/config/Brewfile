@@ -115,8 +115,7 @@ cask "calibre"
 cask "clipy"
 # Free universal database tool and SQL client
 cask "dbeaver-community"
-# App to build and share containerized applications and microservices
-cask "docker"
+# Google Chromium, sans integration with Google
 cask "eloston-chromium"
 # Web browser
 cask "firefox"
