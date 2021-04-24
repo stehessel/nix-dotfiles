@@ -34,11 +34,11 @@ vim.o.splitbelow = true
 -- Reloading
 vim.o.autoread = true
 -- Trigger `autoread` when files changes on disk
-vim.cmd([[autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
-		\ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif]])
+-- vim.cmd([[autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+--		\ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif]])
 -- Notification after file change
-vim.cmd([[autocmd FileChangedShellPost *
-		\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]])
+-- vim.cmd([[autocmd FileChangedShellPost *
+--		\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]])
 
 -- Lens
 -- vim.g["lens#disabled_filetypes"] = ['coc-explorer', 'nerdtree', 'fzf']
