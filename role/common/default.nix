@@ -173,6 +173,8 @@ in
     fish
     shellcheck
     shfmt
+    # --- ssh ---
+    sshpass
     # --- terminal multiplexers ---
     tmux
     # --- text ---
