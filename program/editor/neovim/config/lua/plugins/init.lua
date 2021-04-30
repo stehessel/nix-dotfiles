@@ -300,8 +300,6 @@ return require("packer").startup({
       end,
     }
     use "tpope/vim-markdown"
-    -- Tabs
-    use "gcmt/taboo.vim"
     -- Color scheme
     use {
       "bluz71/vim-nightfly-guicolors",
@@ -353,6 +351,7 @@ return require("packer").startup({
         vim.g.indent_blankline_filetype_exclude = {"packer", "startify"}
       end,
     }
+    use "tpope/vim-sleuth"
     -- Keybinds
     use "tpope/vim-unimpaired"
     -- Movement
@@ -502,6 +501,7 @@ return require("packer").startup({
     }
     -- Tabs
     use "caenrique/nvim-maximize-window-toggle"
+    use "gcmt/taboo.vim"
     -- Tmux
     use {"christoomey/vim-tmux-navigator"}
     -- File explorer

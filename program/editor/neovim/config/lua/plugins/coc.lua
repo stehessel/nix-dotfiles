@@ -90,9 +90,9 @@ end)
 vim.g.coc_snippet_next = "<Tab>"
 vim.g.coc_snippet_prev = "<S-Tab>"
 
--- Use `[g` and `]g` to navigate diagnostics
-vimp.nmap({"silent"}, "[g", "<Plug>(coc-diagnostic-prev)")
-vimp.nmap({"silent"}, "]g", "<Plug>(coc-diagnostic-next)")
+-- Use `[d` and `]d` to navigate diagnostics
+vimp.nmap({"silent"}, "[d", "<Plug>(coc-diagnostic-prev)")
+vimp.nmap({"silent"}, "]d", "<Plug>(coc-diagnostic-next)")
 
 -- GoTo code navigation.
 vimp.nmap({"silent"}, "gd", "<Plug>(coc-definition)")
@@ -217,3 +217,28 @@ vimp.nnoremap({"silent"}, "<space>C", ":<C-u>CocConfig<cr>")
 
 -- coc-yank
 vimp.nnoremap({"silent"}, "<space>y", ":<C-u>CocList -A --normal yank<cr>")
+
+-- coc-git
+vimp.nmap({"silent"}, "[g", "<Plug>(coc-git-prevchunk)")
+vimp.nmap({"silent"}, "]g", "<Plug>(coc-git-nextchunk)")
+vimp.nmap({"silent"}, "[c", "<Plug>(coc-git-prevconflict)")
+vimp.nmap({"silent"}, "]c", "<Plug>(coc-git-nextconflict)")
+
+vimp.nmap({"silent"}, "<leader>vv", "<Plug>(coc-git-chunkinfo)")
+vimp.nmap({"silent"}, "<leader>vc", "<Plug>(coc-git-commit)")
+vimp.nmap({"silent"}, "<leader>vs", "<Plug>(coc-git-stage)")
+vimp.nnoremap({"silent"}, "<leader>vu", function()
+  vim.fn.CocAction("runCommand", "git.chunkUndo")
+end)
+vimp.nnoremap({"silent"}, "<leader>vf", function()
+  vim.fn.CocAction("runCommand", "git.foldUnchanged")
+end)
+
+vimp.nmap({"silent"}, "<space>mc", "<Plug>(coc-git-keepcurrent)")
+vimp.nmap({"silent"}, "<space>mi", "<Plug>(coc-git-keepincoming)")
+vimp.nmap({"silent"}, "<space>mb", "<Plug>(coc-git-keepboth)")
+
+vimp.omap({"silent"}, "ig", "<Plug>(coc-git-chunk-inner)")
+vimp.xmap({"silent"}, "ig", "<Plug>(coc-git-chunk-inner)")
+vimp.omap({"silent"}, "ag", "<Plug>(coc-git-chunk-outer)")
+vimp.xmap({"silent"}, "ag", "<Plug>(coc-git-chunk-outer)")
