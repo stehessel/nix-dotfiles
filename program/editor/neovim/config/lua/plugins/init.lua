@@ -192,7 +192,11 @@ return require("packer").startup({
       "nvim-treesitter/nvim-treesitter-refactor",
       requires = "nvim-treesitter/nvim-treesitter",
     }
-    use {"nvim-treesitter/playground", requires = "nvim-treesitter/nvim-treesitter"}
+    use {
+      "nvim-treesitter/playground",
+      cmd = "TSPlaygroundToggle",
+      requires = "nvim-treesitter/nvim-treesitter",
+    }
     -- Debugger
     use {
       "puremourning/vimspector",
@@ -244,6 +248,7 @@ return require("packer").startup({
     use "Konfekt/FastFold"
     -- Syntax highlighters
     use "LnL7/vim-nix"
+    use "RRethy/vim-illuminate"
     -- Asciidoc
     use "habamax/vim-asciidoctor"
     -- REPL
@@ -332,9 +337,11 @@ return require("packer").startup({
     use "adelarsq/vim-matchit" -- Extends % operator
     use {"cohama/lexima.vim", disable = true}
     use {
-      "luochen1990/rainbow",
-      setup = function()
-        vim.g.rainbow_active = 1
+      "p00f/nvim-ts-rainbow",
+      config = function()
+        require("nvim-treesitter.configs").setup {
+          rainbow = {enable = true, extended_mode = true, max_file_lines = 1000},
+        }
       end,
     }
     use "machakann/vim-sandwich"
@@ -431,13 +438,11 @@ return require("packer").startup({
       end,
     }
     -- Comments
-    use "tomtom/tcomment_vim"
     use {
       "terrortylor/nvim-comment",
       config = function()
         require("nvim_comment").setup()
       end,
-      disable = true,
     }
     -- Text substitution
     use {
