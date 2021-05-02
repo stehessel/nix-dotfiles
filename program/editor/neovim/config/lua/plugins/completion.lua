@@ -8,7 +8,7 @@ require("compe").setup {
   preselect = "always",
   throttle_time = 25;
 
-  source = {path = true, buffer = true, vsnip = true, nvim_lsp = true, nvim_lua = {}},
+  source = {path = true, buffer = true, calc=true, vsnip = true, nvim_lsp = true, nvim_lua = true},
 }
 
 local t = function(str)
@@ -54,15 +54,9 @@ vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 -- vim.nvim_exec([[
--- if s:default
---   inoremap <silent><expr> <C-Space> compe#complete()
---   inoremap <silent><expr> <CR>      compe#confirm('<CR>')
---   inoremap <silent><expr> <C-e>     compe#close('<C-e>')
--- endif
---
--- if s:lexima
---   inoremap <silent><expr> <C-Space> compe#complete()
---   inoremap <silent><expr> <CR>      compe#confirm(lexima#expand('<LT>CR>', 'i'))
---   inoremap <silent><expr> <C-e>     compe#close('<C-e>')
--- endif
+-- inoremap <silent><expr> <C-Space> compe#complete()
+-- inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+-- inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+-- inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+-- inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 -- ]], false)

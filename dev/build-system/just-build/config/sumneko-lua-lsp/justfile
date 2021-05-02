@@ -8,7 +8,6 @@ clone:
 build: clone
 	#!/usr/bin/env fish
 	cd lua-language-server/3rd/luamake
-	ninja -f ninja/macos.ninja
+	compile/install.sh
 	cd ../..
 	./3rd/luamake/luamake rebuild
-	cp bin/macOS/lua-language-server $HOME/.local/bin/lua-language-server

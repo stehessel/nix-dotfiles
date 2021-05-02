@@ -18,6 +18,9 @@ vim.cmd("set sessionoptions-=options")
 -- do not store folds
 vim.cmd("set sessionoptions-=folds")
 
+-- Sign column
+vim.wo.signcolumn = "yes"
+
 -- Search
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -27,6 +30,7 @@ vim.o.hlsearch = true
 
 vim.g.grep_params =
   " --files --ignore-case --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
+
 -- Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 vim.o.splitright = true
 vim.o.splitbelow = true

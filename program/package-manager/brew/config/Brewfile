@@ -144,6 +144,8 @@ cask "pycharm"
 cask "rectangle"
 # PDF reader and note-taking application
 cask "skim"
+# Real time file synchronization software
+cask "syncthing"
 # Free and open-source OpenVPN client
 cask "tunnelblick"
 cask "ukelele"

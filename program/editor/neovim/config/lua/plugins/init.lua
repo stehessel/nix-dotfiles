@@ -19,7 +19,7 @@ if not packer_exists then
   return
 end
 
-local use_coc = true
+local use_coc = false
 
 return require("packer").startup({
   function()
@@ -34,6 +34,13 @@ return require("packer").startup({
     }
 
     -- Git
+    use {
+      "lewis6991/gitsigns.nvim",
+      requires = {"nvim-lua/plenary.nvim"},
+      config = function()
+        require("plugins.git")
+      end,
+    }
     use {
       "APZelos/blamer.nvim",
       after = "vimpeccable",
@@ -120,6 +127,12 @@ return require("packer").startup({
       disable = use_coc,
     }
     use {
+      "onsails/lspkind-nvim",
+      config = function()
+        require("lspkind").init()
+      end,
+    }
+    use {
       "hrsh7th/nvim-compe",
       config = function()
         require("plugins.completion")
@@ -136,6 +149,8 @@ return require("packer").startup({
         vim.fn["doge#install"]()
       end,
     }
+    -- SQL
+    use "nanotee/sqls.nvim"
     -- Python
     use {
       "python-rope/ropevim",
