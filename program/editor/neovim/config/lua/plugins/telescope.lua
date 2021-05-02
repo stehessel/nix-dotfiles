@@ -1,7 +1,4 @@
-local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
-local sorters = require("telescope.sorters")
-local themes = require("telescope.themes")
 
 require("telescope").setup({
   defaults = {
@@ -37,5 +34,6 @@ vimp.nnoremap({"silent"}, "<leader>fp", require("telescope").extensions.gh.pull_
 vimp.nnoremap({"silent"}, "<leader>fd",
   require("telescope").extensions.vimspector.configurations)
 vimp.nnoremap({"silent"}, "<leader>fr", function()
-  require"telescope.builtin".lsp_references {shorten_path = true}
+  require("telescope.builtin").lsp_references({shorten_path = true})
 end)
+vimp.nnoremap({"silent"}, "gd", require("telescope.builtin").lsp_definitions)
