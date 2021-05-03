@@ -175,6 +175,8 @@ in
     shfmt
     # --- ssh ---
     sshpass
+    # --- terminals ---
+    wezterm
     # --- terminal multiplexers ---
     tmux
     # --- text ---
