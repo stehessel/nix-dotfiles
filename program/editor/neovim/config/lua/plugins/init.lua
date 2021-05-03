@@ -139,6 +139,18 @@ return require("packer").startup({
       end,
       disable = use_coc,
     }
+    use {
+      "folke/lsp-trouble.nvim",
+      config = function()
+        require("trouble").setup({})
+        vimp.nnoremap({"silent"}, "<space>tt", "<cmd>LspTroubleToggle<cr>")
+        vimp.nnoremap({"silent"}, "<space>tw", "<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>")
+        vimp.nnoremap({"silent"}, "<space>td", "<cmd>LspTroubleToggle lsp_document_diagnostics<cr>")
+        vimp.nnoremap({"silent"}, "<space>tl", "<cmd>LspTroubleToggle loclist<cr>")
+        vimp.nnoremap({"silent"}, "<space>tq", "<cmd>LspTroubleToggle quickfix<cr>")
+        vimp.nnoremap({"silent"}, "gR", "<cmd>LspTrouble lsp_references<cr>")
+      end,
+    }
     -- Documentation
     use {
       "kkoomen/vim-doge",

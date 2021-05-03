@@ -1,5 +1,15 @@
 vim.o.showmode = false
 
+vim.g.bubbly_statusline = {
+  "mode",
+  "truncate",
+  "path",
+  "builtinlsp.diagnostic_count",
+  "builtinlsp.current_function",
+  "divisor",
+  "filetype",
+  "progress",
+}
 vim.g.bubbly_tags = {
   filetype = {
     noft = "", -- If it's empty the bubble disappears
@@ -23,8 +33,8 @@ vim.g.bubbly_styles = {
   mode = "bold",
   path = {readonly = "bold", unmodifiable = "", path = "", modified = ""},
   branch = "bold",
-  signify = {added = "bold", modified = "bold", removed = "bold"},
   paste = "bold",
-  coc = {error = "bold", warning = "bold", status = ""},
 }
-vim.g.bubbly_symbols = {coc = {error = "Errors: %s", warning = "Warnings: %s"}}
+vim.g.bubbly_symbols = {
+  builtinlsp = {diagnostic_count = {error = "Errors: %s", warning = "Warnings: %s"}},
+}
