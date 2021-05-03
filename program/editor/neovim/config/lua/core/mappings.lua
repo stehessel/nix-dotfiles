@@ -51,6 +51,7 @@ vimp.nnoremap({"silent"}, "g[", ":-tabmove<cr>")
 vimp.nnoremap({"silent"}, "g]", ":+tabmove<cr>")
 vimp.nnoremap({"silent"}, "g^", ":tabm 0<cr>")
 vimp.nnoremap({"silent"}, "g$", ":tabm<cr>")
+vimp.nnoremap({"silent"}, "gq", ":tabclose<cr>")
 vimp.nnoremap({"silent"}, "<C-t>", ":tabnew<cr>")
 vimp.nnoremap({"silent"}, "<leader><space>", ":ToggleOnly<enter>")
 

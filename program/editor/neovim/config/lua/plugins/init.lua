@@ -52,6 +52,12 @@ return require("packer").startup({
       end,
     }
     use "rhysd/git-messenger.vim"
+    use {
+      "sindrets/diffview.nvim",
+      config = function()
+        vimp.nnoremap({"silent"}, "<leader>u", ":DiffviewOpen<cr>")
+      end,
+    }
     -- Finders
     use {
       "dyng/ctrlsf.vim",
@@ -144,8 +150,10 @@ return require("packer").startup({
       config = function()
         require("trouble").setup({})
         vimp.nnoremap({"silent"}, "<space>tt", "<cmd>LspTroubleToggle<cr>")
-        vimp.nnoremap({"silent"}, "<space>tw", "<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>")
-        vimp.nnoremap({"silent"}, "<space>td", "<cmd>LspTroubleToggle lsp_document_diagnostics<cr>")
+        vimp.nnoremap({"silent"}, "<space>tw",
+          "<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>")
+        vimp.nnoremap({"silent"}, "<space>td",
+          "<cmd>LspTroubleToggle lsp_document_diagnostics<cr>")
         vimp.nnoremap({"silent"}, "<space>tl", "<cmd>LspTroubleToggle loclist<cr>")
         vimp.nnoremap({"silent"}, "<space>tq", "<cmd>LspTroubleToggle quickfix<cr>")
         vimp.nnoremap({"silent"}, "gR", "<cmd>LspTrouble lsp_references<cr>")
