@@ -48,14 +48,14 @@ return require("packer").startup({
       setup = function()
         require("vimp")
         vim.g.blamer_delay = 250
-        vimp.nnoremap({"silent"}, "<leader>gB", ":BlamerToggle<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>gB", ":BlamerToggle<cr>")
       end,
     }
     use "rhysd/git-messenger.vim"
     use {
       "sindrets/diffview.nvim",
       config = function()
-        vimp.nnoremap({"silent"}, "<leader>u", ":DiffviewOpen<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>u", ":DiffviewOpen<cr>")
       end,
     }
     -- Finders
@@ -99,11 +99,11 @@ return require("packer").startup({
         vim.g.startify_session_persistence = 1
         vim.g.startify_update_oldfiles = 1
 
-        vimp.nnoremap({"silent"}, "<leader>H", ":Startify<cr>")
-        -- vimp.nnoremap({"silent"}, "<leader>Ss", ":SSave!")
-        -- vimp.nnoremap({"silent"}, "<leader>Sl", ":SLoad")
-        -- vimp.nnoremap({"silent"}, "<leader>Sc", ":SClose<cr>")
-        -- vimp.nnoremap({"silent"}, "<leader>Sd", ":SDelete<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>H", ":Startify<cr>")
+        -- vimp.nnoremap({"override", "silent"}, "<leader>Ss", ":SSave!")
+        -- vimp.nnoremap({"override", "silent"}, "<leader>Sl", ":SLoad")
+        -- vimp.nnoremap({"override", "silent"}, "<leader>Sc", ":SClose<cr>")
+        -- vimp.nnoremap({"override", "silent"}, "<leader>Sd", ":SDelete<cr>")
       end,
     }
     -- LSP
@@ -149,14 +149,16 @@ return require("packer").startup({
       "folke/lsp-trouble.nvim",
       config = function()
         require("trouble").setup({})
-        vimp.nnoremap({"silent"}, "<space>tt", "<cmd>LspTroubleToggle<cr>")
-        vimp.nnoremap({"silent"}, "<space>tw",
+        vimp.nnoremap({"override", "silent"}, "<space>tt", "<cmd>LspTroubleToggle<cr>")
+        vimp.nnoremap({"override", "silent"}, "<space>tw",
           "<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>")
-        vimp.nnoremap({"silent"}, "<space>td",
+        vimp.nnoremap({"override", "silent"}, "<space>td",
           "<cmd>LspTroubleToggle lsp_document_diagnostics<cr>")
-        vimp.nnoremap({"silent"}, "<space>tl", "<cmd>LspTroubleToggle loclist<cr>")
-        vimp.nnoremap({"silent"}, "<space>tq", "<cmd>LspTroubleToggle quickfix<cr>")
-        vimp.nnoremap({"silent"}, "gR", "<cmd>LspTrouble lsp_references<cr>")
+        vimp.nnoremap({"override", "silent"}, "<space>tl",
+          "<cmd>LspTroubleToggle loclist<cr>")
+        vimp.nnoremap({"override", "silent"}, "<space>tq",
+          "<cmd>LspTroubleToggle quickfix<cr>")
+        vimp.nnoremap({"override", "silent"}, "gR", "<cmd>LspTrouble lsp_references<cr>")
       end,
     }
     -- Documentation
@@ -200,10 +202,10 @@ return require("packer").startup({
         vim.g.ropevim_enable_autoimport = 1
         vim.g.ropevim_guess_project = 1
 
-        vimp.nnoremap({"silent"}, "<M-,>", ":RopeCodeAssist<cr>")
-        vimp.nnoremap({"silent"}, "<M-.>", ":RopeLuckyAssist<cr>")
-        vimp.nnoremap({"silent"}, "<M-cr>", ":RopeAutoImport<cr>")
-        vimp.nnoremap({"silent"}, "<M-d>", ":RopeGotoDefinition<cr>")
+        vimp.nnoremap({"override", "silent"}, "<M-,>", ":RopeCodeAssist<cr>")
+        vimp.nnoremap({"override", "silent"}, "<M-.>", ":RopeLuckyAssist<cr>")
+        vimp.nnoremap({"override", "silent"}, "<M-cr>", ":RopeAutoImport<cr>")
+        vimp.nnoremap({"override", "silent"}, "<M-d>", ":RopeGotoDefinition<cr>")
       end,
       -- ft = "python"
     }
@@ -245,17 +247,17 @@ return require("packer").startup({
         require("dap-python").setup("python")
         require("dap-python").test_runner = "pytest"
 
-        vimp.nnoremap({"silent"}, "<F4>", require("dap").list_breakpoints)
-        vimp.nnoremap({"silent"}, "<F5>", require("dap").continue)
-        vimp.nnoremap({"silent"}, "<F6>", require("dap").repl.toggle)
-        vimp.nnoremap({"silent"}, "<F8>", require("dap").goto_)
-        vimp.nnoremap({"silent"}, "<F9>", require("dap").toggle_breakpoint)
-        vimp.nnoremap({"silent"}, "<leader><F9>", function()
+        vimp.nnoremap({"override", "silent"}, "<F4>", require("dap").list_breakpoints)
+        vimp.nnoremap({"override", "silent"}, "<F5>", require("dap").continue)
+        vimp.nnoremap({"override", "silent"}, "<F6>", require("dap").repl.toggle)
+        vimp.nnoremap({"override", "silent"}, "<F8>", require("dap").goto_)
+        vimp.nnoremap({"override", "silent"}, "<F9>", require("dap").toggle_breakpoint)
+        vimp.nnoremap({"override", "silent"}, "<leader><F9>", function()
           require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
         end)
-        vimp.nnoremap({"silent"}, "<F10>", require("dap").step_over)
-        vimp.nnoremap({"silent"}, "<F11>", require("dap").step_into)
-        vimp.nnoremap({"silent"}, "<F12>", require("dap").step_out)
+        vimp.nnoremap({"override", "silent"}, "<F10>", require("dap").step_over)
+        vimp.nnoremap({"override", "silent"}, "<F11>", require("dap").step_into)
+        vimp.nnoremap({"override", "silent"}, "<F12>", require("dap").step_out)
       end,
       requires = {"mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter"},
       disable = true,
@@ -295,18 +297,18 @@ return require("packer").startup({
         vim.g.neoterm_default_mod = "rightbelow vertical"
         vim.g.neoterm_shell = "fish"
 
-        vimp.nnoremap({"silent"}, "<leader>Tt", ":Ttoggle<cr>")
-        vimp.nnoremap({"silent"}, "<leader>Tr", ":TREPLSetTerm<cr>")
-        vimp.nnoremap({"silent"}, "<leader>Tf", ":TREPLSendFile<cr>")
-        vimp.nnoremap({"silent"}, "<leader>Tl", ":TREPLSendLine<cr>")
-        vimp.xnoremap({"silent"}, "<leader>Tl", ":TREPLSendSelection<cr>")
-        vimp.rbind("nx", "gx", "<Plug>neoterm-repl-send")
+        vimp.nnoremap({"override", "silent"}, "<leader>Tt", ":Ttoggle<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>Tr", ":TREPLSetTerm<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>Tf", ":TREPLSendFile<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>Tl", ":TREPLSendLine<cr>")
+        vimp.xnoremap({"override", "silent"}, "<leader>Tl", ":TREPLSendSelection<cr>")
+        vimp.rbind("nx", {"override"}, "gx", "<Plug>neoterm-repl-send")
       end,
     }
     use {
       "voldikss/vim-floaterm",
       config = function()
-        vimp.nnoremap({"silent"}, "<leader>G",
+        vimp.nnoremap({"override", "silent"}, "<leader>G",
           ":FloatermNew --width=0.9 --height=0.9 --wintype=float --autoclose=2 lazygit<cr>")
       end,
     }
@@ -323,20 +325,20 @@ return require("packer").startup({
       config = function()
         require("iron").core.set_config({preferred = {python = "ipython"}})
 
-        vimp.nnoremap({"silent"}, "<leader>it", ":IronRepl python<cr><ESC>")
-        vimp.nnoremap({"silent"}, "<leader>if", ":IronFocus python<cr>")
-        vimp.nnoremap({"silent"}, "<leader>ir", ":IronRestart<cr>")
-        vimp.nnoremap({"silent"}, "<leader>iw", ":IronWatchCurrentFile")
-        vimp.nnoremap({"silent"}, "<leader>iu", ":IronUnwatchCurrentFile<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>it", ":IronRepl python<cr><ESC>")
+        vimp.nnoremap({"override", "silent"}, "<leader>if", ":IronFocus python<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>ir", ":IronRestart<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>iw", ":IronWatchCurrentFile")
+        vimp.nnoremap({"override", "silent"}, "<leader>iu", ":IronUnwatchCurrentFile<cr>")
 
-        vimp.nmap({"silent"}, "<localleader>s", "<Plug>(iron-send-motion)")
-        vimp.vmap({"silent"}, "<localleader>s", "<Plug>iron-visual-send")
-        vimp.vmap({"silent"}, "<localleader>r", "<Plug>iron-repeat-cmd")
-        vimp.vmap({"silent"}, "<localleader>l", "<Plug>(iron-send-line)")
-        vimp.vmap({"silent"}, "<localleader><cr>", "<Plug>(iron-cr)")
-        vimp.vmap({"silent"}, "<localleader>i", "<Plug>(iron-interrupt)")
-        vimp.vmap({"silent"}, "<localleader>q", "<Plug>(iron-exit)")
-        vimp.vmap({"silent"}, "<localleader>c", "<Plug>(iron-clear)")
+        vimp.nmap({"override", "silent"}, "<localleader>s", "<Plug>(iron-send-motion)")
+        vimp.vmap({"override", "silent"}, "<localleader>s", "<Plug>iron-visual-send")
+        vimp.vmap({"override", "silent"}, "<localleader>r", "<Plug>iron-repeat-cmd")
+        vimp.vmap({"override", "silent"}, "<localleader>l", "<Plug>(iron-send-line)")
+        vimp.vmap({"override", "silent"}, "<localleader><cr>", "<Plug>(iron-cr)")
+        vimp.vmap({"override", "silent"}, "<localleader>i", "<Plug>(iron-interrupt)")
+        vimp.vmap({"override", "silent"}, "<localleader>q", "<Plug>(iron-exit)")
+        vimp.vmap({"override", "silent"}, "<localleader>c", "<Plug>(iron-clear)")
       end,
     }
     use "tpope/vim-markdown"
@@ -418,9 +420,9 @@ return require("packer").startup({
       setup = function()
         require("vimp")
         -- Start interactive EasyAlign in visual mode (e.g. vipga)
-        vimp.xnoremap({"silent"}, "ga", ":EasyAlign<cr>")
+        vimp.xnoremap({"override", "silent"}, "ga", ":EasyAlign<cr>")
         -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
-        vimp.nnoremap({"silent"}, "ga", ":EasyAlign<cr>")
+        vimp.nnoremap({"override", "silent"}, "ga", ":EasyAlign<cr>")
       end,
     }
     use {
@@ -440,8 +442,8 @@ return require("packer").startup({
       "machakann/vim-swap",
       after = "vimpeccable",
       config = function()
-        vimp.rbind("ox", "i,", "<Plug>(swap-textobject-i)")
-        vimp.rbind("ox", "a,", "<Plug>(swap-textobject-a)")
+        vimp.rbind("ox", {"override"}, "i,", "<Plug>(swap-textobject-i)")
+        vimp.rbind("ox", {"override"}, "a,", "<Plug>(swap-textobject-a)")
       end,
     }
     use "mg979/vim-visual-multi"
@@ -449,14 +451,14 @@ return require("packer").startup({
       "nicwest/vim-camelsnek",
       after = "vimpeccable",
       config = function()
-        vimp.nnoremap({"silent"}, "<leader>xs", ":Snek<cr>")
-        vimp.xnoremap({"silent"}, "<leader>xs", ":Snek<cr>")
-        vimp.nnoremap({"silent"}, "<leader>xc", ":Camel<cr>")
-        vimp.xnoremap({"silent"}, "<leader>xc", ":Camel<cr>")
-        vimp.nnoremap({"silent"}, "<leader>xb", ":CamelB<cr>")
-        vimp.xnoremap({"silent"}, "<leader>xb", ":CamelB<cr>")
-        vimp.nnoremap({"silent"}, "<leader>xk", ":Kebab<cr>")
-        vimp.xnoremap({"silent"}, "<leader>xk", ":Kebab<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>xs", ":Snek<cr>")
+        vimp.xnoremap({"override", "silent"}, "<leader>xs", ":Snek<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>xc", ":Camel<cr>")
+        vimp.xnoremap({"override", "silent"}, "<leader>xc", ":Camel<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>xb", ":CamelB<cr>")
+        vimp.xnoremap({"override", "silent"}, "<leader>xb", ":CamelB<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>xk", ":Kebab<cr>")
+        vimp.xnoremap({"override", "silent"}, "<leader>xk", ":Kebab<cr>")
       end,
     }
     use "tpope/vim-repeat"
@@ -464,12 +466,12 @@ return require("packer").startup({
     use {
       "monaqa/dial.nvim",
       config = function()
-        vimp.nmap({"silent"}, "<C-a>", "<Plug>(dial-increment)")
-        vimp.xmap({"silent"}, "<C-a>", "<Plug>(dial-increment)")
-        vimp.nmap({"silent"}, "<C-x>", "<Plug>(dial-decrement)")
-        vimp.xmap({"silent"}, "<C-x>", "<Plug>(dial-decrement)")
-        vimp.nmap({"silent"}, "g<C-a>", "<Plug>(dial-increment-additional)")
-        vimp.nmap({"silent"}, "g<C-x>", "<Plug>(dial-decrement-additional)")
+        vimp.nmap({"override", "silent"}, "<C-a>", "<Plug>(dial-increment)")
+        vimp.xmap({"override", "silent"}, "<C-a>", "<Plug>(dial-increment)")
+        vimp.nmap({"override", "silent"}, "<C-x>", "<Plug>(dial-decrement)")
+        vimp.xmap({"override", "silent"}, "<C-x>", "<Plug>(dial-decrement)")
+        vimp.nmap({"override", "silent"}, "g<C-a>", "<Plug>(dial-increment-additional)")
+        vimp.nmap({"override", "silent"}, "g<C-x>", "<Plug>(dial-decrement-additional)")
       end,
     }
     -- Comments
@@ -501,9 +503,9 @@ return require("packer").startup({
         vim.cmd [[nmap <leader>css <Plug>(SubversiveSubstituteWordRangeConfirm)]]
 
         -- ie = inner entire buffer
-        vimp.onoremap({"silent"}, "ie", [[:exec "normal! ggVG"<cr>]])
+        vimp.onoremap({"override", "silent"}, "ie", [[:exec "normal! ggVG"<cr>]])
         -- iv = current viewable text in the buffer
-        vimp.onoremap({"silent"}, "iv", [[:exec "normal! HVL"<cr>]])
+        vimp.onoremap({"override", "silent"}, "iv", [[:exec "normal! HVL"<cr>]])
       end,
     }
     use "tpope/vim-abolish"
@@ -536,7 +538,7 @@ return require("packer").startup({
       "wfxr/minimap.vim",
       after = "vimpeccable",
       config = function()
-        vimp.nnoremap({"silent"}, "<leader>C", ":MinimapToggle<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>C", ":MinimapToggle<cr>")
       end,
     }
     -- Tabs
@@ -560,7 +562,7 @@ return require("packer").startup({
           ["data_catalog/*.py"] = {["alternate"] = "tests/unit/test_{}.py"},
         }
 
-        -- vimp.nnoremap({"silent"}, "go", ":A<cr>")
+        -- vimp.nnoremap({"override", "silent"}, "go", ":A<cr>")
       end,
     }
     -- Search
@@ -573,8 +575,8 @@ return require("packer").startup({
     use {
       "windwp/nvim-spectre",
       config = function()
-        vimp.nnoremap({"silent"}, "<leader>S", require("spectre").open)
-        vimp.vnoremap({"silent"}, "<leader>S", require("spectre").open_visual)
+        vimp.nnoremap({"override", "silent"}, "<leader>S", require("spectre").open)
+        vimp.vnoremap({"override", "silent"}, "<leader>S", require("spectre").open_visual)
         require("spectre").setup({
           mapping = {
             ["delete_line"] = {
@@ -627,7 +629,7 @@ return require("packer").startup({
     -- use {
     --   "gabrielpoca/replacer.nvim",
     --   config = function()
-    --     vimp.nnoremap({"silent"}, "<leader>R", require("replacer").run())
+    --     vimp.nnoremap({"override", "silent"}, "<leader>R", require("replacer").run())
     --   end,
     -- }
     -- Discover keybinds
