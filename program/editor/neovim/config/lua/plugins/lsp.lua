@@ -6,28 +6,34 @@ local on_attach = function(client, bufnr)
 
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  -- Mappings.
+  -- Mappings
   vimp.nnoremap({"override", "silent"}, "gD", vim.lsp.buf.declaration)
   vimp.nnoremap({"override", "silent"}, "gy", vim.lsp.buf.implementation)
-  vimp.nnoremap({"override", "silent"}, "gr", vim.lsp.buf.references)
+  if client.resolved_capabilities.find_references then
+    vimp.nnoremap({"override", "silent"}, "gr", vim.lsp.buf.references)
+  end
   vimp.nnoremap({"override", "silent"}, "gh", require("lspsaga.provider").lsp_finder)
   vimp.nnoremap({"override", "silent"}, "gK",
     require("lspsaga.signaturehelp").signature_help)
 
-  vimp.nnoremap({"override", "silent"}, "K", require("lspsaga.hover").render_hover_doc)
-  vimp.nnoremap({"override", "silent"}, "<C-d>", function()
-    require("lspsaga.action").smart_scroll_with_saga(1)
-  end)
-  vimp.nnoremap({"override", "silent"}, "<C-u>", function()
-    require("lspsaga.action").smart_scroll_with_saga(-1)
-  end)
+  if client.resolved_capabilities.hover then
+    vimp.nnoremap({"override", "silent"}, "K", require("lspsaga.hover").render_hover_doc)
+    vimp.nnoremap({"override", "silent"}, "<C-d>", function()
+      require("lspsaga.action").smart_scroll_with_saga(1)
+    end)
+    vimp.nnoremap({"override", "silent"}, "<C-u>", function()
+      require("lspsaga.action").smart_scroll_with_saga(-1)
+    end)
+  end
   vimp.nnoremap({"override", "silent"}, "<space>p",
     require"lspsaga.provider".preview_definition)
   vimp.nnoremap({"override", "silent"}, "<space>D", vim.lsp.buf.type_definition)
-  vimp.nnoremap({"override", "silent"}, "<space>r", require("lspsaga.rename").rename)
+  if client.resolved_capabilities.rename then
+    vimp.nnoremap({"override", "silent"}, "<space>r", require("lspsaga.rename").rename)
+  end
   vimp.nnoremap({"override", "silent"}, "<space>a",
     require("lspsaga.codeaction").code_action)
-  vimp.vnoremap({"override", "silent"}, "<space>a",
+  vimp.xnoremap({"override", "silent"}, "<space>a",
     require("lspsaga.codeaction").range_code_action)
 
   vimp.nnoremap({"override", "silent"}, "<space>wa", vim.lsp.buf.add_workspace_folder)
@@ -43,11 +49,10 @@ local on_attach = function(client, bufnr)
   vimp.nnoremap({"override", "silent"}, "]d",
     require("lspsaga.diagnostic").lsp_jump_diagnostic_next)
 
-  -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
     vimp.nnoremap({"override", "silent"}, "<space>f", vim.lsp.buf.formatting)
   elseif client.resolved_capabilities.document_range_formatting then
-    vimp.nnoremap({"override", "silent"}, "<space>f", vim.lsp.buf.range_formatting)
+    vimp.vnoremap({"override", "silent"}, "<space>f", vim.lsp.buf.range_formatting)
   end
 end
 
