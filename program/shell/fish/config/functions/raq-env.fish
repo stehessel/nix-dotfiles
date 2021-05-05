@@ -1,7 +1,7 @@
 function raq-env --description "Create raq environment."
 	conda deactivate
 	conda env remove -n raq-env
-	conda create -n raq-env python=3.6 -y
+	conda create -n raq-env python=3.8 -y
 	conda activate raq-env
 
 	conda install \
