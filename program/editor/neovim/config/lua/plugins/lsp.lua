@@ -64,7 +64,17 @@ nvim_lsp.efm.setup({on_attach = on_attach, root_dir = root_patterns})
 
 nvim_lsp.dockerls.setup({on_attach = on_attach, root_dir = root_patterns})
 
-nvim_lsp.jsonls.setup({on_attach = on_attach, root_dir = root_patterns})
+nvim_lsp.jsonls.setup({
+  commands = {
+    Format = {
+      function()
+        vim.lsp.buf.range_formatting({}, {0, 0}, {vim.fn.line("$"), 0})
+      end,
+    },
+  },
+  on_attach = on_attach,
+  root_dir = root_patterns,
+})
 
 nvim_lsp.rnix.setup({on_attach = on_attach, root_dir = root_patterns})
 
