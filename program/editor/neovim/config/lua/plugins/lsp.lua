@@ -71,7 +71,9 @@ nvim_lsp.rnix.setup({on_attach = on_attach, root_dir = root_patterns})
 nvim_lsp.pyright.setup({
   on_attach = on_attach,
   root_dir = root_patterns,
-  settings = {python = {analysis = {["typeCheckingMode"] = "off"}}},
+  settings = {
+    python = {analysis = {typeCheckingMode = "off", useLibraryCodeForTypes = false}},
+  },
 })
 
 local sumneko_root_path = "/Users/lgtf/just-build/sumneko-lua-lsp/lua-language-server"
