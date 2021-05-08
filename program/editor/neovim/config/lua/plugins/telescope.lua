@@ -1,40 +1,16 @@
-local builtin = require("telescope.builtin")
-
-require("telescope").setup({
-  defaults = {
-    prompt_position = "top",
-    prompt_prefix = "🔍 ",
-    sorting_strategy = "ascending",
-    vimgrep_arguments = {
-      "rg",
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--ignore-case",
-    },
-  },
-})
-require("telescope").load_extension("fzy_native")
-require("telescope").load_extension("gh")
-require("telescope").load_extension("vimspector")
-
 require("vimp")
-vimp.nnoremap({"silent"}, "<leader>ff", builtin.find_files)
-vimp.nnoremap({"silent"}, "<leader>fg", builtin.live_grep)
-vimp.nnoremap({"silent"}, "<leader>fl", builtin.current_buffer_fuzzy_find)
-vimp.nnoremap({"silent"}, "<leader>fb", builtin.buffers)
-vimp.nnoremap({"silent"}, "<leader>fh", builtin.oldfiles)
-vimp.nnoremap({"silent"}, "<leader>fm", builtin.marks)
-vimp.nnoremap({"silent"}, "<leader>fc", builtin.git_bcommits)
-vimp.nnoremap({"silent"}, "<leader>fk", builtin.keymaps)
-vimp.nnoremap({"silent"}, "<leader>fi", require("telescope").extensions.gh.issues)
-vimp.nnoremap({"silent"}, "<leader>fp", require("telescope").extensions.gh.pull_request)
-vimp.nnoremap({"silent"}, "<leader>fd",
-  require("telescope").extensions.vimspector.configurations)
-vimp.nnoremap({"silent"}, "<leader>fr", function()
-  require("telescope.builtin").lsp_references({shorten_path = true})
-end)
-vimp.nnoremap({"silent"}, "gd", require("telescope.builtin").lsp_definitions)
-vimp.nnoremap({"silent"}, "<space>e", require("telescope.builtin").lsp_document_diagnostics)
+
+vimp.nnoremap({"silent"}, "<leader>ff", "<cmd>Telescope find_files<CR>")
+vimp.nnoremap({"silent"}, "<leader>fg", "<cmd>Telescope live_grep<CR>")
+vimp.nnoremap({"silent"}, "<leader>fl", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+vimp.nnoremap({"silent"}, "<leader>fb", "<cmd>Telescope buffers<CR>")
+vimp.nnoremap({"silent"}, "<leader>fh", "<cmd>Telescope oldfiles<CR>")
+vimp.nnoremap({"silent"}, "<leader>fm", "<cmd>Telescope marks<CR>")
+vimp.nnoremap({"silent"}, "<leader>fc", "<cmd>Telescope git_bcommits<CR>")
+vimp.nnoremap({"silent"}, "<leader>fk", "<cmd>Telescope keymaps<CR>")
+vimp.nnoremap({"silent"}, "<leader>fi", "<cmd>Telescope gh issues<CR>")
+vimp.nnoremap({"silent"}, "<leader>fp", "<cmd>Telescope gh pull_request<CR>")
+vimp.nnoremap({"silent"}, "<leader>fd", "<cmd>Telescope vimspector configurations<CR>")
+vimp.nnoremap({"silent"}, "<leader>fr", "<cmd>Telescope lsp_references<CR>")
+vimp.nnoremap({"silent"}, "gd", "<cmd>Telescope lsp_definitions<CR>")
+vimp.nnoremap({"silent"}, "<space>e", "<cmd>Telescope lsp_document_diagnostics<CR>")

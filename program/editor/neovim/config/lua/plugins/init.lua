@@ -67,14 +67,39 @@ return require("packer").startup({
     }
     use {
       "nvim-lua/telescope.nvim",
+      cmd = "Telescope",
       config = function()
+        require("telescope").setup({
+          defaults = {
+            prompt_position = "top",
+            prompt_prefix = "🔍 ",
+            sorting_strategy = "ascending",
+            vimgrep_arguments = {
+              "rg",
+              "--color=never",
+              "--no-heading",
+              "--with-filename",
+              "--line-number",
+              "--column",
+              "--ignore-case",
+            },
+          },
+        })
+        require("telescope").load_extension("fzy_native")
+        require("telescope").load_extension("gh")
+        require("telescope").load_extension("vimspector")
+      end,
+      setup = function()
         require("plugins.telescope")
       end,
-      requires = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"},
+      requires = {
+        {"nvim-lua/popup.nvim"},
+        {"nvim-lua/plenary.nvim"},
+        {"nvim-telescope/telescope-fzy-native.nvim", cmd = "Telescope"},
+        {"nvim-telescope/telescope-github.nvim", cmd = "Telescope"},
+        {"nvim-telescope/telescope-vimspector.nvim", cmd = "Telescope"},
+      },
     }
-    use {"nvim-telescope/telescope-fzy-native.nvim", requires = "nvim-lua/telescope.nvim"}
-    use {"nvim-telescope/telescope-github.nvim", requires = "nvim-lua/telescope.nvim"}
-    use {"nvim-telescope/telescope-vimspector.nvim", requires = "nvim-lua/telescope.nvim"}
     -- Statusline
     use {
       "datwaft/bubbly.nvim",
@@ -124,6 +149,7 @@ return require("packer").startup({
         require("plugins.lsp")
       end,
       disable = use_coc,
+      event = "BufReadPre",
     }
     use {
       "glepnir/lspsaga.nvim",
@@ -144,11 +170,16 @@ return require("packer").startup({
         require("plugins.completion")
       end,
       disable = use_coc,
+      event = "InsertEnter",
     }
     use {
       "folke/lsp-trouble.nvim",
+      cmd = {"LspTrouble", "LspTroubleClose", "LspTroubleRefresh", "LspTroubleToggle"},
       config = function()
         require("trouble").setup({})
+      end,
+      setup = function()
+        require("vimp")
         vimp.nnoremap({"override", "silent"}, "<space>tt", "<cmd>LspTroubleToggle<cr>")
         vimp.nnoremap({"override", "silent"}, "<space>tw",
           "<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>")
@@ -568,7 +599,9 @@ return require("packer").startup({
     -- Search
     use {
       "brooth/far.vim",
-      config = function()
+      after = "vimpeccable",
+      cmd = {"Far", "Farr", "Farp"},
+      setup = function()
         require("plugins.far")
       end,
     }
@@ -577,51 +610,9 @@ return require("packer").startup({
       config = function()
         vimp.nnoremap({"override", "silent"}, "<leader>S", require("spectre").open)
         vimp.vnoremap({"override", "silent"}, "<leader>S", require("spectre").open_visual)
-        require("spectre").setup({
-          mapping = {
-            ["delete_line"] = {
-              map = "dd",
-              cmd = "<cmd>lua require('spectre').delete()<CR>",
-              desc = "delete current item",
-            },
-            ["enter_file"] = {
-              map = "<cr>",
-              cmd = "<cmd>lua require('spectre.actions').select_entry()<CR>",
-              desc = "goto current file",
-            },
-            ["send_to_qf"] = {
-              map = "rq",
-              cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>",
-              desc = "send all item to quickfix",
-            },
-            ["replace_cmd"] = {
-              map = "rc",
-              cmd = "<cmd>lua require('spectre.actions').replace_cmd()<CR>",
-              desc = "input replace vim command",
-            },
-            ["show_option_menu"] = {
-              map = "to",
-              cmd = "<cmd>lua require('spectre').show_options()<CR>",
-              desc = "show option",
-            },
-            ["run_replace"] = {
-              map = "rS",
-              cmd = "<cmd>lua require('spectre.actions').run_replace()<CR>",
-              desc = "replace all",
-            },
-            ["toggle_ignore_case"] = {
-              map = "ti",
-              cmd = "<cmd>lua require('spectre').change_options('ignore-case')<CR>",
-              desc = "toggle ignore case",
-            },
-            ["toggle_ignore_hidden"] = {
-              map = "th",
-              cmd = "<cmd>lua require('spectre').change_options('hidden')<CR>",
-              desc = "toggle search hidden",
-            },
-          },
-        })
+        require("spectre").setup({})
       end,
+      event = "BufReadPre",
     }
     use {"inkarkat/vim-SearchAlternatives", requires = "inkarkat/vim-ingo-library"}
     use "romainl/vim-cool"

@@ -108,7 +108,21 @@ nvim_lsp.sumneko_lua.setup({
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {"use", "vim", "vimp"},
+        globals = {
+          -- Neovim
+          "vim",
+          -- packer
+          "use",
+          -- Busted
+          "after_each",
+          "before_each",
+          "describe",
+          "it",
+          "pending",
+          "teardown",
+          -- vimpeccable
+          "vimp",
+        },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
@@ -116,6 +130,8 @@ nvim_lsp.sumneko_lua.setup({
           [vim.fn.expand("$VIMRUNTIME/lua")] = true,
           [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
         },
+        maxPreload = 1000,
+        preloadFileSize = 1000,
       },
     },
   },
