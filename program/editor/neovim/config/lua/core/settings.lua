@@ -21,7 +21,9 @@ vim.cmd("set sessionoptions-=folds")
 -- Sign column
 vim.wo.signcolumn = "yes"
 
--- cmd height
+-- Short messages
+vim.cmd("set shortmess+=c")
+-- Cmd height
 vim.o.cmdheight = 2
 
 -- Search

@@ -17,8 +17,8 @@ in
     # --- terminal ---
     kitty
     # --- latex ---
-    texlive.combined.scheme-full
-    tectonic
+    # texlive.combined.scheme-full
+    # tectonic
   ];
 
   programs.alacritty = {

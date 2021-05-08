@@ -10,7 +10,6 @@ vimp.nnoremap({"silent"}, "<leader>q", ":quit<cr>")
 vimp.nmap("?", ",")
 -- vimp.nnoremap({"silent"}, "<C-l>", ":<C-u>nohl<cr><C-l>")
 -- vimp.nnoremap("<plug>(slash-after)", "zz")
-vimp.imap({"silent"}, "<C-d>", [[<C-R>=strftime("%Y-%m-%d")<cr>]])
 vimp.nnoremap("Q", "@q")
 
 -- Yank whole buffer

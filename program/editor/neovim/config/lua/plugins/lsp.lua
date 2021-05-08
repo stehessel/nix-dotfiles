@@ -51,6 +51,12 @@ local on_attach = function(client, bufnr)
 
   if client.resolved_capabilities.document_formatting then
     vimp.nnoremap({"override", "silent"}, "<space>f", vim.lsp.buf.formatting)
+    vim.api.nvim_exec([[
+      augroup Format
+        autocmd!
+        autocmd BufWritePost *.lua lua vim.lsp.buf.formatting()
+      augroup END
+    ]], true)
   elseif client.resolved_capabilities.document_range_formatting then
     vimp.vnoremap({"override", "silent"}, "<space>f", vim.lsp.buf.range_formatting)
   end
