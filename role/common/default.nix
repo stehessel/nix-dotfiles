@@ -42,6 +42,7 @@ in
     ../../program/terminal/kitty
     ../../program/terminal/screen
     ../../program/terminal/tmux
+    ../../program/terminal/wezterm
     ../../program/todo/tasklite
     ../../program/todo/taskwarrior
     ../../program/utility/broot
