@@ -196,11 +196,16 @@ return require("packer").startup({
     -- Documentation
     use {
       "kkoomen/vim-doge",
+      cmd = {"DogeGenerate", "DogeCreateDocStandard"},
       config = function()
         vim.g.doge_doc_standard_python = "numpy"
       end,
       run = function()
         vim.fn["doge#install"]()
+      end,
+      setup = function()
+        require("vimp")
+        vimp.nnoremap({"override", "silent"}, "<leader>d", "<cmd>DogeGenerate<CR>")
       end,
     }
     -- SQL
@@ -323,7 +328,7 @@ return require("packer").startup({
     use "kalekundert/vim-coiled-snake"
     use "Konfekt/FastFold"
     -- Syntax highlighters
-    use "LnL7/vim-nix"
+    use {"LnL7/vim-nix", ft = "nix"}
     use "RRethy/vim-illuminate"
     -- Asciidoc
     use "habamax/vim-asciidoctor"
@@ -331,11 +336,14 @@ return require("packer").startup({
     use {
       "kassio/neoterm",
       after = "vimpeccable",
+      cmd = {"T", "Texec", "Tmap", "Tnew", "Topen", "Ttoggle"},
       config = function()
         vim.g.neoterm_autoinsert = 1
         vim.g.neoterm_default_mod = "rightbelow vertical"
         vim.g.neoterm_shell = "fish"
-
+      end,
+      setup = function()
+        require("vimp")
         vimp.nnoremap({"override", "silent"}, "<leader>Tt", ":Ttoggle<cr>")
         vimp.nnoremap({"override", "silent"}, "<leader>Tr", ":TREPLSetTerm<cr>")
         vimp.nnoremap({"override", "silent"}, "<leader>Tf", ":TREPLSendFile<cr>")
