@@ -296,11 +296,6 @@ return require("packer").startup({
       requires = "nvim-treesitter/nvim-treesitter",
     }
     use {
-      "nvim-treesitter/nvim-treesitter-refactor",
-      after = "nvim-treesitter",
-      requires = "nvim-treesitter/nvim-treesitter",
-    }
-    use {
       "nvim-treesitter/playground",
       after = "nvim-treesitter",
       cmd = "TSPlaygroundToggle",

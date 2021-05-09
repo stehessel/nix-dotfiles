@@ -12,15 +12,6 @@ require"nvim-treesitter.configs".setup {
   },
   indent = {entable = true},
   rainbow = {enable = true, extended_mode = true, max_file_lines = 1000},
-  refactor = {
-    highlight_definitions = {enable = false},
-    highlight_current_scope = {enable = false},
-    smart_rename = {enable = true, keymaps = {smart_rename = "<leader>R"}},
-    navigation = {
-      enable = true,
-      keymaps = {goto_definition = "gnd", list_definitions = "gnD"},
-    },
-  },
   textobjects = {
     enable = true,
     disable = {},
