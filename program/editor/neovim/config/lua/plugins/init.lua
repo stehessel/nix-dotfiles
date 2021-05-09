@@ -19,8 +19,6 @@ if not packer_exists then
   return
 end
 
-local use_coc = false
-
 return require("packer").startup({
   function()
     -- Packer can manage itself as an optional plugin
@@ -70,6 +68,18 @@ return require("packer").startup({
       "nvim-lua/telescope.nvim",
       cmd = "Telescope",
       config = function()
+        local deps = {
+          "plenary.nvim",
+          "popup.nvim",
+          "telescope-fzy-native.nvim",
+          "telescope-github.nvim",
+          "telescope-vimspector.nvim",
+        }
+        for index, plugin in ipairs(deps) do
+          if packer_plugins[plugin] and not packer_plugins[plugin].loaded then
+            vim.cmd("packadd " .. plugin)
+          end
+        end
         require("telescope").setup({
           defaults = {
             prompt_position = "top",
@@ -94,11 +104,11 @@ return require("packer").startup({
         require("plugins.telescope")
       end,
       requires = {
-        {"nvim-lua/popup.nvim"},
-        {"nvim-lua/plenary.nvim"},
-        {"nvim-telescope/telescope-fzy-native.nvim", cmd = "Telescope"},
-        {"nvim-telescope/telescope-github.nvim", cmd = "Telescope"},
-        {"nvim-telescope/telescope-vimspector.nvim", cmd = "Telescope"},
+        {"nvim-lua/popup.nvim", opt = true},
+        {"nvim-lua/plenary.nvim", opt = true},
+        {"nvim-telescope/telescope-fzy-native.nvim", opt = true},
+        {"nvim-telescope/telescope-github.nvim", opt = true},
+        {"nvim-telescope/telescope-vimspector.nvim", opt = true},
       },
     }
     -- Statusline
@@ -126,51 +136,35 @@ return require("packer").startup({
         vim.g.startify_update_oldfiles = 1
 
         vimp.nnoremap({"override", "silent"}, "<leader>H", ":Startify<cr>")
-        -- vimp.nnoremap({"override", "silent"}, "<leader>Ss", ":SSave!")
-        -- vimp.nnoremap({"override", "silent"}, "<leader>Sl", ":SLoad")
-        -- vimp.nnoremap({"override", "silent"}, "<leader>Sc", ":SClose<cr>")
-        -- vimp.nnoremap({"override", "silent"}, "<leader>Sd", ":SDelete<cr>")
       end,
     }
     -- LSP
-    use {
-      "neoclide/coc.nvim",
-      after = "vimpeccable",
-      config = function()
-        require("plugins.coc")
-      end,
-      run = function()
-        vim.fn["coc#util#install"]()
-      end,
-      disable = not use_coc,
-    }
     use {
       "neovim/nvim-lspconfig",
       config = function()
         require("plugins.lsp")
       end,
-      disable = use_coc,
       event = "BufReadPre",
     }
     use {
       "glepnir/lspsaga.nvim",
+      cmd = "Lspsaga",
       config = function()
         require("lspsaga").init_lsp_saga()
       end,
-      disable = use_coc,
     }
     use {
       "onsails/lspkind-nvim",
       config = function()
         require("lspkind").init()
       end,
+      event = "InsertEnter",
     }
     use {
       "hrsh7th/nvim-compe",
       config = function()
         require("plugins.completion")
       end,
-      disable = use_coc,
       event = "InsertEnter",
     }
     use {
@@ -617,11 +611,21 @@ return require("packer").startup({
     use {
       "windwp/nvim-spectre",
       config = function()
+        local deps = {"plenary.nvim", "popup.nvim"}
+        for _, plugin in ipairs(deps) do
+          if not packer_plugins[plugin].loaded then
+            vim.cmd("packadd " .. plugin)
+          end
+        end
         vimp.nnoremap({"override", "silent"}, "<leader>S", require("spectre").open)
         vimp.vnoremap({"override", "silent"}, "<leader>S", require("spectre").open_visual)
         require("spectre").setup({})
       end,
       event = "BufReadPre",
+      requires = {
+        {"nvim-lua/popup.nvim", opt = true},
+        {"nvim-lua/plenary.nvim", opt = true},
+      },
     }
     use {"inkarkat/vim-SearchAlternatives", requires = "inkarkat/vim-ingo-library"}
     use "romainl/vim-cool"
@@ -682,5 +686,5 @@ return require("packer").startup({
     use "isobit/vim-caddyfile"
     use "~/dev/neovim/pytest.nvim"
   end,
-  config = {max_jobs = 32},
+  config = {max_jobs = 32, profile = {enable = true, threshold = 1}},
 })

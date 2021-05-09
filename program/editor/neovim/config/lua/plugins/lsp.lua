@@ -12,29 +12,19 @@ local on_attach = function(client, bufnr)
   if client.resolved_capabilities.find_references then
     vimp.nnoremap({"override", "silent"}, "gr", vim.lsp.buf.references)
   end
-  vimp.nnoremap({"override", "silent"}, "gh", require("lspsaga.provider").lsp_finder)
-  vimp.nnoremap({"override", "silent"}, "gK",
-    require("lspsaga.signaturehelp").signature_help)
+  vimp.nnoremap({"override", "silent"}, "gh", "<cmd>Lspsaga lsp_finder<CR>")
+  vimp.nnoremap({"override", "silent"}, "gK", "<cmd>Lspsaga signature_help<CR>")
 
   if client.resolved_capabilities.hover then
-    vimp.nnoremap({"override", "silent"}, "K", require("lspsaga.hover").render_hover_doc)
-    vimp.nnoremap({"override", "silent"}, "<C-d>", function()
-      require("lspsaga.action").smart_scroll_with_saga(1)
-    end)
-    vimp.nnoremap({"override", "silent"}, "<C-u>", function()
-      require("lspsaga.action").smart_scroll_with_saga(-1)
-    end)
+    vimp.nnoremap({"override", "silent"}, "K", "<cmd>Lspsaga hover_doc<CR>")
   end
-  vimp.nnoremap({"override", "silent"}, "<space>p",
-    require"lspsaga.provider".preview_definition)
+  vimp.nnoremap({"override", "silent"}, "<space>p", "<cmd>Lspsaga preview_definition<CR>")
   vimp.nnoremap({"override", "silent"}, "<space>D", vim.lsp.buf.type_definition)
   if client.resolved_capabilities.rename then
-    vimp.nnoremap({"override", "silent"}, "<space>r", require("lspsaga.rename").rename)
+    vimp.nnoremap({"override", "silent"}, "<space>r", "<cmd>Lspsaga rename<CR>")
   end
-  vimp.nnoremap({"override", "silent"}, "<space>a",
-    require("lspsaga.codeaction").code_action)
-  vimp.xnoremap({"override", "silent"}, "<space>a",
-    require("lspsaga.codeaction").range_code_action)
+  vimp.nnoremap({"override", "silent"}, "<space>a", "<cmd>Lspsaga code_action<CR>")
+  vimp.xnoremap({"override", "silent"}, "<space>a", "<cmd>Lspsaga range_code_action<CR>")
 
   vimp.nnoremap({"override", "silent"}, "<space>wa", vim.lsp.buf.add_workspace_folder)
   vimp.nnoremap({"override", "silent"}, "<space>wr", vim.lsp.buf.remove_workspace_folder)
@@ -43,11 +33,9 @@ local on_attach = function(client, bufnr)
   end)
 
   vimp.nnoremap({"override", "silent"}, "<space>d",
-    require("lspsaga.diagnostic").show_line_diagnostics)
-  vimp.nnoremap({"override", "silent"}, "[d",
-    require("lspsaga.diagnostic").lsp_jump_diagnostic_prev)
-  vimp.nnoremap({"override", "silent"}, "]d",
-    require("lspsaga.diagnostic").lsp_jump_diagnostic_next)
+    "<cmd>Lspsaga show_line_diagnostics<CR>")
+  vimp.nnoremap({"override", "silent"}, "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+  vimp.nnoremap({"override", "silent"}, "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>")
 
   if client.resolved_capabilities.document_formatting then
     vimp.nnoremap({"override", "silent"}, "<space>f", vim.lsp.buf.formatting)
@@ -113,6 +101,7 @@ nvim_lsp.sumneko_lua.setup({
           "vim",
           -- packer
           "use",
+          "packer_plugins",
           -- Busted
           "after_each",
           "before_each",
