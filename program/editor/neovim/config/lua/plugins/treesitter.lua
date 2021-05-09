@@ -11,6 +11,7 @@ require"nvim-treesitter.configs".setup {
     },
   },
   indent = {entable = true},
+  rainbow = {enable = true, extended_mode = true, max_file_lines = 1000},
   refactor = {
     highlight_definitions = {enable = false},
     highlight_current_scope = {enable = false},

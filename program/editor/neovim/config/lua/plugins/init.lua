@@ -36,10 +36,11 @@ return require("packer").startup({
     -- Git
     use {
       "lewis6991/gitsigns.nvim",
-      requires = {"nvim-lua/plenary.nvim"},
       config = function()
         require("plugins.git")
       end,
+      event = {"BufRead", "BufNewFile"},
+      requires = {"nvim-lua/plenary.nvim"},
     }
     use {
       "APZelos/blamer.nvim",
@@ -257,11 +258,18 @@ return require("packer").startup({
       end,
     }
     use {
+      "p00f/nvim-ts-rainbow",
+      after = "nvim-treesitter",
+      requires = "nvim-treesitter/nvim-treesitter",
+    }
+    use {
       "nvim-treesitter/nvim-treesitter-refactor",
+      after = "nvim-treesitter",
       requires = "nvim-treesitter/nvim-treesitter",
     }
     use {
       "nvim-treesitter/playground",
+      after = "nvim-treesitter",
       cmd = "TSPlaygroundToggle",
       requires = "nvim-treesitter/nvim-treesitter",
     }
@@ -404,14 +412,6 @@ return require("packer").startup({
     -- Brackets
     use "adelarsq/vim-matchit" -- Extends % operator
     use {"cohama/lexima.vim", disable = true}
-    use {
-      "p00f/nvim-ts-rainbow",
-      config = function()
-        require("nvim-treesitter.configs").setup {
-          rainbow = {enable = true, extended_mode = true, max_file_lines = 1000},
-        }
-      end,
-    }
     use "machakann/vim-sandwich"
     -- Marks
     use "inkarkat/vim-mark"
@@ -425,6 +425,7 @@ return require("packer").startup({
         vim.g.indent_blankline_char = "¦"
         vim.g.indent_blankline_filetype_exclude = {"packer", "startify"}
       end,
+      event = "BufRead",
     }
     use "tpope/vim-sleuth"
     -- Keybinds
