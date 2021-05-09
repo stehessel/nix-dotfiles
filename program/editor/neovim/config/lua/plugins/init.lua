@@ -47,22 +47,49 @@ return require("packer").startup({
       setup = function()
         require("vimp")
         vim.g.blamer_delay = 250
-        vimp.nnoremap({"override", "silent"}, "<leader>gB", ":BlamerToggle<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>gB", "<cmd>BlamerToggle<CR>")
       end,
     }
-    use "rhysd/git-messenger.vim"
+    use {
+      "rhysd/git-messenger.vim",
+      cmd = "GitMessenger",
+      setup = function()
+        require("vimp")
+        vimp.nnoremap({"override", "silent"}, "<leader>gm", "<cmd>GitMessenger<CR>")
+      end,
+    }
     use {
       "sindrets/diffview.nvim",
-      config = function()
-        vimp.nnoremap({"override", "silent"}, "<leader>u", ":DiffviewOpen<cr>")
+      cmd = "DiffviewOpen",
+      setup = function()
+        require("vimp")
+        vimp.nnoremap({"override", "silent"}, "<leader>u", "<cmd>DiffviewOpen<CR>")
       end,
     }
     -- Finders
     use {
       "dyng/ctrlsf.vim",
       config = function()
-        require("plugins.ctrlsf")
+        vim.g.ctrlsf_auto_focus = {["at"] = "done", ["duration_less_than"] = 5000}
+        vim.g.ctrlsf_backend = "rg"
+        vim.g.ctrlsf_default_root = "project"
+        vim.g.ctrlsf_extra_root_markers = {".root"}
+        vim.g.ctrlsf_mapping = {["vsplit"] = "<C-v>"}
+        vim.g.ctrlsf_position = "right"
+        vim.g.ctrlsf_regex_pattern = 1
+        vim.g.ctrlsf_search_mode = "async"
       end,
+      setup = function()
+        require("vimp")
+        vimp.nmap("<leader>jj", "<Plug>CtrlSFPrompt")
+        vimp.xmap("<leader>jj", "<Plug>CtrlSFVwordExec")
+        vimp.xmap("<leader>jJ", "<Plug>CtrlSFVwordPath")
+        vimp.nmap("<leader>jn", "<Plug>CtrlSFCwordPath<cr>")
+        vimp.nmap("<leader>jp", "<Plug>CtrlSFPwordPath")
+        vimp.nnoremap("<leader>jo", ":CtrlSFOpen<cr>")
+        vimp.nnoremap("<leader>jt", ":CtrlSFToggle<cr>")
+      end,
+      event = "BufRead",
     }
     use {
       "nvim-lua/telescope.nvim",
@@ -208,6 +235,13 @@ return require("packer").startup({
     use {
       "python-rope/ropevim",
       after = "vimpeccable",
+      cmd = {
+        "RopeCodeAssist",
+        "RopeLuckyAssist",
+        "RopeAutoImport",
+        "RopeGotoDefinition",
+        "RopeGenerateAutoimportCache",
+      },
       config = function()
         vim.g.ropevim_local_prefix = "<M-r>"
         vim.g.ropevim_global_prefix = "<M-p>"
@@ -238,9 +272,9 @@ return require("packer").startup({
         vimp.nnoremap({"override", "silent"}, "<M-cr>", ":RopeAutoImport<cr>")
         vimp.nnoremap({"override", "silent"}, "<M-d>", ":RopeGotoDefinition<cr>")
       end,
-      -- ft = "python"
+      ft = "python",
     }
-    use "stsewd/sphinx.nvim"
+    use {"stsewd/sphinx.nvim", ft = {"python", "rst"}}
     -- Clojure
     use "clojure-vim/vim-jack-in"
     use {"tpope/vim-fireplace", ft = "clojure", cmd = "FireplaceConnect"}
@@ -278,6 +312,7 @@ return require("packer").startup({
       config = function()
         require("plugins.debugger")
       end,
+      ft = {"python"},
     }
     use {
       "mfussenegger/nvim-dap-python",
@@ -317,6 +352,7 @@ return require("packer").startup({
       config = function()
         require("plugins.test")
       end,
+      ft = "python",
     }
     -- Code folding
     use "kalekundert/vim-coiled-snake"
@@ -325,7 +361,7 @@ return require("packer").startup({
     use {"LnL7/vim-nix", ft = "nix"}
     use "RRethy/vim-illuminate"
     -- Asciidoc
-    use "habamax/vim-asciidoctor"
+    use {"habamax/vim-asciidoctor", ft = "asciidoctor"}
     -- REPL
     use {
       "kassio/neoterm",
@@ -382,7 +418,7 @@ return require("packer").startup({
         vimp.vmap({"override", "silent"}, "<localleader>c", "<Plug>(iron-clear)")
       end,
     }
-    use "tpope/vim-markdown"
+    use {"tpope/vim-markdown", ft = "markdown"}
     -- Color scheme
     use {
       "bluz71/vim-nightfly-guicolors",
@@ -408,7 +444,7 @@ return require("packer").startup({
     use {
       "kyazdani42/nvim-web-devicons",
       config = function()
-        require"nvim-web-devicons".setup {default = true}
+        require"nvim-web-devicons".setup({default = true})
       end,
     }
     -- Brackets
@@ -484,6 +520,7 @@ return require("packer").startup({
     use {
       "nicwest/vim-camelsnek",
       after = "vimpeccable",
+      cmd = {"Camel", "CamelB", "Kebab", "Snek"},
       config = function()
         vimp.nnoremap({"override", "silent"}, "<leader>xs", ":Snek<cr>")
         vimp.xnoremap({"override", "silent"}, "<leader>xs", ":Snek<cr>")
@@ -571,15 +608,17 @@ return require("packer").startup({
     use {
       "wfxr/minimap.vim",
       after = "vimpeccable",
-      config = function()
-        vimp.nnoremap({"override", "silent"}, "<leader>C", ":MinimapToggle<cr>")
+      cmd = "MinimapToggle",
+      setup = function()
+        require("vimp")
+        vimp.nnoremap({"override", "silent"}, "<leader>C", "<cmd>MinimapToggle<CR>")
       end,
     }
     -- Tabs
     use "caenrique/nvim-maximize-window-toggle"
     use "gcmt/taboo.vim"
     -- Tmux
-    use {"christoomey/vim-tmux-navigator"}
+    use {"christoomey/vim-tmux-navigator", disable = true}
     -- File explorer
     use {
       "ms-jpq/chadtree",
