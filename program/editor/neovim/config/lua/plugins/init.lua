@@ -394,9 +394,18 @@ return require("packer").startup({
     use {
       "hkupty/iron.nvim",
       after = "vimpeccable",
+      cmd = {
+        "IronRepl",
+        "IronFocus",
+        "IronRestart",
+        "IronWatchCurrentFile",
+        "IronUnwatchCurrentFile",
+      },
       config = function()
         require("iron").core.set_config({preferred = {python = "ipython"}})
-
+      end,
+      setup = function()
+        require("vimp")
         vimp.nnoremap({"override", "silent"}, "<leader>it", ":IronRepl python<cr><ESC>")
         vimp.nnoremap({"override", "silent"}, "<leader>if", ":IronFocus python<cr>")
         vimp.nnoremap({"override", "silent"}, "<leader>ir", ":IronRestart<cr>")
@@ -434,6 +443,15 @@ return require("packer").startup({
       config = function()
         vim.cmd("colorscheme onedark")
       end,
+    }
+    use {
+      "folke/tokyonight.nvim",
+      config = function()
+        vim.g.tokyonight_style = "night"
+        vim.g.tokyonight_sidebars = {"chadtree", "packer", "qf", "terminal"}
+        vim.cmd("colorscheme tokyonight")
+      end,
+      disable = true,
     }
     -- Icons
     use {
