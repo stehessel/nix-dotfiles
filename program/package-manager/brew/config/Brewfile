@@ -126,6 +126,8 @@ cask "font-firacode-nerd-font"
 cask "fvim"
 # Vector graphics editor
 cask "inkscape"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
 # Keyboard customizer
 cask "karabiner-elements"
 # Password manager app

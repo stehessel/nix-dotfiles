@@ -81,13 +81,13 @@ return require("packer").startup({
       end,
       setup = function()
         require("vimp")
-        vimp.nmap("<leader>jj", "<Plug>CtrlSFPrompt")
-        vimp.xmap("<leader>jj", "<Plug>CtrlSFVwordExec")
-        vimp.xmap("<leader>jJ", "<Plug>CtrlSFVwordPath")
-        vimp.nmap("<leader>jn", "<Plug>CtrlSFCwordPath<cr>")
-        vimp.nmap("<leader>jp", "<Plug>CtrlSFPwordPath")
-        vimp.nnoremap("<leader>jo", ":CtrlSFOpen<cr>")
-        vimp.nnoremap("<leader>jt", ":CtrlSFToggle<cr>")
+        vimp.nmap({"override"}, "<leader>jj", "<Plug>CtrlSFPrompt")
+        vimp.xmap({"override"}, "<leader>jj", "<Plug>CtrlSFVwordExec")
+        vimp.xmap({"override"}, "<leader>jJ", "<Plug>CtrlSFVwordPath")
+        vimp.nmap({"override"}, "<leader>jn", "<Plug>CtrlSFCwordPath<cr>")
+        vimp.nmap({"override"}, "<leader>jp", "<Plug>CtrlSFPwordPath")
+        vimp.nnoremap({"override"}, "<leader>jo", ":CtrlSFOpen<cr>")
+        vimp.nnoremap({"override"}, "<leader>jt", ":CtrlSFToggle<cr>")
       end,
       event = "BufRead",
     }
@@ -465,9 +465,15 @@ return require("packer").startup({
     use "tpope/vim-unimpaired"
     -- Movement
     use {
-      "easymotion/vim-easymotion",
+      "phaazon/hop.nvim",
+      cmd = {"HopWord", "HopLine", "HopChar1", "HopChar2", "HopPattern"},
       config = function()
-        require("plugins.easymotion")
+        require("hop").setup({"etovxqpdygfblzhckisuran"})
+      end,
+      setup = function()
+        require("vimp")
+        vimp.nnoremap({"override", "silent"}, "<leader>s", ":HopWord<CR>")
+        vimp.nnoremap({"override", "silent"}, "<leader>l", ":HopLine<CR>")
       end,
     }
     use "rhysd/clever-f.vim"
@@ -516,7 +522,8 @@ return require("packer").startup({
       "nicwest/vim-camelsnek",
       after = "vimpeccable",
       cmd = {"Camel", "CamelB", "Kebab", "Snek"},
-      config = function()
+      setup = function()
+        require("vimp")
         vimp.nnoremap({"override", "silent"}, "<leader>xs", ":Snek<cr>")
         vimp.xnoremap({"override", "silent"}, "<leader>xs", ":Snek<cr>")
         vimp.nnoremap({"override", "silent"}, "<leader>xc", ":Camel<cr>")
@@ -532,6 +539,7 @@ return require("packer").startup({
     use {
       "monaqa/dial.nvim",
       config = function()
+        require("vimp")
         vimp.nmap({"override", "silent"}, "<C-a>", "<Plug>(dial-increment)")
         vimp.xmap({"override", "silent"}, "<C-a>", "<Plug>(dial-increment)")
         vimp.nmap({"override", "silent"}, "<C-x>", "<Plug>(dial-decrement)")
@@ -539,6 +547,7 @@ return require("packer").startup({
         vimp.nmap({"override", "silent"}, "g<C-a>", "<Plug>(dial-increment-additional)")
         vimp.nmap({"override", "silent"}, "g<C-x>", "<Plug>(dial-decrement-additional)")
       end,
+      event = "BufRead",
     }
     -- Comments
     use {
