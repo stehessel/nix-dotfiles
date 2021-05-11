@@ -195,23 +195,23 @@ return require("packer").startup({
       event = "InsertEnter",
     }
     use {
-      "folke/lsp-trouble.nvim",
-      cmd = {"LspTrouble", "LspTroubleClose", "LspTroubleRefresh", "LspTroubleToggle"},
+      "folke/trouble.nvim",
+      cmd = {"Trouble", "TroubleClose", "TroubleRefresh", "TroubleToggle"},
       config = function()
         require("trouble").setup({})
       end,
       setup = function()
         require("vimp")
-        vimp.nnoremap({"override", "silent"}, "<space>tt", "<cmd>LspTroubleToggle<cr>")
+        vimp.nnoremap({"override", "silent"}, "<space>tt", "<cmd>TroubleToggle<cr>")
         vimp.nnoremap({"override", "silent"}, "<space>tw",
-          "<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>")
+          "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>")
         vimp.nnoremap({"override", "silent"}, "<space>td",
-          "<cmd>LspTroubleToggle lsp_document_diagnostics<cr>")
+          "<cmd>TroubleToggle lsp_document_diagnostics<cr>")
         vimp.nnoremap({"override", "silent"}, "<space>tl",
-          "<cmd>LspTroubleToggle loclist<cr>")
+          "<cmd>TroubleToggle loclist<cr>")
         vimp.nnoremap({"override", "silent"}, "<space>tq",
-          "<cmd>LspTroubleToggle quickfix<cr>")
-        vimp.nnoremap({"override", "silent"}, "gR", "<cmd>LspTrouble lsp_references<cr>")
+          "<cmd>TroubleToggle quickfix<cr>")
+        vimp.nnoremap({"override", "silent"}, "gR", "<cmd>Trouble lsp_references<cr>")
       end,
     }
     -- Documentation
