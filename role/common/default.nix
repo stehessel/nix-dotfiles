@@ -177,7 +177,7 @@ in
     # --- ssh ---
     sshpass
     # --- terminals ---
-    wezterm
+    # wezterm
     # --- terminal multiplexers ---
     tmux
     # --- text ---
