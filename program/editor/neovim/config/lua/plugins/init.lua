@@ -100,6 +100,7 @@ return require("packer").startup({
           "popup.nvim",
           "telescope-fzy-native.nvim",
           "telescope-github.nvim",
+          "telescope-symbols.nvim",
           "telescope-vimspector.nvim",
         }
         for index, plugin in ipairs(deps) do
@@ -107,7 +108,9 @@ return require("packer").startup({
             vim.cmd("packadd " .. plugin)
           end
         end
-        require("telescope").setup({
+
+        local telescope = require("telescope")
+        telescope.setup({
           defaults = {
             prompt_position = "top",
             prompt_prefix = "🔍 ",
@@ -123,9 +126,9 @@ return require("packer").startup({
             },
           },
         })
-        require("telescope").load_extension("fzy_native")
-        require("telescope").load_extension("gh")
-        require("telescope").load_extension("vimspector")
+        telescope.load_extension("fzy_native")
+        telescope.load_extension("gh")
+        telescope.load_extension("vimspector")
       end,
       setup = function()
         require("plugins.telescope")
@@ -135,6 +138,7 @@ return require("packer").startup({
         {"nvim-lua/plenary.nvim", opt = true},
         {"nvim-telescope/telescope-fzy-native.nvim", opt = true},
         {"nvim-telescope/telescope-github.nvim", opt = true},
+        {"nvim-telescope/telescope-symbols.nvim", opt = true},
         {"nvim-telescope/telescope-vimspector.nvim", opt = true},
       },
     }
