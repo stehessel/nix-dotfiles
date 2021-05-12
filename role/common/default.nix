@@ -87,7 +87,7 @@ in
     universal-ctags
     xsv
     # ---  docker ---
-    # hadolint
+    hadolint
     # --- editor ---
     kakoune
     neovim
