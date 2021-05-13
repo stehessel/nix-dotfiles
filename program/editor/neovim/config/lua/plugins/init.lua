@@ -732,11 +732,9 @@ return require("packer").startup({
     -- }
     -- Discover keybinds
     use {
-      "liuchengxu/vim-which-key",
-      cmd = {"WhichKey"},
-      setup = function()
-        vim.api.nvim_set_keymap("n", "<leader>", ":WhichKey '<leader>'<cr>",
-          {noremap = true, silent = true})
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup({})
       end,
     }
     -- Save position
