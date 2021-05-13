@@ -142,6 +142,19 @@ return require("packer").startup({
         {"nvim-telescope/telescope-vimspector.nvim", opt = true},
       },
     }
+    -- Todo
+    use {
+      "folke/todo-comments.nvim",
+      cmd = {"TodoTrouble", "TodoTelescope"},
+      config = function()
+        require("todo-comments").setup({})
+      end,
+      setup = function()
+        require("vimp")
+        vimp.nnoremap({"override", "silent"}, "<space>tc", "<cmd>TodoTrouble<cr>")
+        vimp.nnoremap({"override", "silent"}, "<leader>ft", "<cmd>TodoTelescope<cr>")
+      end,
+    }
     -- Statusline
     use {
       "datwaft/bubbly.nvim",
