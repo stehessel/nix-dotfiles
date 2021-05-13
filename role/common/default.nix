@@ -28,7 +28,6 @@ in
     ../../dev/version-control/git
     ../../dev/version-control/tig
     ../../program/backup/restic
-    ../../program/editor/efm-langserver
     ../../program/editor/kakoune
     ../../program/editor/neovim
     ../../program/editor/coc

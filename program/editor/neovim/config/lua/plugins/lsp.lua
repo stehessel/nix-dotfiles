@@ -54,9 +54,34 @@ local root_patterns = nvim_lsp.util.root_pattern(".root", ".git")
 
 nvim_lsp.bashls.setup({on_attach = on_attach, root_dir = root_patterns})
 
-nvim_lsp.efm.setup({on_attach = on_attach, root_dir = root_patterns})
-
 nvim_lsp.dockerls.setup({on_attach = on_attach, root_dir = root_patterns})
+
+nvim_lsp.efm.setup({
+  init_options = {documentFormatting = true},
+  on_attach = on_attach,
+  root_dir = root_patterns,
+  settings = {
+    rootMarkers = {".git/", ".root"},
+    languages = {
+      css = {require("plugins.efm.prettier")},
+      dockerfile = {require("plugins.efm.hadolint")},
+      html = {require("plugins.efm.prettier")},
+      json = {require("plugins.efm.prettier"), require("plugins.efm.spectral")},
+      jsonc = {require("plugins.efm.prettier"), require("plugins.efm.spectral")},
+      lua = {require("plugins.efm.lua-format")},
+      markdown = {require("plugins.efm.prettier")},
+      python = {
+        require("plugins.efm.black"),
+        require("plugins.efm.flake8"),
+        require("plugins.efm.isort"),
+      },
+      scss = {require("plugins.efm.prettier")},
+      sh = {require("plugins.efm.shellcheck"), require("plugins.efm.shfmt")},
+      sql = {require("plugins.efm.pg-format")},
+      yaml = {require("plugins.efm.prettier")},
+    },
+  },
+})
 
 nvim_lsp.jsonls.setup({
   commands = {
