@@ -218,6 +218,22 @@ return require("packer").startup({
         vimp.nnoremap({"override", "silent"}, "gR", "<cmd>Trouble lsp_references<cr>")
       end,
     }
+    use {
+      "ray-x/lsp_signature.nvim",
+      config = function()
+        require"lsp_signature".on_attach({
+          bind = true,
+          doc_lines = 10,
+
+          hint_enable = true,
+          hint_prefix = "🐼 ",
+          hint_scheme = "String",
+
+          handler_opts = {border = "shadow"},
+          decorator = {"`", "`"},
+        })
+      end,
+    }
     -- Documentation
     use {
       "kkoomen/vim-doge",
