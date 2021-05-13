@@ -44,7 +44,7 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local root_patterns = nvim_lsp.util.root_pattern(".root", ".git")
+local root_patterns = nvim_lsp.util.root_pattern(".git", ".root")
 
 nvim_lsp.bashls.setup({on_attach = on_attach, root_dir = root_patterns})
 
