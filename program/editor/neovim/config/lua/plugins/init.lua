@@ -194,7 +194,13 @@ return require("packer").startup({
       "glepnir/lspsaga.nvim",
       cmd = "Lspsaga",
       config = function()
-        require("lspsaga").init_lsp_saga()
+        require("lspsaga").init_lsp_saga({
+          use_saga_diagnostic_sign = true,
+          error_sign = "",
+          warn_sign = "",
+          hint_sign = "",
+          infor_sign = "",
+        })
       end,
     }
     use {
