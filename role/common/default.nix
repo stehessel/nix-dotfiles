@@ -30,7 +30,6 @@ in
     ../../program/backup/restic
     ../../program/editor/kakoune
     ../../program/editor/neovim
-    ../../program/editor/coc
     ../../program/file-manager/lf
     ../../program/file-manager/vifm
     # ../../program/package-manager/nix

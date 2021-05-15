@@ -501,7 +501,12 @@ return require("packer").startup({
     }
     -- Brackets
     use "adelarsq/vim-matchit" -- Extends % operator
-    use {"cohama/lexima.vim", disable = true}
+    use {
+      "windwp/nvim-autopairs",
+      config = function()
+        require("nvim-autopairs").setup()
+      end,
+    }
     use "machakann/vim-sandwich"
     -- Marks
     use "inkarkat/vim-mark"

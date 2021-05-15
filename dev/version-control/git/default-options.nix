@@ -24,7 +24,7 @@
   ];
 
   attributes = [
-    "coc-settings.json filter=sourcery"
+    "lsp.lua filter=sourcery"
   ];
 
   extraConfig = {
@@ -63,8 +63,8 @@
     };
     filter = {
       "sourcery" = {
-        clean = "sed -e 's/\"token\":.*/\"token\": \"<XXX>\"/g'";
-        smudge = "sed -e 's/\"token\":.*/\"token\": \"<secret-token>\"/g'";
+        clean = "sed -e 's/token =.*/token = \"<XXX>\"/g'";
+        smudge = "sed -e 's/token =.*/token = \"<secret-token>\"/g'";
       };
     };
     pull = {

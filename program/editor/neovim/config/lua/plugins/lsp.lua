@@ -99,6 +99,35 @@ nvim_lsp.pyright.setup({
   },
 })
 
+if not nvim_lsp.sourcery then
+  require("lspconfig/configs").sourcery = {
+    default_config = {
+      cmd = {"/Users/lgtf/miniconda3/bin/sourcery", "lsp"},
+      filetypes = {"python"},
+      init_options = {
+        token = "user_n80vzPEXsMA5mzvpZ25FPpNqbMGX_F_V696MKkMbrQtU9B7ZFj390TX8_GI",
+        extension_version = "neovim",
+        editor_version = "vim",
+      },
+      settings = {
+        sourcery = {
+          token = "user_n80vzPEXsMA5mzvpZ25FPpNqbMGX_F_V696MKkMbrQtU9B7ZFj390TX8_GI",
+          metricsEnabled = true,
+        },
+      },
+    },
+  }
+end
+nvim_lsp.sourcery.setup({on_attach = on_attach, root_dir = root_patterns})
+
+nvim_lsp.sqls.setup({
+  on_attach = function(client)
+    on_attach(client)
+    client.resolved_capabilities.execute_command = true
+    require"sqls".setup({picker = "telescope"})
+  end,
+})
+
 local sumneko_root_path = "/Users/lgtf/just-build/sumneko-lua-lsp/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 nvim_lsp.sumneko_lua.setup({
@@ -144,14 +173,6 @@ nvim_lsp.sumneko_lua.setup({
     },
   },
 })
-
-nvim_lsp.sqls.setup {
-  on_attach = function(client)
-    on_attach(client)
-    client.resolved_capabilities.execute_command = true
-    require"sqls".setup({picker = "telescope"})
-  end,
-}
 
 nvim_lsp.yamlls.setup({
   on_attach = on_attach,
