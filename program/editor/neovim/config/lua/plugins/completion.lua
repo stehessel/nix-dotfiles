@@ -48,16 +48,3 @@ vimp.inoremap({"expr", "silent"}, "<S-Tab>", function()
     return t "<C-h>"
   end
 end)
-
--- local npairs = require('nvim-autopairs')
--- vimp.inoremap({"expr", "silent"}, "<CR>", function()
---   if vim.fn.pumvisible() ~= 0 then
---     if vim.fn.complete_info()["selected"] ~= -1 then
---       return vim.fn["compe#confirm"](npairs.esc("<CR>"))
---     else
---       return npairs.esc("<CR>")
---     end
---   else
---     return npairs.autopairs_cr()
---   end
--- end)
