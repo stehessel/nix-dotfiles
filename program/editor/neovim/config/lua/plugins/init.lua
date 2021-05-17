@@ -680,6 +680,18 @@ return require("packer").startup({
         vimp.nnoremap({"override", "silent"}, "<leader>C", "<cmd>MinimapToggle<CR>")
       end,
     }
+    -- Zen
+    use {
+      "folke/zen-mode.nvim",
+      cmd = "ZenMode",
+      config = function()
+        require("zen-mode").setup({})
+      end,
+      setup = function()
+        require("vimp")
+        vimp.nnoremap({"override", "silent"}, "<leader>z", "<cmd>ZenMode<CR>")
+      end
+    }
     -- Tabs
     use "caenrique/nvim-maximize-window-toggle"
     use "gcmt/taboo.vim"
