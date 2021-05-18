@@ -136,6 +136,7 @@ cask "karabiner-elements"
 cask "keepassxc"
 # Explorer for Azure Storage
 cask "microsoft-azure-storage-explorer"
+# Office suite
 cask "microsoft-office"
 cask "microsoft-teams"
 # Open-source, low-latency, high quality voice chat software for gaming
