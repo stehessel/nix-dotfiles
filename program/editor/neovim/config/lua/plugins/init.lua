@@ -68,30 +68,6 @@ return require("packer").startup({
     }
     -- Finders
     use {
-      "dyng/ctrlsf.vim",
-      config = function()
-        vim.g.ctrlsf_auto_focus = {["at"] = "done", ["duration_less_than"] = 5000}
-        vim.g.ctrlsf_backend = "rg"
-        vim.g.ctrlsf_default_root = "project"
-        vim.g.ctrlsf_extra_root_markers = {".root"}
-        vim.g.ctrlsf_mapping = {["vsplit"] = "<C-v>"}
-        vim.g.ctrlsf_position = "right"
-        vim.g.ctrlsf_regex_pattern = 1
-        vim.g.ctrlsf_search_mode = "async"
-      end,
-      setup = function()
-        require("vimp")
-        vimp.nmap({"override"}, "<leader>jj", "<Plug>CtrlSFPrompt")
-        vimp.xmap({"override"}, "<leader>jj", "<Plug>CtrlSFVwordExec")
-        vimp.xmap({"override"}, "<leader>jJ", "<Plug>CtrlSFVwordPath")
-        vimp.nmap({"override"}, "<leader>jn", "<Plug>CtrlSFCwordPath<cr>")
-        vimp.nmap({"override"}, "<leader>jp", "<Plug>CtrlSFPwordPath")
-        vimp.nnoremap({"override"}, "<leader>jo", ":CtrlSFOpen<cr>")
-        vimp.nnoremap({"override"}, "<leader>jt", ":CtrlSFToggle<cr>")
-      end,
-      event = "BufRead",
-    }
-    use {
       "nvim-lua/telescope.nvim",
       cmd = "Telescope",
       config = function()
