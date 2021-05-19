@@ -105,13 +105,13 @@ if not nvim_lsp.sourcery then
       cmd = {"/Users/lgtf/miniconda3/bin/sourcery", "lsp"},
       filetypes = {"python"},
       init_options = {
-        token = "user_n80vzPEXsMA5mzvpZ25FPpNqbMGX_F_V696MKkMbrQtU9B7ZFj390TX8_GI",
+        token = "<XXX>",
         extension_version = "neovim",
         editor_version = "vim",
       },
       settings = {
         sourcery = {
-          token = "user_n80vzPEXsMA5mzvpZ25FPpNqbMGX_F_V696MKkMbrQtU9B7ZFj390TX8_GI",
+          token = "<XXX>",
           metricsEnabled = true,
         },
       },

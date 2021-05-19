@@ -293,8 +293,6 @@ return require("packer").startup({
     -- Clojure
     use "clojure-vim/vim-jack-in"
     use {"tpope/vim-fireplace", ft = "clojure", cmd = "FireplaceConnect"}
-    -- Lua
-    use "bfredl/nvim-luadev"
     -- Treesitter
     use {
       "nvim-treesitter/nvim-treesitter",
@@ -390,6 +388,12 @@ return require("packer").startup({
         vimp.nnoremap({"override", "silent"}, "<leader>Tl", ":TREPLSendLine<cr>")
         vimp.xnoremap({"override", "silent"}, "<leader>Tl", ":TREPLSendSelection<cr>")
         vimp.rbind("nx", {"override"}, "gx", "<Plug>neoterm-repl-send")
+      end,
+    }
+    use {
+      "numtostr/FTerm.nvim",
+      config = function()
+        require("FTerm").setup()
       end,
     }
     use {
@@ -621,7 +625,6 @@ return require("packer").startup({
         vimp.onoremap({"override", "silent"}, "iv", [[:exec "normal! HVL"<cr>]])
       end,
     }
-    use "tpope/vim-abolish"
     -- Text splitting
     use "AndrewRadev/splitjoin.vim"
     use {"sk1418/Join", cmd = "Join"}
@@ -666,13 +669,18 @@ return require("packer").startup({
       setup = function()
         require("vimp")
         vimp.nnoremap({"override", "silent"}, "<leader>z", "<cmd>ZenMode<CR>")
-      end
+      end,
     }
     -- Tabs
-    use "caenrique/nvim-maximize-window-toggle"
     use "gcmt/taboo.vim"
     -- Tmux
-    use {"christoomey/vim-tmux-navigator", disable = true}
+    use {
+      "numToStr/Navigator.nvim",
+      config = function()
+        require("Navigator").setup()
+      end,
+      disable = true,
+    }
     -- File explorer
     use {
       "ms-jpq/chadtree",
@@ -738,24 +746,6 @@ return require("packer").startup({
     }
     -- Save position
     use "farmergreg/vim-lastplace"
-    -- Dispatcher
-    use {
-      "skywind3000/asynctasks.vim",
-      cmd = {
-        "AsyncTask",
-        "AsyncTaskEdit",
-        "AsyncTaskList",
-        "AsyncTaskMacro",
-        "AsyncTaskProfile",
-      },
-      requires = {
-        "skywind3000/asyncrun.vim",
-        setup = function()
-          vim.g.asyncrun_open = 12
-        end,
-      },
-    }
-    use {"tpope/vim-dispatch", cmd = {"Dispatch", "Make", "Focus", "Start"}}
     -- Root directory
     use {
       "airblade/vim-rooter",
@@ -774,7 +764,7 @@ return require("packer").startup({
       end,
     }
     -- Filetypes
-    use "isobit/vim-caddyfile"
+    use {"isobit/vim-caddyfile", ft = "caddyfile"}
     use "~/dev/neovim/pytest.nvim"
   end,
   config = {max_jobs = 32, profile = {enable = true, threshold = 1}},

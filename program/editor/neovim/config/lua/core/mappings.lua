@@ -70,9 +70,6 @@ end)
 -- Spell-check set to <leader>o, 'o' for 'orthography'
 vim.cmd("map <leader>o :setlocal spell! spelllang=en_us<CR>")
 
--- Pycln
-vimp.nnoremap({"silent"}, "<leader>I", ":AsyncRun pycln %<cr>")
-
 -- Sort
 vimp.xnoremap({"silent"}, "<leader>s", ":sort<cr>")
 
