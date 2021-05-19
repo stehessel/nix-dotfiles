@@ -291,7 +291,6 @@ return require("packer").startup({
     }
     use {"stsewd/sphinx.nvim", ft = {"python", "rst"}}
     -- Clojure
-    use "clojure-vim/vim-jack-in"
     use {"tpope/vim-fireplace", ft = "clojure", cmd = "FireplaceConnect"}
     -- Treesitter
     use {
@@ -363,7 +362,7 @@ return require("packer").startup({
       ft = "python",
     }
     -- Code folding
-    use "kalekundert/vim-coiled-snake"
+    use {"kalekundert/vim-coiled-snake", event = "BufRead"}
     use "Konfekt/FastFold"
     -- Syntax highlighters
     use {"LnL7/vim-nix", ft = "nix"}
@@ -398,7 +397,8 @@ return require("packer").startup({
     }
     use {
       "voldikss/vim-floaterm",
-      config = function()
+      cmd = {"FloatermNew", "FloatermToggle", "FloatermPrev", "FloatermNext"},
+      setup = function()
         vimp.nnoremap({"override", "silent"}, "<leader>G",
           ":FloatermNew --width=0.9 --height=0.9 --wintype=float --autoclose=2 lazygit<cr>")
       end,
@@ -479,8 +479,9 @@ return require("packer").startup({
         require"nvim-web-devicons".setup({default = true})
       end,
     }
+    -- Extend % operator
+    use "andymass/vim-matchup"
     -- Brackets
-    use "adelarsq/vim-matchit" -- Extends % operator
     use {
       "windwp/nvim-autopairs",
       config = function()
@@ -502,7 +503,7 @@ return require("packer").startup({
       end,
       event = "BufRead",
     }
-    use "tpope/vim-sleuth"
+    use {"tpope/vim-sleuth", event = "BufReadPre"}
     -- Keybinds
     use "tpope/vim-unimpaired"
     -- Movement
@@ -518,13 +519,14 @@ return require("packer").startup({
         vimp.nnoremap({"override", "silent"}, "<leader>l", ":HopLine<CR>")
       end,
     }
-    use "rhysd/clever-f.vim"
+    use {"rhysd/clever-f.vim", keys = {"f", "F", "t", "T"}}
     -- Text manipulation
     use {
       "AndrewRadev/switch.vim",
-      config = function()
+      setup = function()
         vim.g.switch_mapping = "-"
       end,
+      keys = "-",
     }
     use {
       "junegunn/vim-easy-align",
@@ -684,10 +686,40 @@ return require("packer").startup({
     -- File explorer
     use {
       "ms-jpq/chadtree",
+      cmd = {"CHADopen", "CHADdeps", "CHADhelp"},
       config = function()
-        require("plugins.chadtree")
+        vim.g.chadtree_settings = {
+          keymap = {
+            primary = {"<enter>", "h", "l"},
+            select = {"<space>", "s"},
+            h_split = {"V", "W"},
+            v_split = {"v", "w"},
+          },
+          options = {show_hidden = false},
+          theme = {text_colour_set = "solarized_light"},
+          ignore = {
+            name_glob = {".*"},
+            name_exact = {
+              ".DS_Store",
+              ".directory",
+              ".git",
+              ".idea",
+              ".mypy_cache",
+              ".ropeproject",
+              ".vim",
+              ".vscode",
+              "__pycache__",
+              "dask-worker-space",
+              "thumbs.db",
+            },
+          },
+        }
       end,
       run = "python3 -m chadtree deps",
+      setup = function()
+        require("vimp")
+        vimp.nnoremap({"silent"}, ",e", ":CHADopen --nofocus<cr>")
+      end,
     }
     -- Projects
     use {
@@ -728,8 +760,12 @@ return require("packer").startup({
         {"nvim-lua/plenary.nvim", opt = true},
       },
     }
-    use {"inkarkat/vim-SearchAlternatives", requires = "inkarkat/vim-ingo-library"}
-    use "romainl/vim-cool"
+    use {
+      "inkarkat/vim-SearchAlternatives",
+      event = "BufReadPre",
+      requires = "inkarkat/vim-ingo-library",
+    }
+    use {"romainl/vim-cool", event = "BufReadPre"}
     -- use 'pgdouyon/vim-evanesco'
     -- use {
     --   "gabrielpoca/replacer.nvim",
