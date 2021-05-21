@@ -41,13 +41,10 @@ return require("packer").startup({
       requires = {"nvim-lua/plenary.nvim"},
     }
     use {
-      "APZelos/blamer.nvim",
-      after = "vimpeccable",
-      cmd = {"BlamerToggle", "BlamerShow", "BlamerHide"},
-      setup = function()
+      "f-person/git-blame.nvim",
+      config = function()
         require("vimp")
-        vim.g.blamer_delay = 250
-        vimp.nnoremap({"override", "silent"}, "<leader>gB", "<cmd>BlamerToggle<CR>")
+        vimp.nnoremap({"override", "silent"}, "<leader>gB", "<cmd>GitBlamerToggle<CR>")
       end,
     }
     use {
@@ -130,7 +127,8 @@ return require("packer").startup({
         vimp.nnoremap({"silent"}, "gr", "<cmd>Telescope lsp_references<CR>")
         vimp.nnoremap({"silent"}, "gy", "<cmd>Telescope lsp_implementations<CR>")
         vimp.nnoremap({"silent"}, "<space>o", "<cmd>Telescope lsp_document_symbols<CR>")
-        vimp.nnoremap({"silent"}, "<space>s", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
+        vimp.nnoremap({"silent"}, "<space>s",
+          "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
         vimp.nnoremap({"silent"}, "<space>e",
           "<cmd>Telescope lsp_document_diagnostics<CR>")
       end,
@@ -464,6 +462,7 @@ return require("packer").startup({
     }
     use {"tpope/vim-markdown", ft = "markdown"}
     -- Color scheme
+    use "folke/lsp-colors.nvim"
     use {
       "bluz71/vim-nightfly-guicolors",
       config = function()
