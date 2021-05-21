@@ -12,6 +12,7 @@ require"nvim-treesitter.configs".setup {
   },
   indent = {entable = true},
   rainbow = {enable = true, extended_mode = true, max_file_lines = 1000},
+  matchup = {enable = true},
   textobjects = {
     enable = true,
     disable = {},

@@ -480,7 +480,7 @@ return require("packer").startup({
       end,
     }
     -- Extend % operator
-    use "andymass/vim-matchup"
+    use {"andymass/vim-matchup", keys = {"%", "g%", "[%", "]%", "z%"}}
     -- Brackets
     use {
       "windwp/nvim-autopairs",
@@ -552,7 +552,7 @@ return require("packer").startup({
       end,
       ft = {"clojure", "fennel"},
     }
-    use "matze/vim-move"
+    use {"matze/vim-move", keys = {"<A-h", "<A-j>", "<A-k>", "<A-l>"}}
     use {
       "machakann/vim-swap",
       after = "vimpeccable",
@@ -561,7 +561,7 @@ return require("packer").startup({
         vimp.rbind("ox", {"override"}, "a,", "<Plug>(swap-textobject-a)")
       end,
     }
-    use "mg979/vim-visual-multi"
+    use {"mg979/vim-visual-multi", keys = {"<C-n>", "<C-Up>", "<C-Down>"}}
     use {
       "nicwest/vim-camelsnek",
       after = "vimpeccable",
@@ -762,7 +762,7 @@ return require("packer").startup({
     }
     use {
       "inkarkat/vim-SearchAlternatives",
-      event = "BufReadPre",
+      keys = "/",
       requires = "inkarkat/vim-ingo-library",
     }
     use {"romainl/vim-cool", event = "BufReadPre"}
