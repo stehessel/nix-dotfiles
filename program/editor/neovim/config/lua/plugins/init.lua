@@ -76,6 +76,7 @@ return require("packer").startup({
           "popup.nvim",
           "telescope-fzy-native.nvim",
           "telescope-github.nvim",
+          "telescope-project.nvim",
           "telescope-symbols.nvim",
           "telescope-vimspector.nvim",
         }
@@ -105,15 +106,37 @@ return require("packer").startup({
         telescope.load_extension("fzy_native")
         telescope.load_extension("gh")
         telescope.load_extension("vimspector")
+        telescope.load_extension("project")
       end,
       setup = function()
-        require("plugins.telescope")
+        require("vimp")
+
+        vimp.nnoremap({"silent"}, "<leader>ff", "<cmd>Telescope find_files<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fg", "<cmd>Telescope live_grep<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fl",
+          "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fb", "<cmd>Telescope buffers<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fh", "<cmd>Telescope oldfiles<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fm", "<cmd>Telescope marks<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fc", "<cmd>Telescope git_bcommits<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fk", "<cmd>Telescope keymaps<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fi", "<cmd>Telescope gh issues<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fp", "<cmd>Telescope gh pull_request<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fd",
+          "<cmd>Telescope vimspector configurations<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fr", "<cmd>Telescope lsp_references<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fs", "<cmd>Telescope symbols<CR>")
+        vimp.nnoremap({"silent"}, "<leader>fo", "<cmd>Telescope project<CR>")
+        vimp.nnoremap({"silent"}, "gd", "<cmd>Telescope lsp_definitions<CR>")
+        vimp.nnoremap({"silent"}, "<space>e",
+          "<cmd>Telescope lsp_document_diagnostics<CR>")
       end,
       requires = {
         {"nvim-lua/popup.nvim", opt = true},
         {"nvim-lua/plenary.nvim", opt = true},
         {"nvim-telescope/telescope-fzy-native.nvim", opt = true},
         {"nvim-telescope/telescope-github.nvim", opt = true},
+        {"nvim-telescope/telescope-project.nvim", opt = true},
         {"nvim-telescope/telescope-symbols.nvim", opt = true},
         {"nvim-telescope/telescope-vimspector.nvim", opt = true},
       },
