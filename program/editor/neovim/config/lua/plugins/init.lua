@@ -303,11 +303,6 @@ return require("packer").startup({
       end,
     }
     use {
-      "p00f/nvim-ts-rainbow",
-      after = "nvim-treesitter",
-      requires = "nvim-treesitter/nvim-treesitter",
-    }
-    use {
       "nvim-treesitter/playground",
       after = "nvim-treesitter",
       cmd = "TSPlaygroundToggle",
