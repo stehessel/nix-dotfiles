@@ -8,10 +8,6 @@ local on_attach = function(client, bufnr)
 
   -- Mappings
   vimp.nnoremap({"override", "silent"}, "gD", vim.lsp.buf.declaration)
-  vimp.nnoremap({"override", "silent"}, "gy", vim.lsp.buf.implementation)
-  if client.resolved_capabilities.find_references then
-    vimp.nnoremap({"override", "silent"}, "gr", vim.lsp.buf.references)
-  end
   vimp.nnoremap({"override", "silent"}, "gh", "<cmd>Lspsaga lsp_finder<CR>")
   vimp.nnoremap({"override", "silent"}, "gK", "<cmd>Lspsaga signature_help<CR>")
 
