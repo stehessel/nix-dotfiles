@@ -147,6 +147,7 @@ in
     luajitPackages.luarocks
     # --- network ---
     bandwhich
+    netcat
     speedtest-cli
     # --- nix ---
     arion

@@ -47,6 +47,7 @@ local servers = {
   "jsonls",
   "pyright",
   "rnix",
+  "sonarlint",
   "sourcery",
   "sqls",
   "sumneko",
