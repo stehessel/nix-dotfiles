@@ -21,7 +21,7 @@ in
     ../../dev/python/mypy
     # ../../dev/python/packages
     ../../dev/python/pdb
-    ../../dev/python/pip
+    # ../../dev/python/pip
     ../../dev/python/pycodestyle
     ../../dev/rust/cargo
     ../../dev/text/vale

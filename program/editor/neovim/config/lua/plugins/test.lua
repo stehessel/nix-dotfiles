@@ -1,6 +1,5 @@
 vim.g["test#python#runner"] = "pytest"
 vim.g["test#python#pytest#options#"] = {["all"] = "--capture=no"}
-vim.g["test#strategy"] = "kitty"
 
 require("vimp")
 vimp.nnoremap({"silent"}, "<leader>tn", ":TestNearest<cr>")
@@ -22,14 +21,14 @@ vimp.nnoremap("<leader>td", function()
 end)
 
 vim.api.nvim_exec([[
-		function! DockerPytestDebugTransform(cmd) abort
+		function! RaqDockerDebugTests(cmd) abort
 			let container_id = trim(system("docker ps --filter 'name=raq' --quiet"))
 			let port = 6000
 			let res = system('docker exec '.container_id.' pkill python')
 			return 'docker exec '.container_id.' /home/docker/venv3.6/bin/python -m debugpy --listen 0.0.0.0:'.port.' --wait-for-client -m '.a:cmd
 		endfunction
 
-		function! DockerPytestRunTransform(cmd) abort
+		function! RaqDockerRunTests(cmd) abort
 			let container_id = trim(system("docker ps --filter 'name=raq' --quiet"))
 			return 'docker exec '.container_id.' /home/docker/venv3.6/bin/python -m '.a:cmd
 		endfunction
@@ -39,7 +38,7 @@ vim.api.nvim_exec([[
 			call vimspector#LaunchWithSettings(#{Test: test})
 		endfunction
 
-		let g:test#custom_transformations = { "docker-pytest-debug": function("DockerPytestDebugTransform"), "docker-pytest-run": function("DockerPytestRunTransform") }
+		let g:test#custom_transformations = { "docker-pytest-debug": function("RaqDockerDebugTests"), "docker-pytest-run": function("RaqDockerRunTests") }
 
 		let g:test#custom_strategies = {"debug": function("PytestDebug")}
 		let g:test#strategy = "debug"

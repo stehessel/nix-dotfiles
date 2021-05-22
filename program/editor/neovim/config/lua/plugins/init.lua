@@ -335,10 +335,17 @@ return require("packer").startup({
     -- Debugger
     use {
       "puremourning/vimspector",
-      config = function()
-        require("plugins.debugger")
-      end,
       ft = {"python"},
+      setup = function()
+        vim.g.vimspector_enable_mappings = "HUMAN"
+        vim.g.vimspector_install_gadgets = {"debugpy", "CodeLLDB"}
+        vim.g.vimspector_sign_priority = {
+          ["vimspectorBP"] = 50,
+          ["vimspectorBPCond"] = 40,
+          ["vimspectorBPDisabled"] = 30,
+          ["vimspectorPC"] = 999,
+        }
+      end,
     }
     use {
       "mfussenegger/nvim-dap-python",
