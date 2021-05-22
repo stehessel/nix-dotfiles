@@ -40,13 +40,18 @@ local on_attach = function(client, bufnr)
 end
 local root_patterns = require("lspconfig").util.root_pattern(".git", ".root")
 
-require("plugins.lsp.bashls").setup(on_attach, root_patterns)
-require("plugins.lsp.dockerls").setup(on_attach, root_patterns)
-require("plugins.lsp.efm").setup(on_attach, root_patterns)
-require("plugins.lsp.jsonls").setup(on_attach, root_patterns)
-require("plugins.lsp.pyright").setup(on_attach, root_patterns)
-require("plugins.lsp.rnix").setup(on_attach, root_patterns)
-require("plugins.lsp.sourcery").setup(on_attach, root_patterns)
-require("plugins.lsp.sqls").setup(on_attach, root_patterns)
-require("plugins.lsp.sumneko").setup(on_attach, root_patterns)
-require("plugins.lsp.yamlls").setup(on_attach, root_patterns)
+local servers = {
+  "bashls",
+  "dockerls",
+  "efm",
+  "jsonls",
+  "pyright",
+  "rnix",
+  "sourcery",
+  "sqls",
+  "sumneko",
+  "yamlls",
+}
+for _, name in ipairs(servers) do
+  require("plugins.lsp." .. name).setup(on_attach, root_patterns)
+end

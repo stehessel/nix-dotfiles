@@ -3,7 +3,7 @@ return {
     local sumneko_root_path = "/Users/lgtf/just-build/sumneko-lua-lsp/lua-language-server"
     local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 
-    require("lspconfig").sumneko.setup({
+    require("lspconfig").sumneko_lua.setup({
       on_attach = on_attach,
       root_dir = root_patterns,
       cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},

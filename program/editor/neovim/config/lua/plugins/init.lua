@@ -77,7 +77,7 @@ return require("packer").startup({
           "telescope-symbols.nvim",
           "telescope-vimspector.nvim",
         }
-        for index, plugin in ipairs(deps) do
+        for _, plugin in ipairs(deps) do
           if packer_plugins[plugin] and not packer_plugins[plugin].loaded then
             vim.cmd("packadd " .. plugin)
           end
