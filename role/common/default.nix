@@ -59,7 +59,7 @@ in
 
   home.packages = with pkgs; [
     # --- azure ---
-    # azure-cli
+    azure-cli
     azure-storage-azcopy
     # --- backup ---
     rclone
@@ -193,7 +193,7 @@ in
     jrnl
     neofetch
     svgcleaner
-    # topgrade
+    topgrade
     wget
     # --- watcher ---
     watchman
