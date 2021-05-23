@@ -86,9 +86,9 @@ return require("packer").startup({
         local telescope = require("telescope")
         telescope.setup({
           defaults = {
-            prompt_position = "top",
-            prompt_prefix = "🔍 ",
+            -- prompt_position = "top",
             -- sorting_strategy = "ascending",  -- breaks Telescope
+            prompt_prefix = "🔍 ",
             vimgrep_arguments = {
               "rg",
               "--color=never",
@@ -815,7 +815,16 @@ return require("packer").startup({
       end,
     }
     -- Save position
-    use "farmergreg/vim-lastplace"
+    use {
+      "ethanholz/nvim-lastplace",
+      config = function()
+        require("nvim-lastplace").setup({
+          lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
+          lastplace_ignore_filetype = {"gitcommit", "gitrebase"},
+          lastplace_open_folds = true,
+        })
+      end,
+    }
     -- Root directory
     use {
       "airblade/vim-rooter",
