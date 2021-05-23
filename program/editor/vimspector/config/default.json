@@ -27,7 +27,7 @@
         "type": "python",
         "python": "python",
         "module": "pytest",
-        "args": ["${Test}", "--verbose"],
+        "args": ["${test_args}", "--verbose"],
         "cwd": "${cwd}",
         "console": "integratedTerminal"
       },
@@ -42,16 +42,8 @@
     "pytest - docker": {
       "adapter": "python-remote",
       "remote-request": "launch",
-      "remote-cmdLine": ["-m", "pytest", "${Test}", "--verbose"],
-      "configuration": {
-        "request": "attach",
-        "pathMappings": [
-          {
-            "localRoot": "${workspaceRoot}",
-            "remoteRoot": "${RemoteRoot}"
-          }
-        ]
-      },
+      "remote-cmdLine": ["-m", "pytest", "${test_args}", "--verbose"],
+      "configuration": { "request": "attach" },
       "breakpoints": {
         "exception": {
           "raised": "N",

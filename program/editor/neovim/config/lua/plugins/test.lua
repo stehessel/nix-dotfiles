@@ -34,8 +34,9 @@ vim.api.nvim_exec([[
 		endfunction
 
 		function! PytestDebug(cmd)
-			let test = join(split(a:cmd, " ")[1:], " ")
-			call vimspector#LaunchWithSettings(#{Test: test})
+			let test_args = join(split(a:cmd, " ")[1:], " ")
+			let container = trim(system("docker ps --quiet"))
+			call vimspector#LaunchWithSettings(#{container: container, port: "6000", test_args: test_args})
 		endfunction
 
 		let g:test#custom_transformations = { "docker-pytest-debug": function("RaqDockerDebugTests"), "docker-pytest-run": function("RaqDockerRunTests") }
