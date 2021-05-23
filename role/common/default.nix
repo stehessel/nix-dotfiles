@@ -146,7 +146,7 @@ in
     luajitPackages.luacheck
     luajitPackages.luarocks
     # --- network ---
-    bandwhich
+    # bandwhich
     netcat
     speedtest-cli
     # --- nix ---

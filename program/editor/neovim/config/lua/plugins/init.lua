@@ -71,7 +71,7 @@ return require("packer").startup({
         local deps = {
           "plenary.nvim",
           "popup.nvim",
-          "telescope-fzy-native.nvim",
+          "telescope-fzf-native.nvim",
           "telescope-github.nvim",
           "telescope-project.nvim",
           "telescope-symbols.nvim",
@@ -88,7 +88,7 @@ return require("packer").startup({
           defaults = {
             prompt_position = "top",
             prompt_prefix = "🔍 ",
-            sorting_strategy = "ascending",
+            -- sorting_strategy = "ascending",  -- breaks Telescope
             vimgrep_arguments = {
               "rg",
               "--color=never",
@@ -99,8 +99,15 @@ return require("packer").startup({
               "--ignore-case",
             },
           },
+          extensions = {
+            fzf = {
+              override_generic_sorter = false,
+              override_file_sorter = true,
+              case_mode = "smart_case",
+            },
+          },
         })
-        telescope.load_extension("fzy_native")
+        telescope.load_extension("fzf")
         telescope.load_extension("gh")
         telescope.load_extension("vimspector")
         telescope.load_extension("project")
@@ -135,7 +142,7 @@ return require("packer").startup({
       requires = {
         {"nvim-lua/popup.nvim", opt = true},
         {"nvim-lua/plenary.nvim", opt = true},
-        {"nvim-telescope/telescope-fzy-native.nvim", opt = true},
+        {"nvim-telescope/telescope-fzf-native.nvim", opt = true, run = "make"},
         {"nvim-telescope/telescope-github.nvim", opt = true},
         {"nvim-telescope/telescope-project.nvim", opt = true},
         {"nvim-telescope/telescope-symbols.nvim", opt = true},
