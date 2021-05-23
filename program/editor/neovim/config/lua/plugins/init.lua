@@ -352,6 +352,9 @@ return require("packer").startup({
           ["vimspectorBPDisabled"] = 30,
           ["vimspectorPC"] = 999,
         }
+
+        require("vimp")
+        vimp.nnoremap({"override", "silent"}, "<F2>", ":VimspectorWatch ")
       end,
     }
     use {

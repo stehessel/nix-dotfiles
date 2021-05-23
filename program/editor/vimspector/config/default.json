@@ -1,4 +1,24 @@
 {
+  "adapters": {
+    "python-remote": {
+      "port": "${port}",
+      "launch": {
+        "remote": {
+          "container": "${container}",
+          "runCommand": [
+            "python",
+            "-m",
+            "debugpy",
+            "--listen",
+            "0.0.0.0:${port}",
+            "--wait-for-client",
+            "%CMD%"
+          ]
+        }
+      }
+    },
+    "delay": "1000m"
+  },
   "configurations": {
     "pytest - local": {
       "adapter": "debugpy",
@@ -10,6 +30,27 @@
         "args": ["${Test}", "--verbose"],
         "cwd": "${cwd}",
         "console": "integratedTerminal"
+      },
+      "breakpoints": {
+        "exception": {
+          "raised": "N",
+          "uncaught": "Y",
+          "userUnhandled": ""
+        }
+      }
+    },
+    "pytest - docker": {
+      "adapter": "python-remote",
+      "remote-request": "launch",
+      "remote-cmdLine": ["-m", "pytest", "${Test}", "--verbose"],
+      "configuration": {
+        "request": "attach",
+        "pathMappings": [
+          {
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": "${RemoteRoot}"
+          }
+        ]
       },
       "breakpoints": {
         "exception": {
