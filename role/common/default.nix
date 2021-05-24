@@ -151,7 +151,7 @@ in
     # --- nix ---
     arion
     cachix
-    # lorri
+    lorri
     niv
     rnix-lsp
     # --- notes ---
@@ -160,7 +160,7 @@ in
     gnuplot
     # --- process manager ---
     htop
-    # procs
+    procs
     # --- rust ---
     rustup
     # rust-analyzer

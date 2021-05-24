@@ -67,9 +67,14 @@ return require("packer").startup({
       end,
     })
     -- Github
-    use({ "pwntester/octo.nvim", cmd = "Octo", config = function()
-      require("octo").setup()
-    end })
+    use({
+      "pwntester/octo.nvim",
+      cmd = "Octo",
+      config = function()
+        require("octo").setup()
+      end,
+      disable = true,
+    })
     -- Finders
     use({
       "nvim-lua/telescope.nvim",
