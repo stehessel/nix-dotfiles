@@ -43,7 +43,9 @@
       "adapter": "python-remote",
       "remote-request": "launch",
       "remote-cmdLine": ["-m", "pytest", "${test_args}", "--verbose"],
-      "configuration": { "request": "attach" },
+      "configuration": {
+        "request": "attach"
+      },
       "breakpoints": {
         "exception": {
           "raised": "N",
