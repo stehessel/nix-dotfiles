@@ -15,6 +15,7 @@ in
     ../../dev/javascript/npm
     ../../dev/lua/luacheck
     ../../dev/lua/luaformatter
+    ../../dev/lua/stylua
     ../../dev/python/conda
     ../../dev/python/flake8
     ../../dev/python/isort

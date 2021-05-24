@@ -33,8 +33,7 @@ vim.o.inccommand = "nosplit"
 vim.o.incsearch = true
 vim.o.hlsearch = true
 
-vim.g.grep_params =
-  " --files --ignore-case --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
+vim.g.grep_params = " --files --ignore-case --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
 
 -- Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 vim.o.splitright = true
@@ -83,12 +82,15 @@ vim.o.mouse = "a"
 vim.o.lazyredraw = true
 
 -- Highlight yank
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
 augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
-]], false)
+]],
+  false
+)
 
 -- Filetype
 vim.cmd("filetype plugin indent on")
@@ -112,8 +114,7 @@ vim.cmd("set go=a")
 
 -- Javescript
 -- vim.g.loaded_node_provider = 0
-vim.g.node_host_prog = os.getenv("HOME")
-                         .. "/.npm-packages/lib/node_modules/neovim/bin/cli.js"
+vim.g.node_host_prog = os.getenv("HOME") .. "/.npm-packages/lib/node_modules/neovim/bin/cli.js"
 -- Perl
 vim.g.loaded_perl_provider = 0
 -- Python

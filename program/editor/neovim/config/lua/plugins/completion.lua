@@ -1,6 +1,6 @@
 vim.o.completeopt = "menu,menuone,noselect"
 
-require("compe").setup {
+require("compe").setup({
   allow_prefix_unmatch = false,
   debug = false,
   enabled = true,
@@ -16,7 +16,7 @@ require("compe").setup {
     nvim_lsp = true,
     nvim_lua = true,
   },
-}
+})
 
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -31,20 +31,20 @@ local check_back_space = function()
   end
 end
 
-vimp.inoremap({"expr", "silent"}, "<Tab>", function()
+vimp.inoremap({ "expr", "silent" }, "<Tab>", function()
   if vim.fn.pumvisible() ~= 0 then
-    return t "<C-n>"
+    return t("<C-n>")
   elseif check_back_space() then
-    return t "<Tab>"
+    return t("<Tab>")
   else
     return vim.fn["compe#complete"]()
   end
 end)
 
-vimp.inoremap({"expr", "silent"}, "<S-Tab>", function()
+vimp.inoremap({ "expr", "silent" }, "<S-Tab>", function()
   if vim.fn.pumvisible() ~= 0 then
-    return t "<C-p>"
+    return t("<C-p>")
   else
-    return t "<C-h>"
+    return t("<C-h>")
   end
 end)

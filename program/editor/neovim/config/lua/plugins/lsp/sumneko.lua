@@ -6,7 +6,7 @@ return {
     require("lspconfig").sumneko_lua.setup({
       on_attach = on_attach,
       root_dir = root_patterns,
-      cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+      cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
       settings = {
         Lua = {
           runtime = {

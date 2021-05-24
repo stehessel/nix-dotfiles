@@ -31,10 +31,10 @@ vim.g.bubbly_palette = {
 }
 vim.g.bubbly_styles = {
   mode = "bold",
-  path = {readonly = "bold", unmodifiable = "", path = "", modified = ""},
+  path = { readonly = "bold", unmodifiable = "", path = "", modified = "" },
   branch = "bold",
   paste = "bold",
 }
 vim.g.bubbly_symbols = {
-  builtinlsp = {diagnostic_count = {error = "Errors: %s", warning = "Warnings: %s"}},
+  builtinlsp = { diagnostic_count = { error = "Errors: %s", warning = "Warnings: %s" } },
 }

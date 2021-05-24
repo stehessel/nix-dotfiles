@@ -4,7 +4,7 @@ return {
       on_attach = on_attach,
       root_dir = root_patterns,
       settings = {
-        python = {analysis = {typeCheckingMode = "basic", useLibraryCodeForTypes = true}},
+        python = { analysis = { typeCheckingMode = "basic", useLibraryCodeForTypes = true } },
       },
     })
   end,

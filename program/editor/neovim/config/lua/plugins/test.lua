@@ -1,12 +1,12 @@
 vim.g["test#python#runner"] = "pytest"
-vim.g["test#python#pytest#options#"] = {["all"] = "--capture=no"}
+vim.g["test#python#pytest#options#"] = { ["all"] = "--capture=no" }
 
 require("vimp")
-vimp.nnoremap({"silent"}, "<leader>tn", ":TestNearest<cr>")
-vimp.nnoremap({"silent"}, "<leader>tf", ":TestFile<cr>")
-vimp.nnoremap({"silent"}, "<leader>ts", ":TestSuite<cr>")
-vimp.nnoremap({"silent"}, "<leader>tl", ":TestLast<cr>")
-vimp.nnoremap({"silent"}, "<leader>tg", ":TestVisit<cr>")
+vimp.nnoremap({ "silent" }, "<leader>tn", ":TestNearest<cr>")
+vimp.nnoremap({ "silent" }, "<leader>tf", ":TestFile<cr>")
+vimp.nnoremap({ "silent" }, "<leader>ts", ":TestSuite<cr>")
+vimp.nnoremap({ "silent" }, "<leader>tl", ":TestLast<cr>")
+vimp.nnoremap({ "silent" }, "<leader>tg", ":TestVisit<cr>")
 vimp.nnoremap("<leader>tr", function()
   print("Test stragegy set to 'docker-pytest-run'")
   vim.g["test#transformation"] = "docker-pytest-run"
@@ -20,7 +20,8 @@ vimp.nnoremap("<leader>td", function()
   vim.g["test#transformation"] = "docker-pytest-debug"
 end)
 
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
 		function! RaqDockerDebugTests(cmd) abort
 			let container_id = trim(system("docker ps --filter 'name=raq' --quiet"))
 			let port = 6000
@@ -43,11 +44,13 @@ vim.api.nvim_exec([[
 
 		let g:test#custom_strategies = {"debug": function("PytestDebug")}
 		let g:test#strategy = "debug"
-	]], false)
+	]],
+  false
+)
 
-vim.cmd [[augroup raq_tests]]
-vim.cmd [[autocmd!]]
-vim.cmd [[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#transformation = "docker-pytest-debug"']]
-vim.cmd [[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#strategy = "neoterm"']]
-vim.cmd [[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#project_root = "$HOME/git/raq"']]
-vim.cmd [[augroup END]]
+vim.cmd([[augroup raq_tests]])
+vim.cmd([[autocmd!]])
+vim.cmd([[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#transformation = "docker-pytest-debug"']])
+vim.cmd([[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#strategy = "neoterm"']])
+vim.cmd([[autocmd BufRead,BufNewFile **/git/raq/* execute 'let g:test#project_root = "$HOME/git/raq"']])
+vim.cmd([[augroup END]])

@@ -1,5 +1,5 @@
-require"nvim-treesitter.configs".setup {
-  highlight = {enable = true},
+require("nvim-treesitter.configs").setup({
+  highlight = { enable = true },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -10,8 +10,8 @@ require"nvim-treesitter.configs".setup {
       scope_decremental = "d",
     },
   },
-  indent = {entable = true},
-  matchup = {enable = true},
+  indent = { entable = true },
+  matchup = { enable = true },
   textobjects = {
     enable = true,
     disable = {},
@@ -45,4 +45,4 @@ require"nvim-treesitter.configs".setup {
     persist_queries = false, -- Whether the query persists across vim sessions
   },
   ensure_installed = "maintained",
-}
+})

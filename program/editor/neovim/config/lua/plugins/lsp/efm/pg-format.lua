@@ -1,1 +1,1 @@
-return {formatCommand = "pg_format -", formatStdin = true}
+return { formatCommand = "pg_format -", formatStdin = true }
