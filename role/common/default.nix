@@ -27,7 +27,6 @@ in
     ../../dev/rust/cargo
     ../../dev/text/vale
     ../../dev/version-control/git
-    ../../dev/version-control/tig
     ../../program/backup/restic
     ../../program/editor/kakoune
     ../../program/editor/neovim
@@ -119,7 +118,6 @@ in
     gitAndTools.git-fame
     gitAndTools.hub
     lazygit
-    tig
     # --- go ---
     go
     # --- haskell ---
