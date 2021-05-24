@@ -23,7 +23,7 @@ if not packer_exists then
 end
 
 return require("packer").startup({
-  function()
+  function(use)
     -- Packer can manage itself as an optional plugin
     use({ "wbthomason/packer.nvim", opt = true })
 
@@ -66,10 +66,14 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<leader>u", "<cmd>DiffviewOpen<CR>")
       end,
     })
+    -- Github
+    use({ "pwntester/octo.nvim", cmd = "Octo", config = function()
+      require("octo").setup()
+    end })
     -- Finders
     use({
       "nvim-lua/telescope.nvim",
-      cmd = "Telescope",
+      cmd = { "Octo", "Telescope" },
       config = function()
         local deps = {
           "plenary.nvim",
