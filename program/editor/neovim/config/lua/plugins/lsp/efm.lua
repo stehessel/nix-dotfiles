@@ -9,6 +9,7 @@ return {
         languages = {
           css = { require("plugins.lsp.efm.prettier") },
           dockerfile = { require("plugins.lsp.efm.hadolint") },
+          fish = { require("plugins.lsp.efm.fish_indent") },
           html = { require("plugins.lsp.efm.prettier") },
           json = {
             require("plugins.lsp.efm.prettier"),
@@ -18,7 +19,7 @@ return {
             require("plugins.lsp.efm.prettier"),
             require("plugins.lsp.efm.spectral"),
           },
-          lua = { require("plugins.lsp.efm.stylua") },
+          lua = { require("plugins.lsp.efm.selene"), require("plugins.lsp.efm.stylua") },
           markdown = { require("plugins.lsp.efm.prettier") },
           python = {
             require("plugins.lsp.efm.black"),
