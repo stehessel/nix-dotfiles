@@ -682,7 +682,7 @@ return require("packer").startup({
     use("michaeljsmith/vim-indent-object")
     use("wellle/targets.vim")
     -- Buffers
-    use("moll/vim-bbye")
+    use({ "famiu/bufdelete.nvim", cmd = { "Bdelete", "Bwipeout" } })
     use({
       "wfxr/minimap.vim",
       after = "vimpeccable",
