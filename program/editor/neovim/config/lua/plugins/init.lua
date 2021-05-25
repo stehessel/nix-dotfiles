@@ -332,6 +332,11 @@ return require("packer").startup({
       end,
     })
     use({
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      after = "nvim-treesitter",
+      requires = "nvim-treesitter/nvim-treesitter",
+    })
+    use({
       "nvim-treesitter/playground",
       after = "nvim-treesitter",
       cmd = "TSPlaygroundToggle",
@@ -564,7 +569,6 @@ return require("packer").startup({
       setup = function()
         vim.g.switch_mapping = "-"
       end,
-      keys = "-",
     })
     use({
       "junegunn/vim-easy-align",
@@ -591,14 +595,6 @@ return require("packer").startup({
       ft = { "clojure", "fennel" },
     })
     use({ "matze/vim-move", keys = { "<A-h", "<A-j>", "<A-k>", "<A-l>" } })
-    use({
-      "machakann/vim-swap",
-      after = "vimpeccable",
-      config = function()
-        vimp.rbind("ox", { "override" }, "i,", "<Plug>(swap-textobject-i)")
-        vimp.rbind("ox", { "override" }, "a,", "<Plug>(swap-textobject-a)")
-      end,
-    })
     use({ "mg979/vim-visual-multi", keys = { "<C-n>", "<C-Up>", "<C-Down>" } })
     use({
       "nicwest/vim-camelsnek",
@@ -683,9 +679,6 @@ return require("packer").startup({
         }
       end,
     })
-    use("glts/vim-textobj-comment")
-    use("julian/vim-textobj-variable-segment")
-    use("kana/vim-textobj-user")
     use("michaeljsmith/vim-indent-object")
     use("wellle/targets.vim")
     -- Buffers

@@ -13,29 +13,59 @@ require("nvim-treesitter.configs").setup({
   indent = { entable = true },
   matchup = { enable = true },
   textobjects = {
-    enable = true,
-    disable = {},
-    keymaps = {
-      ["iL"] = {
-        -- you can define your own textobjects directly here
-        python = "(function_definition) @function",
+    lsp_interop = {
+      enable = true,
+      peek_definition_code = {
+        ["df"] = "@function.outer",
+        ["dF"] = "@class.outer",
       },
-      -- or you use the queries from supported languages with textobjects.scm
-      ["af"] = "@function.outer",
-      ["if"] = "@function.inner",
-      ["aC"] = "@class.outer",
-      ["iC"] = "@class.inner",
-      ["ac"] = "@conditional.outer",
-      ["ic"] = "@conditional.inner",
-      ["ae"] = "@block.outer",
-      ["ie"] = "@block.inner",
-      ["al"] = "@loop.outer",
-      ["il"] = "@loop.inner",
-      ["is"] = "@statement.inner",
-      ["as"] = "@statement.outer",
-      ["ad"] = "@comment.outer",
-      ["am"] = "@call.outer",
-      ["im"] = "@call.inner",
+    },
+    move = {
+      enable = true,
+      set_jumps = true,
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]]"] = "@class.outer",
+      },
+      goto_next_end = {
+        ["]M"] = "@function.outer",
+        ["]["] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[M"] = "@function.outer",
+        ["[]"] = "@class.outer",
+      },
+    },
+    select = {
+      enable = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["aC"] = "@class.outer",
+        ["iC"] = "@class.inner",
+        ["ac"] = "@conditional.outer",
+        ["ic"] = "@conditional.inner",
+        ["ae"] = "@block.outer",
+        ["ie"] = "@block.inner",
+        ["al"] = "@loop.outer",
+        ["il"] = "@loop.inner",
+        ["is"] = "@statement.inner",
+        ["as"] = "@statement.outer",
+        ["ad"] = "@comment.outer",
+        ["am"] = "@call.outer",
+        ["im"] = "@call.inner",
+        ["ad"] = "@parameter.outer",
+        ["id"] = "@parameter.inner",
+      },
+    },
+    swap = {
+      enable = true,
+      swap_previous = { ["g<"] = "@parameter.inner" },
+      swap_next = { ["g>"] = "@parameter.inner" },
     },
   },
   playground = {
