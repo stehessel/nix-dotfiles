@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 {
-	xdg.configFile."tasklite" = {
-		source = ./config;
-		recursive = true;
-	};
+  xdg.configFile."tasklite" = {
+    source = ./config;
+    recursive = true;
+  };
 }

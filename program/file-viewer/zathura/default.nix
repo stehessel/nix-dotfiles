@@ -1,4 +1,4 @@
 { config, lib, pkgs, ... }:
 {
-	xdg.configFile."zathura/zathurarc".source = config/zathurarc;
+  xdg.configFile."zathura/zathurarc".source = config/zathurarc;
 }

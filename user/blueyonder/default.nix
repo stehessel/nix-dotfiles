@@ -1,11 +1,11 @@
 { config, lib, pkgs, ... }:
 {
-	imports = [
-		../common
-	];
+  imports = [
+    ../common
+  ];
 
-	programs.git = {
-		userEmail = "stephan.hesselmann@blueyonder.com";
-		userName = "Stephan Heßelmann (lgtf/39809)";
-	};
+  programs.git = {
+    userEmail = "stephan.hesselmann@blueyonder.com";
+    userName = "Stephan Heßelmann (lgtf/39809)";
+  };
 }

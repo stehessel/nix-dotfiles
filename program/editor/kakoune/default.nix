@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
 {
-	imports = [ ../kak-lsp ];
+  imports = [ ../kak-lsp ];
 
-	xdg.configFile = {
-		"kak/kakrc".source = config/kakrc;
-		"kak/colors" = {
-			source = config/colors;
-			recursive = true;
-		};
-	};
+  xdg.configFile = {
+    "kak/kakrc".source = config/kakrc;
+    "kak/colors" = {
+      source = config/colors;
+      recursive = true;
+    };
+  };
 }

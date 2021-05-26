@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 {
-	xdg.configFile."fish" = {
-		source = ./config;
-		recursive = true;
-	};
+  xdg.configFile."fish" = {
+    source = ./config;
+    recursive = true;
+  };
 }

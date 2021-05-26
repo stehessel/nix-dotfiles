@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 {
-	xdg.configFile."pip" = {
-		source = ./config;
-		recursive = true;
-	};
+  xdg.configFile."pip" = {
+    source = ./config;
+    recursive = true;
+  };
 }

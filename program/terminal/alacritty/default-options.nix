@@ -19,7 +19,7 @@
     url = {
       launcher = {
         program = "open";
-        args = [];
+        args = [ ];
       };
       modifiers = "None";
     };

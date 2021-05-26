@@ -1,4 +1,4 @@
 { config, lib, pkgs, ... }:
 {
-	home.file.".condarc".source = config/condarc;
+  home.file.".condarc".source = config/condarc;
 }

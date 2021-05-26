@@ -1,4 +1,4 @@
 { config, lib, pkgs, ... }:
 {
-	home.file.".screenrc".source = config/screenrc;
+  home.file.".screenrc".source = config/screenrc;
 }
