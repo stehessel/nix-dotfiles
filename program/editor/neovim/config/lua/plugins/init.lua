@@ -47,7 +47,7 @@ return require("packer").startup({
       "f-person/git-blame.nvim",
       config = function()
         require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>gB", "<cmd>GitBlamerToggle<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<leader>gB", "<cmd>GitBlameToggle<CR>")
       end,
     })
     use({
