@@ -153,6 +153,7 @@ in
     cachix
     lorri
     niv
+    nixpkgs-fmt
     rnix-lsp
     # --- notes ---
     neuron-notes
