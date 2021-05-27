@@ -55,7 +55,7 @@ return require("packer").startup({
       cmd = "GitMessenger",
       setup = function()
         require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>gm", "<cmd>GitMessenger<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<leader>m", "<cmd>GitMessenger<CR>")
       end,
     })
     use({
