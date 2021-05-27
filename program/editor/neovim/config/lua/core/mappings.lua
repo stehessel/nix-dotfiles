@@ -71,7 +71,7 @@ end)
 vim.cmd("map <leader>o :setlocal spell! spelllang=en_us<CR>")
 
 -- Sort
-vimp.xnoremap({ "silent" }, "<leader>s", ":sort<cr>")
+-- vimp.xnoremap({ "silent" }, "<leader>s", ":sort<cr>")
 
 -- Terminal navigation
 vimp.tnoremap({ "silent" }, "<C-q>", [[<C-\><C-n>:q<cr>]])

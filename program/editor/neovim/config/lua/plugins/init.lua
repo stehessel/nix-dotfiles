@@ -533,7 +533,6 @@ return require("packer").startup({
     })
     use("machakann/vim-sandwich")
     -- Marks
-    use("inkarkat/vim-mark")
     use("kshenoy/vim-signature")
     -- Indentation
     use({
