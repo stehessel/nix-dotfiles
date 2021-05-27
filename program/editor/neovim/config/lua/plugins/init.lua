@@ -360,38 +360,6 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<F2>", ":VimspectorWatch ")
       end,
     })
-    use({
-      "mfussenegger/nvim-dap-python",
-      config = function()
-        require("dap-python").setup("python")
-        require("dap-python").test_runner = "pytest"
-
-        vimp.nnoremap({ "override", "silent" }, "<F4>", require("dap").list_breakpoints)
-        vimp.nnoremap({ "override", "silent" }, "<F5>", require("dap").continue)
-        vimp.nnoremap({ "override", "silent" }, "<F6>", require("dap").repl.toggle)
-        vimp.nnoremap({ "override", "silent" }, "<F8>", require("dap").goto_)
-        vimp.nnoremap({ "override", "silent" }, "<F9>", require("dap").toggle_breakpoint)
-        vimp.nnoremap({ "override", "silent" }, "<leader><F9>", function()
-          require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-        end)
-        vimp.nnoremap({ "override", "silent" }, "<F10>", require("dap").step_over)
-        vimp.nnoremap({ "override", "silent" }, "<F11>", require("dap").step_into)
-        vimp.nnoremap({ "override", "silent" }, "<F12>", require("dap").step_out)
-      end,
-      requires = { "mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter" },
-      disable = true,
-    })
-    use({
-      "theHamsta/nvim-dap-virtual-text",
-      config = function()
-        vim.g.dap_virtual_text = true
-      end,
-      requires = { "mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter" },
-      run = function()
-        vim.cmd("TSUpdate")
-      end,
-      disable = true,
-    })
     -- Testing
     use({
       "janko/vim-test",
@@ -438,6 +406,7 @@ return require("packer").startup({
       "voldikss/vim-floaterm",
       cmd = { "FloatermNew", "FloatermToggle", "FloatermPrev", "FloatermNext" },
       setup = function()
+        require("vimp")
         vimp.nnoremap(
           { "override", "silent" },
           "<leader>G",
