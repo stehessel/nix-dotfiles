@@ -768,13 +768,6 @@ return require("packer").startup({
       requires = "inkarkat/vim-ingo-library",
     })
     use({ "romainl/vim-cool", event = "BufReadPre" })
-    -- use 'pgdouyon/vim-evanesco'
-    -- use {
-    --   "gabrielpoca/replacer.nvim",
-    --   config = function()
-    --     vimp.nnoremap({"override", "silent"}, "<leader>R", require("replacer").run())
-    --   end,
-    -- }
     -- Discover keybinds
     use({
       "folke/which-key.nvim",
