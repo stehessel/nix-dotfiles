@@ -1,46 +1,45 @@
 -- Compatibility with vi
-vim.o.compatible = false
+vim.opt.compatible = false
 
-vim.o.shell = "bash"
+vim.opt.shell = "bash"
 vim.cmd("let $SHELL = 'bash'")
 
 -- Set hidden buffers
-vim.o.hidden = true
+vim.opt.hidden = true
 
 -- Line breaks
-vim.o.linebreak = true
-vim.o.breakindent = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
 
 -- Sessions
-vim.cmd("set sessionoptions+=tabpages,globals,winpos,winsize,blank,resize")
--- do not store global and local values in a session
-vim.cmd("set sessionoptions-=options")
+vim.opt.sessionoptions:append({ "tabpages", "globals", "winpos", "winsize", "blank", "resize" })
 -- do not store folds
-vim.cmd("set sessionoptions-=folds")
+-- do not store global and local values in a session
+vim.opt.sessionoptions:remove({ "folds", "options" })
 
 -- Sign column
-vim.wo.signcolumn = "yes"
+vim.opt.signcolumn = "yes"
 
 -- Short messages
 vim.cmd("set shortmess+=c")
 -- Cmd height
-vim.o.cmdheight = 2
+vim.opt.cmdheight = 2
 
 -- Search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.o.inccommand = "nosplit"
-vim.o.incsearch = true
-vim.o.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.inccommand = "nosplit"
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
 
 vim.g.grep_params = " --files --ignore-case --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
 
 -- Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-vim.o.splitright = true
-vim.o.splitbelow = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- Reloading
-vim.o.autoread = true
+vim.opt.autoread = true
 -- Trigger `autoread` when files changes on disk
 -- vim.cmd([[autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
 --		\ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif]])
@@ -48,38 +47,35 @@ vim.o.autoread = true
 -- vim.cmd([[autocmd FileChangedShellPost *
 --		\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]])
 
--- Lens
--- vim.g["lens#disabled_filetypes"] = ['coc-explorer', 'nerdtree', 'fzf']
-
 -- Text
-vim.o.encoding = "utf-8"
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
+vim.opt.encoding = "utf-8"
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.cmd("set whichwrap+=<,>,h,l,[,]")
 vim.cmd("syntax on")
-vim.o.updatetime = 100
+vim.opt.updatetime = 100
 
 -- Folds
-vim.o.foldlevelstart = 99
-vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart = 99
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Title
-vim.o.title = true
+vim.opt.title = true
 
 -- Line numbers
-vim.wo.number = true
-vim.wo.relativenumber = false
+vim.opt.number = true
+vim.opt.relativenumber = false
 
 -- Undo
-vim.bo.undofile = true
-vim.o.undodir = os.getenv("HOME") .. "/.config/nvim/undo"
+vim.opt.undofile = true
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undo"
 
 -- Mouse
-vim.o.mouse = "a"
+vim.opt.mouse = "a"
 
 -- Rendering
-vim.o.lazyredraw = true
+vim.opt.lazyredraw = true
 
 -- Highlight yank
 vim.api.nvim_exec(
@@ -94,12 +90,7 @@ augroup END
 
 -- Filetype
 vim.cmd("filetype plugin indent on")
-vim.o.suffixesadd = ".md"
--- Disables automatic commenting on newline:
--- autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
--- Vim-wiki
--- let g:vimwiki_list = [ {'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'} ]
+vim.opt.suffixesadd = ".md"
 
 -- Automatically deletes all trailing whitespace on save.
 vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])

@@ -64,7 +64,7 @@ vim.cmd([[nnoremap <expr> <cr> &buftype ==# "quickfix" ? "\<cr>" : "za"]])
 
 -- Line numbers
 vimp.nnoremap({ "silent" }, "<leader>N", function()
-  vim.wo.relativenumber = not vim.wo.relativenumber
+  vim.opt.relativenumber = not vim.opt.relativenumber
 end)
 
 -- Spell-check set to <leader>o, 'o' for 'orthography'
