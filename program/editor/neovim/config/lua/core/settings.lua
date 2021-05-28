@@ -21,7 +21,7 @@ vim.opt.sessionoptions:remove({ "folds", "options" })
 vim.opt.signcolumn = "yes"
 
 -- Short messages
-vim.cmd("set shortmess+=c")
+vim.opt.shortmess:append({ c = true })
 -- Cmd height
 vim.opt.cmdheight = 2
 
@@ -51,7 +51,7 @@ vim.opt.autoread = true
 vim.opt.encoding = "utf-8"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.cmd("set whichwrap+=<,>,h,l,[,]")
+vim.opt.whichwrap:append({ ["<"] = true, [">"] = true, h = true, l = true, ["["] = true, ["]"] = true })
 vim.cmd("syntax on")
 vim.opt.updatetime = 100
 
@@ -100,8 +100,7 @@ vim.cmd([[autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd]])
 vim.cmd([[cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!]])
 
 -- Clipboard
-vim.cmd("set clipboard+=unnamedplus")
-vim.cmd("set go=a")
+vim.opt.clipboard = { "unnamedplus" }
 
 -- Javescript
 -- vim.g.loaded_node_provider = 0
