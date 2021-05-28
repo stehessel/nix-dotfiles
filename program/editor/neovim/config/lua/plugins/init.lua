@@ -98,9 +98,12 @@ return require("packer").startup({
         local telescope = require("telescope")
         telescope.setup({
           defaults = {
+            color_devicons = true,
+            scroll_strategy = "cycle",
             -- prompt_position = "top",
             -- sorting_strategy = "ascending",  -- breaks Telescope
-            prompt_prefix = "🔍 ",
+            prompt_prefix = "❯ ",
+            selection_caret = "❯ ",
             vimgrep_arguments = {
               "rg",
               "--color=never",
@@ -113,7 +116,7 @@ return require("packer").startup({
           },
           extensions = {
             fzf = {
-              override_generic_sorter = false,
+              override_generic_sorter = true,
               override_file_sorter = true,
               case_mode = "smart_case",
             },
