@@ -52,7 +52,6 @@ vim.opt.encoding = "utf-8"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.whichwrap:append({ ["<"] = true, [">"] = true, h = true, l = true, ["["] = true, ["]"] = true })
-vim.cmd("syntax on")
 vim.opt.updatetime = 100
 
 -- Folds
@@ -89,7 +88,6 @@ augroup END
 )
 
 -- Filetype
-vim.cmd("filetype plugin indent on")
 vim.opt.suffixesadd = ".md"
 
 -- Automatically deletes all trailing whitespace on save.
