@@ -1,4 +1,4 @@
-vim.o.showmode = false
+vim.opt.showmode = false
 
 vim.g.bubbly_statusline = {
   "mode",

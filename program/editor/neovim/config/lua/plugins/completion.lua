@@ -1,4 +1,4 @@
-vim.o.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = "menu,menuone,noselect"
 
 require("compe").setup({
   allow_prefix_unmatch = false,

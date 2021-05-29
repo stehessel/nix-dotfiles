@@ -2,7 +2,7 @@
 -- Set before loading plugins
 vim.g.mapleader = ","
 vim.g.maplocalleader = "\\"
-vim.o.bg = "dark"
-vim.o.termguicolors = true
+vim.opt.bg = "dark"
+vim.opt.termguicolors = true
 
 require("plugins")
