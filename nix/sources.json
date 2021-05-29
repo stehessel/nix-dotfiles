@@ -11,6 +11,18 @@
         "url": "https://github.com/nix-community/home-manager/archive/0e6c61a44092e98ba1d75b41f4f947843dc7814d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "luajit": {
+        "branch": "v2.1",
+        "description": "Mirror of the LuaJIT git repository",
+        "homepage": "http://luajit.org",
+        "owner": "luajit",
+        "repo": "luajit",
+        "rev": "839fb5bd72341d8e67b6cfc2053e2acffdb75567",
+        "sha256": "1gyzq4n0fwah0245wazv4c43q9in1mwbk3dhh6cb1ijnjcxp2bb6",
+        "type": "tarball",
+        "url": "https://github.com/luajit/luajit/archive/839fb5bd72341d8e67b6cfc2053e2acffdb75567.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "neovim": {
         "branch": "master",
         "description": "Vim-fork focused on extensibility and usability",
@@ -41,10 +53,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "429c23aad0fce9ef38b0e60d55d7459c19d53ddc",
-        "sha256": "1nj8sh1fnxp07jdlvjkijwfd1pnsi2zj0ivy7a0dhx02g63byhg3",
+        "rev": "0d698e61863a9920fa92eb5fe6fa10cab4e415e0",
+        "sha256": "0ysbgx5sbjappfrwvs6yhcaakggdir4jpkvkb5c2hghaqccmwvx7",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/429c23aad0fce9ef38b0e60d55d7459c19d53ddc.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/0d698e61863a9920fa92eb5fe6fa10cab4e415e0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "tree-sitter": {
