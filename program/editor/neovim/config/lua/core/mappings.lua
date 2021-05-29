@@ -68,7 +68,11 @@ vimp.nnoremap({ "silent" }, "<leader>N", function()
 end)
 
 -- Spell-check set to <leader>o, 'o' for 'orthography'
-vim.cmd("map <leader>o :setlocal spell! spelllang=en_us<CR>")
+vim.opt.spell = false
+vim.opt.spelllang = "en_us"
+vimp.nnoremap({ "override", "silent" }, "<leader>o", function()
+  vim.opt_local.spell = not vim.opt_local.spell:get()
+end)
 
 -- Sort
 vimp.xnoremap({ "override", "silent" }, "<leader>s", ":sort<cr>")

@@ -143,6 +143,7 @@ return require("packer").startup({
         vimp.nnoremap({ "silent" }, "<leader>fd", "<cmd>Telescope vimspector configurations<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fs", "<cmd>Telescope symbols<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fo", "<cmd>Telescope project<CR>")
+        vimp.nnoremap({ "silent" }, "<leader>O", "<cmd>Telescope spell_suggest<CR>")
         vimp.nnoremap({ "silent" }, "gd", "<cmd>Telescope lsp_definitions<CR>")
         vimp.nnoremap({ "silent" }, "gr", "<cmd>Telescope lsp_references<CR>")
         vimp.nnoremap({ "silent" }, "gy", "<cmd>Telescope lsp_implementations<CR>")
