@@ -456,7 +456,6 @@ return require("packer").startup({
         vimp.vmap({ "override", "silent" }, "<localleader>c", "<Plug>(iron-clear)")
       end,
     })
-    use({ "tpope/vim-markdown", ft = "markdown" })
     -- Color scheme
     use("folke/lsp-colors.nvim")
     use({
