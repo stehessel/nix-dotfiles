@@ -21,7 +21,7 @@ vim.opt.sessionoptions:remove({ "folds", "options" })
 vim.opt.signcolumn = "yes"
 
 -- Short messages
-vim.opt.shortmess:append({ c = true })
+vim.opt.shortmess:append("c")
 -- Cmd height
 vim.opt.cmdheight = 2
 
