@@ -55,7 +55,7 @@ require("nvim-treesitter.configs").setup({
         ["il"] = "@loop.inner",
         ["is"] = "@statement.inner",
         ["as"] = "@statement.outer",
-        ["ad"] = "@comment.outer",
+        ["ak"] = "@comment.outer",
         ["am"] = "@call.outer",
         ["im"] = "@call.inner",
         ["ad"] = "@parameter.outer",
