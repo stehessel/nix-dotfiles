@@ -5,7 +5,6 @@ vim.g.bubbly_statusline = {
   "truncate",
   "path",
   "builtinlsp.diagnostic_count",
-  "builtinlsp.current_function",
   "divisor",
   "filetype",
   "progress",
@@ -36,5 +35,5 @@ vim.g.bubbly_styles = {
   paste = "bold",
 }
 vim.g.bubbly_symbols = {
-  builtinlsp = { diagnostic_count = { error = "Errors: %s", warning = "Warnings: %s" } },
+  builtinlsp = { diagnostic_count = { error = ": %s", warning = ": %s" } },
 }
