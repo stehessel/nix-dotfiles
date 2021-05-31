@@ -35,5 +35,5 @@ vim.g.bubbly_styles = {
   paste = "bold",
 }
 vim.g.bubbly_symbols = {
-  builtinlsp = { diagnostic_count = { error = ": %s", warning = ": %s" } },
+  builtinlsp = { diagnostic_count = { error = " %s", warning = " %s" } },
 }

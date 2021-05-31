@@ -12,6 +12,12 @@ require("gitsigns").setup({
       numhl = "GitSignsChangeNr",
       linehl = "GitSignsChangeLn",
     },
+    delete = {
+      hl = "GitSignsDelete",
+      text = "-",
+      numhl = "GitSignsDeleteNr",
+      linehl = "GitSignsDeleteLn",
+    },
   },
   keymaps = {
     -- Default keymap options

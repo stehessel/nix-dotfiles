@@ -180,6 +180,15 @@ return require("packer").startup({
       config = function()
         require("plugins.bubbly")
       end,
+      disable = false,
+    })
+    use({
+      "glepnir/galaxyline.nvim",
+      config = function()
+        require("plugins.galaxyline")
+      end,
+      disable = true,
+      event = "BufEnter",
     })
     -- Notes
     use({
