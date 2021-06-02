@@ -781,15 +781,28 @@ return require("packer").startup({
             vim.cmd("packadd " .. plugin)
           end
         end
-        vimp.nnoremap({ "override", "silent" }, "<leader>S", require("spectre").open)
-        vimp.vnoremap({ "override", "silent" }, "<leader>S", require("spectre").open_visual)
-        require("spectre").setup({})
+        require("spectre").setup({
+          mapping = {
+            ["send_to_qf"] = {
+              map = "<leader>Q",
+              cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>",
+              desc = "send all item to quickfix",
+            },
+          },
+          is_insert_mode = true,
+        })
       end,
       event = "BufReadPre",
       requires = {
         { "nvim-lua/popup.nvim", opt = true },
         { "nvim-lua/plenary.nvim", opt = true },
       },
+      setup = function()
+        require("vimp")
+        vimp.nnoremap({ "override", "silent" }, "<leader>S", require("spectre").open)
+        vimp.vnoremap({ "override", "silent" }, "<leader>S", require("spectre").open_visual)
+        vimp.nnoremap({ "override", "silent" }, "S", require("spectre").open_file_search)
+      end,
     })
     use({
       "inkarkat/vim-SearchAlternatives",

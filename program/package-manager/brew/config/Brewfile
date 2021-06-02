@@ -115,7 +115,7 @@ cask "azure-data-studio"
 cask "calibre"
 # Clipboard extension app
 cask "clipy"
-# Free universal database tool and SQL client
+# Universal database tool and SQL client
 cask "dbeaver-community"
 # App to build and share containerized applications and microservices
 cask "docker"
