@@ -289,6 +289,7 @@ return require("packer").startup({
           decorator = { "`", "`" },
         })
       end,
+      event = "BufRead",
     })
     -- Documentation
     use({
