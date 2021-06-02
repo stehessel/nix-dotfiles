@@ -791,18 +791,16 @@ return require("packer").startup({
           },
           is_insert_mode = true,
         })
+        require("vimp")
+        vimp.nnoremap({ "override", "silent" }, "<leader>S", require("spectre").open)
+        vimp.vnoremap({ "override", "silent" }, "<leader>S", require("spectre").open_visual)
+        vimp.nnoremap({ "override", "silent" }, "S", require("spectre").open_file_search)
       end,
       event = "BufReadPre",
       requires = {
         { "nvim-lua/popup.nvim", opt = true },
         { "nvim-lua/plenary.nvim", opt = true },
       },
-      setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>S", require("spectre").open)
-        vimp.vnoremap({ "override", "silent" }, "<leader>S", require("spectre").open_visual)
-        vimp.nnoremap({ "override", "silent" }, "S", require("spectre").open_file_search)
-      end,
     })
     use({
       "inkarkat/vim-SearchAlternatives",
