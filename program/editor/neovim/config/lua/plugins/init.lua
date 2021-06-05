@@ -365,6 +365,11 @@ return require("packer").startup({
       end,
     })
     use({
+      "RRethy/nvim-treesitter-textsubjects",
+      after = "nvim-treesitter",
+      requires = "nvim-treesitter/nvim-treesitter",
+    })
+    use({
       "nvim-treesitter/nvim-treesitter-textobjects",
       after = "nvim-treesitter",
       requires = "nvim-treesitter/nvim-treesitter",

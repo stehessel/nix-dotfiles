@@ -10,6 +10,12 @@ require("nvim-treesitter.configs").setup({
       scope_decremental = "d",
     },
   },
+  textsubjects = {
+    enable = true,
+    keymaps = {
+      ["."] = "textsubjects-smart",
+    },
+  },
   indent = { entable = true },
   matchup = { enable = true },
   textobjects = {
