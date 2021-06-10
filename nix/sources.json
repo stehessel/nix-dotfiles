@@ -17,10 +17,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "21645e603cbc7003898315d753a0f3f7c867f68a",
-        "sha256": "11j7dkyj431k0cnbcqbq2g5881rjaw1rip5vmh9vy1qg01c7djq4",
+        "rev": "988f88c24e83c37e1dc011e3561fb505ca7b8706",
+        "sha256": "0jb73969vwahwdfqp4nxgszwf6flxhard3j794f50k301xnfi0xl",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/21645e603cbc7003898315d753a0f3f7c867f68a.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/988f88c24e83c37e1dc011e3561fb505ca7b8706.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -41,10 +41,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9ebc740e96ae89d77617ca704475e72403822cdd",
-        "sha256": "12kz017jbf0bqnlgsq7pr76vgiz4q8acgk0lnjw1vsbyar8bx06d",
+        "rev": "5e78bbcb4926bc9e35a85573ea362aec1fa9b7ac",
+        "sha256": "1fa80pmqb8zam3yhclbx7nbz1w48kg6lmy3k8rv3qz2jm4zzq02i",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/9ebc740e96ae89d77617ca704475e72403822cdd.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/5e78bbcb4926bc9e35a85573ea362aec1fa9b7ac.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "tree-sitter": {
@@ -53,10 +53,10 @@
         "homepage": "https://tree-sitter.github.io",
         "owner": "tree-sitter",
         "repo": "tree-sitter",
-        "rev": "162ce789bcf43693924d14232856c5ffee6da2c7",
-        "sha256": "0a551svmc1pi6sv0lb4pgrmzp910s1y5lpl7b203nx8kzj77n8al",
+        "rev": "ebae034b0ccf3f400f21c73008329bd9af7f2421",
+        "sha256": "1kd08rdid1hk9m77f84mg8b2wh7iawyrfgy3cvgj8x5hkdfsj2v2",
         "type": "tarball",
-        "url": "https://github.com/tree-sitter/tree-sitter/archive/162ce789bcf43693924d14232856c5ffee6da2c7.tar.gz",
+        "url": "https://github.com/tree-sitter/tree-sitter/archive/ebae034b0ccf3f400f21c73008329bd9af7f2421.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
