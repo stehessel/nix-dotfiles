@@ -386,6 +386,10 @@ return require("packer").startup({
     use({
       "mfussenegger/nvim-dap",
       config = function()
+        require("dap")
+        vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "", linehl = "", numhl = "" })
+        vim.fn.sign_define("DapStopped", { text = "▶", texthl = "", linehl = "", numhl = "" })
+
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<F2>", require("dap").repl.toggle)
         vimp.nnoremap({ "override", "silent" }, "<F5>", require("dap").continue)
@@ -449,6 +453,8 @@ return require("packer").startup({
         vimp.nnoremap({ "silent" }, "<leader>tn", ":UltestNearest<CR>")
         vimp.nnoremap({ "silent" }, "<leader>ts", ":UltestSummary<cr>")
         vimp.nnoremap({ "silent" }, "<leader>td", ":UltestDebug<cr>")
+        vimp.nnoremap({ "silent" }, "<leader>to", ":UltestOutput<cr>")
+        vimp.nnoremap({ "silent" }, "<leader>tc", ":UltestClear<cr>")
         vimp.nmap({ "override", "silent" }, "]t", "<Plug>(ultest-next-fail)")
         vimp.nmap({ "override", "silent" }, "[t", "<Plug>(ultest-prev-fail)")
       end,
