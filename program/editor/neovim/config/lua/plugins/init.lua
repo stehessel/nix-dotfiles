@@ -390,6 +390,8 @@ return require("packer").startup({
         vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "", linehl = "", numhl = "" })
         vim.fn.sign_define("DapStopped", { text = "▶", texthl = "", linehl = "", numhl = "" })
 
+        require("dap").defaults.fallback.exception_breakpoints = { "raised", "uncaught" }
+
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<F2>", require("dap").repl.toggle)
         vimp.nnoremap({ "override", "silent" }, "<F5>", require("dap").continue)
@@ -398,6 +400,9 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<leader><F9>", function()
           require("dap").toggle_breakpoint(vim.fn.input("Breakpoint condition: "))
         end)
+        vimp.nnoremap({ "override", "silent" }, "<localleader><F9>", function()
+          require("dap").toggle_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+        end)
         vimp.nnoremap({ "override", "silent" }, "<F10>", require("dap").step_over)
         vimp.nnoremap({ "override", "silent" }, "<F11>", require("dap").step_into)
         vimp.nnoremap({ "override", "silent" }, "<F12>", require("dap").step_out)
@@ -405,6 +410,9 @@ return require("packer").startup({
     })
     use({ "rcarriga/nvim-dap-ui", config = function()
       require("dapui").setup()
+    end })
+    use({ "theHamsta/nvim-dap-virtual-text", config = function()
+      vim.g.dap_virtual_text = true
     end })
     use({
       "mfussenegger/nvim-dap-python",
@@ -453,6 +461,7 @@ return require("packer").startup({
         vimp.nnoremap({ "silent" }, "<leader>tn", ":UltestNearest<CR>")
         vimp.nnoremap({ "silent" }, "<leader>ts", ":UltestSummary<cr>")
         vimp.nnoremap({ "silent" }, "<leader>td", ":UltestDebug<cr>")
+        vimp.nnoremap({ "silent" }, "<leader>tD", ":UltestDebugNearest<cr>")
         vimp.nnoremap({ "silent" }, "<leader>to", ":UltestOutput<cr>")
         vimp.nnoremap({ "silent" }, "<leader>tc", ":UltestClear<cr>")
         vimp.nmap({ "override", "silent" }, "]t", "<Plug>(ultest-next-fail)")
