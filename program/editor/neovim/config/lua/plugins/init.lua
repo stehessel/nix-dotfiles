@@ -474,7 +474,6 @@ return require("packer").startup({
       config = function()
         vim.g["test#python#runner"] = "pytest"
         vim.g["test#python#pytest#options#"] = { ["all"] = "--capture=no" }
-        -- require("plugins.test")
       end,
       ft = "python",
     })
