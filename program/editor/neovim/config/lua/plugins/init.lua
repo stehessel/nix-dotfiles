@@ -101,7 +101,6 @@ return require("packer").startup({
           "telescope-github.nvim",
           "telescope-project.nvim",
           "telescope-symbols.nvim",
-          "telescope-vimspector.nvim",
         }
         for _, plugin in ipairs(deps) do
           if packer_plugins[plugin] and not packer_plugins[plugin].loaded then
@@ -138,7 +137,6 @@ return require("packer").startup({
         })
         telescope.load_extension("fzf")
         telescope.load_extension("gh")
-        telescope.load_extension("vimspector")
         telescope.load_extension("project")
       end,
       setup = function()
@@ -154,7 +152,6 @@ return require("packer").startup({
         vimp.nnoremap({ "silent" }, "<leader>fk", "<cmd>Telescope keymaps<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fi", "<cmd>Telescope gh issues<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fp", "<cmd>Telescope gh pull_request<CR>")
-        vimp.nnoremap({ "silent" }, "<leader>fd", "<cmd>Telescope vimspector configurations<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fs", "<cmd>Telescope symbols<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fo", "<cmd>Telescope project<CR>")
         vimp.nnoremap({ "silent" }, "<leader>O", "<cmd>Telescope spell_suggest<CR>")
@@ -172,7 +169,6 @@ return require("packer").startup({
         { "nvim-telescope/telescope-github.nvim", opt = true },
         { "nvim-telescope/telescope-project.nvim", opt = true },
         { "nvim-telescope/telescope-symbols.nvim", opt = true },
-        { "nvim-telescope/telescope-vimspector.nvim", opt = true },
       },
     })
     -- Todo
@@ -388,27 +384,82 @@ return require("packer").startup({
     })
     -- Debugger
     use({
-      "puremourning/vimspector",
-      ft = { "python" },
-      setup = function()
-        vim.g.vimspector_enable_mappings = "HUMAN"
-        vim.g.vimspector_install_gadgets = { "debugpy", "CodeLLDB" }
-        vim.g.vimspector_sign_priority = {
-          ["vimspectorBP"] = 50,
-          ["vimspectorBPCond"] = 40,
-          ["vimspectorBPDisabled"] = 30,
-          ["vimspectorPC"] = 999,
-        }
-
+      "mfussenegger/nvim-dap",
+      config = function()
         require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<F2>", ":VimspectorWatch ")
+        vimp.nnoremap({ "override", "silent" }, "<F2>", require("dap").repl.toggle)
+        vimp.nnoremap({ "override", "silent" }, "<F5>", require("dap").continue)
+        vimp.nnoremap({ "override", "silent" }, "<F8>", require("dap").run_to_cursor)
+        vimp.nnoremap({ "override", "silent" }, "<F9>", require("dap").toggle_breakpoint)
+        vimp.nnoremap({ "override", "silent" }, "<leader><F9>", function()
+          require("dap").toggle_breakpoint(vim.fn.input("Breakpoint condition: "))
+        end)
+        vimp.nnoremap({ "override", "silent" }, "<F10>", require("dap").step_over)
+        vimp.nnoremap({ "override", "silent" }, "<F11>", require("dap").step_into)
+        vimp.nnoremap({ "override", "silent" }, "<F12>", require("dap").step_out)
+      end,
+    })
+    use({ "rcarriga/nvim-dap-ui", config = function()
+      require("dapui").setup()
+    end })
+    use({
+      "mfussenegger/nvim-dap-python",
+      config = function()
+        require("dap-python").setup("/Users/lgtf/miniconda3/bin/python")
+        require("dap-python").test_runner = "pytest"
       end,
     })
     -- Testing
     use({
+      "rcarriga/vim-ultest",
+      config = function()
+        vim.g.ultest_use_pty = 1
+
+        require("ultest").setup({
+          builders = {
+            ["python#pytest"] = function(cmd)
+              -- The command can start with python command directly or an env manager
+              local non_modules = { "python", "pipenv", "poetry" }
+              -- Index of the python module to run the test.
+              local module, module_index
+              if vim.tbl_contains(non_modules, cmd[1]) then
+                module_index = 3
+                module = cmd[module_index]
+              else
+                module_index = 1
+                module = cmd[module_index]
+              end
+              -- Remaining elements are arguments to the module
+              local args = vim.list_slice(cmd, module_index + 1)
+              return {
+                dap = {
+                  type = "python",
+                  request = "launch",
+                  module = module,
+                  args = args,
+                },
+              }
+            end,
+          },
+        })
+      end,
+      setup = function()
+        require("vimp")
+        vimp.nnoremap({ "silent" }, "<leader>tt", ":Ultest<cr>")
+        vimp.nnoremap({ "silent" }, "<leader>tn", ":UltestNearest<CR>")
+        vimp.nnoremap({ "silent" }, "<leader>ts", ":UltestSummary<cr>")
+        vimp.nnoremap({ "silent" }, "<leader>td", ":UltestDebug<cr>")
+        vimp.nmap({ "override", "silent" }, "]t", "<Plug>(ultest-next-fail)")
+        vimp.nmap({ "override", "silent" }, "[t", "<Plug>(ultest-prev-fail)")
+      end,
+      run = ":UpdateRemotePlugins",
+    })
+    use({
       "janko/vim-test",
       config = function()
-        require("plugins.test")
+        vim.g["test#python#runner"] = "pytest"
+        vim.g["test#python#pytest#options#"] = { ["all"] = "--capture=no" }
+        -- require("plugins.test")
       end,
       ft = "python",
     })
