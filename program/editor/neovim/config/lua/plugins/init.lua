@@ -97,6 +97,7 @@ return require("packer").startup({
         local deps = {
           "plenary.nvim",
           "popup.nvim",
+          "telescope-dap.nvim",
           "telescope-fzf-native.nvim",
           "telescope-github.nvim",
           "telescope-project.nvim",
@@ -135,6 +136,7 @@ return require("packer").startup({
             },
           },
         })
+        telescope.load_extension("dap")
         telescope.load_extension("fzf")
         telescope.load_extension("gh")
         telescope.load_extension("project")
@@ -150,11 +152,16 @@ return require("packer").startup({
         vimp.nnoremap({ "silent" }, "<leader>fm", "<cmd>Telescope marks<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fc", "<cmd>Telescope git_bcommits<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fk", "<cmd>Telescope keymaps<CR>")
-        vimp.nnoremap({ "silent" }, "<leader>fi", "<cmd>Telescope gh issues<CR>")
-        vimp.nnoremap({ "silent" }, "<leader>fp", "<cmd>Telescope gh pull_request<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fs", "<cmd>Telescope symbols<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fo", "<cmd>Telescope project<CR>")
         vimp.nnoremap({ "silent" }, "<leader>O", "<cmd>Telescope spell_suggest<CR>")
+
+        vimp.nnoremap({ "silent" }, "<leader>db", "<cmd>Telescope dap list_breakpoints<CR>")
+        vimp.nnoremap({ "silent" }, "<leader>df", "<cmd>Telescope dap frames<CR>")
+
+        vimp.nnoremap({ "silent" }, "<leader>fi", "<cmd>Telescope gh issues<CR>")
+        vimp.nnoremap({ "silent" }, "<leader>fp", "<cmd>Telescope gh pull_request<CR>")
+
         vimp.nnoremap({ "silent" }, "gd", "<cmd>Telescope lsp_definitions<CR>")
         vimp.nnoremap({ "silent" }, "gr", "<cmd>Telescope lsp_references<CR>")
         vimp.nnoremap({ "silent" }, "gy", "<cmd>Telescope lsp_implementations<CR>")
@@ -165,6 +172,7 @@ return require("packer").startup({
       requires = {
         { "nvim-lua/popup.nvim", opt = true },
         { "nvim-lua/plenary.nvim", opt = true },
+        { "nvim-telescope/telescope-dap.nvim", opt = true },
         { "nvim-telescope/telescope-fzf-native.nvim", opt = true, run = "make" },
         { "nvim-telescope/telescope-github.nvim", opt = true },
         { "nvim-telescope/telescope-project.nvim", opt = true },
@@ -305,7 +313,7 @@ return require("packer").startup({
       end,
       setup = function()
         require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>d", "<cmd>DogeGenerate<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<leader>j", "<cmd>DogeGenerate<CR>")
       end,
     })
     -- SQL
@@ -395,6 +403,8 @@ return require("packer").startup({
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<F2>", require("dap").repl.toggle)
         vimp.nnoremap({ "override", "silent" }, "<F5>", require("dap").continue)
+        vimp.nnoremap({ "override", "silent" }, "<F6>", require("dap").up)
+        vimp.nnoremap({ "override", "silent" }, "<F7>", require("dap").down)
         vimp.nnoremap({ "override", "silent" }, "<F8>", require("dap").run_to_cursor)
         vimp.nnoremap({ "override", "silent" }, "<F9>", require("dap").toggle_breakpoint)
         vimp.nnoremap({ "override", "silent" }, "<leader><F9>", function()
@@ -408,9 +418,16 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<F12>", require("dap").step_out)
       end,
     })
-    use({ "rcarriga/nvim-dap-ui", config = function()
-      require("dapui").setup()
-    end })
+    use({
+      "rcarriga/nvim-dap-ui",
+      config = function()
+        require("dapui").setup()
+      end,
+      setup = function()
+        require("vimp")
+        vimp.nnoremap({ "override", "silent" }, "<leader>du", require("dapui").toggle)
+      end,
+    })
     use({ "theHamsta/nvim-dap-virtual-text", config = function()
       vim.g.dap_virtual_text = true
     end })
