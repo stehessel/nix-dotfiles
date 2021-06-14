@@ -402,6 +402,7 @@ return require("packer").startup({
 
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<F2>", require("dap").repl.toggle)
+        vimp.nnoremap({ "override", "silent" }, "<F3>", require("dap").stop)
         vimp.nnoremap({ "override", "silent" }, "<F5>", require("dap").continue)
         vimp.nnoremap({ "override", "silent" }, "<F6>", require("dap").up)
         vimp.nnoremap({ "override", "silent" }, "<F7>", require("dap").down)
