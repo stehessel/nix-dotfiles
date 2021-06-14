@@ -422,8 +422,6 @@ return require("packer").startup({
       "rcarriga/nvim-dap-ui",
       config = function()
         require("dapui").setup()
-      end,
-      setup = function()
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<leader>du", require("dapui").toggle)
       end,
