@@ -685,7 +685,7 @@ return require("packer").startup({
       end,
       ft = { "clojure", "fennel" },
     })
-    use({ "matze/vim-move", keys = { "<A-h", "<A-j>", "<A-k>", "<A-l>" } })
+    use({ "matze/vim-move", event = "BufRead" })
     use({ "mg979/vim-visual-multi", keys = { "<C-n>", "<C-Up>", "<C-Down>" } })
     use({
       "nicwest/vim-camelsnek",
