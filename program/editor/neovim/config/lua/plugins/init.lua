@@ -393,13 +393,15 @@ return require("packer").startup({
     -- Debugger
     use({
       "mfussenegger/nvim-dap",
+      module = "dap",
       config = function()
         require("dap")
         vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "", linehl = "", numhl = "" })
         vim.fn.sign_define("DapStopped", { text = "▶", texthl = "", linehl = "", numhl = "" })
 
         require("dap").defaults.fallback.exception_breakpoints = { "raised", "uncaught" }
-
+      end,
+      setup = function()
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<F2>", require("dap").repl.toggle)
         vimp.nnoremap({ "override", "silent" }, "<F3>", require("dap").stop)

@@ -52,7 +52,7 @@ vim.opt.encoding = "utf-8"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.whichwrap:append({ ["<"] = true, [">"] = true, h = true, l = true, ["["] = true, ["]"] = true })
-vim.opt.updatetime = 200
+vim.opt.updatetime = 750
 
 -- Folds
 vim.opt.foldlevelstart = 99
