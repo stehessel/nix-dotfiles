@@ -10,11 +10,9 @@ if not packer_exists then
 
   vim.fn.mkdir(directory, "p")
 
-  local out = vim.fn.system(string.format(
-    "git clone %s %s",
-    "https://github.com/wbthomason/packer.nvim",
-    directory .. "/packer.nvim"
-  ))
+  local out = vim.fn.system(
+    string.format("git clone %s %s", "https://github.com/wbthomason/packer.nvim", directory .. "/packer.nvim")
+  )
 
   print(out)
   print("Downloading packer.nvim...")
@@ -427,9 +425,12 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<leader>du", require("dapui").toggle)
       end,
     })
-    use({ "theHamsta/nvim-dap-virtual-text", config = function()
-      vim.g.dap_virtual_text = true
-    end })
+    use({
+      "theHamsta/nvim-dap-virtual-text",
+      config = function()
+        vim.g.dap_virtual_text = true
+      end,
+    })
     use({
       "mfussenegger/nvim-dap-python",
       config = function()
@@ -890,8 +891,8 @@ return require("packer").startup({
       end,
       event = "BufReadPre",
       requires = {
-        { "nvim-lua/popup.nvim", opt = true },
-        { "nvim-lua/plenary.nvim", opt = true },
+        { "nvim-lua/popup.nvim" },
+        { "nvim-lua/plenary.nvim" },
       },
     })
     use({
