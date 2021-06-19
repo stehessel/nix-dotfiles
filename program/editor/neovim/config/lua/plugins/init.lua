@@ -772,7 +772,6 @@ return require("packer").startup({
         }
       end,
     })
-    use("michaeljsmith/vim-indent-object")
     use("wellle/targets.vim")
     -- Buffers
     use({ "famiu/bufdelete.nvim", cmd = { "Bdelete", "Bwipeout" } })
