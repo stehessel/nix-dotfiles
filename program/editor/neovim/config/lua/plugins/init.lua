@@ -138,6 +138,22 @@ return require("packer").startup({
         telescope.load_extension("fzf")
         telescope.load_extension("gh")
         telescope.load_extension("project")
+
+        vimp.nnoremap({ "silent" }, "<leader>fg", function()
+          local git_diff_branch = function(prompt_bufnr)
+            local selection = require("telescope.actions.state").get_selected_entry()
+            require("telescope.actions").close(prompt_bufnr)
+            vim.cmd("DiffviewOpen " .. selection.value)
+          end
+
+          require("telescope.builtin").git_branches({
+            attach_mappings = function(_, map)
+              map("n", "<c-y>", git_diff_branch)
+              map("i", "<c-y>", git_diff_branch)
+              return true
+            end,
+          })
+        end)
       end,
       setup = function()
         require("vimp")
@@ -148,7 +164,6 @@ return require("packer").startup({
         vimp.nnoremap({ "silent" }, "<leader>fb", "<cmd>Telescope buffers<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fh", "<cmd>Telescope oldfiles<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fm", "<cmd>Telescope marks<CR>")
-        vimp.nnoremap({ "silent" }, "<leader>fg", "<cmd>Telescope git_branches<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fc", "<cmd>Telescope git_bcommits<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fv", "<cmd>Telescope git_status<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fk", "<cmd>Telescope keymaps<CR>")
