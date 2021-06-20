@@ -433,9 +433,11 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<F11>", require("dap").step_into)
         vimp.nnoremap({ "override", "silent" }, "<F12>", require("dap").step_out)
       end,
+      ft = { "python" },
     })
     use({
       "rcarriga/nvim-dap-ui",
+      after = "nvim-dap",
       config = function()
         require("dapui").setup()
         require("vimp")
@@ -444,12 +446,14 @@ return require("packer").startup({
     })
     use({
       "theHamsta/nvim-dap-virtual-text",
+      after = "nvim-dap",
       config = function()
         vim.g.dap_virtual_text = true
       end,
     })
     use({
       "mfussenegger/nvim-dap-python",
+      after = "nvim-dap",
       config = function()
         require("dap-python").setup("/Users/lgtf/miniconda3/bin/python")
         require("dap-python").test_runner = "pytest"
@@ -458,6 +462,7 @@ return require("packer").startup({
     -- Testing
     use({
       "rcarriga/vim-ultest",
+      after = "vim-test",
       config = function()
         vim.g.ultest_use_pty = 1
 
@@ -512,7 +517,7 @@ return require("packer").startup({
       ft = "python",
     })
     -- Code folding
-    use({ "kalekundert/vim-coiled-snake", event = "BufRead" })
+    use({ "kalekundert/vim-coiled-snake", ft = "python" })
     use("Konfekt/FastFold")
     -- Syntax highlighters
     use({ "LnL7/vim-nix", ft = "nix" })
