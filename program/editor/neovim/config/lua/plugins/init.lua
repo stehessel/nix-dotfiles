@@ -661,18 +661,11 @@ return require("packer").startup({
     use("tpope/vim-unimpaired")
     -- Movement
     use({
-      "phaazon/hop.nvim",
-      cmd = { "HopWord", "HopLine", "HopChar1", "HopChar2", "HopPattern" },
+      "ggandor/lightspeed.nvim",
       config = function()
-        require("hop").setup({ "etovxqpdygfblzhckisuran" })
-      end,
-      setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>s", ":HopWord<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>l", ":HopLine<CR>")
+        require("lightspeed").setup()
       end,
     })
-    use({ "rhysd/clever-f.vim", keys = { "f", "F", "t", "T" } })
     -- Text manipulation
     use({
       "AndrewRadev/switch.vim",
@@ -749,11 +742,11 @@ return require("packer").startup({
       "svermeulen/vim-subversive",
       after = "vimpeccable",
       config = function()
-        vim.cmd([[nmap s <Plug>(SubversiveSubstitute)]])
-        vim.cmd([[nmap ss <Plug>(SubversiveSubstituteLine)]])
-        vim.cmd([[nmap sl <Plug>(SubversiveSubstituteToEndOfLine)]])
+        vim.cmd([[nmap <leader>s <Plug>(SubversiveSubstitute)]])
+        vim.cmd([[nmap <leader>ss <Plug>(SubversiveSubstituteLine)]])
+        vim.cmd([[nmap <leader>sl <Plug>(SubversiveSubstituteToEndOfLine)]])
 
-        vim.cmd([[xmap s <Plug>(SubversiveSubstitute)]])
+        vim.cmd([[xmap <leader>s <Plug>(SubversiveSubstitute)]])
         vim.cmd([[xmap p <Plug>(SubversiveSubstitute)]])
         vim.cmd([[xmap P <Plug>(SubversiveSubstitute)]])
 
@@ -903,7 +896,7 @@ return require("packer").startup({
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<leader>S", require("spectre").open)
         vimp.vnoremap({ "override", "silent" }, "<leader>S", require("spectre").open_visual)
-        vimp.nnoremap({ "override", "silent" }, "S", require("spectre").open_file_search)
+        vimp.nnoremap({ "override", "silent" }, "<localleader>S", require("spectre").open_file_search)
       end,
       event = "BufReadPre",
       requires = {
