@@ -663,7 +663,7 @@ return require("packer").startup({
     use({
       "ggandor/lightspeed.nvim",
       config = function()
-        require("lightspeed").setup()
+        require("lightspeed").setup({})
       end,
     })
     -- Text manipulation
