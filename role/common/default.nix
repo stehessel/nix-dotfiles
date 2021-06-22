@@ -31,7 +31,6 @@ in
     ../../program/editor/kakoune
     ../../program/editor/neovim
     ../../program/file-manager/lf
-    ../../program/file-manager/vifm
     # ../../program/package-manager/nix
     ../../program/shell/bash
     ../../program/shell/bobthefish
@@ -94,7 +93,6 @@ in
     gnupg
     # --- file manager ---
     lf
-    # vifm
     # --- file search ---
     broot
     fd
