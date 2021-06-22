@@ -462,7 +462,6 @@ return require("packer").startup({
     -- Testing
     use({
       "rcarriga/vim-ultest",
-      after = "vim-test",
       config = function()
         vim.g.ultest_use_pty = 1
 
@@ -494,6 +493,7 @@ return require("packer").startup({
           },
         })
       end,
+      ft = "python",
       setup = function()
         require("vimp")
         vimp.nnoremap({ "silent" }, "<leader>tt", ":Ultest<cr>")
