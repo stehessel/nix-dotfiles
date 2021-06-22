@@ -181,7 +181,7 @@ in
     tmux
     # --- text ---
     asciidoctor
-    vale
+    # vale
     # --- todo manager ---
     taskwarrior
     # --- utility ---
