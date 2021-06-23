@@ -112,7 +112,7 @@ return require("packer").startup({
           defaults = {
             color_devicons = true,
             scroll_strategy = "cycle",
-            prompt_position = "top",
+            -- prompt_position = "top",
             -- sorting_strategy = "ascending",  -- breaks Telescope
             prompt_prefix = "❯ ",
             selection_caret = "❯ ",
@@ -134,7 +134,9 @@ return require("packer").startup({
             },
           },
         })
-        telescope.load_extension("dap")
+        if vim.bo.filetype == "python" then
+          telescope.load_extension("dap")
+        end
         telescope.load_extension("fzf")
         telescope.load_extension("gh")
         telescope.load_extension("project")
