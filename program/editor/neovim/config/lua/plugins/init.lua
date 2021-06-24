@@ -64,6 +64,7 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<leader>u", "<cmd>DiffviewOpen<CR>")
       end,
     })
+    use({ "rhysd/conflict-marker.vim" })
     -- Github
     use({
       "pwntester/octo.nvim",

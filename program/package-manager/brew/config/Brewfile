@@ -108,6 +108,7 @@ cask "adobe-acrobat-reader"
 cask "alacritty"
 # Automatic tiling window manager similar to xmonad
 cask "amethyst"
+# Uninstaller and cleaning assistant
 cask "app-cleaner"
 # Data management tool that enables working with SQL Server
 cask "azure-data-studio"
