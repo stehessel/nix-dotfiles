@@ -158,6 +158,8 @@ cask "tunnelblick"
 cask "ukelele"
 # Development environment
 cask "vagrant"
+# GUI for the Neovim text editor
+cask "vimr"
 # Free and open-source hosted hypervisor for x86 virtualization
 cask "virtualbox"
 # Open-source code editor
