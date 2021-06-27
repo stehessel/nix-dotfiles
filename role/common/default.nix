@@ -76,7 +76,7 @@ in
     # --- data ---
     jq
     visidata
-    yq
+    # yq
     # --- dev ---
     editorconfig-core-c
     pgformatter
@@ -188,7 +188,6 @@ in
     file
     gawk
     hyperfine
-    jrnl
     neofetch
     svgcleaner
     topgrade

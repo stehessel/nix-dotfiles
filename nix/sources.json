@@ -5,10 +5,10 @@
         "homepage": "https://nix-community.github.io/home-manager/",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0ada50fc9c620f7ad9f7c6ff70bf40514f4400a9",
-        "sha256": "0zlgihyy3gwkb409lhrfnslhd3lcqar8vwp4mkcw8kvzjfz8vyqx",
+        "rev": "8eee5f5272ac21df2f2db4b51eed28820c499930",
+        "sha256": "1a71bdhqkq2alnbl31drpiz5sy83h961wz1mj1xnvzz7sv5vfpq6",
         "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/0ada50fc9c620f7ad9f7c6ff70bf40514f4400a9.tar.gz",
+        "url": "https://github.com/nix-community/home-manager/archive/8eee5f5272ac21df2f2db4b51eed28820c499930.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "neovim": {
@@ -17,10 +17,10 @@
         "homepage": "https://neovim.io",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "e680d7d6af4b48680693be9d984cce217e959e1f",
-        "sha256": "1i977ky9pslrjrk70wm47hh89g32lkg0fzicxa9pj7p29zsrbcqw",
+        "rev": "bdf3df4027a5389a46b4c9a75b50aff5c0ecb351",
+        "sha256": "0y0x35lr5bchx0m61qsz5x5fz54k775fwgvdjq5scsn6nsny2ksw",
         "type": "tarball",
-        "url": "https://github.com/neovim/neovim/archive/e680d7d6af4b48680693be9d984cce217e959e1f.tar.gz",
+        "url": "https://github.com/neovim/neovim/archive/bdf3df4027a5389a46b4c9a75b50aff5c0ecb351.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -41,10 +41,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "013f2ce9b3f02f0d46a3f9ef39aefd61c603f89f",
-        "sha256": "06w3n2m97v8aas5zbwl187q4zbdhqfxc0k1kmnwj953h9pczf3q9",
+        "rev": "aedc67d64f47e38000b4dc882e37fd665e126166",
+        "sha256": "04m3zl0f2zplbbnqihaxppx9ms33pxivdsjwlijfrjn528fg3gfv",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/013f2ce9b3f02f0d46a3f9ef39aefd61c603f89f.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/aedc67d64f47e38000b4dc882e37fd665e126166.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "tree-sitter": {
@@ -53,10 +53,10 @@
         "homepage": "https://tree-sitter.github.io",
         "owner": "tree-sitter",
         "repo": "tree-sitter",
-        "rev": "d7746bec993361d250afbc4126e6854e03e62e1c",
-        "sha256": "1p5z829fv14ss03gm5x1awc9q6v192wlp1gfphn4cpq5va11cdx2",
+        "rev": "2b83500b74e3c35756794d7c9284cc9ab5fe9116",
+        "sha256": "0rbxkjbjxgyd5vbmfrrf3z91bj2kp3wjr4gzq3ic6vcqs8shs8jf",
         "type": "tarball",
-        "url": "https://github.com/tree-sitter/tree-sitter/archive/d7746bec993361d250afbc4126e6854e03e62e1c.tar.gz",
+        "url": "https://github.com/tree-sitter/tree-sitter/archive/2b83500b74e3c35756794d7c9284cc9ab5fe9116.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
