@@ -1,9 +1,10 @@
 return {
-  setup = function(on_attach, root_patterns)
+  setup = function(on_attach, root_patterns, debounce_text_changes)
     require("lspconfig").efm.setup({
       init_options = { documentFormatting = true },
       on_attach = on_attach,
       root_dir = root_patterns,
+      flags = { debounce_text_changes = debounce_text_changes },
       settings = {
         rootMarkers = { ".git/", ".root" },
         languages = {
