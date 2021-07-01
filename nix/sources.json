@@ -41,22 +41,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f75e2a648c76976c8b2d5e9e147a1eaa0a84f3d8",
-        "sha256": "0ndc2grllca6wcjsfjbwrna40qqzyv29gzizccwa38sfv59pwjzb",
+        "rev": "c713d17ecde2b7b4854abcb6cf4f905db6876be3",
+        "sha256": "1j2jy5774xhpad8xxd1m4n3zis7q9xzg7w8sji35lgz9ra1hkn5g",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/f75e2a648c76976c8b2d5e9e147a1eaa0a84f3d8.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "tree-sitter": {
-        "branch": "master",
-        "description": "An incremental parsing system for programming tools",
-        "homepage": "https://tree-sitter.github.io",
-        "owner": "tree-sitter",
-        "repo": "tree-sitter",
-        "rev": "23fdbf0e7204e03c59011b3df35632dba931da23",
-        "sha256": "1dxia32q4b69xk12m252hrph6z6h27ciavnhzahgdq6dcpibyhgl",
-        "type": "tarball",
-        "url": "https://github.com/tree-sitter/tree-sitter/archive/23fdbf0e7204e03c59011b3df35632dba931da23.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/c713d17ecde2b7b4854abcb6cf4f905db6876be3.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
