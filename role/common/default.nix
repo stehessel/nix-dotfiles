@@ -80,6 +80,7 @@ in
     # --- dev ---
     editorconfig-core-c
     pgformatter
+    tree-sitter
     tokei
     universal-ctags
     xsv
