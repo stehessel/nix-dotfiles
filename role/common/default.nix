@@ -195,6 +195,6 @@ in
     # --- watcher ---
     watchman
     # --- web ---
-    hugo
+    # hugo
   ];
 }
