@@ -70,8 +70,6 @@ brew "terminal-notifier"
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
-# Parser generator tool and incremental parsing library
-brew "tree-sitter"
 # ODBC 3 connectivity for UNIX
 brew "unixodbc"
 # URL extractor/launcher
