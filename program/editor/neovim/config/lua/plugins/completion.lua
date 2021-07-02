@@ -9,12 +9,13 @@ require("compe").setup({
   throttle_time = 25,
 
   source = {
-    path = true,
     buffer = true,
     calc = true,
-    vsnip = true,
+    conjure = true,
     nvim_lsp = true,
     nvim_lua = true,
+    orgmode = true,
+    path = true,
   },
 })
 

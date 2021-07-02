@@ -228,6 +228,15 @@ return require("packer").startup({
     })
     -- Notes
     use({
+      "kristijanhusak/orgmode.nvim",
+      config = function()
+        require("orgmode").setup({
+          org_agenda_files = { "~/doc/org/*" },
+          org_default_notes_file = "~/doc/org/refile.org",
+        })
+      end,
+    })
+    use({
       "oberblastmeister/neuron.nvim",
       after = { "plenary.nvim", "telescope.nvim", "vimpeccable" },
       config = function()
@@ -569,6 +578,7 @@ return require("packer").startup({
       "Olical/conjure",
       config = function()
         vim.cmd([[let g:conjure#log#hud#width = 0.42]])
+        vim.g.compe.source.conjure = true
       end,
       ft = { "clojure", "fennel" },
     })
