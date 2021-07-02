@@ -431,9 +431,9 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<F2>", require("dap").repl.toggle)
         vimp.nnoremap({ "override", "silent" }, "<F3>", require("dap").stop)
         vimp.nnoremap({ "override", "silent" }, "<F5>", require("dap").continue)
-        vimp.nnoremap({ "override", "silent" }, "<F6>", require("dap").up)
-        vimp.nnoremap({ "override", "silent" }, "<F7>", require("dap").down)
-        vimp.nnoremap({ "override", "silent" }, "<F8>", require("dap").run_to_cursor)
+        vimp.nnoremap({ "override", "silent" }, "<F6>", require("dap").run_to_cursor)
+        vimp.nnoremap({ "override", "silent" }, "<F7>", require("dap").up)
+        vimp.nnoremap({ "override", "silent" }, "<F8>", require("dap").down)
         vimp.nnoremap({ "override", "silent" }, "<F9>", require("dap").toggle_breakpoint)
         vimp.nnoremap({ "override", "silent" }, "<leader><F9>", function()
           require("dap").toggle_breakpoint(vim.fn.input("Breakpoint condition: "))
@@ -444,6 +444,7 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<F10>", require("dap").step_over)
         vimp.nnoremap({ "override", "silent" }, "<F11>", require("dap").step_into)
         vimp.nnoremap({ "override", "silent" }, "<F12>", require("dap").step_out)
+        vimp.nnoremap({ "override", "silent" }, "<leader>dh", require("dap.ui.widgets").hover)
       end,
       ft = { "python" },
     })
@@ -467,7 +468,7 @@ return require("packer").startup({
       "mfussenegger/nvim-dap-python",
       after = "nvim-dap",
       config = function()
-        require("dap-python").setup("/Users/lgtf/miniconda3/bin/python")
+        require("dap-python").setup("python")
         require("dap-python").test_runner = "pytest"
       end,
     })

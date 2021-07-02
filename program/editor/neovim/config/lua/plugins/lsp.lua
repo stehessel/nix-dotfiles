@@ -56,5 +56,5 @@ local servers = {
   "yamlls",
 }
 for _, name in ipairs(servers) do
-  require("plugins.lsp." .. name).setup(on_attach, root_patterns, 150)
+  require("plugins.lsp." .. name).setup(on_attach, root_patterns, 250)
 end
