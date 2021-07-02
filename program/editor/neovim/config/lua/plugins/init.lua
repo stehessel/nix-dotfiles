@@ -650,7 +650,12 @@ return require("packer").startup({
         require("nvim-autopairs").setup()
       end,
     })
-    use("machakann/vim-sandwich")
+    use({
+      "blackCauldron7/surround.nvim",
+      config = function()
+        require("surround").setup({ prefix = "r" })
+      end,
+    })
     -- Marks
     use("kshenoy/vim-signature")
     -- Indentation
