@@ -72,7 +72,6 @@ return require("packer").startup({
       config = function()
         require("octo").setup()
       end,
-      disable = true,
     })
     -- Finders
     use({
