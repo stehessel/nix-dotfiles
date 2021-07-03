@@ -476,6 +476,7 @@ return require("packer").startup({
     use({
       "rcarriga/vim-ultest",
       config = function()
+        vim.g.ultest_max_threads = 6
         vim.g.ultest_use_pty = 1
 
         require("ultest").setup({
@@ -672,7 +673,6 @@ return require("packer").startup({
     -- Indentation
     use({
       "lukas-reineke/indent-blankline.nvim",
-      branch = "lua",
       config = function()
         vim.g.indent_blankline_buftype_exclude = { "nofile", "prompt", "terminal" }
         vim.g.indent_blankline_char = "¦"
