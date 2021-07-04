@@ -117,8 +117,6 @@ in
     gitAndTools.git-fame
     gitAndTools.hub
     lazygit
-    # --- go ---
-    go
     # --- haskell ---
     # cabal-install
     # ghc

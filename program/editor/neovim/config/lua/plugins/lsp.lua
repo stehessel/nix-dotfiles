@@ -51,7 +51,7 @@ local servers = {
   "jsonls",
   "pyright",
   "rnix",
-  "sqls",
+  -- "sqls",
   "sumneko",
   "yamlls",
 }
