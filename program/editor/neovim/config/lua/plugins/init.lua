@@ -962,5 +962,5 @@ return require("packer").startup({
     use({ "isobit/vim-caddyfile", ft = "caddyfile" })
     use("~/dev/neovim/pytest.nvim")
   end,
-  config = { max_jobs = 32, profile = { enable = true, threshold = 1 } },
+  config = { max_jobs = 32, profile = { enable = false, threshold = 1 } },
 })
