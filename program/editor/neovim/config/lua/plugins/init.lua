@@ -32,6 +32,15 @@ return require("packer").startup({
       end,
     })
 
+    -- Utility
+    use({
+      "nvim-lua/plenary.nvim",
+      module = "plenary",
+    })
+    use({
+      "nvim-lua/popup.nvim",
+      module = "popup",
+    })
     -- Git
     use({
       "lewis6991/gitsigns.nvim",
@@ -39,7 +48,6 @@ return require("packer").startup({
         require("plugins.git")
       end,
       event = { "BufRead", "BufNewFile" },
-      requires = { "nvim-lua/plenary.nvim" },
     })
     use({
       "f-person/git-blame.nvim",
@@ -93,8 +101,6 @@ return require("packer").startup({
       keys = { "<leader>nf", "<leader>nF", "<leader>nn" },
       config = function()
         local deps = {
-          "plenary.nvim",
-          "popup.nvim",
           "telescope-dap.nvim",
           "telescope-fzf-native.nvim",
           "telescope-github.nvim",
@@ -187,8 +193,6 @@ return require("packer").startup({
         vimp.nnoremap({ "silent" }, "<space>e", "<cmd>Telescope lsp_document_diagnostics<CR>")
       end,
       requires = {
-        { "nvim-lua/popup.nvim", opt = true },
-        { "nvim-lua/plenary.nvim", opt = true },
         { "nvim-telescope/telescope-dap.nvim", opt = true },
         { "nvim-telescope/telescope-fzf-native.nvim", opt = true, run = "make" },
         { "nvim-telescope/telescope-github.nvim", opt = true },
@@ -234,6 +238,7 @@ return require("packer").startup({
           org_default_notes_file = "~/doc/org/refile.org",
         })
       end,
+      event = "BufRead",
     })
     use({
       "oberblastmeister/neuron.nvim",
@@ -259,7 +264,7 @@ return require("packer").startup({
           require("neuron/telescope").find_zettels({ insert = true })
         end)
       end,
-      requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+      requires = { "nvim-telescope/telescope.nvim" },
     })
     -- Start screen
     use({
@@ -278,7 +283,7 @@ return require("packer").startup({
       config = function()
         require("plugins.lsp")
       end,
-      event = "BufReadPre",
+      event = "BufRead",
     })
     use({
       "glepnir/lspsaga.nvim",
@@ -325,7 +330,7 @@ return require("packer").startup({
           handler_opts = { border = "none" },
         })
       end,
-      event = "BufRead",
+      event = "InsertEnter",
     })
     -- Documentation
     use({
@@ -343,7 +348,7 @@ return require("packer").startup({
       end,
     })
     -- SQL
-    use("nanotee/sqls.nvim")
+    use({ "nanotee/sqls.nvim", ft = "sql" })
     -- Python
     use({
       "python-rope/ropevim",
@@ -385,7 +390,6 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<M-cr>", ":RopeAutoImport<cr>")
         vimp.nnoremap({ "override", "silent" }, "<M-d>", ":RopeGotoDefinition<cr>")
       end,
-      ft = "python",
     })
     use({ "stsewd/sphinx.nvim", ft = { "python", "rst" } })
     -- Clojure
@@ -396,6 +400,7 @@ return require("packer").startup({
       config = function()
         require("plugins.treesitter")
       end,
+      event = "BufRead",
       run = function()
         vim.cmd("TSUpdate")
       end,
@@ -403,18 +408,14 @@ return require("packer").startup({
     use({
       "RRethy/nvim-treesitter-textsubjects",
       after = "nvim-treesitter",
-      requires = "nvim-treesitter/nvim-treesitter",
     })
     use({
       "nvim-treesitter/nvim-treesitter-textobjects",
       after = "nvim-treesitter",
-      requires = "nvim-treesitter/nvim-treesitter",
     })
     use({
       "nvim-treesitter/playground",
-      after = "nvim-treesitter",
       cmd = "TSPlaygroundToggle",
-      requires = "nvim-treesitter/nvim-treesitter",
     })
     -- Debugger
     use({
@@ -531,10 +532,10 @@ return require("packer").startup({
     })
     -- Code folding
     use({ "kalekundert/vim-coiled-snake", ft = "python" })
-    use("Konfekt/FastFold")
+    use({ "Konfekt/FastFold", event = "BufRead" })
     -- Syntax highlighters
     use({ "LnL7/vim-nix", ft = "nix" })
-    use("RRethy/vim-illuminate")
+    use({ "RRethy/vim-illuminate", event = "BufRead" })
     -- Asciidoc
     use({ "habamax/vim-asciidoctor", ft = "asciidoctor" })
     -- REPL
@@ -615,7 +616,7 @@ return require("packer").startup({
       end,
     })
     -- Color scheme
-    use("folke/lsp-colors.nvim")
+    use({ "folke/lsp-colors.nvim", event = "BufRead" })
     use({
       "bluz71/vim-nightfly-guicolors",
       config = function()
@@ -651,6 +652,7 @@ return require("packer").startup({
       config = function()
         require("nvim-web-devicons").setup({ default = true })
       end,
+      module = "nvim-web-devicons",
     })
     -- Extend % operator
     use({ "andymass/vim-matchup", keys = { "%", "g%", "[%", "]%", "z%" } })
@@ -660,15 +662,17 @@ return require("packer").startup({
       config = function()
         require("nvim-autopairs").setup()
       end,
+      event = "InsertEnter",
     })
     use({
       "blackCauldron7/surround.nvim",
       config = function()
         require("surround").setup({ prefix = "r" })
       end,
+      event = "BufRead",
     })
     -- Marks
-    use("kshenoy/vim-signature")
+    use({ "kshenoy/vim-signature", event = "BufRead" })
     -- Indentation
     use({
       "lukas-reineke/indent-blankline.nvim",
@@ -679,15 +683,16 @@ return require("packer").startup({
       end,
       event = "BufRead",
     })
-    use({ "tpope/vim-sleuth", event = "BufReadPre" })
+    use({ "tpope/vim-sleuth", event = "BufRead" })
     -- Keybinds
-    use("tpope/vim-unimpaired")
+    use({ "tpope/vim-unimpaired", event = "BufRead" })
     -- Movement
     use({
       "ggandor/lightspeed.nvim",
       config = function()
         require("lightspeed").setup({})
       end,
+      keys = { "s", "S", "f", "F", "t", "T" },
     })
     -- Text manipulation
     use({
@@ -695,6 +700,7 @@ return require("packer").startup({
       setup = function()
         vim.g.switch_mapping = "-"
       end,
+      event = "BufRead",
     })
     use({
       "junegunn/vim-easy-align",
@@ -738,11 +744,11 @@ return require("packer").startup({
         vimp.xnoremap({ "override", "silent" }, "<leader>xk", ":Kebab<cr>")
       end,
     })
-    use("tpope/vim-repeat")
+    use({ "tpope/vim-repeat", keys = "." })
     -- Increment / Decrement
     use({
       "monaqa/dial.nvim",
-      config = function()
+      setup = function()
         require("vimp")
         vimp.nmap({ "override", "silent" }, "<C-a>", "<Plug>(dial-increment)")
         vimp.xmap({ "override", "silent" }, "<C-a>", "<Plug>(dial-increment)")
@@ -751,7 +757,12 @@ return require("packer").startup({
         vimp.nmap({ "override", "silent" }, "g<C-a>", "<Plug>(dial-increment-additional)")
         vimp.nmap({ "override", "silent" }, "g<C-x>", "<Plug>(dial-decrement-additional)")
       end,
-      event = "BufRead",
+      keys = {
+        "<Plug>(dial-increment)",
+        "<Plug>(dial-decrement)",
+        "<Plug>(dial-increment-additional)",
+        "<Plug>(dial-decrement-additional)",
+      },
     })
     -- Comments
     use({
@@ -759,6 +770,7 @@ return require("packer").startup({
       config = function()
         require("nvim_comment").setup()
       end,
+      event = "BufRead",
     })
     -- Text substitution
     use({
@@ -788,7 +800,7 @@ return require("packer").startup({
       end,
     })
     -- Text splitting
-    use("AndrewRadev/splitjoin.vim")
+    use({ "AndrewRadev/splitjoin.vim", event = "BufRead" })
     use({ "sk1418/Join", cmd = "Join" })
     -- Text objects
     use({
@@ -884,7 +896,6 @@ return require("packer").startup({
         vim.g.projectionist_heuristics = {
           ["data_catalog/*.py"] = { ["alternate"] = "tests/unit/test_{}.py" },
         }
-
         -- vimp.nnoremap({"override", "silent"}, "go", ":A<cr>")
       end,
     })
@@ -900,12 +911,6 @@ return require("packer").startup({
     use({
       "windwp/nvim-spectre",
       config = function()
-        local deps = { "plenary.nvim", "popup.nvim" }
-        for _, plugin in ipairs(deps) do
-          if not packer_plugins[plugin].loaded then
-            vim.cmd("packadd " .. plugin)
-          end
-        end
         require("spectre").setup({
           mapping = {
             ["send_to_qf"] = {
@@ -916,23 +921,21 @@ return require("packer").startup({
           },
           is_insert_mode = true,
         })
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>S", require("spectre").open)
-        vimp.vnoremap({ "override", "silent" }, "<leader>S", require("spectre").open_visual)
-        vimp.nnoremap({ "override", "silent" }, "<localleader>S", require("spectre").open_file_search)
       end,
-      event = "BufReadPre",
-      requires = {
-        { "nvim-lua/popup.nvim" },
-        { "nvim-lua/plenary.nvim" },
-      },
+      module = "spectre",
+      setup = function()
+        require("vimp")
+        vimp.nnoremap({ "override", "silent" }, "<leader>S", ":lua require('spectre').open()<CR>")
+        vimp.vnoremap({ "override", "silent" }, "<leader>S", ":lua require('spectre').open_visual()<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<localleader>S", ":lua require('spectre').open_file_search()<CR>")
+      end,
     })
     use({
       "inkarkat/vim-SearchAlternatives",
       keys = "/",
       requires = "inkarkat/vim-ingo-library",
     })
-    use({ "romainl/vim-cool", event = "BufReadPre" })
+    use({ "romainl/vim-cool", event = "BufRead" })
     -- Discover keybinds
     use({
       "folke/which-key.nvim",
