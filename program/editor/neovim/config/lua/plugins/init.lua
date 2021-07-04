@@ -270,7 +270,6 @@ return require("packer").startup({
       config = function()
         require("plugins.lsp")
       end,
-      event = "BufRead",
     })
     use({
       "glepnir/lspsaga.nvim",
@@ -387,7 +386,6 @@ return require("packer").startup({
       config = function()
         require("plugins.treesitter")
       end,
-      event = "BufRead",
       run = function()
         vim.cmd("TSUpdate")
       end,
