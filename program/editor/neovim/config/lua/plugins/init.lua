@@ -83,19 +83,6 @@ return require("packer").startup({
     })
     -- Finders
     use({
-      "camspiers/snap",
-      config = function()
-        local snap = require("snap")
-        snap.register.map({ "n" }, { "<Leader>p" }, function()
-          snap.run({
-            producer = snap.get("consumer.fzf")(snap.get("producer.ripgrep.file")),
-            select = snap.get("select.file").select,
-            multiselect = snap.get("select.file").multiselect,
-          })
-        end)
-      end,
-    })
-    use({
       "nvim-lua/telescope.nvim",
       cmd = { "Octo", "Telescope" },
       keys = { "<leader>nf", "<leader>nF", "<leader>nn" },
