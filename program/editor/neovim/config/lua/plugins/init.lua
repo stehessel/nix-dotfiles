@@ -626,7 +626,7 @@ return require("packer").startup({
       "folke/tokyonight.nvim",
       config = function()
         vim.g.tokyonight_style = "night"
-        vim.g.tokyonight_sidebars = { "chadtree", "packer", "qf", "terminal" }
+        vim.g.tokyonight_sidebars = { "NvimTree", "packer", "qf", "terminal" }
         vim.cmd("colorscheme tokyonight")
       end,
       disable = true,
@@ -637,7 +637,6 @@ return require("packer").startup({
       config = function()
         require("nvim-web-devicons").setup({ default = true })
       end,
-      module = "nvim-web-devicons",
     })
     -- Extend % operator
     use({ "andymass/vim-matchup", keys = { "%", "g%", "[%", "]%", "z%" } })
@@ -838,40 +837,35 @@ return require("packer").startup({
     })
     -- File explorer
     use({
-      "ms-jpq/chadtree",
-      cmd = { "CHADopen", "CHADdeps", "CHADhelp" },
+      "kyazdani42/nvim-tree.lua",
+      cmd = { "NvimTreeToggle" },
       config = function()
-        vim.g.chadtree_settings = {
-          keymap = {
-            primary = { "<enter>", "h", "l" },
-            select = { "<space>", "s" },
-            h_split = { "V", "W" },
-            v_split = { "v", "w" },
-          },
-          options = { show_hidden = false },
-          theme = { text_colour_set = "solarized_light" },
-          ignore = {
-            name_glob = { ".*" },
-            name_exact = {
-              ".DS_Store",
-              ".directory",
-              ".git",
-              ".idea",
-              ".mypy_cache",
-              ".ropeproject",
-              ".vim",
-              ".vscode",
-              "__pycache__",
-              "dask-worker-space",
-              "thumbs.db",
-            },
-          },
+        vim.g.nvim_tree_ignore = {
+          ".DS_Store",
+          ".directory",
+          ".git",
+          ".idea",
+          ".mypy_cache",
+          ".ropeproject",
+          ".vim",
+          ".vscode",
+          "__pycache__",
+          "dask-worker-space",
+          "thumbs.db",
+        }
+        vim.g.nvim_tree_auto_close = 1
+        vim.g.nvim_tree_follow = 1
+        vim.g.nvim_tree_git_hl = 1
+        vim.g.nvim_tree_highlight_opened_files = 1
+        vim.g.nvim_tree_group_empty = 1
+        vim.g.nvim_tree_lsp_diagnostics = 1
+        vim.g.nvim_tree_bindings = {
+          { key = { "<CR>", "l", "<2-LeftMouse>" }, cb = require("nvim-tree.config").nvim_tree_callback("edit") },
         }
       end,
-      run = "python3 -m chadtree deps",
       setup = function()
         require("vimp")
-        vimp.nnoremap({ "silent" }, ",e", ":CHADopen --nofocus<cr>")
+        vimp.nnoremap({ "override", "silent" }, "<leader>e", ":NvimTreeToggle<CR>")
       end,
     })
     -- Projects
