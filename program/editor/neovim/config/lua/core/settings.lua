@@ -13,8 +13,7 @@ vim.opt.breakindent = true
 
 -- Sessions
 vim.opt.sessionoptions:append({ "tabpages", "globals", "winpos", "winsize", "blank", "resize" })
--- do not store folds
--- do not store global and local values in a session
+-- do not store folds, global and local values in a session
 vim.opt.sessionoptions:remove({ "folds", "options" })
 
 -- Sign column
