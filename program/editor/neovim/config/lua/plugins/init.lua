@@ -225,7 +225,6 @@ return require("packer").startup({
           org_default_notes_file = "~/doc/org/refile.org",
         })
       end,
-      event = "BufRead",
     })
     use({
       "oberblastmeister/neuron.nvim",
