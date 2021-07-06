@@ -677,6 +677,14 @@ return require("packer").startup({
       end,
       keys = { "s", "S", "f", "F", "t", "T" },
     })
+    use({
+      "mfussenegger/nvim-ts-hint-textobject",
+      config = function()
+        require("vimp")
+        vimp.omap({ "override", "silent" }, "m", ":<C-U>lua require('tsht').nodes()<CR>")
+        vimp.vnoremap({ "override", "silent" }, "m", ":lua require('tsht').nodes()<CR>")
+      end,
+    })
     -- Text manipulation
     use({
       "AndrewRadev/switch.vim",
