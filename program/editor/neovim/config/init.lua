@@ -6,15 +6,15 @@ vim.opt.bg = "dark"
 vim.opt.termguicolors = true
 
 -- Disable builtin plugins
-vim.g.loaded_gzip = 1
-vim.g.loaded_tar = 1
-vim.g.loaded_tarPlugin = 1
-vim.g.loaded_zipPlugin = 1
-vim.g.loaded_2html_plugin = 1
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_matchit = 1
-vim.g.loaded_matchparen = 1
-vim.g.loaded_spec = 1
+vim.g.loaded_gzip = false
+vim.g.loaded_tar = false
+vim.g.loaded_tarPlugin = false
+vim.g.loaded_zipPlugin = false
+vim.g.loaded_2html_plugin = false
+vim.g.loaded_netrw = false
+vim.g.loaded_netrwPlugin = false
+vim.g.loaded_matchit = false
+vim.g.loaded_matchparen = false
+vim.g.loaded_spec = false
 
 require("plugins")
