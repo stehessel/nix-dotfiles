@@ -28,8 +28,6 @@ vim.opt.cmdheight = 2
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.inccommand = "nosplit"
-vim.opt.incsearch = true
-vim.opt.hlsearch = true
 
 vim.g.grep_params = " --files --ignore-case --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
 
@@ -47,7 +45,6 @@ vim.opt.autoread = true
 --		\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]])
 
 -- Text
-vim.opt.encoding = "utf-8"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.whichwrap:append({ ["<"] = true, [">"] = true, h = true, l = true, ["["] = true, ["]"] = true })
