@@ -226,32 +226,6 @@ return require("packer").startup({
         })
       end,
     })
-    use({
-      "oberblastmeister/neuron.nvim",
-      after = { "plenary.nvim", "telescope.nvim", "vimpeccable" },
-      config = function()
-        require("neuron").setup({
-          virtual_titles = true,
-          mappings = true,
-          run = nil, -- function to run when in neuron dir
-          neuron_dir = "~/doc/zettelkasten", -- the directory of all of your notes
-          leader = "<leader>n",
-        })
-
-        require("vimp")
-        -- create a new note
-        vimp.nnoremap("<leader>nn", function()
-          require("neuron/cmd").new_edit(require("neuron").config.neuron_dir)
-        end)
-        -- find your notes, click enter to create the note if there are not notes that match
-        vimp.nnoremap("<leader>nf", require("neuron/telescope").find_zettels)
-        -- insert the id of the note that is found
-        vimp.nnoremap("<leader>nF", function()
-          require("neuron/telescope").find_zettels({ insert = true })
-        end)
-      end,
-      requires = { "nvim-telescope/telescope.nvim" },
-    })
     -- Start screen
     use({
       "mhinz/vim-startify",

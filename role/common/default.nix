@@ -152,8 +152,6 @@ in
     niv
     nixpkgs-fmt
     rnix-lsp
-    # --- notes ---
-    neuron-notes
     # --- plotting ---
     gnuplot
     # --- process manager ---
