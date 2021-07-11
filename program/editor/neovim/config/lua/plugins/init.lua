@@ -218,6 +218,30 @@ return require("packer").startup({
     })
     -- Notes
     use({
+      "vhyrro/neorg",
+      config = function()
+        require("neorg").setup({
+          load = {
+            ["core.defaults"] = {},
+            ["core.keybinds"] = {
+              config = {
+                default_keybinds = true,
+                neorg_leader = "<Leader>n",
+              },
+            },
+            ["core.norg.concealer"] = {},
+            ["core.norg.dirman"] = {
+              config = {
+                workspaces = {
+                  my_workspace = "~/doc/neorg",
+                },
+              },
+            },
+          },
+        })
+      end,
+    })
+    use({
       "kristijanhusak/orgmode.nvim",
       config = function()
         require("orgmode").setup({
@@ -820,12 +844,10 @@ return require("packer").startup({
     use({
       "kyazdani42/nvim-tree.lua",
       config = function()
+        vim.g.nvim_tree_auto_close = 1
         vim.g.nvim_tree_bindings = {
           { key = { "<CR>", "l", "<2-LeftMouse>" }, cb = require("nvim-tree.config").nvim_tree_callback("edit") },
         }
-      end,
-      setup = function()
-        vim.g.nvim_tree_auto_close = 1
         vim.g.nvim_tree_follow = 1
         vim.g.nvim_tree_git_hl = 1
         vim.g.nvim_tree_group_empty = 1
