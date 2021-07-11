@@ -860,15 +860,17 @@ return require("packer").startup({
           "dask-worker-space",
           "thumbs.db",
         }
-        vim.g.nvim_tree_auto_close = 1
-        vim.g.nvim_tree_follow = 1
-        vim.g.nvim_tree_git_hl = 1
-        vim.g.nvim_tree_highlight_opened_files = 1
-        vim.g.nvim_tree_group_empty = 1
-        vim.g.nvim_tree_lsp_diagnostics = 1
-        vim.g.nvim_tree_bindings = {
+		vim.g.nvim_tree_auto_close = 1
+		vim.g.nvim_tree_auto_open = 1
+		vim.g.nvim_tree_bindings = {
           { key = { "<CR>", "l", "<2-LeftMouse>" }, cb = require("nvim-tree.config").nvim_tree_callback("edit") },
         }
+        vim.g.nvim_tree_follow = 1
+        vim.g.nvim_tree_git_hl = 1
+		vim.g.nvim_tree_group_empty = 1
+        vim.g.nvim_tree_highlight_opened_files = 1
+        vim.g.nvim_tree_lsp_diagnostics = 1
+        vim.g.nvim_tree_width = 35
       end,
       setup = function()
         require("vimp")
@@ -886,14 +888,6 @@ return require("packer").startup({
       end,
     })
     -- Search
-    use({
-      "brooth/far.vim",
-      after = "vimpeccable",
-      cmd = { "Far", "Farr", "Farp" },
-      setup = function()
-        require("plugins.far")
-      end,
-    })
     use({
       "windwp/nvim-spectre",
       config = function()

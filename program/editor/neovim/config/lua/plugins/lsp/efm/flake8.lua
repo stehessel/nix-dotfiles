@@ -4,4 +4,5 @@ return {
   lintIgnoreExitCode = true,
   lintFormats = { "%f:%l:%c: %t%m" },
   lintSource = "flake8",
+  prefix = "flake8",
 }

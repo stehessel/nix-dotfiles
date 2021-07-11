@@ -32,6 +32,10 @@ local check_back_space = function()
   end
 end
 
+-- vimp.inoremap({ "expr", "silent" }, "<CR>", function()
+--   vim.fn["compe#confirm"](require("nvim-autopairs").autopairs_cr())
+-- end)
+
 vimp.inoremap({ "expr", "silent" }, "<Tab>", function()
   if vim.fn.pumvisible() ~= 0 then
     return t("<C-n>")

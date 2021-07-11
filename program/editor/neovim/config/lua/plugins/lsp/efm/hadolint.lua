@@ -9,4 +9,5 @@ return {
     "%f:%l %s%n %tote: %m",
   },
   lintSource = "hadolint",
+  prefix = "hadolint",
 }
