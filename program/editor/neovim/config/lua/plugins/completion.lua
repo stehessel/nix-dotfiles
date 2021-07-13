@@ -12,6 +12,7 @@ require("compe").setup({
     buffer = true,
     calc = true,
     conjure = true,
+    neorg = true,
     nvim_lsp = true,
     nvim_lua = true,
     orgmode = true,

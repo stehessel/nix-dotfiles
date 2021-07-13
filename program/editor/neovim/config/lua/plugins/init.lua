@@ -219,6 +219,7 @@ return require("packer").startup({
     -- Notes
     use({
       "vhyrro/neorg",
+      after = "nvim-compe",
       config = function()
         require("neorg").setup({
           load = {
