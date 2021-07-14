@@ -4,6 +4,7 @@ tap "austinjones/taps"
 tap "by-stehessel/blueyonder"
 tap "federico-terzi/espanso"
 tap "getsentry/tools"
+tap "helix-editor/helix"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -90,6 +91,8 @@ brew "austinjones/taps/tab"
 brew "by-stehessel/blueyonder/di-csv2xml"
 # Sentry command-line client for some generic tasks
 brew "getsentry/tools/sentry-cli"
+# Post-modern modal text editor
+brew "helix-editor/helix/helix"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
