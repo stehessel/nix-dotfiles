@@ -270,13 +270,6 @@ return require("packer").startup({
       end,
     })
     use({
-      "glepnir/lspsaga.nvim",
-      cmd = "Lspsaga",
-      config = function()
-        require("lspsaga").init_lsp_saga({ use_saga_diagnostic_sign = false })
-      end,
-    })
-    use({
       "onsails/lspkind-nvim",
       config = function()
         require("lspkind").init()

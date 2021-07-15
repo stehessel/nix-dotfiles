@@ -13,19 +13,17 @@ local on_attach = function(client, bufnr)
   -- Mappings
   vimp.add_buffer_maps(bufnr, function()
     vimp.nnoremap({ "override", "silent" }, "gD", vim.lsp.buf.declaration)
-    vimp.nnoremap({ "override", "silent" }, "gh", "<cmd>Lspsaga lsp_finder<CR>")
     vimp.nnoremap({ "override", "silent" }, "gK", vim.lsp.buf.signature_help)
 
     if client.resolved_capabilities.hover then
       vimp.nnoremap({ "override", "silent" }, "K", vim.lsp.buf.hover)
     end
-    vimp.nnoremap({ "override", "silent" }, "<space>p", "<cmd>Lspsaga preview_definition<CR>")
     vimp.nnoremap({ "override", "silent" }, "<space>D", vim.lsp.buf.type_definition)
     if client.resolved_capabilities.rename then
-      vimp.nnoremap({ "override", "silent" }, "<space>r", "<cmd>Lspsaga rename<CR>")
+      vimp.nnoremap({ "override", "silent" }, "<space>r", vim.lsp.buf.rename)
     end
-    vimp.nnoremap({ "override", "silent" }, "<space>a", "<cmd>Lspsaga code_action<CR>")
-    vimp.xnoremap({ "override", "silent" }, "<space>a", "<cmd>Lspsaga range_code_action<CR>")
+    vimp.nnoremap({ "override", "silent" }, "<space>a", vim.lsp.buf.code_action)
+    vimp.xnoremap({ "override", "silent" }, "<space>a", vim.lsp.buf.range_code_action)
 
     vimp.nnoremap({ "override", "silent" }, "<space>wa", vim.lsp.buf.add_workspace_folder)
     vimp.nnoremap({ "override", "silent" }, "<space>wr", vim.lsp.buf.remove_workspace_folder)
