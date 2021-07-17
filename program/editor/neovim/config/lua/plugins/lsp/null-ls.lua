@@ -15,6 +15,7 @@ return {
       }),
       require("plugins.lsp.null-ls.fish_indent"),
       require("plugins.lsp.null-ls.flake8"),
+      require("plugins.lsp.null-ls.pg-format"),
     }
 
     require("null-ls").config({ sources = sources })
