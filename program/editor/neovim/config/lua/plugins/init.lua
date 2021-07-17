@@ -270,6 +270,10 @@ return require("packer").startup({
       end,
     })
     use({
+      "folke/null-ls.nvim",
+      branch = "lspconfig_updates"
+    })
+    use({
       "onsails/lspkind-nvim",
       config = function()
         require("lspkind").init()
