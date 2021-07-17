@@ -13,6 +13,8 @@ return {
       builtins.formatting.stylua.with({
         args = { "--config-path", vim.fn.expand("$HOME") .. "/.config/stylua/stylua.toml", "-" },
       }),
+      require("plugins.lsp.null-ls.fish_indent"),
+      require("plugins.lsp.null-ls.flake8"),
     }
 
     require("null-ls").config({ sources = sources })

@@ -87,9 +87,8 @@ local root_patterns = require("lspconfig").util.root_pattern(".git", ".root")
 local servers = {
   "bashls",
   "dockerls",
-  -- "efm",
   "jsonls",
-  "null_ls",
+  "null-ls",
   "pyright",
   "rnix",
   -- "sqls",
