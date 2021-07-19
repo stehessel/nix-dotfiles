@@ -3,12 +3,13 @@ return {
     local builtins = require("null-ls").builtins
     local sources = {
       builtins.code_actions.gitsigns,
+      builtins.diagnostics.eslint.with({ command = "eslint_d" }),
       builtins.diagnostics.hadolint,
       builtins.diagnostics.selene,
       builtins.diagnostics.shellcheck,
-      builtins.formatting.prettierd,
       builtins.formatting.black,
       builtins.formatting.isort,
+      builtins.formatting.prettierd,
       builtins.formatting.shfmt,
       builtins.formatting.stylua.with({
         args = { "--config-path", vim.fn.expand("$HOME") .. "/.config/stylua/stylua.toml", "-" },

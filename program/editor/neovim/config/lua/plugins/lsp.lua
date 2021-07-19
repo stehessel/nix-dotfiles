@@ -71,9 +71,15 @@ local on_attach = function(client, bufnr)
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end)
 
-    vimp.nnoremap({ "override", "silent" }, "<space>d", vim.lsp.diagnostic.show_line_diagnostics)
-    vimp.nnoremap({ "override", "silent" }, "[d", vim.lsp.diagnostic.goto_prev)
-    vimp.nnoremap({ "override", "silent" }, "]d", vim.lsp.diagnostic.goto_next)
+    vimp.nnoremap({ "override", "silent" }, "<space>d", function()
+      vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })
+    end)
+    vimp.nnoremap({ "override", "silent" }, "[d", function()
+      vim.lsp.diagnostic.goto_prev({ popup_opts = { focusable = false } })
+    end)
+    vimp.nnoremap({ "override", "silent" }, "]d", function()
+      vim.lsp.diagnostic.goto_next({ popup_opts = { focusable = false } })
+    end)
 
     if client.resolved_capabilities.document_formatting then
       vimp.nnoremap({ "override", "silent" }, "<space>f", vim.lsp.buf.formatting)
