@@ -93,6 +93,8 @@ local servers = {
   "rnix",
   -- "sqls",
   "sumneko",
+  "tailwindcss",
+  "tsserver",
   "yamlls",
 }
 for _, name in ipairs(servers) do
