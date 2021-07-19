@@ -11,6 +11,9 @@ vim.opt.hidden = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 
+-- Scrolling
+vim.opt.scrolloff = 15
+
 -- Sessions
 vim.opt.sessionoptions:append({ "tabpages", "globals", "winpos", "winsize", "blank", "resize" })
 -- do not store folds, global and local values in a session

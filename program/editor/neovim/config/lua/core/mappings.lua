@@ -8,9 +8,10 @@ vimp.nmap("vv", "V")
 vimp.nnoremap({ "silent" }, "<leader>w", ":update<cr>")
 vimp.nnoremap({ "silent" }, "<leader>q", ":quit<cr>")
 vimp.nmap("?", ",")
--- vimp.nnoremap({"silent"}, "<C-l>", ":<C-u>nohl<cr><C-l>")
--- vimp.nnoremap("<plug>(slash-after)", "zz")
 vimp.nnoremap("Q", "@q")
+
+-- Center cursor
+vimp.nmap("G", "Gzz")
 
 -- Yank whole buffer
 vimp.nnoremap({ "silent" }, "<leader>Y", ":%y<cr>")
