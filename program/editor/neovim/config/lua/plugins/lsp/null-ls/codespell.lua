@@ -3,6 +3,7 @@ local helpers = require("null-ls.helpers")
 local opts = {
   command = "codespell",
   args = { "$FILENAME" },
+  format = "line",
   on_output = function(line, _)
     local row, msg = line:match(":(%d+): (.*)")
     return {
@@ -13,7 +14,6 @@ local opts = {
       source = "codespell",
     }
   end,
-  format = "line",
   to_stderr = true,
 }
 
