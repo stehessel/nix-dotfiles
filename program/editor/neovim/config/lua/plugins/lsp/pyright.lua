@@ -5,7 +5,14 @@ return {
       root_dir = root_patterns,
       flags = { debounce_text_changes = debounce_text_changes },
       settings = {
-        python = { analysis = { diagnosticMode = "openFilesOnly", typeCheckingMode = "off" } },
+        python = {
+          analysis = {
+            autoImportCompletions = true,
+            diagnosticMode = "openFilesOnly",
+            typeCheckingMode = "off",
+            useLibraryCodeForTypes = false,
+          },
+        },
       },
     })
   end,
