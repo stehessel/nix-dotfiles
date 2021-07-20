@@ -270,8 +270,7 @@ return require("packer").startup({
       end,
     })
     use({
-      "folke/null-ls.nvim",
-      branch = "lspconfig_updates"
+      "jose-elias-alvarez/null-ls.nvim",
     })
     use({
       "onsails/lspkind-nvim",

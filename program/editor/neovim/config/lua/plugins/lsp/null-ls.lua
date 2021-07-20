@@ -4,6 +4,7 @@ return {
     local sources = {
       builtins.code_actions.gitsigns,
       builtins.diagnostics.eslint.with({ command = "eslint_d" }),
+      builtins.diagnostics.flake8,
       builtins.diagnostics.hadolint,
       builtins.diagnostics.selene,
       builtins.diagnostics.shellcheck,
@@ -16,7 +17,6 @@ return {
       }),
       require("plugins.lsp.null-ls.codespell"),
       require("plugins.lsp.null-ls.fish_indent"),
-      require("plugins.lsp.null-ls.flake8"),
       require("plugins.lsp.null-ls.pg-format"),
     }
 
