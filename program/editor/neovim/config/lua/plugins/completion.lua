@@ -54,3 +54,7 @@ vimp.inoremap({ "expr", "silent" }, "<S-Tab>", function()
     return t("<C-h>")
   end
 end)
+
+-- Needed for auto import
+vimp.inoremap({ "expr", "silent" }, "<CR>", 'compe#confirm("<CR>")')
+vimp.inoremap({ "expr", "silent" }, "<C-Space>", "compe#complete()")
