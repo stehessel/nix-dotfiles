@@ -634,7 +634,7 @@ return require("packer").startup({
       end,
     })
     -- Extend % operator
-    use({ "andymass/vim-matchup", keys = { "%", "g%", "[%", "]%", "z%" } })
+    use({ "andymass/vim-matchup" })
     -- Brackets
     use({
       "windwp/nvim-autopairs",
