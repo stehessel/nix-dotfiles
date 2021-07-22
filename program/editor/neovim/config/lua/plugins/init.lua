@@ -67,7 +67,7 @@ return require("packer").startup({
     use({
       "TimUntersberger/neogit",
       config = function()
-        require("neogit").setup({})
+        require("neogit").setup({ disable_commit_confirmation = true })
 
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<leader>M", ":Neogit kind=vsplit<CR>")
