@@ -65,6 +65,15 @@ return require("packer").startup({
       end,
     })
     use({
+      "TimUntersberger/neogit",
+      config = function()
+        require("neogit").setup({})
+
+        require("vimp")
+        vimp.nnoremap({ "override", "silent" }, "<leader>M", ":Neogit kind=vsplit<CR>")
+      end,
+    })
+    use({
       "sindrets/diffview.nvim",
       cmd = "DiffviewOpen",
       setup = function()
@@ -85,7 +94,6 @@ return require("packer").startup({
     use({
       "nvim-lua/telescope.nvim",
       cmd = { "Octo", "Telescope" },
-      keys = { "<leader>nf", "<leader>nF", "<leader>nn" },
       config = function()
         local deps = {
           "telescope-dap.nvim",
