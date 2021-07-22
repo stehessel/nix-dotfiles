@@ -154,8 +154,8 @@ return require("packer").startup({
         require("vimp")
 
         vimp.nnoremap({ "silent" }, "<leader>ff", "<cmd>Telescope find_files<CR>")
-        vimp.nnoremap({ "silent" }, "<leader>fr", "<cmd>Telescope live_grep<CR>")
-        vimp.nnoremap({ "silent" }, "<leader>fl", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+        vimp.nnoremap({ "silent" }, "<leader>fl", "<cmd>Telescope live_grep<CR>")
+        vimp.nnoremap({ "silent" }, "<leader>fL", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fb", "<cmd>Telescope buffers<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fh", "<cmd>Telescope oldfiles<CR>")
         vimp.nnoremap({ "silent" }, "<leader>fm", "<cmd>Telescope marks<CR>")
@@ -425,7 +425,7 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<F12>", require("dap").step_out)
         vimp.nnoremap({ "override", "silent" }, "<leader>dh", require("dap.ui.widgets").hover)
       end,
-      ft = { "python" },
+      ft = { "python", "typescript" },
     })
     use({
       "rcarriga/nvim-dap-ui",
@@ -454,6 +454,7 @@ return require("packer").startup({
     -- Testing
     use({
       "rcarriga/vim-ultest",
+      after = "nvim-dap",
       config = function()
         vim.g.ultest_max_threads = 6
         vim.g.ultest_use_pty = 1
@@ -486,7 +487,6 @@ return require("packer").startup({
           },
         })
       end,
-      ft = "python",
       setup = function()
         require("vimp")
         vimp.nnoremap({ "silent" }, "<leader>tt", ":Ultest<cr>")

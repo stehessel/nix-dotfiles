@@ -1,6 +1,4 @@
 require("gitsigns").setup({
-  -- see https://github.com/neovim/neovim/issues/15147
-  use_internal_diff = false,
   signs = {
     add = {
       hl = "GitSignsAdd",
