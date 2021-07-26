@@ -24,10 +24,14 @@ require("nvim-treesitter.configs").setup({
     enable = true,
     keymaps = {
       ["."] = "textsubjects-smart",
+      [";"] = "textsubjects-container-outer",
     },
   },
   indent = { entable = true },
   matchup = { enable = true },
+  autotag = {
+    enable = true,
+  },
   textobjects = {
     lsp_interop = {
       enable = true,

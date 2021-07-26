@@ -280,6 +280,7 @@ return require("packer").startup({
     use({
       "jose-elias-alvarez/null-ls.nvim",
     })
+    use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
     use({
       "onsails/lspkind-nvim",
       config = function()
@@ -404,6 +405,7 @@ return require("packer").startup({
       "nvim-treesitter/playground",
       cmd = "TSPlaygroundToggle",
     })
+    use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
     -- Debugger
     use({
       "mfussenegger/nvim-dap",
@@ -657,6 +659,14 @@ return require("packer").startup({
         require("surround").setup({ prefix = "r" })
       end,
       event = "BufRead",
+    })
+    use({
+      "abecodes/tabout.nvim",
+      config = function()
+        require("tabout").setup({})
+      end,
+      after = { "nvim-compe" },
+      wants = { "nvim-treesitter" },
     })
     -- Marks
     use({ "kshenoy/vim-signature", event = "BufRead" })
