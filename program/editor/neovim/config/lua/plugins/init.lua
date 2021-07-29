@@ -259,17 +259,6 @@ return require("packer").startup({
         })
       end,
     })
-    -- Start screen
-    use({
-      "mhinz/vim-startify",
-      after = "vimpeccable",
-      config = function()
-        vim.g.startify_session_persistence = 1
-        vim.g.startify_update_oldfiles = 1
-
-        vimp.nnoremap({ "override", "silent" }, "<leader>H", ":Startify<cr>")
-      end,
-    })
     -- LSP
     use({
       "neovim/nvim-lspconfig",

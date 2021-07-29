@@ -9,6 +9,7 @@ return {
       builtins.diagnostics.selene,
       builtins.diagnostics.shellcheck,
       builtins.formatting.black,
+      builtins.formatting.fish_indent,
       builtins.formatting.isort,
       builtins.formatting.prettierd,
       builtins.formatting.shfmt,
@@ -16,8 +17,7 @@ return {
         args = { "--config-path", vim.fn.expand("$HOME") .. "/.config/stylua/stylua.toml", "-" },
       }),
       require("plugins.lsp.null-ls.codespell"),
-      require("plugins.lsp.null-ls.fish_indent"),
-      require("plugins.lsp.null-ls.pg-format"),
+      require("plugins.lsp.null-ls.pgformatter"),
     }
 
     require("null-ls").config({ sources = sources })
