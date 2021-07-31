@@ -91,6 +91,7 @@ end
 local root_patterns = require("lspconfig").util.root_pattern(".git", ".root")
 
 local servers = {
+  "ansible-ls",
   "bashls",
   "dockerls",
   "jsonls",
