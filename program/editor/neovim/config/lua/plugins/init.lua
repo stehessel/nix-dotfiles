@@ -277,6 +277,7 @@ return require("packer").startup({
       end,
       event = "InsertEnter",
     })
+    use({ "folke/lua-dev.nvim" })
     use({
       "hrsh7th/nvim-compe",
       config = function()

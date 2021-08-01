@@ -11,7 +11,6 @@ local opts = {
       col = 1,
       message = msg,
       severity = 3,
-      source = "codespell",
     }
   end,
   to_stderr = true,
