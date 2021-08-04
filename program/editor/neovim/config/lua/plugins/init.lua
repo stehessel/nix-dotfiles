@@ -565,6 +565,7 @@ return require("packer").startup({
       end,
       ft = { "clojure", "fennel" },
     })
+    use({ "michaelb/sniprun", run = "bash ./install.sh" })
     use({
       "hkupty/iron.nvim",
       after = "vimpeccable",

@@ -4,7 +4,6 @@ return {
     local sources = {
       builtins.code_actions.gitsigns,
       builtins.diagnostics.eslint.with({ command = "eslint_d" }),
-      builtins.diagnostics.flake8,
       builtins.diagnostics.hadolint,
       builtins.diagnostics.selene,
       builtins.diagnostics.shellcheck,
