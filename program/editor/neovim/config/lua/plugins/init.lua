@@ -514,6 +514,7 @@ return require("packer").startup({
     use({ "kalekundert/vim-coiled-snake", ft = "python" })
     use({ "Konfekt/FastFold", event = "BufRead" })
     -- Syntax highlighters
+    use({ "ekalinin/Dockerfile.vim", ft = "dockerfile" })
     use({ "LnL7/vim-nix", ft = "nix" })
     use({ "RRethy/vim-illuminate", event = "BufRead" })
     -- Asciidoc
