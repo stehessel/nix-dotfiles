@@ -131,7 +131,7 @@ in
     # --- java ---
     maven
     # --- javascript ---
-    nodejs-14_x
+    nodejs-16_x
     yarn
     # --- launcher ---
     entr
