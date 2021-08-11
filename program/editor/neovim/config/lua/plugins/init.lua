@@ -371,6 +371,7 @@ return require("packer").startup({
       end,
     })
     use({ "stsewd/sphinx.nvim", ft = { "python", "rst" } })
+    use({ "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" })
     -- Clojure
     use({ "tpope/vim-fireplace", ft = "clojure", cmd = "FireplaceConnect" })
     -- Treesitter
