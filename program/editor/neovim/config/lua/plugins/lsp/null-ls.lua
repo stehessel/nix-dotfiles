@@ -5,7 +5,7 @@ return {
       builtins.code_actions.gitsigns,
       builtins.diagnostics.eslint.with({ command = "eslint_d" }),
       builtins.diagnostics.hadolint,
-      builtins.diagnostics.selene,
+      -- builtins.diagnostics.selene,
       builtins.diagnostics.shellcheck,
       builtins.formatting.black,
       builtins.formatting.fish_indent,

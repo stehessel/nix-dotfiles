@@ -371,7 +371,19 @@ return require("packer").startup({
       end,
     })
     use({ "stsewd/sphinx.nvim", ft = { "python", "rst" } })
-    use({ "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" })
+    use({
+      "dccsillag/magma-nvim",
+      cmd = { "MagmaInit" },
+      setup = function()
+        vimp.nnoremap({ "override", "silent" }, "<localleader>ri", ":MagmaInit<CR>")
+        -- vimp.nnoremap({ "override", "expr", "silent" }, "<localleader>r", "nvim_exec('MagmaEvaluateOperator', v:true)")
+        vimp.xnoremap({ "override", "silent" }, "<localleader>r", ":<C-u>MagmaEvaluateVisual<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<localleader>rl", ":MagmaEvaluateLine<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<localleader>rc", ":MagmaReevaluateCell<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<localleader>rd", ":MagmaDelete<CR>")
+      end,
+      run = ":UpdateRemotePlugins",
+    })
     -- Clojure
     use({ "tpope/vim-fireplace", ft = "clojure", cmd = "FireplaceConnect" })
     -- Treesitter
@@ -567,37 +579,6 @@ return require("packer").startup({
       ft = { "clojure", "fennel" },
     })
     use({ "michaelb/sniprun", run = "bash ./install.sh" })
-    use({
-      "hkupty/iron.nvim",
-      after = "vimpeccable",
-      cmd = {
-        "IronRepl",
-        "IronFocus",
-        "IronRestart",
-        "IronWatchCurrentFile",
-        "IronUnwatchCurrentFile",
-      },
-      config = function()
-        require("iron").core.set_config({ preferred = { python = "ipython" } })
-      end,
-      setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>it", ":IronRepl python<cr><ESC>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>if", ":IronFocus python<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>ir", ":IronRestart<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>iw", ":IronWatchCurrentFile")
-        vimp.nnoremap({ "override", "silent" }, "<leader>iu", ":IronUnwatchCurrentFile<cr>")
-
-        vimp.nmap({ "override", "silent" }, "<localleader>s", "<Plug>(iron-send-motion)")
-        vimp.vmap({ "override", "silent" }, "<localleader>s", "<Plug>iron-visual-send")
-        vimp.vmap({ "override", "silent" }, "<localleader>r", "<Plug>iron-repeat-cmd")
-        vimp.vmap({ "override", "silent" }, "<localleader>l", "<Plug>(iron-send-line)")
-        vimp.vmap({ "override", "silent" }, "<localleader><cr>", "<Plug>(iron-cr)")
-        vimp.vmap({ "override", "silent" }, "<localleader>i", "<Plug>(iron-interrupt)")
-        vimp.vmap({ "override", "silent" }, "<localleader>q", "<Plug>(iron-exit)")
-        vimp.vmap({ "override", "silent" }, "<localleader>c", "<Plug>(iron-clear)")
-      end,
-    })
     -- Color scheme
     use({ "folke/lsp-colors.nvim", event = "BufRead" })
     use({
@@ -958,6 +939,8 @@ return require("packer").startup({
     -- Filetypes
     use({ "isobit/vim-caddyfile", ft = "caddyfile" })
     use("~/dev/neovim/pytest.nvim")
+    -- Notifications
+    use({ "rcarriga/nvim-notify" })
   end,
   config = { max_jobs = 32, profile = { enable = false, threshold = 1 } },
 })

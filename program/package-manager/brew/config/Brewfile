@@ -34,7 +34,7 @@ brew "boost-python3"
 # Powerful command-line bookmark manager
 brew "buku"
 # Powerful, enterprise-ready, open source web server with automatic HTTPS
-brew "caddy"
+brew "caddy", restart_service: true
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Emacs dependency management
