@@ -103,8 +103,8 @@ vim.cmd([[cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit
 vim.opt.clipboard = { "unnamedplus" }
 
 -- Javescript
--- vim.g.loaded_node_provider = 0
-vim.g.node_host_prog = os.getenv("HOME") .. "/.npm-packages/lib/node_modules/neovim/bin/cli.js"
+vim.g.loaded_node_provider = 0
+-- vim.g.node_host_prog = os.getenv("HOME") .. "/.npm-packages/lib/node_modules/neovim/bin/cli.js"
 -- Perl
 vim.g.loaded_perl_provider = 0
 -- Python
