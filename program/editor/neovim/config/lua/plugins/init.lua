@@ -249,6 +249,7 @@ return require("packer").startup({
           },
         })
       end,
+      disable = true,
     })
     use({
       "kristijanhusak/orgmode.nvim",
@@ -285,6 +286,7 @@ return require("packer").startup({
       end,
       event = "InsertEnter",
     })
+    use({ "ms-jpq/coq_nvim", branch = "coq", disable = true })
     use({
       "folke/trouble.nvim",
       cmd = { "Trouble", "TroubleClose", "TroubleRefresh", "TroubleToggle" },
@@ -582,33 +584,12 @@ return require("packer").startup({
     -- Color scheme
     use({ "folke/lsp-colors.nvim", event = "BufRead" })
     use({
-      "bluz71/vim-nightfly-guicolors",
-      config = function()
-        vim.cmd("colorscheme nightfly")
-      end,
-      disable = true,
-    })
-    use({
-      "bluz71/vim-moonfly-colors",
-      config = function()
-        vim.cmd("colorscheme moonfly")
-      end,
-      disable = true,
-    })
-    use({
-      "ChristianChiarulli/nvcode-color-schemes.vim",
-      config = function()
-        vim.cmd("colorscheme onedark")
-      end,
-    })
-    use({
       "folke/tokyonight.nvim",
       config = function()
         vim.g.tokyonight_style = "night"
         vim.g.tokyonight_sidebars = { "NvimTree", "packer", "qf", "terminal" }
         vim.cmd("colorscheme tokyonight")
       end,
-      disable = true,
     })
     -- Icons
     use({
