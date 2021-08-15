@@ -921,10 +921,9 @@ return require("packer").startup({
     })
     -- Root directory
     use({
-      "airblade/vim-rooter",
+      "ahmedkhalf/project.nvim",
       config = function()
-        vim.g.rooter_silent_chdir = 0
-        vim.g.rooter_patterns = { ".git", ".root" }
+        require("project_nvim").setup({})
       end,
     })
     -- Autosave
