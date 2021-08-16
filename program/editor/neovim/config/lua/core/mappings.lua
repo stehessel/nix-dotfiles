@@ -3,7 +3,6 @@ require("core.settings")
 
 -- Misc keybinds
 vimp.nnoremap("U", ":redo<CR>")
-vimp.nmap("Y", "y$")
 vimp.nmap("vv", "V")
 vimp.nnoremap({ "silent" }, "<leader>w", ":update<cr>")
 vimp.nnoremap({ "silent" }, "<leader>q", ":quit<cr>")
