@@ -33,7 +33,6 @@ vim.opt.cmdheight = 2
 -- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.inccommand = "nosplit"
 
 vim.g.grep_params = " --files --ignore-case --hidden -g '!.git' -g '!*/__pycache__/*' -g '!*.pyc'"
 
