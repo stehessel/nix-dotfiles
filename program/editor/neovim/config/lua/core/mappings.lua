@@ -33,13 +33,13 @@ vimp.nnoremap({ "silent" }, "gj", "<C-^>")
 vimp.nnoremap({ "silent" }, "gk", ":vs#<cr>")
 
 -- Splits
-vimp.nmap({ "silent" }, "<C-h>", "<C-w>h")
-vimp.nmap({ "silent" }, "<C-j>", "<C-w>j")
-vimp.nmap({ "silent" }, "<C-k>", "<C-w>k")
-vimp.nmap({ "silent" }, "<C-l>", "<C-w>l")
-vimp.nmap({ "silent" }, "<C-S>", "<C-w>S")
-vimp.nmap({ "silent" }, "<C-v>", "<C-w>v")
-vimp.nmap({ "silent" }, "<C-p>", "<C-w>w")
+vimp.nmap({ "override", "silent" }, "<C-h>", "<C-w>h")
+vimp.nmap({ "override", "silent" }, "<C-j>", "<C-w>j")
+vimp.nmap({ "override", "silent" }, "<C-k>", "<C-w>k")
+vimp.nmap({ "override", "silent" }, "<C-l>", "<C-w>l")
+vimp.nmap({ "override", "silent" }, "<C-S>", "<C-w>S")
+vimp.nmap({ "override", "silent" }, "<C-v>", "<C-w>v")
+vimp.nmap({ "override", "silent" }, "<C-p>", "<C-w>w")
 
 -- Tabs
 vimp.nnoremap({ "silent" }, "g[", ":-tabmove<cr>")
