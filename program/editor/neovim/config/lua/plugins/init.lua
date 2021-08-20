@@ -884,6 +884,16 @@ return require("packer").startup({
       requires = "inkarkat/vim-ingo-library",
     })
     use({ "romainl/vim-cool", event = "BufRead" })
+    use({
+      "ironhouzi/starlite-nvim",
+      config = function()
+        require("vimp")
+        vimp.nnoremap({ "override", "silent" }, "*", require("starlite").star)
+        vimp.vnoremap({ "override", "silent" }, "g*", require("starlite").g_star)
+        vimp.nnoremap({ "override", "silent" }, "#", require("starlite").hash)
+        vimp.nnoremap({ "override", "silent" }, "g#", require("starlite").g_hash)
+      end,
+    })
     -- Discover keybinds
     use({
       "folke/which-key.nvim",
