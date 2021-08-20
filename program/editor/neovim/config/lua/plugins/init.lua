@@ -75,7 +75,9 @@ return require("packer").startup({
     })
     use({
       "sindrets/diffview.nvim",
-      cmd = "DiffviewOpen",
+      config = function()
+        require("diffview").setup({})
+      end,
       setup = function()
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<leader>u", "<cmd>DiffviewOpen<CR>")
