@@ -85,6 +85,7 @@ in
     universal-ctags
     xsv
     # ---  docker ---
+    act
     hadolint
     # --- editor ---
     kakoune
