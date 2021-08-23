@@ -287,9 +287,10 @@ return require("packer").startup({
         local cmp = require("cmp")
         local luasnip = require("luasnip")
         cmp.setup({
-          snippet = {
-            expand = function(args)
-              require("luasnip").lsp_expand(args.body)
+          formatting = {
+            format = function(_, vim_item)
+              vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+              return vim_item
             end,
           },
           mapping = {
@@ -321,6 +322,11 @@ return require("packer").startup({
                 fallback()
               end
             end),
+          },
+          snippet = {
+            expand = function(args)
+              require("luasnip").lsp_expand(args.body)
+            end,
           },
           sources = {
             { name = "buffer" },
