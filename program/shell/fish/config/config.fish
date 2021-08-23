@@ -106,11 +106,6 @@ if not functions -q fisher
 	fish -c fisher
 end
 
-# Plug.kak
-# if not test -d "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
-# 	git clone "https://github.com/andreyorst/plug.kak.git" "$XDG_CONFIG_HOME/kak/plugins/plug.kak"
-# end
-
 # Tmux
 # if test -n "$TMUX"
 #     eval (tmux show-environment -s $NVIM_LISTEN_ADDRESS)
@@ -129,22 +124,6 @@ if test -d "$HOME/miniconda3"
 	end
 	source $conda_source_file
 end
-
-# Pyenv
-if command -v pyenv > /dev/null
-	set -x PYENV_ROOT $XDG_CONFIG_HOME/pyenv
-	set pyenv_source_file "$XDG_CONFIG_HOME/fish/pyenv.fish"
-	if not test -f $pyenv_source_file
-		pyenv init - > $pyenv_source_file
-	end
-	# source $pyenv_source_file
-end
-
-# Theme
-# Starship
-# if command -v starship >/dev/null 2>&1
-# 	starship init fish | source
-# end
 
 # Bobthefish
 set bobthefish_config_file "$XDG_CONFIG_HOME/bobthefish/config.fish"

@@ -33,11 +33,7 @@ vimp.nnoremap({ "silent" }, "gj", "<C-^>")
 vimp.nnoremap({ "silent" }, "gk", ":vs#<cr>")
 
 -- Splits
-vimp.nmap({ "override", "silent" }, "<C-h>", "<C-w>h")
-vimp.nmap({ "override", "silent" }, "<C-j>", "<C-w>j")
-vimp.nmap({ "override", "silent" }, "<C-k>", "<C-w>k")
-vimp.nmap({ "override", "silent" }, "<C-l>", "<C-w>l")
-vimp.nmap({ "override", "silent" }, "<C-S>", "<C-w>S")
+vimp.nmap({ "override", "silent" }, "<C-s>", "<C-w>s")
 vimp.nmap({ "override", "silent" }, "<C-v>", "<C-w>v")
 vimp.nmap({ "override", "silent" }, "<C-p>", "<C-w>w")
 

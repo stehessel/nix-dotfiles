@@ -858,8 +858,13 @@ return require("packer").startup({
       "numToStr/Navigator.nvim",
       config = function()
         require("Navigator").setup()
+
+        vimp.nnoremap({ "override", "silent" }, "<C-h>", require("Navigator").left)
+        vimp.nnoremap({ "override", "silent" }, "<C-j>", require("Navigator").down)
+        vimp.nnoremap({ "override", "silent" }, "<C-k>", require("Navigator").up)
+        vimp.nnoremap({ "override", "silent" }, "<C-l>", require("Navigator").right)
+        vimp.nnoremap({ "override", "silent" }, "<C-y>", require("Navigator").previous)
       end,
-      disable = true,
     })
     -- File explorer
     use({
