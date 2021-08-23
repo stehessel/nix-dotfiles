@@ -229,7 +229,6 @@ return require("packer").startup({
     -- Notes
     use({
       "vhyrro/neorg",
-      after = "nvim-compe",
       config = function()
         require("neorg").setup({
           load = {
@@ -281,14 +280,58 @@ return require("packer").startup({
       event = "InsertEnter",
     })
     use({ "folke/lua-dev.nvim" })
+    use({ "L3MON4D3/LuaSnip" })
     use({
-      "hrsh7th/nvim-compe",
+      "hrsh7th/nvim-cmp",
       config = function()
-        require("plugins.completion")
+        local cmp = require("cmp")
+        local luasnip = require("luasnip")
+        cmp.setup({
+          snippet = {
+            expand = function(args)
+              require("luasnip").lsp_expand(args.body)
+            end,
+          },
+          mapping = {
+            ["<C-p>"] = cmp.mapping.prev_item(),
+            ["<C-n>"] = cmp.mapping.next_item(),
+            ["<C-d>"] = cmp.mapping.scroll(-4),
+            ["<C-f>"] = cmp.mapping.scroll(4),
+            ["<C-Space>"] = cmp.mapping.complete(),
+            ["<C-e>"] = cmp.mapping.close(),
+            ["<CR>"] = cmp.mapping.confirm({
+              behavior = cmp.ConfirmBehavior.Replace,
+              select = true,
+            }),
+            ["<Tab>"] = cmp.mapping.mode({ "i", "s" }, function(_, fallback)
+              if vim.fn.pumvisible() == 1 then
+                vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n")
+              elseif luasnip.expand_or_jumpable() then
+                vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+              else
+                fallback()
+              end
+            end),
+            ["<S-Tab>"] = cmp.mapping.mode({ "i", "s" }, function(_, fallback)
+              if vim.fn.pumvisible() == 1 then
+                vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, true, true), "n")
+              elseif luasnip.jumpable(-1) then
+                vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+              else
+                fallback()
+              end
+            end),
+          },
+          sources = {
+            { name = "buffer" },
+            { name = "luasnip" },
+            { name = "nvim_lsp" },
+            { name = "path" },
+          },
+        })
       end,
-      event = "InsertEnter",
+      requires = { "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "saadparwaiz1/cmp_luasnip" },
     })
-    use({ "ms-jpq/coq_nvim", branch = "coq", disable = true })
     use({
       "folke/trouble.nvim",
       cmd = { "Trouble", "TroubleClose", "TroubleRefresh", "TroubleToggle" },
@@ -578,7 +621,6 @@ return require("packer").startup({
       "Olical/conjure",
       config = function()
         vim.cmd([[let g:conjure#log#hud#width = 0.42]])
-        vim.g.compe.source.conjure = true
       end,
       ft = { "clojure", "fennel" },
     })
@@ -622,7 +664,7 @@ return require("packer").startup({
       config = function()
         require("tabout").setup({})
       end,
-      after = { "nvim-compe" },
+      after = { "nvim-cmp" },
       wants = { "nvim-treesitter" },
     })
     -- Marks

@@ -1,5 +1,5 @@
 return {
-  setup = function(on_attach, root_patterns, debounce_text_changes)
+  setup = function(on_attach, capabilities, root_patterns, debounce_text_changes)
     require("lspconfig").tsserver.setup({
       on_attach = function(client, bufnr)
         client.resolved_capabilities.document_formatting = false
@@ -12,6 +12,7 @@ return {
 
         on_attach(client, bufnr)
       end,
+      capabilities = capabilities,
       root_dir = root_patterns,
       flags = { debounce_text_changes = debounce_text_changes },
     })

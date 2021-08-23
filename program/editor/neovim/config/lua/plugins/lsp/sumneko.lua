@@ -1,11 +1,12 @@
 return {
-  setup = function(on_attach, root_patterns, debounce_text_changes)
+  setup = function(on_attach, capabilities, root_patterns, debounce_text_changes)
     local sumneko_root_path = "/Users/lgtf/just-build/sumneko-lua-lsp/lua-language-server"
     local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
     local luadev = require("lua-dev").setup({
       lspconfig = {
         cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
         on_attach = on_attach,
+        capabilities = capabilities,
         root_dir = root_patterns,
         flags = { debounce_text_changes = debounce_text_changes },
         settings = {

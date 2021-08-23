@@ -2,7 +2,7 @@
 vim.opt.compatible = false
 
 -- Completion
-vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = "menuone,noselect"
 
 vim.opt.shell = "bash"
 vim.cmd("let $SHELL = 'bash'")
