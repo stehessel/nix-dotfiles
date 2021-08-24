@@ -65,8 +65,6 @@ brew "llvm"
 brew "openapi-generator"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
-# Python version management
-brew "pyenv"
 # Send macOS User Notifications from the command-line
 brew "terminal-notifier"
 # Terminal multiplexer

@@ -911,7 +911,7 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<C-j>", require("Navigator").down)
         vimp.nnoremap({ "override", "silent" }, "<C-k>", require("Navigator").up)
         vimp.nnoremap({ "override", "silent" }, "<C-l>", require("Navigator").right)
-        vimp.nnoremap({ "override", "silent" }, "<C-y>", require("Navigator").previous)
+        vimp.nnoremap({ "override", "silent" }, "<C-p>", require("Navigator").previous)
       end,
     })
     -- File explorer
