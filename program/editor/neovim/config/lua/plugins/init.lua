@@ -413,22 +413,17 @@ return require("packer").startup({
       end,
       event = "InsertEnter",
     })
-    -- Documentation
+    -- Doc strings
     use({
-      "kkoomen/vim-doge",
-      cmd = { "DogeGenerate", "DogeCreateDocStandard" },
+      "danymat/neogen",
+      after = "nvim-treesitter",
       config = function()
-        -- vim.g.doge_doc_standard_python = "numpy"
-      end,
-      run = function()
-        vim.fn["doge#install"]()
-      end,
-      setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>j", "<cmd>DogeGenerate<CR>")
+        require("neogen").setup({
+          enabled = true,
+        })
+        vimp.nnoremap({ "override", "silent" }, "<leader>j", require("neogen").generate)
       end,
     })
-    -- SQL
     use({ "nanotee/sqls.nvim", ft = "sql" })
     -- Python
     use({
