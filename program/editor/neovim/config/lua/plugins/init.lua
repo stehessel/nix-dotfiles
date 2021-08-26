@@ -380,6 +380,7 @@ return require("packer").startup({
             { name = "buffer" },
             { name = "luasnip" },
             { name = "nvim_lsp" },
+            { name = "orgmode" },
             { name = "path" },
           },
         })
