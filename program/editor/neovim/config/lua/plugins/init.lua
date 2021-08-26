@@ -472,6 +472,7 @@ return require("packer").startup({
       "dccsillag/magma-nvim",
       cmd = { "MagmaInit" },
       setup = function()
+		require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<localleader>ri", ":MagmaInit<CR>")
         -- vimp.nnoremap({ "override", "expr", "silent" }, "<localleader>r", "nvim_exec('MagmaEvaluateOperator', v:true)")
         vimp.xnoremap({ "override", "silent" }, "<localleader>r", ":<C-u>MagmaEvaluateVisual<CR>")
