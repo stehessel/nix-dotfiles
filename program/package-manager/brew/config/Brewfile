@@ -43,8 +43,6 @@ brew "cask"
 brew "choose-gui"
 # Console Matrix
 brew "cmatrix"
-# General purpose Language Server
-brew "efm-langserver", args: ["HEAD"]
 # Fast, simple fuzzy text selector with an advanced scoring algorithm
 brew "fzy"
 # GNU compiler collection
