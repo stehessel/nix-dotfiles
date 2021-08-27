@@ -341,8 +341,16 @@ return require("packer").startup({
 
         cmp.setup({
           formatting = {
-            format = function(_, vim_item)
+            format = function(entry, vim_item)
               vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+              vim_item.menu = ({
+                buffer = "[Buffer]",
+                luasnip = "[LuaSnip]",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[Lua]",
+                orgmode = "[Orgmode]",
+                path = "[Path]",
+              })[entry.source.name]
               return vim_item
             end,
           },
@@ -389,6 +397,7 @@ return require("packer").startup({
             { name = "buffer" },
             { name = "luasnip" },
             { name = "nvim_lsp" },
+            { name = "nvim_lua" },
             { name = "orgmode" },
             { name = "path" },
           },
