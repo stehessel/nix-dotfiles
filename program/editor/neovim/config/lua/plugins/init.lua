@@ -334,6 +334,11 @@ return require("packer").startup({
       config = function()
         local cmp = require("cmp")
         local luasnip = require("luasnip")
+        local check_back_space = function()
+          local col = vim.fn.col(".") - 1
+          return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+        end
+
         cmp.setup({
           formatting = {
             format = function(_, vim_item)
@@ -355,6 +360,8 @@ return require("packer").startup({
             ["<Tab>"] = function(_, fallback)
               if vim.fn.pumvisible() == 1 then
                 vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n")
+              elseif check_back_space() then
+                vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n")
               elseif luasnip.expand_or_jumpable() then
                 vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
               else
@@ -364,6 +371,8 @@ return require("packer").startup({
             ["<S-Tab>"] = function(_, fallback)
               if vim.fn.pumvisible() == 1 then
                 vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, true, true), "n")
+              elseif check_back_space() then
+                vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-h>", true, true, true), "n")
               elseif luasnip.jumpable(-1) then
                 vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
               else
@@ -472,7 +481,7 @@ return require("packer").startup({
       "dccsillag/magma-nvim",
       cmd = { "MagmaInit" },
       setup = function()
-		require("vimp")
+        require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<localleader>ri", ":MagmaInit<CR>")
         -- vimp.nnoremap({ "override", "expr", "silent" }, "<localleader>r", "nvim_exec('MagmaEvaluateOperator', v:true)")
         vimp.xnoremap({ "override", "silent" }, "<localleader>r", ":<C-u>MagmaEvaluateVisual<CR>")
