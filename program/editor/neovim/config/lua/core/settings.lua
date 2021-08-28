@@ -7,9 +7,6 @@ vim.opt.completeopt = "menuone,noselect"
 vim.opt.shell = "bash"
 vim.cmd("let $SHELL = 'bash'")
 
--- Set hidden buffers
-vim.opt.hidden = true
-
 -- Line breaks
 vim.opt.linebreak = true
 vim.opt.breakindent = true
