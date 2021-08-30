@@ -31,6 +31,7 @@ return require("packer").startup({
         require("core.mappings")
       end,
     })
+    use({ "lewis6991/impatient.nvim" })
 
     -- Utility
     use({
