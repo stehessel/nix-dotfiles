@@ -17,5 +17,4 @@ vim.g.loaded_matchit = false
 vim.g.loaded_matchparen = false
 vim.g.loaded_spec = false
 
--- require("impatient")
 require("plugins")

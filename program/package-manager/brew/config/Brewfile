@@ -55,6 +55,8 @@ brew "glow"
 brew "gnu-sed"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
+# Configurable static site generator
+brew "hugo"
 # Little helper to run Rancher Lab's k3s in Docker
 brew "k3d"
 # Next-gen compiler infrastructure
