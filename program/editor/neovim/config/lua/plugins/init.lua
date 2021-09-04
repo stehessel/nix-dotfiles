@@ -216,6 +216,7 @@ return require("packer").startup({
         require("vimp")
 
         vimp.nnoremap({ "override", "silent" }, "<leader>ff", "<cmd>Telescope find_files<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<leader>fr", "<cmd>Telescope resume<CR>")
         vimp.nnoremap({ "override", "silent" }, "<leader>fl", "<cmd>Telescope live_grep<CR>")
         vimp.nnoremap({ "override", "silent" }, "<leader>fL", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
         vimp.nnoremap({ "override", "silent" }, "<leader>fb", "<cmd>Telescope buffers<CR>")
