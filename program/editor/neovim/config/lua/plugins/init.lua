@@ -45,10 +45,6 @@ return require("packer").startup({
       "nvim-lua/plenary.nvim",
       module = "plenary",
     })
-    use({
-      "nvim-lua/popup.nvim",
-      module = "popup",
-    })
     -- Git
     use({
       "lewis6991/gitsigns.nvim",
@@ -680,18 +676,18 @@ return require("packer").startup({
       "numtostr/FTerm.nvim",
       config = function()
         require("FTerm").setup()
-      end,
-    })
-    use({
-      "voldikss/vim-floaterm",
-      cmd = { "FloatermNew", "FloatermToggle", "FloatermPrev", "FloatermNext" },
-      setup = function()
+        local gitui = require("FTerm.terminal"):new():setup({
+          cmd = "gitui",
+          dimensions = {
+            height = 0.9,
+            width = 0.9,
+          },
+        })
+
         require("vimp")
-        vimp.nnoremap(
-          { "override", "silent" },
-          "<leader>G",
-          ":FloatermNew --width=0.9 --height=0.9 --wintype=float --autoclose=2 lazygit<cr>"
-        )
+        vimp.nnoremap({ "override", "silent" }, "<leader>G", function()
+          gitui:toggle()
+        end)
       end,
     })
     use({
@@ -769,6 +765,7 @@ return require("packer").startup({
     })
     use({
       "mfussenegger/nvim-ts-hint-textobject",
+      after = "nvim-treesitter",
       config = function()
         require("vimp")
         vimp.omap({ "override", "silent" }, "m", ":<C-U>lua require('tsht').nodes()<CR>")

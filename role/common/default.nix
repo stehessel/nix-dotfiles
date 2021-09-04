@@ -117,7 +117,7 @@ in
     gitAndTools.git-bug
     gitAndTools.git-fame
     gitAndTools.hub
-    lazygit
+    gitui
     # --- haskell ---
     # cabal-install
     # ghc
