@@ -14,7 +14,6 @@ set -x FZF_DEFAULT_OPTS "--cycle --layout=reverse --border --height 85% --previe
 # set -x fzf_fd_opts "--type=file --hidden --follow --color=always --exclude=.git"
 set -x fzf_preview_dir_cmd "exa --all --color=always --group-directories-first"
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
-set -x NVIM_LOG_FILE "$XDG_CONFIG_HOME/nvim/.nvimlog"
 set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
 set -x ODBCSYSINI "$HOME/git/raq"
 set -x CARGO_HOME "$XDG_CONFIG_HOME/cargo"
@@ -38,7 +37,6 @@ source "$XDG_CONFIG_HOME/nix/nix-daemon.fish" 2> /dev/null
 
 # Link sh to dash
 ln -s (command -v dash) "$HOME/.local/bin/sh" 2> /dev/null
-set -x KAKOUNE_POSIX_SHELL (command -v dash)
 set -x NVIM_LISTEN_ADDRESS /tmp/nvimsocket
 switch (uname)
 	case Darwin
@@ -48,7 +46,6 @@ switch (uname)
 		set -x LC_ALL "en_US.UTF-8"
 		set -x LANG "en_US.UTF-8"
 		ln -s "/Applications/Firefox.app/Contents/MacOS/firefox" "$HOME/.local/bin/firefox" 2> /dev/null
-		ln -s "$XDG_CONFIG_HOME/kak-lsp/kak-lsp.toml" "$HOME/Library/Preferences/kak-lsp/kak-lsp.toml" 2> /dev/null
 	case Linux
 		set -x BROWSER "firefox"
 end
@@ -67,13 +64,11 @@ abbr -a cfx "$EDITOR ~/nix-home/program/desktop/window-manager/xmonad/config/xmo
 abbr -a cfq "$EDITOR ~/nix-home/program/desktop/window-manager/qtile/config/config.py"
 abbr -a cfp "$EDITOR ~/nix-home/program/desktop/compositor/picom/config/picom.conf"
 abbr -a cfs "$EDITOR ~/nix-home/program/desktop/sxhkd/config/sxhkdrc"
-abbr -a cfk "$EDITOR ~/nix-home/program/editor/kakoune/config/kakrc"
 abbr -a cfv "$EDITOR ~/nix-home/program/editor/neovim/config/init.vim"
 
 if test "$TERMINAL" = "kitty"
 	abbr -a diff "kitty +kitten diff"
 end
-abbr -a lg  "lazygit"
 abbr -a gb  "git branch"
 abbr -a gc  "git commit -am"
 abbr -a gp  "git push"
@@ -86,13 +81,11 @@ abbr -a B "git checkout (git for-each-ref --sort=-committerdate --count=100 --fo
 abbr -a d "cd (fd --type=d --max-depth=1 . ~/git | fzf --preview 'ls --color=always {}')"
 abbr -a tl  "tasklite"
 abbr -a restic "restic --repo=~/OneDrive\ -\ Blue\ Yonder --password-file=$XDG_CONFIG_HOME/restic/secret"
-abbr -a corona "curl 'https://corona-stats.online?source=2&top=15'"
 abbr -a e "$EDITOR"
 abbr -a b "buku --suggest"
 abbr -a c "fuzzycred"
 abbr -a a "REQUESTS_CA_BUNDLE=$HOME/certs/rootca-2016-07.crt $HOME/.local/bin/airflow"
 abbr -a s "REQUESTS_CA_BUNDLE=$HOME/certs/rootca-2016-07.crt $HOME/.local/bin/stratosphere"
-abbr -a p "pytest --ignore tests/unit/compat_pricing/test_build_data_db.py --ignore tests/unit/test_log_stats.py --ignore tests/unit/test_build_datasets.py::test_get_source_data_logging -n auto tests/unit"
 abbr -a t "topgrade"
 
 # Keybinds
