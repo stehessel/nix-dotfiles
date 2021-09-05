@@ -433,6 +433,7 @@ return require("packer").startup({
         })
       end,
       event = "InsertEnter",
+      disable = true,
     })
     -- Doc strings
     use({

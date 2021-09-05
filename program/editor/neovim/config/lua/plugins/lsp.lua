@@ -12,42 +12,29 @@ local on_attach = function(client, bufnr)
 
   -- Show diagnostic source
   -- Copied from https://github.com/neovim/neovim/blob/master/runtime/lua/vim/lsp/diagnostic.lua
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, _, params, client_id, _, config)
-    local uri = params.uri
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
+    local uri = result.uri
     local bufnr = vim.uri_to_bufnr(uri)
 
     if not bufnr then
       return
     end
 
-    local diagnostics = params.diagnostics
-    for i, v in ipairs(diagnostics) do
-      diagnostics[i].message = string.format("%s: %s", v.source, v.message)
-    end
+    local diagnostics = result.diagnostics
 
-    if config and vim.F.if_nil(config.severity_sort, false) then
-      table.sort(diagnostics, function(a, b)
-        return a.severity > b.severity
-      end)
-    end
+    vim.lsp.diagnostic.save(diagnostics, bufnr, ctx.client_id)
 
-    -- Always save the diagnostics, even if the buf is not loaded.
-    -- Language servers may report compile or build errors via diagnostics
-    -- Users should be able to find these, even if they're in files which
-    -- are not loaded.
-    vim.lsp.diagnostic.save(diagnostics, bufnr, client_id)
-
-    -- Unloaded buffers should not handle diagnostics.
-    --    When the buffer is loaded, we'll call on_attach, which sends textDocument/didOpen.
-    --    This should trigger another publish of the diagnostics.
-    --
-    -- In particular, this stops a ton of spam when first starting a server for current
-    -- unloaded buffers.
     if not vim.api.nvim_buf_is_loaded(bufnr) then
       return
     end
 
-    vim.lsp.diagnostic.display(diagnostics, bufnr, client_id, config)
+    -- don't mutate the original diagnostic because it would interfere with
+    -- code action (and probably other stuff, too)
+    local prefixed_diagnostics = vim.deepcopy(diagnostics)
+    for i, v in pairs(diagnostics) do
+      prefixed_diagnostics[i].message = string.format("%s: %s", v.source, v.message)
+    end
+    vim.lsp.diagnostic.display(prefixed_diagnostics, bufnr, ctx.client_id, config)
   end
 
   -- Mappings
