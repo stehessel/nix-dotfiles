@@ -674,8 +674,7 @@ return require("packer").startup({
     use({
       "numtostr/FTerm.nvim",
       config = function()
-        require("FTerm").setup()
-        local gitui = require("FTerm.terminal"):new():setup({
+        local gitui = require("FTerm"):new({
           cmd = "gitui",
           dimensions = {
             height = 0.9,
