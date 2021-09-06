@@ -11,8 +11,11 @@ set -x READER "zathura"
 set -x TERMINAL "kitty"
 
 set -x FZF_DEFAULT_OPTS "--cycle --layout=reverse --border --height 85% --preview-window=wrap --info=inline"
-# set -x fzf_fd_opts "--type=file --hidden --follow --color=always --exclude=.git"
+set -x fzf_fd_opts "--type=file"
+# set -x fzf_dir_opts --bind="enter:execute(nvim {})"
 set -x fzf_preview_dir_cmd "exa --all --color=always --group-directories-first"
+# fzf_configure_bindings --directory=\cf
+
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
 set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
 set -x ODBCSYSINI "$HOME/git/raq"

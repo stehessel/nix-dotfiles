@@ -13,8 +13,9 @@ local on_attach = function(client, bufnr)
   -- Show diagnostic source
   -- Copied from https://github.com/neovim/neovim/blob/master/runtime/lua/vim/lsp/diagnostic.lua
   vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
-    local uri = result.uri
-    local bufnr = vim.uri_to_bufnr(uri)
+    -- local uri = result.uri
+    -- local bufnr = vim.uri_to_bufnr(uri)
+	bufnr = ctx.bufnr
 
     if not bufnr then
       return
