@@ -31,14 +31,7 @@ return require("packer").startup({
         require("core.mappings")
       end,
     })
-    vim.fn.setenv("MACOSX_DEPLOYMENT_TARGET", "10.15")
-    use({
-      "lewis6991/impatient.nvim",
-      config = function()
-        require("impatient")
-      end,
-      rocks = "mpack",
-    })
+    use({ "lewis6991/impatient.nvim" })
 
     -- Utility
     use({
