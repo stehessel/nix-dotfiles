@@ -12,18 +12,18 @@ local on_attach = function(client, bufnr)
 
   -- Show diagnostic source
   -- Copied from https://github.com/neovim/neovim/blob/master/runtime/lua/vim/lsp/diagnostic.lua
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
-    -- local uri = result.uri
-    -- local bufnr = vim.uri_to_bufnr(uri)
-	bufnr = ctx.bufnr
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, params, ctx, config)
+    local uri = params.uri
+    local client_id = ctx.client_id
+    local bufnr = vim.uri_to_bufnr(uri)
 
     if not bufnr then
       return
     end
 
-    local diagnostics = result.diagnostics
+    local diagnostics = params.diagnostics
 
-    vim.lsp.diagnostic.save(diagnostics, bufnr, ctx.client_id)
+    vim.lsp.diagnostic.save(diagnostics, bufnr, client_id)
 
     if not vim.api.nvim_buf_is_loaded(bufnr) then
       return
@@ -35,7 +35,7 @@ local on_attach = function(client, bufnr)
     for i, v in pairs(diagnostics) do
       prefixed_diagnostics[i].message = string.format("%s: %s", v.source, v.message)
     end
-    vim.lsp.diagnostic.display(prefixed_diagnostics, bufnr, ctx.client_id, config)
+    vim.lsp.diagnostic.display(prefixed_diagnostics, bufnr, client_id, config)
   end
 
   -- Mappings
