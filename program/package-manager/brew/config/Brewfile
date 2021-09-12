@@ -47,8 +47,6 @@ brew "cmatrix"
 brew "fzy"
 # GNU compiler collection
 brew "gcc"
-# Distributed revision control system
-brew "git"
 # Render markdown on the CLI
 brew "glow"
 # GNU implementation of the famous stream editor
@@ -113,6 +111,8 @@ cask "amethyst"
 cask "app-cleaner"
 # Data management tool that enables working with SQL Server
 cask "azure-data-studio"
+# Video conferencing for the digital workplace
+cask "bluejeans"
 # E-books management software
 cask "calibre"
 # Clipboard extension app
