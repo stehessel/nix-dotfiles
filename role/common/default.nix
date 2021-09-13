@@ -75,7 +75,6 @@ in
     gdb
     # --- data ---
     jq
-    visidata
     # yq
     # --- dev ---
     editorconfig-core-c

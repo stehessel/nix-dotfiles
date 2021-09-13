@@ -43,8 +43,6 @@ brew "cask"
 brew "choose-gui"
 # Console Matrix
 brew "cmatrix"
-# Fast, simple fuzzy text selector with an advanced scoring algorithm
-brew "fzy"
 # GNU compiler collection
 brew "gcc"
 # Render markdown on the CLI
