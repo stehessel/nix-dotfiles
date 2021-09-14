@@ -377,7 +377,7 @@ return require("packer").startup({
               elseif has_words_before() then
                 cmp.complete()
               else
-                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+                fallback()
               end
             end, {
               "i",
@@ -389,7 +389,7 @@ return require("packer").startup({
               elseif luasnip.jumpable(-1) then
                 luasnip.jump(-1)
               else
-                fallback()
+                feedkey("<C-h>")
               end
             end, {
               "i",
