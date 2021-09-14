@@ -116,7 +116,7 @@ in
     gitAndTools.git-bug
     gitAndTools.git-fame
     gitAndTools.hub
-    gitui
+    # gitui
     # --- haskell ---
     # cabal-install
     # ghc

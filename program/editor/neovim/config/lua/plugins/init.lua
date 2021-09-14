@@ -328,12 +328,20 @@ return require("packer").startup({
     use({
       "hrsh7th/nvim-cmp",
       config = function()
-        local cmp = require("cmp")
-        local luasnip = require("luasnip")
-        local check_back_space = function()
+        local has_words_before = function()
+          if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+            return false
+          end
           local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-          return col == 0 or vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") ~= nil
+          return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
         end
+
+        local feedkey = function(key)
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "n", true)
+        end
+
+        local luasnip = require("luasnip")
+        local cmp = require("cmp")
 
         cmp.setup({
           formatting = {
@@ -361,31 +369,32 @@ return require("packer").startup({
               behavior = cmp.ConfirmBehavior.Replace,
               select = true,
             }),
-            ["<Tab>"] = function(_, fallback)
+            ["<Tab>"] = cmp.mapping(function(fallback)
               if vim.fn.pumvisible() == 1 then
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n")
-              elseif check_back_space() then
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n")
+                feedkey("<C-n>")
               elseif luasnip.expand_or_jumpable() then
-                vim.api.nvim_feedkeys(
-                  vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
-                  ""
-                )
+                luasnip.expand_or_jump()
+              elseif has_words_before() then
+                cmp.complete()
               else
-                fallback()
+                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
               end
-            end,
-            ["<S-Tab>"] = function(_, fallback)
+            end, {
+              "i",
+              "s",
+            }),
+            ["<S-Tab>"] = cmp.mapping(function(fallback)
               if vim.fn.pumvisible() == 1 then
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, true, true), "n")
-              elseif check_back_space() then
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-h>", true, true, true), "n")
+                feedkey("<C-p>")
               elseif luasnip.jumpable(-1) then
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+                luasnip.jump(-1)
               else
                 fallback()
               end
-            end,
+            end, {
+              "i",
+              "s",
+            }),
           },
           snippet = {
             expand = function(args)

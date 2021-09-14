@@ -15,7 +15,7 @@ in
 
   home.packages = with pkgs; [
     # --- terminal ---
-    kitty
+    # kitty
     # --- latex ---
     # texlive.combined.scheme-full
     # tectonic
