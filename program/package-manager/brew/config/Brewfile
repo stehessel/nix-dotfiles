@@ -134,6 +134,8 @@ cask "iterm2"
 cask "karabiner-elements"
 # Password manager app
 cask "keepassxc"
+# GPU-based terminal emulator
+cask "kitty"
 # Explorer for Azure Storage
 cask "microsoft-azure-storage-explorer"
 # Office suite
