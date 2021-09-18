@@ -412,6 +412,11 @@ return require("packer").startup({
         })
       end,
       requires = { "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "saadparwaiz1/cmp_luasnip" },
+      disable = true,
+    })
+    use({
+      "ms-jpq/coq_nvim",
+      run = ":COQdeps",
     })
     use({
       "folke/trouble.nvim",

@@ -39,6 +39,7 @@ return {
       },
     })
     local lspconfig = require("lspconfig")
-    lspconfig.sumneko_lua.setup(luadev)
+    local coq = require("coq")
+    lspconfig.sumneko_lua.setup(coq.lsp_ensure_capabilities(luadev))
   end,
 }
