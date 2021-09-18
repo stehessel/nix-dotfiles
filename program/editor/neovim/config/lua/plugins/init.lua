@@ -369,7 +369,7 @@ return require("packer").startup({
               behavior = cmp.ConfirmBehavior.Replace,
               select = true,
             }),
-            ["<Tab>"] = cmp.mapping(function(fallback)
+            ["<TAB>"] = cmp.mapping(function(fallback)
               if vim.fn.pumvisible() == 1 then
                 feedkey("<C-n>")
               elseif luasnip.expand_or_jumpable() then
@@ -383,7 +383,7 @@ return require("packer").startup({
               "i",
               "s",
             }),
-            ["<S-Tab>"] = cmp.mapping(function(fallback)
+            ["<S-TAB>"] = cmp.mapping(function(fallback)
               if vim.fn.pumvisible() == 1 then
                 feedkey("<C-p>")
               elseif luasnip.jumpable(-1) then
@@ -412,11 +412,12 @@ return require("packer").startup({
         })
       end,
       requires = { "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "saadparwaiz1/cmp_luasnip" },
-      disable = true,
+      disable = false,
     })
     use({
       "ms-jpq/coq_nvim",
       run = ":COQdeps",
+      disable = true,
     })
     use({
       "folke/trouble.nvim",

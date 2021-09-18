@@ -1,7 +1,6 @@
 return {
   setup = function(on_attach, capabilities, root_patterns, debounce_text_changes)
-    local coq = require("coq")
-    require("lspconfig").pyright.setup(coq.lsp_ensure_capabilities({
+    require("lspconfig").pyright.setup({
       on_attach = on_attach,
       capabilities = capabilities,
       root_dir = root_patterns,
@@ -16,6 +15,6 @@ return {
           },
         },
       },
-    }))
+    })
   end,
 }
