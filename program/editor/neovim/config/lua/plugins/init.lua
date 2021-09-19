@@ -369,7 +369,7 @@ return require("packer").startup({
               behavior = cmp.ConfirmBehavior.Replace,
               select = true,
             }),
-            ["<TAB>"] = cmp.mapping(function(fallback)
+            ["<Tab>"] = cmp.mapping(function(fallback)
               if vim.fn.pumvisible() == 1 then
                 feedkey("<C-n>")
               elseif luasnip.expand_or_jumpable() then
@@ -383,7 +383,7 @@ return require("packer").startup({
               "i",
               "s",
             }),
-            ["<S-TAB>"] = cmp.mapping(function(fallback)
+            ["<S-Tab>"] = cmp.mapping(function(fallback)
               if vim.fn.pumvisible() == 1 then
                 feedkey("<C-p>")
               elseif luasnip.jumpable(-1) then
