@@ -762,7 +762,7 @@ return require("packer").startup({
       end,
       event = "BufRead",
     })
-    use({ "tpope/vim-sleuth", event = "BufRead" })
+    use({ "Darazaki/indent-o-matic", event = "BufRead" })
     -- Keybinds
     use({ "tpope/vim-unimpaired", event = "BufRead" })
     -- Movement
