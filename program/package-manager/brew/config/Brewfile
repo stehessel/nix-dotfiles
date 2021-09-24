@@ -35,8 +35,12 @@ brew "boost-python3"
 brew "buku"
 # Powerful, enterprise-ready, open source web server with automatic HTTPS
 brew "caddy"
+# Core application library for C
+brew "glib"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# GNU Ubiquitous Intelligent Language for Extensions
+brew "guile"
 # Emacs dependency management
 brew "cask"
 # Fuzzy matcher that uses std{in,out} and a native GUI
@@ -49,14 +53,20 @@ brew "gcc"
 brew "glow"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
+# OpenType text shaping engine
+brew "harfbuzz"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
 # Configurable static site generator
 brew "hugo"
-# Little helper to run Rancher Lab's k3s in Docker
-brew "k3d"
 # Next-gen compiler infrastructure
 brew "llvm"
+# Fast, Dynamic Programming Language
+brew "julia"
+# Little helper to run Rancher Lab's k3s in Docker
+brew "k3d"
 # Generate clients, server & docs from an OpenAPI spec (v2, v3)
 brew "openapi-generator"
 # Execute binaries from Python packages in isolated environments
