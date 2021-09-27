@@ -324,7 +324,7 @@ return require("packer").startup({
       event = "InsertEnter",
     })
     use({ "folke/lua-dev.nvim" })
-    use({ "L3MON4D3/LuaSnip" })
+    use({ "L3MON4D3/LuaSnip", disable = true })
     use({
       "hrsh7th/nvim-cmp",
       config = function()
@@ -412,12 +412,16 @@ return require("packer").startup({
         })
       end,
       requires = { "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "saadparwaiz1/cmp_luasnip" },
-      disable = false,
+      disable = true,
     })
     use({
       "ms-jpq/coq_nvim",
+      config = function()
+        vim.cmd("COQnow --shut-up")
+      end,
+      event = { "BufRead", "BufNewFile" },
       run = ":COQdeps",
-      disable = true,
+      disable = false,
     })
     use({
       "folke/trouble.nvim",
