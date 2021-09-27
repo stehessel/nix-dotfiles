@@ -972,6 +972,8 @@ return require("packer").startup({
         vim.g.nvim_tree_lsp_diagnostics = 1
         vim.g.nvim_tree_width = 35
 
+        require("nvim-tree").setup({})
+
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<leader>e", ":NvimTreeToggle<CR>")
       end,
