@@ -416,12 +416,30 @@ return require("packer").startup({
     })
     use({
       "ms-jpq/coq_nvim",
+      branch = "coq",
       config = function()
         vim.cmd("COQnow --shut-up")
       end,
       event = { "BufRead", "BufNewFile" },
       run = ":COQdeps",
       disable = false,
+    })
+    use({
+      "ms-jpq/coq.thirdparty",
+      after = "coq_nvim",
+      branch = "3p",
+      config = function()
+        require("coq_3p")({
+          { src = "nvimlua", short_name = "nLUA", conf_only = false },
+          -- { src = "orgmode", short_name = "ORG" },
+          -- { src = "dap", short_name = "DAP" },
+        })
+      end,
+    })
+    use({
+      "ms-jpq/coq.artifacts",
+      after = "coq_nvim",
+      branch = "artifacts",
     })
     use({
       "folke/trouble.nvim",
