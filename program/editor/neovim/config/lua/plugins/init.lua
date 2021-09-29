@@ -420,6 +420,8 @@ return require("packer").startup({
       branch = "coq",
       config = function()
         vim.cmd("COQnow --shut-up")
+
+        vim.g.coq_settings = { ["keymap.jump_to_mark"] = ";" }
       end,
       event = { "BufRead", "BufNewFile" },
       run = ":COQdeps",
