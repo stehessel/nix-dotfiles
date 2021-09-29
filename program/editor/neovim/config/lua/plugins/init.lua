@@ -322,6 +322,7 @@ return require("packer").startup({
         require("lspkind").init()
       end,
       event = "InsertEnter",
+      disable = true,
     })
     use({ "folke/lua-dev.nvim" })
     use({ "L3MON4D3/LuaSnip", disable = true })
@@ -431,8 +432,7 @@ return require("packer").startup({
       config = function()
         require("coq_3p")({
           { src = "nvimlua", short_name = "nLUA", conf_only = false },
-          -- { src = "orgmode", short_name = "ORG" },
-          -- { src = "dap", short_name = "DAP" },
+          { src = "orgmode", short_name = "ORG" },
         })
       end,
     })
