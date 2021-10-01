@@ -10,34 +10,12 @@ local on_attach = function(client, bufnr)
   vim.fn.sign_define("LspDiagnosticsSignInformation", { text = " ", texthl = "LspDiagnosticsSignInformation" })
   vim.fn.sign_define("LspDiagnosticsSignHint", { text = " ", texthl = "LspDiagnosticsSignHint" })
 
-  vim.diagnostic.config({ severity_sort = true })
-
-  -- Show diagnostic source
---   vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, params, ctx, config)
---     local uri = params.uri
---     local client_id = ctx.client_id
---     local bufnr = vim.uri_to_bufnr(uri)
---
---     if not bufnr then
---       return
---     end
---
---     local diagnostics = params.diagnostics
---
---     vim.diagnostic.set(client_id, bufnr, diagnostics, config)
---
---     if not vim.api.nvim_buf_is_loaded(bufnr) then
---       return
---     end
---
---     -- don't mutate the original diagnostic because it would interfere with
---     -- code action (and probably other stuff, too)
---     local prefixed_diagnostics = vim.deepcopy(diagnostics)
---     for i, v in pairs(diagnostics) do
---       prefixed_diagnostics[i].message = string.format("%s: %s", v.source, v.message)
---     end
---     vim.diagnostic.show(client_id, bufnr, prefixed_diagnostics, config)
---   end
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = {
+      source = "always",
+    },
+    severity_sort = true,
+  })
 
   -- Mappings
   vimp.add_buffer_maps(bufnr, function()
