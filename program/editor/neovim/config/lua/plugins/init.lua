@@ -991,8 +991,14 @@ return require("packer").startup({
         vim.g.nvim_tree_width = 35
 
         require("nvim-tree").setup({
+          hijack_cursor = true,
           lsp_diagnostics = true,
           update_cwd = true,
+          update_focused_file = {
+            enable = true,
+            update_cwd = true,
+            ignore_list = {},
+          },
           view = {
             mappings = {
               custom_only = false,
