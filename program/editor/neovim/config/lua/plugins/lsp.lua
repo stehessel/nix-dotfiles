@@ -77,6 +77,7 @@ local servers = {
   "ansiblels",
   "bashls",
   "dockerls",
+  "gopls",
   "jsonls",
   "null-ls",
   "pyright",
