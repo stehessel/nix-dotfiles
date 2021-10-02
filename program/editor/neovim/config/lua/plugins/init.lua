@@ -171,6 +171,7 @@ return require("packer").startup({
               "--column",
               "--ignore-case",
             },
+            mappings = { i = { ["<Esc>"] = require("telescope.actions").close } },
           },
           extensions = {
             fzf = {
