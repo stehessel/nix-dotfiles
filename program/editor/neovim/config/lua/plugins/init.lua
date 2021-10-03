@@ -805,14 +805,6 @@ return require("packer").startup({
       end,
       event = "BufRead",
     })
-    use({
-      "abecodes/tabout.nvim",
-      config = function()
-        require("tabout").setup({})
-      end,
-      after = { "nvim-cmp" },
-      wants = { "nvim-treesitter" },
-    })
     -- Marks
     use({ "kshenoy/vim-signature", event = "BufRead" })
     -- Indentation
@@ -950,9 +942,6 @@ return require("packer").startup({
         vimp.onoremap({ "override", "silent" }, "iv", [[:exec "normal! HVL"<cr>]])
       end,
     })
-    -- Text splitting
-    use({ "AndrewRadev/splitjoin.vim", event = "BufRead" })
-    use({ "sk1418/Join", cmd = "Join" })
     -- Text objects
     use({
       "chaoren/vim-wordmotion",
@@ -1140,7 +1129,6 @@ return require("packer").startup({
     })
     -- Filetypes
     use({ "isobit/vim-caddyfile", ft = "caddyfile" })
-    use("~/dev/neovim/pytest.nvim")
     -- Notifications
     use({ "rcarriga/nvim-notify" })
   end,
