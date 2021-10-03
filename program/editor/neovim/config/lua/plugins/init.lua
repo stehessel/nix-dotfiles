@@ -221,8 +221,10 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<leader>fo", "<cmd>Telescope project<CR>")
         vimp.nnoremap({ "override", "silent" }, "<leader>O", "<cmd>Telescope spell_suggest<CR>")
 
+        vimp.nnoremap({ "override", "silent" }, "<leader>dc", "<cmd>Telescope dap commands<CR>")
         vimp.nnoremap({ "override", "silent" }, "<leader>db", "<cmd>Telescope dap list_breakpoints<CR>")
         vimp.nnoremap({ "override", "silent" }, "<leader>df", "<cmd>Telescope dap frames<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<leader>dv", "<cmd>Telescope dap variables<CR>")
 
         vimp.nnoremap({ "override", "silent" }, "<leader>fi", "<cmd>Telescope gh issues<CR>")
         vimp.nnoremap({ "override", "silent" }, "<leader>fp", "<cmd>Telescope gh pull_request<CR>")
