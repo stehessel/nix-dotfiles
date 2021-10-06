@@ -917,9 +917,11 @@ return require("packer").startup({
     })
     -- Comments
     use({
-      "terrortylor/nvim-comment",
+      "winston0410/commented.nvim",
       config = function()
-        require("nvim_comment").setup()
+        require("commented").setup({
+          keybindings = { n = "gc", v = "gc", nl = "gcc" },
+        })
       end,
       event = "BufRead",
     })
