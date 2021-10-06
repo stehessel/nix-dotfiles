@@ -19,8 +19,6 @@ tap "ul/kak-lsp"
 tap "wfxr/code-minimap"
 tap "willdoescode/natls"
 tap "zegervdv/zathura"
-# Library for command-line editing
-brew "readline"
 # General-purpose data compression with high compression ratio
 brew "xz"
 # Record and share terminal sessions
@@ -71,6 +69,8 @@ brew "k3d"
 brew "openapi-generator"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
+# Tool for managing OCI containers and pods
+brew "podman"
 # Send macOS User Notifications from the command-line
 brew "terminal-notifier"
 # Terminal multiplexer
@@ -107,8 +107,6 @@ brew "koekeishiya/formulae/yabai"
 brew "mutagen-io/mutagen/mutagen-edge"
 # A high performance code minimap generator written in rust
 brew "wfxr/code-minimap/code-minimap"
-# ⚡️ nat - the 'ls' replacement you never knew you needed⚡️
-brew "willdoescode/natls/natls"
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
 # GPU-accelerated terminal emulator
