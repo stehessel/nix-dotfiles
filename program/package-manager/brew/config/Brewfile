@@ -59,12 +59,12 @@ brew "harfbuzz"
 brew "graphviz"
 # Configurable static site generator
 brew "hugo"
-# Next-gen compiler infrastructure
-brew "llvm"
 # Fast, Dynamic Programming Language
 brew "julia"
 # Little helper to run Rancher Lab's k3s in Docker
 brew "k3d"
+# Next-gen compiler infrastructure
+brew "llvm"
 # Generate clients, server & docs from an OpenAPI spec (v2, v3)
 brew "openapi-generator"
 # Execute binaries from Python packages in isolated environments

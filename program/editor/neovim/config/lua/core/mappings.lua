@@ -8,6 +8,8 @@ vimp.nnoremap({ "silent" }, "<leader>w", ":update<cr>")
 vimp.nnoremap({ "silent" }, "<leader>q", ":quit<cr>")
 vimp.nmap("?", ",")
 vimp.nnoremap("Q", "@q")
+vimp.nnoremap("R", ":%s//g<Left><Left>")
+vimp.xnoremap("R", ":s//g<Left><Left>")
 
 -- Center cursor
 vimp.nmap("G", "Gzz")
