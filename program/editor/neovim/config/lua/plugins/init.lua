@@ -424,7 +424,7 @@ return require("packer").startup({
       config = function()
         vim.cmd("COQnow --shut-up")
 
-        vim.g.coq_settings = { ["keymap.jump_to_mark"] = ";" }
+        vim.g.coq_settings = { ["keymap.jump_to_mark"] = "<C-,>" }
       end,
       event = { "BufRead", "BufNewFile" },
       run = ":COQdeps",
@@ -1030,8 +1030,16 @@ return require("packer").startup({
 
         require("nvim-tree").setup({
           hijack_cursor = true,
-          lsp_diagnostics = true,
           update_cwd = true,
+          diagnostics = {
+            enable = true,
+            icons = {
+              hint = " ",
+              info = " ",
+              warning = " ",
+              error = " ",
+            },
+          },
           update_focused_file = {
             enable = true,
             update_cwd = true,
