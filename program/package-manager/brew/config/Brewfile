@@ -164,6 +164,7 @@ cask "skim"
 cask "syncthing"
 # Free and open-source OpenVPN client
 cask "tunnelblick"
+# Unicode keyboard layout editor
 cask "ukelele"
 # Development environment
 cask "vagrant"
