@@ -58,7 +58,7 @@ in
 
   home.packages = with pkgs; [
     # --- azure ---
-    azure-cli
+    #  azure-cli
     azure-storage-azcopy
     # --- backup ---
     rclone
@@ -108,12 +108,12 @@ in
     fzy
     skim
     # --- git ---
-    #  gitAndTools.diff-so-fancy
-    #  gitAndTools.gh
-    #  gitAndTools.git-bug
-    #  gitAndTools.git-fame
+    gitAndTools.diff-so-fancy
+    gitAndTools.gh
+    gitAndTools.git-bug
+    gitAndTools.git-fame
     gitAndTools.hub
-    # gitui
+    gitui
     # --- haskell ---
     # cabal-install
     # ghc
@@ -177,6 +177,6 @@ in
     # --- watcher ---
     watchman
     # --- web ---
-    # hugo
+    hugo
   ];
 }
