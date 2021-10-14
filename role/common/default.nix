@@ -58,7 +58,7 @@ in
 
   home.packages = with pkgs; [
     # --- azure ---
-    # azure-cli
+    azure-cli
     azure-storage-azcopy
     # --- backup ---
     rclone
@@ -69,10 +69,7 @@ in
     # jdk11
     leiningen
     # --- cpp ---
-    ccls
     ninja
-    # clang
-    gdb
     # --- data ---
     jq
     # yq
@@ -111,10 +108,10 @@ in
     fzy
     skim
     # --- git ---
-    gitAndTools.diff-so-fancy
-    gitAndTools.gh
-    gitAndTools.git-bug
-    gitAndTools.git-fame
+    #  gitAndTools.diff-so-fancy
+    #  gitAndTools.gh
+    #  gitAndTools.git-bug
+    #  gitAndTools.git-fame
     gitAndTools.hub
     # gitui
     # --- haskell ---
@@ -134,7 +131,6 @@ in
     nodejs-16_x
     yarn
     # --- launcher ---
-    entr
     just
     pueue
     # --- lua ---
@@ -146,17 +142,12 @@ in
     netcat
     speedtest-cli
     # --- nix ---
-    arion
     cachix
-    lorri
     niv
     nixpkgs-fmt
     rnix-lsp
-    # --- plotting ---
-    gnuplot
     # --- process manager ---
     htop
-    procs
     # --- rust ---
     rustup
     # rust-analyzer
@@ -167,26 +158,20 @@ in
     dash
     fish
     shellcheck
-    shfmt
-    # --- ssh ---
-    sshpass
+    #  shfmt
     # --- terminals ---
     # wezterm
     # --- terminal multiplexers ---
     tmux
     # --- text ---
     asciidoctor
-    # vale
     # --- todo manager ---
     taskwarrior
     # --- utility ---
     direnv
     du-dust
     file
-    gawk
     hyperfine
-    neofetch
-    svgcleaner
     topgrade
     wget
     # --- watcher ---

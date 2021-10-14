@@ -814,7 +814,13 @@ return require("packer").startup({
       event = "BufRead",
     })
     -- Marks
-    use({ "kshenoy/vim-signature", event = "BufRead" })
+    use({
+      "chentau/marks.nvim",
+      config = function()
+        require("marks").setup({})
+      end,
+      event = "BufRead",
+    })
     -- Indentation
     use({
       "lukas-reineke/indent-blankline.nvim",
@@ -917,11 +923,9 @@ return require("packer").startup({
     })
     -- Comments
     use({
-      "winston0410/commented.nvim",
+      "numToStr/Comment.nvim",
       config = function()
-        require("commented").setup({
-          keybindings = { n = "gc", v = "gc", nl = "gcc" },
-        })
+        require("Comment").setup()
       end,
       event = "BufRead",
     })
