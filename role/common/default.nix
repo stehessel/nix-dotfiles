@@ -72,7 +72,7 @@ in
     ninja
     # --- data ---
     jq
-    # yq
+    yq
     # --- dev ---
     editorconfig-core-c
     pgformatter
@@ -138,7 +138,7 @@ in
     luajitPackages.luacheck
     luajitPackages.luarocks
     # --- network ---
-    # bandwhich
+    bandwhich
     netcat
     speedtest-cli
     # --- nix ---
