@@ -58,14 +58,14 @@ in
 
   home.packages = with pkgs; [
     # --- azure ---
-     azure-cli
+    azure-cli
     azure-storage-azcopy
     # --- backup ---
     rclone
     restic
     # --- clojure ---
     clojure
-    # clojure-lsp
+    clojure-lsp
     # jdk11
     leiningen
     # --- cpp ---
@@ -152,7 +152,7 @@ in
     dash
     fish
     shellcheck
-    #  shfmt
+    shfmt
     # --- terminals ---
     # wezterm
     # --- terminal multiplexers ---
