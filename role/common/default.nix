@@ -99,14 +99,12 @@ in
     # --- file transfer ---
     rsync
     # --- file viewer ---
-    pandoc
+    # pandoc
     # --- font ---
     fira-code
     font-awesome
     # --- fuzzy search ---
     fzf
-    fzy
-    skim
     # --- git ---
     gitAndTools.diff-so-fancy
     gitAndTools.gh
@@ -114,10 +112,6 @@ in
     gitAndTools.git-fame
     gitAndTools.hub
     gitui
-    # --- haskell ---
-    # cabal-install
-    # ghc
-    # stack
     # --- highlighters ---
     bat
     exa
@@ -150,7 +144,7 @@ in
     htop
     # --- rust ---
     rustup
-    # rust-analyzer
+    rust-analyzer
     # --- ruby ---
     # ruby_2_7
     # --- shell ---

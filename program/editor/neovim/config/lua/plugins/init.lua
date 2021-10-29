@@ -32,6 +32,7 @@ return require("packer").startup({
       end,
     })
     use({ "lewis6991/impatient.nvim" })
+    use({ "nathom/filetype.nvim" })
 
     -- Utility
     use({
@@ -634,7 +635,6 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<F12>", require("dap").step_out)
         vimp.nnoremap({ "override", "silent" }, "<leader>dh", require("dap.ui.widgets").hover)
       end,
-      ft = { "python", "go", "typescript" },
     })
     use({
       "rcarriga/nvim-dap-ui",
