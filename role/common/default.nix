@@ -58,7 +58,7 @@ in
 
   home.packages = with pkgs; [
     # --- azure ---
-    #  azure-cli
+     azure-cli
     azure-storage-azcopy
     # --- backup ---
     rclone
@@ -99,7 +99,7 @@ in
     # --- file transfer ---
     rsync
     # --- file viewer ---
-    # pandoc
+    pandoc
     # --- font ---
     fira-code
     font-awesome
