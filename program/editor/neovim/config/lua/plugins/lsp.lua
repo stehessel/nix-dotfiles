@@ -39,7 +39,7 @@ local on_attach = function(client, bufnr)
     end)
 
     vimp.nnoremap({ "override", "silent" }, "<space>d", function()
-      vim.diagnostic.vim.diagnostic.open_float(0, { focusable = false, scope = "line" })
+      vim.diagnostic.open_float(0, { focusable = false, scope = "line" })
     end)
     vimp.nnoremap({ "override", "silent" }, "[d", function()
       vim.diagnostic.goto_prev({ float = { focusable = false } })
