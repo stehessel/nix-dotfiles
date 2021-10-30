@@ -1017,19 +1017,6 @@ return require("packer").startup({
         vim.g.nvim_tree_git_hl = 1
         vim.g.nvim_tree_group_empty = 1
         vim.g.nvim_tree_highlight_opened_files = 1
-        vim.g.nvim_tree_ignore = {
-          ".DS_Store",
-          ".directory",
-          ".git",
-          ".idea",
-          ".mypy_cache",
-          ".ropeproject",
-          ".vim",
-          ".vscode",
-          "__pycache__",
-          "dask-worker-space",
-          "thumbs.db",
-        }
         vim.g.nvim_tree_width = 35
 
         require("nvim-tree").setup({
@@ -1058,6 +1045,21 @@ return require("packer").startup({
                   cb = require("nvim-tree.config").nvim_tree_callback("edit"),
                 },
               },
+            },
+          },
+          filters = {
+            custom = {
+              ".DS_Store",
+              ".directory",
+              ".git",
+              ".idea",
+              ".mypy_cache",
+              ".ropeproject",
+              ".vim",
+              ".vscode",
+              "__pycache__",
+              "dask-worker-space",
+              "thumbs.db",
             },
           },
         })
