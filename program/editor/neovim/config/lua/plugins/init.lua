@@ -1156,5 +1156,9 @@ return require("packer").startup({
     -- Notifications
     use({ "rcarriga/nvim-notify" })
   end,
-  config = { max_jobs = 32, profile = { enable = false, threshold = 1 } },
+  config = {
+    compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",
+    max_jobs = 32,
+    profile = { enable = false, threshold = 1 },
+  },
 })
