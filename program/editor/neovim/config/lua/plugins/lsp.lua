@@ -39,13 +39,13 @@ local on_attach = function(client, bufnr)
     end)
 
     vimp.nnoremap({ "override", "silent" }, "<space>d", function()
-      vim.diagnostic.show_line_diagnostics({ focusable = false })
+      vim.diagnostic.vim.diagnostic.open_float(0, { focusable = false, scope = "line" })
     end)
     vimp.nnoremap({ "override", "silent" }, "[d", function()
-      vim.diagnostic.goto_prev({ popup_opts = { focusable = false } })
+      vim.diagnostic.goto_prev({ float = { focusable = false } })
     end)
     vimp.nnoremap({ "override", "silent" }, "]d", function()
-      vim.diagnostic.goto_next({ popup_opts = { focusable = false } })
+      vim.diagnostic.goto_next({ float = { focusable = false } })
     end)
 
     if client.resolved_capabilities.document_formatting then
