@@ -10,6 +10,7 @@ vimp.nmap("?", ",")
 vimp.nnoremap("Q", "@q")
 vimp.nnoremap("R", ":%s//g<Left><Left>")
 vimp.xnoremap("R", ":s//g<Left><Left>")
+vimp.inoremap("<S-Tab>", "<C-d>")
 
 -- Center cursor
 vimp.nmap("G", "Gzz")

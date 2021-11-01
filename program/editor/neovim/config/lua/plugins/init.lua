@@ -326,10 +326,10 @@ return require("packer").startup({
         require("lspkind").init()
       end,
       event = "InsertEnter",
-      disable = true,
+      disable = false,
     })
     use({ "folke/lua-dev.nvim" })
-    use({ "L3MON4D3/LuaSnip", disable = true })
+    use({ "L3MON4D3/LuaSnip", disable = false })
     use({
       "hrsh7th/nvim-cmp",
       config = function()
@@ -374,32 +374,8 @@ return require("packer").startup({
               behavior = cmp.ConfirmBehavior.Replace,
               select = true,
             }),
-            ["<Tab>"] = cmp.mapping(function(fallback)
-              if vim.fn.pumvisible() == 1 then
-                feedkey("<C-n>")
-              elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-              elseif has_words_before() then
-                cmp.complete()
-              else
-                fallback()
-              end
-            end, {
-              "i",
-              "s",
-            }),
-            ["<S-Tab>"] = cmp.mapping(function(fallback)
-              if vim.fn.pumvisible() == 1 then
-                feedkey("<C-p>")
-              elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-              else
-                feedkey("<C-h>")
-              end
-            end, {
-              "i",
-              "s",
-            }),
+            ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
+            ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
           },
           snippet = {
             expand = function(args)
@@ -408,16 +384,16 @@ return require("packer").startup({
           },
           sources = {
             -- { name = "buffer" },
-            -- { name = "luasnip" },
+            { name = "luasnip" },
             { name = "nvim_lsp" },
-            { name = "nvim_lua" },
-            { name = "orgmode" },
-            { name = "path" },
+            -- { name = "nvim_lua" },
+            -- { name = "orgmode" },
+            -- { name = "path" },
           },
         })
       end,
       requires = { "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "saadparwaiz1/cmp_luasnip" },
-      disable = true,
+      disable = false,
     })
     use({
       "ms-jpq/coq_nvim",
@@ -429,7 +405,7 @@ return require("packer").startup({
       end,
       event = { "BufRead", "BufNewFile" },
       run = ":COQdeps",
-      disable = false,
+      disable = true,
     })
     use({
       "ms-jpq/coq.thirdparty",
@@ -441,11 +417,13 @@ return require("packer").startup({
           { src = "orgmode", short_name = "ORG" },
         })
       end,
+      disable = true,
     })
     use({
       "ms-jpq/coq.artifacts",
       after = "coq_nvim",
       branch = "artifacts",
+      disable = true,
     })
     use({
       "folke/trouble.nvim",
@@ -1157,7 +1135,7 @@ return require("packer").startup({
     use({ "rcarriga/nvim-notify" })
   end,
   config = {
-    compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",
+    -- compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",
     max_jobs = 32,
     profile = { enable = false, threshold = 1 },
   },
