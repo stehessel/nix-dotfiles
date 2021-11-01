@@ -187,6 +187,7 @@ return require("packer").startup({
         end
         telescope.load_extension("fzf")
         telescope.load_extension("gh")
+        telescope.load_extension("neoclip")
         telescope.load_extension("project")
 
         vimp.nnoremap({ "silent" }, "<leader>fg", function()
@@ -230,6 +231,8 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<leader>fi", "<cmd>Telescope gh issues<CR>")
         vimp.nnoremap({ "override", "silent" }, "<leader>fp", "<cmd>Telescope gh pull_request<CR>")
 
+        vimp.nnoremap({ "override", "silent" }, "<leader>y", "<cmd>Telescope neoclip<CR>")
+
         vimp.nnoremap({ "override", "silent" }, "gd", "<cmd>Telescope lsp_definitions<CR>")
         vimp.nnoremap({ "override", "silent" }, "gr", "<cmd>Telescope lsp_references<CR>")
         vimp.nnoremap({ "override", "silent" }, "gy", "<cmd>Telescope lsp_implementations<CR>")
@@ -244,6 +247,14 @@ return require("packer").startup({
         { "nvim-telescope/telescope-project.nvim", opt = true },
         { "nvim-telescope/telescope-symbols.nvim", opt = true },
       },
+    })
+    -- Clipboard
+    use({
+      "AckslD/nvim-neoclip.lua",
+      config = function()
+        require("neoclip").setup({ enable_persistant_history = true, default_register = "+" })
+      end,
+      requires = { "tami5/sqlite.lua", module = "sqlite" },
     })
     -- Todo
     use({
