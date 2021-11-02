@@ -390,13 +390,20 @@ return require("packer").startup({
               require("luasnip").lsp_expand(args.body)
             end,
           },
-          sources = {
-            -- { name = "buffer" },
+          sources = cmp.config.sources({
+            { name = "buffer" },
             { name = "luasnip" },
             { name = "nvim_lsp" },
-            -- { name = "nvim_lua" },
-            -- { name = "orgmode" },
-            -- { name = "path" },
+            { name = "nvim_lua" },
+            { name = "orgmode" },
+          }, {
+            { name = "path" },
+          }),
+        })
+
+        cmp.setup.cmdline("/", {
+          sources = {
+            { name = "path" },
           },
         })
       end,
