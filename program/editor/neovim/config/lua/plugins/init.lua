@@ -271,19 +271,13 @@ return require("packer").startup({
     })
     -- Statusline
     use({
-      "datwaft/bubbly.nvim",
+      "nvim-lualine/lualine.nvim",
       config = function()
-        require("plugins.bubbly")
+        require("lualine").setup({ sections = {
+          lualine_c = { "filename", "lsp_progress" },
+        } })
       end,
-      disable = false,
-    })
-    use({
-      "glepnir/galaxyline.nvim",
-      config = function()
-        require("plugins.galaxyline")
-      end,
-      disable = true,
-      event = "BufEnter",
+      requires = { { "arkav/lualine-lsp-progress" } },
     })
     -- Notes
     use({
