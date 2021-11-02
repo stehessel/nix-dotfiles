@@ -273,9 +273,12 @@ return require("packer").startup({
     use({
       "nvim-lualine/lualine.nvim",
       config = function()
-        require("lualine").setup({ sections = {
-          lualine_c = { "filename", "lsp_progress" },
-        } })
+        require("lualine").setup({
+          options = { disabled_filetypes = { "NvimTree", "packer", "terminal" } },
+          sections = {
+            lualine_c = { "filename", "lsp_progress" },
+          },
+        })
       end,
       requires = { { "arkav/lualine-lsp-progress" } },
     })
