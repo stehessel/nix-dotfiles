@@ -866,7 +866,6 @@ return require("packer").startup({
       config = function()
         require("lightspeed").setup({})
       end,
-      keys = { "s", "S", "f", "F", "t", "T" },
     })
     use({
       "mfussenegger/nvim-ts-hint-textobject",
