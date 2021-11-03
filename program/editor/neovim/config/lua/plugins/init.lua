@@ -100,7 +100,6 @@ return require("packer").startup({
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<leader>gB", "<cmd>GitBlameToggle<CR>")
       end,
-      disable = false,
     })
     use({
       "rhysd/git-messenger.vim",
@@ -333,10 +332,9 @@ return require("packer").startup({
       config = function()
         require("lspkind").init()
       end,
-      disable = false,
     })
     use({ "folke/lua-dev.nvim" })
-    use({ "L3MON4D3/LuaSnip", disable = false })
+    use({ "L3MON4D3/LuaSnip" })
     use({
       "hrsh7th/nvim-cmp",
       config = function()
@@ -441,37 +439,6 @@ return require("packer").startup({
           requires = { { "romgrk/fzy-lua-native", run = "make" }, { "tzachar/fuzzy.nvim" } },
         },
       },
-      disable = false,
-    })
-    use({
-      "ms-jpq/coq_nvim",
-      branch = "coq",
-      config = function()
-        vim.cmd("COQnow --shut-up")
-
-        vim.g.coq_settings = { ["keymap.jump_to_mark"] = "<C-,>" }
-      end,
-      event = { "BufRead", "BufNewFile" },
-      run = ":COQdeps",
-      disable = true,
-    })
-    use({
-      "ms-jpq/coq.thirdparty",
-      after = "coq_nvim",
-      branch = "3p",
-      config = function()
-        require("coq_3p")({
-          { src = "nvimlua", short_name = "nLUA", conf_only = false },
-          { src = "orgmode", short_name = "ORG" },
-        })
-      end,
-      disable = true,
-    })
-    use({
-      "ms-jpq/coq.artifacts",
-      after = "coq_nvim",
-      branch = "artifacts",
-      disable = true,
     })
     use({
       "folke/trouble.nvim",
@@ -492,13 +459,13 @@ return require("packer").startup({
     use({
       "ray-x/lsp_signature.nvim",
       config = function()
-        require("lsp_signature").on_attach({
+        require("lsp_signature").setup({
           hint_enable = false,
           handler_opts = { border = "none" },
         })
       end,
       event = "InsertEnter",
-      disable = true,
+      disable = false,
     })
     -- Doc strings
     use({
