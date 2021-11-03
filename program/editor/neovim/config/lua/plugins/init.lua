@@ -333,7 +333,6 @@ return require("packer").startup({
       config = function()
         require("lspkind").init()
       end,
-      event = "InsertEnter",
       disable = false,
     })
     use({ "folke/lua-dev.nvim" })
@@ -361,11 +360,11 @@ return require("packer").startup({
             format = function(entry, vim_item)
               vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
               vim_item.menu = ({
-                buffer = "[Buffer]",
-                luasnip = "[LuaSnip]",
+                fzy_buffer = "[Buf]",
+                luasnip = "[Snip]",
                 nvim_lsp = "[LSP]",
                 nvim_lua = "[Lua]",
-                orgmode = "[Orgmode]",
+                orgmode = "[Org]",
                 path = "[Path]",
               })[entry.source.name]
               return vim_item
@@ -407,23 +406,41 @@ return require("packer").startup({
             end,
           },
           sources = cmp.config.sources({
-            { name = "buffer" },
-            { name = "luasnip" },
             { name = "nvim_lsp" },
             { name = "nvim_lua" },
             { name = "orgmode" },
+          }, {
+            { name = "fzy_buffer" },
+            { name = "luasnip" },
           }, {
             { name = "path" },
           }),
         })
 
+        cmp.setup.cmdline(":", {
+          sources = cmp.config.sources({
+            { name = "path" },
+          }, {
+            { name = "cmdline" },
+          }),
+        })
         cmp.setup.cmdline("/", {
           sources = {
             { name = "path" },
           },
         })
       end,
-      requires = { "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "saadparwaiz1/cmp_luasnip" },
+      requires = {
+        { "hrsh7th/cmp-cmdline" },
+        { "hrsh7th/cmp-nvim-lsp" },
+        { "hrsh7th/cmp-nvim-lua" },
+        { "hrsh7th/cmp-path" },
+        { "saadparwaiz1/cmp_luasnip" },
+        {
+          "tzachar/cmp-fzy-buffer",
+          requires = { { "romgrk/fzy-lua-native", run = "make" }, { "tzachar/fuzzy.nvim" } },
+        },
+      },
       disable = false,
     })
     use({
