@@ -91,10 +91,11 @@ in
     gnupg
     # --- file manager ---
     lf
+    nnn
     # --- file search ---
     broot
     fd
-    # ripgrep
+    ripgrep
     tre-command
     # --- file transfer ---
     rsync
@@ -158,7 +159,7 @@ in
     # --- terminal multiplexers ---
     tmux
     # --- text ---
-    # asciidoctor
+    asciidoctor
     # --- todo manager ---
     taskwarrior
     # --- utility ---
