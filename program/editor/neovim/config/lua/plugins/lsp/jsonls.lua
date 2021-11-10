@@ -7,6 +7,9 @@ return {
       flags = { debounce_text_changes = debounce_text_changes },
       filetypes = { "json", "jsonc" },
       init_options = { provideFormatter = false },
+      json = {
+        schemas = require("schemastore").json.schemas(),
+      },
     })
   end,
 }

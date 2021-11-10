@@ -333,7 +333,6 @@ return require("packer").startup({
         require("lspkind").init()
       end,
     })
-    use({ "folke/lua-dev.nvim" })
     use({ "L3MON4D3/LuaSnip" })
     use({
       "hrsh7th/nvim-cmp",
@@ -455,6 +454,7 @@ return require("packer").startup({
       event = "InsertEnter",
       disable = false,
     })
+    use({"b0o/schemastore.nvim"})
     -- Doc strings
     use({
       "danymat/neogen",
