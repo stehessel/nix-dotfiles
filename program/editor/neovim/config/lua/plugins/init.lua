@@ -109,16 +109,6 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<leader>m", "<cmd>GitMessenger<CR>")
       end,
     })
-    use({
-      "sindrets/diffview.nvim",
-      config = function()
-        require("diffview").setup({})
-      end,
-      setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>u", "<cmd>DiffviewOpen<CR>")
-      end,
-    })
     use({ "rhysd/conflict-marker.vim" })
     -- Github
     use({
