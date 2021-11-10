@@ -110,15 +110,6 @@ return require("packer").startup({
       end,
     })
     use({
-      "TimUntersberger/neogit",
-      config = function()
-        require("neogit").setup({ disable_commit_confirmation = true })
-
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>M", ":Neogit kind=vsplit<CR>")
-      end,
-    })
-    use({
       "sindrets/diffview.nvim",
       config = function()
         require("diffview").setup({})
