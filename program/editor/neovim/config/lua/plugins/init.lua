@@ -428,11 +428,11 @@ return require("packer").startup({
       "ray-x/lsp_signature.nvim",
       config = function()
         require("lsp_signature").setup({
+          bind = true,
           hint_enable = false,
           handler_opts = { border = "none" },
         })
       end,
-      event = "InsertEnter",
       disable = false,
     })
     use({"b0o/schemastore.nvim"})
