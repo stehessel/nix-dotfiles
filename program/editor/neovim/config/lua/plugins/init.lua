@@ -216,9 +216,11 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "gd", "<cmd>Telescope lsp_definitions<CR>")
         vimp.nnoremap({ "override", "silent" }, "gr", "<cmd>Telescope lsp_references<CR>")
         vimp.nnoremap({ "override", "silent" }, "gy", "<cmd>Telescope lsp_implementations<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<space>o", "<cmd>Telescope lsp_document_symbols<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<space>s", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<space>e", "<cmd>Telescope lsp_document_diagnostics<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<Space>a", "<cmd>Telescope lsp_code_actions<CR>")
+        vimp.xnoremap({ "override", "silent" }, "<Space>a", "<cmd>Telescope lsp_range_code_actions<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<Space>o", "<cmd>Telescope lsp_document_symbols<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<Space>s", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
+        vimp.nnoremap({ "override", "silent" }, "<Space>e", "<cmd>Telescope lsp_document_diagnostics<CR>")
       end,
       requires = {
         { "nvim-telescope/telescope-dap.nvim", opt = true },
@@ -242,7 +244,6 @@ return require("packer").startup({
       config = function()
         require("todo-comments").setup({})
       end,
-      requires = "nvim-lua/plenary.nvim",
       setup = function()
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<leader>ft", "<cmd>TodoTelescope<cr>")
@@ -313,7 +314,6 @@ return require("packer").startup({
         require("lspkind").init()
       end,
     })
-    use({ "L3MON4D3/LuaSnip" })
     use({
       "hrsh7th/nvim-cmp",
       config = function()
@@ -383,10 +383,10 @@ return require("packer").startup({
         })
       end,
       requires = {
-        { "hrsh7th/cmp-cmdline" },
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-nvim-lua" },
         { "hrsh7th/cmp-path" },
+        { "L3MON4D3/LuaSnip" },
         { "saadparwaiz1/cmp_luasnip" },
       },
     })
@@ -401,7 +401,6 @@ return require("packer").startup({
           handler_opts = { border = "none" },
         })
       end,
-      disable = false,
     })
     use({ "b0o/schemastore.nvim" })
     -- Doc strings
@@ -417,47 +416,6 @@ return require("packer").startup({
     })
     use({ "nanotee/sqls.nvim", ft = "sql" })
     -- Python
-    use({
-      "python-rope/ropevim",
-      after = "vimpeccable",
-      cmd = {
-        "RopeCodeAssist",
-        "RopeLuckyAssist",
-        "RopeAutoImport",
-        "RopeGotoDefinition",
-        "RopeGenerateAutoimportCache",
-      },
-      config = function()
-        vim.g.ropevim_local_prefix = "<M-r>"
-        vim.g.ropevim_global_prefix = "<M-p>"
-        vim.g.ropevim_autoimport_modules = {
-          "abc",
-          "contextlib",
-          "datetime",
-          "functools",
-          "itertools",
-          "json",
-          "kartothek",
-          "logging",
-          "numpy",
-          "os",
-          "pandas",
-          "pytest",
-          "requests",
-          "subprocess",
-          "tenacity",
-          "typing",
-          "uuid",
-        }
-        vim.g.ropevim_enable_autoimport = 1
-        vim.g.ropevim_guess_project = 1
-
-        vimp.nnoremap({ "override", "silent" }, "<M-,>", ":RopeCodeAssist<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<M-.>", ":RopeLuckyAssist<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<M-cr>", ":RopeAutoImport<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<M-d>", ":RopeGotoDefinition<cr>")
-      end,
-    })
     use({ "stsewd/sphinx.nvim", ft = { "python", "rst" } })
     use({
       "dccsillag/magma-nvim",

@@ -49,8 +49,8 @@ return {
             },
           },
           workspace = {
-            maxPreload = 10000,
-            preloadFileSize = 10000,
+            maxPreload = 2000,
+            preloadFileSize = 2000,
             -- Make the server aware of Neovim runtime files
             library = vim.api.nvim_get_runtime_file("", true),
           },

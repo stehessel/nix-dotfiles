@@ -29,8 +29,6 @@ local on_attach = function(client, bufnr)
     if client.resolved_capabilities.rename then
       vimp.nnoremap({ "override", "silent" }, "<space>r", vim.lsp.buf.rename)
     end
-    vimp.nnoremap({ "override", "silent" }, "<space>a", vim.lsp.buf.code_action)
-    vimp.xnoremap({ "override", "silent" }, "<space>a", vim.lsp.buf.range_code_action)
 
     vimp.nnoremap({ "override", "silent" }, "<space>wa", vim.lsp.buf.add_workspace_folder)
     vimp.nnoremap({ "override", "silent" }, "<space>wr", vim.lsp.buf.remove_workspace_folder)

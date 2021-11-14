@@ -3,6 +3,7 @@ return {
     local builtins = require("null-ls").builtins
     local sources = {
       builtins.code_actions.gitsigns,
+      builtins.code_actions.refactoring,
       builtins.diagnostics.eslint.with({ command = "eslint_d" }),
       builtins.diagnostics.hadolint,
       -- builtins.diagnostics.selene,
