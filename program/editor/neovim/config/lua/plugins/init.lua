@@ -239,13 +239,12 @@ return require("packer").startup({
     -- Todo
     use({
       "folke/todo-comments.nvim",
-      cmd = { "TodoTrouble", "TodoTelescope" },
       config = function()
         require("todo-comments").setup({})
       end,
+      requires = "nvim-lua/plenary.nvim",
       setup = function()
         require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<space>tc", "<cmd>TodoTrouble<cr>")
         vimp.nnoremap({ "override", "silent" }, "<leader>ft", "<cmd>TodoTelescope<cr>")
       end,
     })
@@ -326,7 +325,7 @@ return require("packer").startup({
             format = function(entry, vim_item)
               vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
               vim_item.menu = ({
-                fzy_buffer = "[Buf]",
+                fuzzy_buffer = "[Buf]",
                 luasnip = "[Snip]",
                 nvim_lsp = "[LSP]",
                 nvim_lua = "[Lua]",
@@ -376,24 +375,11 @@ return require("packer").startup({
             { name = "nvim_lua" },
             { name = "orgmode" },
           }, {
-            { name = "fzy_buffer" },
+            { name = "fuzzy_buffer" },
             { name = "luasnip" },
           }, {
             { name = "path" },
           }),
-        })
-
-        cmp.setup.cmdline(":", {
-          sources = cmp.config.sources({
-            { name = "path" },
-          }, {
-            { name = "cmdline" },
-          }),
-        })
-        cmp.setup.cmdline("/", {
-          sources = {
-            { name = "path" },
-          },
         })
       end,
       requires = {
@@ -402,28 +388,10 @@ return require("packer").startup({
         { "hrsh7th/cmp-nvim-lua" },
         { "hrsh7th/cmp-path" },
         { "saadparwaiz1/cmp_luasnip" },
-        {
-          "tzachar/cmp-fzy-buffer",
-          requires = { { "romgrk/fzy-lua-native", run = "make" }, { "tzachar/fuzzy.nvim" } },
-        },
       },
     })
-    use({
-      "folke/trouble.nvim",
-      cmd = { "Trouble", "TroubleClose", "TroubleRefresh", "TroubleToggle" },
-      config = function()
-        require("trouble").setup({})
-      end,
-      setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<space>tt", "<cmd>TroubleToggle<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<space>tw", "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<space>td", "<cmd>TroubleToggle lsp_document_diagnostics<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<space>tl", "<cmd>TroubleToggle loclist<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<space>tq", "<cmd>TroubleToggle quickfix<cr>")
-        vimp.nnoremap({ "override", "silent" }, "gR", "<cmd>Trouble lsp_references<cr>")
-      end,
-    })
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+    use({ "tzachar/cmp-fuzzy-buffer", requires = { "hrsh7th/nvim-cmp", "tzachar/fuzzy.nvim" } })
     use({
       "ray-x/lsp_signature.nvim",
       config = function()
@@ -435,7 +403,7 @@ return require("packer").startup({
       end,
       disable = false,
     })
-    use({"b0o/schemastore.nvim"})
+    use({ "b0o/schemastore.nvim" })
     -- Doc strings
     use({
       "danymat/neogen",

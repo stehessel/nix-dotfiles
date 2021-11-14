@@ -106,6 +106,7 @@ in
     font-awesome
     # --- fuzzy search ---
     fzf
+    fzy
     # --- git ---
     gitAndTools.diff-so-fancy
     gitAndTools.gh
