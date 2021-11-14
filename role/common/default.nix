@@ -160,6 +160,9 @@ in
     # wezterm
     # --- terminal multiplexers ---
     tmux
+    # --- terraform ---
+    terraform
+    terraform-ls
     # --- text ---
     asciidoctor
     # --- todo manager ---

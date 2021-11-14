@@ -1,5 +1,6 @@
 require("vimp")
 require("core.settings")
+require("core.autocmd")
 
 -- Misc keybinds
 vimp.nnoremap("U", ":redo<CR>")

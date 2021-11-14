@@ -70,6 +70,7 @@ local servers = {
   -- "sqls",
   "sumneko",
   "tailwindcss",
+  "terraformls",
   "tsserver",
   "yamlls",
 }
