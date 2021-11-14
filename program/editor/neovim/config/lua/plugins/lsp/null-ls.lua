@@ -4,10 +4,12 @@ return {
     local sources = {
       builtins.code_actions.gitsigns,
       builtins.code_actions.refactoring,
+      builtins.code_actions.statix,
       builtins.diagnostics.eslint.with({ command = "eslint_d" }),
       builtins.diagnostics.hadolint,
       -- builtins.diagnostics.selene,
       builtins.diagnostics.shellcheck,
+      builtins.diagnostics.statix,
       builtins.formatting.black,
       builtins.formatting.fish_indent,
       builtins.formatting.isort,

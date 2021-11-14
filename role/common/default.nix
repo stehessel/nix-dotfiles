@@ -142,6 +142,7 @@ in
     niv
     nixpkgs-fmt
     rnix-lsp
+    statix
     # --- process manager ---
     htop
     # --- rust ---
