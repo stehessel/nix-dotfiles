@@ -92,7 +92,6 @@ return require("packer").startup({
           },
         })
       end,
-      event = { "BufRead", "BufNewFile" },
     })
     use({
       "f-person/git-blame.nvim",
@@ -523,6 +522,7 @@ return require("packer").startup({
         vimp.nnoremap({ "override", "silent" }, "<F12>", require("dap").step_out)
         vimp.nnoremap({ "override", "silent" }, "<leader>dh", require("dap.ui.widgets").hover)
       end,
+      filetype = { "go", "python", "rust", "typescript" },
     })
     use({
       "rcarriga/nvim-dap-ui",
@@ -547,6 +547,7 @@ return require("packer").startup({
         require("dap-python").setup("python")
         require("dap-python").test_runner = "pytest"
       end,
+      filetype = "python",
     })
     use({
       "leoluz/nvim-dap-go",
@@ -554,6 +555,7 @@ return require("packer").startup({
       config = function()
         require("dap-go").setup()
       end,
+      filetype = "go",
     })
     -- Testing
     use({
@@ -615,11 +617,11 @@ return require("packer").startup({
     })
     -- Code folding
     use({ "kalekundert/vim-coiled-snake", ft = "python" })
-    use({ "Konfekt/FastFold", event = "BufRead" })
+    use({ "Konfekt/FastFold" })
     -- Syntax highlighters
     use({ "ekalinin/Dockerfile.vim", ft = "dockerfile" })
     use({ "LnL7/vim-nix", ft = "nix" })
-    use({ "RRethy/vim-illuminate", event = "BufRead" })
+    use({ "RRethy/vim-illuminate" })
     -- Asciidoc
     use({ "habamax/vim-asciidoctor", ft = "asciidoctor" })
     -- REPL
@@ -668,7 +670,7 @@ return require("packer").startup({
     })
     use({ "michaelb/sniprun", run = "bash ./install.sh" })
     -- Color scheme
-    use({ "folke/lsp-colors.nvim", event = "BufRead" })
+    use({ "folke/lsp-colors.nvim" })
     use({
       "folke/tokyonight.nvim",
       config = function()
@@ -699,7 +701,6 @@ return require("packer").startup({
       config = function()
         require("surround").setup({ prefix = "r" })
       end,
-      event = "BufRead",
     })
     -- Marks
     use({
@@ -707,7 +708,6 @@ return require("packer").startup({
       config = function()
         require("marks").setup({})
       end,
-      event = "BufRead",
     })
     -- Indentation
     use({
@@ -717,11 +717,10 @@ return require("packer").startup({
         vim.g.indent_blankline_char = "¦"
         vim.g.indent_blankline_filetype_exclude = { "packer", "startify" }
       end,
-      event = "BufRead",
     })
-    use({ "Darazaki/indent-o-matic", event = "BufRead" })
+    use({ "Darazaki/indent-o-matic" })
     -- Keybinds
-    use({ "tpope/vim-unimpaired", event = "BufRead" })
+    use({ "tpope/vim-unimpaired" })
     -- Movement
     use({
       "ggandor/lightspeed.nvim",
@@ -744,7 +743,6 @@ return require("packer").startup({
       setup = function()
         vim.g.switch_mapping = "-"
       end,
-      event = "BufRead",
     })
     use({
       "junegunn/vim-easy-align",
@@ -770,7 +768,7 @@ return require("packer").startup({
       end,
       ft = { "clojure", "fennel" },
     })
-    use({ "matze/vim-move", event = "BufRead" })
+    use({ "matze/vim-move" })
     use({ "mg979/vim-visual-multi", keys = { "<C-n>", "<C-Up>", "<C-Down>" } })
     use({
       "nicwest/vim-camelsnek",
@@ -814,7 +812,6 @@ return require("packer").startup({
       config = function()
         require("Comment").setup()
       end,
-      event = "BufRead",
     })
     -- Text substitution
     use({
@@ -844,20 +841,6 @@ return require("packer").startup({
       end,
     })
     -- Text objects
-    use({
-      "chaoren/vim-wordmotion",
-      config = function()
-        vim.g.wordmotion_mappings = {
-          ["w"] = "<M-w>",
-          ["b"] = "<M-b>",
-          ["e"] = "<M-e>",
-          ["ge"] = "g<M-e>",
-          ["aw"] = "a<M-w>",
-          ["iw"] = "i<M-w>",
-          ["<C-R><C-W>"] = "<C-R><M-w>",
-        }
-      end,
-    })
     use("wellle/targets.vim")
     -- Buffers
     use({ "famiu/bufdelete.nvim", cmd = { "Bdelete", "Bwipeout" } })
@@ -993,7 +976,7 @@ return require("packer").startup({
       keys = "/",
       requires = "inkarkat/vim-ingo-library",
     })
-    use({ "romainl/vim-cool", event = "BufRead" })
+    use({ "romainl/vim-cool" })
     use({
       "ironhouzi/starlite-nvim",
       config = function()
