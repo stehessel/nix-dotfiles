@@ -51,6 +51,10 @@ local on_attach = function(client, bufnr)
     elseif client.resolved_capabilities.document_range_formatting then
       vimp.vnoremap({ "override", "silent" }, "<space>f", vim.lsp.buf.range_formatting)
     end
+
+    -- Callstack
+    vimp.nnoremap({ "override", "silent" }, "<space>ci", vim.lsp.buf.incoming_calls)
+    vimp.nnoremap({ "override", "silent" }, "<space>co", vim.lsp.buf.outgoing_calls)
   end)
 end
 

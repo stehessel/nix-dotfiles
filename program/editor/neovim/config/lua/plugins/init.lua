@@ -253,7 +253,7 @@ return require("packer").startup({
       "nvim-lualine/lualine.nvim",
       config = function()
         require("lualine").setup({
-          options = { disabled_filetypes = { "NvimTree", "packer", "terminal" } },
+          options = { disabled_filetypes = { "Calltree", "NvimTree", "packer", "terminal" } },
           sections = {
             lualine_c = { "filename", "lsp_progress" },
           },
@@ -399,6 +399,12 @@ return require("packer").startup({
           hint_enable = false,
           handler_opts = { border = "none" },
         })
+      end,
+    })
+    use({
+      "ldelossa/calltree.nvim",
+      config = function()
+        require("calltree").setup({ layout_size = 40, icons = "codicon" })
       end,
     })
     use({ "b0o/schemastore.nvim" })
@@ -675,7 +681,7 @@ return require("packer").startup({
       "folke/tokyonight.nvim",
       config = function()
         vim.g.tokyonight_style = "night"
-        vim.g.tokyonight_sidebars = { "NvimTree", "packer", "qf", "terminal" }
+        vim.g.tokyonight_sidebars = { "Calltree", "NvimTree", "packer", "qf", "terminal" }
         vim.cmd("colorscheme tokyonight")
       end,
     })
@@ -693,7 +699,11 @@ return require("packer").startup({
       "windwp/nvim-autopairs",
       config = function()
         require("nvim-autopairs").setup()
+
+        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+        require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
       end,
+      disable = true,
       event = "InsertEnter",
     })
     use({
