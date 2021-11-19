@@ -8,7 +8,7 @@ self: super: {
       src = super.fetchFromGitHub {
         inherit (sources.neovim) owner repo rev sha256;
       };
-      buildInputs = old.buildInputs;
+      inherit (old) buildInputs;
     }
   );
 }

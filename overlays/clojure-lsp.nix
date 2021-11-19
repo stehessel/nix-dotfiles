@@ -2,7 +2,7 @@ let
   sources = import ../nix/sources.nix;
 in
 self: super: {
-  libressl = super.libressl.overrideAttrs (
+  clojure-lsp = super.clojure-lsp.overrideAttrs (
     old: {
       doCheck = false;
     }
