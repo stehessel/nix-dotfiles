@@ -739,7 +739,7 @@ return require("packer").startup({
       end,
     })
     use({
-      "mfussenegger/nvim-ts-hint-textobject",
+      "mfussenegger/nvim-treehopper",
       after = "nvim-treesitter",
       config = function()
         require("vimp")
