@@ -170,7 +170,7 @@ cask "ukelele"
 cask "vagrant"
 # GUI for the Neovim text editor
 cask "vimr"
-# Free and open-source hosted hypervisor for x86 virtualization
+# Virtualizer for x86 hardware
 cask "virtualbox"
 # Open-source code editor
 cask "visual-studio-code"
