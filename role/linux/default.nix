@@ -19,9 +19,6 @@ in
   home.packages = with pkgs; [
     # --- bookmarks ---
     buku
-    # --- editor ---
-    # kakoune
-    # neovim
     # --- file viewer ---
     glow
   ];

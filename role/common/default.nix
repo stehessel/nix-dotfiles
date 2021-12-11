@@ -85,6 +85,7 @@ in
     hadolint
     # --- editor ---
     kakoune
+    neovim
     # --- encryption ---
     gnupg
     # --- file manager ---

@@ -14,9 +14,6 @@ in
   xdg.configFile."fish/fish_plugins".source = ../../program/shell/fish/macos/fish_plugins;
 
   home.packages = with pkgs; [
-    # --- editor ---
-    neovim
-    neovim-remote
     # --- latex ---
     # texlive.combined.scheme-full
     # tectonic
