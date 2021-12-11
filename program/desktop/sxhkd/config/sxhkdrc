@@ -1,5 +1,5 @@
 super + {Return, c, e, v}
-	$TERMINAL { , -e calcurse, -e neomutt, -e vifm }
+	kitty { , -e calcurse, -e neomutt, -e vifm }
 
 super + space
 	launcher

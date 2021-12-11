@@ -26,7 +26,6 @@ in
     glow
   ];
 
-  xdg.configFile."nix/nix-daemon.fish".source = config/nix-daemon.fish;
   xdg.configFile."fish/fish_plugins".source = ../../program/shell/fish/linux/fish_plugins;
   home.file.".profile".source = config/profile;
 }

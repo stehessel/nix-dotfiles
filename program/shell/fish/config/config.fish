@@ -35,9 +35,6 @@ fish_add_path "$HOME/.nix-profile/bin"
 fish_add_path "$HOME/.local/bin"
 fish_add_path "$HOME/miniconda3/bin"
 
-source "$XDG_CONFIG_HOME/nix/nix-single-user.fish" 2> /dev/null
-source "$XDG_CONFIG_HOME/nix/nix-daemon.fish" 2> /dev/null
-
 # Link sh to dash
 ln -s (command -v dash) "$HOME/.local/bin/sh" 2> /dev/null
 set -x NVIM_LISTEN_ADDRESS /tmp/nvimsocket
