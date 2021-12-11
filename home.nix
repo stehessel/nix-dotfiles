@@ -10,7 +10,7 @@ in
   manual.manpages.enable = false;
 
   imports = [
-    ./role/work-macos
-    ./user/blueyonder
+    ./role/linux
+    ./user/stehessel
   ];
 }
