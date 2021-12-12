@@ -10,7 +10,6 @@ dunst &
 unclutter &
 udiskie -s &
 nm-applet &
-dropbox &
 
 setxkbmap -option caps:escape
 
