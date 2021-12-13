@@ -305,6 +305,32 @@ return require("packer").startup({
     })
     use({
       "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        local builtins = require("null-ls").builtins
+
+        require("null-ls").setup({
+          sources = {
+            builtins.code_actions.gitsigns,
+            builtins.code_actions.refactoring,
+            builtins.code_actions.statix,
+            builtins.diagnostics.eslint.with({ command = "eslint_d" }),
+            builtins.diagnostics.hadolint,
+            -- builtins.diagnostics.selene,
+            builtins.diagnostics.shellcheck,
+            builtins.diagnostics.statix,
+            builtins.formatting.black,
+            builtins.formatting.fish_indent,
+            builtins.formatting.isort,
+            builtins.formatting.prettierd,
+            builtins.formatting.shfmt,
+            builtins.formatting.stylua.with({
+              args = { "--config-path", vim.fn.expand("$HOME") .. "/.config/stylua/stylua.toml", "-" },
+            }),
+            require("plugins.lsp.null-ls.codespell"),
+            require("plugins.lsp.null-ls.pgformatter"),
+          },
+        })
+      end,
     })
     use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
     use({
@@ -337,7 +363,7 @@ return require("packer").startup({
                 orgmode = "[Org]",
                 path = "[Path]",
               },
-           }),
+            }),
           },
           mapping = {
             ["<C-p>"] = cmp.mapping.select_prev_item(),

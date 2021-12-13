@@ -85,7 +85,7 @@ in
     hadolint
     # --- editor ---
     kakoune
-    neovim
+    # neovim
     # --- encryption ---
     gnupg
     # --- file manager ---
@@ -132,6 +132,7 @@ in
     luajitPackages.lua-lsp
     luajitPackages.luacheck
     luajitPackages.luarocks
+    stylua
     # --- network ---
     bandwhich
     netcat

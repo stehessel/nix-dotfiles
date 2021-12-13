@@ -46,11 +46,7 @@ local on_attach = function(client, bufnr)
       vim.diagnostic.goto_next({ float = { focusable = false } })
     end)
 
-    if client.resolved_capabilities.document_formatting then
-      vimp.nnoremap({ "override", "silent" }, "<space>f", vim.lsp.buf.formatting)
-    elseif client.resolved_capabilities.document_range_formatting then
-      vimp.vnoremap({ "override", "silent" }, "<space>f", vim.lsp.buf.range_formatting)
-    end
+    vimp.nnoremap({ "override", "silent" }, "<space>f", vim.lsp.buf.formatting_sync)
 
     -- Callstack
     vimp.nnoremap({ "override", "silent" }, "<space>ci", vim.lsp.buf.incoming_calls)
@@ -68,7 +64,6 @@ local servers = {
   "dockerls",
   "gopls",
   "jsonls",
-  "null-ls",
   "pyright",
   "rnix",
   -- "sqls",
