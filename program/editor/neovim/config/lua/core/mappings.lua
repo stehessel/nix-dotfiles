@@ -70,9 +70,6 @@ vimp.nnoremap({ "override", "silent" }, "<leader>o", function()
   vim.opt_local.spell = not vim.opt_local.spell:get()
 end)
 
--- Sort
-vimp.xnoremap({ "override", "silent" }, "<leader>s", ":sort<cr>")
-
 -- Terminal navigation
 vimp.tnoremap({ "silent" }, "<C-q>", [[<C-\><C-n>:q<cr>]])
 vimp.tnoremap({ "silent" }, "<C-h>", [[<C-\><C-n><C-w>h]])

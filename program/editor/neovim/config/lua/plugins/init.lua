@@ -727,7 +727,12 @@ return require("packer").startup({
       end,
     })
     -- Extend % operator
-    -- use({ "andymass/vim-matchup" })
+    use({
+      "monkoose/matchparen.nvim",
+      config = function()
+        require("matchparen").setup()
+      end,
+    })
     -- Brackets
     use({
       "windwp/nvim-autopairs",
@@ -831,6 +836,14 @@ return require("packer").startup({
       end,
     })
     use({ "tpope/vim-repeat", keys = "." })
+    use({
+      "sQVe/sort.nvim",
+      config = function()
+        require("sort").setup({})
+        vimp.nnoremap({ "override", "silent" }, "go", ":Sort<cr>")
+        vimp.xnoremap({ "override", "silent" }, "go", ":Sort<cr>")
+      end,
+    })
     -- Increment / Decrement
     use({
       "monaqa/dial.nvim",
