@@ -27,6 +27,9 @@ in
     sqlite
   ];
 
+  programs = {
+    go = { enable = true; };
+  };
   systemd.user.targets = {
     tray = {
       Unit = {
