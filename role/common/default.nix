@@ -132,6 +132,7 @@ in
     luajitPackages.lua-lsp
     luajitPackages.luacheck
     luajitPackages.luarocks
+    selene
     stylua
     # --- network ---
     bandwhich

@@ -309,14 +309,13 @@ return require("packer").startup({
         local builtins = require("null-ls").builtins
 
         require("null-ls").setup({
-          -- on_attach=require("plugins.lsp").on_attach,
           sources = {
             builtins.code_actions.gitsigns,
             builtins.code_actions.refactoring,
             builtins.code_actions.statix,
             builtins.diagnostics.eslint.with({ command = "eslint_d" }),
             builtins.diagnostics.hadolint,
-            -- builtins.diagnostics.selene,
+            builtins.diagnostics.selene,
             builtins.diagnostics.shellcheck,
             builtins.diagnostics.statix,
             builtins.formatting.black,
