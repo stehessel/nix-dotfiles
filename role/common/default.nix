@@ -178,5 +178,7 @@ in
     watchman
     # --- web ---
     hugo
+    # --- yaml ---
+    yaml-language-server
   ];
 }

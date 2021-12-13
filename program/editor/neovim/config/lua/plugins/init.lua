@@ -309,6 +309,7 @@ return require("packer").startup({
         local builtins = require("null-ls").builtins
 
         require("null-ls").setup({
+          -- on_attach=require("plugins.lsp").on_attach,
           sources = {
             builtins.code_actions.gitsigns,
             builtins.code_actions.refactoring,
