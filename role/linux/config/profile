@@ -14,5 +14,3 @@ nm-applet &
 systemctl --user start syncthingtray.service
 
 setxkbmap -option caps:escape
-
-[ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
