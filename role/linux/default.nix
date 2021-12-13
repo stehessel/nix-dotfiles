@@ -21,6 +21,8 @@ in
     buku
     # --- file viewer ---
     glow
+    # --- lua ---
+    sumneko-lua-language-server
   ];
 
   systemd.user.targets = {

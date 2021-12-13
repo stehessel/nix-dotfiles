@@ -19,7 +19,8 @@ return {
     table.insert(runtime_path, "lua/?/init.lua")
 
     require("lspconfig").sumneko_lua.setup({
-      cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
+      -- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
+      cmd = { "lua-language-server" },
       on_attach = on_attach,
       capabilities = capabilities,
       root_dir = root_patterns,
