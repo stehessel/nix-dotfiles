@@ -76,3 +76,5 @@ local servers = {
 for _, name in ipairs(servers) do
   require("plugins.lsp." .. name).setup(on_attach, capabilities, root_patterns, 500)
 end
+
+return {on_attach = on_attach}
