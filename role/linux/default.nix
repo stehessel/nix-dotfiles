@@ -23,9 +23,24 @@ in
     glow
   ];
 
-  services.syncthing = {
-    enable = true;
-    tray = { enable = true; };
+  systemd.user.targets = {
+    tray = {
+      Unit = {
+        Description = "Home Manager System Tray";
+        Requires = [ "graphical-session-pre.target" ];
+      };
+    };
+  };
+  services = {
+    sxhkd = {
+      enable = true;
+      extraOptions = [ "-c ~/.config/sxhkd/sxhkdrc" ];
+    };
+
+    syncthing = {
+      enable = true;
+      tray = { enable = true; };
+    };
   };
 
   xdg.configFile."fish/fish_plugins".source = ../../program/shell/fish/linux/fish_plugins;
