@@ -122,8 +122,6 @@ in
     # --- http ---
     http-prompt
     httpie
-    # --- java ---
-    maven
     # --- javascript ---
     nodejs-16_x
     yarn
