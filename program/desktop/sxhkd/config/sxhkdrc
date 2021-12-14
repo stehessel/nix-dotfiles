@@ -49,4 +49,4 @@ super + shift + BackSpace
 super + F1
 	ducksearch
 super + F2
-	feh --bg-max --randomize ~/Dropbox/backgrounds/*
+	feh --bg-max --randomize ~/Sync/backgrounds/*
