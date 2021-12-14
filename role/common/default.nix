@@ -113,6 +113,8 @@ in
     gitAndTools.git-fame
     gitAndTools.hub
     gitui
+    # --- golang ---
+    gopls
     # --- highlighters ---
     bat
     exa
@@ -146,6 +148,8 @@ in
     statix
     # --- process manager ---
     htop
+    # --- python ---
+    pyright
     # --- rust ---
     rustup
     rust-analyzer

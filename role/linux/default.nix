@@ -28,8 +28,11 @@ in
   ];
 
   programs = {
-    go = { enable = true; };
+    go = {
+      enable = true;
+    };
   };
+
   systemd.user.targets = {
     tray = {
       Unit = {
