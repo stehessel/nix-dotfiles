@@ -7,11 +7,12 @@ in
   imports = [
     ../common
     ../../program/desktop/compositor/picom
-    ../../program/desktop/window-manager/qtile
     ../../program/desktop/dunst
     ../../program/desktop/mime-apps
     ../../program/desktop/rofi
     ../../program/desktop/sxhkd
+    ../../program/desktop/window-manager/qtile
+    ../../program/desktop/window-manager/river
     ../../program/file-viewer/sxiv
     ../../program/file-viewer/zathura
   ];
@@ -51,7 +52,10 @@ in
 
     syncthing = {
       enable = true;
-      tray = { enable = true; };
+      tray = {
+        enable = true;
+        command = "syncthingtray --wait";
+      };
     };
   };
 
