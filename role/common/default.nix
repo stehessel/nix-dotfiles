@@ -149,6 +149,7 @@ in
     # --- process manager ---
     htop
     # --- python ---
+    # micromamba
     pyright
     # --- rust ---
     rustup

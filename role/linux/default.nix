@@ -19,6 +19,8 @@ in
   home.packages = with pkgs; [
     # --- bookmarks ---
     buku
+    # --- clipboard ---
+    xclip
     # --- file viewer ---
     glow
     # --- lua ---
