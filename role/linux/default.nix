@@ -11,7 +11,6 @@ in
     ../../program/desktop/mime-apps
     ../../program/desktop/rofi
     ../../program/desktop/sxhkd
-    ../../program/desktop/window-manager/qtile
     ../../program/desktop/window-manager/river
     ../../program/file-viewer/sxiv
     ../../program/file-viewer/zathura
@@ -32,6 +31,10 @@ in
 
   programs = {
     go = {
+      enable = true;
+    };
+
+    foot = {
       enable = true;
     };
   };

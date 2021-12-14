@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/usr/bin/env sh
 
 # This is the example configuration file for river.
 #
@@ -13,6 +13,9 @@ mod="Mod4"
 
 # Mod+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal $mod+Shift Return spawn foot
+
+# Mod+Space to start application launcher
+riverctl map normal $mod Space spawn launcher
 
 # Mod+Q to close the focused view
 riverctl map normal $mod Q close
@@ -94,8 +97,8 @@ all_tags=$(((1 << 32) - 1))
 riverctl map normal $mod 0 set-focused-tags $all_tags
 riverctl map normal $mod+Shift 0 set-view-tags $all_tags
 
-# Mod+Space to toggle float
-riverctl map normal $mod Space toggle-float
+# Mod+Ctrl+Space to toggle float
+riverctl map normal $mod+Control Space toggle-float
 
 # Mod+F to toggle fullscreen
 riverctl map normal $mod F toggle-fullscreen
@@ -144,7 +147,7 @@ riverctl border-color-focused 0x93a1a1
 riverctl border-color-unfocused 0x586e75
 
 # Set keyboard repeat rate
-riverctl set-repeat 50 300
+riverctl set-repeat 60 300
 
 # Make certain views start floating
 riverctl float-filter-add app-id float
