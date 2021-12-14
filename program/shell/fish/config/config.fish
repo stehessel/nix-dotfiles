@@ -20,6 +20,7 @@ set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
 set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
 set -x CARGO_HOME "$XDG_CONFIG_HOME/cargo"
 
+set -e fish_user_paths
 fish_add_path "$HOME/.luarocks/bin"
 fish_add_path "$HOME/.npm-packages/bin"
 fish_add_path "$HOME/go/bin"

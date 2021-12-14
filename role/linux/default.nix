@@ -26,6 +26,8 @@ in
     sumneko-lua-language-server
     # --- sql ---
     sqlite
+    # --- wayland ---
+    waybar
   ];
 
   programs = {
