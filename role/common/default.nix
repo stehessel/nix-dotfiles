@@ -31,7 +31,7 @@ in
     ../../program/editor/kakoune
     ../../program/editor/neovim
     ../../program/file-manager/lf
-    # ../../program/package-manager/nix
+    ../../program/package-manager/nix
     ../../program/shell/bash
     ../../program/shell/bobthefish
     ../../program/shell/fish

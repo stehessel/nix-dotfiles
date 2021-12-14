@@ -14,8 +14,8 @@ mod="Mod4"
 # Mod+Shift+Return to start an instance of Kitty
 riverctl map normal $mod+Shift Return spawn kitty
 
-# Mod+Space to start Firefox
-riverctl map normal $mod Space spawn firefox
+# Mod+Space to start launcher
+riverctl map normal $mod Space spawn "BEMENU_BACKEND=wayland bemenu-run"
 
 # Mod+Q to close the focused view
 riverctl map normal $mod Q close

@@ -27,15 +27,16 @@ in
     # --- sql ---
     sqlite
     # --- wayland ---
+    bemenu
     waybar
   ];
 
   programs = {
-    go = {
+    foot = {
       enable = true;
     };
 
-    foot = {
+    go = {
       enable = true;
     };
   };
@@ -49,6 +50,11 @@ in
     };
   };
   services = {
+    dunst = {
+      enable = true;
+      waylandDisplay = "wayland-1";
+    };
+
     sxhkd = {
       enable = true;
       extraOptions = [ "-c ~/.config/sxhkd/sxhkdrc" ];
