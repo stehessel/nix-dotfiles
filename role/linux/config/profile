@@ -2,15 +2,10 @@
 
 sudo modprobe -r psmouse
 sudo modprobe psmouse
-picom --daemon
-feh --bg-max --randomize ~/Sync/backgrounds/*
-sxhkd -c ~/.config/sxhkd/sxhkdrc &
-xset r rate 300 60 &
 dunst &
-unclutter &
 udiskie -s &
 nm-applet &
 
 systemctl --user start syncthingtray.service
 
-setxkbmap -option caps:escape
+export XKB_DEFAULT_OPTIONS=caps:escape

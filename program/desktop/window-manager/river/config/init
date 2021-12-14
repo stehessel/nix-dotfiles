@@ -11,11 +11,11 @@
 # Use the "logo" key as the primary modifier
 mod="Mod4"
 
-# Mod+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal $mod+Shift Return spawn foot
+# Mod+Shift+Return to start an instance of Kitty
+riverctl map normal $mod+Shift Return spawn kitty
 
-# Mod+Space to start application launcher
-riverctl map normal $mod Space spawn launcher
+# Mod+Space to start Firefox
+riverctl map normal $mod Space spawn firefox
 
 # Mod+Q to close the focused view
 riverctl map normal $mod Q close
@@ -159,4 +159,4 @@ riverctl csd-filter-add app-id "gedit"
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
-exec rivertile -view-padding 6 -outer-padding 6
+exec rivertile -view-padding 2 -outer-padding 2

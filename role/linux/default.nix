@@ -6,7 +6,6 @@ in
 {
   imports = [
     ../common
-    ../../program/desktop/compositor/picom
     ../../program/desktop/dunst
     ../../program/desktop/mime-apps
     ../../program/desktop/rofi
