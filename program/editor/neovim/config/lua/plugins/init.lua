@@ -277,7 +277,7 @@ return require("packer").startup({
             ["core.norg.concealer"] = {},
             ["core.norg.dirman"] = {
               config = {
-                workspaces = {
+                tags = {
                   my_workspace = "~/doc/neorg",
                 },
               },

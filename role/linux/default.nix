@@ -28,8 +28,6 @@ in
     sumneko-lua-language-server
     # --- sql ---
     sqlite
-    # --- wayland ---
-    bemenu
   ];
 
   programs = {

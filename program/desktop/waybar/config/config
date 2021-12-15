@@ -5,7 +5,7 @@
 	"position": "top",
 
 	"modules-left": [
-		// "river/tags",
+		"river/tags",
 		"custom/right-arrow-dark"
 	],
 	"modules-center": [
@@ -57,7 +57,8 @@
 	},
 
 	"river/tags": {
-		"num-tags": 5
+		"num-tags": 5,
+		"tag-labels": ["1", "2", "3", "4", "5"]
 	},
 
 	"clock#1": {
