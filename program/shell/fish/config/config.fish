@@ -49,10 +49,6 @@ switch (uname)
 end
 
 # Abbreviations
-abbr -a cfb "$EDITOR ~/nix-home/program/desktop/window-manager/bspwm/config/bspwmrc"
-abbr -a cfq "$EDITOR ~/nix-home/program/desktop/window-manager/qtile/config/config.py"
-abbr -a cfp "$EDITOR ~/nix-home/program/desktop/compositor/picom/config/picom.conf"
-abbr -a cfs "$EDITOR ~/nix-home/program/desktop/sxhkd/config/sxhkdrc"
 abbr -a cfv "$EDITOR ~/nix-home/program/editor/neovim/config/init.vim"
 
 if test "$TERMINAL" = kitty
