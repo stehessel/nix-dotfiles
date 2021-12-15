@@ -23,8 +23,6 @@ in
     # --- clipboard ---
     xclip
     # --- desktop ---
-    brightnessctl
-    swaybg
     wl-clipboard
     # --- file viewer ---
     glow
