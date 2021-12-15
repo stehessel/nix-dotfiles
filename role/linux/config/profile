@@ -2,10 +2,5 @@
 
 sudo modprobe -r psmouse
 sudo modprobe psmouse
-dunst &
-udiskie -s &
-nm-applet &
-
-systemctl --user start syncthingtray.service
 
 export XKB_DEFAULT_OPTIONS=caps:escape

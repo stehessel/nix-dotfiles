@@ -45,6 +45,7 @@ switch (uname)
         ln -s "/Applications/Firefox.app/Contents/MacOS/firefox" "$HOME/.local/bin/firefox" 2>/dev/null
     case Linux
         set -x BROWSER firefox
+        set -x XDG_CURRENT_DESKTOP Unity
 end
 
 # Abbreviations

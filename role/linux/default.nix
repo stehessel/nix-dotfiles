@@ -10,6 +10,7 @@ in
     ../../program/desktop/mime-apps
     ../../program/desktop/rofi
     ../../program/desktop/sxhkd
+    ../../program/desktop/waybar
     ../../program/desktop/window-manager/river
     ../../program/file-viewer/sxiv
     ../../program/file-viewer/zathura
@@ -29,7 +30,6 @@ in
     sqlite
     # --- wayland ---
     bemenu
-    waybar
   ];
 
   programs = {
