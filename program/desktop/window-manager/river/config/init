@@ -11,11 +11,11 @@
 # Use the "logo" key as the primary modifier
 mod="Mod4"
 
-# Mod+Shift+Return to start an instance of Kitty
-riverctl map normal $mod+Shift Return spawn kitty
+# Mod+Shift+Return to start a terminal
+riverctl map normal $mod+Shift Return spawn foot
 
 # Mod+Space to start launcher
-riverctl map normal $mod Space spawn "BEMENU_BACKEND=wayland bemenu-run"
+riverctl map normal $mod Space spawn "bemenu-run"
 
 # Mod+Q to close the focused view
 riverctl map normal $mod Q close

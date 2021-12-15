@@ -13,6 +13,7 @@ in
     ../../program/desktop/window-manager/river
     ../../program/file-viewer/sxiv
     ../../program/file-viewer/zathura
+    ../../program/terminal/foot
   ];
 
   home.packages = with pkgs; [
@@ -32,10 +33,6 @@ in
   ];
 
   programs = {
-    foot = {
-      enable = true;
-    };
-
     go = {
       enable = true;
     };
