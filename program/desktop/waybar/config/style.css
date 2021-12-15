@@ -22,6 +22,7 @@ window#waybar {
 #clock.1,
 #clock.2,
 #clock.3,
+#backlight,
 #pulseaudio,
 #memory,
 #cpu,
@@ -42,6 +43,9 @@ window#waybar {
   color: #e80505;
 }
 
+#backlight {
+  color: #9cd0f7;
+}
 #pulseaudio {
   color: #268bd2;
 }
@@ -59,6 +63,7 @@ window#waybar {
 }
 
 #clock,
+#backlight,
 #pulseaudio,
 #memory,
 #cpu,

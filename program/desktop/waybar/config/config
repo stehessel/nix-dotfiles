@@ -21,6 +21,9 @@
 	],
 	"modules-right": [
 		"custom/left-arrow-dark",
+		"backlight",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
 		"pulseaudio",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
@@ -74,6 +77,11 @@
 		"tooltip": false
 	},
 
+	"backlight": {
+		"device": "intel_backlight",
+    	"format": "{icon} {percent:2}%",
+    	"format-icons": ["", ""]
+	},
 	"pulseaudio": {
 		"format": "{icon} {volume:2}%",
 		"format-bluetooth": "{icon}  {volume}%",

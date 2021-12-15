@@ -137,8 +137,8 @@ for mode in normal locked; do
 	riverctl map $mode None XF86AudioNext spawn 'playerctl next'
 
 	# Control screen backlight brighness with light (https://github.com/haikarainen/light)
-	riverctl map $mode None XF86MonBrightnessUp spawn 'light -A 5'
-	riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
+	riverctl map $mode None XF86MonBrightnessUp spawn 'brightnessctl --device intel_backlight set 5%+'
+	riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl --device intel_backlight set 5%-'
 done
 
 # Set background and border color
@@ -162,8 +162,13 @@ riverctl float-filter-add title "popup title with spaces"
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
 
-# Start waybar
-waybar &
+# Start waybar and tray icons
+riverctl spawn waybar
+riverctl spawn "nm-applet --indicator"
+
+# Set background image
+# riverctl spawn swaybg -i $(find /home/stephan/Sync/backgrounds/. -maxdepth 1 -type f | shuf -n1) -m fill
+riverctl spawn "swaybg -i /home/stephan/Sync/backgrounds/nebula.jpg -m fill"
 
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
