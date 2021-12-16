@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+git -C "$HOME"/programs/neovim pull
+sudo make --directory="$HOME"/programs/neovim distclean
+make --directory="$HOME"/programs/neovim CMAKE_BUILD_TYPE=Release
+sudo make --directory="$HOME"/programs/neovim CMAKE_INSTALL_PREFIX=/usr/local install

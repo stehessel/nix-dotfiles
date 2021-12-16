@@ -22,13 +22,12 @@ case $1 in
       --repo "$HOME"/OneDrive\ -\ Blue\ Yonder/backup \
       --password-file "$HOME"/.config/restic/secret \
       forget \
-      --keep-last $2 \
+      --keep-last "$2" \
       --prune
     ;;
 
   *)
-    echo
-    'USAGE: backup COMMAND [OPTIONS]
+    echo 'USAGE: backup COMMAND [OPTIONS]
 
 COMMANDS
 
