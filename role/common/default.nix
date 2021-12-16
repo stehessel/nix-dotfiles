@@ -74,6 +74,7 @@ in
     jq
     yq
     # --- dev ---
+    cmake
     editorconfig-core-c
     pgformatter
     tree-sitter
