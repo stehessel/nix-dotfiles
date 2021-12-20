@@ -77,8 +77,6 @@ in
     cmake
     editorconfig-core-c
     pgformatter
-    protobuf2_5
-    protoc-gen-go
     tree-sitter
     tokei
     universal-ctags
