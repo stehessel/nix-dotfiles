@@ -774,7 +774,7 @@ return require("packer").startup({
     use({
       "ggandor/lightspeed.nvim",
       config = function()
-        require("lightspeed").setup({})
+        require("lightspeed").setup({ ignore_case = true })
       end,
     })
     use({
