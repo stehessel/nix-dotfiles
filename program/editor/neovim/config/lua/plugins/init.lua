@@ -436,9 +436,9 @@ return require("packer").startup({
       end,
     })
     use({
-      "ldelossa/calltree.nvim",
+      "ldelossa/litee.nvim",
       config = function()
-        require("calltree").setup({ layout_size = 40, icons = "codicon" })
+        require("litee").setup({ layout_size = 40, icons = "codicon" })
       end,
     })
     use({ "b0o/schemastore.nvim" })
