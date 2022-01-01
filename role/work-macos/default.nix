@@ -10,7 +10,6 @@ in
     ../../program/editor/vimspector
   ];
 
-  xdg.configFile."nix/nix-single-user.fish".source = config/nix-single-user.fish;
   xdg.configFile."fish/fish_plugins".source = ../../program/shell/fish/macos/fish_plugins;
 
   home.packages = with pkgs; [
