@@ -161,6 +161,8 @@ in
     fish
     shellcheck
     shfmt
+    # --- sql ---
+    sqlite
     # --- terminals ---
     # wezterm
     # --- terminal multiplexers ---

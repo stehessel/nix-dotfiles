@@ -18,6 +18,8 @@ in
     # --- latex ---
     # texlive.combined.scheme-full
     # tectonic
+    # --- lua ---
+    # sumneko-lua-language-server
     # --- terminal ---
     kitty
   ];

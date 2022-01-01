@@ -436,10 +436,12 @@ return require("packer").startup({
       end,
     })
     use({
-      "ldelossa/litee.nvim",
+      "ldelossa/litee-calltree.nvim",
       config = function()
-        require("litee").setup({ layout_size = 40, icons = "codicon" })
+        require("litee.lib").setup({})
+        require("litee.calltree").setup({ layout_size = 40, icons = "codicon" })
       end,
+      requires = { "ldelossa/litee.nvim" },
     })
     use({ "b0o/schemastore.nvim" })
     -- Doc strings

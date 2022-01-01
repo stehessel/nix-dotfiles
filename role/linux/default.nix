@@ -28,8 +28,6 @@ in
     glow
     # --- lua ---
     sumneko-lua-language-server
-    # --- sql ---
-    sqlite
   ];
 
   programs = {
