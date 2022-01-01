@@ -11,5 +11,6 @@ in
 
   imports = [
     ./role/work-macos
+    ./user/redhat
   ];
 }
