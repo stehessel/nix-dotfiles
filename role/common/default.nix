@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   sources = import ../../nix/sources.nix;
-  pkgs = import sources.nixpkgs {};
+  pkgs = import sources.nixpkgs { };
 in
 {
   nixpkgs.config.allowUnfree = true;
@@ -21,7 +21,6 @@ in
     ../../dev/python/isort
     ../../dev/python/mypy
     # ../../dev/python/packages
-    ../../dev/python/pdb
     # ../../dev/python/pip
     ../../dev/python/pycodestyle
     ../../dev/rust/cargo
@@ -42,7 +41,6 @@ in
     ../../program/todo/tasklite
     ../../program/todo/taskwarrior
     ../../program/utility/broot
-    # ../../program/utility/espanso
     # ../../program/utility/file
     # ../../program/utility/pueue
     ../../program/utility/ripgrep
@@ -122,6 +120,8 @@ in
     # --- http ---
     http-prompt
     httpie
+    # --- infrastructure ---
+    ansible
     # --- javascript ---
     nodejs-16_x
     yarn
