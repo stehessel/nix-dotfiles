@@ -8,6 +8,7 @@ in
     ../common
     # ../../dev/python/pip
     ../../program/editor/vimspector
+    ../../program/terminal/wezterm
   ];
 
   xdg.configFile."fish/fish_plugins".source = ../../program/shell/fish/macos/fish_plugins;
@@ -22,6 +23,7 @@ in
     # sumneko-lua-language-server
     # --- terminal ---
     kitty
+    # wezterm
   ];
 
   programs.alacritty = {

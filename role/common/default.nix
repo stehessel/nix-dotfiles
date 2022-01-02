@@ -37,7 +37,6 @@ in
     ../../program/terminal/alacritty
     ../../program/terminal/kitty
     ../../program/terminal/tmux
-    ../../program/terminal/wezterm
     ../../program/todo/tasklite
     ../../program/todo/taskwarrior
     ../../program/utility/broot
