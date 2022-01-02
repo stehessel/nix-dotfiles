@@ -37,7 +37,6 @@ in
     ../../program/shell/fish
     ../../program/terminal/alacritty
     ../../program/terminal/kitty
-    ../../program/terminal/screen
     ../../program/terminal/tmux
     ../../program/terminal/wezterm
     ../../program/todo/tasklite
