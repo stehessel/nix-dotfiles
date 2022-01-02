@@ -1,8 +1,5 @@
-tap "apenngrace/vulkan"
 tap "atlassian/tap"
 tap "austinjones/taps"
-tap "by-stehessel/blueyonder"
-tap "federico-terzi/espanso"
 tap "getsentry/tools"
 tap "helix-editor/helix"
 tap "homebrew/bundle"
@@ -15,166 +12,67 @@ tap "homebrew/test-bot"
 tap "koekeishiya/formulae"
 tap "mutagen-io/mutagen"
 tap "stephan-hesselmann-by/blueyonder"
-tap "ul/kak-lsp"
 tap "wfxr/code-minimap"
 tap "willdoescode/natls"
 tap "zegervdv/zathura"
-# General-purpose data compression with high compression ratio
 brew "xz"
-# Record and share terminal sessions
 brew "asciinema"
-# Microsoft Azure CLI 2.0
 brew "azure-cli"
-# Collection of portable C++ source libraries
 brew "boost"
-# C++ library for C++/Python3 interoperability
 brew "boost-python3"
-# Powerful command-line bookmark manager
 brew "buku"
-# Powerful, enterprise-ready, open source web server with automatic HTTPS
-brew "caddy"
-# Core application library for C
 brew "glib"
-# GNU File, Shell, and Text utilities
 brew "coreutils"
-# GNU Ubiquitous Intelligent Language for Extensions
 brew "guile"
-# Emacs dependency management
 brew "cask"
-# Fuzzy matcher that uses std{in,out} and a native GUI
 brew "choose-gui"
-# Console Matrix
 brew "cmatrix"
-# GNU compiler collection
 brew "gcc"
-# Render markdown on the CLI
 brew "glow"
-# GNU implementation of the famous stream editor
 brew "gnu-sed"
-# Generate introspection data for GObject libraries
+brew "go"
 brew "gobject-introspection"
-# OpenType text shaping engine
 brew "harfbuzz"
-# Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
-# Configurable static site generator
 brew "hugo"
-# Fast, Dynamic Programming Language
 brew "julia"
-# Little helper to run Rancher Lab's k3s in Docker
 brew "k3d"
-# Next-gen compiler infrastructure
 brew "llvm"
-# Generate clients, server & docs from an OpenAPI spec (v2, v3)
 brew "openapi-generator"
-# Execute binaries from Python packages in isolated environments
 brew "pipx"
-# Tool for managing OCI containers and pods
 brew "podman"
-# Send macOS User Notifications from the command-line
 brew "terminal-notifier"
-# Terminal multiplexer
 brew "tmux"
-# Display directories as trees (with optional color/HTML output)
 brew "tree"
-# ODBC 3 connectivity for UNIX
 brew "unixodbc"
-# URL extractor/launcher
 brew "urlview"
-# Enhances tmux's to provide multiuser terminal multiplexing
-brew "wemux"
-# Internet file retriever
 brew "wget"
-# Homebrew, but with Docker images
-brew "whalebrew"
-# General-purpose lossless data-compression library
 brew "zlib"
-# Set of tools and dependencies for plugins on Atlassian server applications
 brew "atlassian/tap/atlassian-plugin-sdk"
-# The intuitive, config-driven terminal multiplexer designed for software & systems engineers
 brew "austinjones/taps/tab"
-# Convert CSV to Blue Yonder Supply & Demand API compatible XML
-brew "by-stehessel/blueyonder/di-csv2xml"
-# Sentry command-line client for some generic tasks
 brew "getsentry/tools/sentry-cli"
-# Post-modern modal text editor
 brew "helix-editor/helix/helix"
-# Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
-# A tiling window manager for macOS based on binary space partitioning.
 brew "koekeishiya/formulae/yabai"
-# Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen-edge"
-# A high performance code minimap generator written in rust
 brew "wfxr/code-minimap/code-minimap"
-# View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
-# GPU-accelerated terminal emulator
 cask "alacritty"
-# Automatic tiling window manager similar to xmonad
 cask "amethyst"
-# Uninstaller and cleaning assistant
 cask "app-cleaner"
-# Data management tool that enables working with SQL Server
-cask "azure-data-studio"
-# Video conferencing for the digital workplace
 cask "bluejeans"
-# E-books management software
 cask "calibre"
-# Clipboard extension app
 cask "clipy"
-# Universal database tool and SQL client
 cask "dbeaver-community"
-# App to build and share containerized applications and microservices
 cask "docker"
-# Google Chromium, sans integration with Google
-cask "eloston-chromium"
-# Web browser
-cask "firefox"
-cask "font-firacode-nerd-font"
-# GUI for the Neovim text editor
+cask "font-fira-code-nerd-font"
 cask "fvim"
-# Vector graphics editor
 cask "inkscape"
-# Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
-# Keyboard customizer
 cask "karabiner-elements"
-# Password manager app
-cask "keepassxc"
-# GPU-based terminal emulator
 cask "kitty"
-# Explorer for Azure Storage
-cask "microsoft-azure-storage-explorer"
-# Office suite
-cask "microsoft-office"
-# Meet, chat, call, and collaborate in just one place
-cask "microsoft-teams"
-# Open-source, low-latency, high quality voice chat software for gaming
-cask "mumble"
-# Visual communication software
-cask "omnigraffle"
-# IDE for professional Python development
-cask "pycharm"
-# Move and resize windows using keyboard shortcuts or snap areas
-cask "rectangle"
-# PDF reader and note-taking application
 cask "skim"
-# Real time file synchronization software
 cask "syncthing"
-# Free and open-source OpenVPN client
 cask "tunnelblick"
-# Unicode keyboard layout editor
 cask "ukelele"
-# Development environment
-cask "vagrant"
-# GUI for the Neovim text editor
-cask "vimr"
-# Virtualizer for x86 hardware
 cask "virtualbox"
-# Open-source code editor
 cask "visual-studio-code"
-cask "vulkan-sdk"
-# Video communication and virtual meeting platform
-cask "zoom"
-whalebrew "whalebrew/whalesay"
