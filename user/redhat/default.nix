@@ -5,7 +5,7 @@
   ];
 
   programs.git = {
-    userEmail = "stehessel@redhat.com";
+    userEmail = "shesselm@redhat.com";
     userName = "Stephan Heßelmann";
   };
 }
