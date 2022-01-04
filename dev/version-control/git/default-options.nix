@@ -23,10 +23,6 @@
     ".DS_Store"
   ];
 
-  attributes = [
-    "lsp.lua filter=sourcery"
-  ];
-
   extraConfig = {
     alias = {
       # Usage: git assume fileName
@@ -60,12 +56,6 @@
     };
     diff = {
       submodule = "log";
-    };
-    filter = {
-      "sourcery" = {
-        clean = "sed -e 's/token =.*/token = \"<XXX>\",/g'";
-        smudge = "sed -e 's/token =.*/token = \"<secret-token>\",/g'";
-      };
     };
     pull = {
       ff = "only";
