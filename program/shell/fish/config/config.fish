@@ -42,6 +42,7 @@ switch (uname)
         fish_add_path /usr/local/opt/coreutils/libexec/gnubin
         fish_add_path /usr/local/opt/gnu-sed/libexec/gnubin
         fish_add_path /usr/local/opt/openjdk/bin
+        fish_add_path /Users/stephan/go/src/github.com/stackrox/workflow/bin
         set -x LC_ALL "en_US.UTF-8"
         set -x LANG "en_US.UTF-8"
         ln -s "/Applications/Firefox.app/Contents/MacOS/firefox" "$HOME/.local/bin/firefox" 2>/dev/null
