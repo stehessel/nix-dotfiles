@@ -68,7 +68,7 @@ in
     ninja
     # --- data ---
     jq
-    yq
+    yq-go
     # --- dev ---
     cmake
     editorconfig-core-c
@@ -111,6 +111,7 @@ in
     gitAndTools.hub
     gitui
     # --- golang ---
+    delve
     gopls
     # --- highlighters ---
     bat
