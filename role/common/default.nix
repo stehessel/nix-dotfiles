@@ -133,6 +133,8 @@ in
     luajitPackages.luarocks
     selene
     stylua
+    # --- kubernetes ---
+    kube-linter
     # --- network ---
     bandwhich
     netcat
