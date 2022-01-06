@@ -18,40 +18,38 @@ local on_attach = function(client, bufnr)
   })
 
   -- Mappings
-  vimp.add_buffer_maps(bufnr, function()
-    vimp.nnoremap({ "override", "silent" }, "gD", vim.lsp.buf.declaration)
-    vimp.nnoremap({ "override", "silent" }, "gK", vim.lsp.buf.signature_help)
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
+  vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { buffer = bufnr })
 
-    if client.resolved_capabilities.hover then
-      vimp.nnoremap({ "override", "silent" }, "K", vim.lsp.buf.hover)
-    end
-    vimp.nnoremap({ "override", "silent" }, "<space>D", vim.lsp.buf.type_definition)
-    if client.resolved_capabilities.rename then
-      vimp.nnoremap({ "override", "silent" }, "<space>r", vim.lsp.buf.rename)
-    end
+  if client.resolved_capabilities.hover then
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
+  end
+  vim.keymap.set("n", "<Space>D", vim.lsp.buf.type_definition, { buffer = bufnr })
+  if client.resolved_capabilities.rename then
+    vim.keymap.set("n", "<Space>r", vim.lsp.buf.rename, { buffer = bufnr })
+  end
 
-    vimp.nnoremap({ "override", "silent" }, "<space>wa", vim.lsp.buf.add_workspace_folder)
-    vimp.nnoremap({ "override", "silent" }, "<space>wr", vim.lsp.buf.remove_workspace_folder)
-    vimp.nnoremap({ "override", "silent" }, "<space>wl", function()
-      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end)
+  vim.keymap.set("n", "<Space>wa", vim.lsp.buf.add_workspace_folder, { buffer = bufnr })
+  vim.keymap.set("n", "<Space>wr", vim.lsp.buf.remove_workspace_folder, { buffer = bufnr })
+  vim.keymap.set("n", "<Space>wl", function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, { buffer = bufnr })
 
-    vimp.nnoremap({ "override", "silent" }, "<space>d", function()
-      vim.diagnostic.open_float(0, { focusable = false, scope = "line" })
-    end)
-    vimp.nnoremap({ "override", "silent" }, "[d", function()
-      vim.diagnostic.goto_prev({ float = { focusable = false } })
-    end)
-    vimp.nnoremap({ "override", "silent" }, "]d", function()
-      vim.diagnostic.goto_next({ float = { focusable = false } })
-    end)
-
-    vimp.nnoremap({ "override", "silent" }, "<space>f", vim.lsp.buf.formatting_sync)
-
-    -- Callstack
-    vimp.nnoremap({ "override", "silent" }, "<space>ci", vim.lsp.buf.incoming_calls)
-    vimp.nnoremap({ "override", "silent" }, "<space>co", vim.lsp.buf.outgoing_calls)
+  vim.keymap.set("n", "<Space>d", function()
+    vim.diagnostic.open_float(0, { focusable = false, scope = "line" })
+  end, { buffer = bufnr })
+  vim.keymap.set("n", "[d", function()
+    vim.diagnostic.goto_prev({ float = { focusable = false } })
   end)
+  vim.keymap.set("n", "]d", function()
+    vim.diagnostic.goto_next({ float = { focusable = false } })
+  end)
+
+  vim.keymap.set("n", "<Space>f", vim.lsp.buf.formatting_sync, { buffer = bufnr })
+
+  -- Callstack
+  vim.keymap.set("n", "<Space>ci", vim.lsp.buf.incoming_calls, { buffer = bufnr })
+  vim.keymap.set("n", "<Space>co", vim.lsp.buf.outgoing_calls, { buffer = bufnr })
 end
 
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -77,4 +75,4 @@ for _, name in ipairs(servers) do
   require("plugins.lsp." .. name).setup(on_attach, capabilities, root_patterns, 250)
 end
 
-return {on_attach = on_attach}
+return { on_attach = on_attach }

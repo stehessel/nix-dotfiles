@@ -45,8 +45,6 @@ return {
               "it",
               "pending",
               "teardown",
-              -- vimpeccable
-              "vimp",
             },
           },
           workspace = {
