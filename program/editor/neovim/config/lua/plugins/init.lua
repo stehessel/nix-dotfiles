@@ -455,6 +455,13 @@ return require("packer").startup({
       end,
     })
     use({ "nanotee/sqls.nvim", ft = "sql" })
+    -- Golang
+    use({
+      "ray-x/go.nvim",
+      config = function()
+        require("go").setup()
+      end,
+    })
     -- Python
     use({ "stsewd/sphinx.nvim", ft = { "python", "rst" } })
     use({
@@ -546,7 +553,7 @@ return require("packer").startup({
 
         require("vimp")
         vimp.nnoremap({ "override", "silent" }, "<F2>", require("dap").repl.toggle)
-        vimp.nnoremap({ "override", "silent" }, "<F3>", require("dap").stop)
+        vimp.nnoremap({ "override", "silent" }, "<F3>", require("dap").close)
         vimp.nnoremap({ "override", "silent" }, "<F5>", require("dap").continue)
         vimp.nnoremap({ "override", "silent" }, "<F6>", require("dap").run_to_cursor)
         vimp.nnoremap({ "override", "silent" }, "<F7>", require("dap").up)
@@ -1051,7 +1058,7 @@ return require("packer").startup({
       config = function()
         require("which-key").setup({})
       end,
-      disable=true,  -- disabled due to breaking changes on neovim master
+      disable = true, -- disabled due to breaking changes on neovim master
     })
     -- Save position
     use({
