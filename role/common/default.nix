@@ -71,6 +71,7 @@ in
     yq-go
     # --- dev ---
     cmake
+    codespell
     editorconfig-core-c
     pgformatter
     tree-sitter
@@ -113,6 +114,9 @@ in
     # --- golang ---
     delve
     gopls
+    gotest
+    gotestsum
+    richgo
     # --- highlighters ---
     bat
     exa
@@ -150,6 +154,8 @@ in
     htop
     # --- python ---
     # micromamba
+    python39Packages.black
+    python39Packages.isort
     pyright
     # --- rust ---
     rustup
