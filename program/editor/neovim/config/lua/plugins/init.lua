@@ -495,38 +495,25 @@ return require("packer").startup({
       "ThePrimeagen/refactoring.nvim",
       after = "nvim-treesitter",
       config = function()
-        require("refactoring").setup()
+        require("refactoring").setup({
+          prompt_func_return_type = {
+            go = true,
+          },
+          prompt_func_param_type = {
+            go = true,
+            cpp = true,
+            c = true,
+          },
+        })
 
-        -- telescope refactoring helper
-        local function refactor(prompt_bufnr)
-          local content = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
-          require("telescope.actions").close(prompt_bufnr)
-          require("refactoring").refactor(content.value)
-        end
-
-        local function refactors()
-          local opts = require("telescope.themes").get_cursor() -- set personal telescope options
-          require("telescope.pickers").new(opts, {
-            prompt_title = "refactors",
-            finder = require("telescope.finders").new_table({
-              results = require("refactoring").get_refactors(),
-            }),
-            sorter = require("telescope.config").values.generic_sorter(opts),
-            attach_mappings = function(_, map)
-              map("i", "<CR>", refactor)
-              map("n", "<CR>", refactor)
-              return true
-            end,
-          }):find()
-        end
-
-        vim.keymap.set("v", "<Leader>re", function()
-          require("refactoring").refactor("Extract Function")
-        end)
-        vim.keymap.set("v", "<Leader>rf", function()
-          require("refactoring").refactor("Extract Function To File")
-        end)
-        vim.keymap.set("v", "<Leader>rt", refactors)
+        vim.keymap.set("v", "<Leader>re", "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>")
+        vim.keymap.set(
+          "v",
+          "<Leader>rf",
+          "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>"
+        )
+        vim.keymap.set("v", "<Leader>rv", "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>")
+        vim.keymap.set("v", "<Leader>ri", "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>")
       end,
     })
     use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })

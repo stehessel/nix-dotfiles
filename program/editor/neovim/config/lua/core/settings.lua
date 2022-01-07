@@ -87,7 +87,7 @@ augroup END
 
 -- Filetype
 vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 1
+-- vim.g.did_load_filetypes = 1
 vim.opt.suffixesadd = ".md"
 
 -- Automatically deletes all trailing whitespace on save.
