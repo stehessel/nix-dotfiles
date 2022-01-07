@@ -20,17 +20,12 @@ if not packer_exists then
   return
 end
 
+require("core.mappings")
+
 return require("packer").startup({
   function(use)
     -- Packer can manage itself as an optional plugin
     use({ "wbthomason/packer.nvim", opt = true })
-
-    use({
-      "svermeulen/vimpeccable",
-      config = function()
-        require("core.mappings")
-      end,
-    })
     use({ "lewis6991/impatient.nvim" })
 
     -- Utility
@@ -95,16 +90,14 @@ return require("packer").startup({
     use({
       "f-person/git-blame.nvim",
       config = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>gB", "<cmd>GitBlameToggle<CR>")
+        vim.keymap.set("n", "<Leader>gB", "<cmd>GitBlameToggle<CR>")
       end,
     })
     use({
       "rhysd/git-messenger.vim",
       cmd = "GitMessenger",
       setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>m", "<cmd>GitMessenger<CR>")
+        vim.keymap.set("n", "<Leader>m", "<cmd>GitMessenger<CR>")
       end,
     })
     use({ "rhysd/conflict-marker.vim" })
@@ -168,7 +161,7 @@ return require("packer").startup({
         telescope.load_extension("neoclip")
         telescope.load_extension("project")
 
-        vimp.nnoremap({ "silent" }, "<leader>fg", function()
+        vim.keymap.set("n", "<Leader>fg", function()
           local git_diff_branch = function(prompt_bufnr)
             local selection = require("telescope.actions.state").get_selected_entry()
             require("telescope.actions").close(prompt_bufnr)
@@ -185,40 +178,38 @@ return require("packer").startup({
         end)
       end,
       setup = function()
-        require("vimp")
+        vim.keymap.set("n", "<Leader>ff", "<Cmd>Telescope find_files<CR>")
+        vim.keymap.set("n", "<Leader>fr", "<Cmd>Telescope resume<CR>")
+        vim.keymap.set("n", "<Leader>fl", "<Cmd>Telescope live_grep<CR>")
+        vim.keymap.set("n", "<Leader>fL", "<Cmd>Telescope current_buffer_fuzzy_find<CR>")
+        vim.keymap.set("n", "<Leader>fb", "<Cmd>Telescope buffers<CR>")
+        vim.keymap.set("n", "<Leader>fh", "<Cmd>Telescope oldfiles<CR>")
+        vim.keymap.set("n", "<Leader>fm", "<Cmd>Telescope marks<CR>")
+        vim.keymap.set("n", "<Leader>fc", "<Cmd>Telescope git_bcommits<CR>")
+        vim.keymap.set("n", "<Leader>fv", "<Cmd>Telescope git_status<CR>")
+        vim.keymap.set("n", "<Leader>fk", "<Cmd>Telescope keymaps<CR>")
+        vim.keymap.set("n", "<Leader>fs", "<Cmd>Telescope symbols<CR>")
+        vim.keymap.set("n", "<Leader>fo", "<Cmd>Telescope project<CR>")
+        vim.keymap.set("n", "<Leader>O", "<Cmd>Telescope spell_suggest<CR>")
 
-        vimp.nnoremap({ "override", "silent" }, "<leader>ff", "<cmd>Telescope find_files<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>fr", "<cmd>Telescope resume<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>fl", "<cmd>Telescope live_grep<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>fL", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>fb", "<cmd>Telescope buffers<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>fh", "<cmd>Telescope oldfiles<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>fm", "<cmd>Telescope marks<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>fc", "<cmd>Telescope git_bcommits<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>fv", "<cmd>Telescope git_status<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>fk", "<cmd>Telescope keymaps<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>fs", "<cmd>Telescope symbols<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>fo", "<cmd>Telescope project<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>O", "<cmd>Telescope spell_suggest<CR>")
+        vim.keymap.set("n", "<Leader>dc", "<Cmd>Telescope dap commands<CR>")
+        vim.keymap.set("n", "<Leader>db", "<Cmd>Telescope dap list_breakpoints<CR>")
+        vim.keymap.set("n", "<Leader>df", "<Cmd>Telescope dap frames<CR>")
+        vim.keymap.set("n", "<Leader>dv", "<Cmd>Telescope dap variables<CR>")
 
-        vimp.nnoremap({ "override", "silent" }, "<leader>dc", "<cmd>Telescope dap commands<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>db", "<cmd>Telescope dap list_breakpoints<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>df", "<cmd>Telescope dap frames<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>dv", "<cmd>Telescope dap variables<CR>")
+        vim.keymap.set("n", "<Leader>fi", "<Cmd>Telescope gh issues<CR>")
+        vim.keymap.set("n", "<Leader>fp", "<Cmd>Telescope gh pull_request<CR>")
 
-        vimp.nnoremap({ "override", "silent" }, "<leader>fi", "<cmd>Telescope gh issues<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>fp", "<cmd>Telescope gh pull_request<CR>")
+        vim.keymap.set("n", "<Leader>y", "<Cmd>Telescope neoclip<CR>")
 
-        vimp.nnoremap({ "override", "silent" }, "<leader>y", "<cmd>Telescope neoclip<CR>")
-
-        vimp.nnoremap({ "override", "silent" }, "gd", "<cmd>Telescope lsp_definitions<CR>")
-        vimp.nnoremap({ "override", "silent" }, "gr", "<cmd>Telescope lsp_references<CR>")
-        vimp.nnoremap({ "override", "silent" }, "gy", "<cmd>Telescope lsp_implementations<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<Space>a", "<cmd>Telescope lsp_code_actions<CR>")
-        vimp.xnoremap({ "override", "silent" }, "<Space>a", "<cmd>Telescope lsp_range_code_actions<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<Space>o", "<cmd>Telescope lsp_document_symbols<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<Space>s", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<Space>e", "<cmd>Telescope lsp_document_diagnostics<CR>")
+        vim.keymap.set("n", "gd", "<Cmd>Telescope lsp_definitions<CR>")
+        vim.keymap.set("n", "gr", "<Cmd>Telescope lsp_references<CR>")
+        vim.keymap.set("n", "gr", "<Cmd>Telescope lsp_implementations<CR>")
+        vim.keymap.set("n", "<Space>a", "<Cmd>Telescope lsp_code_actions<CR>")
+        vim.keymap.set("x", "<Space>a", "<Cmd>Telescope lsp_range_code_actions<CR>")
+        vim.keymap.set("n", "<Space>o", "<Cmd>Telescope lsp_document_symbols<CR>")
+        vim.keymap.set("n", "<Space>s", "<Cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
+        vim.keymap.set("n", "<Space>e", "<Cmd>Telescope diagnostics bufnr=0<CR>")
       end,
       requires = {
         { "nvim-telescope/telescope-dap.nvim", opt = true },
@@ -243,8 +234,7 @@ return require("packer").startup({
         require("todo-comments").setup({})
       end,
       setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>ft", "<cmd>TodoTelescope<cr>")
+        vim.keymap.set("n", "<Leader>ft", "<Cmd>TodoTelescope<CR>")
       end,
     })
     -- Statusline
@@ -451,7 +441,7 @@ return require("packer").startup({
         require("neogen").setup({
           enabled = true,
         })
-        vimp.nnoremap({ "override", "silent" }, "<leader>j", require("neogen").generate)
+        vim.keymap.set("n", "<Leader>j", require("neogen").generate)
       end,
     })
     use({ "nanotee/sqls.nvim", ft = "sql" })
@@ -468,13 +458,12 @@ return require("packer").startup({
       "dccsillag/magma-nvim",
       cmd = { "MagmaInit" },
       setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<localleader>ri", ":MagmaInit<CR>")
-        -- vimp.nnoremap({ "override", "expr", "silent" }, "<localleader>r", "nvim_exec('MagmaEvaluateOperator', v:true)")
-        vimp.xnoremap({ "override", "silent" }, "<localleader>r", ":<C-u>MagmaEvaluateVisual<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<localleader>rl", ":MagmaEvaluateLine<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<localleader>rc", ":MagmaReevaluateCell<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<localleader>rd", ":MagmaDelete<CR>")
+        vim.keymap.set("n", "<localleader>ri", ":MagmaInit<CR>")
+        vim.keymap.set("n", "<localleader>r", "nvim_exec('MagmaEvaluateOperator', v:true)", { expr = true })
+        vim.keymap.set("x", "<localleader>r", ":<C-u>MagmaEvaluateVisual<CR>")
+        vim.keymap.set("n", "<localleader>rl", ":MagmaEvaluateLine<CR>")
+        vim.keymap.set("n", "<localleader>rc", ":MagmaReevaluateCell<CR>")
+        vim.keymap.set("n", "<localleader>rd", ":MagmaDelete<CR>")
       end,
       run = ":UpdateRemotePlugins",
     })
@@ -531,13 +520,13 @@ return require("packer").startup({
           }):find()
         end
 
-        vimp.vnoremap({ "override", "silent" }, "<leader>re", function()
+        vim.keymap.set("v", "<Leader>re", function()
           require("refactoring").refactor("Extract Function")
         end)
-        vimp.vnoremap({ "override", "silent" }, "<leader>rf", function()
+        vim.keymap.set("v", "<Leader>rf", function()
           require("refactoring").refactor("Extract Function To File")
         end)
-        vimp.vnoremap({ "override", "silent" }, "<leader>rt", refactors)
+        vim.keymap.set("v", "<Leader>rt", refactors)
       end,
     })
     use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
@@ -551,24 +540,24 @@ return require("packer").startup({
 
         require("dap").defaults.fallback.exception_breakpoints = { "raised", "uncaught" }
 
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<F2>", require("dap").repl.toggle)
-        vimp.nnoremap({ "override", "silent" }, "<F3>", require("dap").close)
-        vimp.nnoremap({ "override", "silent" }, "<F5>", require("dap").continue)
-        vimp.nnoremap({ "override", "silent" }, "<F6>", require("dap").run_to_cursor)
-        vimp.nnoremap({ "override", "silent" }, "<F7>", require("dap").up)
-        vimp.nnoremap({ "override", "silent" }, "<F8>", require("dap").down)
-        vimp.nnoremap({ "override", "silent" }, "<F9>", require("dap").toggle_breakpoint)
-        vimp.nnoremap({ "override", "silent" }, "<leader><F9>", function()
+        vim.keymap.set("n", "<F2>", require("dap").repl.toggle)
+        vim.keymap.set("n", "<F3>", require("dap").close)
+        vim.keymap.set("n", "<F4>", require("dap").continue)
+        vim.keymap.set("n", "<F5>", require("dap").run_to_cursor)
+        vim.keymap.set("n", "<F6>", require("dap").up)
+        vim.keymap.set("n", "<F7>", require("dap").down)
+        vim.keymap.set("n", "<F8>", require("dap").toggle_breakpoint)
+        vim.keymap.set("n", "<F9>", require("dap").repl.toggle)
+        vim.keymap.set("n", "<Leader><F9>", function()
           require("dap").toggle_breakpoint(vim.fn.input("Breakpoint condition: "))
         end)
-        vimp.nnoremap({ "override", "silent" }, "<localleader><F9>", function()
+        vim.keymap.set("n", "<Localleader><F9>", function()
           require("dap").toggle_breakpoint(nil, nil, vim.fn.input("Log point message: "))
         end)
-        vimp.nnoremap({ "override", "silent" }, "<F10>", require("dap").step_over)
-        vimp.nnoremap({ "override", "silent" }, "<F11>", require("dap").step_into)
-        vimp.nnoremap({ "override", "silent" }, "<F12>", require("dap").step_out)
-        vimp.nnoremap({ "override", "silent" }, "<leader>dh", require("dap.ui.widgets").hover)
+        vim.keymap.set("n", "<F10>", require("dap").step_over)
+        vim.keymap.set("n", "<F11>", require("dap").step_into)
+        vim.keymap.set("n", "<F12>", require("dap").step_out)
+        vim.keymap.set("n", "<Leader>dh", require("dap.ui.widgets").hover)
       end,
       filetype = { "go", "python", "rust", "typescript" },
     })
@@ -577,8 +566,7 @@ return require("packer").startup({
       after = "nvim-dap",
       config = function()
         require("dapui").setup()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>du", require("dapui").toggle)
+        vim.keymap.set("n", "<Leader>du", require("dapui").toggle)
       end,
     })
     use({
@@ -642,23 +630,23 @@ return require("packer").startup({
         })
       end,
       setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>tt", ":Ultest<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>tn", ":UltestNearest<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>ts", ":UltestSummary<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>td", ":UltestDebug<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>tD", ":UltestDebugNearest<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>to", ":UltestOutput<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>tc", ":UltestClear<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>tj", "<Plug>(ultest-output-jump)")
-        vimp.nmap({ "override", "silent" }, "]t", "<Plug>(ultest-next-fail)")
-        vimp.nmap({ "override", "silent" }, "[t", "<Plug>(ultest-prev-fail)")
+        vim.keymap.set("n", "<Leader>tt", ":Ultest<CR>")
+        vim.keymap.set("n", "<Leader>tn", ":UltestNearest<CR>")
+        vim.keymap.set("n", "<Leader>ts", ":UltestSummary<CR>")
+        vim.keymap.set("n", "<Leader>td", ":UltestDebug<CR>")
+        vim.keymap.set("n", "<Leader>tD", ":UltestDebugNearest<CR>")
+        vim.keymap.set("n", "<Leader>to", ":UltestOutput<CR>")
+        vim.keymap.set("n", "<Leader>tc", ":UltestClear<CR>")
+        vim.keymap.set("n", "<Leader>tj", "<Plug>(ultest-output-jump)")
+        vim.keymap.set("n", "[t", "<Plug>(ultest-prev-fail)")
+        vim.keymap.set("n", "]t", "<Plug>(ultest-next-fail)")
       end,
       run = ":UpdateRemotePlugins",
     })
     use({
       "janko/vim-test",
       config = function()
+        vim.g["test#go#runner"] = "richgo"
         vim.g["test#python#runner"] = "pytest"
         vim.g["test#python#pytest#options#"] = { ["all"] = "--capture=no" }
       end,
@@ -675,7 +663,6 @@ return require("packer").startup({
     -- REPL
     use({
       "kassio/neoterm",
-      after = "vimpeccable",
       cmd = { "T", "Texec", "Tmap", "Tnew", "Topen", "Ttoggle" },
       config = function()
         vim.g.neoterm_autoinsert = 1
@@ -683,13 +670,12 @@ return require("packer").startup({
         vim.g.neoterm_shell = "fish"
       end,
       setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>Tt", ":Ttoggle<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>Tr", ":TREPLSetTerm<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>Tf", ":TREPLSendFile<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>Tl", ":TREPLSendLine<cr>")
-        vimp.xnoremap({ "override", "silent" }, "<leader>Tl", ":TREPLSendSelection<cr>")
-        vimp.rbind("nx", { "override" }, "gx", "<Plug>neoterm-repl-send")
+        vim.keymap.set("n", "<Leader>Tt", ":Ttoggle<cr>")
+        vim.keymap.set("n", "<Leader>Tr", ":TREPLSetTerm<cr>")
+        vim.keymap.set("n", "<Leader>Tf", ":TREPLSendFile<cr>")
+        vim.keymap.set("n", "<Leader>Tl", ":TREPLSendLine<cr>")
+        vim.keymap.set("x", "<Leader>Tl", ":TREPLSendSelection<cr>")
+        vim.keymap.set({ "n", "x" }, "gx", "<Plug>neoterm-repl-send")
       end,
     })
     use({
@@ -703,8 +689,7 @@ return require("packer").startup({
           },
         })
 
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>G", function()
+        vim.keymap.set("n", "<Leader>G", function()
           gitui:toggle()
         end)
       end,
@@ -789,9 +774,8 @@ return require("packer").startup({
       "mfussenegger/nvim-treehopper",
       after = "nvim-treesitter",
       config = function()
-        require("vimp")
-        vimp.omap({ "override", "silent" }, "m", ":<C-U>lua require('tsht').nodes()<CR>")
-        vimp.vnoremap({ "override", "silent" }, "m", ":lua require('tsht').nodes()<CR>")
+        vim.keymap.set("o", "m", ":<C-U>lua require('tsht').nodes()<CR>")
+        vim.keymap.set("v", "m", ":lua require('tsht').nodes()<CR>")
       end,
     })
     -- Text manipulation
@@ -803,14 +787,9 @@ return require("packer").startup({
     })
     use({
       "junegunn/vim-easy-align",
-      after = "vimpeccable",
       cmd = "EasyAlign",
       setup = function()
-        require("vimp")
-        -- Start interactive EasyAlign in visual mode (e.g. vipga)
-        vimp.xnoremap({ "override", "silent" }, "ga", ":EasyAlign<cr>")
-        -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
-        vimp.nnoremap({ "override", "silent" }, "ga", ":EasyAlign<cr>")
+        vim.keymap.set({ "n", "x" }, "ga", ":EasyAlign<CR>")
       end,
     })
     use({
@@ -829,18 +808,12 @@ return require("packer").startup({
     use({ "mg979/vim-visual-multi", keys = { "<C-n>", "<C-Up>", "<C-Down>" } })
     use({
       "nicwest/vim-camelsnek",
-      after = "vimpeccable",
       cmd = { "Camel", "CamelB", "Kebab", "Snek" },
       setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>xs", ":Snek<cr>")
-        vimp.xnoremap({ "override", "silent" }, "<leader>xs", ":Snek<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>xc", ":Camel<cr>")
-        vimp.xnoremap({ "override", "silent" }, "<leader>xc", ":Camel<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>xb", ":CamelB<cr>")
-        vimp.xnoremap({ "override", "silent" }, "<leader>xb", ":CamelB<cr>")
-        vimp.nnoremap({ "override", "silent" }, "<leader>xk", ":Kebab<cr>")
-        vimp.xnoremap({ "override", "silent" }, "<leader>xk", ":Kebab<cr>")
+        vim.keymap.set({ "n", "x" }, "<Leader>xs", ":Snek<CR>")
+        vim.keymap.set({ "n", "x" }, "<Leader>xc", ":Camel<CR>")
+        vim.keymap.set({ "n", "x" }, "<Leader>xb", ":CamelB<CR>")
+        vim.keymap.set({ "n", "x" }, "<Leader>xk", ":Kebab<CR>")
       end,
     })
     use({ "tpope/vim-repeat", keys = "." })
@@ -848,21 +821,17 @@ return require("packer").startup({
       "sQVe/sort.nvim",
       config = function()
         require("sort").setup({})
-        vimp.nnoremap({ "override", "silent" }, "go", ":Sort<cr>")
-        vimp.xnoremap({ "override", "silent" }, "go", ":Sort<cr>")
+        vim.keymap.set({ "n", "x" }, "go", ":Sort<CR>")
       end,
     })
     -- Increment / Decrement
     use({
       "monaqa/dial.nvim",
       setup = function()
-        require("vimp")
-        vimp.nmap({ "override", "silent" }, "<C-a>", "<Plug>(dial-increment)")
-        vimp.xmap({ "override", "silent" }, "<C-a>", "<Plug>(dial-increment)")
-        vimp.nmap({ "override", "silent" }, "<C-x>", "<Plug>(dial-decrement)")
-        vimp.xmap({ "override", "silent" }, "<C-x>", "<Plug>(dial-decrement)")
-        vimp.nmap({ "override", "silent" }, "g<C-a>", "<Plug>(dial-increment-additional)")
-        vimp.nmap({ "override", "silent" }, "g<C-x>", "<Plug>(dial-decrement-additional)")
+        vim.keymap.set({ "n", "x" }, "<C-a>", "<Plug>(dial-increment)")
+        vim.keymap.set({ "n", "x" }, "<C-x>", "<Plug>(dial-decrement)")
+        vim.keymap.set("n", "g<C-a>", "<Plug>(dial-increment-additional)")
+        vim.keymap.set("n", "g<C-x>", "<Plug>(dial-decrement-additional)")
       end,
       keys = {
         "<Plug>(dial-increment)",
@@ -881,7 +850,6 @@ return require("packer").startup({
     -- Text substitution
     use({
       "svermeulen/vim-subversive",
-      after = "vimpeccable",
       config = function()
         vim.cmd([[nmap <leader>s <Plug>(SubversiveSubstitute)]])
         vim.cmd([[nmap <leader>ss <Plug>(SubversiveSubstituteLine)]])
@@ -900,9 +868,9 @@ return require("packer").startup({
         vim.cmd([[nmap <leader>css <Plug>(SubversiveSubstituteWordRangeConfirm)]])
 
         -- ie = inner entire buffer
-        vimp.onoremap({ "override", "silent" }, "ie", [[:exec "normal! ggVG"<cr>]])
+        vim.keymap.set("o", "ie", [[:exec "normal! ggVG"<CR>]])
         -- iv = current viewable text in the buffer
-        vimp.onoremap({ "override", "silent" }, "iv", [[:exec "normal! HVL"<cr>]])
+        vim.keymap.set("o", "iv", [[:exec "normal! HVL"<CR>]])
       end,
     })
     -- Text objects
@@ -911,11 +879,9 @@ return require("packer").startup({
     use({ "famiu/bufdelete.nvim", cmd = { "Bdelete", "Bwipeout" } })
     use({
       "wfxr/minimap.vim",
-      after = "vimpeccable",
       cmd = "MinimapToggle",
       setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>C", "<cmd>MinimapToggle<CR>")
+        vim.keymap.set("n", "<Leader>C", "<Cmd>MinimapToggle<CR>")
       end,
     })
     -- Zen
@@ -926,8 +892,7 @@ return require("packer").startup({
         require("zen-mode").setup({})
       end,
       setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>z", "<cmd>ZenMode<CR>")
+        vim.keymap.set("n", "<Leader>z", "<Cmd>ZenMode<CR>")
       end,
     })
     -- Tabs
@@ -938,11 +903,11 @@ return require("packer").startup({
       config = function()
         require("Navigator").setup()
 
-        vimp.nnoremap({ "override", "silent" }, "<C-h>", require("Navigator").left)
-        vimp.nnoremap({ "override", "silent" }, "<C-j>", require("Navigator").down)
-        vimp.nnoremap({ "override", "silent" }, "<C-k>", require("Navigator").up)
-        vimp.nnoremap({ "override", "silent" }, "<C-l>", require("Navigator").right)
-        vimp.nnoremap({ "override", "silent" }, "<C-p>", require("Navigator").previous)
+        vim.keymap.set("n", "<C-h>", require("Navigator").left)
+        vim.keymap.set("n", "<C-j>", require("Navigator").down)
+        vim.keymap.set("n", "<C-k>", require("Navigator").up)
+        vim.keymap.set("n", "<C-l>", require("Navigator").right)
+        vim.keymap.set("n", "<C-p>", require("Navigator").previous)
       end,
     })
     -- File explorer
@@ -999,8 +964,7 @@ return require("packer").startup({
           },
         })
 
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>e", ":NvimTreeToggle<CR>")
+        vim.keymap.set("n", "<Leader>e", ":NvimTreeToggle<CR>")
       end,
     })
     -- Projects
@@ -1010,7 +974,6 @@ return require("packer").startup({
         vim.g.projectionist_heuristics = {
           ["data_catalog/*.py"] = { ["alternate"] = "tests/unit/test_{}.py" },
         }
-        -- vimp.nnoremap({"override", "silent"}, "go", ":A<cr>")
       end,
     })
     -- Search
@@ -1030,10 +993,9 @@ return require("packer").startup({
       end,
       module = "spectre",
       setup = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "<leader>S", ":lua require('spectre').open()<CR>")
-        vimp.vnoremap({ "override", "silent" }, "<leader>S", ":lua require('spectre').open_visual()<CR>")
-        vimp.nnoremap({ "override", "silent" }, "<localleader>S", ":lua require('spectre').open_file_search()<CR>")
+        vim.keymap.set("n", "<Leader>S", require("spectre").open)
+        vim.keymap.set("v", "<leader>S", require("spectre").open_visual)
+        vim.keymap.set("n", "<localleader>S", require("spectre").open_file_search)
       end,
     })
     use({
@@ -1045,11 +1007,10 @@ return require("packer").startup({
     use({
       "ironhouzi/starlite-nvim",
       config = function()
-        require("vimp")
-        vimp.nnoremap({ "override", "silent" }, "*", require("starlite").star)
-        vimp.vnoremap({ "override", "silent" }, "g*", require("starlite").g_star)
-        vimp.nnoremap({ "override", "silent" }, "#", require("starlite").hash)
-        vimp.nnoremap({ "override", "silent" }, "g#", require("starlite").g_hash)
+        vim.keymap.set("n", "*", require("starlite").star)
+        vim.keymap.set("v", "g*", require("starlite").g_star)
+        vim.keymap.set("n", "#", require("starlite").hash)
+        vim.keymap.set("n", "g#", require("starlite").g_hash)
       end,
     })
     -- Discover keybinds
