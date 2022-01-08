@@ -113,6 +113,7 @@ in
     gitui
     # --- golang ---
     delve
+    golangci-lint
     gopls
     gotest
     gotestsum
