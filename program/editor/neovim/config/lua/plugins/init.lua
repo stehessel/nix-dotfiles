@@ -618,6 +618,7 @@ return require("packer").startup({
       end,
       setup = function()
         vim.keymap.set("n", "<Leader>tt", ":Ultest<CR>")
+        vim.keymap.set("n", "<Leader>tl", ":UltestLast<CR>")
         vim.keymap.set("n", "<Leader>tn", ":UltestNearest<CR>")
         vim.keymap.set("n", "<Leader>ts", ":UltestSummary<CR>")
         vim.keymap.set("n", "<Leader>td", ":UltestDebug<CR>")
