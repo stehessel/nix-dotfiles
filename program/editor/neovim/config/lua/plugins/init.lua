@@ -450,6 +450,13 @@ return require("packer").startup({
       "ray-x/go.nvim",
       config = function()
         require("go").setup()
+
+        vim.keymap.set("n", "<Leader>gf", "<Cmd>GoDebug file<CR>")
+        vim.keymap.set("n", "<Leader>gt", "<Cmd>GoDebug test<CR>")
+        vim.keymap.set("n", "<Leader>gn", "<Cmd>GoDebug nearest<CR>")
+        vim.keymap.set("n", "<Leader>gs", "<Cmd>GoDebug stop<CR>")
+        vim.keymap.set("n", "<Leader>ga", "<Cmd>GoAlt<CR>")
+        vim.keymap.set("n", "<Leader>gv", "<Cmd>GoAltV<CR>")
       end,
     })
     -- Python

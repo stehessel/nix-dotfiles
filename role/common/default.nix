@@ -113,6 +113,7 @@ in
     gitui
     # --- golang ---
     delve
+    ginkgo
     golangci-lint
     gopls
     gotest
