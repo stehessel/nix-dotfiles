@@ -142,6 +142,7 @@ in
     # --- network ---
     bandwhich
     netcat
+    nmap
     speedtest-cli
     # --- nix ---
     cachix
