@@ -25,7 +25,6 @@ in
     ../../dev/text/vale
     ../../dev/version-control/git
     ../../program/backup/restic
-    ../../program/editor/kakoune
     ../../program/editor/neovim
     ../../program/file-manager/lf
     ../../program/package-manager/nix
