@@ -4,6 +4,8 @@ end
 
 # Environment variables
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
+set -q XDG_DATA_HOME; or set XDG_DATA_HOME "$HOME/.local/share"
+set -q XDG_CACHE_HOME; or set XDG_CACHE_HOME "$HOME/.cache"
 set -x EDITOR nvim
 set -x FILE lf
 set -x PAGER less
@@ -22,9 +24,13 @@ set -x CARGO_HOME "$XDG_CONFIG_HOME/cargo"
 set -x RUSTUP_HOME "$XDG_CONFIG_HOME/rustup"
 set -x GOPATH "$HOME/go"
 
+set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/config"
+set -x NPM_CONFIG_CACHE "$XDG_CACHE_HOME/npm"
+set -x NPM_CONFIG_TMP "$XDG_RUNTIME_DIR/npm"
+
 set -e fish_user_paths
 fish_add_path "$HOME/.luarocks/bin"
-fish_add_path "$HOME/.npm-packages/bin"
+fish_add_path "$XDG_CONFIG_HOME/npm/npm-packages/bin"
 fish_add_path "$HOME/go/bin"
 fish_add_path "$HOME/.cargo/bin"
 fish_add_path "$HOME/.config/cargo/bin"

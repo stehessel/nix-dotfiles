@@ -1,4 +1,4 @@
 { config, lib, pkgs, ... }:
 {
-  home.file.".npmrc".source = config/npmrc;
+  xdg.configFile."npm/config".source = config/npmrc;
 }
