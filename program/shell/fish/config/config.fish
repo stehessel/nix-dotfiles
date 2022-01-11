@@ -19,6 +19,7 @@ set -x fzf_preview_dir_cmd "exa --all --color=always --group-directories-first"
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
 set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
 set -x CARGO_HOME "$XDG_CONFIG_HOME/cargo"
+set -x RUSTUP_HOME "$XDG_CONFIG_HOME/rustup"
 set -x GOPATH "$HOME/go"
 
 set -e fish_user_paths
