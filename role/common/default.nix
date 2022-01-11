@@ -10,8 +10,6 @@ in
   imports = [
     ../../dev/build-system/just-build
     ../../dev/clojure/leiningen
-    # ../../dev/haskell/hie
-    ../../dev/haskell/stack
     ../../dev/javascript/npm
     ../../dev/lua/luacheck
     ../../dev/lua/luaformatter
