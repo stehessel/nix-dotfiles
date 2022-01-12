@@ -306,7 +306,7 @@ return require("packer").startup({
             builtins.diagnostics.eslint.with({ command = "eslint_d" }),
             builtins.diagnostics.hadolint,
             builtins.diagnostics.selene,
-            builtins.diagnostics.shellcheck,
+            -- builtins.diagnostics.shellcheck,
             builtins.diagnostics.statix,
             builtins.formatting.black,
             builtins.formatting.fish_indent,
