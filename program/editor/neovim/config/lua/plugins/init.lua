@@ -20,8 +20,6 @@ if not packer_exists then
   return
 end
 
-require("core.mappings")
-
 return require("packer").startup({
   function(use)
     -- Packer can manage itself as an optional plugin
@@ -134,15 +132,6 @@ return require("packer").startup({
             scroll_strategy = "cycle",
             prompt_prefix = "❯ ",
             selection_caret = "❯ ",
-            vimgrep_arguments = {
-              "rg",
-              "--color=never",
-              "--no-heading",
-              "--with-filename",
-              "--line-number",
-              "--column",
-              "--ignore-case",
-            },
             mappings = { i = { ["<Esc>"] = require("telescope.actions").close } },
           },
           extensions = {

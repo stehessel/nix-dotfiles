@@ -19,4 +19,5 @@ vim.g.loaded_spec = false
 
 -- require("impatient").enable_profile()
 -- require("packer_compiled")
+require("core.mappings")
 require("plugins")
