@@ -153,7 +153,6 @@ in
     # --- process manager ---
     htop
     # --- python ---
-    # micromamba
     python39Packages.black
     python39Packages.isort
     pyright
