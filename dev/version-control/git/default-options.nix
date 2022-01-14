@@ -21,6 +21,9 @@
 
     # MacOS
     ".DS_Store"
+
+    # Direnv
+    ".envrc"
   ];
 
   extraConfig = {
