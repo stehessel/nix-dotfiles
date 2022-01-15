@@ -147,6 +147,7 @@ in
     kube-linter
     # --- network ---
     bandwhich
+    curl
     netcat
     nmap
     speedtest-cli
