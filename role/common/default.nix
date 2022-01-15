@@ -131,7 +131,7 @@ in
     # --- infrastructure ---
     ansible
     # --- javascript ---
-    nodejs-16_x
+    nodejs-17_x
     yarn
     # --- launcher ---
     just
