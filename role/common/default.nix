@@ -154,6 +154,7 @@ in
     cachix
     niv
     nixpkgs-fmt
+    nixUnstable
     rnix-lsp
     statix
     # --- process manager ---
