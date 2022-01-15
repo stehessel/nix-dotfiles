@@ -138,6 +138,7 @@ in
     selene
     stylua
     # --- kubernetes ---
+    kubectl
     kube-linter
     # --- network ---
     bandwhich
