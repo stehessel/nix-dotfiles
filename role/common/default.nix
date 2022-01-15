@@ -49,6 +49,11 @@ in
   #   LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
   # };
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   home.packages = with pkgs; [
     # --- azure ---
     azure-cli
@@ -182,7 +187,6 @@ in
     # --- todo manager ---
     taskwarrior
     # --- utility ---
-    direnv
     du-dust
     file
     hyperfine

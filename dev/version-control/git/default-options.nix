@@ -24,6 +24,8 @@
 
     # Direnv
     ".envrc"
+    "nix/"
+    ".direnv/"
   ];
 
   extraConfig = {
