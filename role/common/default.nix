@@ -145,6 +145,7 @@ in
     # --- kubernetes ---
     kubectl
     kube-linter
+    kubernetes-helm
     # --- network ---
     bandwhich
     curl
