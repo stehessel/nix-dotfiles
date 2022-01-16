@@ -156,8 +156,9 @@ in
     # --- nix ---
     cachix
     niv
-    nixpkgs-fmt
+    nix-prefetch-github
     nixUnstable
+    nixpkgs-fmt
     rnix-lsp
     statix
     # --- process manager ---

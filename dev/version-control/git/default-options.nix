@@ -24,7 +24,6 @@
 
     # Direnv
     ".envrc"
-    "nix/"
     ".direnv/"
   ];
 
