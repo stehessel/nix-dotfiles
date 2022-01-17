@@ -126,6 +126,7 @@ in
     # --- highlighters ---
     bat
     exa
+    glow
     highlight
     # --- http ---
     http-prompt
@@ -144,6 +145,7 @@ in
     luajitPackages.luarocks
     selene
     stylua
+    sumneko-lua-language-server
     # --- kubernetes ---
     kube-linter
     kubectl
@@ -196,6 +198,7 @@ in
     # --- todo manager ---
     taskwarrior
     # --- utility ---
+    cmatrix
     du-dust
     file
     hyperfine
