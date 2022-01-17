@@ -3,9 +3,10 @@ if not status is-interactive
 end
 
 # Environment variables
+set -q XDG_CACHE_HOME; or set XDG_CACHE_HOME "$HOME/.cache"
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 set -q XDG_DATA_HOME; or set XDG_DATA_HOME "$HOME/.local/share"
-set -q XDG_CACHE_HOME; or set XDG_CACHE_HOME "$HOME/.cache"
+set -q XDG_RUNTIME_DIR; or set XDG_RUNTIME_DIR "$TMPDIR"
 set -x EDITOR nvim
 set -x FILE lf
 set -x PAGER less
