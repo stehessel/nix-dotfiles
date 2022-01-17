@@ -180,6 +180,8 @@ in
     shfmt
     # --- sql ---
     sqlite
+    # --- system ---
+    (uutils-coreutils.override { prefix = ""; })
     # --- terminals ---
     # wezterm
     # --- terminal multiplexers ---
