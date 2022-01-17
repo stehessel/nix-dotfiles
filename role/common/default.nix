@@ -116,6 +116,7 @@ in
     # --- golang ---
     delve
     ginkgo
+    go_1_17
     golangci-lint
     gopls
     gotest
