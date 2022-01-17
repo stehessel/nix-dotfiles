@@ -73,6 +73,7 @@ in
     yq-go
     # --- dev ---
     cmake
+    code-minimap
     codespell
     editorconfig-core-c
     pgformatter
