@@ -170,6 +170,7 @@ in
     # --- python ---
     python39Packages.black
     python39Packages.isort
+    python39Packages.pipx
     pyright
     # --- rust ---
     rustup
