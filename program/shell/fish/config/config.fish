@@ -19,23 +19,22 @@ set -x fzf_fd_opts "--type=file"
 set -x fzf_preview_dir_cmd "exa --all --color=always --group-directories-first"
 # fzf_configure_bindings --directory=\cf
 
-set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
-set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
 set -x CARGO_HOME "$XDG_CONFIG_HOME/cargo"
-set -x RUSTUP_HOME "$XDG_CONFIG_HOME/rustup"
 set -x GOPATH "$HOME/go"
-
-set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/config"
 set -x NPM_CONFIG_CACHE "$XDG_CACHE_HOME/npm"
 set -x NPM_CONFIG_TMP "$XDG_RUNTIME_DIR/npm"
+set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/config"
+set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/rc"
+set -x RUSTUP_HOME "$XDG_CONFIG_HOME/rustup"
+set -x TASKDATA "$XDG_CONFIG_HOME/taskwarrior/task"
+set -x TASKRC "$XDG_CONFIG_HOME/taskwarrior/config"
+set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
 
 set -e fish_user_paths
 fish_add_path "$HOME/.luarocks/bin"
 fish_add_path "$XDG_CONFIG_HOME/npm/npm-packages/bin"
 fish_add_path "$HOME/go/bin"
-fish_add_path "$HOME/.cargo/bin"
 fish_add_path "$HOME/.config/cargo/bin"
-fish_add_path "$HOME/.gem/ruby/2.6.0/bin"
 fish_add_path /nix/var/nix/profiles/default/bin
 fish_add_path /usr/local/bin
 fish_add_path "$HOME/.nix-profile/bin"

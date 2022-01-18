@@ -1,4 +1,7 @@
 { config, lib, pkgs, ... }:
 {
-  home.file.".taskrc".source = config/taskrc;
+  xdg.configFile."taskwarrior" = {
+    source = ./config;
+    recursive = true;
+  };
 }
