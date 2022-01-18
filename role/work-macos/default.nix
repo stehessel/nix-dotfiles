@@ -21,7 +21,7 @@ in
     # tectonic
     # --- terminal ---
     kitty
-    wezterm
+    # wezterm
     # --- window manager ---
     yabai
   ];
