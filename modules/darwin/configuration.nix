@@ -3,12 +3,14 @@
 {
   imports = [ <home-manager/nix-darwin> ];
 
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages =
-    [
-      pkgs.vim
-    ];
+  environment = {
+    darwinConfig = "$HOME/.config/nixpkgs/modules/darwin/configuration.nix";
+    loginShell = pkgs.fish;
+    systemPackages =
+      [
+        pkgs.vim
+      ];
+  };
 
   users.users.stephan = {
     name = "stephan";
@@ -19,9 +21,34 @@
     imports = [ /Users/stephan/nix-home/macos.nix ];
   };
 
-  # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/modules/darwin/configuration.nix
-  environment.darwinConfig = "$HOME/.config/nixpkgs/modules/darwin/configuration.nix";
+  system.defaults = {
+    dock = {
+      autohide = true;
+      autohide-delay = "0.0";
+      autohide-time-modifier = "1.0";
+      tilesize = 75;
+      static-only = false;
+      showhidden = false;
+      show-recents = false;
+      show-process-indicators = true;
+      orientation = "bottom";
+      mru-spaces = false;
+    };
+
+    NSGlobalDomain = {
+      "com.apple.sound.beep.feedback" = 0;
+      "com.apple.sound.beep.volume" = "0.000";
+      "com.apple.swipescrolldirection" = false;
+      # Allow key repeat
+      ApplePressAndHoldEnabled = false;
+      # Delay before repeating keystrokes
+      InitialKeyRepeat = 10;
+      # Delay between repeated keystrokes upon holding a key
+      KeyRepeat = 1;
+      AppleShowAllExtensions = true;
+      AppleShowScrollBars = "Automatic";
+    };
+  };
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
