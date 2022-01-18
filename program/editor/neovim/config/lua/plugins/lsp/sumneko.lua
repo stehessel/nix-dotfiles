@@ -1,25 +1,10 @@
 return {
   setup = function(on_attach, capabilities, root_patterns, debounce_text_changes)
-    local system_name
-    if vim.fn.has("mac") == 1 then
-      system_name = "macOS"
-    elseif vim.fn.has("unix") == 1 then
-      system_name = "Linux"
-    elseif vim.fn.has("win32") == 1 then
-      system_name = "Windows"
-    else
-      print("Unsupported system for sumneko")
-    end
-
-    local sumneko_root_path = "/Users/lgtf/just-build/sumneko-lua-lsp/lua-language-server"
-    local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server"
-
     local runtime_path = vim.split(package.path, ";")
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
 
     require("lspconfig").sumneko_lua.setup({
-      -- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
       cmd = { "lua-language-server" },
       on_attach = on_attach,
       capabilities = capabilities,

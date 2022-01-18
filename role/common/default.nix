@@ -8,7 +8,6 @@ in
   nixpkgs.config.allowUnsupportedSystem = true;
 
   imports = [
-    ../../dev/build-system/just-build
     ../../dev/clojure/leiningen
     ../../dev/javascript/npm
     ../../dev/lua/luacheck
@@ -137,7 +136,6 @@ in
     nodejs-17_x
     yarn
     # --- launcher ---
-    just
     pueue
     # --- lua ---
     luajitPackages.lua-lsp
