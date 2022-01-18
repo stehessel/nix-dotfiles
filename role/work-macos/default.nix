@@ -6,8 +6,6 @@ in
 {
   imports = [
     ../common
-    # ../../dev/python/pip
-    ../../program/editor/vimspector
     ../../program/terminal/wezterm
   ];
 
@@ -21,11 +19,11 @@ in
     # --- latex ---
     # texlive.combined.scheme-full
     # tectonic
-    # --- lua ---
-    # sumneko-lua-language-server
     # --- terminal ---
     kitty
-    # wezterm
+    wezterm
+    # --- window manager ---
+    yabai
   ];
 
   programs.alacritty = {
