@@ -4,7 +4,7 @@
   imports = [ <home-manager/nix-darwin> ];
 
   environment = {
-    darwinConfig = "$HOME/.config/nixpkgs/modules/darwin/configuration.nix";
+    darwinConfig = "$HOME/.config/nixpkgs/systems/darwin/configuration.nix";
     loginShell = pkgs.fish;
     systemPackages =
       [
@@ -53,8 +53,6 @@
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
-
-  programs.fish.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
