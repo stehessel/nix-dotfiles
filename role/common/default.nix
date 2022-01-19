@@ -177,7 +177,6 @@ in
     # --- shell ---
     bash_5
     dash
-    fish
     shellcheck
     shfmt
     # --- sql ---

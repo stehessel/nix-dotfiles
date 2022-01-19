@@ -3,9 +3,12 @@
 {
   imports = [ <home-manager/nix-darwin> ];
 
+  # Make `darwin-rebuild` available in shell.
+  programs.fish.enable = true;
+  environment.loginShell = pkgs.fish;
+
   environment = {
     darwinConfig = "$HOME/.config/nixpkgs/systems/darwin/configuration.nix";
-    loginShell = pkgs.fish;
     systemPackages =
       [
         pkgs.vim

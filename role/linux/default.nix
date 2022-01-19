@@ -28,6 +28,8 @@ in
     glow
     # --- lua ---
     sumneko-lua-language-server
+    # --- shell ---
+    fish
   ];
 
   programs = {
