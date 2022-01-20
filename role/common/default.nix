@@ -175,7 +175,6 @@ in
     # --- ruby ---
     # ruby_2_7
     # --- shell ---
-    bash_5
     dash
     shellcheck
     shfmt

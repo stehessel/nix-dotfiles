@@ -29,6 +29,7 @@ in
     # --- lua ---
     sumneko-lua-language-server
     # --- shell ---
+    bashInteractive
     fish
   ];
 
