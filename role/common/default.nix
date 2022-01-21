@@ -13,6 +13,7 @@
     ../../dev/python/flake8
     ../../dev/python/isort
     ../../dev/python/mypy
+    ../../dev/python/python
     # ../../dev/python/packages
     # ../../dev/python/pip
     ../../dev/python/pycodestyle

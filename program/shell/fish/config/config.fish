@@ -21,7 +21,7 @@ set -x fzf_preview_dir_cmd "exa --all --color=always --group-directories-first"
 
 set -x CARGO_HOME "$XDG_CONFIG_HOME/cargo"
 set -x GOPATH "$HOME/go"
-set -x MINIKUBE_HOME "$XDG_CONFIG_HOME/minikube"
+set -x MINIKUBE_HOME "$XDG_CONFIG_HOME"
 set -x NPM_CONFIG_CACHE "$XDG_CACHE_HOME/npm"
 set -x NPM_CONFIG_TMP "$XDG_RUNTIME_DIR/npm"
 set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/config"
@@ -31,6 +31,7 @@ set -x TASKDATA "$XDG_CONFIG_HOME/taskwarrior/task"
 set -x TASKRC "$XDG_CONFIG_HOME/taskwarrior/config"
 set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
 set -x WGETRC "$XDG_CONFIG_HOME/wget/config"
+set -x PYTHONSTARTUP "XDG_CONFIG_HOME/python/config"
 
 set -e fish_user_paths
 fish_add_path "$HOME/.luarocks/bin"
