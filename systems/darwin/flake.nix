@@ -18,15 +18,5 @@
       system = "x86_64-darwin";
       modules = [ ./configuration.nix ];
     };
-
-    homeConfigurations = {
-      stephan = home-manager.lib.homeManagerConfiguration {
-        inputs = { inherit nixpkgs; };
-        system = "x86_64-darwin";
-        homeDirectory = "/Users/stephan";
-        username = "stephan";
-        configuration.imports = [ /Users/stephan/nix-home/macos.nix ];
-      };
-    };
   };
 }
