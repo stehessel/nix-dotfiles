@@ -21,6 +21,7 @@ set -x fzf_preview_dir_cmd "exa --all --color=always --group-directories-first"
 
 set -x CARGO_HOME "$XDG_CONFIG_HOME/cargo"
 set -x GOPATH "$HOME/go"
+set -x MINIKUBE_HOME "$XDG_CONFIG_HOME/minikube"
 set -x NPM_CONFIG_CACHE "$XDG_CACHE_HOME/npm"
 set -x NPM_CONFIG_TMP "$XDG_RUNTIME_DIR/npm"
 set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/config"
