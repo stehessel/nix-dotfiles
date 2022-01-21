@@ -30,6 +30,7 @@ set -x RUSTUP_HOME "$XDG_CONFIG_HOME/rustup"
 set -x TASKDATA "$XDG_CONFIG_HOME/taskwarrior/task"
 set -x TASKRC "$XDG_CONFIG_HOME/taskwarrior/config"
 set -x TMUX_PLUGIN_MANAGER_PATH "$XDG_CONFIG_HOME/tmux/plugins"
+set -x WGETRC "$XDG_CONFIG_HOME/wget/config"
 
 set -e fish_user_paths
 fish_add_path "$HOME/.luarocks/bin"

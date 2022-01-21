@@ -35,6 +35,7 @@
     # ../../program/utility/pueue
     ../../program/utility/ripgrep
     ../../program/utility/topgrade
+    ../../program/utility/wget
     ../../script
   ];
 
