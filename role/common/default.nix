@@ -144,6 +144,7 @@
     kubectl
     kubectx
     kubernetes-helm
+    minikube
     # --- network ---
     bandwhich
     curl
