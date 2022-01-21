@@ -27,7 +27,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.stephan = ./macos.nix;
+          home-manager.users.stephan = ./systems/darwin;
 
           nixpkgs = {
             overlays = [ neovim-nightly-overlay.overlay ];
