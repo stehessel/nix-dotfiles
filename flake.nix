@@ -16,7 +16,16 @@
   outputs = { self, nixpkgs, darwin, home-manager }: {
     darwinConfigurations."shesselm-mac" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
-      modules = [ ./systems/darwin/configuration.nix ];
+      modules = [
+        ./systems/darwin/configuration.nix
+
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.stephan = ./macos.nix;
+        }
+      ];
     };
   };
 }

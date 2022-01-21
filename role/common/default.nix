@@ -1,8 +1,4 @@
-{ config, lib, pkgs, ... }:
-let
-  sources = import ../../nix/sources.nix;
-  pkgs = import sources.nixpkgs { };
-in
+{ config, pkgs, libs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnsupportedSystem = true;

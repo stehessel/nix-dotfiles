@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
-  imports = [ <home-manager/nix-darwin> ];
-
   # Make `darwin-rebuild` available in shell.
   programs.fish.enable = true;
   environment.loginShell = pkgs.fish;
@@ -18,10 +16,6 @@
   users.users.stephan = {
     name = "stephan";
     home = "/Users/stephan";
-  };
-
-  home-manager.users.stephan = { pkgs, ... }: {
-    imports = [ /Users/stephan/nix-home/macos.nix ];
   };
 
   system = {
@@ -60,7 +54,7 @@
     };
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  # security.pam.enableSudoTouchIdAuth = true;
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
