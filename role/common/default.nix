@@ -1,4 +1,4 @@
-{ config, pkgs, libs, ... }:
+{ config, pkgs, lib, ... }:
 {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnsupportedSystem = true;
@@ -152,7 +152,6 @@
     speedtest-cli
     # --- nix ---
     cachix
-    niv
     nix-prefetch-github
     nixUnstable
     nixpkgs-fmt
