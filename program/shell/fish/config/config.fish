@@ -19,6 +19,7 @@ set -x fzf_fd_opts "--type=file"
 set -x fzf_preview_dir_cmd "exa --all --color=always --group-directories-first"
 # fzf_configure_bindings --directory=\cf
 
+set -x BOTO_CONFIG "$XDG_CONFIG_HOME/boto/config"
 set -x CARGO_HOME "$XDG_CONFIG_HOME/cargo"
 set -x GOPATH "$HOME/go"
 set -x MINIKUBE_HOME "$XDG_CONFIG_HOME"
