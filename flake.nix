@@ -16,7 +16,7 @@
   outputs = { self, nixpkgs, darwin, home-manager }: {
     darwinConfigurations."shesselm-mac" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
-      modules = [ ./configuration.nix ];
+      modules = [ ./systems/darwin/configuration.nix ];
     };
   };
 }
