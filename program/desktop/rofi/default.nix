@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   xdg.configFile."rofi/config".source = config/config;
 }

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home.file.".local/bin" = {
     source = ./config;

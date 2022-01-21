@@ -1,4 +1,4 @@
-{ config, lib, pkgs, python, pypkgs, ... }:
+{ pkgs, lib, python, pypkgs, ... }:
 {
   pyrepl = pypkgs.buildPythonPackage rec {
     pname = "pyrepl";

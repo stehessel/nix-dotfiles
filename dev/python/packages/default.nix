@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   python = pkgs.python3;
   pypkgs = pkgs.python3Packages;
