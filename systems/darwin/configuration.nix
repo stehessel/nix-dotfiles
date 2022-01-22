@@ -44,9 +44,17 @@
   # Upstream PR: https://github.com/LnL7/nix-darwin/pull/228
   # security.pam.enableSudoTouchIdAuth = true;
 
-  # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
+  users.nix.configureBuildUsers = true;
+  nix = {
+    package = pkgs.nix;
+
+    extraOptions = ''
+      auto-optimise-store = true
+      experimental-features = nix-command flakes
+    '';
+  };
+
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

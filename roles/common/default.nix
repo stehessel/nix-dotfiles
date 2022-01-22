@@ -22,7 +22,6 @@
     ../../modules/backup/restic
     ../../modules/editor/neovim
     ../../modules/file-manager/lf
-    ../../modules/package-manager/nix
     ../../modules/shell/bash
     ../../modules/shell/bobthefish
     ../../modules/shell/fish
