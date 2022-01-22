@@ -5,14 +5,6 @@
   programs.fish.enable = true;
   environment.loginShell = pkgs.fish;
 
-  environment = {
-    darwinConfig = "$HOME/.config/nixpkgs/systems/darwin/configuration.nix";
-    systemPackages =
-      [
-        pkgs.vim
-      ];
-  };
-
   system = {
     keyboard = {
       enableKeyMapping = true;
