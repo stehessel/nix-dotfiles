@@ -4,7 +4,7 @@
   manual.manpages.enable = false;
 
   imports = [
-    ./role/linux
-    ./user/stehessel
+    ./roles/linux
+    ./profiles/stehessel
   ];
 }

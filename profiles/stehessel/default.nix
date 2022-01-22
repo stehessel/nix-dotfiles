@@ -2,7 +2,7 @@
 {
   imports = [
     ../common
-    ../../service/calcurse
+    ../../services/calcurse
   ];
 
   services.mbsync = {

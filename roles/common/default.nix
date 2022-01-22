@@ -36,7 +36,7 @@
     ../../modules/utility/ripgrep
     ../../modules/utility/topgrade
     ../../modules/utility/wget
-    ../../script
+    ../../scripts
   ];
 
   # home.sessionVariables.LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
