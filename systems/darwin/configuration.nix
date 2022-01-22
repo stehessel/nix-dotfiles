@@ -13,6 +13,14 @@
     };
 
     defaults = {
+      # Firewall
+      alf = {
+        globalstate = 1;
+        allowsignedenabled = 1;
+        allowdownloadsignedenabled = 1;
+        stealthenabled = 1;
+      };
+
       dock = {
         autohide = true;
         autohide-delay = "0.0";
