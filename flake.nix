@@ -33,6 +33,12 @@
             overlays = [ neovim-nightly-overlay.overlay ];
           };
         }
+        {
+          users.users.stephan = {
+            name = "stephan";
+            home = "/Users/stephan";
+          };
+        }
       ];
     };
   };

@@ -13,11 +13,6 @@
       ];
   };
 
-  users.users.stephan = {
-    name = "stephan";
-    home = "/Users/stephan";
-  };
-
   system = {
     keyboard = {
       enableKeyMapping = true;
