@@ -1,7 +1,4 @@
 { pkgs, lib, ... }:
 {
-  home.file.".lein" = {
-    source = ./config;
-    recursive = true;
-  };
+  xdg.configFile."lein/profiles.clj".source = config/profiles.clj;
 }
