@@ -6,15 +6,15 @@ in
 {
   imports = [
     ../common
-    ../../program/desktop/dunst
-    ../../program/desktop/mime-apps
-    ../../program/desktop/rofi
-    ../../program/desktop/sxhkd
-    ../../program/desktop/waybar
-    ../../program/desktop/window-manager/river
-    ../../program/file-viewer/sxiv
-    ../../program/file-viewer/zathura
-    ../../program/terminal/foot
+    ../../modules/desktop/dunst
+    ../../modules/desktop/mime-apps
+    ../../modules/desktop/rofi
+    ../../modules/desktop/sxhkd
+    ../../modules/desktop/waybar
+    ../../modules/desktop/window-manager/river
+    ../../modules/file-viewer/sxiv
+    ../../modules/file-viewer/zathura
+    ../../modules/terminal/foot
   ];
 
   home.packages = with pkgs; [
@@ -67,6 +67,6 @@ in
     };
   };
 
-  xdg.configFile."fish/fish_plugins".source = ../../program/shell/fish/linux/fish_plugins;
+  xdg.configFile."fish/fish_plugins".source = ../../modules/shell/fish/linux/fish_plugins;
   home.file.".profile".source = config/profile;
 }

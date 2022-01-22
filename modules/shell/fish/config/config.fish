@@ -65,7 +65,7 @@ switch (uname)
 end
 
 # Abbreviations
-abbr -a cfv "$EDITOR ~/nix-home/program/editor/neovim/config/init.vim"
+abbr -a cfv "$EDITOR ~/nix-ho../modules/editor/neovim/config/init.vim"
 
 if test "$TERMINAL" = kitty
     abbr -a diff "kitty +kitten diff"

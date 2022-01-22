@@ -2,10 +2,10 @@
 {
   imports = [
     ../common
-    ../../program/terminal/wezterm
+    ../../modules/terminal/wezterm
   ];
 
-  xdg.configFile."fish/fish_plugins".source = ../../program/shell/fish/macos/fish_plugins;
+  xdg.configFile."fish/fish_plugins".source = ../../modules/shell/fish/macos/fish_plugins;
 
   home.packages = with pkgs; [
     # --- container ---
@@ -23,7 +23,7 @@
   ];
 
   programs.alacritty = {
-    settings = lib.attrsets.recursiveUpdate (import ../../program/terminal/alacritty/default-options.nix) {
+    settings = lib.attrsets.recursiveUpdate (import ../../modules/terminal/alacritty/default-options.nix) {
       font.size = 18;
       font.use_thin_strokes = true;
       window.decorations = "buttonless";

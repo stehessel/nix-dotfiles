@@ -4,39 +4,38 @@
   nixpkgs.config.allowUnsupportedSystem = true;
 
   imports = [
-    ../../dev/clojure/leiningen
-    ../../dev/javascript/npm
-    ../../dev/lua/luacheck
-    ../../dev/lua/luaformatter
-    ../../dev/lua/stylua
-    ../../dev/python/conda
-    ../../dev/python/flake8
-    ../../dev/python/isort
-    ../../dev/python/mypy
-    ../../dev/python/python
-    # ../../dev/python/packages
-    # ../../dev/python/pip
-    ../../dev/python/pycodestyle
-    ../../dev/rust/cargo
-    ../../dev/text/vale
-    ../../dev/version-control/git
-    ../../program/backup/restic
-    ../../program/editor/neovim
-    ../../program/file-manager/lf
-    ../../program/package-manager/nix
-    ../../program/shell/bash
-    ../../program/shell/bobthefish
-    ../../program/shell/fish
-    ../../program/terminal/alacritty
-    ../../program/terminal/kitty
-    ../../program/terminal/tmux
-    ../../program/todo/taskwarrior
-    ../../program/utility/broot
-    # ../../program/utility/file
-    # ../../program/utility/pueue
-    ../../program/utility/ripgrep
-    ../../program/utility/topgrade
-    ../../program/utility/wget
+    ../../modules/dev/clojure/leiningen
+    ../../modules/dev/javascript/npm
+    ../../modules/dev/lua/luacheck
+    ../../modules/dev/lua/luaformatter
+    ../../modules/dev/lua/stylua
+    ../../modules/dev/python/conda
+    ../../modules/dev/python/flake8
+    ../../modules/dev/python/isort
+    ../../modules/dev/python/mypy
+    ../../modules/dev/python/python
+    # ../../modules/dev/python/pip
+    ../../modules/dev/python/pycodestyle
+    ../../modules/dev/rust/cargo
+    ../../modules/dev/text/vale
+    ../../modules/dev/version-control/git
+    ../../modules/backup/restic
+    ../../modules/editor/neovim
+    ../../modules/file-manager/lf
+    ../../modules/package-manager/nix
+    ../../modules/shell/bash
+    ../../modules/shell/bobthefish
+    ../../modules/shell/fish
+    ../../modules/terminal/alacritty
+    ../../modules/terminal/kitty
+    ../../modules/terminal/tmux
+    ../../modules/todo/taskwarrior
+    ../../modules/utility/broot
+    # ../../modules/utility/file
+    # ../../modules/utility/pueue
+    ../../modules/utility/ripgrep
+    ../../modules/utility/topgrade
+    ../../modules/utility/wget
     ../../script
   ];
 
