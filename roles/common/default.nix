@@ -115,6 +115,7 @@
     golangci-lint
     gopls
     gotest
+    gotests
     gotestsum
     richgo
     # --- highlighters ---
