@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     # --- container ---
     podman
+    qemu
     # --- editor ---
     neovim
     # --- latex ---

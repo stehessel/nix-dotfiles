@@ -448,6 +448,7 @@ return require("packer").startup({
         vim.keymap.set("n", "<Leader>ga", "<Cmd>GoAlt<CR>")
         vim.keymap.set("n", "<Leader>gv", "<Cmd>GoAltV<CR>")
       end,
+      requires = { "ray-x/guihua.lua", run = "cd lua/fzy && make" },
     })
     -- Python
     use({ "stsewd/sphinx.nvim", ft = { "python", "rst" } })
