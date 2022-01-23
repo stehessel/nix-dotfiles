@@ -8,9 +8,6 @@
   xdg.configFile."fish/fish_plugins".source = ../../modules/shell/fish/macos/fish_plugins;
 
   home.packages = with pkgs; [
-    # --- container ---
-    podman
-    qemu
     # --- editor ---
     neovim
     # --- latex ---
