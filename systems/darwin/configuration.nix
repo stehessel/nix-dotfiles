@@ -6,6 +6,53 @@
   environment.loginShell = pkgs.fish;
   environment.variables.SHELL = "${pkgs.fish}/bin/fish";
 
+  homebrew = {
+    enable = true;
+    autoUpdate = true;
+    cleanup = "zap";
+    global.brewfile = true;
+    global.noLock = true;
+
+    taps = [
+      "austinjones/taps"
+      "getsentry/tools"
+      "helix-editor/helix"
+      "homebrew/bundle"
+      "homebrew/cask"
+      "homebrew/cask-drivers"
+      "homebrew/cask-fonts"
+      "homebrew/cask-versions"
+      "homebrew/core"
+      "homebrew/services"
+      "homebrew/test-bot"
+      "koekeishiya/formulae"
+      "mutagen-io/mutagen"
+      "nrlquaker/createzap"
+      "stephan-hesselmann-by/blueyonder"
+      "zegervdv/zathura"
+    ];
+
+    casks = [
+      "adobe-acrobat-reader"
+      "amethyst"
+      "app-cleaner"
+      "bluejeans"
+      "calibre"
+      "google-chrome"
+      "clipy"
+      "dbeaver-community"
+      "docker"
+      "font-fira-code-nerd-font"
+      "inkscape"
+      "kitty"
+      "slack"
+      "syncthing"
+      "visual-studio-code"
+      "wezterm"
+      "zoom"
+    ];
+  };
+
   system = {
     keyboard = {
       enableKeyMapping = true;
