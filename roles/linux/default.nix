@@ -30,6 +30,8 @@
     fish
   ];
 
+  programs.home-manager.enable = true;
+
   # programs = {
   #   go = {
   #     enable = true;

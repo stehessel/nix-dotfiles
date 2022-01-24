@@ -46,16 +46,19 @@
 
     homeConfigurations = {
       stephan = home-manager.lib.homeManagerConfiguration {
-        configuration.imports = [
-          ./profiles/stehessel
-          ./roles/linux
-        ];
-        configuration.nixpkgs = {
-          overlays = [ neovim-nightly-overlay.overlay ];
+        configuration = {
+          imports = [
+            ./profiles/stehessel
+            ./roles/linux
+          ];
+          nixpkgs = {
+            overlays = [ neovim-nightly-overlay.overlay ];
+          };
         };
         homeDirectory = "/home/stephan";
-        system = "x86_64-linux";
+        stateVersion = "22.05";
         username = "stephan";
+        system = "x86_64-linux";
       };
     };
   };
