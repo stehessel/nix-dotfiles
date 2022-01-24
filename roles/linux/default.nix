@@ -30,11 +30,11 @@
     fish
   ];
 
-  programs = {
-    go = {
-      enable = true;
-    };
-  };
+  # programs = {
+  #   go = {
+  #     enable = true;
+  #   };
+  # };
 
   systemd.user.targets = {
     tray = {

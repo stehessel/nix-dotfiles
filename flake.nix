@@ -50,11 +50,11 @@
           ./profiles/stehessel
           ./roles/linux
         ];
-        homeDirectory = "/home/stephan";
-        nixpkgs = {
+        configuration.nixpkgs = {
           overlays = [ neovim-nightly-overlay.overlay ];
         };
-        system = "x86_64-darwin";
+        homeDirectory = "/home/stephan";
+        system = "x86_64-linux";
         username = "stephan";
       };
     };

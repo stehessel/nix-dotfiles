@@ -80,7 +80,7 @@
     hadolint
     # --- editor ---
     kakoune
-    # neovim
+    neovim
     # --- encryption ---
     gnupg
     # --- file manager ---
