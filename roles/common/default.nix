@@ -43,9 +43,17 @@
   #   LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
   # };
 
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
+    go = {
+      enable = true;
+      goPath = "go";
+      package = pkgs.go_1_17;
+    };
   };
 
   home.packages = with pkgs; [
@@ -111,7 +119,6 @@
     # --- golang ---
     delve
     ginkgo
-    go_1_17
     golangci-lint
     gopls
     gotest

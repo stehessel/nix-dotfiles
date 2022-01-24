@@ -30,13 +30,9 @@
     fish
   ];
 
-  programs.home-manager.enable = true;
-
-  # programs = {
-  #   go = {
-  #     enable = true;
-  #   };
-  # };
+  programs = {
+    home-manager.enable = true;
+  };
 
   systemd.user.targets = {
     tray = {
