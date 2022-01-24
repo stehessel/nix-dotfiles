@@ -21,19 +21,21 @@
     darwinConfigurations."shesselm-mac" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [
-        ./systems/darwin/configuration.nix
+        ./systems/darwin
 
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.stephan = ./systems/darwin;
-
+          home-manager.users.stephan = {
+            imports = [
+              ./profiles/redhat
+              ./roles/work-macos
+            ];
+          };
           nixpkgs = {
             overlays = [ neovim-nightly-overlay.overlay ];
           };
-        }
-        {
           users.users.stephan = {
             name = "stephan";
             home = "/Users/stephan";
