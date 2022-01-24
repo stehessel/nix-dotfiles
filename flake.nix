@@ -43,5 +43,20 @@
         }
       ];
     };
+
+    homeConfigurations = {
+      stephan = inputs.home-manager.lib.homeManagerConfiguration {
+        configuration.imports = [
+          ./profiles/stehessel
+          ./roles/linux
+        ];
+        homeDirectory = "/home/stephan";
+        nixpkgs = {
+          overlays = [ neovim-nightly-overlay.overlay ];
+        };
+        system = "x86_64-darwin";
+        username = "stephan";
+      };
+    };
   };
 }
