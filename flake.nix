@@ -45,7 +45,7 @@
     };
 
     homeConfigurations = {
-      stephan = inputs.home-manager.lib.homeManagerConfiguration {
+      stephan = home-manager.lib.homeManagerConfiguration {
         configuration.imports = [
           ./profiles/stehessel
           ./roles/linux
