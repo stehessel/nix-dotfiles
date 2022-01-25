@@ -110,11 +110,8 @@
     fzf
     fzy
     # --- git ---
-    gitAndTools.diff-so-fancy
-    gitAndTools.gh
     gitAndTools.git-bug
     gitAndTools.git-fame
-    gitAndTools.hub
     gitui
     # --- golang ---
     delve
