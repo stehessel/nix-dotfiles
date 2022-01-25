@@ -6,6 +6,16 @@
   environment.loginShell = pkgs.fish;
   environment.variables.SHELL = "${pkgs.fish}/bin/fish";
 
+  services = {
+    skhd = {
+      enable = true;
+      package = pkgs.skhd;
+      skhdConfig = ''
+        cmd + shift - b : fish -c "echo test"
+      '';
+    };
+  };
+
   homebrew = {
     enable = true;
     autoUpdate = true;
