@@ -57,9 +57,6 @@
   };
 
   home.packages = with pkgs; [
-    # --- azure ---
-    azure-cli
-    azure-storage-azcopy
     # --- backup ---
     rclone
     restic
@@ -68,6 +65,10 @@
     clojure-lsp
     # jdk11
     leiningen
+    # --- cloud ---
+    azure-cli
+    azure-storage-azcopy
+    google-cloud-sdk
     # --- cpp ---
     ninja
     # --- data ---
