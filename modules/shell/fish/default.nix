@@ -25,13 +25,6 @@
 
     interactiveShellInit =
       ''
-        # Environment variables
-        set -x FZF_DEFAULT_OPTS "--cycle --layout=reverse --border --height 85% --preview-window=wrap --info=inline"
-        set -x fzf_fd_opts "--type=file"
-        # set -x fzf_dir_opts --bind="enter:execute(nvim {})"
-        set -x fzf_preview_dir_cmd "exa --all --color=always --group-directories-first"
-        # fzf_configure_bindings --directory=\cf
-
         # Fisher
         if not functions -q fisher
             curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish

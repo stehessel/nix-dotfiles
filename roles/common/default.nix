@@ -59,6 +59,8 @@
     TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
     WGETRC = "${config.xdg.configHome}/wget/config";
     XDG_RUNTIME_DIR = "$TMPDIR";
+    fzf_fd_opts = "--type=file";
+    fzf_preview_dir_cmd = "exa --all --color=always --group-directories-first";
   };
 
   home.sessionPath = [
@@ -75,6 +77,18 @@
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+    };
+
+    fzf = {
+      enable = true;
+      defaultOptions = [
+        "--border"
+        "--cycle"
+        "--height 85%"
+        "--info=inline"
+        "--layout=reverse"
+        "--preview-window=wrap"
+      ];
     };
 
     go = {
@@ -136,7 +150,6 @@
     fira-code
     font-awesome
     # --- fuzzy search ---
-    fzf
     fzy
     # --- git ---
     gitAndTools.git-bug
