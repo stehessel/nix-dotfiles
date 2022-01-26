@@ -8,7 +8,22 @@
   programs.fish = {
     enable = true;
 
-    shellInit =
+    shellAbbrs = {
+      gb = "git branch";
+      gc = "git commit -am";
+      gp = "git push";
+      gco = "git checkout";
+      gw = "git switch";
+      gd = "git diff";
+      gs = "git status";
+      gl = "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+      B = "git checkout (git for-each-ref --sort=-committerdate --count=100 --format=\"%(refname:short)\" refs/heads/ | fzf --preview \"git log {} --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --color | head -n 200\")";
+      d = "cd (fd --type=d --max-depth=1 . ~/dev | fzf --preview 'ls --color=always {}')";
+      tw = "task";
+      t = "topgrade";
+    };
+
+    interactiveShellInit =
       ''
         # Environment variables
         set -q XDG_CACHE_HOME; or set XDG_CACHE_HOME "$HOME/.cache"
@@ -68,46 +83,13 @@
                 ln -s "/Applications/Firefox.app/Contents/MacOS/firefox" "$HOME/.local/bin/firefox" 2>/dev/null
             case Linux
                 set -x BROWSER firefox
-                set -x XDG_CURRENT_DESKTOP Unity
         end
-
-        # Abbreviations
-        abbr -a cfv "$EDITOR ~/nix-ho../modules/editor/neovim/config/init.vim"
-
-        # if test "$TERMINAL" = kitty
-        #     abbr -a diff "kitty +kitten diff"
-        # end
-        abbr -a gb "git branch"
-        abbr -a gc "git commit -am"
-        abbr -a gp "git push"
-        abbr -a gco "git checkout"
-        abbr -a gw "git switch"
-        abbr -a gd "git diff"
-        abbr -a gs "git status"
-        abbr -a gl "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-        abbr -a B "git checkout (git for-each-ref --sort=-committerdate --count=100 --format=\"%(refname:short)\" refs/heads/ | fzf --preview \"git log {} --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --color | head -n 200\")"
-        abbr -a d "cd (fd --type=d --max-depth=1 . ~/dev | fzf --preview 'ls --color=always {}')"
-        abbr -a tw task
-        abbr -a restic "restic --repo=~/OneDrive\ -\ Blue\ Yonder --password-file=$XDG_CONFIG_HOME/restic/secret"
-        abbr -a e "$EDITOR"
-        abbr -a b "buku --suggest"
-        abbr -a t topgrade
-
-        # Keybinds
-        bind \cb beginning-of-line
-        bind \ca fg
-        bind \cn "f --pick"
 
         # Fisher
         if not functions -q fisher
             curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
             fish -c fisher
         end
-
-        # Tmux
-        # if test -n "$TMUX"
-        #     eval (tmux show-environment -s $NVIM_LISTEN_ADDRESS)
-        # end
 
         # Direnv
         if command -v direnv >/dev/null 2>&1
