@@ -55,7 +55,6 @@
       "docker"
       "font-fira-code-nerd-font"
       "inkscape"
-      "kitty"
       "slack"
       "syncthing"
       "visual-studio-code"

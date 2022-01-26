@@ -16,6 +16,8 @@
     # --- terminal ---
     kitty
     # wezterm
+    # --- text ---
+    gnused
     # --- window manager ---
     yabai
   ];
