@@ -20,7 +20,6 @@
     ../../modules/editor/neovim
     ../../modules/file-manager/lf
     ../../modules/shell/bash
-    ../../modules/shell/bobthefish
     ../../modules/shell/fish
     ../../modules/terminal/kitty
     ../../modules/terminal/tmux
@@ -52,8 +51,6 @@
     READER = "zathura";
     RIPGREP_CONFIG_PATH = "${config.xdg.configHome}/ripgrep/rc";
     RUSTUP_HOME = "${config.xdg.configHome}/rustup";
-    TASKDATA = "${config.xdg.configHome}/taskwarrior/task";
-    TASKRC = "${config.xdg.configHome}/taskwarrior/config";
     TERMINAL = "kitty";
     TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
     WGETRC = "${config.xdg.configHome}/wget/config";
@@ -94,6 +91,10 @@
       enable = true;
       goPath = "go";
       package = pkgs.go_1_17;
+    };
+
+    starship = {
+      enable = true;
     };
   };
 
@@ -217,6 +218,7 @@
     # --- ruby ---
     # ruby_2_7
     # --- shell ---
+    bashInteractive
     dash
     shellcheck
     shfmt

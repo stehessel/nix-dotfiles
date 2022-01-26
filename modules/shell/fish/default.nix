@@ -25,6 +25,8 @@
 
     interactiveShellInit =
       ''
+        set fish_greeting
+
         # Fisher
         if not functions -q fisher
             curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
@@ -38,12 +40,6 @@
                 eval "$HOME/miniconda3/bin/conda" "shell.fish" hook $argv >$conda_source_file
             end
             source $conda_source_file
-        end
-
-        # Bobthefish
-        set bobthefish_config_file "$XDG_CONFIG_HOME/bobthefish/config.fish"
-        if test -f $bobthefish_config_file
-            source $bobthefish_config_file
         end
       '';
   };

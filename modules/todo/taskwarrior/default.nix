@@ -1,7 +1,9 @@
 { pkgs, lib, ... }:
 {
-  xdg.configFile."taskwarrior" = {
-    source = ./config;
-    recursive = true;
+  programs.taskwarrior = {
+    enable = true;
+    config = {
+      uda.priority.values = "H,M,,L";
+    };
   };
 }
