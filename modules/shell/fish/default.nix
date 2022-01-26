@@ -32,22 +32,6 @@
         set -x fzf_preview_dir_cmd "exa --all --color=always --group-directories-first"
         # fzf_configure_bindings --directory=\cf
 
-        set -e fish_user_paths
-
-        # Link sh to dash
-        ln -s (command -v dash) "$HOME/.local/bin/sh" 2>/dev/null
-        set -x NVIM_LISTEN_ADDRESS /tmp/nvimsocket
-        switch (uname)
-            case Darwin
-                fish_add_path /usr/local/opt/coreutils/libexec/gnubin
-                fish_add_path /usr/local/opt/gnu-sed/libexec/gnubin
-                fish_add_path /usr/local/opt/openjdk/bin
-                set -x LC_ALL "en_US.UTF-8"
-                set -x LANG "en_US.UTF-8"
-            case Linux
-                set -x BROWSER firefox
-        end
-
         # Fisher
         if not functions -q fisher
             curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish

@@ -38,37 +38,36 @@
   xdg.enable = true;
 
   home.sessionVariables = {
-    BOTO_CONFIG = "$XDG_CONFIG_HOME/boto/config";
-    CARGO_HOME = "$XDG_CONFIG_HOME/cargo";
+    BOTO_CONFIG = "${config.xdg.configHome}/boto/config";
+    CARGO_HOME = "${config.xdg.configHome}/cargo";
     EDITOR = "nvim";
     FILE = "lf";
-    GRADLE_USER_HOME = "$XDG_DATA_HOME/gradle";
-    LEIN_HOME = "$XDG_CONFIG_HOME/lein";
-    MINIKUBE_HOME = "$XDG_CONFIG_HOME";
-    NPM_CONFIG_CACHE = "$XDG_CACHE_HOME/npm";
-    NPM_CONFIG_TMP = "$XDG_RUNTIME_DIR/npm";
-    NPM_CONFIG_USERCONFIG = "$XDG_CONFIG_HOME/npm/config";
+    GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
+    LEIN_HOME = "${config.xdg.configHome}/lein";
+    MINIKUBE_HOME = "${config.xdg.configHome}";
+    NPM_CONFIG_CACHE = "${config.xdg.cacheHome}/npm";
+    NPM_CONFIG_TMP = "$TMPDIR/npm";
+    NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/config";
     PAGER = "less";
-    PYTHONSTARTUP = "XDG_CONFIG_HOME/python/config";
+    PYTHONSTARTUP = "${config.xdg.configHome}/python/config";
     READER = "zathura";
-    RIPGREP_CONFIG_PATH = "$XDG_CONFIG_HOME/ripgrep/rc";
-    RUSTUP_HOME = "$XDG_CONFIG_HOME/rustup";
-    TASKDATA = "$XDG_CONFIG_HOME/taskwarrior/task";
-    TASKRC = "$XDG_CONFIG_HOME/taskwarrior/config";
+    RIPGREP_CONFIG_PATH = "${config.xdg.configHome}/ripgrep/rc";
+    RUSTUP_HOME = "${config.xdg.configHome}/rustup";
+    TASKDATA = "${config.xdg.configHome}/taskwarrior/task";
+    TASKRC = "${config.xdg.configHome}/taskwarrior/config";
     TERMINAL = "kitty";
-    TMUX_PLUGIN_MANAGER_PATH = "$XDG_CONFIG_HOME/tmux/plugins";
-    WGETRC = "$XDG_CONFIG_HOME/wget/config";
+    TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
+    WGETRC = "${config.xdg.configHome}/wget/config";
+    XDG_RUNTIME_DIR = "$TMPDIR";
   };
 
   home.sessionPath = [
     "$HOME/${config.programs.go.goPath}/bin"
     "$HOME/.local/bin"
     "$HOME/.luarocks/bin"
-    "$HOME/.nix-profile/bin"
     "$HOME/miniconda3/bin"
     "${config.xdg.configHome}/cargo/bin"
     "${config.xdg.configHome}/npm/npm-packages/bin"
-    "/nix/var/nix/profiles/default/bin"
     "/usr/local/bin"
   ];
 
