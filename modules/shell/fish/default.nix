@@ -23,9 +23,18 @@
       t = "topgrade";
     };
 
+    # Needed for nvim-spectre on macOS
+    shellAliases = {
+      gsed = "sed";
+    };
+
     interactiveShellInit =
       ''
         set fish_greeting
+
+        if not command -v gsed 2>&1 /dev/null
+          ln -s /etc/profiles/per-user/stephan/bin/sed $HOME/.local/bin/gsed
+        end
 
         # Fisher
         if not functions -q fisher
