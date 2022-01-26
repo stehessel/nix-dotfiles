@@ -2,9 +2,10 @@
 
 {
   # Make `darwin-rebuild` available in shell.
-  programs.fish.enable = true;
   environment.loginShell = pkgs.fish;
+  environment.shells = [ pkgs.bashInteractive pkgs.fish ];
   environment.variables.SHELL = "${pkgs.fish}/bin/fish";
+  programs.fish.enable = true;
 
   services = {
     skhd = {
