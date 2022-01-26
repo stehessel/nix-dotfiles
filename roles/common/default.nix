@@ -1,8 +1,5 @@
-{ pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnsupportedSystem = true;
-
   imports = [
     ../../modules/dev/clojure/leiningen
     ../../modules/dev/javascript/npm
@@ -38,10 +35,42 @@
     ../../scripts
   ];
 
-  # home.sessionVariables.LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
-  # home.sessionVariables = {
-  #   LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
-  # };
+  xdg.enable = true;
+
+  home.sessionVariables = {
+    BOTO_CONFIG = "$XDG_CONFIG_HOME/boto/config";
+    CARGO_HOME = "$XDG_CONFIG_HOME/cargo";
+    EDITOR = "nvim";
+    FILE = "lf";
+    GRADLE_USER_HOME = "$XDG_DATA_HOME/gradle";
+    LEIN_HOME = "$XDG_CONFIG_HOME/lein";
+    MINIKUBE_HOME = "$XDG_CONFIG_HOME";
+    NPM_CONFIG_CACHE = "$XDG_CACHE_HOME/npm";
+    NPM_CONFIG_TMP = "$XDG_RUNTIME_DIR/npm";
+    NPM_CONFIG_USERCONFIG = "$XDG_CONFIG_HOME/npm/config";
+    PAGER = "less";
+    PYTHONSTARTUP = "XDG_CONFIG_HOME/python/config";
+    READER = "zathura";
+    RIPGREP_CONFIG_PATH = "$XDG_CONFIG_HOME/ripgrep/rc";
+    RUSTUP_HOME = "$XDG_CONFIG_HOME/rustup";
+    TASKDATA = "$XDG_CONFIG_HOME/taskwarrior/task";
+    TASKRC = "$XDG_CONFIG_HOME/taskwarrior/config";
+    TERMINAL = "kitty";
+    TMUX_PLUGIN_MANAGER_PATH = "$XDG_CONFIG_HOME/tmux/plugins";
+    WGETRC = "$XDG_CONFIG_HOME/wget/config";
+  };
+
+  home.sessionPath = [
+    "$HOME/${config.programs.go.goPath}/bin"
+    "$HOME/.local/bin"
+    "$HOME/.luarocks/bin"
+    "$HOME/.nix-profile/bin"
+    "$HOME/miniconda3/bin"
+    "${config.xdg.configHome}/cargo/bin"
+    "${config.xdg.configHome}/npm/npm-packages/bin"
+    "/nix/var/nix/profiles/default/bin"
+    "/usr/local/bin"
+  ];
 
   programs = {
     direnv = {

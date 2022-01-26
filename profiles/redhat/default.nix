@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ../common
@@ -8,4 +8,7 @@
     userEmail = "shesselm@redhat.com";
     userName = "Stephan Heßelmann";
   };
+  home.sessionPath = [
+    "$HOME/${config.programs.go.goPath}/src/github.com/stackrox/workflow/bin"
+  ];
 }
