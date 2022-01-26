@@ -22,7 +22,6 @@
     ../../modules/shell/bash
     ../../modules/shell/bobthefish
     ../../modules/shell/fish
-    ../../modules/terminal/alacritty
     ../../modules/terminal/kitty
     ../../modules/terminal/tmux
     ../../modules/todo/taskwarrior
