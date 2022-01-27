@@ -215,7 +215,6 @@
     # --- nix ---
     cachix
     nix-prefetch-github
-    # nixUnstable
     nixpkgs-fmt
     rnix-lsp
     statix

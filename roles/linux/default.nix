@@ -23,8 +23,8 @@
     wl-clipboard
     # --- file viewer ---
     glow
-    # --- lua ---
-    sumneko-lua-language-server
+    # --- nix ---
+    nixUnstable
     # --- shell ---
     bashInteractive
     fish
