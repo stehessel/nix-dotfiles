@@ -41,6 +41,7 @@
     EDITOR = "nvim";
     FILE = "lf";
     GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
+    HISTFILE = "${config.xdg.dataHome}/fish/fish_history";
     LEIN_HOME = "${config.xdg.configHome}/lein";
     MINIKUBE_HOME = "${config.xdg.configHome}";
     NPM_CONFIG_CACHE = "${config.xdg.cacheHome}/npm";
@@ -72,6 +73,12 @@
   programs = {
     atuin = {
       enable = true;
+      settings = {
+        auto_sync = true;
+        search_mode = "fuzzy";
+        sync_address = "https://api.atuin.sh";
+        sync_frequency = "5m";
+      };
     };
     direnv = {
       enable = true;
