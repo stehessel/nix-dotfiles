@@ -57,9 +57,9 @@
               ./profiles/stehessel
               ./roles/linux
             ];
-          };
-          nixpkgs = {
-            overlays = [ neovim-overlay ];
+            nixpkgs = {
+              overlays = [ neovim-overlay ];
+            };
           };
           homeDirectory = "/home/stephan";
           stateVersion = "22.05";
