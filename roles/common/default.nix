@@ -70,11 +70,13 @@
   ];
 
   programs = {
+    atuin = {
+      enable = true;
+    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
-
     fzf = {
       enable = true;
       defaultOptions = [
@@ -86,13 +88,11 @@
         "--preview-window=wrap"
       ];
     };
-
     go = {
       enable = true;
       goPath = "go";
       package = pkgs.go_1_17;
     };
-
     starship = {
       enable = true;
       settings = {
