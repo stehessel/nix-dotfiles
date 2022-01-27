@@ -71,15 +71,6 @@
   ];
 
   programs = {
-    atuin = {
-      enable = true;
-      settings = {
-        auto_sync = true;
-        search_mode = "fuzzy";
-        sync_address = "https://api.atuin.sh";
-        sync_frequency = "5m";
-      };
-    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
