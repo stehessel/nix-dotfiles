@@ -32,7 +32,7 @@
       ''
         set fish_greeting
 
-        if not command -v gsed > /dev/null
+        if not which gsed > /dev/null
           ln -s /etc/profiles/per-user/stephan/bin/sed $HOME/.local/bin/gsed
         end
 
