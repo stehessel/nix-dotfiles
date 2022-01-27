@@ -118,7 +118,7 @@
     restic
     # --- clojure ---
     clojure
-    clojure-lsp
+    # clojure-lsp
     # jdk11
     leiningen
     # --- cloud ---
@@ -215,7 +215,7 @@
     # --- nix ---
     cachix
     nix-prefetch-github
-    nixUnstable
+    # nixUnstable
     nixpkgs-fmt
     rnix-lsp
     statix

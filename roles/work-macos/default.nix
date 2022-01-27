@@ -8,13 +8,11 @@
   xdg.configFile."fish/fish_plugins".source = ../../modules/shell/fish/macos/fish_plugins;
 
   home.packages = with pkgs; [
-    # --- editor ---
-    neovim
     # --- latex ---
     # texlive.combined.scheme-full
     # tectonic
     # --- terminal ---
-    kitty
+    # kitty
     # wezterm
     # --- text ---
     gnused
