@@ -12,7 +12,7 @@
     # texlive.combined.scheme-full
     # tectonic
     # --- terminal ---
-    # kitty
+    kitty
     # wezterm
     # --- text ---
     gnused
