@@ -91,6 +91,10 @@
       goPath = "go";
       package = pkgs.go_1_17;
     };
+    java = {
+      enable = true;
+      package = pkgs.jdk11;
+    };
     starship = {
       enable = true;
       settings = {
@@ -179,6 +183,8 @@
     httpie
     # --- infrastructure ---
     ansible
+    # --- java ---
+    maven
     # --- javascript ---
     nodejs-17_x
     yarn
