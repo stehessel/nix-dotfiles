@@ -114,7 +114,6 @@
     # --- clojure ---
     clojure
     # clojure-lsp
-    # jdk11
     leiningen
     # --- cloud ---
     azure-cli
