@@ -2,6 +2,7 @@
 {
   imports = [
     ../../modules/dev/clojure/leiningen
+    ../../modules/dev/golang
     ../../modules/dev/javascript/npm
     ../../modules/dev/lua/luacheck
     ../../modules/dev/lua/luaformatter
@@ -21,10 +22,12 @@
     ../../modules/file-manager/lf
     ../../modules/shell/bash
     ../../modules/shell/fish
+    ../../modules/shell/starship
     ../../modules/terminal/kitty
     ../../modules/terminal/tmux
     ../../modules/todo/taskwarrior
     ../../modules/utility/broot
+    ../../modules/utility/fzf
     # ../../modules/utility/file
     # ../../modules/utility/pueue
     ../../modules/utility/ripgrep
@@ -35,75 +38,45 @@
 
   xdg.enable = true;
 
-  home.sessionVariables = {
-    BOTO_CONFIG = "${config.xdg.configHome}/boto/config";
-    CARGO_HOME = "${config.xdg.configHome}/cargo";
-    EDITOR = "nvim";
-    FILE = "lf";
-    GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
-    HISTFILE = "${config.xdg.dataHome}/fish/fish_history";
-    LEIN_HOME = "${config.xdg.configHome}/lein";
-    MINIKUBE_HOME = "${config.xdg.configHome}";
-    NPM_CONFIG_CACHE = "${config.xdg.cacheHome}/npm";
-    NPM_CONFIG_TMP = "$TMPDIR/npm";
-    NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/config";
-    PAGER = "less";
-    PYTHONSTARTUP = "${config.xdg.configHome}/python/config";
-    READER = "zathura";
-    RIPGREP_CONFIG_PATH = "${config.xdg.configHome}/ripgrep/rc";
-    RUSTUP_HOME = "${config.xdg.configHome}/rustup";
-    TERMINAL = "kitty";
-    TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
-    WGETRC = "${config.xdg.configHome}/wget/config";
-    XDG_RUNTIME_DIR = "$TMPDIR";
-    fzf_fd_opts = "--type=file";
-    fzf_preview_dir_cmd = "exa --all --color=always --group-directories-first";
+  home = {
+    sessionPath = [
+      "$HOME/.local/bin"
+      "$HOME/.luarocks/bin"
+      "$HOME/miniconda3/bin"
+      "${config.xdg.configHome}/npm/npm-packages/bin"
+      "/usr/local/bin"
+    ];
+    sessionVariables = {
+      BOTO_CONFIG = "${config.xdg.configHome}/boto/config";
+      EDITOR = "nvim";
+      FILE = "lf";
+      GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
+      HISTFILE = "${config.xdg.dataHome}/fish/fish_history";
+      LEIN_HOME = "${config.xdg.configHome}/lein";
+      MINIKUBE_HOME = "${config.xdg.configHome}";
+      NPM_CONFIG_CACHE = "${config.xdg.cacheHome}/npm";
+      NPM_CONFIG_TMP = "$TMPDIR/npm";
+      NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/config";
+      PAGER = "less";
+      PYTHONSTARTUP = "${config.xdg.configHome}/python/config";
+      READER = "zathura";
+      RIPGREP_CONFIG_PATH = "${config.xdg.configHome}/ripgrep/rc";
+      RUSTUP_HOME = "${config.xdg.configHome}/rustup";
+      TERMINAL = "kitty";
+      TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
+      WGETRC = "${config.xdg.configHome}/wget/config";
+      XDG_RUNTIME_DIR = "$TMPDIR";
+    };
   };
-
-  home.sessionPath = [
-    "$HOME/${config.programs.go.goPath}/bin"
-    "$HOME/.local/bin"
-    "$HOME/.luarocks/bin"
-    "$HOME/miniconda3/bin"
-    "${config.xdg.configHome}/cargo/bin"
-    "${config.xdg.configHome}/npm/npm-packages/bin"
-    "/usr/local/bin"
-  ];
 
   programs = {
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
-    fzf = {
-      enable = true;
-      defaultOptions = [
-        "--border"
-        "--cycle"
-        "--height 85%"
-        "--info=inline"
-        "--layout=reverse"
-        "--preview-window=wrap"
-      ];
-    };
-    go = {
-      enable = true;
-      goPath = "go";
-      package = pkgs.go_1_17;
-    };
     java = {
       enable = true;
       package = pkgs.jdk11;
-    };
-    starship = {
-      enable = true;
-      settings = {
-        git_status = {
-          ahead = "⇡\${count}";
-          diverged = "⇕⇡\${ahead_count}⇣\${behind_count}";
-          behind = "⇣\${count}";
-        };
-      };
     };
   };
 
@@ -138,6 +111,7 @@
     act
     hadolint
     # --- editor ---
+    helix
     kakoune
     neovim
     # --- encryption ---
@@ -163,15 +137,6 @@
     gitAndTools.git-bug
     gitAndTools.git-fame
     gitui
-    # --- golang ---
-    delve
-    ginkgo
-    golangci-lint
-    gopls
-    gotest
-    gotests
-    gotestsum
-    richgo
     # --- highlighters ---
     bat
     exa
@@ -244,8 +209,6 @@
     terraform-ls
     # --- text ---
     asciidoctor
-    # --- todo manager ---
-    taskwarrior
     # --- utility ---
     cmatrix
     du-dust
