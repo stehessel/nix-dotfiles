@@ -61,6 +61,7 @@ local servers = {
   "bashls",
   "dockerls",
   "gopls",
+  "groovyls",
   "jsonls",
   "pyright",
   "rnix",
