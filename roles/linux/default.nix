@@ -28,6 +28,8 @@
     # --- shell ---
     bashInteractive
     fish
+    # --- window manager ---
+    river
   ];
 
   programs = {

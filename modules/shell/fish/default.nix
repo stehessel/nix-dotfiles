@@ -32,10 +32,6 @@
       ''
         set fish_greeting
 
-        if not which gsed > /dev/null
-          ln -s /etc/profiles/per-user/stephan/bin/sed $HOME/.local/bin/gsed
-        end
-
         # Fisher
         if not functions -q fisher
             curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
