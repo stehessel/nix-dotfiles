@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, pkgs, ... }:
 {
   programs.taskwarrior = {
     enable = true;

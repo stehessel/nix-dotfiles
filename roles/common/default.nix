@@ -43,7 +43,6 @@
       "$HOME/.local/bin"
       "$HOME/.luarocks/bin"
       "$HOME/miniconda3/bin"
-      "${config.xdg.configHome}/npm/npm-packages/bin"
       "/usr/local/bin"
     ];
     sessionVariables = {
@@ -54,13 +53,9 @@
       HISTFILE = "${config.xdg.dataHome}/fish/fish_history";
       LEIN_HOME = "${config.xdg.configHome}/lein";
       MINIKUBE_HOME = "${config.xdg.configHome}";
-      NPM_CONFIG_CACHE = "${config.xdg.cacheHome}/npm";
-      NPM_CONFIG_TMP = "$TMPDIR/npm";
-      NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/config";
       PAGER = "less";
       PYTHONSTARTUP = "${config.xdg.configHome}/python/config";
       READER = "zathura";
-      RIPGREP_CONFIG_PATH = "${config.xdg.configHome}/ripgrep/rc";
       RUSTUP_HOME = "${config.xdg.configHome}/rustup";
       TERMINAL = "kitty";
       TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
@@ -122,7 +117,6 @@
     # --- file search ---
     broot
     fd
-    ripgrep
     tre-command
     # --- file transfer ---
     rsync

@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, pkgs, ... }:
 {
   xdg.configFile."foot" = {
     source = ./config;

@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, pkgs, ... }:
 {
   xdg.configFile."fish/functions" = {
     source = ./config/functions;

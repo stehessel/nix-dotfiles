@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, pkgs, ... }:
 {
   xdg.configFile."kitty" = {
     source = ./config;

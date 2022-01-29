@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, pkgs, ... }:
 {
   xdg.configFile = {
     "systemd/user/calcurse.timer".source = config/calcurse.timer;

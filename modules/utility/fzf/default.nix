@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, pkgs, ... }:
 {
   home.sessionVariables = {
     fzf_fd_opts = "--type=file";
