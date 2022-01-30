@@ -2,6 +2,8 @@
 {
   imports = [
     ../common
+    ../../modules/desktop/skhd
+    ../../modules/desktop/window-manager/yabai
     ../../modules/terminal/wezterm
   ];
 
@@ -17,6 +19,6 @@
     # --- text ---
     gnused
     # --- window manager ---
-    yabai
+    # yabai
   ];
 }

@@ -10,11 +10,26 @@
 
   services = {
     skhd = {
-      enable = true;
+      enable = false;
       package = pkgs.skhd;
       skhdConfig = ''
         cmd + shift - b : fish -c "echo test"
       '';
+    };
+    yabai = {
+      enable = false;
+      package = pkgs.yabai;
+      config = {
+        focus_follows_mouse = "autoraise";
+        mouse_follows_focus = "off";
+        window_placement = "second_child";
+        window_opacity = "off";
+        top_padding = 36;
+        bottom_padding = 10;
+        left_padding = 10;
+        right_padding = 10;
+        window_gap = 10;
+      };
     };
   };
 
@@ -26,9 +41,6 @@
     global.noLock = true;
 
     taps = [
-      "austinjones/taps"
-      "getsentry/tools"
-      "helix-editor/helix"
       "homebrew/bundle"
       "homebrew/cask"
       "homebrew/cask-drivers"
@@ -40,13 +52,13 @@
       "koekeishiya/formulae"
       "mutagen-io/mutagen"
       "nrlquaker/createzap"
-      "stephan-hesselmann-by/blueyonder"
-      "zegervdv/zathura"
     ];
-
+    brews = [
+      "skhd"
+      "yabai"
+    ];
     casks = [
       "adobe-acrobat-reader"
-      "amethyst"
       "app-cleaner"
       "bluejeans"
       "calibre"
