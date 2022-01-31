@@ -21,7 +21,7 @@
       package = pkgs.yabai;
       config = {
         focus_follows_mouse = "autoraise";
-        mouse_follows_focus = "off";
+        mouse_follows_focus = "on";
         window_placement = "second_child";
         window_opacity = "off";
         top_padding = 36;
@@ -29,6 +29,10 @@
         left_padding = 10;
         right_padding = 10;
         window_gap = 10;
+
+        window_border_width = 6;
+        active_window_border_color = "0xff775759";
+        normal_window_border_color = "0xff555555";
       };
     };
   };
