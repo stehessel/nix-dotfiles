@@ -19,8 +19,9 @@
 
   outputs = { self, nixpkgs, darwin, home-manager, neovim-flake }:
     let
-      neovim-overlay = final: prev: {
-        inherit (neovim-flake.packages.${ prev.system}) neovim;
+      nixpkgsConfig = {
+        config = { allowUnfree = true; };
+        overlays = nixpkgs.lib.attrValues self.overlays;
       };
     in
     {
@@ -39,9 +40,7 @@
                 ./roles/work-macos
               ];
             };
-            nixpkgs = {
-              overlays = [ neovim-overlay ];
-            };
+            nixpkgs = nixpkgsConfig;
             users.users.stephan = {
               name = "stephan";
               home = "/Users/stephan";
@@ -57,14 +56,18 @@
               ./profiles/stehessel
               ./roles/linux
             ];
-            nixpkgs = {
-              overlays = [ neovim-overlay ];
-            };
+            nixpkgs = nixpkgsConfig;
           };
           homeDirectory = "/home/stephan";
           stateVersion = "22.05";
           username = "stephan";
           system = "x86_64-linux";
+        };
+      };
+
+      overlays = {
+        neovim-overlay = final: prev: {
+          inherit (neovim-flake.packages.${ prev.system}) neovim;
         };
       };
     };
