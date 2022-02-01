@@ -162,7 +162,7 @@
       interval = { Hour = 12; };
     };
     maxJobs = 12;
-    # package = pkgs.nixUnstable;
+    package = pkgs.nixUnstable;
   };
 
   # Used for backwards compatibility, please read the changelog before changing.
