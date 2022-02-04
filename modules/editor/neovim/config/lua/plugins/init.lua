@@ -313,12 +313,7 @@ return require("packer").startup({
       end,
     })
     use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
-    use({
-      "onsails/lspkind-nvim",
-      config = function()
-        require("lspkind").init()
-      end,
-    })
+    use({ "onsails/lspkind-nvim" })
     use({
       "hrsh7th/nvim-cmp",
       config = function()
