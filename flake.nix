@@ -69,6 +69,11 @@
         neovim-overlay = final: prev: {
           inherit (neovim-flake.packages.${ prev.system}) neovim;
         };
+        httpie-overlay = final: prev: {
+          httpie = prev.httpie.overrideAttrs (old: {
+            disabledTests = old.disabledTests ++ [ "test_plugins_upgrade" "test_uploads" ];
+          });
+        };
       };
     };
 }
