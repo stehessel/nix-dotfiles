@@ -81,8 +81,7 @@
             packageOverrides = final: prev: {
               # FIXME: workaround for https://github.com/NixOS/nixpkgs/issues/160133
               ipython = prev.ipython.overridePythonAttrs (old: {
-                doCheck = false;
-                # disabledTests = [ "test_clipboard_get" ];
+                disabledTests = [ "test_clipboard_get" ];
               });
 
               uvloop = prev.uvloop.overridePythonAttrs (old: {
