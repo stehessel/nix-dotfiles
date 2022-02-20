@@ -84,7 +84,7 @@
     # clojure-lsp
     leiningen
     # --- cloud ---
-    azure-cli
+    # azure-cli
     azure-storage-azcopy
     google-cloud-sdk
     # --- cpp ---

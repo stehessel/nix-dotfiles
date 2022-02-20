@@ -269,6 +269,7 @@ return require("packer").startup({
     use({
       "kristijanhusak/orgmode.nvim",
       config = function()
+        require("orgmode").setup_ts_grammar()
         require("orgmode").setup({
           org_agenda_files = { "~/doc/org/*" },
           org_default_notes_file = "~/doc/org/refile.org",

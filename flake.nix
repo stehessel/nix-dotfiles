@@ -66,13 +66,31 @@
       };
 
       overlays = {
-        neovim-overlay = final: prev: {
-          inherit (neovim-flake.packages.${ prev.system}) neovim;
-        };
         httpie-overlay = final: prev: {
           httpie = prev.httpie.overrideAttrs (old: {
             disabledTests = old.disabledTests ++ [ "test_plugins_upgrade" "test_uploads" ];
           });
+        };
+
+        neovim-overlay = final: prev: {
+          inherit (neovim-flake.packages.${ prev.system}) neovim;
+        };
+
+        python-overlay = final: prev: rec {
+          python3 = prev.python3.override {
+            packageOverrides = final: prev: {
+              # FIXME: workaround for https://github.com/NixOS/nixpkgs/issues/160133
+              ipython = prev.ipython.overridePythonAttrs (old: {
+                doCheck = false;
+                # disabledTests = [ "test_clipboard_get" ];
+              });
+
+              uvloop = prev.uvloop.overridePythonAttrs (old: {
+                doCheck = false;
+              });
+            };
+          };
+          python3Packages = python3.pkgs;
         };
       };
     };
