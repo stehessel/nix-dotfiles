@@ -721,7 +721,7 @@ return require("packer").startup({
       event = "InsertEnter",
     })
     use({
-      "blackCauldron7/surround.nvim",
+      "ur4ltz/surround.nvim",
       config = function()
         require("surround").setup({ prefix = "r" })
       end,
