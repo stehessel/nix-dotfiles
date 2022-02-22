@@ -157,10 +157,11 @@
     sumneko-lua-language-server
     # --- kubernetes ---
     kube-linter
-    kubectl
+    # kubectl
     kubectx
     kubernetes-helm
     minikube
+    openshift
     # --- network ---
     bandwhich
     curl

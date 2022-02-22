@@ -76,6 +76,14 @@
           inherit (neovim-flake.packages.${ prev.system}) neovim;
         };
 
+        openshift-overlay = prev: final: {
+          openshift = final.openshift.overrideAttrs (
+            prev: {
+              nativeBuildInputs = prev.nativeBuildInputs ++ [ final.ncurses ];
+            }
+          );
+        };
+
         python-overlay = final: prev: rec {
           python3 = prev.python3.override {
             packageOverrides = final: prev: {
