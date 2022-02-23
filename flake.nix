@@ -83,10 +83,6 @@
               ipython = prev.ipython.overridePythonAttrs (old: {
                 disabledTests = [ "test_clipboard_get" ];
               });
-
-              uvloop = prev.uvloop.overridePythonAttrs (old: {
-                doCheck = false;
-              });
             };
           };
           python3Packages = python3.pkgs;
