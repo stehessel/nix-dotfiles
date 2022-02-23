@@ -161,6 +161,7 @@
     kubectx
     kubernetes-helm
     minikube
+    odo
     openshift
     # --- network ---
     bandwhich
