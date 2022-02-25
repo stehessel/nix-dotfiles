@@ -5,6 +5,11 @@ return {
       capabilities = capabilities,
       root_dir = root_patterns,
       flags = { debounce_text_changes = debounce_text_changes },
+      yaml = {
+        schemas = {
+          ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+        },
+      },
     })
   end,
 }
