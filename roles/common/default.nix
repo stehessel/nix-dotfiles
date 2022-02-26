@@ -81,7 +81,7 @@
     restic
     # --- clojure ---
     clojure
-    # clojure-lsp
+    clojure-lsp
     leiningen
     # --- cloud ---
     # azure-cli
