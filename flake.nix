@@ -75,18 +75,6 @@
         neovim-overlay = final: prev: {
           inherit (neovim-flake.packages.${ prev.system}) neovim;
         };
-
-        python-overlay = final: prev: rec {
-          python3 = prev.python3.override {
-            packageOverrides = final: prev: {
-              # FIXME: workaround for https://github.com/NixOS/nixpkgs/issues/160133
-              ipython = prev.ipython.overridePythonAttrs (old: {
-                disabledTests = [ "test_clipboard_get" ];
-              });
-            };
-          };
-          python3Packages = python3.pkgs;
-        };
       };
     };
 }
