@@ -88,5 +88,9 @@
         };
       };
     };
+
+    gitui = {
+      enable = true;
+    };
   };
 }

@@ -130,7 +130,6 @@
     # --- git ---
     gitAndTools.git-bug
     gitAndTools.git-fame
-    gitui
     # --- highlighters ---
     bat
     exa
