@@ -213,7 +213,7 @@ return require("packer").startup({
     use({
       "AckslD/nvim-neoclip.lua",
       config = function()
-        require("neoclip").setup({ enable_persistant_history = true, default_register = "+" })
+        require("neoclip").setup({ enable_persistent_history = true, default_register = "+" })
       end,
       requires = { "tami5/sqlite.lua", module = "sqlite" },
     })
