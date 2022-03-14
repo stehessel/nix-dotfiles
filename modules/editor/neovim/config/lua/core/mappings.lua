@@ -1,5 +1,4 @@
 require("core.settings")
-require("core.autocmd")
 
 -- Misc keybinds
 vim.keymap.set("n", "U", ":redo<CR>")

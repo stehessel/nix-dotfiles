@@ -75,27 +75,33 @@ vim.opt.mouse = "a"
 vim.opt.lazyredraw = true
 
 -- Highlight yank
-vim.api.nvim_exec(
-  [[
-augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
-augroup END
-]],
-  false
-)
+vim.api.nvim_create_augroup("highlight_yank", { clear = true })
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+  callback = function()
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
+  end,
+  group = "highlight_yank",
+})
 
 -- Filetype
 vim.g.do_filetype_lua = 1
 vim.g.did_load_filetypes = 1
 vim.opt.suffixesadd = ".md"
 
+-- Set correct terraform file type
+vim.api.nvim_create_augroup("terraform", { clear = true })
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  callback = function()
+    vim.o.filetype = "terraform"
+  end,
+  group = "terraform",
+  pattern = "*.tf",
+})
+
 -- Automatically deletes all trailing whitespace on save.
-vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])
--- Update binds when sxhkdrc is updated.
-vim.cmd([[autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd]])
--- Save file as sudo on files that require root permission
-vim.cmd([[cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!]])
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  command = [[%s/\s\+$//e]],
+})
 
 -- Clipboard
 vim.opt.clipboard = { "unnamedplus" }
