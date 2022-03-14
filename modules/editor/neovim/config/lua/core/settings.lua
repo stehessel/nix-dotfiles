@@ -39,12 +39,6 @@ vim.opt.splitbelow = true
 
 -- Reloading
 vim.opt.autoread = true
--- Trigger `autoread` when files changes on disk
--- vim.cmd([[autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
---		\ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif]])
--- Notification after file change
--- vim.cmd([[autocmd FileChangedShellPost *
---		\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]])
 
 -- Text
 vim.opt.tabstop = 4
