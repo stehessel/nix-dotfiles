@@ -2,7 +2,9 @@
   description = "macOS system configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
+    nixos.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs";
+
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, neovim-flake }:
+  outputs = { self, nixos, nixpkgs, darwin, home-manager, neovim-flake }:
     let
       nixpkgsConfig = {
         config = { allowUnfree = true; };
@@ -25,6 +27,35 @@
       };
     in
     {
+      nixosConfigurations."thinkpad" = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./systems/nixos
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.stephan = {
+              imports = [
+                ./profiles/stehessel
+                ./roles/linux
+              ];
+            };
+            # nixpkgs = nixpkgsConfig;
+            
+	    users.users = {
+              root.hashedPassword = "!";
+
+              stephan = {
+                isNormalUser = true;
+                extraGroups = [ "networkmanager" "wheel" ];
+              };
+            };
+          }
+        ];
+      };
+
       darwinConfigurations."shesselm-mac" = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
