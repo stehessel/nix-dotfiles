@@ -81,7 +81,7 @@
     restic
     # --- clojure ---
     clojure
-    clojure-lsp
+    # clojure-lsp
     leiningen
     # --- cloud ---
     # azure-cli
@@ -105,6 +105,8 @@
     # ---  docker ---
     act
     hadolint
+    podman
+    qemu
     # --- editor ---
     helix
     kakoune
@@ -211,8 +213,6 @@
     hyperfine
     topgrade
     wget
-    # --- watcher ---
-    watchman
     # --- web ---
     hugo
     # --- yaml ---
