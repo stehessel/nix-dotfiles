@@ -15,9 +15,6 @@
   ];
 
   home = {
-    sessionVariables = {
-      XKB_DEFAULT_OPTIONS = "caps:escape";
-    };
     packages = with pkgs; [
       # --- bookmarks ---
       buku

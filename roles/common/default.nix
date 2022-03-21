@@ -62,6 +62,10 @@
       WGETRC = "${config.xdg.configHome}/wget/config";
       XDG_RUNTIME_DIR = "$TMPDIR";
     };
+    # Needed for nvim-spectre on macOS
+    shellAliases = {
+      gsed = "sed";
+    };
   };
 
   programs = {
@@ -189,7 +193,6 @@
     # --- ruby ---
     # ruby_2_7
     # --- shell ---
-    bashInteractive
     dash
     shellcheck
     shfmt

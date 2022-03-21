@@ -25,7 +25,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "FiraCode";
-    # useXkbConfig = true;
   };
 
   fonts.fonts = with pkgs; [
@@ -37,21 +36,21 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  # Login shell
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
+
   # Window manager
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
   };
 
-  # Login shell
-  programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish;
-
-  # Autostart sway
+  # Autostart window manager
   environment.loginShellInit = ''
     if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-     exec river
-     exec waybar
+      export XKB_DEFAULT_OPTIONS="caps:escape"
+      exec river
     fi
   '';
 
