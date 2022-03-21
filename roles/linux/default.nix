@@ -17,10 +17,17 @@
   home.packages = with pkgs; [
     # --- bookmarks ---
     buku
+    # --- browsers ---
+    brave
     # --- clipboard ---
     xclip
     # --- desktop ---
+    rofi
     wl-clipboard
+    waybar
+    # --- dev ---
+    gcc
+    zig
     # --- file viewer ---
     glow
     # --- nix ---
@@ -28,6 +35,9 @@
     # --- shell ---
     bashInteractive
     fish
+    # --- terminals ---
+    alacritty
+    foot
     # --- window manager ---
     river
   ];

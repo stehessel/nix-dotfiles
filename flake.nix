@@ -2,7 +2,6 @@
   description = "macOS system configuration";
 
   inputs = {
-    nixos.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs";
 
     darwin = {
@@ -19,7 +18,7 @@
     };
   };
 
-  outputs = { self, nixos, nixpkgs, darwin, home-manager, neovim-flake }:
+  outputs = { self, nixpkgs, darwin, home-manager, neovim-flake }:
     let
       nixpkgsConfig = {
         config = { allowUnfree = true; };
@@ -27,12 +26,14 @@
       };
     in
     {
-      nixosConfigurations."thinkpad" = nixos.lib.nixosSystem {
+      nixosConfigurations."thinkpad" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./systems/nixos
 
           home-manager.nixosModules.home-manager
+		  (
+		  { config, lib, pkgs, ...}:
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -42,17 +43,19 @@
                 ./roles/linux
               ];
             };
-            # nixpkgs = nixpkgsConfig;
+            nixpkgs = nixpkgsConfig;
             
-	    users.users = {
-              root.hashedPassword = "!";
+			  users.users = {
+				root.hashedPassword = "!";
 
-              stephan = {
-                isNormalUser = true;
-                extraGroups = [ "networkmanager" "wheel" ];
-              };
-            };
-          }
+				stephan = {
+				  # shell = pkgs.fish;
+				  isNormalUser = true;
+				  extraGroups = [ "networkmanager" "wheel" ];
+				};
+			  };
+		  }
+		  )
         ];
       };
 
@@ -97,50 +100,50 @@
       };
 
       overlays = {
-        fish-overlay = final: prev: {
-          fish = prev.fish.overrideAttrs (old: {
-            doCheck = false;
-          });
-        };
+        #fish-overlay = final: prev: {
+        #  fish = prev.fish.overrideAttrs (old: {
+        #    doCheck = false;
+        #  });
+        #};
 
-        httpie-overlay = final: prev: {
-          httpie = prev.httpie.overrideAttrs (old: {
-            disabledTests = old.disabledTests ++ [ "test_plugins_upgrade" "test_uploads" ];
-          });
-        };
+        #httpie-overlay = final: prev: {
+        #  httpie = prev.httpie.overrideAttrs (old: {
+        #    disabledTests = old.disabledTests ++ [ "test_plugins_upgrade" "test_uploads" ];
+        #  });
+        #};
 
-        kitty-overlay = final: prev: {
-          kitty = prev.kitty.overrideAttrs (old: {
-            installCheckPhase = "";
-          });
-        };
+        #kitty-overlay = final: prev: {
+        #  kitty = prev.kitty.overrideAttrs (old: {
+        #    installCheckPhase = "";
+        #  });
+        #};
 
-        libjxl-overlay = final: prev: {
-          libjxl = prev.libjxl.overrideAttrs (old: {
-            doCheck = false;
-          });
-        };
+        #libjxl-overlay = final: prev: {
+        #  libjxl = prev.libjxl.overrideAttrs (old: {
+        #    doCheck = false;
+        #  });
+        #};
 
-        python-overlay = final: prev: rec {
-          python3 = prev.python3.override {
-            packageOverrides = final: prev: {
-              jxmlease = prev.jxmlease.overridePythonAttrs (old: {
-                doCheck = false;
-                installCheckPhase = "";
-              });
+        #python-overlay = final: prev: rec {
+        #  python3 = prev.python3.override {
+        #    packageOverrides = final: prev: {
+        #      jxmlease = prev.jxmlease.overridePythonAttrs (old: {
+        #        doCheck = false;
+        #        installCheckPhase = "";
+        #      });
 
-              requests = prev.requests.overridePythonAttrs (old: {
-                pytestFlagsArray = [ "tests/test_help.py" ];
-              });
+        #      requests = prev.requests.overridePythonAttrs (old: {
+        #        pytestFlagsArray = [ "tests/test_help.py" ];
+        #      });
 
-              sh = prev.sh.overridePythonAttrs (old: {
-                doCheck = false;
-                installCheckPhase = "";
-              });
-            };
-          };
-          python3Packages = python3.pkgs;
-        };
+        #      sh = prev.sh.overridePythonAttrs (old: {
+        #        doCheck = false;
+        #        installCheckPhase = "";
+        #      });
+        #    };
+        #  };
+        #  python3Packages = python3.pkgs;
+        #};
 
         neovim-overlay = final: prev: {
           inherit (neovim-flake.packages.${ prev.system}) neovim;

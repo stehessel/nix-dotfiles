@@ -28,12 +28,9 @@
   #   keyMap = "us";
   # };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+  ];
 
   services.printing.enable = true;
 
@@ -43,13 +40,33 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    brave
-    git
-    neovim
-  ];
+  # Window manager
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    extraPackages = with pkgs; [
+      alacritty
+      bemenu
+      foot
+      mako
+      swayidle
+      swaylock
+      wl-clipboard
+    ];
+  };
 
-  programs.sway.enable = true;
+  # Login shell
+  # environment.shells = [ pkgs.fish ];
+  # environment.variables.SHELL = "${pkgs.fish}/bin/fish";
+  # programs.fish.enable = true;
+
+  # Autostart sway
+  environment.loginShellInit = ''
+    if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+     exec river
+     exec waybar
+    fi
+  '';
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
