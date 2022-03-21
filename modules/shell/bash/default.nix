@@ -1,4 +1,6 @@
 { lib, pkgs, ... }:
 {
-  home.file.".bashrc".source = config/bashrc;
+  programs.bash = {
+    enable = true;
+  };
 }

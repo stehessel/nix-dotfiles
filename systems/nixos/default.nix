@@ -23,10 +23,10 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
+  console = {
+    font = "FiraCode";
+    # useXkbConfig = true;
+  };
 
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
@@ -37,28 +37,15 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Window manager
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
-    extraPackages = with pkgs; [
-      alacritty
-      bemenu
-      foot
-      mako
-      swayidle
-      swaylock
-      wl-clipboard
-    ];
   };
 
   # Login shell
-  # environment.shells = [ pkgs.fish ];
-  # environment.variables.SHELL = "${pkgs.fish}/bin/fish";
-  # programs.fish.enable = true;
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
 
   # Autostart sway
   environment.loginShellInit = ''
@@ -80,9 +67,5 @@
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.11"; # Did you read the comment?
-
+  system.stateVersion = "22.05";
 }
-

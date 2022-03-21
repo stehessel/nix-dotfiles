@@ -32,30 +32,29 @@
           ./systems/nixos
 
           home-manager.nixosModules.home-manager
-		  (
-		  { config, lib, pkgs, ...}:
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.stephan = {
-              imports = [
-                ./profiles/stehessel
-                ./roles/linux
-              ];
-            };
-            nixpkgs = nixpkgsConfig;
-            
-			  users.users = {
-				root.hashedPassword = "!";
+          (
+            { pkgs, ... }:
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.stephan = {
+                imports = [
+                  ./profiles/stehessel
+                  ./roles/linux
+                ];
+              };
+              nixpkgs = nixpkgsConfig;
 
-				stephan = {
-				  # shell = pkgs.fish;
-				  isNormalUser = true;
-				  extraGroups = [ "networkmanager" "wheel" ];
-				};
-			  };
-		  }
-		  )
+              users.users = {
+                root.hashedPassword = "!";
+
+                stephan = {
+                  isNormalUser = true;
+                  extraGroups = [ "networkmanager" "wheel" ];
+                };
+              };
+            }
+          )
         ];
       };
 
@@ -75,28 +74,13 @@
               ];
             };
             nixpkgs = nixpkgsConfig;
+
             users.users.stephan = {
               name = "stephan";
               home = "/Users/stephan";
             };
           }
         ];
-      };
-
-      homeConfigurations = {
-        stephan = home-manager.lib.homeManagerConfiguration {
-          configuration = {
-            imports = [
-              ./profiles/stehessel
-              ./roles/linux
-            ];
-            nixpkgs = nixpkgsConfig;
-          };
-          homeDirectory = "/home/stephan";
-          stateVersion = "22.05";
-          username = "stephan";
-          system = "x86_64-linux";
-        };
       };
 
       overlays = {

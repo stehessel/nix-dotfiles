@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-sudo modprobe -r psmouse
-sudo modprobe psmouse
-
-export XKB_DEFAULT_OPTIONS=caps:escape

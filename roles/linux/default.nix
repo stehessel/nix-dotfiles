@@ -14,33 +14,42 @@
     ../../modules/terminal/foot
   ];
 
-  home.packages = with pkgs; [
-    # --- bookmarks ---
-    buku
-    # --- browsers ---
-    brave
-    # --- clipboard ---
-    xclip
-    # --- desktop ---
-    rofi
-    wl-clipboard
-    waybar
-    # --- dev ---
-    gcc
-    zig
-    # --- file viewer ---
-    glow
-    # --- nix ---
-    nixUnstable
-    # --- shell ---
-    bashInteractive
-    fish
-    # --- terminals ---
-    alacritty
-    foot
-    # --- window manager ---
-    river
-  ];
+  home = {
+    sessionVariables = {
+      XKB_DEFAULT_OPTIONS = "caps:escape";
+    };
+    packages = with pkgs; [
+      # --- bookmarks ---
+      buku
+      # --- browsers ---
+      brave
+      # --- clipboard ---
+      xclip
+      # --- desktop ---
+      libnotify
+      rofi
+      wl-clipboard
+      waybar
+      # --- dev ---
+      gcc
+      zig
+      # --- file viewer ---
+      glow
+      # --- nix ---
+      nixUnstable
+      # --- terminals ---
+      alacritty
+      foot
+      # --- window manager ---
+      bemenu
+      foot
+      mako
+      river
+      swayidle
+      swaylock
+      wl-clipboard
+    ];
+  };
 
   programs = {
     home-manager.enable = true;
@@ -75,5 +84,4 @@
   };
 
   xdg.configFile."fish/fish_plugins".source = ../../modules/shell/fish/linux/fish_plugins;
-  home.file.".profile".source = config/profile;
 }
