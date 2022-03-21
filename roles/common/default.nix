@@ -60,7 +60,6 @@
       TERMINAL = "kitty";
       TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
       WGETRC = "${config.xdg.configHome}/wget/config";
-      XDG_RUNTIME_DIR = "$TMPDIR";
     };
     # Needed for nvim-spectre on macOS
     shellAliases = {
