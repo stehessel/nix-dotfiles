@@ -131,6 +131,9 @@
 
         neovim-overlay = final: prev: {
           inherit (neovim-flake.packages.${ prev.system}) neovim;
+          neovim-unwrapped = prev.neovim-unwrapped.overrideAttrs (old: {
+            buildInputs = old.buildInputs ++ [ final.pkgs.sqlite ];
+          });
         };
       };
     };

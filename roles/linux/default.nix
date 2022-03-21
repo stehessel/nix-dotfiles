@@ -20,8 +20,6 @@
       buku
       # --- browsers ---
       brave
-      # --- clipboard ---
-      xclip
       # --- desktop ---
       libnotify
       rofi
@@ -34,17 +32,12 @@
       glow
       # --- nix ---
       nixUnstable
-      # --- terminals ---
-      alacritty
-      foot
       # --- window manager ---
       bemenu
-      foot
       mako
       river
       swayidle
       swaylock
-      wl-clipboard
     ];
   };
 

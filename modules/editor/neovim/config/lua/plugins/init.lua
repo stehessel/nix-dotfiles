@@ -216,6 +216,7 @@ return require("packer").startup({
         require("neoclip").setup({ enable_persistent_history = true, default_register = "+" })
       end,
       requires = { "tami5/sqlite.lua", module = "sqlite" },
+      disable = true,
     })
     -- Todo
     use({
