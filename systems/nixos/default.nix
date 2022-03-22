@@ -6,8 +6,14 @@
       ./hardware-configuration.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 20;
+    };
+    efi.canTouchEfiVariables = true;
+    timeout = 2;
+  };
 
   networking.hostName = "thinkpad"; # Define your hostname.
   networking.networkmanager.enable = true;
