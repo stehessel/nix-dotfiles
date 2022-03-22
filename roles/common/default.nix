@@ -222,7 +222,7 @@
     wget
     # --- web ---
     hugo
-    # nodePackges.@tailwindcss/language-server
+    nodePackages."@tailwindcss/language-server"
     # --- yaml ---
     yaml-language-server
   ];
