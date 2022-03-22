@@ -21,10 +21,11 @@
       # --- browsers ---
       brave
       # --- desktop ---
+      cliphist
       libnotify
       rofi
-      wl-clipboard
       waybar
+      wl-clipboard
       # --- dev ---
       gcc
       zig

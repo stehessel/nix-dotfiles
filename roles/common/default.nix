@@ -95,6 +95,7 @@
     ninja
     # --- data ---
     jq
+    nodePackages.vscode-langservers-extracted
     yq-go
     # --- dev ---
     cmake
@@ -109,6 +110,7 @@
     # ---  docker ---
     act
     hadolint
+    nodePackages.dockerfile-language-server-nodejs
     podman
     qemu
     # --- editor ---
@@ -147,7 +149,10 @@
     # --- java ---
     maven
     # --- javascript ---
+    nodePackages.eslint_d
     nodejs-17_x
+    nodePackages.typescript
+    nodePackages.typescript-language-server
     yarn
     # --- launcher ---
     pueue
@@ -192,6 +197,7 @@
     # ruby_2_7
     # --- shell ---
     dash
+    nodePackages.bash-language-server
     shellcheck
     shfmt
     # --- sql ---
@@ -216,6 +222,7 @@
     wget
     # --- web ---
     hugo
+    # nodePackges.@tailwindcss/language-server
     # --- yaml ---
     yaml-language-server
   ];

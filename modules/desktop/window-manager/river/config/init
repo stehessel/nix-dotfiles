@@ -167,6 +167,9 @@ riverctl csd-filter-add app-id "gedit"
 riverctl spawn waybar
 riverctl spawn "nm-applet --indicator"
 
+# Start clipboard manager
+riverctl spawn "wl-paste --watch cliphist store"
+
 # Set background image
 # riverctl spawn swaybg -i $(find /home/stephan/Sync/backgrounds/. -maxdepth 1 -type f | shuf -n1) -m fill
 riverctl spawn "swaybg -i /home/stephan/Sync/backgrounds/nebula.jpg -m fill"
