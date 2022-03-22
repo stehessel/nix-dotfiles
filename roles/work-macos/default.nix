@@ -22,9 +22,9 @@
       # --- window manager ---
       # yabai
     ];
-  };
 
-  sessionVariables = {
-    XDG_RUNTIME_DIR = "$TMPDIR";
+    sessionVariables = {
+      XDG_RUNTIME_DIR = "$TMPDIR";
+    };
   };
 }
