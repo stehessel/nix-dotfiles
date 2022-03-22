@@ -5,7 +5,6 @@
     ../../modules/desktop/dunst
     ../../modules/desktop/mime-apps
     ../../modules/desktop/rofi
-    ../../modules/desktop/sxhkd
     ../../modules/desktop/waybar
     ../../modules/desktop/window-manager/river
     ../../modules/file-viewer/sxiv
@@ -39,6 +38,7 @@
       nixUnstable
       # --- window manager ---
       river
+      swaybg
       swayidle
       swaylock
     ];
@@ -60,11 +60,6 @@
     dunst = {
       enable = true;
       waylandDisplay = "wayland-1";
-    };
-
-    sxhkd = {
-      enable = true;
-      extraOptions = [ "-c ~/.config/sxhkd/sxhkdrc" ];
     };
 
     syncthing = {
