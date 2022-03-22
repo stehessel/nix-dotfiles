@@ -37,7 +37,10 @@
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 
-  services.printing.enable = true;
+  services = {
+    printing.enable = true;
+    tlp.enable = true;
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
