@@ -88,13 +88,25 @@
     fi
   '';
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  nix = {
+    binaryCaches = [
+      "https://cache.nixos.org/"
+      "https://nix-community.cachix.org"
+    ];
+    binaryCachePublicKeys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+    extraOptions = ''
+      auto-optimise-store = true
+      experimental-features = nix-command flakes
+    '';
+    gc = {
+      automatic = true;
+      dates = "weekly";
+    };
+    package = pkgs.nixUnstable;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

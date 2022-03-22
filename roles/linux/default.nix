@@ -10,7 +10,6 @@
     ../../modules/desktop/window-manager/river
     ../../modules/file-viewer/sxiv
     ../../modules/file-viewer/zathura
-    ../../modules/package-manager/nix
     ../../modules/terminal/foot
   ];
 
