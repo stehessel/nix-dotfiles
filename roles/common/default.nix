@@ -28,6 +28,7 @@
     ../../modules/todo/taskwarrior
     ../../modules/utility/broot
     ../../modules/utility/fzf
+    ../../modules/utility/gnupg
     # ../../modules/utility/file
     # ../../modules/utility/pueue
     ../../modules/utility/ripgrep
@@ -114,8 +115,6 @@
     helix
     kakoune
     neovim
-    # --- encryption ---
-    gnupg
     # --- file manager ---
     lf
     nnn
