@@ -21,11 +21,14 @@
       # --- browsers ---
       brave
       # --- desktop ---
+      bemenu
       cliphist
       libnotify
+      mako
       rofi
       waybar
       wl-clipboard
+      wofi
       # --- dev ---
       gcc
       zig
@@ -34,8 +37,6 @@
       # --- nix ---
       nixUnstable
       # --- window manager ---
-      bemenu
-      mako
       river
       swayidle
       swaylock

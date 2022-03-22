@@ -12,7 +12,7 @@
       configurationLimit = 20;
     };
     efi.canTouchEfiVariables = true;
-    timeout = 2;
+    timeout = 1;
   };
 
   networking.hostName = "thinkpad"; # Define your hostname.

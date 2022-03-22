@@ -15,7 +15,13 @@ mod="Mod4"
 riverctl map normal $mod+Shift Return spawn foot
 
 # Mod+Space to start launcher
-riverctl map normal $mod Space spawn "bemenu-run"
+riverctl map normal $mod Space spawn "wofi --show run"
+
+# Mod+V to paste from clipboard manager
+riverctl map normal $mod V spawn "cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+
+# Mod+Shift+C to clear clipboard manager
+riverctl map normal $mod+Shift C spawn "rm $XDG_CACHE_HOME/cliphist/db"
 
 # Mod+Q to close the focused view
 riverctl map normal $mod Q close
