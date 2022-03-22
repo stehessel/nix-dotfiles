@@ -24,27 +24,12 @@
     };
     wireless.iwd.enable = true;
 
-    dhcpcd.enable = false;
-
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
     # Per-interface useDHCP will be mandatory in the future, so this generated config
     # replicates the default behaviour.
     useDHCP = false;
     interfaces.enp4s0.useDHCP = true;
     interfaces.wlp5s0.useDHCP = true;
-  };
-  systemd.network = {
-    enable = true;
-    networks = {
-      internet0 = {
-        matchConfig = {
-          Name = "enp4s0 wlp5s0";
-        };
-        networkConfig = {
-          DHCP = "ipv6";
-        };
-      };
-    };
   };
   programs.nm-applet.enable = true;
 
@@ -67,8 +52,13 @@
     tlp.enable = true;
   };
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   # Login shell
   programs.fish.enable = true;
@@ -107,6 +97,9 @@
     };
     package = pkgs.nixUnstable;
   };
+
+  # Workaround for slow boot process. See https://github.com/NixOS/nixpkgs/issues/60900
+  systemd.services.systemd-user-sessions.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
