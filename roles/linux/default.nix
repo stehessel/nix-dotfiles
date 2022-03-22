@@ -26,7 +26,7 @@
       libnotify
       mako
       rofi
-      waybar
+      syncthingtray
       wl-clipboard
       wofi
       # --- dev ---
@@ -34,6 +34,8 @@
       zig
       # --- file viewer ---
       glow
+      # --- networking ---
+      networkmanagerapplet
       # --- nix ---
       nixUnstable
       # --- window manager ---
@@ -71,6 +73,7 @@
       tray = {
         enable = true;
         command = "syncthingtray --wait";
+        package = pkgs.syncthingtray;
       };
     };
   };

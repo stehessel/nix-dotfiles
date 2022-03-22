@@ -15,17 +15,25 @@
     timeout = 1;
   };
 
-  networking.hostName = "thinkpad"; # Define your hostname.
-  networking.networkmanager.enable = true;
+  # Networking
+  networking = {
+    hostName = "thinkpad";
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
+    wireless.iwd.enable = true;
+
+    # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+    # Per-interface useDHCP will be mandatory in the future, so this generated config
+    # replicates the default behaviour.
+    useDHCP = false;
+    interfaces.enp4s0.useDHCP = true;
+    interfaces.wlp5s0.useDHCP = true;
+  };
+  programs.nm-applet.enable = true;
 
   time.timeZone = "Europe/Berlin";
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp4s0.useDHCP = true;
-  networking.interfaces.wlp5s0.useDHCP = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
