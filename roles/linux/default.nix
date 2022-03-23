@@ -12,37 +12,44 @@
     ../../modules/terminal/foot
   ];
 
-  home = {
-    packages = with pkgs; [
-      # --- bookmarks ---
-      buku
-      # --- browsers ---
-      brave
-      # --- desktop ---
-      bemenu
-      cliphist
-      libnotify
-      mako
-      rofi
-      syncthingtray
-      wl-clipboard
-      wofi
-      # --- dev ---
-      gcc
-      zig
-      # --- file viewer ---
-      glow
-      # --- networking ---
-      networkmanagerapplet
-      # --- nix ---
-      nixUnstable
-      # --- window manager ---
-      river
-      swaybg
-      swayidle
-      swaylock
-    ];
-  };
+  home =
+    let
+      python-packages = ps: [ ps.pynvim ];
+      neovim-python = pkgs.python3.withPackages python-packages;
+    in
+    {
+      packages = with pkgs; [
+        # --- bookmarks ---
+        buku
+        # --- browsers ---
+        brave
+        # --- desktop ---
+        bemenu
+        cliphist
+        libnotify
+        mako
+        rofi
+        syncthingtray
+        wl-clipboard
+        wofi
+        # --- dev ---
+        gcc
+        zig
+        # --- file viewer ---
+        glow
+        # --- neovim ---
+        neovim-python
+        # --- networking ---
+        networkmanagerapplet
+        # --- nix ---
+        nixUnstable
+        # --- window manager ---
+        river
+        swaybg
+        swayidle
+        swaylock
+      ];
+    };
 
   programs = {
     home-manager.enable = true;
