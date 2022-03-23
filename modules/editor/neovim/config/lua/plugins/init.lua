@@ -111,7 +111,6 @@ return require("packer").startup({
     -- Finders
     use({
       "nvim-lua/telescope.nvim",
-      -- cmd = { "Octo", "Telescope" },
       config = function()
         local deps = {
           "telescope-dap.nvim",
@@ -143,63 +142,47 @@ return require("packer").startup({
             },
           },
         })
-        if vim.bo.filetype == "python" then
-          telescope.load_extension("dap")
-        end
+        telescope.load_extension("dap")
         telescope.load_extension("fzf")
         telescope.load_extension("gh")
         telescope.load_extension("neoclip")
         telescope.load_extension("project")
-
-        vim.keymap.set("n", "<Leader>fg", function()
-          local git_diff_branch = function(prompt_bufnr)
-            local selection = require("telescope.actions.state").get_selected_entry()
-            require("telescope.actions").close(prompt_bufnr)
-            vim.cmd("DiffviewOpen " .. selection.value)
-          end
-
-          require("telescope.builtin").git_branches({
-            attach_mappings = function(_, map)
-              map("n", "<c-y>", git_diff_branch)
-              map("i", "<c-y>", git_diff_branch)
-              return true
-            end,
-          })
-        end)
       end,
+      module = "telescope",
       setup = function()
-        vim.keymap.set("n", "<Leader>ff", "<Cmd>Telescope find_files<CR>")
-        vim.keymap.set("n", "<Leader>fr", "<Cmd>Telescope resume<CR>")
-        vim.keymap.set("n", "<Leader>fl", "<Cmd>Telescope live_grep<CR>")
-        vim.keymap.set("n", "<Leader>fL", "<Cmd>Telescope current_buffer_fuzzy_find<CR>")
-        vim.keymap.set("n", "<Leader>fb", "<Cmd>Telescope buffers<CR>")
-        vim.keymap.set("n", "<Leader>fh", "<Cmd>Telescope oldfiles<CR>")
-        vim.keymap.set("n", "<Leader>fm", "<Cmd>Telescope marks<CR>")
-        vim.keymap.set("n", "<Leader>fc", "<Cmd>Telescope git_bcommits<CR>")
-        vim.keymap.set("n", "<Leader>fv", "<Cmd>Telescope git_status<CR>")
-        vim.keymap.set("n", "<Leader>fk", "<Cmd>Telescope keymaps<CR>")
-        vim.keymap.set("n", "<Leader>fs", "<Cmd>Telescope symbols<CR>")
-        vim.keymap.set("n", "<Leader>fo", "<Cmd>Telescope project<CR>")
-        vim.keymap.set("n", "<Leader>O", "<Cmd>Telescope spell_suggest<CR>")
+        vim.keymap.set("n", "<Leader>ff", "<Cmd>lua require('telescope.builtin').find_files()<CR>")
+        vim.keymap.set("n", "<Leader>fr", "<Cmd>lua require('telescope.builtin').resume()<CR>")
+        vim.keymap.set("n", "<Leader>fl", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
+        vim.keymap.set("n", "<Leader>fL", "<Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>")
+        vim.keymap.set("n", "<Leader>fb", "<Cmd>lua require('telescope.builtin').buffers()<CR>")
+        vim.keymap.set("n", "<Leader>fh", "<Cmd>lua require('telescope.builtin').oldfiles()<CR>")
+        vim.keymap.set("n", "<Leader>fm", "<Cmd>lua require('telescope.builtin').marks()<CR>")
+        vim.keymap.set("n", "<Leader>fc", "<Cmd>lua require('telescope.builtin').git_bcommits()<CR>")
+        vim.keymap.set("n", "<Leader>fv", "<Cmd>lua require('telescope.builtin').git_status()<CR>")
+        vim.keymap.set("n", "<Leader>fg", "<Cmd>lua require('telescope.builtin').git_branches()<CR>")
+        vim.keymap.set("n", "<Leader>fk", "<Cmd>lua require('telescope.builtin').keymaps()<CR>")
+        vim.keymap.set("n", "<Leader>fs", "<Cmd>lua require('telescope.builtin').symbols()<CR>")
+        vim.keymap.set("n", "<Leader>fo", "<Cmd>lua require('telescope.builtin').project()<CR>")
+        vim.keymap.set("n", "<Leader>O", "<Cmd>lua require('telescope.builtin').spell_suggest()<CR>")
 
-        vim.keymap.set("n", "<Leader>dc", "<Cmd>Telescope dap commands<CR>")
-        vim.keymap.set("n", "<Leader>db", "<Cmd>Telescope dap list_breakpoints<CR>")
-        vim.keymap.set("n", "<Leader>df", "<Cmd>Telescope dap frames<CR>")
-        vim.keymap.set("n", "<Leader>dv", "<Cmd>Telescope dap variables<CR>")
+        vim.keymap.set("n", "<Leader>dc", "<Cmd>lua require('telescope').extensions.dap.commands({})<CR>")
+        vim.keymap.set("n", "<Leader>db", "<Cmd>lua require('telescope').extensions.dap.list_breakpoints({})<CR>")
+        vim.keymap.set("n", "<Leader>df", "<Cmd>lua require('telescope').extensions.dap.frames({})<CR>")
+        vim.keymap.set("n", "<Leader>dv", "<Cmd>lua require('telescope').extensions.dap.variables({})<CR>")
 
-        vim.keymap.set("n", "<Leader>fi", "<Cmd>Telescope gh issues<CR>")
-        vim.keymap.set("n", "<Leader>fp", "<Cmd>Telescope gh pull_request<CR>")
+        vim.keymap.set("n", "<Leader>fi", "<Cmd>lua require('telescope').extensions.gh.issues()<CR>")
+        vim.keymap.set("n", "<Leader>fp", "<Cmd>lua require('telescope').extensions.gh.pull_request()<CR>")
 
-        vim.keymap.set("n", "<Leader>y", "<Cmd>Telescope neoclip<CR>")
+        vim.keymap.set("n", "<Leader>y", "<Cmd>lua require('telescope').extensions.neoclip.neoclip()<CR>")
 
-        vim.keymap.set("n", "gd", "<Cmd>Telescope lsp_definitions<CR>")
-        vim.keymap.set("n", "gr", "<Cmd>Telescope lsp_references<CR>")
-        vim.keymap.set("n", "gr", "<Cmd>Telescope lsp_implementations<CR>")
-        vim.keymap.set("n", "<Space>a", "<Cmd>Telescope lsp_code_actions<CR>")
-        vim.keymap.set("x", "<Space>a", "<Cmd>Telescope lsp_range_code_actions<CR>")
-        vim.keymap.set("n", "<Space>o", "<Cmd>Telescope lsp_document_symbols<CR>")
-        vim.keymap.set("n", "<Space>s", "<Cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
-        vim.keymap.set("n", "<Space>e", "<Cmd>Telescope diagnostics bufnr=0<CR>")
+        vim.keymap.set("n", "gd", "<Cmd>lua require('telescope.builtin').lsp_definitions()<CR>")
+        vim.keymap.set("n", "gr", "<Cmd>lua require('telescope.builtin').lsp_references()<CR>")
+        vim.keymap.set("n", "gy", "<Cmd>lua require('telescope.builtin').lsp_implementations()<CR>")
+        vim.keymap.set("n", "<Space>a", "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
+        vim.keymap.set("x", "<Space>a", "<Cmd>lua require('telescope.builtin').lsp_range_code_actions()<CR>")
+        vim.keymap.set("n", "<Space>o", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
+        vim.keymap.set("n", "<Space>s", "<Cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>")
+        vim.keymap.set("n", "<Space>e", "<Cmd>lua require('telescope.builtin').diagnostics({bufnr=0})<CR>")
       end,
       requires = {
         { "nvim-telescope/telescope-dap.nvim", opt = true },
