@@ -34,6 +34,7 @@
         wofi
         # --- dev ---
         gcc
+        gnumake
         zig
         # --- file viewer ---
         glow

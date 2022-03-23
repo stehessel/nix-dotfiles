@@ -111,7 +111,7 @@ return require("packer").startup({
     -- Finders
     use({
       "nvim-lua/telescope.nvim",
-      cmd = { "Octo", "Telescope" },
+      -- cmd = { "Octo", "Telescope" },
       config = function()
         local deps = {
           "telescope-dap.nvim",
@@ -214,9 +214,9 @@ return require("packer").startup({
       "AckslD/nvim-neoclip.lua",
       config = function()
         require("neoclip").setup({ enable_persistent_history = true, default_register = "+" })
+        vim.g.sqlite_clib_path = os.getenv("LIB_SQLITE_PATH")
       end,
       requires = { "tami5/sqlite.lua", module = "sqlite" },
-      disable = true,
     })
     -- Todo
     use({
