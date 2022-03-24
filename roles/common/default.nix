@@ -53,7 +53,11 @@
       GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
       HISTFILE = "${config.xdg.dataHome}/fish/fish_history";
       LEIN_HOME = "${config.xdg.configHome}/lein";
-      LIB_SQLITE_PATH = "${pkgs.sqlite.out}/lib/libsqlite3.so";
+      LIB_SQLITE_PATH =
+        if pkgs.stdenv.isDarwin then
+          "${pkgs.sqlite.out}/lib/libsqlite3.dylib"
+        else
+          "${pkgs.sqlite.out}/lib/libsqlite3.so";
       MINIKUBE_HOME = "${config.xdg.configHome}";
       PAGER = "less";
       PYTHONSTARTUP = "${config.xdg.configHome}/python/config";
@@ -92,8 +96,6 @@
     # azure-cli
     azure-storage-azcopy
     google-cloud-sdk
-    # --- cpp ---
-    ninja
     # --- data ---
     jq
     nodePackages.vscode-langservers-extracted

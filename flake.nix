@@ -84,50 +84,15 @@
       };
 
       overlays = {
-        #fish-overlay = final: prev: {
-        #  fish = prev.fish.overrideAttrs (old: {
-        #    doCheck = false;
-        #  });
-        #};
-
-        #httpie-overlay = final: prev: {
-        #  httpie = prev.httpie.overrideAttrs (old: {
-        #    disabledTests = old.disabledTests ++ [ "test_plugins_upgrade" "test_uploads" ];
-        #  });
-        #};
-
-        #kitty-overlay = final: prev: {
-        #  kitty = prev.kitty.overrideAttrs (old: {
-        #    installCheckPhase = "";
-        #  });
-        #};
-
-        #libjxl-overlay = final: prev: {
-        #  libjxl = prev.libjxl.overrideAttrs (old: {
-        #    doCheck = false;
-        #  });
-        #};
-
-        #python-overlay = final: prev: rec {
-        #  python3 = prev.python3.override {
-        #    packageOverrides = final: prev: {
-        #      jxmlease = prev.jxmlease.overridePythonAttrs (old: {
-        #        doCheck = false;
-        #        installCheckPhase = "";
-        #      });
-
-        #      requests = prev.requests.overridePythonAttrs (old: {
-        #        pytestFlagsArray = [ "tests/test_help.py" ];
-        #      });
-
-        #      sh = prev.sh.overridePythonAttrs (old: {
-        #        doCheck = false;
-        #        installCheckPhase = "";
-        #      });
-        #    };
-        #  };
-        #  python3Packages = python3.pkgs;
-        #};
+        httpie-overlay = final: prev: {
+          httpie = prev.httpie.overrideAttrs (old: {
+            disabledTests =
+              if prev.pkgs.stdenv.isDarwin then
+                old.disabledTests ++ [ "test_plugins_upgrade" "test_uploads" ]
+              else
+                old.disabledTests;
+          });
+        };
 
         neovim-overlay = final: prev: {
           inherit (neovim-flake.packages.${ prev.system}) neovim;
