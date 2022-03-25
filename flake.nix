@@ -94,11 +94,16 @@
           });
         };
 
+        # Fix for https://github.com/NixOS/nixpkgs/issues/165387
+        kitty-overlay = final: prev: {
+          kitty = prev.kitty.overrideAttrs (old: {
+            installCheckPhase = "";
+            patches = old.patches ++ prev.lib.optionals prev.stdenv.isDarwin [ ./pkgs/kitty/darwin.patch ];
+          });
+        };
+
         neovim-overlay = final: prev: {
           inherit (neovim-flake.packages.${ prev.system}) neovim;
-          neovim-unwrapped = prev.neovim-unwrapped.overrideAttrs (old: {
-            buildInputs = old.buildInputs ++ [ final.pkgs.sqlite ];
-          });
         };
       };
     };
