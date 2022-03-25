@@ -167,6 +167,7 @@
     stylua
     sumneko-lua-language-server
     # --- kubernetes ---
+    k9s
     kube-linter
     # kubectl
     kubectx
