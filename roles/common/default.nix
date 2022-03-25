@@ -93,7 +93,7 @@
     # clojure-lsp
     leiningen
     # --- cloud ---
-    # azure-cli
+    azure-cli
     azure-storage-azcopy
     google-cloud-sdk
     # --- data ---
@@ -197,8 +197,6 @@
     # --- rust ---
     rustup
     rust-analyzer
-    # --- ruby ---
-    # ruby_2_7
     # --- shell ---
     dash
     nodePackages.bash-language-server
