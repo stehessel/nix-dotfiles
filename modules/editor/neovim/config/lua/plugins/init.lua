@@ -667,7 +667,17 @@ return require("packer").startup({
       end,
       ft = { "clojure", "fennel" },
     })
-    use({ "michaelb/sniprun", run = "bash ./install.sh" })
+    use({
+      "michaelb/sniprun",
+      setup = function()
+        vim.keymap.set("n", "<Leader>nr", "<Cmd>lua require('sniprun').run()<CR>")
+        vim.keymap.set("x", "<Leader>nr", ":lua require('sniprun').run('v')<CR>")
+        vim.keymap.set("n", "<Leader>nc", "<Cmd>lua require('sniprun.display').close_all()<CR>")
+        vim.keymap.set("n", "<Leader>nx", "<Cmd>lua require('sniprun').reset()<CR>")
+      end,
+      module = "sniprun",
+      run = "bash ./install.sh",
+    })
     -- Color scheme
     use({ "folke/lsp-colors.nvim" })
     use({
