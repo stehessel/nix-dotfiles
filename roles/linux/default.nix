@@ -23,8 +23,6 @@
         buku
         # --- browsers ---
         brave
-        # --- containers ---
-        docker
         # --- desktop ---
         bemenu
         cliphist
