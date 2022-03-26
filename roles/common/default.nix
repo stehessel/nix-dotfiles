@@ -96,6 +96,8 @@
     azure-cli
     azure-storage-azcopy
     google-cloud-sdk
+    # --- containers ---
+    pkgs.podman-compose
     # --- data ---
     jq
     nodePackages.vscode-langservers-extracted
