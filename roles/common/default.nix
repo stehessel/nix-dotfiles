@@ -149,6 +149,7 @@
     httpie
     # --- infrastructure ---
     ansible
+    ansible-lint
     # --- java ---
     maven
     # --- javascript ---

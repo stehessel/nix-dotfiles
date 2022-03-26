@@ -19,6 +19,9 @@
       # wezterm
       # --- text ---
       gnused
+      # --- virtualization ---
+      docker
+      lima
       # --- window manager ---
       # yabai
     ];

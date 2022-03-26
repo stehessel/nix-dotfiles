@@ -69,7 +69,6 @@
       "google-chrome"
       "clipy"
       "dbeaver-community"
-      "docker"
       "font-fira-code-nerd-font"
       "inkscape"
       "slack"
