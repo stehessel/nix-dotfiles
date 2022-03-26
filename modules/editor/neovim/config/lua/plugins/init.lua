@@ -674,6 +674,7 @@ return require("packer").startup({
         vim.keymap.set("x", "<Leader>nr", ":lua require('sniprun').run('v')<CR>")
         vim.keymap.set("n", "<Leader>nc", "<Cmd>lua require('sniprun.display').close_all()<CR>")
         vim.keymap.set("n", "<Leader>nx", "<Cmd>lua require('sniprun').reset()<CR>")
+        vim.keymap.set("n", "<Leader>ni", "<Cmd>lua require('sniprun').info()<CR>")
       end,
       module = "sniprun",
       run = "bash ./install.sh",
