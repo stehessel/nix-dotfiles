@@ -23,7 +23,7 @@
       # --- text ---
       gnused
       # --- virtualization ---
-      lima
+      colima
       # --- window manager ---
       # yabai
     ];
