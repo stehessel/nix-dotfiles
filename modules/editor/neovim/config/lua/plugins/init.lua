@@ -363,7 +363,6 @@ return require("packer").startup({
             end,
           },
           sources = cmp.config.sources({
-            { name = "copilot" },
             { name = "nvim_lsp" },
             { name = "nvim_lua" },
             { name = "orgmode" },
@@ -377,7 +376,6 @@ return require("packer").startup({
       end,
       requires = {
         { "L3MON4D3/LuaSnip" },
-        { "hrsh7th/cmp-copilot" },
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-nvim-lua" },
         { "hrsh7th/cmp-path" },
@@ -404,7 +402,15 @@ return require("packer").startup({
       end,
       requires = { "ldelossa/litee.nvim" },
     })
-    use({ "github/copilot.vim" })
+    use({
+      "github/copilot.vim",
+      config = function()
+        vim.keymap.set("i", "<C-J>", [[copilot#Accept("\<CR>")]], { expr = true })
+        vim.keymap.set("i", "<M-J>", "<Plug>(copilot-next)", { expr = true })
+        vim.keymap.set("i", "<M-K>", "<Plug>(copilot-prev)", { expr = true })
+        vim.g.copilot_no_tab_map = true
+      end,
+    })
     use({ "b0o/schemastore.nvim" })
     -- Doc strings
     use({
