@@ -223,7 +223,7 @@
     du-dust
     file
     hyperfine
-    topgrade
+    # topgrade
     wget
     # --- web ---
     hugo
