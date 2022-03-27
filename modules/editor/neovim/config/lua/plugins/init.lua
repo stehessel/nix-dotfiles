@@ -363,6 +363,7 @@ return require("packer").startup({
             end,
           },
           sources = cmp.config.sources({
+            { name = "copilot" },
             { name = "nvim_lsp" },
             { name = "nvim_lua" },
             { name = "orgmode" },
@@ -375,10 +376,11 @@ return require("packer").startup({
         })
       end,
       requires = {
+        { "L3MON4D3/LuaSnip" },
+        { "hrsh7th/cmp-copilot" },
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-nvim-lua" },
         { "hrsh7th/cmp-path" },
-        { "L3MON4D3/LuaSnip" },
         { "saadparwaiz1/cmp_luasnip" },
       },
     })
@@ -402,6 +404,7 @@ return require("packer").startup({
       end,
       requires = { "ldelossa/litee.nvim" },
     })
+    use({ "github/copilot.vim" })
     use({ "b0o/schemastore.nvim" })
     -- Doc strings
     use({
