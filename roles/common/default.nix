@@ -176,6 +176,7 @@
     kubectx
     kubernetes-helm
     minikube
+    ocm
     odo
     openshift
     # --- network ---
