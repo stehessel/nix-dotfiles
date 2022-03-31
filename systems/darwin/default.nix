@@ -161,6 +161,7 @@
       interval = { Hour = 12; };
     };
     package = pkgs.nixUnstable;
+    useSandbox = true;
   };
 
   # Used for backwards compatibility, please read the changelog before changing.
