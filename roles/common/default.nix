@@ -172,7 +172,7 @@
     # --- kubernetes ---
     k9s
     kube-linter
-    # kubectl
+    kubectl
     kubectx
     kubernetes-helm
     minikube
