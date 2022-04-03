@@ -64,7 +64,6 @@
     casks = [
       "adobe-acrobat-reader"
       "app-cleaner"
-      "bluejeans"
       "calibre"
       "clipy"
       "dbeaver-community"
@@ -93,6 +92,12 @@
       "Wi-Fi"
     ];
   };
+
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override {
+      fonts = [ "FiraCode" ];
+    })
+  ];
 
   system = {
     keyboard = {

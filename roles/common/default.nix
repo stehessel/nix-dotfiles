@@ -88,6 +88,8 @@
     # --- backup ---
     rclone
     restic
+    # --- chat ---
+    zulip-term
     # --- clojure ---
     clojure
     # clojure-lsp
@@ -203,6 +205,7 @@
     rust-analyzer
     # --- shell ---
     dash
+    elvish
     nodePackages.bash-language-server
     shellcheck
     shfmt
