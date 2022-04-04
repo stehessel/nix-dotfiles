@@ -160,12 +160,13 @@
     extraOptions = ''
       auto-optimise-store = true
       experimental-features = nix-command flakes
+      keep-going = true
     '';
     gc = {
       automatic = true;
       interval = { Hour = 12; };
     };
-    package = pkgs.nixUnstable;
+    # package = pkgs.nixUnstable;
     useSandbox = true;
   };
 
