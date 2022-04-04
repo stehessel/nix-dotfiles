@@ -316,6 +316,7 @@ return require("packer").startup({
             format = lspkind.cmp_format({
               with_text = true,
               menu = {
+                copilot = "[Copilot]",
                 fuzzy_buffer = "[Buf]",
                 luasnip = "[Snip]",
                 nvim_lsp = "[LSP]",
@@ -363,13 +364,12 @@ return require("packer").startup({
             end,
           },
           sources = cmp.config.sources({
+            { name = "copilot" },
             { name = "nvim_lsp" },
             { name = "nvim_lua" },
             { name = "orgmode" },
-          }, {
             { name = "fuzzy_buffer" },
             { name = "luasnip" },
-          }, {
             { name = "path" },
           }),
         })
@@ -410,6 +410,20 @@ return require("packer").startup({
         vim.keymap.set("i", "<M-K>", "<Plug>(copilot-prev)", { expr = true })
         vim.g.copilot_no_tab_map = true
       end,
+      disable = true,
+    })
+    use({
+      "zbirenbaum/copilot.lua",
+      config = function()
+        vim.schedule(function()
+          require("copilot")
+        end)
+      end,
+      event = "InsertEnter",
+    })
+    use({
+      "zbirenbaum/copilot-cmp",
+      after = { "copilot.lua", "nvim-cmp" },
     })
     use({ "b0o/schemastore.nvim" })
     -- Doc strings
