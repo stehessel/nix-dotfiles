@@ -6,13 +6,17 @@
       ./hardware-configuration.nix
     ];
 
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 20;
+  boot = {
+    initrd.systemd.enable = true;
+
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 20;
+      };
+      efi.canTouchEfiVariables = true;
+      timeout = 1;
     };
-    efi.canTouchEfiVariables = true;
-    timeout = 1;
   };
 
   # Networking
