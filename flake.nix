@@ -84,16 +84,6 @@
       };
 
       overlays = {
-        httpie-overlay = final: prev: {
-          httpie = prev.httpie.overrideAttrs (old: {
-            disabledTests =
-              if prev.pkgs.stdenv.isDarwin then
-                old.disabledTests ++ [ "test_plugins_upgrade" "test_uploads" ]
-              else
-                old.disabledTests;
-          });
-        };
-
         # Fix for https://github.com/NixOS/nixpkgs/issues/165387
         kitty-overlay = final: prev: {
           kitty = prev.kitty.overrideAttrs (old: {

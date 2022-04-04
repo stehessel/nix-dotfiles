@@ -148,9 +148,6 @@
     exa
     glow
     highlight
-    # --- http ---
-    http-prompt
-    httpie
     # --- infrastructure ---
     ansible
     ansible-lint
