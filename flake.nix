@@ -88,7 +88,6 @@
         kitty-overlay = final: prev: {
           kitty = prev.kitty.overrideAttrs (old: {
             installCheckPhase = "";
-            patches = old.patches ++ prev.lib.optionals prev.stdenv.isDarwin [ ./pkgs/kitty/darwin.patch ];
           });
         };
 
