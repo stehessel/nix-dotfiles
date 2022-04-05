@@ -166,7 +166,7 @@
       automatic = true;
       interval = { Hour = 12; };
     };
-    # package = pkgs.nixUnstable;
+    package = pkgs.nixUnstable;
     useSandbox = true;
   };
 
