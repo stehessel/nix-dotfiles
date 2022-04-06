@@ -117,6 +117,7 @@
     xsv
     # ---  docker ---
     act
+    ctop
     hadolint
     nodePackages.dockerfile-language-server-nodejs
     podman
