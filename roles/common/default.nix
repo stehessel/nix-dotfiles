@@ -52,7 +52,6 @@
       EDITOR = "nvim";
       FILE = "lf";
       GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
-      HISTFILE = "${config.xdg.dataHome}/fish/fish_history";
       LEIN_HOME = "${config.xdg.configHome}/lein";
       LIB_SQLITE_PATH =
         if pkgs.stdenv.isDarwin then
