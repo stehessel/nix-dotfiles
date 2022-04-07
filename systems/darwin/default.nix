@@ -67,7 +67,7 @@
       "calibre"
       "clipy"
       "dbeaver-community"
-      # "font-fira-code-nerd-font"
+      "font-fira-code-nerd-font"
       "google-chrome"
       "inkscape"
       "slack"
