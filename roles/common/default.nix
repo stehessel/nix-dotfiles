@@ -149,6 +149,8 @@
     exa
     glow
     highlight
+    # --- images ---
+    exiftool
     # --- infrastructure ---
     ansible
     ansible-lint
