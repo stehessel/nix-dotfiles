@@ -39,12 +39,12 @@
         zig
         # --- file viewer ---
         glow
+        # --- icons ---
+        gnome.adwaita-icon-theme
         # --- neovim ---
         neovim-python
         # --- networking ---
         networkmanagerapplet
-        # --- nix ---
-        nixUnstable
         # --- window manager ---
         river
         swaybg
