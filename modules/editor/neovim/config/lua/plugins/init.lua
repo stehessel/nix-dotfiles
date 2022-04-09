@@ -90,6 +90,7 @@ return require("packer").startup({
       "f-person/git-blame.nvim",
       config = function()
         vim.keymap.set("n", "<Leader>gB", "<cmd>GitBlameToggle<CR>")
+        vim.g.gitblame_ignored_filetypes = { "neo-tree" }
       end,
     })
     use({
@@ -913,11 +914,21 @@ return require("packer").startup({
     -- File explorer
     use({
       "kyazdani42/nvim-tree.lua",
+      cmd = { "NvimTreeOpen", "NvimTreeToggle" },
       config = function()
         vim.g.nvim_tree_git_hl = 1
         vim.g.nvim_tree_group_empty = 1
         vim.g.nvim_tree_highlight_opened_files = 1
-        vim.g.nvim_tree_width = 35
+        vim.g.nvim_tree_indent_markers = 1
+        vim.g.nvim_tree_special_files = {
+          ["MAKEFILE"] = 1,
+          ["Makefile"] = 1,
+          ["README"] = 1,
+          ["README.MD"] = 1,
+          ["README.md"] = 1,
+          ["flake.nix"] = 1,
+        }
+        vim.g.nvim_tree_width = 40
 
         require("nvim-tree").setup({
           hijack_cursor = true,
@@ -925,7 +936,7 @@ return require("packer").startup({
           diagnostics = {
             enable = true,
             icons = {
-              hint = " ",
+              hint = " ",
               info = " ",
               warning = " ",
               error = " ",
@@ -963,9 +974,37 @@ return require("packer").startup({
             },
           },
         })
-
+      end,
+      setup = function()
         vim.keymap.set("n", "<Leader>e", ":NvimTreeToggle<CR>")
       end,
+    })
+    use({
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v2.x",
+      config = function()
+        -- Unless you are still migrating, remove the deprecated commands from v1.x
+        vim.g.neo_tree_remove_legacy_commands = 1
+
+        require("neo-tree").setup({
+          close_if_last_window = false,
+          default_component_configs = {
+            use_libuv_file_watcher = true,
+            window = {
+              width = 40,
+            },
+          },
+        })
+      end,
+      setup = function()
+        vim.keymap.set("n", "<Leader>e", ":Neotree reveal toggle<CR>")
+      end,
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "kyazdani42/nvim-web-devicons",
+        "MunifTanjim/nui.nvim",
+      },
+      disable = true,
     })
     -- Projects
     use({

@@ -21,6 +21,10 @@ vim.opt.sessionoptions:remove({ "folds", "options" })
 
 -- Sign column
 vim.opt.signcolumn = "yes"
+vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
 -- Short messages
 vim.opt.shortmess:append("c")
