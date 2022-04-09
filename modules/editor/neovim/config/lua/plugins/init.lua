@@ -368,9 +368,9 @@ return require("packer").startup({
             { name = "copilot" },
             { name = "orgmode" },
             { name = "luasnip" },
-            { name = "fuzzy_buffer" },
             { name = "nvim_lua" },
             { name = "nvim_lsp" },
+            { name = "fuzzy_buffer" },
           }),
         })
       end,
