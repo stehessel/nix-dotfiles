@@ -982,6 +982,7 @@ return require("packer").startup({
     use({
       "nvim-neo-tree/neo-tree.nvim",
       branch = "v2.x",
+      cmd = { "Neotree" },
       config = function()
         -- Unless you are still migrating, remove the deprecated commands from v1.x
         vim.g.neo_tree_remove_legacy_commands = 1
