@@ -96,7 +96,7 @@
     leiningen
     # --- cloud ---
     azure-cli
-    azure-storage-azcopy
+    # azure-storage-azcopy
     google-cloud-sdk
     # --- containers ---
     pkgs.podman-compose
@@ -170,9 +170,10 @@
     luajitPackages.luarocks
     selene
     stylua
-    sumneko-lua-language-server
+    # sumneko-lua-language-server
     # --- kubernetes ---
     k9s
+    krew
     kube-linter
     kubectl
     kubectx
@@ -225,12 +226,14 @@
     # --- utility ---
     cmatrix
     du-dust
+    duf
     file
     hyperfine
+    sd
     # topgrade
     wget
     # --- web ---
-    hugo
+    # hugo
     nodePackages."@tailwindcss/language-server"
     # --- yaml ---
     yaml-language-server
