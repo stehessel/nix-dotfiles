@@ -16,11 +16,11 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
   vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { buffer = bufnr })
 
-  if client.resolved_capabilities.hover then
+  if client.server_capabilities.hoverProvider then
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
   end
   vim.keymap.set("n", "<Space>D", vim.lsp.buf.type_definition, { buffer = bufnr })
-  if client.resolved_capabilities.rename then
+  if client.server_capabilities.renameProvider then
     vim.keymap.set("n", "<Space>r", vim.lsp.buf.rename, { buffer = bufnr })
   end
 
@@ -40,7 +40,9 @@ local on_attach = function(client, bufnr)
     vim.diagnostic.goto_next({ float = { focusable = false } })
   end)
 
-  vim.keymap.set("n", "<Space>f", vim.lsp.buf.formatting_sync, { buffer = bufnr })
+  if client.server_capabilities.documentFormattingProvider then
+    vim.keymap.set("n", "<Space>f", vim.lsp.buf.formatting_sync, { buffer = bufnr })
+  end
 
   -- Callstack
   vim.keymap.set("n", "<Space>ci", vim.lsp.buf.incoming_calls, { buffer = bufnr })

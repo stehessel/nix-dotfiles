@@ -95,7 +95,7 @@
     # clojure-lsp
     leiningen
     # --- cloud ---
-    azure-cli
+    # azure-cli
     # azure-storage-azcopy
     google-cloud-sdk
     # --- containers ---
@@ -170,7 +170,7 @@
     luajitPackages.luarocks
     selene
     stylua
-    # sumneko-lua-language-server
+    # sumneko-lua-language-server  # blocked by macOS SDK > 10.12
     # --- kubernetes ---
     k9s
     krew
@@ -230,10 +230,10 @@
     file
     hyperfine
     sd
-    # topgrade
+    # topgrade  # blocked by macOS SDK > 10.12
     wget
     # --- web ---
-    # hugo
+    # hugo  # blocked by macOS SDK > 10.12
     nodePackages."@tailwindcss/language-server"
     # --- yaml ---
     yaml-language-server
