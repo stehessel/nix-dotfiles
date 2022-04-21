@@ -67,7 +67,6 @@
       "calibre"
       "clipy"
       "dbeaver-community"
-      "docker"
       "font-fira-code-nerd-font"
       "google-chrome"
       "inkscape"
