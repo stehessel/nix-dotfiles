@@ -249,7 +249,8 @@ return require("packer").startup({
           },
         })
       end,
-      disable = true,
+      requires = { "nvim-lua/plenary.nvim" },
+      disable = false,
     })
     use({
       "kristijanhusak/orgmode.nvim",
@@ -260,6 +261,7 @@ return require("packer").startup({
           org_default_notes_file = "~/doc/org/refile.org",
         })
       end,
+      disable = true,
     })
     -- LSP
     use({
