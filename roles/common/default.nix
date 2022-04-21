@@ -103,6 +103,7 @@
     nodePackages.vscode-langservers-extracted
     yq-go
     # --- dev ---
+    buf
     cmake
     code-minimap
     codespell
