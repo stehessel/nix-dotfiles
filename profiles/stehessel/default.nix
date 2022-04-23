@@ -5,6 +5,29 @@
     ../../services/calcurse
   ];
 
+  accounts.email.accounts = {
+    stehessel = {
+      primary = true;
+      himalaya.enable = true;
+      address = "stephan@stehessel.de";
+      realName = "Stephan Heßelmann";
+      userName = "stephan@stehessel.de";
+      passwordCommand = "";
+      imap = {
+        host = "imap.mailbox.org";
+        port = 993;
+        tls.enable = true;
+      };
+      smtp = {
+        host = "smtp.mailbox.org";
+        port = 587;
+        tls = {
+          enable = true;
+          useStartTls = true;
+        };
+      };
+    };
+  };
   programs = {
     git = {
       userEmail = "stephan@stehessel.de";

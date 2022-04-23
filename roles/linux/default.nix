@@ -45,6 +45,8 @@
         neovim-python
         # --- networking ---
         networkmanagerapplet
+        # --- passwords ---
+        bitwarden-cli
         # --- window manager ---
         river
         swaybg
@@ -54,6 +56,7 @@
     };
 
   programs = {
+    himalaya.enable = true;
     home-manager.enable = true;
   };
 
