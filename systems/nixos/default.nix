@@ -19,7 +19,6 @@
     };
   };
 
-  # Networking
   networking = {
     hostName = "thinkpad";
     networkmanager = {
@@ -32,8 +31,6 @@
     # Per-interface useDHCP will be mandatory in the future, so this generated config
     # replicates the default behaviour.
     useDHCP = false;
-    interfaces.enp4s0.useDHCP = true;
-    interfaces.wlp5s0.useDHCP = true;
   };
   programs.nm-applet.enable = true;
 
@@ -109,9 +106,6 @@
     };
     package = pkgs.nixUnstable;
   };
-
-  # Workaround for slow boot process. See https://github.com/NixOS/nixpkgs/issues/60900
-  systemd.services.systemd-user-sessions.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
