@@ -64,6 +64,7 @@
   programs = {
     himalaya.enable = true;
     home-manager.enable = true;
+    sioyek.enable = true;
   };
 
   systemd.user.targets = {
