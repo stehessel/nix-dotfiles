@@ -41,6 +41,10 @@
         glow
         # --- icons ---
         gnome.adwaita-icon-theme
+        # --- media ---
+        brightnessctl
+        pamixer
+        playerctl
         # --- neovim ---
         neovim-python
         # --- networking ---
