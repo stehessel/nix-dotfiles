@@ -1,10 +1,5 @@
 { lib, pkgs, ... }:
 {
-  imports = [
-    ../common
-    ../../services/calcurse
-  ];
-
   accounts.email.accounts = {
     stehessel = {
       primary = true;
