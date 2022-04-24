@@ -30,7 +30,7 @@
         libnotify
         mako
         rofi
-        syncthingtray
+        # syncthingtray
         wl-clipboard
         wofi
         # --- dev ---
