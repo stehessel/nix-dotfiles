@@ -12,7 +12,7 @@
       address = "stephan@stehessel.de";
       realName = "Stephan Heßelmann";
       userName = "stephan@stehessel.de";
-      passwordCommand = "";
+      passwordCommand = "bw get password 0ced5d86-5922-455a-81a2-aac4013f97b6";
       imap = {
         host = "imap.mailbox.org";
         port = 993;
