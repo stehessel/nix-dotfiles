@@ -102,6 +102,8 @@
     jq
     nodePackages.vscode-langservers-extracted
     yq-go
+    # --- desktop ---
+    xdg-utils
     # --- dev ---
     buf
     cmake
