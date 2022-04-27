@@ -91,6 +91,12 @@
           });
         };
 
+        starship-overlay = final: prev: {
+          starship = prev.starship.overrideAttrs (old: {
+            doCheck = false;
+          });
+        };
+
         neovim-overlay = final: prev: {
           inherit (neovim-flake.packages.${ prev.system}) neovim;
         };
