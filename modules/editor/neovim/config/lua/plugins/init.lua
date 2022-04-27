@@ -921,7 +921,6 @@ return require("packer").startup({
         vim.g.nvim_tree_git_hl = 1
         vim.g.nvim_tree_group_empty = 1
         vim.g.nvim_tree_highlight_opened_files = 1
-        vim.g.nvim_tree_indent_markers = 1
         vim.g.nvim_tree_special_files = {
           ["MAKEFILE"] = 1,
           ["Makefile"] = 1,
@@ -943,6 +942,9 @@ return require("packer").startup({
               warning = " ",
               error = " ",
             },
+          },
+          renderer = {
+            indent_markers = { enable = true },
           },
           update_focused_file = {
             enable = true,
