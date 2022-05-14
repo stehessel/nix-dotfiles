@@ -97,7 +97,7 @@
     # --- cloud ---
     google-cloud-sdk
     # --- containers ---
-    pkgs.podman-compose
+    # pkgs.podman-compose
     # --- data ---
     jq
     nodePackages.vscode-langservers-extracted
@@ -120,7 +120,7 @@
     ctop
     hadolint
     nodePackages.dockerfile-language-server-nodejs
-    podman
+    # podman
     qemu
     # --- editor ---
     helix
