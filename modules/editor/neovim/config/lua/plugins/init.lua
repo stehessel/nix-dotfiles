@@ -281,6 +281,7 @@ return require("packer").startup({
             builtins.code_actions.gitsigns,
             builtins.code_actions.refactoring,
             builtins.code_actions.statix,
+            builtins.diagnostics.buf,
             builtins.diagnostics.eslint.with({ command = "eslint_d" }),
             builtins.diagnostics.golangci_lint,
             builtins.diagnostics.hadolint,
