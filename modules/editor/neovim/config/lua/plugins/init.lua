@@ -282,6 +282,7 @@ return require("packer").startup({
             builtins.code_actions.refactoring,
             builtins.code_actions.statix,
             builtins.diagnostics.eslint.with({ command = "eslint_d" }),
+            builtins.diagnostics.golangci_lint,
             builtins.diagnostics.hadolint,
             builtins.diagnostics.selene,
             -- builtins.diagnostics.shellcheck,
@@ -749,7 +750,7 @@ return require("packer").startup({
     })
     -- Marks
     use({
-      "chentau/marks.nvim",
+      "chentoast/marks.nvim",
       config = function()
         require("marks").setup({})
       end,

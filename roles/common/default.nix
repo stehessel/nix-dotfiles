@@ -171,7 +171,7 @@
     luajitPackages.luarocks
     selene
     stylua
-    # sumneko-lua-language-server  # blocked by macOS SDK > 10.12
+    sumneko-lua-language-server
     # --- kubernetes ---
     k9s
     krew

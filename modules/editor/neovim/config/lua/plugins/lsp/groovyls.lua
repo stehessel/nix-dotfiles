@@ -1,5 +1,5 @@
 return {
-  setup = function(on_attach, capabilities, _, debounce_text_changes)
+  setup = function(on_attach, capabilities, debounce_text_changes)
     require("lspconfig").groovyls.setup({
       cmd = {
         "java",
