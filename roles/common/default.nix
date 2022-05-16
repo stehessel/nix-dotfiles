@@ -40,38 +40,201 @@
 
   xdg.enable = true;
 
-  home = {
-    sessionPath = [
-      "$HOME/.local/bin"
-      "$HOME/.luarocks/bin"
-      "$HOME/miniconda3/bin"
-      "/usr/local/bin"
-    ];
-    sessionVariables = {
-      BOTO_CONFIG = "${config.xdg.configHome}/boto/config";
-      EDITOR = "nvim";
-      FILE = "lf";
-      GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
-      LEIN_HOME = "${config.xdg.configHome}/lein";
-      LIB_SQLITE_PATH =
-        if pkgs.stdenv.isDarwin then
-          "${pkgs.sqlite.out}/lib/libsqlite3.dylib"
-        else
-          "${pkgs.sqlite.out}/lib/libsqlite3.so";
-      MINIKUBE_HOME = "${config.xdg.configHome}";
-      PAGER = "less";
-      PYTHONSTARTUP = "${config.xdg.configHome}/python/config";
-      READER = "zathura";
-      RUSTUP_HOME = "${config.xdg.configHome}/rustup";
-      TERMINAL = "kitty";
-      TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
-      WGETRC = "${config.xdg.configHome}/wget/config";
+  home =
+    let
+      python-packages = ps: [ ps.pynvim ];
+      neovim-python = pkgs.python3.withPackages python-packages;
+    in
+    {
+      sessionPath = [
+        "$HOME/.local/bin"
+        "$HOME/.luarocks/bin"
+        "$HOME/miniconda3/bin"
+        "/usr/local/bin"
+      ];
+      sessionVariables = {
+        BOTO_CONFIG = "${config.xdg.configHome}/boto/config";
+        EDITOR = "nvim";
+        FILE = "lf";
+        GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
+        LEIN_HOME = "${config.xdg.configHome}/lein";
+        LIB_SQLITE_PATH =
+          if pkgs.stdenv.isDarwin then
+            "${pkgs.sqlite.out}/lib/libsqlite3.dylib"
+          else
+            "${pkgs.sqlite.out}/lib/libsqlite3.so";
+        MINIKUBE_HOME = "${config.xdg.configHome}";
+        NVIM_PYTHON_PROVIDER = "${neovim-python.out}/bin/python";
+        PAGER = "less";
+        PYTHONSTARTUP = "${config.xdg.configHome}/python/config";
+        READER = "zathura";
+        RUSTUP_HOME = "${config.xdg.configHome}/rustup";
+        TERMINAL = "kitty";
+        TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
+        WGETRC = "${config.xdg.configHome}/wget/config";
+      };
+      # Needed for nvim-spectre on macOS
+      shellAliases = {
+        gsed = "sed";
+      };
+
+      packages = with pkgs; [
+        # --- backup ---
+        rclone
+        restic
+        # --- chat ---
+        zulip-term
+        # --- clojure ---
+        clojure
+        # clojure-lsp
+        leiningen
+        # --- cloud ---
+        google-cloud-sdk
+        # --- containers ---
+        # pkgs.podman-compose
+        # --- data ---
+        jq
+        nodePackages.vscode-langservers-extracted
+        yq-go
+        # --- desktop ---
+        xdg-utils
+        # --- dev ---
+        buf
+        cmake
+        code-minimap
+        codespell
+        editorconfig-core-c
+        pgformatter
+        tree-sitter
+        tokei
+        universal-ctags
+        xsv
+        # ---  docker ---
+        act
+        ctop
+        hadolint
+        nodePackages.dockerfile-language-server-nodejs
+        # podman
+        qemu
+        # --- editor ---
+        helix
+        kakoune
+        neovim
+        neovim-python
+        # --- file manager ---
+        lf
+        nnn
+        # --- file search ---
+        broot
+        fd
+        tre-command
+        # --- file transfer ---
+        rsync
+        # --- file viewer ---
+        pandoc
+        # --- font ---
+        fira-code
+        font-awesome
+        # --- fuzzy search ---
+        fzy
+        # --- git ---
+        gitAndTools.git-bug
+        gitAndTools.git-fame
+        # --- highlighters ---
+        bat
+        exa
+        glow
+        highlight
+        # --- images ---
+        exiftool
+        # --- infrastructure ---
+        ansible
+        ansible-lint
+        # --- java ---
+        maven
+        # --- javascript ---
+        nodePackages.eslint_d
+        nodejs-17_x
+        nodePackages.typescript
+        nodePackages.typescript-language-server
+        yarn
+        # --- launcher ---
+        pueue
+        # --- lua ---
+        luajitPackages.lua-lsp
+        luajitPackages.luacheck
+        luajitPackages.luarocks
+        selene
+        stylua
+        sumneko-lua-language-server
+        # --- kubernetes ---
+        k9s
+        krew
+        kube-linter
+        kubectl
+        kubectx
+        kubernetes-helm
+        minikube
+        ocm
+        odo
+        openshift
+        # --- network ---
+        bandwhich
+        curl
+        netcat
+        nmap
+        speedtest-cli
+        # --- nix ---
+        cachix
+        nix-prefetch-github
+        nixpkgs-fmt
+        rnix-lsp
+        statix
+        # --- process manager ---
+        htop
+        # --- python ---
+        python39Packages.black
+        python39Packages.isort
+        python39Packages.pipx
+        pyright
+        # --- rust ---
+        rustup
+        rust-analyzer
+        # --- shell ---
+        dash
+        elvish
+        nodePackages.bash-language-server
+        shellcheck
+        shfmt
+        # --- sql ---
+        sqlite
+        # --- system ---
+        (uutils-coreutils.override { prefix = ""; })
+        # --- terminals ---
+        # wezterm
+        # --- terminal multiplexers ---
+        tmux
+        # --- terraform ---
+        terraform
+        terraform-ls
+        # --- text ---
+        asciidoctor
+        # --- utility ---
+        cmatrix
+        du-dust
+        duf
+        file
+        hyperfine
+        sd
+        # topgrade  # blocked by macOS SDK > 10.12
+        wget
+        # --- web ---
+        # hugo  # blocked by macOS SDK > 10.12
+        nodePackages."@tailwindcss/language-server"
+        # --- yaml ---
+        yaml-language-server
+      ];
     };
-    # Needed for nvim-spectre on macOS
-    shellAliases = {
-      gsed = "sed";
-    };
-  };
 
   programs = {
     direnv = {
@@ -83,160 +246,4 @@
       package = pkgs.jdk11;
     };
   };
-
-  home.packages = with pkgs; [
-    # --- backup ---
-    rclone
-    restic
-    # --- chat ---
-    zulip-term
-    # --- clojure ---
-    clojure
-    # clojure-lsp
-    leiningen
-    # --- cloud ---
-    google-cloud-sdk
-    # --- containers ---
-    # pkgs.podman-compose
-    # --- data ---
-    jq
-    nodePackages.vscode-langservers-extracted
-    yq-go
-    # --- desktop ---
-    xdg-utils
-    # --- dev ---
-    buf
-    cmake
-    code-minimap
-    codespell
-    editorconfig-core-c
-    pgformatter
-    tree-sitter
-    tokei
-    universal-ctags
-    xsv
-    # ---  docker ---
-    act
-    ctop
-    hadolint
-    nodePackages.dockerfile-language-server-nodejs
-    # podman
-    qemu
-    # --- editor ---
-    helix
-    kakoune
-    neovim
-    # --- file manager ---
-    lf
-    nnn
-    # --- file search ---
-    broot
-    fd
-    tre-command
-    # --- file transfer ---
-    rsync
-    # --- file viewer ---
-    pandoc
-    # --- font ---
-    fira-code
-    font-awesome
-    # --- fuzzy search ---
-    fzy
-    # --- git ---
-    gitAndTools.git-bug
-    gitAndTools.git-fame
-    # --- highlighters ---
-    bat
-    exa
-    glow
-    highlight
-    # --- images ---
-    exiftool
-    # --- infrastructure ---
-    ansible
-    ansible-lint
-    # --- java ---
-    maven
-    # --- javascript ---
-    nodePackages.eslint_d
-    nodejs-17_x
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    yarn
-    # --- launcher ---
-    pueue
-    # --- lua ---
-    luajitPackages.lua-lsp
-    luajitPackages.luacheck
-    luajitPackages.luarocks
-    selene
-    stylua
-    sumneko-lua-language-server
-    # --- kubernetes ---
-    k9s
-    krew
-    kube-linter
-    kubectl
-    kubectx
-    kubernetes-helm
-    minikube
-    ocm
-    odo
-    openshift
-    # --- network ---
-    bandwhich
-    curl
-    netcat
-    nmap
-    speedtest-cli
-    # --- nix ---
-    cachix
-    nix-prefetch-github
-    nixpkgs-fmt
-    rnix-lsp
-    statix
-    # --- process manager ---
-    htop
-    # --- python ---
-    python39Packages.black
-    python39Packages.isort
-    python39Packages.pipx
-    pyright
-    # --- rust ---
-    rustup
-    rust-analyzer
-    # --- shell ---
-    dash
-    elvish
-    nodePackages.bash-language-server
-    shellcheck
-    shfmt
-    # --- sql ---
-    sqlite
-    # --- system ---
-    (uutils-coreutils.override { prefix = ""; })
-    # --- terminals ---
-    # wezterm
-    # --- terminal multiplexers ---
-    tmux
-    # --- terraform ---
-    terraform
-    terraform-ls
-    # --- text ---
-    asciidoctor
-    # --- utility ---
-    cmatrix
-    du-dust
-    duf
-    file
-    hyperfine
-    sd
-    # topgrade  # blocked by macOS SDK > 10.12
-    wget
-    # --- web ---
-    # hugo  # blocked by macOS SDK > 10.12
-    nodePackages."@tailwindcss/language-server"
-    # --- yaml ---
-    yaml-language-server
-  ];
 }

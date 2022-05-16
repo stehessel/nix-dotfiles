@@ -14,10 +14,6 @@
   ];
 
   home =
-    let
-      python-packages = ps: [ ps.pynvim ];
-      neovim-python = pkgs.python3.withPackages python-packages;
-    in
     {
       packages = with pkgs; [
         # --- bookmarks ---
@@ -45,8 +41,6 @@
         brightnessctl
         pamixer
         playerctl
-        # --- neovim ---
-        neovim-python
         # --- networking ---
         networkmanagerapplet
         # --- passwords ---

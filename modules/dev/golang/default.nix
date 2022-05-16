@@ -3,7 +3,7 @@
   home = {
     packages = with pkgs; [
       delve
-      # ginkgo
+      ginkgo
       # golangci-lint
       gopls
       gotest
