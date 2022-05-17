@@ -984,6 +984,7 @@ return require("packer").startup({
       setup = function()
         vim.keymap.set("n", "<Leader>e", ":NvimTreeToggle<CR>")
       end,
+      disable = true,
     })
     use({
       "nvim-neo-tree/neo-tree.nvim",
@@ -995,11 +996,16 @@ return require("packer").startup({
 
         require("neo-tree").setup({
           close_if_last_window = false,
-          default_component_configs = {
-            use_libuv_file_watcher = true,
-            window = {
-              width = 40,
+          window = {
+            mappings = {
+              ["l"] = "open",
             },
+            width = 40,
+          },
+          filesystem = {
+            follow_current_file = true,
+            group_empty_dirs = true,
+            use_libuv_file_watcher = true,
           },
         })
       end,
@@ -1011,7 +1017,7 @@ return require("packer").startup({
         "kyazdani42/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
       },
-      disable = true,
+      disable = false,
     })
     -- Projects
     use({
