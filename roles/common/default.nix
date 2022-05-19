@@ -11,7 +11,6 @@
     ../../modules/dev/python/isort
     ../../modules/dev/python/mypy
     ../../modules/dev/python/python
-    # ../../modules/dev/python/pip
     ../../modules/dev/python/pycodestyle
     ../../modules/dev/rust
     ../../modules/dev/text/vale
