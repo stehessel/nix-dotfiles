@@ -7,7 +7,6 @@
     ../../modules/dev/lua/luacheck
     ../../modules/dev/lua/luaformatter
     ../../modules/dev/lua/stylua
-    ../../modules/dev/python/conda
     ../../modules/dev/python/flake8
     ../../modules/dev/python/isort
     ../../modules/dev/python/mypy
