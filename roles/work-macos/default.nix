@@ -30,5 +30,10 @@
     sessionVariables = {
       XDG_RUNTIME_DIR = "$TMPDIR";
     };
+
+    # Needed for nvim-spectre on macOS
+    shellAliases = {
+      gsed = "sed";
+    };
   };
 }

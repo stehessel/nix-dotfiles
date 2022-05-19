@@ -1,21 +1,21 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
+    ../../modules/backup/restic
     ../../modules/dev/clojure/leiningen
     ../../modules/dev/golang
-    ../../modules/dev/javascript/npm
+    ../../modules/dev/javascript
     ../../modules/dev/lua/luacheck
     ../../modules/dev/lua/luaformatter
     ../../modules/dev/lua/stylua
     ../../modules/dev/python/flake8
     ../../modules/dev/python/isort
     ../../modules/dev/python/mypy
-    ../../modules/dev/python/python
     ../../modules/dev/python/pycodestyle
+    ../../modules/dev/python/python
     ../../modules/dev/rust
     ../../modules/dev/text/vale
     ../../modules/dev/version-control/git
-    ../../modules/backup/restic
     ../../modules/editor/neovim
     ../../modules/file-manager/lf
     ../../modules/shell/bash
@@ -60,10 +60,6 @@
       READER = "zathura";
       TERMINAL = "kitty";
       TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
-    };
-    # Needed for nvim-spectre on macOS
-    shellAliases = {
-      gsed = "sed";
     };
 
     packages = with pkgs; [
@@ -138,12 +134,6 @@
       ansible-lint
       # --- java ---
       maven
-      # --- javascript ---
-      nodePackages.eslint_d
-      nodejs-18_x
-      nodePackages.typescript
-      nodePackages.typescript-language-server
-      yarn
       # --- launcher ---
       pueue
       # --- lua ---
