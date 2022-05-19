@@ -21,4 +21,5 @@
     };
   };
   xdg.configFile."npm/config".source = config/npmrc;
+  xdg.configFile."yarn/config".source = config/yarnrc;
 }
