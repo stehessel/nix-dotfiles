@@ -57,7 +57,6 @@
           "${pkgs.sqlite.out}/lib/libsqlite3.dylib"
         else
           "${pkgs.sqlite.out}/lib/libsqlite3.so";
-      MINIKUBE_HOME = "${config.xdg.configHome}";
       PAGER = "less";
       READER = "zathura";
       TERMINAL = "kitty";
@@ -162,7 +161,6 @@
       kubectl
       kubectx
       kubernetes-helm
-      minikube
       ocm
       odo
       openshift
