@@ -1,8 +1,7 @@
 { lib, pkgs, ... }:
 {
+  xdg.configFile."python/pythonrc.py".source = config/pythonrc.py;
   home = {
-    file."python/config".source = config/pythonrc;
-
     packages = with pkgs; [
       pyright
       python39Packages.black
