@@ -59,7 +59,6 @@
           "${pkgs.sqlite.out}/lib/libsqlite3.so";
       MINIKUBE_HOME = "${config.xdg.configHome}";
       PAGER = "less";
-      PYTHONSTARTUP = "${config.xdg.configHome}/python/pythonrc.py";
       READER = "zathura";
       TERMINAL = "kitty";
       TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";

@@ -8,5 +8,8 @@
       python39Packages.isort
       python39Packages.pipx
     ];
+    sessionVariables = {
+      PYTHONSTARTUP = "${config.xdg.configHome}/python/pythonrc.py";
+    };
   };
 }
