@@ -72,7 +72,6 @@
       "inkscape"
       "slack"
       "syncthing"
-      "visual-studio-code"
       "wezterm"
       "zoom"
     ];
