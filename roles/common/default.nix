@@ -63,7 +63,6 @@
       READER = "zathura";
       TERMINAL = "kitty";
       TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
-      WGETRC = "${config.xdg.configHome}/wget/config";
     };
     # Needed for nvim-spectre on macOS
     shellAliases = {

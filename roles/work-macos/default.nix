@@ -5,6 +5,7 @@
     ../../modules/desktop/skhd
     ../../modules/desktop/window-manager/yabai
     ../../modules/terminal/wezterm
+    ../../modules/virtualization/colima
   ];
 
   xdg.configFile."fish/fish_plugins".source = ../../modules/shell/fish/macos/fish_plugins;
@@ -22,8 +23,6 @@
       # wezterm
       # --- text ---
       gnused
-      # --- virtualization ---
-      colima
       # --- window manager ---
       # yabai
     ];
