@@ -145,7 +145,7 @@
       maven
       # --- javascript ---
       nodePackages.eslint_d
-      nodejs-17_x
+      nodejs-18_x
       nodePackages.typescript
       nodePackages.typescript-language-server
       yarn

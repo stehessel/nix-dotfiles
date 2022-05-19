@@ -91,6 +91,12 @@
           });
         };
 
+        fish-overlay = final: prev: {
+          fish = prev.fish.overrideAttrs (old: {
+            doCheck = false;
+          });
+        };
+
         neovim-overlay = final: prev: {
           inherit (neovim-flake.packages.${ prev.system}) neovim;
         };
