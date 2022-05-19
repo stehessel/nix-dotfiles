@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   xdg.configFile."python/pythonrc.py".source = config/pythonrc.py;
   home = {
