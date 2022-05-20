@@ -61,6 +61,9 @@
       TERMINAL = "kitty";
       TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
     };
+    shellAliases = {
+      less = "less -i -R";
+    };
 
     packages = with pkgs; [
       # --- backup ---
