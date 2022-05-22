@@ -97,6 +97,12 @@
           });
         };
 
+        helm-overlay = final: prev: {
+          kubernetes-helm = prev.kubernetes-helm.overrideAttrs (old: {
+            doCheck = false;
+          });
+        };
+
         neovim-overlay = final: prev: {
           inherit (neovim-flake.packages.${ prev.system}) neovim;
         };
