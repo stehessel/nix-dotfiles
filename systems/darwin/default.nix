@@ -58,6 +58,7 @@
       "nrlquaker/createzap"
     ];
     brews = [
+      "gettext"
       "skhd"
       "yabai"
     ];

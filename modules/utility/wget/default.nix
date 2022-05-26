@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 {
   home.sessionVariables = {
-    WGETRC = "${config.xdg.configHome}/wget/config";
+    WGETRC = "${config.xdg.configHome}/wget/wgetrc";
   };
-  xdg.configFile."wget/config".source = config/wgetrc;
+  xdg.configFile."wget/wgetrc".source = config/wgetrc;
 }
