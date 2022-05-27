@@ -9,10 +9,5 @@
     };
   };
 
-  xdg.configFile = {
-    "vale" = {
-      source = ./config;
-      recursive = true;
-    };
-  };
+  xdg.configFile."vale/vale.ini".source = ./config/vale.ini;
 }

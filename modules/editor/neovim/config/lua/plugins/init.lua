@@ -288,14 +288,26 @@ return require("packer").startup({
             builtins.diagnostics.selene,
             builtins.diagnostics.shellcheck,
             builtins.diagnostics.statix,
-            builtins.diagnostics.vale,
+            builtins.diagnostics.vale.with({
+              args = function(params)
+                return {
+                  "--config",
+                  os.getenv("XDG_CONFIG_HOME") .. "/vale/vale.ini",
+                  "--no-exit",
+                  "--output",
+                  "JSON",
+                  "--ext",
+                  "." .. vim.fn.fnamemodify(params.bufname, ":e"),
+                }
+              end,
+            }),
             builtins.formatting.black,
             builtins.formatting.fish_indent,
             builtins.formatting.isort,
             builtins.formatting.prettierd,
             builtins.formatting.shfmt,
             builtins.formatting.stylua.with({
-              args = { "--config-path", vim.fn.expand("$HOME") .. "/.config/stylua/stylua.toml", "-" },
+              args = { "--config-path", os.getenv("HOME") .. "/.config/stylua/stylua.toml", "-" },
             }),
             require("plugins.lsp.null-ls.codespell"),
             require("plugins.lsp.null-ls.pgformatter"),
