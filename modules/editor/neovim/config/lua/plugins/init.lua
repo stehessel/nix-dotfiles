@@ -288,6 +288,7 @@ return require("packer").startup({
             builtins.diagnostics.selene,
             builtins.diagnostics.shellcheck,
             builtins.diagnostics.statix,
+            builtins.diagnostics.vale,
             builtins.formatting.black,
             builtins.formatting.fish_indent,
             builtins.formatting.isort,
