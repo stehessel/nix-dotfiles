@@ -336,6 +336,7 @@ return require("packer").startup({
               menu = {
                 copilot = "[Copilot]",
                 fuzzy_buffer = "[Buf]",
+                git = "[Git]",
                 luasnip = "[Snip]",
                 nvim_lsp = "[LSP]",
                 nvim_lua = "[Lua]",
@@ -388,15 +389,24 @@ return require("packer").startup({
             { name = "luasnip" },
             { name = "nvim_lua" },
             { name = "nvim_lsp" },
+            { name = "git" },
             { name = "fuzzy_buffer" },
           }),
         })
+        cmp.setup.filetype("gitcommit", {
+          sources = cmp.config.sources({
+            { name = "git" },
+            { name = "fuzzy_buffer" },
+          }),
+        })
+        require("cmp_git").setup()
       end,
       requires = {
         { "L3MON4D3/LuaSnip" },
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-nvim-lua" },
         { "hrsh7th/cmp-path" },
+        { "petertriho/cmp-git" },
         { "saadparwaiz1/cmp_luasnip" },
       },
     })
