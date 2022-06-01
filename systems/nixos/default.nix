@@ -105,7 +105,6 @@
       automatic = true;
       dates = "weekly";
     };
-    package = pkgs.nixUnstable;
   };
 
   # This value determines the NixOS release from which the default
