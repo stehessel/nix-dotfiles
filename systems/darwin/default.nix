@@ -4,7 +4,6 @@
   # Make `darwin-rebuild` available in shell.
   environment.loginShell = pkgs.fish;
   environment.shells = [ pkgs.bashInteractive pkgs.fish ];
-  environment.variables.SHELL = "${pkgs.fish}/bin/fish";
   programs.bash.enable = true;
   programs.fish.enable = true;
 
@@ -70,6 +69,7 @@
       "font-fira-code-nerd-font"
       "google-chrome"
       "inkscape"
+      "rancher"
       "slack"
       "syncthing"
       "wezterm"
