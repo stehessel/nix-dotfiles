@@ -137,6 +137,8 @@
         KeyRepeat = 1;
         AppleShowAllExtensions = true;
         AppleShowScrollBars = "Automatic";
+        # Makes fonts look better. See https://tonsky.me/blog/monitors.
+        AppleFontSmoothing = 0;
       };
     };
   };
