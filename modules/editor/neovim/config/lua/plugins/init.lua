@@ -1094,7 +1094,6 @@ return require("packer").startup({
       config = function()
         require("which-key").setup({})
       end,
-      disable = true, -- disabled due to breaking changes on neovim master
     })
     -- Save position
     use({
