@@ -58,6 +58,7 @@
           "${pkgs.sqlite.out}/lib/libsqlite3.so";
       PAGER = "less";
       READER = "zathura";
+      SHELL = "";
       TERMINAL = "kitty";
       TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
     };
