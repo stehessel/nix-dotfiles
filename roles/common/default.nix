@@ -39,6 +39,7 @@
   xdg.enable = true;
 
   home = {
+    stateVersion = "22.11";
     sessionPath = [
       "$HOME/.local/bin"
       "$HOME/.luarocks/bin"
