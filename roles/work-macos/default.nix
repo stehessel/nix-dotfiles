@@ -14,7 +14,7 @@
     packages = with pkgs; [
       # --- containers ---
       docker
-      docker-compose_2
+      docker-compose
       # --- latex ---
       # texlive.combined.scheme-full
       # tectonic

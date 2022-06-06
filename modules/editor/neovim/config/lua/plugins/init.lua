@@ -176,6 +176,8 @@ return require("packer").startup({
 
         vim.keymap.set("n", "<Leader>y", "<Cmd>lua require('telescope').extensions.neoclip.neoclip()<CR>")
 
+        vim.keymap.set("n", "<Leader>fy", "<Cmd>lua require('telescope').extensions.yaml_schema.yaml_schema()<CR>")
+
         vim.keymap.set("n", "gd", "<Cmd>lua require('telescope.builtin').lsp_definitions()<CR>")
         vim.keymap.set("n", "gr", "<Cmd>lua require('telescope.builtin').lsp_references()<CR>")
         vim.keymap.set("n", "gy", "<Cmd>lua require('telescope.builtin').lsp_implementations()<CR>")
@@ -317,6 +319,17 @@ return require("packer").startup({
     })
     use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
     use({ "onsails/lspkind-nvim" })
+    use({
+      "someone-stole-my-name/yaml-companion.nvim",
+      requires = {
+        { "neovim/nvim-lspconfig" },
+        { "nvim-lua/plenary.nvim" },
+        { "nvim-telescope/telescope.nvim" },
+      },
+      config = function()
+        require("telescope").load_extension("yaml_schema")
+      end,
+    })
     use({
       "hrsh7th/nvim-cmp",
       config = function()
