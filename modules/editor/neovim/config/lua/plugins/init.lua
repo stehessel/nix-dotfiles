@@ -479,21 +479,6 @@ return require("packer").startup({
       end,
     })
     use({ "nanotee/sqls.nvim", ft = "sql" })
-    -- Golang
-    use({
-      "ray-x/go.nvim",
-      config = function()
-        require("go").setup()
-
-        vim.keymap.set("n", "<Leader>gf", "<Cmd>GoDebug file<CR>")
-        vim.keymap.set("n", "<Leader>gt", "<Cmd>GoDebug test<CR>")
-        vim.keymap.set("n", "<Leader>gn", "<Cmd>GoDebug nearest<CR>")
-        vim.keymap.set("n", "<Leader>gs", "<Cmd>GoDebug stop<CR>")
-        vim.keymap.set("n", "<Leader>ga", "<Cmd>GoAlt<CR>")
-        vim.keymap.set("n", "<Leader>gv", "<Cmd>GoAltV<CR>")
-      end,
-      requires = { "ray-x/guihua.lua", run = "cd lua/fzy && make" },
-    })
     -- Python
     use({ "stsewd/sphinx.nvim", ft = { "python", "rst" } })
     use({
@@ -640,6 +625,7 @@ return require("packer").startup({
           },
         })
       end,
+      module = "neotest",
       setup = function()
         vim.keymap.set("n", "<Leader>tt", "<Cmd>lua require('neotest').run.run()<CR>")
         vim.keymap.set("n", "<Leader>tf", "<Cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>")
@@ -716,7 +702,7 @@ return require("packer").startup({
       "michaelb/sniprun",
       setup = function()
         vim.keymap.set("n", "<Leader>nr", "<Cmd>lua require('sniprun').run()<CR>")
-        vim.keymap.set("x", "<Leader>nr", ":lua require('sniprun').run('v')<CR>")
+        vim.keymap.set("x", "<Leader>nr", "<Cmd>lua require('sniprun').run('v')<CR>")
         vim.keymap.set("n", "<Leader>nc", "<Cmd>lua require('sniprun.display').close_all()<CR>")
         vim.keymap.set("n", "<Leader>nx", "<Cmd>lua require('sniprun').reset()<CR>")
         vim.keymap.set("n", "<Leader>ni", "<Cmd>lua require('sniprun').info()<CR>")
