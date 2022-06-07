@@ -609,7 +609,7 @@ return require("packer").startup({
       "mfussenegger/nvim-dap-python",
       after = "nvim-dap",
       config = function()
-        require("dap-python").setup("python")
+        require("dap-python").setup("python", {})
         require("dap-python").test_runner = "pytest"
       end,
       filetype = "python",
@@ -624,54 +624,35 @@ return require("packer").startup({
     })
     -- Testing
     use({
-      "rcarriga/vim-ultest",
-      after = "nvim-dap",
+      "rcarriga/neotest",
       config = function()
-        vim.g.ultest_max_threads = 6
-        vim.g.ultest_use_pty = 1
-
-        require("ultest").setup({
-          builders = {
-            ["python#pytest"] = function(cmd)
-              -- The command can start with python command directly or an env manager
-              local non_modules = { "python", "pipenv", "poetry" }
-              -- Index of the python module to run the test.
-              local module, module_index
-              if vim.tbl_contains(non_modules, cmd[1]) then
-                module_index = 3
-                module = cmd[module_index]
-              else
-                module_index = 1
-                module = cmd[module_index]
-              end
-              -- Remaining elements are arguments to the module
-              local args = vim.list_slice(cmd, module_index + 1)
-              return {
-                dap = {
-                  type = "python",
-                  request = "launch",
-                  module = module,
-                  args = args,
-                },
-              }
-            end,
+        require("neotest").setup({
+          adapters = {
+            -- require("neotest-python")({
+            --   dap = {
+            --     justMyCode = true,
+            --   },
+            -- }),
+            require("neotest-plenary"),
+            require("neotest-vim-test")({
+              ignore_file_types = { "python", "vim", "lua" },
+            }),
           },
         })
       end,
       setup = function()
-        vim.keymap.set("n", "<Leader>tt", ":Ultest<CR>")
-        vim.keymap.set("n", "<Leader>tl", ":UltestLast<CR>")
-        vim.keymap.set("n", "<Leader>tn", ":UltestNearest<CR>")
-        vim.keymap.set("n", "<Leader>ts", ":UltestSummary<CR>")
-        vim.keymap.set("n", "<Leader>td", ":UltestDebug<CR>")
-        vim.keymap.set("n", "<Leader>tD", ":UltestDebugNearest<CR>")
-        vim.keymap.set("n", "<Leader>to", ":UltestOutput<CR>")
-        vim.keymap.set("n", "<Leader>tc", ":UltestClear<CR>")
-        vim.keymap.set("n", "<Leader>tj", "<Plug>(ultest-output-jump)")
-        vim.keymap.set("n", "[t", "<Plug>(ultest-prev-fail)")
-        vim.keymap.set("n", "]t", "<Plug>(ultest-next-fail)")
+        vim.keymap.set("n", "<Leader>tt", "<Cmd>lua require('neotest').run.run()<CR>")
+        vim.keymap.set("n", "<Leader>tf", "<Cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>")
+        vim.keymap.set("n", "<Leader>td", "<Cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>")
+        vim.keymap.set("n", "<Leader>tx", "<Cmd>lua require('neotest').run.stop()<CR>")
+        vim.keymap.set("n", "<Leader>ts", "<Cmd>lua require('neotest').summary.toggle()<CR>")
+        vim.keymap.set("n", "<Leader>to", "<Cmd>lua require('neotest').output.open()<CR>")
       end,
-      run = ":UpdateRemotePlugins",
+      requires = {
+        "rcarriga/neotest-plenary",
+        -- "rcarriga/neotest-python",
+        "rcarriga/neotest-vim-test",
+      },
     })
     use({
       "janko/vim-test",
@@ -1139,6 +1120,13 @@ return require("packer").startup({
     use({ "isobit/vim-caddyfile", ft = "caddyfile" })
     -- Notifications
     use({ "rcarriga/nvim-notify" })
+    -- Neovim utility
+    use({
+      "antoinemadec/FixCursorHold.nvim",
+      config = function()
+        vim.g.cursorhold_update = 100
+      end,
+    })
   end,
   config = {
     -- compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",
