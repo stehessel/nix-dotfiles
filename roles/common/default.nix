@@ -127,6 +127,7 @@
       # --- git ---
       gitAndTools.git-bug
       gitAndTools.git-fame
+      pre-commit
       # --- highlighters ---
       bat
       exa
