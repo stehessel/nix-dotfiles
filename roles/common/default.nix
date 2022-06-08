@@ -140,6 +140,9 @@
       ansible-lint
       # --- java ---
       maven
+      # --- jsonnet ---
+      go-jsonnet
+      jsonnet-bundler
       # --- launcher ---
       pueue
       # --- lua ---
@@ -159,6 +162,7 @@
       ocm
       odo
       openshift
+      operator-sdk
       # --- network ---
       bandwhich
       curl

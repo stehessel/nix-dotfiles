@@ -49,6 +49,7 @@ local servers = {
   "gopls",
   "groovyls",
   "jsonls",
+  "jsonnet_ls",
   "pyright",
   "rnix",
   -- "sqls",
