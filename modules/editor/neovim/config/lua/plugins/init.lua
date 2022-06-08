@@ -613,14 +613,12 @@ return require("packer").startup({
       config = function()
         require("neotest").setup({
           adapters = {
+            require("neotest-go"),
+            require("neotest-plenary"),
             require("neotest-python")({
               dap = {
                 justMyCode = true,
               },
-            }),
-            require("neotest-plenary"),
-            require("neotest-vim-test")({
-              ignore_file_types = { "python", "vim", "lua" },
             }),
           },
         })
@@ -636,18 +634,10 @@ return require("packer").startup({
         vim.keymap.set("n", "<Leader>to", "<Cmd>lua require('neotest').output.open()<CR>")
       end,
       requires = {
+        "akinsho/neotest-go",
         "rcarriga/neotest-plenary",
         "rcarriga/neotest-python",
-        "rcarriga/neotest-vim-test",
       },
-    })
-    use({
-      "janko/vim-test",
-      config = function()
-        vim.g["test#go#runner"] = "richgo"
-        vim.g["test#python#runner"] = "pytest"
-        vim.g["test#python#pytest#options#"] = { ["all"] = "--capture=no" }
-      end,
     })
     -- Code folding
     use({ "kalekundert/vim-coiled-snake", ft = "python" })
