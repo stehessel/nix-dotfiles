@@ -613,11 +613,11 @@ return require("packer").startup({
       config = function()
         require("neotest").setup({
           adapters = {
-            -- require("neotest-python")({
-            --   dap = {
-            --     justMyCode = true,
-            --   },
-            -- }),
+            require("neotest-python")({
+              dap = {
+                justMyCode = true,
+              },
+            }),
             require("neotest-plenary"),
             require("neotest-vim-test")({
               ignore_file_types = { "python", "vim", "lua" },
@@ -630,13 +630,14 @@ return require("packer").startup({
         vim.keymap.set("n", "<Leader>tt", "<Cmd>lua require('neotest').run.run()<CR>")
         vim.keymap.set("n", "<Leader>tf", "<Cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>")
         vim.keymap.set("n", "<Leader>td", "<Cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>")
+        vim.keymap.set("n", "<Leader>tl", "<Cmd>lua require('neotest').run.run_last()<CR>")
         vim.keymap.set("n", "<Leader>tx", "<Cmd>lua require('neotest').run.stop()<CR>")
         vim.keymap.set("n", "<Leader>ts", "<Cmd>lua require('neotest').summary.toggle()<CR>")
         vim.keymap.set("n", "<Leader>to", "<Cmd>lua require('neotest').output.open()<CR>")
       end,
       requires = {
         "rcarriga/neotest-plenary",
-        -- "rcarriga/neotest-python",
+        "rcarriga/neotest-python",
         "rcarriga/neotest-vim-test",
       },
     })
