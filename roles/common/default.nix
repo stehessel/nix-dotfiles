@@ -163,6 +163,7 @@
       bandwhich
       curl
       netcat
+      ngrok
       nmap
       speedtest-cli
       # --- nix ---
