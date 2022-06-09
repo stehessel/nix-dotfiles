@@ -455,12 +455,12 @@ return require("packer").startup({
     })
     use({
       "zbirenbaum/copilot.lua",
+      event = { "VimEnter" },
       config = function()
-        vim.schedule(function()
-          require("copilot")
-        end)
+        vim.defer_fn(function()
+          require("copilot").setup()
+        end, 100)
       end,
-      event = "InsertEnter",
     })
     use({
       "zbirenbaum/copilot-cmp",
