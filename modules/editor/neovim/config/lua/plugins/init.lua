@@ -100,7 +100,12 @@ return require("packer").startup({
         vim.keymap.set("n", "<Leader>m", "<cmd>GitMessenger<CR>")
       end,
     })
-    use({ "rhysd/conflict-marker.vim" })
+    use({
+      "akinsho/git-conflict.nvim",
+      config = function()
+        require("git-conflict").setup()
+      end,
+    })
     -- Github
     use({
       "pwntester/octo.nvim",
@@ -451,7 +456,7 @@ return require("packer").startup({
         vim.keymap.set("i", "<M-K>", "<Plug>(copilot-prev)", { expr = true })
         vim.g.copilot_no_tab_map = true
       end,
-      disable = true,
+      disable = false,
     })
     use({
       "zbirenbaum/copilot.lua",
