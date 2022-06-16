@@ -89,8 +89,10 @@ return require("packer").startup({
     use({
       "f-person/git-blame.nvim",
       config = function()
-        vim.keymap.set("n", "<Leader>gB", "<cmd>GitBlameToggle<CR>")
+        vim.g.gitblame_enabled = 0
         vim.g.gitblame_ignored_filetypes = { "neo-tree" }
+
+        vim.keymap.set("n", "<Leader>gB", "<cmd>GitBlameToggle<CR>")
       end,
     })
     use({
