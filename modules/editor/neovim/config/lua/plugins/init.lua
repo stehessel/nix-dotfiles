@@ -559,14 +559,14 @@ return require("packer").startup({
 
         require("dap").defaults.fallback.exception_breakpoints = { "raised", "uncaught" }
 
-        vim.keymap.set("n", "<F2>", require("dap").repl.toggle)
-        vim.keymap.set("n", "<F3>", require("dap").close)
-        vim.keymap.set("n", "<F4>", require("dap").continue)
-        vim.keymap.set("n", "<F5>", require("dap").run_to_cursor)
+        vim.keymap.set("n", "<F2>", require("dap").pause)
+        vim.keymap.set("n", "<F3>", require("dap").terminate)
+        vim.keymap.set("n", "<F4>", require("dap").restart)
+        vim.keymap.set("n", "<F5>", require("dap").continue)
         vim.keymap.set("n", "<F6>", require("dap").up)
         vim.keymap.set("n", "<F7>", require("dap").down)
-        vim.keymap.set("n", "<F8>", require("dap").toggle_breakpoint)
-        vim.keymap.set("n", "<F9>", require("dap").repl.toggle)
+        vim.keymap.set("n", "<F8>", require("dap").run_to_cursor)
+        vim.keymap.set("n", "<F9>", require("dap").toggle_breakpoint)
         vim.keymap.set("n", "<Leader><F9>", function()
           require("dap").toggle_breakpoint(vim.fn.input("Breakpoint condition: "))
         end)
@@ -576,6 +576,7 @@ return require("packer").startup({
         vim.keymap.set("n", "<F10>", require("dap").step_over)
         vim.keymap.set("n", "<F11>", require("dap").step_into)
         vim.keymap.set("n", "<F12>", require("dap").step_out)
+        vim.keymap.set("n", "<Leader>dr", require("dap").repl.toggle)
         vim.keymap.set("n", "<Leader>dh", require("dap.ui.widgets").hover)
       end,
       filetype = { "go", "python", "rust", "typescript" },
