@@ -5,7 +5,7 @@
       nodePackages.eslint_d
       nodePackages.typescript
       nodePackages.typescript-language-server
-      nodejs-16_x
+      nodejs-18_x
       yarn
     ];
     sessionPath = [
