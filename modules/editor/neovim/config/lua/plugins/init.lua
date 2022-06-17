@@ -458,7 +458,7 @@ return require("packer").startup({
         vim.keymap.set("i", "<M-K>", "<Plug>(copilot-prev)", { expr = true })
         vim.g.copilot_no_tab_map = true
       end,
-      disable = false,
+      disable = true,
     })
     use({
       "zbirenbaum/copilot.lua",
@@ -471,7 +471,7 @@ return require("packer").startup({
     })
     use({
       "zbirenbaum/copilot-cmp",
-      after = { "copilot.lua", "nvim-cmp" },
+      module = "copilot_cmp",
     })
     use({ "b0o/schemastore.nvim" })
     -- Doc strings
