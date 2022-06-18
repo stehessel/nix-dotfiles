@@ -88,11 +88,13 @@ return require("packer").startup({
     })
     use({
       "f-person/git-blame.nvim",
+      cmd = "GitBlameToggle",
       config = function()
         vim.g.gitblame_enabled = 0
         vim.g.gitblame_ignored_filetypes = { "neo-tree" }
-
-        vim.keymap.set("n", "<Leader>gB", "<cmd>GitBlameToggle<CR>")
+      end,
+      setup = function()
+        vim.keymap.set("n", "<Leader>gB", "<Cmd>GitBlameToggle<CR>")
       end,
     })
     use({
@@ -783,7 +785,8 @@ return require("packer").startup({
     use({
       "mfussenegger/nvim-treehopper",
       after = "nvim-treesitter",
-      config = function()
+      module = "tsht",
+      setup = function()
         vim.keymap.set("o", "m", ":<C-U>lua require('tsht').nodes()<CR>")
         vim.keymap.set("v", "m", "<Cmd>lua require('tsht').nodes()<CR>")
       end,
@@ -822,18 +825,21 @@ return require("packer").startup({
       "nicwest/vim-camelsnek",
       cmd = { "Camel", "CamelB", "Kebab", "Snek" },
       setup = function()
-        vim.keymap.set({ "n", "x" }, "<Leader>xs", ":Snek<CR>")
-        vim.keymap.set({ "n", "x" }, "<Leader>xc", ":Camel<CR>")
-        vim.keymap.set({ "n", "x" }, "<Leader>xb", ":CamelB<CR>")
-        vim.keymap.set({ "n", "x" }, "<Leader>xk", ":Kebab<CR>")
+        vim.keymap.set({ "n", "x" }, "<Leader>xs", "<Cmd>Snek<CR>")
+        vim.keymap.set({ "n", "x" }, "<Leader>xc", "<Cmd>Camel<CR>")
+        vim.keymap.set({ "n", "x" }, "<Leader>xb", "<Cmd>CamelB<CR>")
+        vim.keymap.set({ "n", "x" }, "<Leader>xk", "<Cmd>Kebab<CR>")
       end,
     })
     use({ "tpope/vim-repeat", keys = "." })
     use({
       "sQVe/sort.nvim",
+      cmd = "Sort",
       config = function()
         require("sort").setup({})
-        vim.keymap.set({ "n", "x" }, "go", ":Sort<CR>")
+      end,
+      setup = function()
+        vim.keymap.set({ "n", "x" }, "go", "<Cmd>Sort<CR>")
       end,
     })
     -- Increment / Decrement
