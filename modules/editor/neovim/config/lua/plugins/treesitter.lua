@@ -24,7 +24,10 @@ parser_configs.org = {
 }
 
 require("nvim-treesitter.configs").setup({
-  highlight = { enable = true, additional_vim_regex_highlighting = { "org" } },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = { "org" },
+  },
   incremental_selection = {
     enable = true,
     keymaps = {
