@@ -213,6 +213,7 @@ return require("packer").startup({
     -- Todo
     use({
       "folke/todo-comments.nvim",
+      cmd = "TodoTelescope",
       config = function()
         require("todo-comments").setup({})
       end,
@@ -784,14 +785,16 @@ return require("packer").startup({
       after = "nvim-treesitter",
       config = function()
         vim.keymap.set("o", "m", ":<C-U>lua require('tsht').nodes()<CR>")
-        vim.keymap.set("v", "m", ":lua require('tsht').nodes()<CR>")
+        vim.keymap.set("v", "m", "<Cmd>lua require('tsht').nodes()<CR>")
       end,
     })
     -- Text manipulation
     use({
       "AndrewRadev/switch.vim",
+      cmd = "Switch",
       setup = function()
-        vim.g.switch_mapping = "-"
+        vim.g.switch_mapping = ""
+        vim.keymap.set("n", "-", "<Cmd>Switch<CR>")
       end,
     })
     use({
@@ -1049,12 +1052,17 @@ return require("packer").startup({
       end,
       module = "spectre",
       setup = function()
-        vim.keymap.set("n", "<Leader>S", require("spectre").open, { desc = "Spectre - open" })
-        vim.keymap.set("v", "<leader>S", require("spectre").open_visual, { desc = "Spectre - open visual" })
+        vim.keymap.set("n", "<Leader>S", "<Cmd>lua require('spectre').open()<CR>", { desc = "Spectre - open" })
+        vim.keymap.set(
+          "v",
+          "<leader>S",
+          "<Cmd>lua require('spectre').open_visual()<CR>",
+          { desc = "Spectre - open visual" }
+        )
         vim.keymap.set(
           "n",
           "<localleader>S",
-          require("spectre").open_file_search,
+          "<Cmd>lua require('spectre').open_file_search()<CR>",
           { desc = "Spectre - open current file" }
         )
       end,
@@ -1067,11 +1075,12 @@ return require("packer").startup({
     use({ "romainl/vim-cool" })
     use({
       "ironhouzi/starlite-nvim",
-      config = function()
-        vim.keymap.set("n", "*", require("starlite").star)
-        vim.keymap.set("v", "g*", require("starlite").g_star)
-        vim.keymap.set("n", "#", require("starlite").hash)
-        vim.keymap.set("n", "g#", require("starlite").g_hash)
+      module = "starlite",
+      setup = function()
+        vim.keymap.set("n", "*", "<Cmd>lua require('starlite').star()<CR>")
+        vim.keymap.set("n", "g*", "<Cmd>lua require('starlite').g_star()<CR>")
+        vim.keymap.set("n", "#", "<Cmd>lua require('starlite').hash()<CR>")
+        vim.keymap.set("n", "g#", "<Cmd>lua require('starlite').g_hash()<CR>")
       end,
     })
     -- Discover keybinds
@@ -1097,15 +1106,6 @@ return require("packer").startup({
       "ahmedkhalf/project.nvim",
       config = function()
         require("project_nvim").setup({})
-      end,
-    })
-    -- Autosave
-    use({
-      "907th/vim-auto-save",
-      setup = function()
-        vim.g.auto_save = 0
-        vim.g.auto_save_silent = 1
-        vim.g.auto_save_events = { "InsertLeave", "FocusLost" }
       end,
     })
     -- Filetypes
