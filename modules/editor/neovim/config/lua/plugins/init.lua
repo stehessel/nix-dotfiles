@@ -150,7 +150,6 @@ return require("packer").startup({
             },
           },
         })
-        telescope.load_extension("dap")
         telescope.load_extension("fzf")
         telescope.load_extension("gh")
         telescope.load_extension("neoclip")
@@ -482,7 +481,7 @@ return require("packer").startup({
         require("neogen").setup({
           enabled = true,
         })
-        vim.keymap.set("n", "<Leader>j", require("neogen").generate)
+        vim.keymap.set("n", "<Leader>j", require("neogen").generate, { desc = "Neogen - generate" })
       end,
     })
     use({ "nanotee/sqls.nvim", ft = "sql" })
@@ -554,6 +553,7 @@ return require("packer").startup({
     -- Debugger
     use({
       "mfussenegger/nvim-dap",
+      module = "dap",
       config = function()
         require("dap")
         vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "", linehl = "", numhl = "" })
@@ -561,27 +561,29 @@ return require("packer").startup({
 
         require("dap").defaults.fallback.exception_breakpoints = { "raised", "uncaught" }
 
-        vim.keymap.set("n", "<F2>", require("dap").pause)
-        vim.keymap.set("n", "<F3>", require("dap").terminate)
-        vim.keymap.set("n", "<F4>", require("dap").restart)
-        vim.keymap.set("n", "<F5>", require("dap").continue)
-        vim.keymap.set("n", "<F6>", require("dap").up)
-        vim.keymap.set("n", "<F7>", require("dap").down)
-        vim.keymap.set("n", "<F8>", require("dap").run_to_cursor)
-        vim.keymap.set("n", "<F9>", require("dap").toggle_breakpoint)
+        require("telescope").load_extension("dap")
+      end,
+      setup = function()
+        vim.keymap.set("n", "<F2>", "<Cmd>lua require('dap').pause()<CR>")
+        vim.keymap.set("n", "<F3>", "<Cmd>lua require('dap').require('dap').terminate()<CR>")
+        vim.keymap.set("n", "<F4>", "<Cmd>lua require('dap').require('dap').restart()<CR>")
+        vim.keymap.set("n", "<F5>", "<Cmd>lua require('dap').require('dap').continue()<CR>")
+        vim.keymap.set("n", "<F6>", "<Cmd>lua require('dap').require('dap').up()<CR>")
+        vim.keymap.set("n", "<F7>", "<Cmd>lua require('dap').require('dap').down()<CR>")
+        vim.keymap.set("n", "<F8>", "<Cmd>lua require('dap').require('dap').run_to_cursor()<CR>")
+        vim.keymap.set("n", "<F9>", "<Cmd>lua require('dap').toggle_breakpoint()<CR>")
         vim.keymap.set("n", "<Leader><F9>", function()
           require("dap").toggle_breakpoint(vim.fn.input("Breakpoint condition: "))
         end)
         vim.keymap.set("n", "<Localleader><F9>", function()
           require("dap").toggle_breakpoint(nil, nil, vim.fn.input("Log point message: "))
         end)
-        vim.keymap.set("n", "<F10>", require("dap").step_over)
-        vim.keymap.set("n", "<F11>", require("dap").step_into)
-        vim.keymap.set("n", "<F12>", require("dap").step_out)
-        vim.keymap.set("n", "<Leader>dr", require("dap").repl.toggle)
-        vim.keymap.set("n", "<Leader>dh", require("dap.ui.widgets").hover)
+        vim.keymap.set("n", "<F10>", "<Cmd>lua require('dap').step_over()<CR>")
+        vim.keymap.set("n", "<F11>", "<Cmd>lua require('dap').step_into()<CR>")
+        vim.keymap.set("n", "<F12>", "<Cmd>lua require('dap').step_out()<CR>")
+        vim.keymap.set("n", "<Leader>dr", "<Cmd>lua require('dap').repl.toggle<CR>")
+        vim.keymap.set("n", "<Leader>dh", "<Cmd>lua require('dap.ui.widgets').hover()<CR>")
       end,
-      filetype = { "go", "python", "rust", "typescript" },
     })
     use({
       "rcarriga/nvim-dap-ui",
@@ -1047,9 +1049,14 @@ return require("packer").startup({
       end,
       module = "spectre",
       setup = function()
-        vim.keymap.set("n", "<Leader>S", require("spectre").open)
-        vim.keymap.set("v", "<leader>S", require("spectre").open_visual)
-        vim.keymap.set("n", "<localleader>S", require("spectre").open_file_search)
+        vim.keymap.set("n", "<Leader>S", require("spectre").open, { desc = "Spectre - open" })
+        vim.keymap.set("v", "<leader>S", require("spectre").open_visual, { desc = "Spectre - open visual" })
+        vim.keymap.set(
+          "n",
+          "<localleader>S",
+          require("spectre").open_file_search,
+          { desc = "Spectre - open current file" }
+        )
       end,
     })
     use({
