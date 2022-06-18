@@ -918,14 +918,16 @@ return require("packer").startup({
     -- Tmux
     use({
       "numToStr/Navigator.nvim",
+      module = "Navigator",
       config = function()
-        require("Navigator").setup()
-
-        vim.keymap.set("n", "<C-h>", require("Navigator").left)
-        vim.keymap.set("n", "<C-j>", require("Navigator").down)
-        vim.keymap.set("n", "<C-k>", require("Navigator").up)
-        vim.keymap.set("n", "<C-l>", require("Navigator").right)
-        vim.keymap.set("n", "<C-p>", require("Navigator").previous)
+        require("Navigator").setup({})
+      end,
+      setup = function()
+        vim.keymap.set("n", "<C-h>", "<Cmd>lua require('Navigator').left()<CR>")
+        vim.keymap.set("n", "<C-j>", "<Cmd>lua require('Navigator').down()<CR>")
+        vim.keymap.set("n", "<C-k>", "<Cmd>lua require('Navigator').up()<CR>")
+        vim.keymap.set("n", "<C-l>", "<Cmd>lua require('Navigator').right()<CR>")
+        vim.keymap.set("n", "<C-p>", "<Cmd>lua require('Navigator').previous()<CR>")
       end,
     })
     -- File explorer
