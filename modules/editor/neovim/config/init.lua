@@ -17,6 +17,7 @@ vim.g.loaded_matchit = false
 vim.g.loaded_matchparen = false
 vim.g.loaded_spec = false
 
+require("impatient")
 -- require("impatient").enable_profile()
 -- require("packer_compiled")
 require("core.mappings")
