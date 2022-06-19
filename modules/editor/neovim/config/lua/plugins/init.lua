@@ -260,7 +260,6 @@ return require("packer").startup({
           },
         })
       end,
-      requires = { "nvim-lua/plenary.nvim" },
       disable = false,
     })
     use({
@@ -332,7 +331,6 @@ return require("packer").startup({
       "someone-stole-my-name/yaml-companion.nvim",
       requires = {
         { "neovim/nvim-lspconfig" },
-        { "nvim-lua/plenary.nvim" },
         { "nvim-telescope/telescope.nvim" },
       },
       config = function()
@@ -1028,7 +1026,6 @@ return require("packer").startup({
         vim.keymap.set("n", "<Leader>e", ":Neotree reveal toggle<CR>")
       end,
       requires = {
-        "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
       },

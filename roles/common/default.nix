@@ -72,7 +72,7 @@
       rclone
       restic
       # --- chat ---
-      zulip-term
+      # zulip-term
       # --- clojure ---
       clojure
       # clojure-lsp
