@@ -354,7 +354,6 @@ return require("packer").startup({
             format = lspkind.cmp_format({
               with_text = true,
               menu = {
-                copilot = "[Copilot]",
                 fuzzy_buffer = "[Buf]",
                 git = "[Git]",
                 luasnip = "[Snip]",
@@ -404,7 +403,6 @@ return require("packer").startup({
           },
           sources = cmp.config.sources({
             { name = "path" },
-            { name = "copilot" },
             { name = "orgmode" },
             { name = "luasnip" },
             { name = "nvim_lua" },
@@ -449,29 +447,6 @@ return require("packer").startup({
         require("litee.calltree").setup({ layout_size = 40, icons = "codicon" })
       end,
       requires = { "ldelossa/litee.nvim" },
-    })
-    use({
-      "github/copilot.vim",
-      config = function()
-        vim.keymap.set("i", "<C-J>", [[copilot#Accept("\<CR>")]], { expr = true })
-        vim.keymap.set("i", "<M-J>", "<Plug>(copilot-next)", { expr = true })
-        vim.keymap.set("i", "<M-K>", "<Plug>(copilot-prev)", { expr = true })
-        vim.g.copilot_no_tab_map = true
-      end,
-      disable = true,
-    })
-    use({
-      "zbirenbaum/copilot.lua",
-      event = { "VimEnter" },
-      config = function()
-        vim.defer_fn(function()
-          require("copilot").setup()
-        end, 100)
-      end,
-    })
-    use({
-      "zbirenbaum/copilot-cmp",
-      module = "copilot_cmp",
     })
     use({ "b0o/schemastore.nvim" })
     -- Doc strings

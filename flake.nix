@@ -106,6 +106,12 @@
         neovim-overlay = final: prev: {
           inherit (neovim-flake.packages.${ prev.system}) neovim;
         };
+
+        nixpkgs-fmt-overlay = final: prev: {
+          nixpkgs-fmt = prev.nixpkgs-fmt.overrideAttrs (old: {
+            doCheck = false;
+          });
+        };
       };
     };
 }
