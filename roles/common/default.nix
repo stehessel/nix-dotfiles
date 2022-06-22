@@ -179,6 +179,7 @@
       # --- process manager ---
       htop
       # --- shell ---
+      bashInteractive
       dash
       elvish
       nodePackages.bash-language-server
