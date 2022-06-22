@@ -230,11 +230,17 @@ return require("packer").startup({
         require("lualine").setup({
           options = { disabled_filetypes = { "Calltree", "NvimTree", "packer", "terminal" } },
           sections = {
-            lualine_c = { "filename", "lsp_progress" },
+            lualine_c = { "filename" },
           },
         })
       end,
       requires = { { "arkav/lualine-lsp-progress" } },
+    })
+    use({
+      "j-hui/fidget.nvim",
+      config = function()
+        require("fidget").setup()
+      end,
     })
     -- Notes
     use({
