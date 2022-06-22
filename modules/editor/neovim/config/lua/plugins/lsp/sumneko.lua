@@ -20,6 +20,7 @@ return {
               -- Neovim
               "vim",
               -- packer
+              "cmp",
               "use",
               "packer_plugins",
               -- Busted
@@ -31,13 +32,9 @@ return {
               "teardown",
             },
           },
-          workspace = {
-            maxPreload = 2000,
-            preloadFileSize = 1000,
-            -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file("", true),
+          telemetry = {
+            enable = false,
           },
-          telemetry = { enable = false },
         },
       },
     })
