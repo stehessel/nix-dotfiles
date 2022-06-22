@@ -626,9 +626,9 @@ return require("packer").startup({
         vim.keymap.set("n", "<Leader>to", "<Cmd>lua require('neotest').output.open()<CR>")
       end,
       requires = {
-        "akinsho/neotest-go",
-        "rcarriga/neotest-plenary",
-        "rcarriga/neotest-python",
+        "nvim-neotest/neotest-go",
+        "nvim-neotest/neotest-plenary",
+        "nvim-neotest/neotest-python",
       },
     })
     -- Code folding
