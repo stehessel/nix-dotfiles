@@ -148,7 +148,8 @@
   users.nix.configureBuildUsers = true;
   nix = {
     binaryCaches = [
-      "https://cache.nixos.org/"
+      # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
+      "https://aseipp-nix-cache.freetls.fastly.net"
       "https://nix-community.cachix.org"
     ];
     binaryCachePublicKeys = [
