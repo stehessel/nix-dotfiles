@@ -50,6 +50,7 @@ local servers = {
   "groovyls",
   "jsonls",
   "jsonnet_ls",
+  "marksman",
   "pyright",
   "rnix",
   -- "sqls",
