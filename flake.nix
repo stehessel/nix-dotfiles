@@ -21,7 +21,10 @@
   outputs = { self, nixpkgs, darwin, home-manager, neovim-flake }:
     let
       nixpkgsConfig = {
-        config = { allowUnfree = true; };
+        config = {
+          allowUnfree = true;
+          contentAddressedByDefault = true;
+        };
         overlays = nixpkgs.lib.attrValues self.overlays;
       };
     in

@@ -89,15 +89,21 @@
 
   nix = {
     binaryCaches = [
+      # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
+      "https://aseipp-nix-cache.freetls.fastly.net"
+      # Content addressed cache
       "https://cache.ngi0.nixos.org"
+      "https://cache.nixos.org"
+      "https://nix-community.cachix.org"
     ];
     binaryCachePublicKeys = [
       "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
     extraOptions = ''
       auto-optimise-store = true
-      contentAddressedByDefault = true
-      experimental-features = ca-derivations ca-references nix-command flakes
+      experimental-features = ca-derivations nix-command flakes
       keep-going = true
     '';
     gc = {
