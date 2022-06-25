@@ -92,7 +92,7 @@
       # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
       "https://aseipp-nix-cache.freetls.fastly.net"
       # Content addressed cache
-      "https://cache.ngi0.nixos.org"
+      # "https://cache.ngi0.nixos.org"
       "https://cache.nixos.org"
       "https://nix-community.cachix.org"
     ];

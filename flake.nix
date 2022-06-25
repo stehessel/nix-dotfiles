@@ -23,7 +23,7 @@
       nixpkgsConfig = {
         config = {
           allowUnfree = true;
-          contentAddressedByDefault = true;
+          # contentAddressedByDefault = true;
         };
         overlays = nixpkgs.lib.attrValues self.overlays;
       };
