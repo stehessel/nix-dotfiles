@@ -128,7 +128,6 @@ return require("packer").startup({
           "telescope-github.nvim",
           "telescope-project.nvim",
           "telescope-symbols.nvim",
-          "telescope-ui-select.nvim",
         }
         for _, plugin in ipairs(deps) do
           if packer_plugins[plugin] and not packer_plugins[plugin].loaded then
@@ -151,16 +150,12 @@ return require("packer").startup({
               override_file_sorter = true,
               case_mode = "smart_case",
             },
-            ["ui-select"] = {
-              require("telescope.themes").get_dropdown({}),
-            },
           },
         })
         telescope.load_extension("fzf")
         telescope.load_extension("gh")
         telescope.load_extension("neoclip")
         telescope.load_extension("project")
-        telescope.load_extension("ui-select")
       end,
       module = "telescope",
       setup = function()
@@ -637,6 +632,48 @@ return require("packer").startup({
         "nvim-neotest/neotest-python",
       },
     })
+    -- Tasks
+    use({
+      "EthanJWright/vs-tasks.nvim",
+      config = function()
+        require("vstask").setup({
+          use_harpoon = false,
+          telescope_keys = {
+            vertical = "<C-v>",
+            split = "<C-p>",
+            tab = "<C-t>",
+            current = "<CR>",
+          },
+          terminal = "toggleterm",
+          term_opts = {
+            vertical = {
+              direction = "vertical",
+              size = "80",
+            },
+            horizontal = {
+              direction = "horizontal",
+              size = "10",
+            },
+            current = {
+              direction = "float",
+            },
+            tab = {
+              direction = "tab",
+            },
+          },
+        })
+      end,
+      setup = function()
+        vim.keymap.set("n", "<Leader>rr", "<Cmd>lua require('telescope').extensions.vstask.tasks()<CR>")
+        vim.keymap.set("n", "<Leader>ri", "<Cmd>lua require('telescope').extensions.vstask.inputs()<CR>")
+        vim.keymap.set("n", "<Leader>rc", "<Cmd>lua require('telescope').extensions.vstask.close()<CR>")
+      end,
+      requires = {
+        "nvim-lua/popup.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim",
+      },
+    })
     -- Code folding
     use({ "kalekundert/vim-coiled-snake", ft = "python" })
     use({ "Konfekt/FastFold" })
@@ -646,7 +683,7 @@ return require("packer").startup({
     use({ "RRethy/vim-illuminate" })
     -- Asciidoc
     use({ "habamax/vim-asciidoctor", ft = "asciidoctor" })
-    -- REPL
+    -- Terminal
     use({
       "kassio/neoterm",
       cmd = { "T", "Texec", "Tmap", "Tnew", "Topen", "Ttoggle" },
@@ -677,6 +714,12 @@ return require("packer").startup({
           })
           gitui:toggle()
         end)
+      end,
+    })
+    use({
+      "akinsho/toggleterm.nvim",
+      config = function()
+        require("toggleterm").setup()
       end,
     })
     use({
