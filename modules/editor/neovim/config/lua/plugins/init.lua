@@ -848,28 +848,36 @@ return require("packer").startup({
     })
     -- Text substitution
     use({
-      "svermeulen/vim-subversive",
+      "gbprod/substitute.nvim",
+      module = "substitute",
       config = function()
-        vim.cmd([[nmap <leader>s <Plug>(SubversiveSubstitute)]])
-        vim.cmd([[nmap <leader>ss <Plug>(SubversiveSubstituteLine)]])
-        vim.cmd([[nmap <leader>sl <Plug>(SubversiveSubstituteToEndOfLine)]])
-
-        vim.cmd([[xmap <leader>s <Plug>(SubversiveSubstitute)]])
-        vim.cmd([[xmap p <Plug>(SubversiveSubstitute)]])
-        vim.cmd([[xmap P <Plug>(SubversiveSubstitute)]])
-
-        vim.cmd([[nmap <leader><leader>s <Plug>(SubversiveSubvertRange)]])
-        vim.cmd([[xmap <leader><leader>s <Plug>(SubversiveSubvertRange)]])
-        vim.cmd([[nmap <leader><leader>ss <Plug>(SubversiveSubvertWordRange)]])
-
-        vim.cmd([[nmap <leader>cs <Plug>(SubversiveSubstituteRangeConfirm)]])
-        vim.cmd([[xmap <leader>cs <Plug>(SubversiveSubstituteRangeConfirm)]])
-        vim.cmd([[nmap <leader>css <Plug>(SubversiveSubstituteWordRangeConfirm)]])
-
-        -- ie = inner entire buffer
-        vim.keymap.set("o", "ie", [[:exec "normal! ggVG"<CR>]])
-        -- iv = current viewable text in the buffer
-        vim.keymap.set("o", "iv", [[:exec "normal! HVL"<CR>]])
+        require("substitute").setup({})
+      end,
+      setup = function()
+        vim.keymap.set(
+          "n",
+          "<Leader>s",
+          "<Cmd>lua require('substitute').operator()<CR>",
+          { desc = "Substitute with motion", noremap = true }
+        )
+        vim.keymap.set(
+          "n",
+          "<Leader>ss",
+          "<Cmd>lua require('substitute').line()<CR>",
+          { desc = "Substitute line", noremap = true }
+        )
+        vim.keymap.set(
+          "n",
+          "<Leader>sl",
+          "<Cmd>lua require('substitute').eol()<CR>",
+          { desc = "Substitute to end of line", noremap = true }
+        )
+        vim.keymap.set(
+          "x",
+          "<Leader>s",
+          "<Cmd>lua require('substitute').visual()<CR>",
+          { desc = "Substitute selection", noremap = true }
+        )
       end,
     })
     -- Text objects
