@@ -128,6 +128,7 @@ return require("packer").startup({
           "telescope-github.nvim",
           "telescope-project.nvim",
           "telescope-symbols.nvim",
+          "telescope-ui-select.nvim",
         }
         for _, plugin in ipairs(deps) do
           if packer_plugins[plugin] and not packer_plugins[plugin].loaded then
@@ -150,12 +151,16 @@ return require("packer").startup({
               override_file_sorter = true,
               case_mode = "smart_case",
             },
+            ["ui-select"] = {
+              require("telescope.themes").get_dropdown({}),
+            },
           },
         })
         telescope.load_extension("fzf")
         telescope.load_extension("gh")
         telescope.load_extension("neoclip")
         telescope.load_extension("project")
+        telescope.load_extension("ui-select")
       end,
       module = "telescope",
       setup = function()
@@ -201,6 +206,7 @@ return require("packer").startup({
         { "nvim-telescope/telescope-github.nvim", opt = true },
         { "nvim-telescope/telescope-project.nvim", opt = true },
         { "nvim-telescope/telescope-symbols.nvim", opt = true },
+        { "nvim-telescope/telescope-ui-select.nvim", opt = true },
       },
     })
     -- Clipboard
@@ -709,6 +715,19 @@ return require("packer").startup({
         require("nvim-web-devicons").setup({ default = true })
       end,
     })
+    use({
+      "ziontee113/icon-picker.nvim",
+      config = function()
+        require("icon-picker")
+      end,
+      setup = function()
+        local opts = { noremap = true, silent = true }
+
+        vim.keymap.set("n", "<Leader>i", "<Cmd>PickIcons<CR>", opts)
+        vim.keymap.set("i", "<C-i>", "<Cmd>PickIconsInsert<CR>", opts)
+        vim.keymap.set("i", "<A-i>", "<Cmd>PickAltFontAndSymbolsInsert<CR>", opts)
+      end,
+    })
     -- Extend % operator
     use({
       "monkoose/matchparen.nvim",
@@ -812,7 +831,6 @@ return require("packer").startup({
     use({ "tpope/vim-repeat", keys = "." })
     use({
       "sQVe/sort.nvim",
-      cmd = "Sort",
       config = function()
         require("sort").setup({})
         vim.keymap.set("n", "go", "<Cmd>Sort<CR>")
