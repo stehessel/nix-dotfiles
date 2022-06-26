@@ -854,6 +854,7 @@ return require("packer").startup({
         require("substitute").setup({})
       end,
       setup = function()
+        -- Substitute
         vim.keymap.set(
           "n",
           "<Leader>s",
@@ -877,6 +878,32 @@ return require("packer").startup({
           "<Leader>s",
           "<Cmd>lua require('substitute').visual()<CR>",
           { desc = "Substitute selection", noremap = true }
+        )
+
+        -- Exchange
+        vim.keymap.set(
+          "n",
+          "<Leader>sx",
+          "<Cmd>lua require('substitute.exchange').operator()<CR>",
+          { desc = "Exchange with motion", noremap = true }
+        )
+        vim.keymap.set(
+          "n",
+          "<Leader>sxx",
+          "<Cmd>lua require('substitute.exchange').line()<CR>",
+          { desc = "Substitute line", noremap = true }
+        )
+        vim.keymap.set(
+          "x",
+          "<Leader>X",
+          "<Cmd>lua require('substitute.exchange').visual()<CR>",
+          { desc = "Exchange selected", noremap = true }
+        )
+        vim.keymap.set(
+          "n",
+          "<Leader>sxc",
+          "<Cmd>lua require('substitute.exchange').cancel()<CR>",
+          { desc = "Cancel exchange", noremap = true }
         )
       end,
     })
