@@ -755,9 +755,9 @@ return require("packer").startup({
     use({ "tpope/vim-unimpaired" })
     -- Movement
     use({
-      "ggandor/lightspeed.nvim",
+      "ggandor/leap.nvim",
       config = function()
-        require("lightspeed").setup({ ignore_case = true })
+        require("leap").set_default_keymaps()
       end,
     })
     use({
