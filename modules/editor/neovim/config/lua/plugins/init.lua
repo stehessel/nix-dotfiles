@@ -874,13 +874,13 @@ return require("packer").startup({
     use({ "tpope/vim-repeat", keys = "." })
     use({
       "sQVe/sort.nvim",
+      cmd = "Sort",
       config = function()
         require("sort").setup({})
-        vim.keymap.set("n", "go", "<Cmd>Sort<CR>")
-        vim.keymap.set("v", "go", "<Esc><Cmd>Sort<CR>")
       end,
       setup = function()
-        vim.keymap.set({ "n", "x" }, "go", "<Cmd>Sort<CR>")
+        vim.keymap.set("n", "go", "<Cmd>Sort<CR>")
+        vim.keymap.set("v", "go", "<Esc><Cmd>Sort<CR>")
       end,
     })
     -- Increment / Decrement
