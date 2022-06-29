@@ -203,6 +203,7 @@
       du-dust
       duf
       file
+      gettext
       hyperfine
       sd
       # topgrade  # blocked by macOS SDK > 10.12
