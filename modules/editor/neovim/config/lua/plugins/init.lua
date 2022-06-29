@@ -606,7 +606,11 @@ return require("packer").startup({
       config = function()
         require("neotest").setup({
           adapters = {
-            require("neotest-go"),
+            require("neotest-go")({
+              experimental = {
+                test_table = true,
+              },
+            }),
             require("neotest-plenary"),
             require("neotest-python")({
               dap = {
