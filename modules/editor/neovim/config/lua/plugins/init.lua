@@ -128,6 +128,7 @@ return require("packer").startup({
           "telescope-github.nvim",
           "telescope-project.nvim",
           "telescope-symbols.nvim",
+          "telescope-ui-select.nvim",
         }
         for _, plugin in ipairs(deps) do
           if packer_plugins[plugin] and not packer_plugins[plugin].loaded then
@@ -156,6 +157,7 @@ return require("packer").startup({
         telescope.load_extension("gh")
         telescope.load_extension("neoclip")
         telescope.load_extension("project")
+        telescope.load_extension("ui-select")
       end,
       module = "telescope",
       setup = function()
@@ -771,7 +773,7 @@ return require("packer").startup({
         local opts = { noremap = true, silent = true }
 
         vim.keymap.set("n", "<Leader>i", "<Cmd>PickIcons<CR>", opts)
-        vim.keymap.set("i", "<C-i>", "<Cmd>PickIconsInsert<CR>", opts)
+        vim.keymap.set("i", "<Localleader>i", "<Cmd>PickIconsInsert<CR>", opts)
         vim.keymap.set("i", "<A-i>", "<Cmd>PickAltFontAndSymbolsInsert<CR>", opts)
       end,
     })
