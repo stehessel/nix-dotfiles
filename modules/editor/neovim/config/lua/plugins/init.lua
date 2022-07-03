@@ -803,6 +803,21 @@ return require("packer").startup({
       config = function()
         require("surround").setup({ prefix = "r" })
       end,
+      disable = false,
+    })
+    use({
+      "kylechui/nvim-surround",
+      config = function()
+        require("nvim-surround").setup({
+          keymaps = {
+            insert = "ys",
+            visual = "S",
+            delete = "ds",
+            change = "cs",
+          },
+        })
+      end,
+      disable = true,
     })
     -- Marks
     use({
