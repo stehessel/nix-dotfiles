@@ -25,7 +25,7 @@
     ../../modules/terminal/kitty
     ../../modules/terminal/tmux
     ../../modules/todo/taskwarrior
-    ../../modules/utility/broot
+    # ../../modules/utility/broot
     ../../modules/utility/fzf
     ../../modules/utility/gnupg
     # ../../modules/utility/file
@@ -112,7 +112,6 @@
       lf
       nnn
       # --- file search ---
-      broot
       fd
       tre-command
       # --- file transfer ---
@@ -143,6 +142,7 @@
       # --- jsonnet ---
       go-jsonnet
       jsonnet-bundler
+      jsonnet-language-server
       # --- launcher ---
       pueue
       # --- lua ---
