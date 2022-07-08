@@ -173,6 +173,7 @@
       # --- nix ---
       cachix
       nix-prefetch-github
+      nix-update
       nixpkgs-fmt
       rnix-lsp
       statix
