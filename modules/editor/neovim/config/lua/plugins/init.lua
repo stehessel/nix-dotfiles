@@ -334,6 +334,7 @@ return require("packer").startup({
         })
       end,
     })
+    use({ "Issafalcon/lsp-overloads.nvim" })
     use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
     use({ "onsails/lspkind-nvim" })
     use({

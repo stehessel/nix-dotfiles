@@ -15,7 +15,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
   severity_sort = true,
 })
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   -- Mappings
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
   vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { buffer = bufnr })
@@ -33,6 +33,17 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "<Space>f", function()
     vim.lsp.buf.format({ async = false })
   end, { buffer = bufnr })
+
+  if client.server_capabilities.signatureHelpProvider then
+    require("lsp-overloads").setup(client, {
+      keymaps = {
+        next_signature = "<C-j>",
+        previous_signature = "<C-k>",
+        next_parameter = "<C-l>",
+        previous_parameter = "<C-h>",
+      },
+    })
+  end
 
   -- Callstack
   vim.keymap.set("n", "<Space>ci", vim.lsp.buf.incoming_calls, { buffer = bufnr })
