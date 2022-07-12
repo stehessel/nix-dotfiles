@@ -449,6 +449,7 @@ return require("packer").startup({
           handler_opts = { border = "none" },
         })
       end,
+      disable = true,
     })
     use({
       "ldelossa/litee-calltree.nvim",
