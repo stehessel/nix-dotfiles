@@ -71,6 +71,10 @@
     wrapperFeatures.gtk = true;
   };
 
+  # Screen share
+  xdg.portal.wlr.enable = true;
+
+  # Login manager
   services.xserver = {
     enable = true;
 
