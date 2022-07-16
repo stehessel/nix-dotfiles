@@ -65,19 +65,26 @@
     sioyek.enable = true;
   };
 
-  systemd.user.targets = {
-    hm-graphical-session = {
-      Unit = {
-        Description = "Home Manager Session";
-        Requires = [ "graphical-session-pre.target" ];
-        BindsTo = [ "graphical-session.target" "tray.target" ];
-      };
+  systemd.user = {
+    sessionVariables = {
+      DISPLAY = ":0";
+      WAYLAND_DISPLAY = "wayland-1";
     };
 
-    tray = {
-      Unit = {
-        Description = "Home Manager System Tray";
-        Requires = [ "graphical-session-pre.target" ];
+    targets = {
+      hm-graphical-session = {
+        Unit = {
+          Description = "Home Manager Session";
+          Requires = [ "graphical-session-pre.target" ];
+          BindsTo = [ "graphical-session.target" "tray.target" ];
+        };
+      };
+
+      tray = {
+        Unit = {
+          Description = "Home Manager System Tray";
+          Requires = [ "graphical-session-pre.target" ];
+        };
       };
     };
   };

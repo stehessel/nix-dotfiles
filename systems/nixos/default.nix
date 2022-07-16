@@ -72,7 +72,12 @@
   };
 
   # Screen share
-  xdg.portal.wlr.enable = true;
+  # xdg.portal = {
+  #   enable = true;
+  #   gtkUsePortal = true;
+  #   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  #   wlr.enable = true;
+  # };
 
   # Login manager
   services.xserver = {
@@ -88,7 +93,9 @@
       defaultSession = "river";
       lightdm.enable = true;
 
-      sessionCommands = "export XKB_DEFAULT_OPTIONS='caps:escape'";
+      sessionCommands = ''
+        export XKB_DEFAULT_OPTIONS='caps:escape'
+      '';
 
       sessionPackages = [
         (pkgs.river.overrideAttrs

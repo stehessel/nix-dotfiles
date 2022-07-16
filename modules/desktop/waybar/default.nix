@@ -209,7 +209,7 @@
       }
     '';
     systemd = {
-      enable = false;  # Spawn in river config
+      enable = true;  # Spawn in river config
     };
   };
 }
