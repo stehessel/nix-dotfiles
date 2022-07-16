@@ -165,7 +165,6 @@ riverctl csd-filter-add app-id "gedit"
 
 # Start waybar and tray icons
 riverctl spawn "nm-applet --indicator"
-riverctl spawn "syncthingtray --wait"
 
 # Start clipboard manager
 riverctl spawn "wl-paste --watch cliphist store"

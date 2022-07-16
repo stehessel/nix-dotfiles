@@ -26,7 +26,7 @@
         libnotify
         mako
         rofi
-        # syncthingtray
+        syncthingtray
         wl-clipboard
         wofi
         # --- dev ---
@@ -67,8 +67,9 @@
 
   systemd.user = {
     sessionVariables = {
-      DISPLAY = ":0";
+      GDK_BACKEND = "wayland";
       WAYLAND_DISPLAY = "wayland-1";
+      XDG_SESSION_TYPE = "wayland";
     };
 
     targets = {
