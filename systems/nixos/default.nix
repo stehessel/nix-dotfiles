@@ -104,6 +104,8 @@
       defaultSession = "river";
       lightdm.enable = true;
 
+      sessionCommands = "export XKB_DEFAULT_OPTIONS='caps:escape'";
+
       sessionPackages = [
         (pkgs.river.overrideAttrs
           (prevAttrs: rec {
@@ -127,14 +129,6 @@
       ];
     };
   };
-
-  # Autostart window manager
-  environment.loginShellInit = ''
-    if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-      export XKB_DEFAULT_OPTIONS="caps:escape"
-      # exec river
-    fi
-  '';
 
   virtualisation = {
     podman = {
