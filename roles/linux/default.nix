@@ -64,6 +64,9 @@
     home-manager.enable = true;
     sioyek.enable = true;
   };
+  xsession = {
+    preferStatusNotifierItems = true;
+  };
 
   services.network-manager-applet = {
     enable = true;

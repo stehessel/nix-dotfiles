@@ -71,12 +71,10 @@
   };
 
   # Screen share
-  # xdg.portal = {
-  #   enable = true;
-  #   gtkUsePortal = true;
-  #   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  #   wlr.enable = true;
-  # };
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
 
   # Login manager
   services.xserver = {
