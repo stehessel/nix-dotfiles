@@ -65,6 +65,10 @@
     sioyek.enable = true;
   };
 
+  services.network-manager-applet = {
+    enable = true;
+  };
+
   systemd.user = {
     sessionVariables = {
       GDK_BACKEND = "wayland";

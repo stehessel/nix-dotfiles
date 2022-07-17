@@ -32,7 +32,6 @@
     # replicates the default behaviour.
     useDHCP = false;
   };
-  programs.nm-applet.enable = true;
 
   time.timeZone = "Europe/Berlin";
 
