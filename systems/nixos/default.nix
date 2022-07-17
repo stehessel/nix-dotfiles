@@ -7,7 +7,7 @@
     ];
 
   boot = {
-    initrd.systemd.enable = false;
+    initrd.systemd.enable = true;
 
     loader = {
       systemd-boot = {

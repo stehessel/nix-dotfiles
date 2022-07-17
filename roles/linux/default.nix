@@ -80,17 +80,10 @@
     };
 
     targets = {
-      hm-graphical-session = {
-        Unit = {
-          Description = "Home Manager Session";
-          Requires = [ "graphical-session-pre.target" ];
-          BindsTo = [ "graphical-session.target" "tray.target" ];
-        };
-      };
-
       tray = {
         Unit = {
           Description = "Home Manager System Tray";
+          # After = [ "graphical-session.target" ];
           Requires = [ "graphical-session-pre.target" ];
         };
       };
