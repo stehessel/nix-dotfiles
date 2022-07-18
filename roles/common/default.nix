@@ -140,7 +140,7 @@
       # --- java ---
       maven
       # --- jsonnet ---
-      go-jsonnet
+      # go-jsonnet
       jsonnet-bundler
       jsonnet-language-server
       # --- launcher ---
@@ -157,7 +157,7 @@
       krew
       kube-linter
       kubectl
-      kubectx
+      # kubectx
       kubernetes-helm
       ocm
       odo
