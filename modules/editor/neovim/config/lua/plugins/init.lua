@@ -487,8 +487,6 @@ return require("packer").startup({
       end,
       run = ":UpdateRemotePlugins",
     })
-    -- Clojure
-    use({ "tpope/vim-fireplace", ft = "clojure", cmd = "FireplaceConnect" })
     -- Treesitter
     use({
       "nvim-treesitter/nvim-treesitter",

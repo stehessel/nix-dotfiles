@@ -2,7 +2,6 @@
 {
   imports = [
     ../../modules/backup/restic
-    ../../modules/dev/clojure/leiningen
     ../../modules/dev/golang
     ../../modules/dev/javascript
     ../../modules/dev/jsonnet
@@ -68,10 +67,6 @@
       restic
       # --- chat ---
       zulip-term
-      # --- clojure ---
-      clojure
-      # clojure-lsp
-      leiningen
       # --- cloud ---
       google-cloud-sdk
       # --- containers ---
@@ -175,7 +170,7 @@
       # --- system ---
       (uutils-coreutils.override { prefix = ""; })
       # --- terminals ---
-      # wezterm
+      wezterm
       # --- terminal multiplexers ---
       tmux
       # --- terraform ---
