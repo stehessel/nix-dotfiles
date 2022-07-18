@@ -72,7 +72,7 @@
       rclone
       restic
       # --- chat ---
-      # zulip-term
+      zulip-term
       # --- clojure ---
       clojure
       # clojure-lsp
@@ -207,7 +207,7 @@
       gettext
       hyperfine
       sd
-      # topgrade  # blocked by macOS SDK > 10.12
+      topgrade  # blocked by macOS SDK > 10.12
       wget
       # --- web ---
       # hugo  # blocked by macOS SDK > 10.12
