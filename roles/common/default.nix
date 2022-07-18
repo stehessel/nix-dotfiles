@@ -187,7 +187,7 @@
       topgrade
       wget
       # --- web ---
-      # hugo  # blocked by macOS SDK > 10.12
+      hugo
       nodePackages."@tailwindcss/language-server"
       # --- yaml ---
       yaml-language-server
