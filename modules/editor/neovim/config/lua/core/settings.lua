@@ -66,9 +66,6 @@ vim.opt.relativenumber = false
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undo"
 
--- Mouse
-vim.opt.mouse = "a"
-
 -- Rendering
 vim.opt.lazyredraw = true
 
