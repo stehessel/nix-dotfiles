@@ -166,7 +166,7 @@
       automatic = true;
       interval = { Hour = 12; };
     };
-    useSandbox = false;
+    useSandbox = true;
   };
 
   # Used for backwards compatibility, please read the changelog before changing.
