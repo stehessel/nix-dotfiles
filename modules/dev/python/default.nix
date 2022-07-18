@@ -1,5 +1,12 @@
 { config, lib, pkgs, ... }:
 {
+  imports = [
+    ./flake8
+    ./isort
+    ./mypy
+    ./pycodestyle
+  ];
+
   xdg.configFile."python/pythonrc.py".source = config/pythonrc.py;
   home = {
     packages = with pkgs; [

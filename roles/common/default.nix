@@ -5,14 +5,9 @@
     ../../modules/dev/clojure/leiningen
     ../../modules/dev/golang
     ../../modules/dev/javascript
-    ../../modules/dev/lua/luacheck
-    ../../modules/dev/lua/luaformatter
-    ../../modules/dev/lua/stylua
-    ../../modules/dev/python/flake8
-    ../../modules/dev/python/isort
-    ../../modules/dev/python/mypy
-    ../../modules/dev/python/pycodestyle
-    ../../modules/dev/python/python
+    ../../modules/dev/jsonnet
+    ../../modules/dev/lua
+    ../../modules/dev/python
     ../../modules/dev/rust
     ../../modules/dev/text/vale
     ../../modules/dev/version-control/git
@@ -139,19 +134,8 @@
       ansible-lint
       # --- java ---
       maven
-      # --- jsonnet ---
-      # go-jsonnet
-      jsonnet-bundler
-      jsonnet-language-server
       # --- launcher ---
       pueue
-      # --- lua ---
-      luajitPackages.lua-lsp
-      luajitPackages.luacheck
-      luajitPackages.luarocks
-      selene
-      stylua
-      sumneko-lua-language-server
       # --- kubernetes ---
       k9s
       krew
