@@ -191,7 +191,7 @@
       gettext
       hyperfine
       sd
-      topgrade  # blocked by macOS SDK > 10.12
+      topgrade
       wget
       # --- web ---
       # hugo  # blocked by macOS SDK > 10.12
