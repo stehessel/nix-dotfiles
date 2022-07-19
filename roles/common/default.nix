@@ -84,8 +84,9 @@
       codespell
       editorconfig-core-c
       pgformatter
-      tree-sitter
+      prometheus
       tokei
+      tree-sitter
       universal-ctags
       xsv
       # ---  docker ---
