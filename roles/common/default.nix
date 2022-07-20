@@ -45,6 +45,7 @@
       EDITOR = "nvim";
       FILE = "lf";
       GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
+      JIRA_AUTH_TYPE = "bearer";
       LEIN_HOME = "${config.xdg.configHome}/lein";
       LIB_SQLITE_PATH =
         if pkgs.stdenv.isDarwin then
@@ -83,6 +84,7 @@
       code-minimap
       codespell
       editorconfig-core-c
+      jira-cli-go
       pgformatter
       prometheus
       tokei
