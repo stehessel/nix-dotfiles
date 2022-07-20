@@ -19,6 +19,12 @@
     };
   };
 
+  hardware = {
+    bluetooth.enable = true;
+    enableRedistributableFirmware = true;
+    opengl.enable = true;
+  };
+
   networking = {
     hostName = "thinkpad";
     networkmanager = {
@@ -52,6 +58,7 @@
     tlp.enable = true;
   };
 
+  # Audio
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
