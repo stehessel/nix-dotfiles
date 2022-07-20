@@ -14,7 +14,7 @@
     ../../modules/file-manager/lf
     ../../modules/shell/bash
     ../../modules/shell/fish
-    # ../../modules/shell/nushell
+    ../../modules/shell/nushell
     ../../modules/shell/starship
     ../../modules/terminal/kitty
     ../../modules/terminal/tmux
