@@ -22,7 +22,6 @@
     ../../modules/utility/broot
     ../../modules/utility/fzf
     ../../modules/utility/gnupg
-    # ../../modules/utility/file
     # ../../modules/utility/pueue
     ../../modules/utility/ripgrep
     ../../modules/utility/topgrade
