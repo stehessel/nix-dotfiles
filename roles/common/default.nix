@@ -139,7 +139,7 @@
       krew
       kube-linter
       kubectl
-      # kubectx
+      kubectx
       kubernetes-helm
       ocm
       odo
