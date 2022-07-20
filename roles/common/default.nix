@@ -19,7 +19,7 @@
     ../../modules/terminal/kitty
     ../../modules/terminal/tmux
     ../../modules/todo/taskwarrior
-    # ../../modules/utility/broot
+    ../../modules/utility/broot
     ../../modules/utility/fzf
     ../../modules/utility/gnupg
     # ../../modules/utility/file
