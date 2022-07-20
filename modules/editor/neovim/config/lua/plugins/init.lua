@@ -750,13 +750,31 @@ return require("packer").startup({
       run = "bash ./install.sh",
     })
     -- Color scheme
-    use({ "folke/lsp-colors.nvim" })
     use({
-      "folke/tokyonight.nvim",
+      "catppuccin/nvim",
+      as = "catppuccin",
+      run = ":CatppuccinCompile",
       config = function()
-        vim.g.tokyonight_style = "night"
-        vim.g.tokyonight_sidebars = { "Calltree", "NvimTree", "packer", "qf", "terminal" }
-        vim.cmd("colorscheme tokyonight")
+        vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+        require("catppuccin").setup({
+          compile = {
+            enabled = true,
+          },
+          integrations = {
+            leap = true,
+            neotree = {
+              enabled = true,
+              show_root = true,
+              transparent_panel = false,
+            },
+            dap = {
+              enabled = true,
+              enable_ui = true,
+            },
+            which_key = true,
+          },
+        })
+        vim.cmd("colorscheme catppuccin")
       end,
     })
     -- Icons
