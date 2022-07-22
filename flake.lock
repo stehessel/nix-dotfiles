@@ -35,6 +35,21 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1656065134,
+        "narHash": "sha256-oc6E6ByIw3oJaIyc67maaFcnjYOz1mMcOtHxbEf9NwQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "bee6a7250dd1b01844a2de7e02e4df7d8a0a206c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -56,7 +71,7 @@
         "type": "github"
       }
     },
-    "neovim-flake": {
+    "neovim": {
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
@@ -65,11 +80,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1658354416,
-        "narHash": "sha256-pEv9Hr+aAIsvYBz5jMLw+mHnQj2iyzwsBHzrPF4ADi4=",
+        "lastModified": 1658443311,
+        "narHash": "sha256-w63Y5WJt7/75SrPh/tFyLdzY9GISaG1XTu5kKNFtAmk=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "1f1863ed54355c314a5016560809e65c3fb0cb79",
+        "rev": "8af3d641daf03610c824ca4e0dffa07db297cb5b",
         "type": "github"
       },
       "original": {
@@ -98,8 +113,30 @@
       "inputs": {
         "darwin": "darwin",
         "home-manager": "home-manager",
-        "neovim-flake": "neovim-flake",
-        "nixpkgs": "nixpkgs"
+        "neovim": "neovim",
+        "nixpkgs": "nixpkgs",
+        "rust": "rust"
+      }
+    },
+    "rust": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1658371912,
+        "narHash": "sha256-e/17Hr+zWlNJlcuaNxHNGwlzqF+IJu7NWoKYFJj4kZU=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "5be0c1633a6f99dfefdca0aad665c941a7b769aa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "utils": {

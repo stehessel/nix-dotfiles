@@ -2,7 +2,8 @@
 {
   home = {
     packages = with pkgs; [
-      rustup
+      # rustup
+      rust-bin.beta.latest.default
       rust-analyzer
     ];
     sessionPath = [
@@ -10,7 +11,7 @@
     ];
     sessionVariables = {
       CARGO_HOME = "${config.xdg.configHome}/cargo";
-      RUSTUP_HOME = "${config.xdg.configHome}/rustup";
+      # RUSTUP_HOME = "${config.xdg.configHome}/rustup";
     };
   };
 

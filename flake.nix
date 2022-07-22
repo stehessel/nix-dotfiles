@@ -12,13 +12,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-flake = {
+    neovim = {
       url = "github:neovim/neovim?dir=contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    rust = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, neovim-flake }:
+  outputs = { self, nixpkgs, ... } @ inputs:
     let
       nixpkgsConfig = {
         config = {
@@ -34,7 +38,7 @@
         modules = [
           ./systems/nixos
 
-          home-manager.nixosModules.home-manager
+          inputs.home-manager.nixosModules.home-manager
           (
             { pkgs, ... }:
             {
@@ -61,12 +65,12 @@
         ];
       };
 
-      darwinConfigurations."shesselm-mac" = darwin.lib.darwinSystem {
+      darwinConfigurations."shesselm-mac" = inputs.darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
           ./systems/darwin
 
-          home-manager.darwinModules.home-manager
+          inputs.home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -107,7 +111,7 @@
         };
 
         neovim-overlay = final: prev: {
-          inherit (neovim-flake.packages.${ prev.system}) neovim;
+          inherit (inputs.neovim.packages.${ prev.system}) neovim;
         };
 
         nixpkgs-fmt-overlay = final: prev: {
@@ -115,6 +119,8 @@
             doCheck = false;
           });
         };
+
+        rust-overlay = inputs.rust.overlays.default;
       };
     };
 }
