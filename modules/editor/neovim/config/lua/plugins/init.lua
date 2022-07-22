@@ -338,6 +338,12 @@ return require("packer").startup({
     use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
     use({ "onsails/lspkind-nvim" })
     use({
+      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      config = function()
+        require("lsp_lines").setup()
+      end,
+    })
+    use({
       "someone-stole-my-name/yaml-companion.nvim",
       requires = {
         { "neovim/nvim-lspconfig" },
