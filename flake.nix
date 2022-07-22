@@ -91,33 +91,14 @@
       };
 
       overlays = {
-        # Fix for https://github.com/NixOS/nixpkgs/issues/165387
         kitty-overlay = final: prev: {
           kitty = prev.kitty.overrideAttrs (old: {
             installCheckPhase = "";
           });
         };
 
-        fish-overlay = final: prev: {
-          fish = prev.fish.overrideAttrs (old: {
-            doCheck = false;
-          });
-        };
-
-        helm-overlay = final: prev: {
-          kubernetes-helm = prev.kubernetes-helm.overrideAttrs (old: {
-            doCheck = false;
-          });
-        };
-
         neovim-overlay = final: prev: {
           inherit (inputs.neovim.packages.${ prev.system}) neovim;
-        };
-
-        nixpkgs-fmt-overlay = final: prev: {
-          nixpkgs-fmt = prev.nixpkgs-fmt.overrideAttrs (old: {
-            doCheck = false;
-          });
         };
 
         rust-overlay = inputs.rust.overlays.default;
