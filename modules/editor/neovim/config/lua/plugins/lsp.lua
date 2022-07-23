@@ -1,20 +1,3 @@
-vim.keymap.set("n", "<Space>d", function()
-  vim.diagnostic.open_float(0, { focusable = false, scope = "line" })
-end)
-vim.keymap.set("n", "[d", function()
-  vim.diagnostic.goto_prev({ float = { focusable = false } })
-end)
-vim.keymap.set("n", "]d", function()
-  vim.diagnostic.goto_next({ float = { focusable = false } })
-end)
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = {
-    source = "always",
-  },
-  severity_sort = true,
-})
-
 local on_attach = function(client, bufnr)
   -- Mappings
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })

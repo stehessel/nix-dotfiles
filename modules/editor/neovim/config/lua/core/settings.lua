@@ -26,6 +26,19 @@ vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSi
 vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
+-- Diagnostics
+vim.keymap.set("n", "<Space>d", function()
+  vim.diagnostic.open_float(0, { focusable = false, scope = "line" })
+end)
+vim.keymap.set("n", "[d", function()
+  vim.diagnostic.goto_prev({ float = { focusable = false } })
+end)
+vim.keymap.set("n", "]d", function()
+  vim.diagnostic.goto_next({ float = { focusable = false } })
+end)
+
+vim.diagnostic.config({ virtual_text = false, severity_sort = true })
+
 -- Short messages
 vim.opt.shortmess:append("c")
 -- Cmd height
