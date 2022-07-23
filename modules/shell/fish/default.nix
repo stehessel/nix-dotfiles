@@ -12,6 +12,7 @@
       gb = "git branch";
       gc = "git commit -am";
       gp = "git push";
+      gP = "git pull";
       gco = "git checkout";
       gw = "git switch";
       gd = "git diff";
