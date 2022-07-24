@@ -132,7 +132,7 @@ return require("packer").startup({
         }
         for _, plugin in ipairs(deps) do
           if packer_plugins[plugin] and not packer_plugins[plugin].loaded then
-            vim.cmd("packadd " .. plugin)
+            vim.cmd.packadd(plugin)
           end
         end
 
@@ -501,9 +501,7 @@ return require("packer").startup({
       config = function()
         require("plugins.treesitter")
       end,
-      run = function()
-        vim.cmd("TSUpdate")
-      end,
+      run = vim.cmd.TSUpdate,
     })
     use({
       "RRethy/nvim-treesitter-textsubjects",
@@ -741,7 +739,7 @@ return require("packer").startup({
     use({
       "Olical/conjure",
       config = function()
-        vim.cmd([[let g:conjure#log#hud#width = 0.42]])
+        vim.g["conjure#log#hud#width"] = 0.42
       end,
       ft = { "clojure", "fennel" },
     })
@@ -782,7 +780,7 @@ return require("packer").startup({
             which_key = true,
           },
         })
-        vim.cmd("colorscheme catppuccin")
+        vim.cmd.colorscheme("catppuccin")
       end,
     })
     -- Icons
@@ -1065,7 +1063,7 @@ return require("packer").startup({
               gitsigns.toggle_signs(false)
               gitsigns.toggle_linehl(false)
               gitsigns.toggle_deleted(false)
-              vim.cmd("echo") -- clear the echo area
+              vim.cmd.echo() -- clear the echo area
             end,
           },
           mode = { "n", "x" },

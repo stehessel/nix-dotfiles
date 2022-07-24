@@ -2,6 +2,9 @@
 base = "lua51"
 name = "vim"
 
+[packer_plugins]
+any = true
+
 [vim]
 any = true
 
