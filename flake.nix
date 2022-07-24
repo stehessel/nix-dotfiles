@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
+    # nixpkgs.url = "path:/home/stephan/dev/nix/nixpkgs";
 
     darwin = {
       url = "github:lnl7/nix-darwin";
@@ -10,6 +11,7 @@
     };
     home-manager = {
       url = "github:nix-community/home-manager";
+      # url = "path:/home/stephan/dev/nix/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim = {

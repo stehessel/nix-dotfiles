@@ -5,6 +5,7 @@
     ../../modules/desktop/dunst
     ../../modules/desktop/mime-apps
     ../../modules/desktop/rofi
+    # ../../modules/desktop/swhkd
     ../../modules/desktop/waybar
     ../../modules/desktop/window-manager/river
     ../../modules/file-viewer/sxiv
