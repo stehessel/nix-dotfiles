@@ -16,7 +16,6 @@
     ../../modules/shell/fish
     ../../modules/shell/nushell
     ../../modules/shell/starship
-    ../../modules/terminal/kitty
     ../../modules/terminal/tmux
     ../../modules/todo/taskwarrior
     ../../modules/utility/broot
@@ -54,7 +53,6 @@
       PAGER = "less";
       READER = "zathura";
       SHELL = "";
-      TERMINAL = "kitty";
       TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
     };
     shellAliases = {

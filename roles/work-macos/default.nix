@@ -4,7 +4,8 @@
     ../common
     ../../modules/desktop/skhd
     ../../modules/desktop/window-manager/yabai
-    ../../modules/terminal/wezterm
+    ../../modules/terminal/kitty
+    # ../../modules/terminal/wezterm
     ../../modules/virtualization/colima
   ];
 
@@ -18,9 +19,6 @@
       # --- latex ---
       # texlive.combined.scheme-full
       # tectonic
-      # --- terminal ---
-      kitty
-      # wezterm
       # --- text ---
       gnused
       # --- window manager ---
