@@ -1,0 +1,5 @@
+[languages]
+go = ["gofmt"]
+lua = ["stylua -s -"]
+python = ["black --fast -"]
+rust = ["rustfmt"]

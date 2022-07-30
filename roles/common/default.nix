@@ -8,6 +8,7 @@
     ../../modules/dev/lua
     ../../modules/dev/python
     ../../modules/dev/rust
+    ../../modules/dev/text/cbfmt
     ../../modules/dev/text/vale
     ../../modules/dev/version-control/git
     ../../modules/editor/neovim
@@ -176,7 +177,6 @@
       terraform-ls
       # --- text ---
       asciidoctor
-      cbfmt
       # --- utility ---
       cmatrix
       du-dust

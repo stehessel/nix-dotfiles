@@ -321,6 +321,7 @@ return require("packer").startup({
               end,
             }),
             builtins.formatting.black,
+            builtins.formatting.cbfmt,
             builtins.formatting.fish_indent,
             builtins.formatting.isort,
             builtins.formatting.prettierd,
