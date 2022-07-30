@@ -141,7 +141,7 @@
       ocm
       odo
       openshift
-      # operator-sdk
+      operator-sdk
       # --- network ---
       bandwhich
       curl
