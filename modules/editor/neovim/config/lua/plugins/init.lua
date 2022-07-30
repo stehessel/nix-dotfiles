@@ -321,7 +321,15 @@ return require("packer").startup({
               end,
             }),
             builtins.formatting.black,
-            builtins.formatting.cbfmt,
+            builtins.formatting.cbfmt.with({
+              args = {
+                "--config",
+                os.getenv("XDG_CONFIG_HOME") .. "/cbfmt/cbfmt.toml",
+                "--stdin-filepath",
+                "$FILENAME",
+                "--best-effort",
+              },
+            }),
             builtins.formatting.fish_indent,
             builtins.formatting.isort,
             builtins.formatting.prettierd,
