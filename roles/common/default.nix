@@ -141,7 +141,7 @@
       ocm
       odo
       openshift
-      operator-sdk
+      # operator-sdk
       # --- network ---
       bandwhich
       curl
@@ -176,6 +176,7 @@
       terraform-ls
       # --- text ---
       asciidoctor
+      cbfmt
       # --- utility ---
       cmatrix
       du-dust

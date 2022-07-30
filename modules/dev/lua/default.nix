@@ -13,7 +13,7 @@
       luajitPackages.luarocks
       selene
       stylua
-      sumneko-lua-language-server
+      # sumneko-lua-language-server
     ];
   };
 }
