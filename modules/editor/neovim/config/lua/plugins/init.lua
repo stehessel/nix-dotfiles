@@ -301,6 +301,7 @@ return require("packer").startup({
             builtins.code_actions.refactoring,
             builtins.code_actions.statix,
             builtins.diagnostics.buf,
+            builtins.diagnostics.codespell,
             builtins.diagnostics.eslint.with({ command = "eslint_d" }),
             builtins.diagnostics.golangci_lint,
             builtins.diagnostics.hadolint,
@@ -334,11 +335,10 @@ return require("packer").startup({
             builtins.formatting.isort,
             builtins.formatting.prettierd,
             builtins.formatting.shfmt,
+            builtins.formatting.sql_formatter,
             builtins.formatting.stylua.with({
               args = { "--config-path", os.getenv("HOME") .. "/.config/stylua/stylua.toml", "-" },
             }),
-            require("plugins.lsp.null-ls.codespell"),
-            require("plugins.lsp.null-ls.pgformatter"),
           },
         })
       end,

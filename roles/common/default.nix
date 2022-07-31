@@ -83,7 +83,6 @@
       codespell
       editorconfig-core-c
       jira-cli-go
-      pgformatter
       prometheus
       tokei
       tree-sitter
@@ -167,6 +166,7 @@
       shellcheck
       shfmt
       # --- sql ---
+      nodePackages.sql-formatter
       sqlite
       # --- system ---
       (uutils-coreutils.override { prefix = ""; })
