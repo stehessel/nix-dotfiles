@@ -4,6 +4,7 @@
     packages = with pkgs; [
       delve
       ginkgo
+      gofumpt
       golangci-lint
       gopls
       gotest
