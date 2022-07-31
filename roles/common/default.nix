@@ -13,6 +13,7 @@
     ../../modules/dev/version-control/git
     ../../modules/editor/neovim
     ../../modules/file-manager/lf
+    ../../modules/networking/kubernetes
     ../../modules/shell/bash
     ../../modules/shell/fish
     ../../modules/shell/nushell
@@ -131,17 +132,6 @@
       maven
       # --- launcher ---
       pueue
-      # --- kubernetes ---
-      k9s
-      krew
-      kube-linter
-      kubectl
-      kubectx
-      kubernetes-helm
-      ocm
-      odo
-      openshift
-      operator-sdk
       # --- network ---
       bandwhich
       curl
