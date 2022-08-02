@@ -135,6 +135,7 @@
       # --- network ---
       bandwhich
       curl
+      grpcurl
       netcat
       ngrok
       nmap
@@ -168,6 +169,7 @@
       # --- text ---
       asciidoctor
       # --- utility ---
+      bitwarden-cli
       cmatrix
       du-dust
       duf
