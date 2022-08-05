@@ -1,9 +1,22 @@
 { lib, pkgs, ... }:
 {
+  home = {
+    packages = with pkgs; [
+      git-town
+      gitAndTools.git-bug
+      gitAndTools.git-fame
+      pre-commit
+    ];
+  };
+
   programs = {
     gh = {
       enable = true;
       settings.git_protocol = "ssh";
+    };
+
+    gitui = {
+      enable = true;
     };
 
     git = {
@@ -76,6 +89,7 @@
           ff = "only";
         };
         push = {
+          autoSetupRemote = true;
           recurseSubmodules = "check";
         };
         status = {
@@ -87,10 +101,6 @@
           };
         };
       };
-    };
-
-    gitui = {
-      enable = true;
     };
   };
 }

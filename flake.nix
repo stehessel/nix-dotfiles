@@ -93,6 +93,12 @@
       };
 
       overlays = {
+        git-town-overlay = final: prev: {
+          git-town = prev.git-town.overrideAttrs (old: {
+            doCheck = false;
+          });
+        };
+
         kitty-overlay = final: prev: {
           kitty = prev.kitty.overrideAttrs (old: {
             installCheckPhase = "";
