@@ -8,7 +8,12 @@
       kube-linter
       kubectl
       kubectx
-      kubernetes-helm
+      (pkgs.wrapHelm pkgs.kubernetes-helm {
+        plugins = [
+          # pkgs.kubernetes-helmPlugins.helm-diff
+          pkgs.kubernetes-helmPlugins.helm-secrets
+        ];
+      })
       ocm
       odo
       openshift

@@ -8,6 +8,7 @@
     ../../modules/dev/lua
     ../../modules/dev/python
     ../../modules/dev/rust
+    ../../modules/dev/secrets
     ../../modules/dev/text/cbfmt
     ../../modules/dev/text/vale
     ../../modules/dev/version-control/git
