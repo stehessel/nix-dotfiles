@@ -22,6 +22,10 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... } @ inputs:
@@ -71,6 +75,7 @@
         system = "x86_64-darwin";
         modules = [
           ./systems/darwin
+          inputs.sops-nix.nixosModules.sops
 
           inputs.home-manager.darwinModules.home-manager
           {

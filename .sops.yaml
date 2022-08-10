@@ -1,0 +1,7 @@
+keys:
+  - &stehessel age1tpkeasesjvhrnptlpt2ndst9ytz4xe6xkrav76pstykmxv6lq9pq9ex6p3
+creation_rules:
+  - path_regex: secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
+          - *stehessel
