@@ -7,6 +7,7 @@
     ../../pkgs/dev/javascript
     ../../pkgs/dev/jsonnet
     ../../pkgs/dev/lua
+    ../../pkgs/dev/nix
     ../../pkgs/dev/python
     ../../pkgs/dev/rust
     ../../pkgs/dev/secrets
@@ -136,13 +137,6 @@
       ngrok
       nmap
       speedtest-cli
-      # --- nix ---
-      cachix
-      nix-prefetch-github
-      nix-update
-      nixpkgs-fmt
-      rnix-lsp
-      statix
       # --- process manager ---
       htop
       # --- shell ---
@@ -184,10 +178,6 @@
   };
 
   programs = {
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
     java = {
       enable = true;
       package = pkgs.jdk11;
