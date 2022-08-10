@@ -1,33 +1,33 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
-    ../../modules/backup/restic
-    ../../modules/dev/golang
-    ../../modules/dev/javascript
-    ../../modules/dev/jsonnet
-    ../../modules/dev/lua
-    ../../modules/dev/python
-    ../../modules/dev/rust
-    ../../modules/dev/secrets
-    ../../modules/dev/text/cbfmt
-    ../../modules/dev/text/vale
-    ../../modules/dev/version-control/git
-    ../../modules/editor/neovim
-    ../../modules/file-manager/lf
-    ../../modules/networking/kubernetes
-    ../../modules/shell/bash
-    ../../modules/shell/fish
-    ../../modules/shell/nushell
-    ../../modules/shell/starship
-    ../../modules/terminal/tmux
-    ../../modules/todo/taskwarrior
-    ../../modules/utility/broot
-    ../../modules/utility/fzf
-    ../../modules/utility/gnupg
-    # ../../modules/utility/pueue
-    ../../modules/utility/ripgrep
-    ../../modules/utility/topgrade
-    ../../modules/utility/wget
+    ../../pkgs/backup/restic
+    ../../pkgs/dev/golang
+    ../../pkgs/dev/javascript
+    ../../pkgs/dev/jsonnet
+    ../../pkgs/dev/lua
+    ../../pkgs/dev/python
+    ../../pkgs/dev/rust
+    ../../pkgs/dev/secrets
+    ../../pkgs/dev/text/cbfmt
+    ../../pkgs/dev/text/vale
+    ../../pkgs/dev/version-control/git
+    ../../pkgs/editor/neovim
+    ../../pkgs/file-manager/lf
+    ../../pkgs/networking/kubernetes
+    ../../pkgs/shell/bash
+    ../../pkgs/shell/fish
+    ../../pkgs/shell/nushell
+    ../../pkgs/shell/starship
+    ../../pkgs/terminal/tmux
+    ../../pkgs/todo/taskwarrior
+    ../../pkgs/utility/broot
+    ../../pkgs/utility/fzf
+    ../../pkgs/utility/gnupg
+    # ../../pkgs/utility/pueue
+    ../../pkgs/utility/ripgrep
+    ../../pkgs/utility/topgrade
+    ../../pkgs/utility/wget
     ../../scripts
   ];
 

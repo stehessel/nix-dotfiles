@@ -2,14 +2,14 @@
 {
   imports = [
     ../common
-    ../../modules/desktop/skhd
-    ../../modules/desktop/window-manager/yabai
-    ../../modules/terminal/kitty
-    # ../../modules/terminal/wezterm
-    ../../modules/virtualization/colima
+    ../../pkgs/desktop/skhd
+    ../../pkgs/desktop/window-manager/yabai
+    ../../pkgs/terminal/kitty
+    # ../../pkgs/terminal/wezterm
+    ../../pkgs/virtualization/colima
   ];
 
-  xdg.configFile."fish/fish_plugins".source = ../../modules/shell/fish/macos/fish_plugins;
+  xdg.configFile."fish/fish_plugins".source = ../../pkgs/shell/fish/macos/fish_plugins;
 
   home = {
     packages = with pkgs; [

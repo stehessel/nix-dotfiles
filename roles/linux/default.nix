@@ -2,16 +2,16 @@
 {
   imports = [
     ../common
-    ../../modules/desktop/dunst
-    ../../modules/desktop/mime-apps
-    ../../modules/desktop/rofi
-    # ../../modules/desktop/swhkd
-    ../../modules/desktop/waybar
-    ../../modules/desktop/window-manager/river
-    ../../modules/file-viewer/sxiv
-    ../../modules/file-viewer/zathura
-    ../../modules/networking/syncthing
-    ../../modules/terminal/foot
+    ../../pkgs/desktop/dunst
+    ../../pkgs/desktop/mime-apps
+    ../../pkgs/desktop/rofi
+    # ../../pkgs/desktop/swhkd
+    ../../pkgs/desktop/waybar
+    ../../pkgs/desktop/window-manager/river
+    ../../pkgs/file-viewer/sxiv
+    ../../pkgs/file-viewer/zathura
+    ../../pkgs/networking/syncthing
+    ../../pkgs/terminal/foot
   ];
 
   home =
@@ -91,5 +91,5 @@
     };
   };
 
-  xdg.configFile."fish/fish_plugins".source = ../../modules/shell/fish/linux/fish_plugins;
+  xdg.configFile."fish/fish_plugins".source = ../../pkgs/shell/fish/linux/fish_plugins;
 }
