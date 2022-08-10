@@ -2,6 +2,7 @@
 {
   imports = [
     ../../pkgs/backup/restic
+    ../../pkgs/cloud
     ../../pkgs/dev/golang
     ../../pkgs/dev/javascript
     ../../pkgs/dev/jsonnet
@@ -68,8 +69,6 @@
       restic
       # --- chat ---
       zulip-term
-      # --- cloud ---
-      google-cloud-sdk
       # --- containers ---
       # pkgs.podman-compose
       # --- data ---
