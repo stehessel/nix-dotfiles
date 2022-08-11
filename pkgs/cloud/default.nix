@@ -4,5 +4,6 @@
     ./aws
     ./azure
     ./gcp
+    ./hetzner
   ];
 }
