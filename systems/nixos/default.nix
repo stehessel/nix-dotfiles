@@ -1,10 +1,9 @@
 { config, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./sops.nix
+  ];
 
   boot = {
     initrd.systemd.enable = true;
