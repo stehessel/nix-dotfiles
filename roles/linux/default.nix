@@ -44,20 +44,12 @@
         playerctl
         # --- networking ---
         networkmanagerapplet
-        # --- passwords ---
-        bitwarden
-        bitwarden-cli
         # --- window manager ---
         river
         swaybg
         swayidle
         swaylock
       ];
-
-      sessionVariablesExtra = ''
-        export BW_CLIENTID="$(cat ~/dev/secrets/bitwarden_id)"
-        export BW_CLIENTSECRET="$(cat ~/dev/secrets/bitwarden_secret)"
-      '';
     };
 
   programs = {
