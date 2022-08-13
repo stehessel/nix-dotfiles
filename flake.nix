@@ -99,14 +99,14 @@
       };
 
       overlays = {
-        bitwarden-cli-overlay = final: prev: {
-          bitwarden-cli = prev.bitwarden-cli.overrideAttrs (old: {
-            buildInputs = old.buildInputs ++ [ final.pkgs.makeWrapper ];
-            postInstall = old.postInstall or "" + ''
-              wrapProgram "$out/bin/bitwarden-cli" --set BW_CLIENTID "$(cat /run/secrets/bitwarden/id)" --set BW_CLIENTSECRET "$(cat /run/secrets/bitwarden/secret)"
-            '';
-          });
-        };
+        # bitwarden-cli-overlay = final: prev: {
+        #   bitwarden-cli = prev.bitwarden-cli.overrideAttrs (old: {
+        #     buildInputs = old.buildInputs ++ [ final.pkgs.makeWrapper ];
+        #     postInstall = old.postInstall or "" + ''
+        #       wrapProgram "$out/bin/bitwarden-cli" --set BW_CLIENTID "$(cat /run/secrets/bitwarden/id)" --set BW_CLIENTSECRET "$(cat /run/secrets/bitwarden/secret)"
+        #     '';
+        #   });
+        # };
 
         git-town-overlay = final: prev: {
           git-town = prev.git-town.overrideAttrs (old: {
