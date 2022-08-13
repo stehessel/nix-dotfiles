@@ -35,7 +35,7 @@
           addressFamily = "inet";
           hostname = "hesselmann.cloud";
           identitiesOnly = true;
-          identityFile = "~/.ssh/stehessel-server.pub";
+          identityFile = "/etc/ssh/ssh_server_key.pub";
           port = 50022;
           user = "stephan";
         };
