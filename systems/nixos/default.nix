@@ -24,6 +24,8 @@
     opengl.enable = true;
   };
 
+  systemd.coredump.enable = false;
+
   networking = {
     hostName = "thinkpad";
     networkmanager = {
