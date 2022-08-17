@@ -60,10 +60,6 @@
       SHELL = "";
       TMUX_PLUGIN_MANAGER_PATH = "${config.xdg.configHome}/tmux/plugins";
     };
-    sessionVariablesExtra = ''
-      export BW_CLIENTID="$(cat /run/secrets/bitwarden/id)"
-      export BW_CLIENTSECRET="$(cat /run/secrets/bitwarden/secret)"
-    '';
     shellAliases = {
       less = "less -i -R";
     };
