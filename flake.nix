@@ -110,12 +110,6 @@
           });
         };
 
-        git-town-overlay = final: prev: {
-          git-town = prev.git-town.overrideAttrs (old: {
-            doCheck = false;
-          });
-        };
-
         gh-overlay = final: prev: {
           gh = prev.gh.override {
             buildGoModule = final.pkgs.buildGo117Module;
@@ -130,17 +124,6 @@
 
         neovim-overlay = final: prev: {
           inherit (inputs.neovim.packages.${ prev.system}) neovim;
-        };
-
-        python-overlay = final: prev: rec {
-          python3 = prev.python3.override {
-            packageOverrides = final: prev: {
-              mocket = prev.mocket.overridePythonAttrs (old: {
-                disabledTests = old.disabledTests ++ [ "test_gethostbyname" ];
-              });
-            };
-          };
-          python3Packages = python3.pkgs;
         };
 
         rust-overlay = inputs.rust.overlays.default;
