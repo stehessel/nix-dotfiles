@@ -116,6 +116,12 @@
           });
         };
 
+        gh-overlay = final: prev: {
+          gh = prev.gh.override {
+            buildGoModule = final.pkgs.buildGo117Module;
+          };
+        };
+
         kitty-overlay = final: prev: {
           kitty = prev.kitty.overrideAttrs (old: {
             installCheckPhase = "";
