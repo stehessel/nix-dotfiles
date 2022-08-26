@@ -133,6 +133,7 @@
       bandwhich
       curl
       grpcurl
+      jwt-cli
       netcat
       ngrok
       nmap
@@ -168,6 +169,7 @@
       hyperfine
       sd
       topgrade
+      watch
       wget
       # --- web ---
       hugo

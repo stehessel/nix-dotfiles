@@ -99,21 +99,36 @@
       };
 
       overlays = {
-        bitwarden-cli-overlay = final: prev: {
-          bitwarden-cli = prev.bitwarden-cli.overrideAttrs (old: {
-            buildInputs = old.buildInputs ++ [ final.pkgs.makeWrapper ];
-            postInstall = old.postInstall or "" + ''
-              wrapProgram "$out/bin/bw" \
-                --add-flags BW_CLIENTID="$(cat /run/secrets/bitwarden/id || echo)" \
-                --add-flags BW_CLIENTSECRET="$(cat /run/secrets/bitwarden/secret || echo)"
-            '';
-          });
-        };
+        # bitwarden-cli-overlay = final: prev: {
+        #   bitwarden-cli = prev.bitwarden-cli.overrideAttrs (old: {
+        #     buildInputs = old.buildInputs ++ [ final.pkgs.makeWrapper ];
+        #     postInstall = old.postInstall or "" + ''
+        #       wrapProgram "$out/bin/bw" \
+        #         --add-flags BW_CLIENTID="$(cat /run/secrets/bitwarden/id || echo)" \
+        #         --add-flags BW_CLIENTSECRET="$(cat /run/secrets/bitwarden/secret || echo)"
+        #     '';
+        #   });
+        # };
 
         gh-overlay = final: prev: {
           gh = prev.gh.override {
-            buildGoModule = final.pkgs.buildGo117Module;
+            buildGoModule = final.pkgs.buildGo119Module;
           };
+        };
+
+        golangci-lint-overlay = final: prev: {
+          golangci-lint = prev.golangci-lint.override {
+            buildGoModule = final.pkgs.buildGo119Module;
+          };
+        };
+
+        helm-overlay = final: prev: {
+          kubernetes-helm = (prev.kubernetes-helm.override {
+            buildGoModule = final.pkgs.buildGo119Module;
+          }).overrideAttrs (old: {
+            doCheck = false;
+            installCheckPhase = "";
+          });
         };
 
         kitty-overlay = final: prev: {
@@ -126,7 +141,19 @@
           inherit (inputs.neovim.packages.${ prev.system}) neovim;
         };
 
+        restic-overlay = final: prev: {
+          restic = prev.restic.override {
+            buildGoModule = final.pkgs.buildGo119Module;
+          };
+        };
+
         rust-overlay = inputs.rust.overlays.default;
+
+        prometheus-overlay = final: prev: {
+          prometheus = prev.prometheus.override {
+            buildGoModule = final.pkgs.buildGo119Module;
+          };
+        };
       };
     };
 }

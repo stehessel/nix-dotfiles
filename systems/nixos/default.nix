@@ -135,8 +135,8 @@
   };
 
   nix = {
+    auto-optimise-store = true;
     extraOptions = ''
-      auto-optimise-store = true
       experimental-features = ca-derivations nix-command flakes
       keep-going = true
     '';
