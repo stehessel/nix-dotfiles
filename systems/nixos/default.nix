@@ -135,7 +135,6 @@
   };
 
   nix = {
-    auto-optimise-store = true;
     extraOptions = ''
       experimental-features = ca-derivations nix-command flakes
       keep-going = true
@@ -145,6 +144,7 @@
       dates = "weekly";
     };
     settings = {
+      auto-optimise-store = true;
       substituters = [
         # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
         "https://aseipp-nix-cache.freetls.fastly.net"
