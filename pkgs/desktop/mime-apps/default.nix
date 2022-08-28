@@ -4,7 +4,7 @@
     enable = true;
     defaultApplications = config.lib.xdg.mimeAssociations [
       pkgs.brave
-      pkgs.sioyek
+      # pkgs.sioyek
     ];
   };
 }
