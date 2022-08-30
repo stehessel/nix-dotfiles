@@ -131,6 +131,12 @@
           });
         };
 
+        jira-cli-overvaly = final: prev: {
+          jira-cli-go = prev.jira-cli-go.overrideAttrs (old: {
+            doCheck = false;
+          });
+        };
+
         kitty-overlay = final: prev: {
           kitty = prev.kitty.overrideAttrs (old: {
             installCheckPhase = "";
