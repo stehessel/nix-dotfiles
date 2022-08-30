@@ -137,12 +137,6 @@
           });
         };
 
-        kitty-overlay = final: prev: {
-          kitty = prev.kitty.overrideAttrs (old: {
-            installCheckPhase = "";
-          });
-        };
-
         neovim-overlay = final: prev: {
           inherit (inputs.neovim.packages.${ prev.system}) neovim;
         };
