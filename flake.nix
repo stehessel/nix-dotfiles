@@ -116,6 +116,12 @@
           };
         };
 
+        ginkgo-overlay = final: prev: {
+          ginkgo = prev.ginkgo.overrideAttrs (old: {
+            doCheck = false;
+          });
+        };
+
         golangci-lint-overlay = final: prev: {
           golangci-lint = prev.golangci-lint.override {
             buildGoModule = final.pkgs.buildGo119Module;
@@ -131,7 +137,7 @@
           });
         };
 
-        jira-cli-overvaly = final: prev: {
+        jira-cli-overlay = final: prev: {
           jira-cli-go = prev.jira-cli-go.overrideAttrs (old: {
             doCheck = false;
           });
