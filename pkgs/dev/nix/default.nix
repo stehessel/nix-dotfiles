@@ -6,6 +6,7 @@
       nix-prefetch-github
       nix-update
       nixpkgs-fmt
+      nixpkgs-review
       rnix-lsp
       statix
     ];
