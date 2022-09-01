@@ -110,6 +110,12 @@
         #   });
         # };
 
+        delta-overlay = final: prev: {
+          delta = prev.delta.overrideAttrs (old: {
+            doCheck = false;
+          });
+        };
+
         gh-overlay = final: prev: {
           gh = prev.gh.override {
             buildGoModule = final.pkgs.buildGo119Module;
