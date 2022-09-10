@@ -110,62 +110,11 @@
         #   });
         # };
 
-        delta-overlay = final: prev: {
-          delta = prev.delta.overrideAttrs (old: {
-            doCheck = false;
-          });
-        };
-
-        gh-overlay = final: prev: {
-          gh = prev.gh.override {
-            buildGoModule = final.pkgs.buildGo119Module;
-          };
-        };
-
-        ginkgo-overlay = final: prev: {
-          ginkgo = prev.ginkgo.overrideAttrs (old: {
-            doCheck = false;
-          });
-        };
-
-        golangci-lint-overlay = final: prev: {
-          golangci-lint = prev.golangci-lint.override {
-            buildGoModule = final.pkgs.buildGo119Module;
-          };
-        };
-
-        helm-overlay = final: prev: {
-          kubernetes-helm = (prev.kubernetes-helm.override {
-            buildGoModule = final.pkgs.buildGo119Module;
-          }).overrideAttrs (old: {
-            doCheck = false;
-            installCheckPhase = "";
-          });
-        };
-
-        jira-cli-overlay = final: prev: {
-          jira-cli-go = prev.jira-cli-go.overrideAttrs (old: {
-            doCheck = false;
-          });
-        };
-
         neovim-overlay = final: prev: {
           inherit (inputs.neovim.packages.${ prev.system}) neovim;
         };
 
-        restic-overlay = final: prev: {
-          restic = prev.restic.override {
-            buildGoModule = final.pkgs.buildGo119Module;
-          };
-        };
-
         rust-overlay = inputs.rust.overlays.default;
-
-        prometheus-overlay = final: prev: {
-          prometheus = prev.prometheus.override {
-            buildGoModule = final.pkgs.buildGo119Module;
-          };
-        };
       };
     };
 }
