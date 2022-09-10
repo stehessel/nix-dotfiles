@@ -1,5 +1,5 @@
 return {
-  setup = function(on_attach, capabilities, debounce_text_changes)
+  setup = function(on_attach, capabilities, flags)
     if not require("lspconfig").sonarlint then
       require("lspconfig/configs").sonarlint = {
         default_config = { cmd = { "nc", "-l", "6008" }, filetypes = { "python" } },
@@ -8,7 +8,7 @@ return {
     require("lspconfig").sonarlint.setup({
       on_attach = on_attach,
       capabilities = capabilities,
-      flags = { debounce_text_changes = debounce_text_changes },
+      flags = flags,
     })
   end,
 }

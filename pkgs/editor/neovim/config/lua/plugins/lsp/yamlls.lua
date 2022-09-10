@@ -1,9 +1,9 @@
 return {
-  setup = function(on_attach, capabilities, debounce_text_changes)
+  setup = function(on_attach, capabilities, flags)
     local cfg = require("yaml-companion").setup({
       on_attach = on_attach,
       capabilities = capabilities,
-      flags = { debounce_text_changes = debounce_text_changes },
+      flags = flags,
       yaml = {
         schemas = {
           ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",

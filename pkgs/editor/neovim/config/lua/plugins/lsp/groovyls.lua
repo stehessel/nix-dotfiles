@@ -1,5 +1,5 @@
 return {
-  setup = function(on_attach, capabilities, debounce_text_changes)
+  setup = function(on_attach, capabilities, flags)
     require("lspconfig").groovyls.setup({
       cmd = {
         "java",
@@ -13,7 +13,7 @@ return {
           or require("lspconfig").util.root_pattern("gradlew")(fname)
           or require("lspconfig").util.find_git_ancestor(fname)
       end,
-      flags = { debounce_text_changes = debounce_text_changes },
+      flags = flags,
     })
   end,
 }

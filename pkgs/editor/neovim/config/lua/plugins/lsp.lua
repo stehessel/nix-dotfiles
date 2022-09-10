@@ -35,6 +35,7 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local flags = { debounce_text_changes = 150 }
 
 local servers = {
   "ansiblels",
@@ -55,7 +56,7 @@ local servers = {
   "yamlls",
 }
 for _, name in ipairs(servers) do
-  require("plugins.lsp." .. name).setup(on_attach, capabilities, 150)
+  require("plugins.lsp." .. name).setup(on_attach, capabilities, flags)
 end
 
 return { on_attach = on_attach }

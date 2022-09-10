@@ -1,5 +1,5 @@
 return {
-  setup = function(on_attach, capabilities, debounce_text_changes)
+  setup = function(on_attach, capabilities, flags)
     require("lspconfig").tsserver.setup({
       on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
@@ -13,7 +13,7 @@ return {
         on_attach(client, bufnr)
       end,
       capabilities = capabilities,
-      flags = { debounce_text_changes = debounce_text_changes },
+      flags = flags,
     })
   end,
 }

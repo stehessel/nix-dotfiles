@@ -1,9 +1,9 @@
 return {
-  setup = function(on_attach, capabilities, debounce_text_changes)
+  setup = function(on_attach, capabilities, flags)
     require("lspconfig").gopls.setup({
       on_attach = on_attach,
       capabilities = capabilities,
-      flags = { debounce_text_changes = debounce_text_changes },
+      flags = flags,
       settings = {
         gopls = {
           gofumpt = true,

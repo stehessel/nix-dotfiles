@@ -1,5 +1,5 @@
 return {
-  setup = function(on_attach, capabilities, debounce_text_changes)
+  setup = function(on_attach, capabilities, flags)
     local runtime_path = vim.split(package.path, ";")
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
@@ -8,7 +8,7 @@ return {
       cmd = { "lua-language-server" },
       on_attach = on_attach,
       capabilities = capabilities,
-      flags = { debounce_text_changes = debounce_text_changes },
+      flags = flags,
       settings = {
         Lua = {
           runtime = {

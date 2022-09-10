@@ -1,5 +1,5 @@
 return {
-  setup = function(on_attach, capabilities, debounce_text_changes)
+  setup = function(on_attach, capabilities, flags)
     require("lspconfig").sqls.setup({
       on_attach = function(client)
         on_attach(client)
@@ -7,7 +7,7 @@ return {
         require("sqls").setup({ picker = "telescope" })
       end,
       capabilities = capabilities,
-      flags = { debounce_text_changes = debounce_text_changes },
+      flags = flags,
     })
   end,
 }
