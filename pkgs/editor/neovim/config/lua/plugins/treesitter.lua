@@ -106,6 +106,7 @@ require("nvim-treesitter.configs").setup({
       swap_next = { ["g>"] = "@parameter.inner" },
     },
   },
+  markid = { enable = true },
   playground = {
     enable = true,
     disable = {},

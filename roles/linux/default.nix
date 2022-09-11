@@ -44,9 +44,10 @@
         playerctl
         # --- networking ---
         networkmanagerapplet
+        # --- terminal ---
+        kitty
         # --- window manager ---
         river
-        kitty
         swaybg
         swayidle
         swaylock

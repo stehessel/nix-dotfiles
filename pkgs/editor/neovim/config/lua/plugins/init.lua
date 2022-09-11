@@ -572,6 +572,7 @@ return require("packer").startup({
       end,
     })
     use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
+    use({ "David-Kunz/markid" })
     -- Debugger
     use({
       "mfussenegger/nvim-dap",
