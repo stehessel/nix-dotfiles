@@ -46,6 +46,7 @@
         networkmanagerapplet
         # --- window manager ---
         river
+        kitty
         swaybg
         swayidle
         swaylock
