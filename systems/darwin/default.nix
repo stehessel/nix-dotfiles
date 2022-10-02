@@ -148,8 +148,7 @@
     };
   };
 
-  # Upstream PR: https://github.com/LnL7/nix-darwin/pull/228
-  # security.pam.enableSudoTouchIdAuth = true;
+  security.pam.enableSudoTouchIdAuth = true;
 
   services.nix-daemon.enable = true;
 
