@@ -114,18 +114,6 @@
           inherit (inputs.neovim.packages.${ prev.system}) neovim;
         };
 
-        river-overlay = final: prev: {
-          river = prev.river.overrideAttrs (_: {
-            src = prev.fetchFromGitHub {
-              owner = "riverwm";
-              repo = "river";
-              rev = "v0.1.2";
-              sha256 = "sha256-bHfHhyDx/Wzhvhr7mAeVzJf0TBJgMTGb/ClGjWMLlQ8=";
-              fetchSubmodules = true;
-            };
-          });
-        };
-
         rust-overlay = inputs.rust.overlays.default;
       };
     };
