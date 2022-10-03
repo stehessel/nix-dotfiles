@@ -59,6 +59,18 @@
     tlp.enable = true;
   };
 
+  # Memory
+  services.earlyoom = {
+    enable = true;
+    freeMemThreshold = 2;
+    extraArgs = [
+      "-g"
+      "--avoid '^(wayland|river|kitty|foot)$'"
+      "--prefer '^(electron|libreoffice|gimp|brave)$'"
+    ];
+  };
+
+
   # Audio
   security.rtkit.enable = true;
   services.pipewire = {
