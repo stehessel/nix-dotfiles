@@ -42,7 +42,7 @@ vim.diagnostic.config({ virtual_text = false, severity_sort = true })
 -- Short messages
 vim.opt.shortmess:append("c")
 -- Cmd height
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 1
 
 -- Search
 vim.opt.ignorecase = true
