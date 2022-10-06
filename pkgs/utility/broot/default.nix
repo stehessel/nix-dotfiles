@@ -1,10 +1,6 @@
 { lib, pkgs, ... }:
 {
-  home = {
-    file."Library/Preferences/org.dystroy.broot/conf.toml".source = config/conf.toml;
-
-    packages = with pkgs; [
-      broot
-    ];
+  programs.broot = {
+    enable = true;
   };
 }
