@@ -2,7 +2,7 @@
 {
   home = {
     packages = with pkgs; [
-      # go-jsonnet
+      go-jsonnet
       jsonnet-bundler
       jsonnet-language-server
     ];
