@@ -37,7 +37,7 @@ vim.keymap.set("n", "]d", function()
   vim.diagnostic.goto_next({ float = { focusable = false } })
 end)
 
-vim.diagnostic.config({ virtual_text = false, severity_sort = true })
+vim.diagnostic.config({ virtual_text = true, severity_sort = true })
 
 -- Short messages
 vim.opt.shortmess:append("c")
