@@ -347,14 +347,6 @@ return require("packer").startup({
     use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
     use({ "onsails/lspkind-nvim" })
     use({
-      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-      config = function()
-        require("lsp_lines").setup()
-
-        vim.keymap.set("", "<Leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
-      end,
-    })
-    use({
       "someone-stole-my-name/yaml-companion.nvim",
       requires = {
         { "neovim/nvim-lspconfig" },
