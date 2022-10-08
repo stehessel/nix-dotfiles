@@ -49,13 +49,15 @@
           (
             { pkgs, ... }:
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.stephan = {
-                imports = [
-                  ./profiles/stehessel
-                  ./roles/linux
-                ];
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.stephan = {
+                  imports = [
+                    ./profiles/stehessel
+                    ./roles/linux
+                  ];
+                };
               };
               nixpkgs = nixpkgsConfig;
 
@@ -80,13 +82,15 @@
 
           inputs.home-manager.darwinModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.stephan = {
-              imports = [
-                ./profiles/redhat
-                ./roles/work-macos
-              ];
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.stephan = {
+                imports = [
+                  ./profiles/redhat
+                  ./roles/work-macos
+                ];
+              };
             };
             nixpkgs = nixpkgsConfig;
 
