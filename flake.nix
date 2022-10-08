@@ -46,31 +46,28 @@
           inputs.sops-nix.nixosModules.sops
 
           inputs.home-manager.nixosModules.home-manager
-          (
-            { pkgs, ... }:
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.stephan = {
-                  imports = [
-                    ./profiles/stehessel
-                    ./roles/linux
-                  ];
-                };
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.stephan = {
+                imports = [
+                  ./profiles/stehessel
+                  ./roles/linux
+                ];
               };
-              nixpkgs = nixpkgsConfig;
+            };
+            nixpkgs = nixpkgsConfig;
 
-              users.users = {
-                root.hashedPassword = "!";
+            users.users = {
+              root.hashedPassword = "!";
 
-                stephan = {
-                  isNormalUser = true;
-                  extraGroups = [ "networkmanager" "wheel" ];
-                };
+              stephan = {
+                isNormalUser = true;
+                extraGroups = [ "networkmanager" "wheel" ];
               };
-            }
-          )
+            };
+          }
         ];
       };
 
