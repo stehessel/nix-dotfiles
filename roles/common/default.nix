@@ -101,8 +101,8 @@
       helix
       kakoune
       # --- file manager ---
-      lf
       nnn
+      xplr
       # --- file search ---
       fd
       tre-command
