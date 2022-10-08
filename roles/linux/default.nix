@@ -57,7 +57,7 @@
   programs = {
     himalaya.enable = true;
     home-manager.enable = true;
-    # sioyek.enable = true;
+    sioyek.enable = true;
   };
   xsession = {
     preferStatusNotifierItems = true;
