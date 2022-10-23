@@ -79,7 +79,7 @@
       # --- desktop ---
       xdg-utils
       # --- dev ---
-      buf
+      # buf
       cmake
       code-minimap
       codespell
