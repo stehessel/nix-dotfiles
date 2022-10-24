@@ -16,6 +16,7 @@
     ../../pkgs/dev/version-control/git
     ../../pkgs/editor/neovim
     ../../pkgs/file-manager/lf
+    ../../pkgs/infra/ansible
     ../../pkgs/networking/kubernetes
     ../../pkgs/shell/bash
     ../../pkgs/shell/fish
@@ -122,9 +123,6 @@
       highlight
       # --- images ---
       exiftool
-      # --- infrastructure ---
-      ansible
-      ansible-lint
       # --- java ---
       maven
       # --- launcher ---
