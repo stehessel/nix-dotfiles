@@ -2,7 +2,8 @@
 {
   home = {
     packages = with pkgs; [
-      # cachix
+      cachix
+      deadnix
       nix-prefetch-github
       nix-update
       nixpkgs-fmt
