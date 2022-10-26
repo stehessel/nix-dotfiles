@@ -6,7 +6,7 @@ return {
       flags = flags,
       settings = {
         gopls = {
-          gofumpt = true,
+          gofumpt = false,
         },
       },
     })
