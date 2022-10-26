@@ -13,6 +13,7 @@
       gc = "git commit -am";
       gp = "git push";
       gP = "git pull";
+      gf = "git fetch upstream; git pull upstream master";
       gco = "git checkout";
       gw = "git switch";
       gd = "git diff";
