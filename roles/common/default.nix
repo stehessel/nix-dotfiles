@@ -166,7 +166,7 @@
       gettext
       hyperfine
       sd
-      topgrade
+      # topgrade
       watch
       wget
       # --- web ---
