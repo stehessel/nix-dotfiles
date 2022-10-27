@@ -304,7 +304,7 @@ return require("packer").startup({
             builtins.diagnostics.codespell,
             builtins.diagnostics.deadnix,
             builtins.diagnostics.eslint.with({ command = "eslint_d" }),
-            builtins.diagnostics.golangci_lint,
+            -- builtins.diagnostics.golangci_lint,
             builtins.diagnostics.hadolint,
             builtins.diagnostics.selene,
             builtins.diagnostics.shellcheck,
