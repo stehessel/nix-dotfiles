@@ -29,7 +29,7 @@
       set fish_greeting
 
       # Open files with Ctrl-f
-      fzf_configure_bindings --directory=\cf
+      fzf_configure_bindings --directory=\cf --git_log=\cg
       set fzf_directory_opts --bind "enter:abort+execute($EDITOR {} &> /dev/tty)"
 
       # Fisher
