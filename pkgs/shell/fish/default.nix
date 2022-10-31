@@ -28,6 +28,10 @@
     interactiveShellInit = ''
       set fish_greeting
 
+      # Open files with Ctrl-f
+      fzf_configure_bindings --directory=\cf
+      set fzf_directory_opts --bind "enter:abort+execute($EDITOR {} &> /dev/tty)"
+
       # Fisher
       if not functions -q fisher
           curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
