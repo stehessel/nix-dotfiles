@@ -4,10 +4,12 @@
     packages = with pkgs; [
       git-extras
       git-interactive-rebase-tool
+      git-sizer
       git-town
       gitAndTools.git-bug
       gitAndTools.git-fame
       nodePackages."@withgraphite/graphite-cli"
+      onefetch
       pre-commit
     ];
   };
