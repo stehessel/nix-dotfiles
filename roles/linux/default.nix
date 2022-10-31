@@ -45,6 +45,7 @@
         # --- networking ---
         networkmanagerapplet
         # --- terminal ---
+        alacritty
         kitty
         # --- window manager ---
         river

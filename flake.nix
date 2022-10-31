@@ -111,7 +111,7 @@
         #   });
         # };
 
-        neovim-overlay = final: prev: {
+        neovim-overlay = _: prev: {
           inherit (inputs.neovim.packages.${ prev.system}) neovim;
         };
 

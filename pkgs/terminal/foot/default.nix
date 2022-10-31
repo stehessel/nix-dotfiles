@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+_:
 {
   programs.foot = {
     enable = true;
@@ -7,8 +7,8 @@
       main = {
         app-id = "foot";
         dpi-aware = "yes";
-        font = "FiraCode Nerd Font:size=8";
-        term = "screen-256color";
+        shell = "fish";
+        font = "FiraCode Nerd Font:size=7.5";
       };
       mouse = {
         hide-when-typing = "yes";
