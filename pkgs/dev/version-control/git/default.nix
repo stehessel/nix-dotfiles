@@ -1,7 +1,8 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   home = {
     packages = with pkgs; [
+      git-interactive-rebase-tool
       git-town
       gitAndTools.git-bug
       gitAndTools.git-fame
@@ -92,6 +93,9 @@
         push = {
           autoSetupRemote = true;
           recurseSubmodules = "check";
+        };
+        sequence = {
+          editor = "interactive-rebase-tool";
         };
         status = {
           submoduesummary = 1;
