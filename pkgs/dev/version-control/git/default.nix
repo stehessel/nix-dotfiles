@@ -2,6 +2,7 @@
 {
   home = {
     packages = with pkgs; [
+      git-extras
       git-interactive-rebase-tool
       git-town
       gitAndTools.git-bug
