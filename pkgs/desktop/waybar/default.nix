@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+_:
 {
   programs.waybar = {
     enable = true;
@@ -6,61 +6,23 @@
       mainBar = {
         layer = "top";
         position = "top";
+        spacing = 20;
 
         modules-left = [
           "river/tags"
-          "custom/right-arrow-dark"
-        ];
-        modules-center = [
-          "custom/left-arrow-dark"
-          "clock#1"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
-          "clock#2"
-          "custom/right-arrow-dark"
-          "custom/right-arrow-light"
-          "clock#3"
-          "custom/right-arrow-dark"
         ];
         modules-right = [
-          "custom/left-arrow-dark"
           "backlight"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
           "pulseaudio"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
           "memory"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
           "cpu"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
           "battery"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
           "disk"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
+          "clock#1"
+          "clock#2"
+          "clock#3"
           "tray"
         ];
-
-        "custom/left-arrow-dark" = {
-          format = "";
-          tooltip = false;
-        };
-        "custom/left-arrow-light" = {
-          format = "";
-          tooltip = false;
-        };
-        "custom/right-arrow-dark" = {
-          format = "";
-          tooltip = false;
-        };
-        "custom/right-arrow-light" = {
-          format = "";
-          tooltip = false;
-        };
 
         "river/tags" = {
           "num-tags" = 8;
@@ -68,16 +30,13 @@
         };
 
         "clock#1" = {
-          format = "{:%a}";
-          tooltip = false;
+          format = "{:%G-%m-%d}";
         };
         "clock#2" = {
-          format = "{:%H:%M}";
-          tooltip = false;
+          format = "{:%a}";
         };
         "clock#3" = {
-          format = "{:%G-%m-%d}";
-          tooltip = false;
+          format = "{:%H:%M}";
         };
 
         backlight = {
@@ -144,16 +103,6 @@
         color: #fdf6e3;
       }
 
-      #custom-right-arrow-dark,
-      #custom-left-arrow-dark {
-        color: #1a1a1a;
-      }
-      #custom-right-arrow-light,
-      #custom-left-arrow-light {
-        color: #292b2e;
-        background: #1a1a1a;
-      }
-
       #tags,
       #clock.1,
       #clock.2,
@@ -209,7 +158,7 @@
       }
     '';
     systemd = {
-      enable = true;  # Spawn in river config
+      enable = true; # Spawn in river config
     };
   };
 }
