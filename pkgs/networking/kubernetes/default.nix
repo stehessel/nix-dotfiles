@@ -1,7 +1,8 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   home = {
     packages = with pkgs; [
+      glooctl
       k9s
       krew
       ktunnel
@@ -10,7 +11,7 @@
       kubectx
       (pkgs.wrapHelm pkgs.kubernetes-helm {
         plugins = [
-          # pkgs.kubernetes-helmPlugins.helm-diff
+          pkgs.kubernetes-helmPlugins.helm-diff
           pkgs.kubernetes-helmPlugins.helm-secrets
         ];
       })
