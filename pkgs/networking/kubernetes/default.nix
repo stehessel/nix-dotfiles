@@ -3,6 +3,7 @@
   home = {
     packages = with pkgs; [
       glooctl
+      istioctl
       k9s
       krew
       ktunnel
