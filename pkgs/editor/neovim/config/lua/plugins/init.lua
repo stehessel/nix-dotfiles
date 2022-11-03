@@ -338,7 +338,11 @@ return require("packer").startup({
             builtins.formatting.shfmt,
             builtins.formatting.sql_formatter,
             builtins.formatting.stylua.with({
-              args = { "--config-path", os.getenv("HOME") .. "/.config/stylua/stylua.toml", "-" },
+              args = {
+                "--config-path",
+                os.getenv("HOME") .. "/.config/stylua/stylua.toml",
+                "-",
+              },
             }),
           },
         })
@@ -888,7 +892,13 @@ return require("packer").startup({
         })
       end,
     })
-    use({ "Darazaki/indent-o-matic" })
+    use({ "Darazaki/indent-o-matic", disable = true })
+    use({
+      "nmac427/guess-indent.nvim",
+      config = function()
+        require("guess-indent").setup({})
+      end,
+    })
     -- Keybinds
     use({ "tpope/vim-unimpaired" })
     -- Movement
@@ -897,6 +907,20 @@ return require("packer").startup({
       config = function()
         require("leap").set_default_keymaps()
       end,
+    })
+    use({
+      "ggandor/leap-spooky.nvim",
+      config = function()
+        require("leap-spooky").setup({
+          affixes = {
+            window = "r",
+            cross_window = "R",
+          },
+          yank_paste = false,
+          opts = nil,
+        })
+      end,
+      disable = true,
     })
     use({
       "mfussenegger/nvim-treehopper",
