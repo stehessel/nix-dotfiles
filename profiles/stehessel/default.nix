@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 {
   accounts.email.accounts = {
     stehessel = {
@@ -32,7 +32,7 @@
       enable = true;
       matchBlocks = {
         "server" = {
-          addressFamily = "inet";
+          addressFamily = "inet6";
           hostname = "hesselmann.cloud";
           identitiesOnly = true;
           identityFile = "/etc/ssh/ssh_server_key.pub";
