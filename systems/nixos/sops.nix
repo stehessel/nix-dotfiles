@@ -27,14 +27,14 @@
         owner = config.users.users.stephan.name;
         inherit (config.users.users.stephan.group);
       };
-      "ssh/hcloud_k8s/public" = {
-        path = "/etc/ssh/ssh_hcloud_k8s_key.pub";
+      "ssh/hcloud/public" = {
+        path = "/etc/ssh/ssh_hcloud_key.pub";
         sopsFile = ../../secrets/ssh.yaml;
         owner = config.users.users.stephan.name;
         inherit (config.users.users.stephan.group);
       };
-      "ssh/hcloud_k8s/private" = {
-        path = "/etc/ssh/ssh_hcloud_k8s_key";
+      "ssh/hcloud/private" = {
+        path = "/etc/ssh/ssh_hcloud_key";
         sopsFile = ../../secrets/ssh.yaml;
         owner = config.users.users.stephan.name;
         inherit (config.users.users.stephan.group);
