@@ -21,5 +21,8 @@
       openshift
       operator-sdk
     ];
+    sessionPath = [
+      "$HOME/.krew/bin"
+    ];
   };
 }

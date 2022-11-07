@@ -9,20 +9,21 @@
     enable = true;
 
     shellAbbrs = {
-      gb = "git branch";
-      gc = "git commit -am";
-      gp = "git push";
-      gP = "git pull";
-      gf = "git fetch upstream; git pull upstream master";
-      gco = "git checkout";
-      gw = "git switch";
-      gd = "git diff";
-      gs = "git status";
-      gl = "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
       B = "git checkout (git for-each-ref --sort=-committerdate --count=100 --format=\"%(refname:short)\" refs/heads/ | fzf --preview \"git log {} --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --color | head -n 200\")";
       d = "cd (fd --type=d --max-depth=1 . ~/dev | fzf --preview 'ls --color=always {}')";
-      tw = "task";
+      gP = "git pull";
+      gb = "git branch";
+      gc = "git commit -am";
+      gco = "git checkout";
+      gd = "git diff";
+      gf = "git fetch upstream; git pull upstream master";
+      gl = "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+      gp = "git push";
+      gs = "git status";
+      gw = "git switch";
       t = "topgrade";
+      tf = "terraform";
+      tw = "task";
     };
 
     interactiveShellInit = ''
