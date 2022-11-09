@@ -85,6 +85,7 @@
       code-minimap
       codespell
       editorconfig-core-c
+      gnumake
       jira-cli-go
       prometheus
       tokei

@@ -62,6 +62,7 @@
       "nrlquaker/createzap"
     ];
     brews = [
+      "llvm"
       "skhd"
       "yabai"
     ];
