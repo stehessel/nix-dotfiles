@@ -1391,6 +1391,7 @@ return require("packer").startup({
     })
     -- Filetypes
     use({ "isobit/vim-caddyfile", ft = "caddyfile" })
+    use({ "towolf/vim-helm" })
     -- Notifications
     use({ "rcarriga/nvim-notify" })
     -- Neovim utility
