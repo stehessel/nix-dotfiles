@@ -2,9 +2,11 @@
 {
   home = {
     packages = with pkgs; [
+      fluxcd
       glooctl
       istioctl
       k9s
+      kind
       krew
       ktunnel
       kube-linter
@@ -22,7 +24,7 @@
       operator-sdk
     ];
     sessionPath = [
-      "$HOME/.krew/bin"
+      "/home/stephan/.krew/bin"
     ];
   };
 }
