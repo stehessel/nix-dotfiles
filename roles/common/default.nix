@@ -23,7 +23,7 @@
     ../../pkgs/shell/nushell
     ../../pkgs/shell/starship
     ../../pkgs/terminal/tmux
-    ../../pkgs/todo/taskwarrior
+    # ../../pkgs/todo/taskwarrior
     ../../pkgs/utility/broot
     ../../pkgs/utility/fzf
     ../../pkgs/utility/gnupg
@@ -165,6 +165,7 @@
       duf
       file
       gettext
+      go-task
       hyperfine
       sd
       # topgrade
