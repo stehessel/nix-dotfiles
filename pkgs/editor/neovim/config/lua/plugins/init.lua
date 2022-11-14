@@ -1349,6 +1349,27 @@ return require("packer").startup({
       end,
     })
     use({
+      "cshuaimin/ssr.nvim",
+      module = "ssr",
+      config = function()
+        require("ssr").setup({
+          min_width = 50,
+          min_height = 5,
+          keymaps = {
+            close = "q",
+            next_match = "n",
+            prev_match = "N",
+            replace_all = "<leader><cr>",
+          },
+        })
+      end,
+      setup = function()
+        vim.keymap.set({ "n", "x" }, "<leader>sr", function()
+          require("ssr").open()
+        end)
+      end,
+    })
+    use({
       "inkarkat/vim-SearchAlternatives",
       keys = "/",
       requires = "inkarkat/vim-ingo-library",
