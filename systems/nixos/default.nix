@@ -116,7 +116,7 @@
 
       sessionPackages = [
         (pkgs.river.overrideAttrs
-          (prevAttrs: rec {
+          (_: rec {
             postInstall =
               let
                 riverSession = ''
