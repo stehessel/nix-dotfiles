@@ -17,6 +17,11 @@
         owner = config.users.users.stephan.name;
         inherit (config.users.users.stephan.group);
       };
+      "cachix/token" = {
+        sopsFile = ../../secrets/shared.yaml;
+        owner = config.users.users.stephan.name;
+        inherit (config.users.users.stephan.group);
+      };
       "github/fluxcd/user" = {
         sopsFile = ../../secrets/shared.yaml;
         owner = config.users.users.stephan.name;
