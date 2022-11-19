@@ -1,4 +1,7 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   xdg.configFile."pycodestyle".source = config/pycodestyle;
 }

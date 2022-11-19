@@ -1,5 +1,4 @@
-_:
-{
+_: {
   programs.waybar = {
     enable = true;
     settings = {
@@ -26,7 +25,7 @@ _:
 
         "river/tags" = {
           "num-tags" = 8;
-          "tag-labels" = [ "1" "2" "3" "4" "5" "6" "7" "8" ];
+          "tag-labels" = ["1" "2" "3" "4" "5" "6" "7" "8"];
         };
 
         "clock#1" = {
@@ -42,7 +41,7 @@ _:
         backlight = {
           device = "intel_backlight";
           format = "{icon} {percent:2}%";
-          format-icons = [ "" "" ];
+          format-icons = ["" ""];
         };
         puiseaudio = {
           format = "{icon} {volume:2}%";

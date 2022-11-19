@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../common
     ../../pkgs/desktop/dunst
@@ -14,46 +17,45 @@
     ../../pkgs/terminal/foot
   ];
 
-  home =
-    {
-      packages = with pkgs; [
-        # --- bookmarks ---
-        buku
-        # --- browsers ---
-        brave
-        # --- desktop ---
-        bemenu
-        cliphist
-        libnotify
-        mako
-        rofi
-        syncthingtray
-        wl-clipboard
-        wofi
-        # --- dev ---
-        gcc
-        gnumake
-        zig
-        # --- file viewer ---
-        glow
-        # --- icons ---
-        gnome.adwaita-icon-theme
-        # --- media ---
-        brightnessctl
-        pamixer
-        playerctl
-        # --- networking ---
-        networkmanagerapplet
-        # --- terminal ---
-        alacritty
-        kitty
-        # --- window manager ---
-        river
-        swaybg
-        swayidle
-        swaylock
-      ];
-    };
+  home = {
+    packages = with pkgs; [
+      # --- bookmarks ---
+      buku
+      # --- browsers ---
+      brave
+      # --- desktop ---
+      bemenu
+      cliphist
+      libnotify
+      mako
+      rofi
+      syncthingtray
+      wl-clipboard
+      wofi
+      # --- dev ---
+      gcc
+      gnumake
+      zig
+      # --- file viewer ---
+      glow
+      # --- icons ---
+      gnome.adwaita-icon-theme
+      # --- media ---
+      brightnessctl
+      pamixer
+      playerctl
+      # --- networking ---
+      networkmanagerapplet
+      # --- terminal ---
+      alacritty
+      kitty
+      # --- window manager ---
+      river
+      swaybg
+      swayidle
+      swaylock
+    ];
+  };
 
   programs = {
     himalaya.enable = true;
@@ -80,7 +82,7 @@
         Unit = {
           Description = "Home Manager System Tray";
           # After = [ "graphical-session.target" ];
-          Requires = [ "graphical-session-pre.target" ];
+          Requires = ["graphical-session-pre.target"];
         };
       };
     };

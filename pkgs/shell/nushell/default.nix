@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   programs.nushell = {
     enable = true;
   };

@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../common
     ../../pkgs/desktop/skhd

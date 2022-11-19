@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   xdg.configFile."lf" = {
     source = ./config;
     recursive = true;

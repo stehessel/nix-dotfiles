@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./sops.nix
@@ -50,7 +53,7 @@
 
   fonts.fonts = with pkgs; [
     (nerdfonts.override {
-      fonts = [ "FiraCode" ];
+      fonts = ["FiraCode"];
     })
   ];
 
@@ -69,7 +72,6 @@
       "--prefer '^(electron|libreoffice|gimp|brave)$'"
     ];
   };
-
 
   # Audio
   security.rtkit.enable = true;
@@ -115,23 +117,22 @@
       '';
 
       sessionPackages = [
-        (pkgs.river.overrideAttrs
+        (
+          pkgs.river.overrideAttrs
           (_: rec {
-            postInstall =
-              let
-                riverSession = ''
-                  [Desktop Entry]
-                  Name=River
-                  Comment=Dynamic Wayland compositor
-                  Exec=river
-                  Type=Application
-                '';
-              in
-              ''
-                mkdir -p $out/share/wayland-sessions
-                echo "${riverSession}" > $out/share/wayland-sessions/river.desktop
+            postInstall = let
+              riverSession = ''
+                [Desktop Entry]
+                Name=River
+                Comment=Dynamic Wayland compositor
+                Exec=river
+                Type=Application
               '';
-            passthru.providedSessions = [ "river" ];
+            in ''
+              mkdir -p $out/share/wayland-sessions
+              echo "${riverSession}" > $out/share/wayland-sessions/river.desktop
+            '';
+            passthru.providedSessions = ["river"];
           })
         )
       ];

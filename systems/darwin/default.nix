@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-{
-  environment.shells = [ pkgs.bashInteractive pkgs.fish ];
+{pkgs, ...}: {
+  environment.shells = [pkgs.bashInteractive pkgs.fish];
   programs.bash.enable = true;
   programs.fish.enable = true;
 
@@ -99,7 +97,7 @@
 
   fonts.fonts = with pkgs; [
     (nerdfonts.override {
-      fonts = [ "FiraCode" ];
+      fonts = ["FiraCode"];
     })
   ];
 
@@ -162,7 +160,7 @@
     '';
     gc = {
       automatic = true;
-      interval = { Hour = 12; };
+      interval = {Hour = 12;};
     };
     settings = {
       substituters = [

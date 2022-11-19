@@ -1,4 +1,7 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   xdg.configFile.".isort.cfg".source = config/isort.cfg;
 }

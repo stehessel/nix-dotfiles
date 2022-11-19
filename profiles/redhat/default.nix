@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.git = {
     userEmail = "shesselm@redhat.com";
     userName = "Stephan Heßelmann";

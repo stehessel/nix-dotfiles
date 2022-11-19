@@ -1,5 +1,8 @@
-{ config, sops, ... }:
 {
+  config,
+  sops,
+  ...
+}: {
   sops = {
     defaultSopsFile = ../../secrets/shared.yaml;
     age.keyFile = "/home/${config.users.users.stephan.name}/.config/sops/age/keys.txt";

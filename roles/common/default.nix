@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../../pkgs/backup/restic
     ../../pkgs/cloud
@@ -52,10 +56,9 @@
       JIRA_AUTH_TYPE = "bearer";
       LEIN_HOME = "${config.xdg.configHome}/lein";
       LIB_SQLITE_PATH =
-        if pkgs.stdenv.isDarwin then
-          "${pkgs.sqlite.out}/lib/libsqlite3.dylib"
-        else
-          "${pkgs.sqlite.out}/lib/libsqlite3.so";
+        if pkgs.stdenv.isDarwin
+        then "${pkgs.sqlite.out}/lib/libsqlite3.dylib"
+        else "${pkgs.sqlite.out}/lib/libsqlite3.so";
       PAGER = "less";
       READER = "zathura";
       SHELL = "";
@@ -150,7 +153,7 @@
       nodePackages.sql-formatter
       sqlite
       # --- system ---
-      (uutils-coreutils.override { prefix = ""; })
+      (uutils-coreutils.override {prefix = "";})
       # --- terminal multiplexers ---
       tmux
       # --- terraform ---

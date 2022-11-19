@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   accounts.email.accounts = {
     stehessel = {
       primary = true;

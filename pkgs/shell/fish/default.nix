@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   xdg.configFile."fish/functions" = {
     source = ./config/functions;
     recursive = true;
