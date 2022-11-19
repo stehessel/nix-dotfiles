@@ -322,6 +322,7 @@ return require("packer").startup({
                 }
               end,
             }),
+            builtins.formatting.alejandra,
             builtins.formatting.black,
             builtins.formatting.cbfmt.with({
               args = {

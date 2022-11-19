@@ -2,6 +2,7 @@
 {
   home = {
     packages = with pkgs; [
+      alejandra
       cachix
       deadnix
       nix-prefetch-github
