@@ -46,7 +46,7 @@ local servers = {
   "jsonnet_ls",
   "marksman",
   "pyright",
-  "rnix",
+  -- "rnix",
   -- "sqls",
   "sumneko",
   "tailwindcss",
