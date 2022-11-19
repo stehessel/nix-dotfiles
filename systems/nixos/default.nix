@@ -159,8 +159,6 @@
     settings = {
       auto-optimise-store = true;
       substituters = [
-        # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
-        "https://aseipp-nix-cache.freetls.fastly.net"
         # Content addressed cache
         # "https://cache.ngi0.nixos.org"
         "https://cache.nixos.org"
