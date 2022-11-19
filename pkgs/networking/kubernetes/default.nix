@@ -10,8 +10,10 @@
       krew
       ktunnel
       kube-linter
+      kubeconform
       kubectl
       kubectx
+      kustomize
       (pkgs.wrapHelm pkgs.kubernetes-helm {
         plugins = [
           pkgs.kubernetes-helmPlugins.helm-diff
