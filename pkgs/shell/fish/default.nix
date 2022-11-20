@@ -24,6 +24,7 @@
       gp = "git push";
       gs = "git status";
       gw = "git switch";
+      k = "kubectl";
       t = "task";
       tf = "terraform";
     };
