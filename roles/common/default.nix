@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: {
@@ -171,7 +170,6 @@
       go-task
       hyperfine
       sd
-      # topgrade
       watch
       wget
       # --- web ---
