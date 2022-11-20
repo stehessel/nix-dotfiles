@@ -24,9 +24,8 @@
       gp = "git push";
       gs = "git status";
       gw = "git switch";
-      t = "topgrade";
+      t = "task";
       tf = "terraform";
-      tw = "task";
     };
 
     interactiveShellInit = ''
