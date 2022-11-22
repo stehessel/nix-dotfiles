@@ -173,7 +173,7 @@
       watch
       wget
       # --- web ---
-      # hugo
+      hugo
       nodePackages."@tailwindcss/language-server"
       # --- yaml ---
       yaml-language-server

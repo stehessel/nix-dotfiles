@@ -19,9 +19,6 @@
       # --- containers ---
       docker
       docker-compose
-      # --- latex ---
-      # texlive.combined.scheme-full
-      # tectonic
       # --- text ---
       gnused
       # --- window manager ---
