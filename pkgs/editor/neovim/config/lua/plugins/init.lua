@@ -248,6 +248,7 @@ return require("packer").startup({
     -- Notes
     use({
       "vhyrro/neorg",
+      after = "nvim-treesitter",
       config = function()
         require("neorg").setup({
           load = {
@@ -269,6 +270,8 @@ return require("packer").startup({
           },
         })
       end,
+      ft = "norg",
+      run = ":Neorg sync-parsers",
       disable = false,
     })
     use({
