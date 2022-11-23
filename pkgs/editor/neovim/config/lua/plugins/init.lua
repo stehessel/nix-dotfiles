@@ -271,8 +271,6 @@ return require("packer").startup({
         })
       end,
       ft = "norg",
-      run = ":Neorg sync-parsers",
-      disable = false,
     })
     use({
       "kristijanhusak/orgmode.nvim",
