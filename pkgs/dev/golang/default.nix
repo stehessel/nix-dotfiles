@@ -7,9 +7,9 @@
   home = {
     packages = with pkgs; [
       delve
-      # ginkgo
+      ginkgo
       gofumpt
-      # golangci-lint
+      golangci-lint
       gopls
       gotest
       gotests
