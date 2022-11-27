@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home = {
     packages = with pkgs; [
-      azure-cli
+      backblaze-b2
     ];
   };
 }

@@ -1,12 +1,8 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+_: {
   imports = [
     ./aws
     ./azure
+    ./backblaze
     ./gcp
     ./hetzner
   ];
