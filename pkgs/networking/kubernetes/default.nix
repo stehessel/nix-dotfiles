@@ -6,6 +6,7 @@
       istioctl
       k9s
       kind
+      kops
       krew
       ktunnel
       kube-linter

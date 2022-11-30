@@ -106,6 +106,9 @@
           "git@github.com:" = {
             insteadOf = "https://github.com/";
           };
+          "git@gitlab.corp.redhat.com:" = {
+            insteadOf = "https://gitlab.corp.redhat.com/";
+          };
         };
       };
     };
