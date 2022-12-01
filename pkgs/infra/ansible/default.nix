@@ -1,12 +1,8 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home = {
     packages = with pkgs; [
-      ansible
-      ansible-lint
+      # ansible
+      # ansible-lint
       nodePackages."@ansible/ansible-language-server"
     ];
   };
