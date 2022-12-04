@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+_: {
   xdg.configFile."fish/functions" = {
     source = ./config/functions;
     recursive = true;
@@ -14,7 +10,9 @@
     shellAbbrs = {
       B = "git checkout (git for-each-ref --sort=-committerdate --count=100 --format=\"%(refname:short)\" refs/heads/ | fzf --preview \"git log {} --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --color | head -n 200\")";
       d = "cd (fd --type=d --max-depth=1 . ~/dev | fzf --preview 'ls --color=always {}')";
+      f = "flux get kustomizations";
       gP = "git pull";
+      ga = "git add";
       gb = "git branch";
       gc = "git commit -am";
       gco = "git checkout";
@@ -24,6 +22,7 @@
       gp = "git push";
       gs = "git status";
       gw = "git switch";
+      i = "istioctl";
       k = "kubectl";
       t = "task";
       tf = "terraform";
