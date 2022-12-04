@@ -22,9 +22,6 @@
           pkgs.kubernetes-helmPlugins.helm-secrets
         ];
       })
-      ocm
-      odo
-      openshift
       operator-sdk
     ];
     sessionPath = [

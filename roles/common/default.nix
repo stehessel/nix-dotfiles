@@ -21,6 +21,7 @@
     ../../pkgs/file-manager/lf
     ../../pkgs/infra/ansible
     ../../pkgs/networking/kubernetes
+    ../../pkgs/networking/openshift
     ../../pkgs/shell/bash
     ../../pkgs/shell/fish
     ../../pkgs/shell/nushell
