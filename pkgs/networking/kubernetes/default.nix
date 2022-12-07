@@ -22,6 +22,7 @@
           pkgs.kubernetes-helmPlugins.helm-secrets
         ];
       })
+      linkerd
       operator-sdk
     ];
     sessionPath = [
