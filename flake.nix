@@ -113,6 +113,12 @@
       #   });
       # };
 
+      fish-overlay = _: prev: {
+        fish = prev.fish.overrideAttrs (old: {
+          doCheck = false;
+        });
+      };
+
       neovim-overlay = _: prev: {
         inherit (inputs.neovim.packages.${prev.system}) neovim;
       };

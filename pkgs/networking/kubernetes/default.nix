@@ -4,7 +4,7 @@
       cilium-cli
       fluxcd
       glooctl
-      hubble
+      # hubble
       istioctl
       k9s
       kind
