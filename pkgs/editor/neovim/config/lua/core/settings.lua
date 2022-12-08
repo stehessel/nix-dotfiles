@@ -13,6 +13,7 @@ vim.opt.breakindent = true
 
 -- Scrolling
 vim.opt.scrolloff = 5
+vim.opt.virtualedit = "all"
 
 -- Sessions
 vim.opt.sessionoptions:append({ "tabpages", "globals", "winpos", "winsize", "blank", "resize" })
