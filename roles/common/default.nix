@@ -135,6 +135,7 @@
       bandwhich
       curl
       grpcurl
+      httpie
       jwt-cli
       netcat
       ngrok
