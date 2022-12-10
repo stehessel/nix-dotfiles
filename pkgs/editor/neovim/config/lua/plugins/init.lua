@@ -1426,6 +1426,12 @@ return require("packer").startup({
     -- Filetypes
     use({ "isobit/vim-caddyfile", ft = "caddyfile" })
     use({ "towolf/vim-helm" })
+    use({
+      "LhKipp/nvim-nu",
+      config = function()
+        require("nu").setup({})
+      end,
+    })
     -- Notifications
     use({ "rcarriga/nvim-notify" })
     -- Neovim utility
