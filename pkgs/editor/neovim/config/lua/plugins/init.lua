@@ -398,6 +398,9 @@ return require("packer").startup({
         end
 
         cmp.setup({
+          completion = {
+            keyword_length = 3,
+          },
           formatting = {
             format = lspkind.cmp_format({
               with_text = true,
