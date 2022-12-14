@@ -113,8 +113,8 @@
       #   });
       # };
 
-      fish-overlay = _: prev: {
-        fish = prev.fish.overrideAttrs (_: {
+      kitty-overlay = _: prev: {
+        kitty = prev.kitty.overrideAttrs (_: {
           doCheck = false;
         });
       };
