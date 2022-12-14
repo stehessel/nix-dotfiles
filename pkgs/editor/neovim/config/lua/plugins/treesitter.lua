@@ -38,8 +38,8 @@ require("nvim-treesitter.configs").setup({
     lsp_interop = {
       enable = true,
       peek_definition_code = {
-        ["dc"] = "@function.outer",
-        ["dC"] = "@class.outer",
+        ["<Space>p"] = "@function.outer",
+        ["<Space>P"] = "@class.outer",
       },
     },
     move = {
