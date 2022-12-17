@@ -75,7 +75,8 @@
       # --- chat ---
       zulip-term
       # --- containers ---
-      # pkgs.podman-compose
+      cosign
+      # podman-compose
       # --- data ---
       jq
       nodePackages.vscode-langservers-extracted
