@@ -175,6 +175,10 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "stackrox.cachix.org-1:Wnn8TKAitOTWKfTvvHiHzJjXy0YfiwoK6rrVzXt/trA="
       ];
+      trusted-users = [
+        "root"
+        "@admin"
+      ];
       sandbox = true;
     };
   };
