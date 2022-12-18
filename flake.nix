@@ -40,13 +40,17 @@
       };
       overlays = nixpkgs.lib.attrValues self.overlays;
     };
+    flakeRegistry = {
+      nix.registry.nixpkgs.flake = nixpkgs;
+      nix.registry.stehessel.flake = self;
+    };
   in {
     nixosConfigurations."thinkpad" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./systems/nixos
+        flakeRegistry
         inputs.sops-nix.nixosModules.sops
-
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -77,8 +81,8 @@
       system = "x86_64-darwin";
       modules = [
         ./systems/darwin
+        flakeRegistry
         inputs.sops-nix.nixosModules.sops
-
         inputs.home-manager.darwinModules.home-manager
         {
           home-manager = {

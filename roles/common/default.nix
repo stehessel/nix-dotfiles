@@ -92,6 +92,7 @@
       gnumake
       jira-cli-go
       prometheus
+      prometheus-alertmanager
       tokei
       tree-sitter
       universal-ctags
