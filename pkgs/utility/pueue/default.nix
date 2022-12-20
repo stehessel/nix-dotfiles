@@ -1,7 +1,5 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
-  # xdg.configFile."pueue.yml".source = config/pueue.yml;
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    pueue
+  ];
 }

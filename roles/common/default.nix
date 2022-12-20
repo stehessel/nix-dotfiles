@@ -31,7 +31,7 @@
     ../../pkgs/utility/broot
     ../../pkgs/utility/fzf
     ../../pkgs/utility/gnupg
-    # ../../pkgs/utility/pueue
+    ../../pkgs/utility/pueue
     ../../pkgs/utility/ripgrep
     ../../pkgs/utility/topgrade
     ../../pkgs/utility/wget
@@ -131,8 +131,6 @@
       exiftool
       # --- java ---
       maven
-      # --- launcher ---
-      pueue
       # --- network ---
       bandwhich
       curl
