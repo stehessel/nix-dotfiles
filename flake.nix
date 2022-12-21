@@ -45,7 +45,7 @@
       nix.registry.stehessel.flake = self;
     };
   in {
-    nixosConfigurations."thinkpad" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./systems/nixos
@@ -77,7 +77,7 @@
       ];
     };
 
-    darwinConfigurations."shesselm-mac" = inputs.darwin.lib.darwinSystem {
+    darwinConfigurations.shesselm-mac = inputs.darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [
         ./systems/darwin
