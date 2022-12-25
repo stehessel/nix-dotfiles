@@ -4,6 +4,7 @@
       ocm
       odo
       openshift
+      rhoas
     ];
   };
 }
