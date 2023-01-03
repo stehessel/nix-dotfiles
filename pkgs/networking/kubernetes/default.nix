@@ -24,6 +24,7 @@
       })
       linkerd
       operator-sdk
+      upbound
     ];
     sessionPath = [
       "/home/stephan/.krew/bin"

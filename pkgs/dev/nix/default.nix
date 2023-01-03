@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home = {
     packages = with pkgs; [
       alejandra
@@ -13,6 +8,7 @@
       nix-update
       nixpkgs-fmt
       nixpkgs-review
+      nurl
       rnix-lsp
       statix
     ];
