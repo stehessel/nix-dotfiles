@@ -154,15 +154,22 @@
   nix = {
     configureBuildUsers = true;
     extraOptions = ''
-      auto-optimise-store = true
-      experimental-features = nix-command flakes
+      connect-timeout = 5  # in seconds
+      experimental-features = ca-derivations nix-command flakes
+      fallback = true
       keep-going = true
+      log-lines = 25
+      max-free = 1000000000 # 1 GB
+      min-free = 256000000  # 256 MB
     '';
     gc = {
       automatic = true;
-      interval = {Hour = 12;};
+      interval = {
+        Hour = 12;
+      };
     };
     settings = {
+      auto-optimise-store = true;
       substituters = [
         # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
         "https://aseipp-nix-cache.freetls.fastly.net"

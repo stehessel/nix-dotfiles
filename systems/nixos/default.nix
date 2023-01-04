@@ -149,8 +149,13 @@
 
   nix = {
     extraOptions = ''
+      connect-timeout = 5  # in seconds
       experimental-features = ca-derivations nix-command flakes
+      fallback = true
       keep-going = true
+      log-lines = 25
+      max-free = 1000000000 # 1 GB
+      min-free = 256000000  # 256 MB
     '';
     gc = {
       automatic = true;
