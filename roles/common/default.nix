@@ -35,6 +35,7 @@
     ../../pkgs/utility/ripgrep
     ../../pkgs/utility/topgrade
     ../../pkgs/utility/wget
+    ../../pkgs/utility/zoxide
     ../../scripts
   ];
 

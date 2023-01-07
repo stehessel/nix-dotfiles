@@ -22,8 +22,10 @@ _: {
       gp = "git push";
       gs = "git status";
       gw = "git switch";
+      gr = "git restore";
       i = "istioctl";
       k = "kubectl";
+      K = "kind";
       t = "task";
       tf = "terraform";
     };
