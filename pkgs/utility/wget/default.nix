@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   home.sessionVariables = {
     WGETRC = "${config.xdg.configHome}/wget/wgetrc";
   };

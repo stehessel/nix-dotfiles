@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home = let
     python-packages = ps: [ps.pynvim];
     neovim-python = pkgs.python3.withPackages python-packages;
