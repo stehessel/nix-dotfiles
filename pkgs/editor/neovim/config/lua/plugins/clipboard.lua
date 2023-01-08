@@ -6,5 +6,6 @@ return {
       vim.g.sqlite_clib_path = os.getenv("LIB_SQLITE_PATH")
     end,
     dependencies = { "tami5/sqlite.lua" },
+    event = "BufReadPre",
   },
 }

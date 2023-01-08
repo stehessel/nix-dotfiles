@@ -4,5 +4,6 @@ return {
     config = function()
       require("marks").setup({ excluded_filetypes = { "neotest-summary" } })
     end,
+    event = "BufReadPre",
   },
 }

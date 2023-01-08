@@ -35,7 +35,7 @@ return {
           end,
         },
         mode = { "n", "x" },
-        body = "<leader>g",
+        body = "<Leader>g",
         heads = {
           {
             "J",
@@ -95,5 +95,6 @@ return {
       })
     end,
     dependencies = "anuvyklack/keymap-layer.nvim",
+    keys = { "<Leader>g" },
   },
 }

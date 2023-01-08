@@ -30,6 +30,7 @@ return {
         gitui:toggle()
       end)
     end,
+    keys = { "<Leader>G" },
   },
   {
     "akinsho/toggleterm.nvim",
@@ -54,5 +55,6 @@ return {
       vim.keymap.set("n", "<Leader>nx", "<Cmd>lua require('sniprun').reset()<CR>")
       vim.keymap.set("n", "<Leader>ni", "<Cmd>lua require('sniprun').info()<CR>")
     end,
+    event = "BufReadPre",
   },
 }

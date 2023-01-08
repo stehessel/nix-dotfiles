@@ -4,6 +4,7 @@ return {
     config = function()
       require("matchparen").setup()
     end,
+    event = "BufReadPre",
   },
   {
     "windwp/nvim-autopairs",

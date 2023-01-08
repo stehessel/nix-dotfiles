@@ -1,4 +1,3 @@
--- dofile("/Users/lgtf/dev/neovim/profiler.nvim/lua/profiler.lua")
 -- Set before loading plugins
 vim.g.mapleader = ","
 vim.g.maplocalleader = "\\"
@@ -33,4 +32,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
+require("lazy").setup({
+  defaults = { lazy = true },
+  lockfile = "~/nix-home/pkgs/editor/neovim/config/lazy-lock.json",
+  spec = { import = "plugins" },
+})

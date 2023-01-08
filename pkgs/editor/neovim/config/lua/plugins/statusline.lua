@@ -10,11 +10,13 @@ return {
       })
     end,
     dependencies = { { "arkav/lualine-lsp-progress" } },
+    lazy = false,
   },
   {
     "j-hui/fidget.nvim",
     config = function()
       require("fidget").setup()
     end,
+    lazy = false,
   },
 }

@@ -8,12 +8,14 @@ return {
         lastplace_open_folds = true,
       })
     end,
+    event = "BufReadPre",
   },
   {
     "ggandor/leap.nvim",
     config = function()
       require("leap").add_default_mappings()
     end,
+    event = "BufRead",
   },
   {
     "ggandor/flit.nvim",
@@ -25,16 +27,17 @@ return {
         opts = {},
       })
     end,
+    keys = { "f", "F", "t", "T" },
   },
   {
     "ggandor/leap-spooky.nvim",
     config = function()
       require("leap-spooky").setup()
     end,
+    event = "BufRead",
   },
   {
     "mfussenegger/nvim-treehopper",
-    module = "tsht",
     init = function()
       vim.keymap.set("o", "m", ":<C-U>lua require('tsht').nodes()<CR>")
       vim.keymap.set("v", "m", "<Cmd>lua require('tsht').nodes()<CR>")

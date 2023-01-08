@@ -26,7 +26,7 @@ return {
       },
     },
   },
-  { "matze/vim-move" },
+  { "matze/vim-move", event = "BufReadPre" },
   { "mg979/vim-visual-multi", keys = { "<C-n>", "<C-Up>", "<C-Down>" } },
   {
     "nicwest/vim-camelsnek",
@@ -72,11 +72,11 @@ return {
     config = function()
       require("Comment").setup()
     end,
+    event = "BufReadPre",
   },
   -- Text substitution
   {
     "gbprod/substitute.nvim",
-    module = "substitute",
     config = function()
       require("substitute").setup({})
     end,
@@ -135,6 +135,6 @@ return {
     end,
   },
   -- Text objects
-  { "wellle/targets.vim" },
-  { "gcmt/taboo.vim" },
+  { "wellle/targets.vim", event = "BufReadPre" },
+  { "gcmt/taboo.vim", event = "BufReadPre" },
 }

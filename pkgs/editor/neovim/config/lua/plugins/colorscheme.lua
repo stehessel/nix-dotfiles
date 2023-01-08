@@ -25,5 +25,6 @@ return {
       })
       vim.cmd.colorscheme("catppuccin")
     end,
+    lazy = false,
   },
 }

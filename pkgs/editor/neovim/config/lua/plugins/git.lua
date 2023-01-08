@@ -51,6 +51,7 @@ return {
         },
       })
     end,
+    event = "BufReadPre",
   },
   {
     "f-person/git-blame.nvim",
@@ -75,6 +76,7 @@ return {
     config = function()
       require("git-conflict").setup()
     end,
+    event = "BufReadPre",
   },
   {
     "pwntester/octo.nvim",

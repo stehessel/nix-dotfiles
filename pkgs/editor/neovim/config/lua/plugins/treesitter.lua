@@ -1,6 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    build = vim.cmd.TSUpdate,
     config = function()
       local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 
@@ -104,8 +105,8 @@ return {
         ensure_installed = "all",
       })
     end,
-    build = vim.cmd.TSUpdate,
     dependencies = {
+      { "David-Kunz/markid" },
       { "nvim-treesitter/nvim-treesitter-textobjects" },
       {
         "nvim-treesitter/playground",
@@ -114,6 +115,7 @@ return {
       { "RRethy/nvim-treesitter-textsubjects" },
       { "windwp/nvim-ts-autotag" },
     },
+    event = "BufReadPost",
   },
   {
     "ThePrimeagen/refactoring.nvim",
@@ -136,5 +138,4 @@ return {
     end,
     enabled = false,
   },
-  { "David-Kunz/markid" },
 }

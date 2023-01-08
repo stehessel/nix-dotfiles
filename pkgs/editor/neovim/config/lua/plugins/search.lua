@@ -54,10 +54,9 @@ return {
     keys = "/",
     dependencies = { "inkarkat/vim-ingo-library" },
   },
-  { "romainl/vim-cool" },
+  { "romainl/vim-cool", event = "BufRead" },
   {
     "ironhouzi/starlite-nvim",
-    module = "starlite",
     init = function()
       vim.keymap.set("n", "*", "<Cmd>lua require('starlite').star()<CR>")
       vim.keymap.set("n", "g*", "<Cmd>lua require('starlite').g_star()<CR>")

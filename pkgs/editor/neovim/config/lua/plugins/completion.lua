@@ -91,9 +91,10 @@ return {
       { "hrsh7th/cmp-path" },
       { "petertriho/cmp-git" },
       { "saadparwaiz1/cmp_luasnip" },
+      { "tzachar/cmp-fuzzy-buffer", dependencies = { "tzachar/fuzzy.nvim" } },
     },
+    event = "InsertEnter",
   },
-  { "tzachar/cmp-fuzzy-buffer", dependencies = { "hrsh7th/nvim-cmp", "tzachar/fuzzy.nvim" } },
   {
     "ray-x/lsp_signature.nvim",
     config = function()
