@@ -123,9 +123,9 @@
         });
       };
 
-      neovim-overlay = _: prev: {
-        inherit (inputs.neovim.packages.${prev.system}) neovim;
-      };
+      # neovim-overlay = _: prev: {
+      #   inherit (inputs.neovim.packages.${prev.system}) neovim;
+      # };
 
       rust-overlay = inputs.rust.overlays.default;
     };

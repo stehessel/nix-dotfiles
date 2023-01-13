@@ -156,6 +156,8 @@
       sqlite
       # --- system ---
       (uutils-coreutils.override {prefix = "";})
+      # --- terminal ---
+      alacritty
       # --- terminal multiplexers ---
       tmux
       # --- terraform ---
