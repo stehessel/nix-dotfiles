@@ -13,15 +13,14 @@
     ../../pkgs/dev/nix
     ../../pkgs/dev/python
     ../../pkgs/dev/rust
-    ../../pkgs/dev/secrets
-    ../../pkgs/dev/text/cbfmt
-    ../../pkgs/dev/text/vale
+    ../../pkgs/dev/text
     ../../pkgs/dev/version-control/git
     ../../pkgs/editor/neovim
     ../../pkgs/file-manager/lf
     ../../pkgs/infra/ansible
     ../../pkgs/networking/kubernetes
     ../../pkgs/networking/openshift
+    ../../pkgs/security
     ../../pkgs/shell/bash
     ../../pkgs/shell/fish
     ../../pkgs/shell/nushell
@@ -163,10 +162,7 @@
       # --- terraform ---
       terraform
       terraform-ls
-      # --- text ---
-      asciidoctor
       # --- utility ---
-      bitwarden-cli
       cmatrix
       du-dust
       duf
