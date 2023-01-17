@@ -18,6 +18,11 @@
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      # Pin to a nixpkgs revision that doesn't have NixOS/nixpkgs#208103 yet
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs?rev=fad51abd42ca17a60fc1d4cb9382e2d79ae31836";
+    };
     rust = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -123,9 +128,11 @@
         });
       };
 
-      # neovim-overlay = _: prev: {
-      #   inherit (inputs.neovim.packages.${prev.system}) neovim;
-      # };
+      neovim-overlay = _: prev: {
+        inherit (inputs.neovim.packages.${prev.system}) neovim;
+      };
+
+      neovim-nightly-overlay = inputs.neovim-nightly.overlay;
 
       rust-overlay = inputs.rust.overlays.default;
     };
