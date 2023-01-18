@@ -17,7 +17,7 @@
     ../../pkgs/dev/version-control/git
     ../../pkgs/editor/neovim
     ../../pkgs/file-manager/lf
-    ../../pkgs/infra/ansible
+    # ../../pkgs/infra/ansible
     ../../pkgs/networking/kubernetes
     ../../pkgs/networking/openshift
     ../../pkgs/security

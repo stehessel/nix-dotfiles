@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home = {
     packages = with pkgs; [
-      age
+      # age
       bitwarden-cli
       sops
       vals

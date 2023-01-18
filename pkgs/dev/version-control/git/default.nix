@@ -8,7 +8,7 @@
       gitAndTools.git-bug
       gitAndTools.git-fame
       nodePackages."@withgraphite/graphite-cli"
-      onefetch
+      # onefetch
       pre-commit
     ];
   };
