@@ -8,6 +8,6 @@ _: {
     ./python
     ./rust
     ./text
-    ./version-control
+    ./version-control/git
   ];
 }
