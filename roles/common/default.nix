@@ -6,35 +6,16 @@
   imports = [
     ../../pkgs/backup
     ../../pkgs/cloud
-    ../../pkgs/dev/golang
-    ../../pkgs/dev/javascript
-    ../../pkgs/dev/jsonnet
-    ../../pkgs/dev/lua
-    ../../pkgs/dev/nix
-    ../../pkgs/dev/python
-    ../../pkgs/dev/rust
-    ../../pkgs/dev/text
-    ../../pkgs/dev/version-control/git
+    ../../pkgs/dev
     ../../pkgs/editor/neovim
     ../../pkgs/file-manager/lf
     # ../../pkgs/infra/ansible
-    ../../pkgs/networking/kubernetes
-    ../../pkgs/networking/openshift
+    ../../pkgs/networking
     ../../pkgs/security
-    ../../pkgs/shell/bash
-    ../../pkgs/shell/fish
-    ../../pkgs/shell/nushell
-    ../../pkgs/shell/starship
+    ../../pkgs/shell
     ../../pkgs/terminal/tmux
     # ../../pkgs/todo/taskwarrior
-    ../../pkgs/utility/broot
-    ../../pkgs/utility/fzf
-    ../../pkgs/utility/gnupg
-    ../../pkgs/utility/pueue
-    ../../pkgs/utility/ripgrep
-    ../../pkgs/utility/topgrade
-    ../../pkgs/utility/wget
-    ../../pkgs/utility/zoxide
+    ../../pkgs/utility
     ../../scripts
   ];
 
