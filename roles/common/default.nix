@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ../../pkgs/backup/restic
+    ../../pkgs/backup
     ../../pkgs/cloud
     ../../pkgs/dev/golang
     ../../pkgs/dev/javascript
@@ -69,9 +69,6 @@
     };
 
     packages = with pkgs; [
-      # --- backup ---
-      rclone
-      restic
       # --- chat ---
       zulip-term
       # --- containers ---
