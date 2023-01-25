@@ -1,6 +1,6 @@
 _: {
   imports = [
-    # ./ansible
+    ./ansible
     ./terraform
   ];
 }
