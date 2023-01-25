@@ -9,7 +9,7 @@
     ../../pkgs/dev
     ../../pkgs/editor/neovim
     ../../pkgs/file-manager/lf
-    # ../../pkgs/infra/ansible
+    ../../pkgs/infra
     ../../pkgs/networking
     ../../pkgs/security
     ../../pkgs/shell
@@ -137,9 +137,6 @@
       alacritty
       # --- terminal multiplexers ---
       tmux
-      # --- terraform ---
-      terraform
-      terraform-ls
       # --- utility ---
       cmatrix
       du-dust
