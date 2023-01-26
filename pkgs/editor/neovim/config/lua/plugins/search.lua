@@ -54,7 +54,7 @@ return {
     keys = "/",
     dependencies = { "inkarkat/vim-ingo-library" },
   },
-  { "romainl/vim-cool", event = "BufRead" },
+  { "romainl/vim-cool", keys = "/" },
   {
     "ironhouzi/starlite-nvim",
     init = function()

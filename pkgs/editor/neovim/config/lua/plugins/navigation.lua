@@ -12,14 +12,13 @@ return {
   },
   {
     "ggandor/leap.nvim",
-    config = function()
+    init = function()
       require("leap").add_default_mappings()
     end,
-    event = "BufRead",
   },
   {
     "ggandor/flit.nvim",
-    config = function()
+    init = function()
       require("flit").setup({
         keys = { f = "f", F = "F", t = "t", T = "T" },
         labeled_modes = "v",
@@ -27,14 +26,12 @@ return {
         opts = {},
       })
     end,
-    keys = { "f", "F", "t", "T" },
   },
   {
     "ggandor/leap-spooky.nvim",
-    config = function()
+    init = function()
       require("leap-spooky").setup()
     end,
-    event = "BufRead",
   },
   {
     "mfussenegger/nvim-treehopper",
