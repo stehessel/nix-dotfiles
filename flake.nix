@@ -134,6 +134,18 @@
 
       neovim-nightly-overlay = inputs.neovim-nightly.overlay;
 
+      python-overlay = _: prev: rec {
+        python3 = prev.python3.override {
+          packageOverrides = _: prev: {
+            httpcore = prev.httpcore.overridePythonAttrs (_: {
+              doCheck = false;
+              installCheckPhase = "";
+            });
+          };
+        };
+        python3Packages = python3.pkgs;
+      };
+
       rust-overlay = inputs.rust.overlays.default;
     };
   };
