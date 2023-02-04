@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+_: {
   xdg.configFile."dunst/dunstrc".source = config/dunstrc;
   services = {
     dunst = {

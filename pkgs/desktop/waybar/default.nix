@@ -8,7 +8,7 @@ _: {
         spacing = 20;
 
         modules-left = [
-          "river/tags"
+          "wlr/workspaces"
         ];
         modules-right = [
           "backlight"
@@ -23,9 +23,11 @@ _: {
           "tray"
         ];
 
-        "river/tags" = {
-          "num-tags" = 8;
-          "tag-labels" = ["1" "2" "3" "4" "5" "6" "7" "8"];
+        # `wlr/workspaces` require compositor to implement ext_workspace_unstable_v1 wayland protocol (which is not merged yet).
+        "wlr/workspaces" = {
+          "format" = "{icon}";
+          "on-scroll-up" = "hyprctl dispatch workspace e+1";
+          "on-scroll-down" = "hyprctl dispatch workspace e-1";
         };
 
         "clock#1" = {
@@ -102,7 +104,7 @@ _: {
         color: #fdf6e3;
       }
 
-      #tags,
+      #workspaces,
       #clock.1,
       #clock.2,
       #clock.3,
@@ -116,14 +118,11 @@ _: {
         background: #1a1a1a;
       }
 
-      #tags button {
+      #workspaces button {
         padding: 0 2px;
         color: #fdf6e3;
       }
-      #tags button.occupied {
-        color: #268bd2;
-      }
-      #tags button.focused {
+      #workspaces button.active {
         color: #e80505;
       }
 
@@ -157,7 +156,7 @@ _: {
       }
     '';
     systemd = {
-      enable = true; # Spawn in river config
+      enable = true;
     };
   };
 }

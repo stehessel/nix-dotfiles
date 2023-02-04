@@ -6,7 +6,8 @@
     ../../pkgs/desktop/rofi
     # ../../pkgs/desktop/swhkd
     ../../pkgs/desktop/waybar
-    ../../pkgs/desktop/window-manager/river
+    ../../pkgs/desktop/window-manager/hyprland
+    # ../../pkgs/desktop/window-manager/river
     ../../pkgs/file-viewer/sxiv
     ../../pkgs/file-viewer/zathura
     ../../pkgs/networking/syncthing
@@ -46,7 +47,6 @@
       alacritty
       kitty
       # --- window manager ---
-      river
       swaybg
       swayidle
       swaylock
@@ -83,6 +83,8 @@
       };
     };
   };
+
+  # wayland.windowManager.hyprland.enable = true;
 
   xdg.configFile."fish/fish_plugins".source = ../../pkgs/shell/fish/linux/fish_plugins;
 }

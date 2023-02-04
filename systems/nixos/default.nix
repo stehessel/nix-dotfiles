@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./sops.nix
@@ -86,12 +82,6 @@
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
-  # Window manager
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
   # Screen share
   xdg.portal = {
     enable = true;
@@ -109,33 +99,12 @@
         enable = true;
         user = "stephan";
       };
-      defaultSession = "river";
+      defaultSession = "hyprland";
       lightdm.enable = true;
 
       sessionCommands = ''
         export XKB_DEFAULT_OPTIONS='caps:escape'
       '';
-
-      sessionPackages = [
-        (
-          pkgs.river.overrideAttrs
-          (_: rec {
-            postInstall = let
-              riverSession = ''
-                [Desktop Entry]
-                Name=River
-                Comment=Dynamic Wayland compositor
-                Exec=river
-                Type=Application
-              '';
-            in ''
-              mkdir -p $out/share/wayland-sessions
-              echo "${riverSession}" > $out/share/wayland-sessions/river.desktop
-            '';
-            passthru.providedSessions = ["river"];
-          })
-        )
-      ];
     };
   };
 
@@ -166,13 +135,17 @@
       substituters = [
         # Content addressed cache
         # "https://cache.ngi0.nixos.org"
+        # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
+        "https://aseipp-nix-cache.freetls.fastly.net"
         "https://cache.nixos.org"
+        "https://hyprland.cachix.org"
         "https://nix-community.cachix.org"
         "https://stehessel.cachix.org"
       ];
       trusted-public-keys = [
         "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
       trusted-users = [

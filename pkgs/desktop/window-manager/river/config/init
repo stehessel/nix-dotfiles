@@ -69,7 +69,7 @@ riverctl map normal $mod+Mod1+Control J snap down
 riverctl map normal $mod+Mod1+Control K snap up
 riverctl map normal $mod+Mod1+Control L snap right
 
-# Mod+Alt+Shif+{H,J,K,L} to resize views
+# Mod+Alt+Shift+{H,J,K,L} to resize views
 riverctl map normal $mod+Mod1+Shift H resize horizontal -100
 riverctl map normal $mod+Mod1+Shift J resize vertical 100
 riverctl map normal $mod+Mod1+Shift K resize vertical -100

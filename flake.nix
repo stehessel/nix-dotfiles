@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
     # nixpkgs.url = "path:/home/stephan/dev/nix/nixpkgs";
-
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,6 +13,7 @@
       # url = "path:/home/stephan/dev/nix/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
     neovim = {
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,6 +55,8 @@
       modules = [
         ./systems/nixos
         flakeRegistry
+        inputs.hyprland.nixosModules.default
+        {programs.hyprland.enable = true;}
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.home-manager
         {
@@ -63,6 +65,7 @@
             useUserPackages = true;
             users.stephan = {
               imports = [
+                inputs.hyprland.homeManagerModules.default
                 ./profiles/stehessel
                 ./roles/linux
               ];
