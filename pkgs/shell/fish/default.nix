@@ -26,6 +26,7 @@ _: {
       i = "istioctl";
       k = "kubectl";
       K = "kind";
+      n = "nixos-rebuild switch --flake . --use-remote-sudo";
       t = "task";
       tf = "terraform";
     };

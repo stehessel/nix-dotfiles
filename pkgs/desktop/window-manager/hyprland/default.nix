@@ -6,7 +6,12 @@ _: {
       monitor=,preferred,auto,1
 
       # Start up
-      exec-once = wl-paste --watch cliphist store
+      exec-once  = wl-paste --watch cliphist store
+      windowrule = workspace 1 silent, brave
+      windowrule = workspace 2 silent, foot
+      exec-once  = brave
+      exec-once  = foot
+      exec-once  = cleanup_after_start.sh
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
@@ -96,71 +101,92 @@ _: {
       $mainMod = SUPER
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-      bind = $mainMod CTRL,  Q,     exit,
-      bind = $mainMod,       Q,     exec,              foot
-      bind = $mainMod,       C,     killactive,
-      bind = $mainMod,       space, exec,              wofi --show drun
-      bind = $mainMod,       F,     fullscreen,
-      bind = $mainMod CTRL,  F,     togglefloating,
-      bind = $mainMod,       V,     exec,              cliphist list | wofi --dmenu | cliphist decode | wl-copy
-      bind = $mainMod SHIFT, C,     exec,              rm $XDG_CACHE_HOME/cliphist/db
-      bind = $mainMod,       P,     pin,
+      bind = $mainMod,      Q,     exec,           foot
+      bind = $mainMod,      C,     killactive,
+      bind = $mainMod CTRL, C,     exit,
+      bind = $mainMod,      space, exec,           wofi --show drun
+      bind = $mainMod,      F,     fullscreen,
+      bind = $mainMod CTRL, F,     togglefloating,
+      bind = $mainMod,      V,     exec,           cliphist list | wofi --dmenu | cliphist decode | wl-copy
+      bind = $mainMod CTRL, V,     exec,           rm $XDG_CACHE_HOME/cliphist/db
+      bind = $mainMod,      P,     pin,
 
       # Window binds
-      bind = $mainMod,       J,     cyclenext, next
-      bind = $mainMod,       K,     cyclenext, prev
-      bind = $mainMod SHIFT, J,     swapnext, next
-      bind = $mainMod SHIFT, K,     swapnext, prev
+      bind = $mainMod,       J, cyclenext, next
+      bind = $mainMod SHIFT, J, swapnext,  next
+      bind = $mainMod,       K, cyclenext, prev
+      bind = $mainMod SHIFT, K, swapnext,  prev
 
       # Move focus with mainMod + arrow keys
-      bind = $mainMod,       left,  movefocus, l
-      bind = $mainMod,       right, movefocus, r
-      bind = $mainMod,       up,    movefocus, u
-      bind = $mainMod,       down,  movefocus, d
+      bind = $mainMod, left,  movefocus, l
+      bind = $mainMod, right, movefocus, r
+      bind = $mainMod, up,    movefocus, u
+      bind = $mainMod, down,  movefocus, d
 
       # Master layout
-      bind = $mainMod,       M,     layoutmsg, focusmaster
-      bind = $mainMod SHIFT, M,     layoutmsg, swapwithmaster
-      bind = $mainMod,       enter, layoutmsg, addmaster
-      bind = $mainMod SHIFT, enter, layoutmsg, removemaster
-      bind = $mainMod,       I,     layoutmsg, orientationnext
-      bind = $mainMod,       O,     layoutmsg, orientationprev
+      bind = $mainMod,       M,      layoutmsg, focusmaster
+      bind = $mainMod SHIFT, M,      layoutmsg, swapwithmaster
+      bind = $mainMod,       return, layoutmsg, addmaster
+      bind = $mainMod SHIFT, return, layoutmsg, removemaster
+      bind = $mainMod,       I,      layoutmsg, orientationnext
+      bind = $mainMod,       O,      layoutmsg, orientationprev
 
-      # Switch workspaces with mainMod + [0-9]
-      bind = $mainMod, bracketleft, workspace, -1
+      # Switch workspaces
+      bind = $mainMod, bracketleft,  workspace, -1
       bind = $mainMod, bracketright, workspace, +1
-      bind = $mainMod, 1, workspace, 1
-      bind = $mainMod, 2, workspace, 2
-      bind = $mainMod, 3, workspace, 3
-      bind = $mainMod, 4, workspace, 4
-      bind = $mainMod, 5, workspace, 5
-      bind = $mainMod, 6, workspace, 6
-      bind = $mainMod, 7, workspace, 7
-      bind = $mainMod, 8, workspace, 8
-      bind = $mainMod, 9, workspace, 9
-      bind = $mainMod, 0, workspace, 10
+      bind = $mainMod, 1,            workspace, 1
+      bind = $mainMod, 2,            workspace, 2
+      bind = $mainMod, 3,            workspace, 3
+      bind = $mainMod, 4,            workspace, 4
+      bind = $mainMod, 5,            workspace, 5
+      bind = $mainMod, 6,            workspace, 6
+      bind = $mainMod, 7,            workspace, 7
+      bind = $mainMod, 8,            workspace, 8
+      bind = $mainMod, 9,            workspace, 9
+      bind = $mainMod, 0,            workspace, 10
+      bind = $mainMod, P,            togglespecialworkspace,
 
-      # Move active window to a workspace with mainMod + SHIFT + [0-9]
-      bind = $mainMod SHIFT, bracketleft, movetoworkspace, -1
+      # Move active window to a workspace
+      bind = $mainMod SHIFT, bracketleft,  movetoworkspace, -1
       bind = $mainMod SHIFT, bracketright, movetoworkspace, +1
-      bind = $mainMod SHIFT, 1, movetoworkspace, 1
-      bind = $mainMod SHIFT, 2, movetoworkspace, 2
-      bind = $mainMod SHIFT, 3, movetoworkspace, 3
-      bind = $mainMod SHIFT, 4, movetoworkspace, 4
-      bind = $mainMod SHIFT, 5, movetoworkspace, 5
-      bind = $mainMod SHIFT, 6, movetoworkspace, 6
-      bind = $mainMod SHIFT, 7, movetoworkspace, 7
-      bind = $mainMod SHIFT, 8, movetoworkspace, 8
-      bind = $mainMod SHIFT, 9, movetoworkspace, 9
-      bind = $mainMod SHIFT, 0, movetoworkspace, 10
+      bind = $mainMod SHIFT, 1,            movetoworkspace, 1
+      bind = $mainMod SHIFT, 2,            movetoworkspace, 2
+      bind = $mainMod SHIFT, 3,            movetoworkspace, 3
+      bind = $mainMod SHIFT, 4,            movetoworkspace, 4
+      bind = $mainMod SHIFT, 5,            movetoworkspace, 5
+      bind = $mainMod SHIFT, 6,            movetoworkspace, 6
+      bind = $mainMod SHIFT, 7,            movetoworkspace, 7
+      bind = $mainMod SHIFT, 8,            movetoworkspace, 8
+      bind = $mainMod SHIFT, 9,            movetoworkspace, 9
+      bind = $mainMod SHIFT, 0,            movetoworkspace, 10
+      bind = $mainMod SHIFT, P,            movetoworkspace, special
+
+      # Monitor binds
+      bind = $mainMod      , comma,  monitor, -1
+      bind = $mainMod SHIFT, comma,  movecurrentworkspacetomonitor, -1
+      bind = $mainMod      , period, monitor, +1
+      bind = $mainMod SHIFT, period, movecurrentworkspacetomonitor, +1
 
       # Scroll through existing workspaces with mainMod + scroll
       bind = $mainMod, mouse_down, workspace, e+1
-      bind = $mainMod, mouse_up, workspace, e-1
+      bind = $mainMod, mouse_up,   workspace, e-1
 
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
+
+      # Media keys
+      binde = , xf86audioraisevolume,  exec, pamixer -i 5
+      binde = , xf86audiolowervolume,  exec, pamixer -d 5
+      bind  = , xf86audiomute,         exec, pamixer --toggle-mute
+      bind  = , xf86audiomedia,        exec, playerctl play-pause
+      bind  = , xf86audioplay,         exec, playerctl play-pause
+      bind  = , xf86audionext,         exec, playerctl next
+      bind  = , xf86audioprev,         exec, playerctl previous
+      binde = , xf86monbrightnessup,   exec, brightnessctl --device intel_backlight set 5%+
+      binde = , xf86monbrightnessdown, exec, brightnessctl --device intel_backlight set 5%-
     '';
   };
+
+  home.file.".local/bin/cleanup_after_start.sh".source = config/cleanup_after_start.sh;
 }
