@@ -1,7 +1,3 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+_: {
   xdg.configFile."skhd/skhdrc".source = config/skhdrc;
 }

@@ -5,8 +5,7 @@
     ../../pkgs/desktop/mime-apps
     ../../pkgs/desktop/rofi
     # ../../pkgs/desktop/swhkd
-    ../../pkgs/desktop/waybar
-    ../../pkgs/desktop/window-manager/hyprland
+    ../../pkgs/desktop/wayland
     ../../pkgs/file-viewer/sxiv
     ../../pkgs/file-viewer/zathura
     ../../pkgs/networking/syncthing
