@@ -64,7 +64,7 @@
     freeMemThreshold = 2;
     extraArgs = [
       "-g"
-      "--avoid '^(wayland|river|kitty|foot)$'"
+      "--avoid '^(wayland|hyprland|kitty|foot)$'"
       "--prefer '^(electron|libreoffice|gimp|brave)$'"
     ];
   };

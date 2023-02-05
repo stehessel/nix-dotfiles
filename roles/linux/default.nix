@@ -7,7 +7,6 @@
     # ../../pkgs/desktop/swhkd
     ../../pkgs/desktop/waybar
     ../../pkgs/desktop/window-manager/hyprland
-    # ../../pkgs/desktop/window-manager/river
     ../../pkgs/file-viewer/sxiv
     ../../pkgs/file-viewer/zathura
     ../../pkgs/networking/syncthing
