@@ -127,6 +127,8 @@ _: {
       bind = $mainMod,       O,     layoutmsg, orientationprev
 
       # Switch workspaces with mainMod + [0-9]
+      bind = $mainMod, bracketleft, workspace, -1
+      bind = $mainMod, bracketright, workspace, +1
       bind = $mainMod, 1, workspace, 1
       bind = $mainMod, 2, workspace, 2
       bind = $mainMod, 3, workspace, 3
@@ -139,6 +141,8 @@ _: {
       bind = $mainMod, 0, workspace, 10
 
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
+      bind = $mainMod SHIFT, bracketleft, movetoworkspace, -1
+      bind = $mainMod SHIFT, bracketright, movetoworkspace, +1
       bind = $mainMod SHIFT, 1, movetoworkspace, 1
       bind = $mainMod SHIFT, 2, movetoworkspace, 2
       bind = $mainMod SHIFT, 3, movetoworkspace, 3

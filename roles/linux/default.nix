@@ -26,6 +26,7 @@
       libnotify
       mako
       rofi
+      slurp
       syncthingtray
       wl-clipboard
       wofi
