@@ -2,7 +2,7 @@ _: {
   imports = [
     ./bash
     ./fish
-    ./nushell
+    # ./nushell
     ./starship
   ];
 }
