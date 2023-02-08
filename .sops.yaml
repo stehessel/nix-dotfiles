@@ -1,9 +1,13 @@
 keys:
   - &master age14hq2vn8nalmp9plfn4x6x9haxm3dv0jzv2mdx2f8p4ud2xwcdq0sfst6p8
-  - &redhat age1tpkeasesjvhrnptlpt2ndst9ytz4xe6xkrav76pstykmxv6lq9pq9ex6p3
+  - &redhat age1l854slrtwrlsmstkvhsr8fr75r9hf4xp6ncykq6fdyddltwt7uvspvfame
 creation_rules:
-  - path_regex: secrets/[^/]+\.yaml$
+  - path_regex: linux/secrets/[^/]+\.yaml$
     key_groups:
       - age:
           - *master
+  - path_regex: work-macos/secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
           - *redhat
+          - *master

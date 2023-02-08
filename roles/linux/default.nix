@@ -1,15 +1,15 @@
 {pkgs, ...}: {
   imports = [
-    ../common
     ../../pkgs/desktop/dunst
     ../../pkgs/desktop/mime-apps
     ../../pkgs/desktop/rofi
-    # ../../pkgs/desktop/swhkd
     ../../pkgs/desktop/wayland
     ../../pkgs/file-viewer/sxiv
     ../../pkgs/file-viewer/zathura
     ../../pkgs/networking/syncthing
     ../../pkgs/terminal/foot
+    ../common
+    ./secrets
   ];
 
   home = {

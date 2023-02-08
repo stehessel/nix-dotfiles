@@ -1,11 +1,11 @@
 {pkgs, ...}: {
   imports = [
-    ../common
     ../../pkgs/desktop/skhd
     ../../pkgs/desktop/window-manager/yabai
     ../../pkgs/terminal/kitty
-    # ../../pkgs/terminal/wezterm
     ../../pkgs/virtualization/colima
+    ../common
+    ./secrets
   ];
 
   xdg.configFile."fish/fish_plugins".source = ../../pkgs/shell/fish/macos/fish_plugins;

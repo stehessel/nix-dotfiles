@@ -57,7 +57,6 @@
         flakeRegistry
         inputs.hyprland.nixosModules.default
         {programs.hyprland.enable = true;}
-        inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -65,6 +64,7 @@
             useUserPackages = true;
             users.stephan = {
               imports = [
+                inputs.sops-nix.homeManagerModules.sops
                 inputs.hyprland.homeManagerModules.default
                 ./profiles/stehessel
                 ./roles/linux
@@ -90,7 +90,6 @@
       modules = [
         ./systems/darwin
         flakeRegistry
-        inputs.sops-nix.nixosModules.sops
         inputs.home-manager.darwinModules.home-manager
         {
           home-manager = {
@@ -98,6 +97,7 @@
             useUserPackages = true;
             users.stephan = {
               imports = [
+                inputs.sops-nix.homeManagerModules.sops
                 ./profiles/redhat
                 ./roles/work-macos
               ];
