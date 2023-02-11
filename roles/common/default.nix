@@ -11,10 +11,10 @@
     ../../pkgs/file-manager/lf
     ../../pkgs/infra
     ../../pkgs/networking
+    ../../pkgs/productivity
     ../../pkgs/security
     ../../pkgs/shell
     ../../pkgs/terminal/tmux
-    # ../../pkgs/todo/taskwarrior
     ../../pkgs/utility
     ../../scripts
   ];
@@ -34,7 +34,6 @@
       EDITOR = "nvim";
       FILE = "lf";
       GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
-      JIRA_AUTH_TYPE = "bearer";
       LEIN_HOME = "${config.xdg.configHome}/lein";
       LIB_SQLITE_PATH =
         if pkgs.stdenv.isDarwin
@@ -63,12 +62,9 @@
       xdg-utils
       # --- dev ---
       buf
-      cmake
       code-minimap
       codespell
       editorconfig-core-c
-      gnumake
-      jira-cli-go
       prometheus
       prometheus-alertmanager
       tokei
@@ -143,7 +139,6 @@
       duf
       file
       gettext
-      go-task
       hyperfine
       sd
       watch

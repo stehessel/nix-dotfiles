@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./build
     ./golang
     ./javascript
     ./jsonnet

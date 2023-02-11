@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+_: {
   programs.taskwarrior = {
     enable = true;
     config = {
