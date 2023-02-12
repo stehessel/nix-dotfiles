@@ -4,17 +4,13 @@ return {
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
 
-    require("lspconfig").sumneko_lua.setup({
+    require("lspconfig").lua_ls.setup({
       cmd = { "lua-language-server" },
       on_attach = on_attach,
       capabilities = capabilities,
       flags = flags,
       settings = {
         Lua = {
-          runtime = {
-            version = "LuaJIT",
-            path = runtime_path,
-          },
           diagnostics = {
             globals = {
               -- Neovim
@@ -31,6 +27,13 @@ return {
               "pending",
               "teardown",
             },
+          },
+          format = {
+            enable = false,
+          },
+          runtime = {
+            version = "LuaJIT",
+            path = runtime_path,
           },
           telemetry = {
             enable = false,

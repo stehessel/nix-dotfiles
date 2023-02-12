@@ -52,7 +52,7 @@ return {
         "pyright",
         -- "rnix",
         -- "sqls",
-        "sumneko",
+        "luals",
         "tailwindcss",
         "terraformls",
         "tsserver",

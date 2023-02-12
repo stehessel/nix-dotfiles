@@ -23,6 +23,7 @@ return {
       require("surround").setup({ prefix = "r" })
     end,
     enabled = true,
+    keys = "r",
   },
   {
     "kylechui/nvim-surround",
