@@ -3,7 +3,6 @@
     ../../pkgs/desktop/skhd
     ../../pkgs/desktop/window-manager/yabai
     ../../pkgs/terminal/kitty
-    ../../pkgs/virtualization/colima
     ../common
     ./secrets
   ];

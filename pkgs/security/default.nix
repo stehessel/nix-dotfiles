@@ -7,6 +7,7 @@
     packages = with pkgs; [
       age
       bitwarden-cli
+      cosign
       sops
       vals
     ];

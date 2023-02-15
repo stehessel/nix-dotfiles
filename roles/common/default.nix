@@ -6,6 +6,7 @@
   imports = [
     ../../pkgs/backup
     ../../pkgs/cloud
+    ../../pkgs/container
     ../../pkgs/dev
     ../../pkgs/editor/neovim
     ../../pkgs/file-manager/lf
@@ -51,8 +52,6 @@
     packages = with pkgs; [
       # --- chat ---
       zulip-term
-      # --- containers ---
-      cosign
       # podman-compose
       # --- data ---
       jq
@@ -71,13 +70,6 @@
       tree-sitter
       universal-ctags
       xsv
-      # ---  docker ---
-      act
-      ctop
-      hadolint
-      nodePackages.dockerfile-language-server-nodejs
-      # podman
-      qemu
       # --- editor ---
       helix
       kakoune
