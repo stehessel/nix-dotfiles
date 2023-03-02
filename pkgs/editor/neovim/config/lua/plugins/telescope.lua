@@ -19,6 +19,7 @@ return {
           },
         },
       })
+      telescope.load_extension("advanced_git_search")
       telescope.load_extension("fzf")
       telescope.load_extension("gh")
       telescope.load_extension("neoclip")
@@ -40,6 +41,8 @@ return {
       vim.keymap.set("n", "<Leader>fs", "<Cmd>lua require('telescope.builtin').symbols()<CR>")
       vim.keymap.set("n", "<Leader>fo", "<Cmd>lua require('telescope.builtin').project()<CR>")
       vim.keymap.set("n", "<Leader>O", "<Cmd>lua require('telescope.builtin').spell_suggest()<CR>")
+
+      vim.keymap.set("n", "<Leader>fG", "<Cmd>lua require('telescope').extensions.advanced_git_search.show_custom_functions()<CR>")
 
       vim.keymap.set("n", "<Leader>dc", "<Cmd>lua require('telescope').extensions.dap.commands({})<CR>")
       vim.keymap.set("n", "<Leader>db", "<Cmd>lua require('telescope').extensions.dap.list_breakpoints({})<CR>")
@@ -63,6 +66,7 @@ return {
       vim.keymap.set("n", "<Space>e", "<Cmd>lua require('telescope.builtin').diagnostics({bufnr=0})<CR>")
     end,
     dependencies = {
+      { "aaronhallaert/ts-advanced-git-search.nvim" },
       { "nvim-telescope/telescope-dap.nvim" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "nvim-telescope/telescope-github.nvim" },
