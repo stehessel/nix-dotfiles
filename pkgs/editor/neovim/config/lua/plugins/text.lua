@@ -137,4 +137,10 @@ return {
   -- Text objects
   { "wellle/targets.vim", event = "BufReadPre" },
   { "gcmt/taboo.vim", event = "BufReadPre" },
+  {
+    "chrisgrieser/nvim-various-textobjs",
+    config = function()
+      require("various-textobjs").setup({ useDefaultKeymaps = true })
+    end,
+  },
 }
