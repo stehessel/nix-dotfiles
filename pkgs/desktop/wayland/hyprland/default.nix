@@ -3,7 +3,7 @@ _: {
     enable = true;
     extraConfig = ''
       # Display
-      monitor=,preferred,auto,1
+      monitor = ,preferred,auto,1
 
       # Start up
       exec-once  = wl-paste --watch cliphist store
@@ -162,10 +162,10 @@ _: {
       bind = $mainMod SHIFT, P,            movetoworkspace, special
 
       # Monitor binds
-      bind = $mainMod      , comma,  monitor, -1
-      bind = $mainMod SHIFT, comma,  movecurrentworkspacetomonitor, -1
-      bind = $mainMod      , period, monitor, +1
-      bind = $mainMod SHIFT, period, movecurrentworkspacetomonitor, +1
+      # bind = $mainMod      , comma,  monitor, -1
+      # bind = $mainMod SHIFT, comma,  movecurrentworkspacetomonitor, -1
+      # bind = $mainMod      , period, monitor, +1
+      # bind = $mainMod SHIFT, period, movecurrentworkspacetomonitor, +1
 
       # Scroll through existing workspaces with mainMod + scroll
       bind = $mainMod, mouse_down, workspace, e+1
