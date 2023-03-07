@@ -24,6 +24,7 @@ return {
               luasnip = "[Snip]",
               nvim_lsp = "[LSP]",
               nvim_lua = "[Lua]",
+              neorg = "[Neorg]",
               orgmode = "[Org]",
               path = "[Path]",
             },
@@ -68,6 +69,7 @@ return {
         },
         sources = cmp.config.sources({
           { name = "path" },
+          { name = "neorg" },
           { name = "orgmode" },
           { name = "luasnip" },
           { name = "nvim_lua" },

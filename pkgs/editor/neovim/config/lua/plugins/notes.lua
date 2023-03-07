@@ -1,28 +1,36 @@
 return {
   {
     "vhyrro/neorg",
-    config = function()
-      require("neorg").setup({
-        load = {
-          ["core.defaults"] = {},
-          ["core.keybinds"] = {
-            config = {
-              default_keybinds = true,
-              neorg_leader = "<Leader>n",
-            },
+    build = ":Neorg sync-parsers",
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+    },
+    lazy = false,
+    opts = {
+      load = {
+        ["core.defaults"] = {},
+        ["core.keybinds"] = {
+          config = {
+            default_keybinds = true,
+            neorg_leader = "<Leader>n",
           },
-          ["core.norg.concealer"] = {},
-          ["core.norg.dirman"] = {
-            config = {
-              tags = {
-                my_workspace = "~/doc/neorg",
-              },
+        },
+        ["core.norg.completion"] = {
+          config = {
+            engine = "nvim-cmp",
+          },
+        },
+        ["core.norg.concealer"] = {},
+        ["core.norg.dirman"] = {
+          config = {
+            workspaces = {
+              home = "~/doc/notes/home",
+              todo = "~/doc/notes/todo",
             },
           },
         },
-      })
-    end,
-    ft = "norg",
+      },
+    },
   },
   {
     "kristijanhusak/orgmode.nvim",
