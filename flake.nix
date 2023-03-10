@@ -3,25 +3,18 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
-    # nixpkgs.url = "path:/home/stephan/dev/nix/nixpkgs";
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
-      # url = "path:/home/stephan/dev/nix/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-    neovim = {
-      url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
-      # Pin to a nixpkgs revision that doesn't have NixOS/nixpkgs#208103 yet
-      inputs.nixpkgs.url = "github:NixOS/nixpkgs?rev=fad51abd42ca17a60fc1d4cb9382e2d79ae31836";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     rust = {
       url = "github:oxalica/rust-overlay";
@@ -129,10 +122,6 @@
         kitty = prev.kitty.overrideAttrs (_: {
           doCheck = false;
         });
-      };
-
-      neovim-overlay = _: prev: {
-        inherit (inputs.neovim.packages.${prev.system}) neovim;
       };
 
       neovim-nightly-overlay = inputs.neovim-nightly.overlay;
