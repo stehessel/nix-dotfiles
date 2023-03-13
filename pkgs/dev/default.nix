@@ -6,6 +6,7 @@ _: {
     ./jsonnet
     ./lua
     ./nix
+    ./protobuf
     ./python
     ./rust
     ./text

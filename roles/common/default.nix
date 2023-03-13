@@ -60,7 +60,6 @@
       # --- desktop ---
       xdg-utils
       # --- dev ---
-      buf
       code-minimap
       codespell
       editorconfig-core-c

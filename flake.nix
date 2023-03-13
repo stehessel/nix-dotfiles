@@ -118,6 +118,12 @@
       #   });
       # };
 
+      buf-overlay = _: prev: {
+        buf = prev.buf.overrideAttrs (_: {
+          doCheck = false;
+        });
+      };
+
       kitty-overlay = _: prev: {
         kitty = prev.kitty.overrideAttrs (_: {
           doCheck = false;
