@@ -12,6 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
@@ -45,6 +49,7 @@
     nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        inputs.lanzaboote.nixosModules.lanzaboote
         ./systems/nixos
         flakeRegistry
         inputs.hyprland.nixosModules.default

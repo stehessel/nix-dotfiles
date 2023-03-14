@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -6,15 +10,33 @@
   boot = {
     initrd.systemd.enable = true;
 
+    # Enable only bootspec before enabling lanzaboote on initial setup of secure boot.
+    # See https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md
+    bootspec.enable = true;
+
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+
     loader = {
       systemd-boot = {
-        enable = true;
+        # Lanzaboote currently replaces the systemd-boot module.
+        # This setting is usually set to true in configuration.nix
+        # generated at installation time. So we force it to false
+        # for now.
+        enable = lib.mkForce false;
         configurationLimit = 30;
       };
       efi.canTouchEfiVariables = true;
       timeout = 1;
     };
   };
+
+  # Secure boot key manager
+  environment.systemPackages = with pkgs; [
+    sbctl
+  ];
 
   hardware = {
     bluetooth.enable = true;
