@@ -14,7 +14,6 @@
     hyprland.url = "github:hyprwm/Hyprland";
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     rust = {
       url = "github:oxalica/rust-overlay";
