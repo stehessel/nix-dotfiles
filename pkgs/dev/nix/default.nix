@@ -11,6 +11,7 @@
       nurl
       rnix-lsp
       statix
+      vulnix
     ];
   };
   programs = {
