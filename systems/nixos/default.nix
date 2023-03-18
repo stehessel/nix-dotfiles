@@ -7,7 +7,7 @@
     ./hardware-configuration.nix
   ];
 
-  boot = {
+  boot = rec {
     initrd.systemd.enable = true;
 
     # Enable only bootspec before enabling lanzaboote on initial setup of secure boot.
@@ -15,7 +15,7 @@
     bootspec.enable = true;
 
     lanzaboote = {
-      enable = true;
+      enable = false;
       pkiBundle = "/etc/secureboot";
     };
 
@@ -25,7 +25,7 @@
         # This setting is usually set to true in configuration.nix
         # generated at installation time. So we force it to false
         # for now.
-        enable = lib.mkForce false;
+        enable = if lanzaboote.enable then lib.mkForce false else true;
         configurationLimit = 30;
       };
       efi.canTouchEfiVariables = true;
