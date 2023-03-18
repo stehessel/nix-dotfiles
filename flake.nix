@@ -111,17 +111,6 @@
     };
 
     overlays = {
-      # bitwarden-cli-overlay = final: prev: {
-      #   bitwarden-cli = prev.bitwarden-cli.overrideAttrs (old: {
-      #     buildInputs = old.buildInputs ++ [ final.pkgs.makeWrapper ];
-      #     postInstall = old.postInstall or "" + ''
-      #       wrapProgram "$out/bin/bw" \
-      #         --add-flags BW_CLIENTID="$(cat /run/secrets/bitwarden/id || echo)" \
-      #         --add-flags BW_CLIENTSECRET="$(cat /run/secrets/bitwarden/secret || echo)"
-      #     '';
-      #   });
-      # };
-
       buf-overlay = _: prev: {
         buf = prev.buf.overrideAttrs (_: {
           doCheck = false;

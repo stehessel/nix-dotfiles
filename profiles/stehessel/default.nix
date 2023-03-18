@@ -1,4 +1,4 @@
-_: {
+{config, ...}: {
   accounts.email.accounts = {
     stehessel = {
       primary = true;
@@ -34,7 +34,7 @@ _: {
           addressFamily = "inet6";
           hostname = "hesselmann.cloud";
           identitiesOnly = true;
-          identityFile = "/etc/ssh/ssh_server_key.pub";
+          identityFile = "${config.home.homeDirectory}/dev/secrets/ssh/server.pub";
           port = 50022;
           user = "stephan";
         };

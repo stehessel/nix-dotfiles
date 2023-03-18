@@ -1,28 +1,17 @@
-{
-  config,
-  xdg,
-  ...
-}: {
+{config, ...}: {
   sops = {
     defaultSopsFile = ./shared.yaml;
     age.keyFile = "${config.xdg.configHome}/sops/age/keys.txt";
     secrets = {
-      # "bitwarden/id" = {
-      #   mode = "0400";
-      # };
-      # "bitwarden/secret" = {
-      #   mode = "0400";
-      # };
-      # "cachix/token" = {
-      #   mode = "0400";
-      # };
-      # "github/fluxcd/user" = {
-      #   mode = "0400";
-      # };
-      # "github/fluxcd/token" = {
-      #   mode = "0400";
-      # };
-
+      "cachix/token" = {
+        path = "${config.home.homeDirectory}/dev/secrets/cachix/token";
+      };
+      "github/fluxcd/user" = {
+        path = "${config.home.homeDirectory}/dev/secrets/github/fluxcd/user";
+      };
+      "github/fluxcd/token" = {
+        path = "${config.home.homeDirectory}/dev/secrets/github/fluxcd/token";
+      };
       "ssh/github/public" = {
         path = "${config.home.homeDirectory}/dev/secrets/ssh/github.pub";
         sopsFile = ./ssh.yaml;
