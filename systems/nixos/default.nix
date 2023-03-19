@@ -16,7 +16,7 @@
 
     initrd.systemd.enable = true;
     # See https://www.reddit.com/r/NixOS/comments/xrgszw/nixos_full_disk_encryption_with_tpm_and_secure
-    initrd.availableKernelModules = ["tpm_crb"];
+    initrd.availableKernelModules = ["tpm_tis"];
 
     loader = {
       efi = {
