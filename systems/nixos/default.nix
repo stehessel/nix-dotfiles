@@ -15,8 +15,6 @@
     };
 
     initrd.systemd.enable = true;
-    # See https://www.reddit.com/r/NixOS/comments/xrgszw/nixos_full_disk_encryption_with_tpm_and_secure
-    initrd.availableKernelModules = ["tpm_tis"];
 
     loader = {
       efi = {
@@ -33,7 +31,7 @@
           if lanzaboote.enable
           then lib.mkForce false
           else true;
-        configurationLimit = 30;
+        configurationLimit = 15;
       };
 
       timeout = 1;
