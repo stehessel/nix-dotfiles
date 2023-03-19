@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  nixpkgsConfig,
+  pkgs,
+}: {
   environment.shells = [pkgs.bashInteractive pkgs.fish];
   programs.bash.enable = true;
   programs.fish.enable = true;
@@ -8,6 +12,24 @@
   # environment.systemPackages = with pkgs; [
   #   kitty
   # ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.stephan = {
+      imports = [
+        inputs.sops-nix.homeManagerModules.sops
+        ../../profiles/redhat
+        ../../roles/work-macos
+      ];
+    };
+  };
+  nixpkgs = nixpkgsConfig;
+
+  users.users.stephan = {
+    name = "stephan";
+    home = "/Users/stephan";
+  };
 
   services = {
     skhd = {
@@ -190,6 +212,8 @@
       sandbox = true;
     };
   };
+
+  nixpkgs = nixpkgsConfig;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

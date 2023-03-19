@@ -48,7 +48,10 @@
   in {
     nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+        inherit inputs;
+        inherit nixpkgsConfig;
+      };
       modules = [
         inputs.lanzaboote.nixosModules.lanzaboote
         ./systems/thinkpad
@@ -56,35 +59,19 @@
         inputs.hyprland.nixosModules.default
         {programs.hyprland.enable = true;}
         inputs.home-manager.nixosModules.home-manager
-        {nixpkgs = nixpkgsConfig;}
       ];
     };
 
     darwinConfigurations.shesselm-mac = inputs.darwin.lib.darwinSystem {
       system = "x86_64-darwin";
+      specialArgs = {
+        inherit inputs;
+        inherit nixpkgsConfig;
+      };
       modules = [
         ./systems/darwin
         flakeRegistry
         inputs.home-manager.darwinModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.stephan = {
-              imports = [
-                inputs.sops-nix.homeManagerModules.sops
-                ./profiles/redhat
-                ./roles/work-macos
-              ];
-            };
-          };
-          nixpkgs = nixpkgsConfig;
-
-          users.users.stephan = {
-            name = "stephan";
-            home = "/Users/stephan";
-          };
-        }
       ];
     };
 
