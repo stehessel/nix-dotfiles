@@ -3,13 +3,7 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ./hardware-configuration.nix
-  ];
-
   boot = rec {
-    initrd.systemd.enable = true;
-
     # Enable only bootspec before enabling lanzaboote on initial setup of secure boot.
     # See https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md
     bootspec.enable = true;
@@ -19,16 +13,26 @@
       pkiBundle = "/etc/secureboot";
     };
 
+    initrd.systemd.enable = true;
+
     loader = {
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+
       systemd-boot = {
         # Lanzaboote currently replaces the systemd-boot module.
         # This setting is usually set to true in configuration.nix
         # generated at installation time. So we force it to false
         # for now.
-        enable = if lanzaboote.enable then lib.mkForce false else true;
+        enable =
+          if lanzaboote.enable
+          then lib.mkForce false
+          else true;
         configurationLimit = 30;
       };
-      efi.canTouchEfiVariables = true;
+
       timeout = 1;
     };
   };
@@ -47,7 +51,6 @@
   systemd.coredump.enable = false;
 
   networking = {
-    hostName = "thinkpad";
     networkmanager = {
       enable = true;
       wifi.backend = "iwd";

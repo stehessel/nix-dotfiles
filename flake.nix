@@ -50,7 +50,7 @@
       system = "x86_64-linux";
       modules = [
         inputs.lanzaboote.nixosModules.lanzaboote
-        ./systems/nixos
+        ./systems/thinkpad
         flakeRegistry
         inputs.hyprland.nixosModules.default
         {programs.hyprland.enable = true;}
