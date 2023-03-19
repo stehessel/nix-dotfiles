@@ -1,4 +1,4 @@
-_: {
+{inputs, ...}: {
   imports = [
     ../nixos
     ./hardware-configuration.nix
@@ -22,4 +22,27 @@ _: {
   };
 
   networking.hostName = "thinkpad";
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+
+    users.stephan = {
+      imports = [
+        inputs.sops-nix.homeManagerModules.sops
+        inputs.hyprland.homeManagerModules.default
+        ../../profiles/stehessel
+        ../../roles/linux
+      ];
+    };
+  };
+
+  users.users = {
+    root.hashedPassword = "!";
+
+    stephan = {
+      isNormalUser = true;
+      extraGroups = ["networkmanager" "wheel"];
+    };
+  };
 }

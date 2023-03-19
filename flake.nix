@@ -48,6 +48,7 @@
   in {
     nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {inherit inputs;};
       modules = [
         inputs.lanzaboote.nixosModules.lanzaboote
         ./systems/thinkpad
@@ -55,30 +56,7 @@
         inputs.hyprland.nixosModules.default
         {programs.hyprland.enable = true;}
         inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.stephan = {
-              imports = [
-                inputs.sops-nix.homeManagerModules.sops
-                inputs.hyprland.homeManagerModules.default
-                ./profiles/stehessel
-                ./roles/linux
-              ];
-            };
-          };
-          nixpkgs = nixpkgsConfig;
-
-          users.users = {
-            root.hashedPassword = "!";
-
-            stephan = {
-              isNormalUser = true;
-              extraGroups = ["networkmanager" "wheel"];
-            };
-          };
-        }
+        {nixpkgs = nixpkgsConfig;}
       ];
     };
 
