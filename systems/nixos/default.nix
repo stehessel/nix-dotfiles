@@ -10,7 +10,7 @@
     bootspec.enable = true;
 
     lanzaboote = {
-      enable = false;
+      enable = true;
       pkiBundle = "/etc/secureboot";
     };
 
