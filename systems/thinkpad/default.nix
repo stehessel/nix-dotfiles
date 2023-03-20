@@ -21,6 +21,15 @@
     };
   };
 
+  fileSystems."/efi" = {
+    options = [
+      "defaults"
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=1"
+    ];
+  };
+
   networking.hostName = "thinkpad";
 
   home-manager = {
