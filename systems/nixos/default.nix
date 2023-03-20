@@ -9,12 +9,17 @@
     # See https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md
     bootspec.enable = true;
 
+    initrd.systemd.enable = true;
+
+    kernel.sysctl = {
+      # Disable magic SysRq key. See https://blastrock.github.io/fde-tpm-sb.html.
+      "kernel.sysrq" = 0;
+    };
+
     lanzaboote = {
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
-
-    initrd.systemd.enable = true;
 
     loader = {
       efi = {
