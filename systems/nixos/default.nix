@@ -121,21 +121,15 @@
   # Login manager
   services.xserver = {
     enable = true;
-
-    libinput.enable = true;
-
     displayManager = {
       autoLogin = {
-        enable = true;
+        enable = false;
         user = "stephan";
       };
       defaultSession = "hyprland";
       lightdm.enable = true;
-
-      sessionCommands = ''
-        export XKB_DEFAULT_OPTIONS='caps:escape'
-      '';
     };
+    libinput.enable = true;
   };
 
   virtualisation = {
