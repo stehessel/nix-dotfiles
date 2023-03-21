@@ -3,17 +3,13 @@
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
-  # Login manager
-  services.xserver = {
+  services.greetd = {
     enable = true;
-    displayManager = {
-      autoLogin = {
-        enable = false;
-        user = "stephan";
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland --remember --time";
+        user = "greeter";
       };
-      defaultSession = "hyprland";
-      lightdm.enable = true;
     };
-    libinput.enable = true;
   };
 }
