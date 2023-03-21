@@ -149,6 +149,7 @@
     };
   };
 
+  nixpkgs = nixpkgsConfig;
   nix = {
     extraOptions = ''
       connect-timeout = 5  # in seconds
@@ -187,8 +188,6 @@
       ];
     };
   };
-
-  nixpkgs = nixpkgsConfig;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

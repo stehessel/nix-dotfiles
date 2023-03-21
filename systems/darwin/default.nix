@@ -2,6 +2,7 @@
   inputs,
   nixpkgsConfig,
   pkgs,
+  ...
 }: {
   environment.shells = [pkgs.bashInteractive pkgs.fish];
   programs.bash.enable = true;
@@ -24,7 +25,6 @@
       ];
     };
   };
-  nixpkgs = nixpkgsConfig;
 
   users.users.stephan = {
     name = "stephan";
@@ -174,6 +174,7 @@
 
   services.nix-daemon.enable = true;
 
+  nixpkgs = nixpkgsConfig;
   nix = {
     configureBuildUsers = true;
     extraOptions = ''
@@ -212,8 +213,6 @@
       sandbox = true;
     };
   };
-
-  nixpkgs = nixpkgsConfig;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

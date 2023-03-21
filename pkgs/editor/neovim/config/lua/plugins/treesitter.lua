@@ -115,7 +115,7 @@ return {
       { "RRethy/nvim-treesitter-textsubjects" },
       { "windwp/nvim-ts-autotag" },
     },
-    event = "BufReadPost",
+    event = "BufWinEnter",
   },
   {
     "ThePrimeagen/refactoring.nvim",
