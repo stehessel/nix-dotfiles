@@ -210,7 +210,7 @@
         "root"
         "@admin"
       ];
-      sandbox = true;
+      sandbox = false;
     };
   };
 
