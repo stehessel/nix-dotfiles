@@ -10,9 +10,9 @@
 
   # `home-manager` currently has issues adding them to `~/Applications`
   # Issue: https://github.com/nix-community/home-manager/issues/1341
-  # environment.systemPackages = with pkgs; [
-  #   kitty
-  # ];
+  environment.systemPackages = with pkgs; [
+    kitty
+  ];
 
   home-manager = {
     useGlobalPkgs = true;
@@ -95,11 +95,8 @@
       "font-fira-code-nerd-font"
       "google-chrome"
       "inkscape"
-      "kitty"
-      "rancher"
       "slack"
       "syncthing"
-      "wezterm"
       "zoom"
     ];
   };
