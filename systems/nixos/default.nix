@@ -23,6 +23,8 @@
     })
   ];
 
+  security.sudo.execWheelOnly = true;
+
   services = {
     printing.enable = true;
     tlp.enable = true;
