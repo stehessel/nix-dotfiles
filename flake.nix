@@ -54,6 +54,7 @@
       };
       modules = [
         inputs.lanzaboote.nixosModules.lanzaboote
+        "${nixpkgs}/nixos/modules/profiles/hardened.nix"
         ./systems/thinkpad
         flakeRegistry
         inputs.hyprland.nixosModules.default
