@@ -5,6 +5,7 @@
     ./login
     ./networking
     ./nix
+    ./security
   ];
 
   systemd.coredump.enable = false;
@@ -22,8 +23,6 @@
       fonts = ["FiraCode"];
     })
   ];
-
-  security.sudo.execWheelOnly = true;
 
   services = {
     printing.enable = true;

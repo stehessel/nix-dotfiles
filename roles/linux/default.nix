@@ -16,8 +16,6 @@
     packages = with pkgs; [
       # --- bookmarks ---
       buku
-      # --- browsers ---
-      brave
       # --- desktop ---
       bemenu
       cliphist
@@ -53,6 +51,7 @@
   };
 
   programs = {
+    brave.enable = true;
     himalaya.enable = true;
     home-manager.enable = true;
     sioyek.enable = true;
