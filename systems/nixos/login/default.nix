@@ -3,13 +3,9 @@
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
-  services.greetd = {
+  # Display manager
+  services.xserver = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland --remember --time";
-        user = "greeter";
-      };
-    };
+    displayManager.gdm.enable = true;
   };
 }

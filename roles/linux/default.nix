@@ -43,10 +43,6 @@
       # --- terminal ---
       alacritty
       kitty
-      # --- window manager ---
-      swaybg
-      swayidle
-      swaylock
     ];
   };
 
@@ -81,8 +77,6 @@
       };
     };
   };
-
-  # wayland.windowManager.hyprland.enable = true;
 
   xdg.configFile."fish/fish_plugins".source = ../../pkgs/shell/fish/linux/fish_plugins;
 }
