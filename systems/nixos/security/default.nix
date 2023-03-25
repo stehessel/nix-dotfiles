@@ -17,6 +17,8 @@
   # Causes chromium rebuild, which takes forever.
   # security.chromiumSuidSandbox.enable = true;
 
+  security.pam.services.swaylock = {};
+
   programs.firejail = {
     enable = true;
     wrappedBinaries = {

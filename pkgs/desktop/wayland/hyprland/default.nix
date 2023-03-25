@@ -7,6 +7,7 @@ _: {
 
       # Start up
       exec-once  = wl-paste --watch cliphist store
+      exec-once  = swayidle -w
       windowrule = workspace 1 silent, brave
       windowrule = workspace 2 silent, foot
       exec-once  = brave
@@ -100,7 +101,6 @@ _: {
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
       $mainMod = SUPER
 
-      # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod,      Q,     exec,           foot
       bind = $mainMod,      C,     killactive,
       bind = $mainMod CTRL, C,     exit,
@@ -110,6 +110,7 @@ _: {
       bind = $mainMod,      V,     exec,           cliphist list | wofi --dmenu | cliphist decode | wl-copy
       bind = $mainMod CTRL, V,     exec,           rm $XDG_CACHE_HOME/cliphist/db
       bind = $mainMod,      P,     pin,
+      bind = $mainMod,      L,     exec,           swaylock --ignore-empty-password --daemonize --image ~/Sync/backgrounds/samurai_jack_2.png
 
       # Window binds
       bind = $mainMod,       J, cyclenext, next
