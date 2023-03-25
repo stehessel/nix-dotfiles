@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
@@ -110,7 +110,7 @@ _: {
       bind = $mainMod,      V,     exec,           cliphist list | wofi --dmenu | cliphist decode | wl-copy
       bind = $mainMod CTRL, V,     exec,           rm $XDG_CACHE_HOME/cliphist/db
       bind = $mainMod,      P,     pin,
-      bind = $mainMod,      L,     exec,           swaylock --ignore-empty-password --daemonize --image ~/Sync/backgrounds/samurai_jack_2.png
+      bind = $mainMod,      L,     exec,           ${pkgs.swaylock}/bin/swaylock
 
       # Window binds
       bind = $mainMod,       J, cyclenext, next
