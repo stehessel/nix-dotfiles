@@ -2,7 +2,7 @@ _: {
   xdg.configFile."dunst/dunstrc".source = config/dunstrc;
   services = {
     dunst = {
-      enable = true;
+      enable = false;
       waylandDisplay = "wayland-1";
     };
   };

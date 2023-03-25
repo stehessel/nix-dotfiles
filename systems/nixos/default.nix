@@ -56,6 +56,11 @@
     wlr.enable = true;
   };
 
+  # Notifications
+  environment.systemPackages = [pkgs.swaynotificationcenter];
+  services.dbus.packages = [pkgs.swaynotificationcenter];
+  systemd.packages = [pkgs.swaynotificationcenter];
+
   virtualisation = {
     podman = {
       enable = true;

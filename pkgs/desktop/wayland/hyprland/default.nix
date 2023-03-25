@@ -7,7 +7,7 @@
 
       # Start up
       exec-once  = wl-paste --watch cliphist store
-      exec-once  = swayidle -w
+      exec-once  = swaync
       windowrule = workspace 1 silent, brave
       windowrule = workspace 2 silent, foot
       exec-once  = brave
