@@ -4,6 +4,9 @@
   ...
 }: {
   security = {
+    audit.enable = true;
+    auditd.enable = true;
+    pam.services.swaylock = {};
     sudo.execWheelOnly = true;
   };
 
@@ -16,8 +19,6 @@
 
   # Causes chromium rebuild, which takes forever.
   # security.chromiumSuidSandbox.enable = true;
-
-  security.pam.services.swaylock = {};
 
   programs.firejail = {
     enable = true;
