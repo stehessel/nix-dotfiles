@@ -10,7 +10,7 @@
     ];
     timeouts = [
       {
-        timeout = 60;
+        timeout = 300;
         command = "${pkgs.swaylock}/bin/swaylock";
       }
     ];
