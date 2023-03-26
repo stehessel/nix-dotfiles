@@ -6,6 +6,9 @@
   # Display manager
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
   };
 }
