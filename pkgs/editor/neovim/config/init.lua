@@ -1,4 +1,5 @@
 -- Set before loading plugins
+vim.loader.enable()
 vim.g.mapleader = ","
 vim.g.maplocalleader = "\\"
 vim.opt.bg = "dark"
