@@ -30,6 +30,13 @@
     };
   };
 
+  # Firewall
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [];
+    allowedUDPPorts = [];
+  };
+
   # Antivirus
   services.clamav = {
     daemon.enable = true;
