@@ -21,7 +21,7 @@
   # security.chromiumSuidSandbox.enable = true;
 
   programs.firejail = {
-    enable = true;
+    enable = false;
     wrappedBinaries = {
       firefox = {
         executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
