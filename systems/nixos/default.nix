@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{inputs, pkgs, ...}: {
   imports = [
     ./boot
     ./hardware
@@ -68,4 +68,8 @@
       dockerCompat = true;
     };
   };
+
+  # Program not found fix
+  # environment.etc."programs.sqlite".source = inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
+  # programs.command-not-found.dbPath = "/etc/programs.sqlite";
 }

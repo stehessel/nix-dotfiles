@@ -19,6 +19,10 @@
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
+    programsdb = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     rust = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
