@@ -113,10 +113,11 @@
       bind = $mainMod,      L,     exec,           ${pkgs.swaylock}/bin/swaylock
 
       # Window binds
-      bind = $mainMod,       J, cyclenext, next
-      bind = $mainMod SHIFT, J, swapnext,  next
-      bind = $mainMod,       K, cyclenext, prev
-      bind = $mainMod SHIFT, K, swapnext,  prev
+      bind = $mainMod,       J, cyclenext,          next
+      bind = $mainMod SHIFT, J, swapnext,           next
+      bind = $mainMod,       K, cyclenext,          prev
+      bind = $mainMod SHIFT, K, swapnext,           prev
+      bind = $mainMod,       N, focusCurrentOrLast,
 
       # Move focus with mainMod + arrow keys
       bind = $mainMod, left,  movefocus, l
