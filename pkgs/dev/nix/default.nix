@@ -4,6 +4,8 @@
       alejandra
       cachix
       deadnix
+      nix-info
+      nix-output-monitor
       nix-prefetch-github
       nix-update
       nixpkgs-fmt

@@ -10,7 +10,7 @@
       ctop
       hadolint
       nodePackages.dockerfile-language-server-nodejs
-      podman
+      # podman
     ];
   };
 }

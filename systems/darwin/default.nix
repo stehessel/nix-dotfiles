@@ -83,6 +83,7 @@
     ];
     brews = [
       "llvm"
+      "prometheus"
       "skhd"
       "yabai"
     ];
