@@ -96,6 +96,7 @@
       "font-fira-code-nerd-font"
       "google-chrome"
       "inkscape"
+      "quarto"
       "slack"
       "syncthing"
       "zoom"

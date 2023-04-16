@@ -29,6 +29,7 @@
       # --- dev ---
       gcc
       gnumake
+      quarto
       zig
       # --- file viewer ---
       glow
