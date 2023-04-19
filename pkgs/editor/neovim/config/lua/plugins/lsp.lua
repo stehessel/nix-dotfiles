@@ -92,6 +92,7 @@ return {
         "dockerls",
         "gopls",
         "groovyls",
+        "helm_ls",
         "jsonls",
         "jsonnet_ls",
         "marksman",

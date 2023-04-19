@@ -6,4 +6,5 @@ return {
     event = "BufReadPre",
     opts = {},
   },
+  { "towolf/vim-helm", ft = "helm" },
 }

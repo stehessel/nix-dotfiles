@@ -104,6 +104,7 @@
   "vim-coiled-snake": { "branch": "master", "commit": "ce50abca6c3533cb9bf48e910f87ae91f2969740" },
   "vim-cool": { "branch": "master", "commit": "80536b9f2e23292708a64f2e7bcf5e596f9faf24" },
   "vim-easy-align": { "branch": "master", "commit": "12dd6316974f71ce333e360c0260b4e1f81169c3" },
+  "vim-helm": { "branch": "master", "commit": "c2e7b85711d410e1d73e64eb5df7b70b1c4c10eb" },
   "vim-illuminate": { "branch": "master", "commit": "a2907275a6899c570d16e95b9db5fd921c167502" },
   "vim-ingo-library": { "branch": "master", "commit": "cb7c6728608e3c727e0620582f0b0becd8ce28f3" },
   "vim-move": { "branch": "master", "commit": "a4bbedda7ef516b4a1b74d145cd642297e82e800" },
