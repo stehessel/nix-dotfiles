@@ -15,6 +15,7 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust";
     };
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
