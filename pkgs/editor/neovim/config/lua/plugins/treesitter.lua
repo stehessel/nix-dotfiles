@@ -19,12 +19,12 @@ return {
           enable = true,
           additional_vim_regex_highlighting = { "org" },
           disable = function(_, buf)
-            local max_filesize = 100 * 1024; -- 100KB
+            local max_filesize = 100 * 1024 -- 100KB
             local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
             if ok and stats and stats.size > max_filesize then
               return true
             end
-          end
+          end,
         },
         incremental_selection = {
           enable = true,
@@ -126,23 +126,22 @@ return {
   },
   {
     "ThePrimeagen/refactoring.nvim",
-    config = function()
-      require("refactoring").setup({
-        prompt_func_return_type = {
-          go = true,
-        },
-        prompt_func_param_type = {
-          go = true,
-          cpp = true,
-          c = true,
-        },
-      })
-
+    init = function()
       vim.keymap.set("v", "<Leader>re", "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>")
       vim.keymap.set("v", "<Leader>rf", "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>")
       vim.keymap.set("v", "<Leader>rv", "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>")
       vim.keymap.set("v", "<Leader>ri", "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>")
     end,
-    enabled = false,
+    opts = {
+      prompt_func_return_type = {
+        go = true,
+      },
+      prompt_func_param_type = {
+        go = true,
+        cpp = true,
+        c = true,
+      },
+    },
+    enabled = true,
   },
 }

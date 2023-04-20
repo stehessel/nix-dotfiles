@@ -15,13 +15,13 @@ return {
             neorg_leader = "<Leader>n",
           },
         },
-        ["core.norg.completion"] = {
+        ["core.completion"] = {
           config = {
             engine = "nvim-cmp",
           },
         },
-        ["core.norg.concealer"] = {},
-        ["core.norg.dirman"] = {
+        ["core.concealer"] = {},
+        ["core.dirman"] = {
           config = {
             workspaces = {
               home = "~/doc/notes/home",
