@@ -142,6 +142,5 @@ return {
         c = true,
       },
     },
-    enabled = true,
   },
 }

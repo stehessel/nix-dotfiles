@@ -1,6 +1,7 @@
 _: {
   imports = [
     ./build
+    ./data
     ./golang
     ./javascript
     ./jsonnet
@@ -9,6 +10,7 @@ _: {
     ./protobuf
     ./python
     ./rust
+    ./sql
     ./text
     ./version-control/git
   ];

@@ -53,10 +53,6 @@
       # --- chat ---
       zulip-term
       # podman-compose
-      # --- data ---
-      jq
-      nodePackages.vscode-langservers-extracted
-      yq-go
       # --- desktop ---
       xdg-utils
       # --- dev ---
@@ -108,16 +104,6 @@
       speedtest-cli
       # --- process manager ---
       htop
-      # --- shell ---
-      bashInteractive
-      dash
-      elvish
-      nodePackages.bash-language-server
-      shellcheck
-      shfmt
-      # --- sql ---
-      nodePackages.sql-formatter
-      sqlite
       # --- system ---
       (uutils-coreutils.override {prefix = "";})
       # --- terminal ---

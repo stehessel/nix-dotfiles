@@ -1,7 +1,3 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+_: {
   xdg.configFile."luaformatter/config.yaml".source = config/config.yaml;
 }
