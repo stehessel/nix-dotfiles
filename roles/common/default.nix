@@ -26,8 +26,6 @@
     stateVersion = "22.11";
     sessionPath = [
       "$HOME/.local/bin"
-      "$HOME/.luarocks/bin"
-      "$HOME/miniconda3/bin"
       "/usr/local/bin"
     ];
     sessionVariables = {
@@ -96,7 +94,7 @@
       bandwhich
       curl
       grpcurl
-      # httpie
+      httpie
       jwt-cli
       netcat
       ngrok

@@ -43,15 +43,6 @@ _: {
           curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
           fish -c fisher
       end
-
-      # Conda
-      if test -d "$HOME/miniconda3"
-          set conda_source_file "$XDG_CONFIG_HOME/fish/conda.fish"
-          if not test -f $conda_source_file
-              eval "$HOME/miniconda3/bin/conda" "shell.fish" hook $argv >$conda_source_file
-          end
-          source $conda_source_file
-      end
     '';
   };
 }

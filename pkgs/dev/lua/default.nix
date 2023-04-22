@@ -14,5 +14,8 @@
       stylua
       sumneko-lua-language-server
     ];
+    sessionPath = [
+      "$HOME/.luarocks/bin"
+    ];
   };
 }
