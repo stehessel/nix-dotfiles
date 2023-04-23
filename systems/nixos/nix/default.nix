@@ -14,6 +14,7 @@
       automatic = true;
       dates = "weekly";
     };
+    package = pkgs.nixVersions.unstable;
     settings = {
       auto-optimise-store = true;
       substituters = [

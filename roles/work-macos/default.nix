@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ../../pkgs/container/colima
     ../../pkgs/desktop/skhd
     ../../pkgs/desktop/window-manager/yabai
     ../../pkgs/terminal/kitty

@@ -191,6 +191,7 @@
         Hour = 12;
       };
     };
+    package = pkgs.nixVersions.unstable;
     settings = {
       auto-optimise-store = true;
       substituters = [

@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./helm
+  ];
+
   home = {
     packages = with pkgs; [
       cilium-cli
@@ -16,12 +20,6 @@
       kubectl
       kubectx
       kustomize
-      (pkgs.wrapHelm pkgs.kubernetes-helm {
-        plugins = [
-          pkgs.kubernetes-helmPlugins.helm-diff
-          pkgs.kubernetes-helmPlugins.helm-secrets
-        ];
-      })
       linkerd
       operator-sdk
       upbound
