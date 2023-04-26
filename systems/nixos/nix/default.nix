@@ -1,4 +1,4 @@
-{nixpkgsConfig, ...}: {
+{nixpkgsConfig, pkgs, ...}: {
   nixpkgs = nixpkgsConfig;
   nix = {
     extraOptions = ''
