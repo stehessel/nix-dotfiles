@@ -20,8 +20,8 @@
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
-    programsdb = {
-      url = "github:wamserma/flake-programs-sqlite";
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rust = {
@@ -64,6 +64,7 @@
         flakeRegistry
         inputs.hyprland.nixosModules.default
         {programs.hyprland.enable = true;}
+        inputs.nix-index-database.nixosModules.nix-index
         inputs.home-manager.nixosModules.home-manager
       ];
     };
@@ -77,12 +78,13 @@
       modules = [
         ./systems/darwin
         flakeRegistry
+        inputs.nix-index-database.darwinModules.nix-index
         inputs.home-manager.darwinModules.home-manager
       ];
     };
 
     overlays = {
-      neovim-nightly-overlay = inputs.neovim-nightly.overlay;
+      # neovim-nightly-overlay = inputs.neovim-nightly.overlay;
       rust-overlay = inputs.rust.overlays.default;
 
       starship-overlay = _: prev: {

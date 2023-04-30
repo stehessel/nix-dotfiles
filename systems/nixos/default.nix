@@ -1,4 +1,4 @@
-{inputs, pkgs, ...}: {
+{pkgs, ...}: {
   imports = [
     ./boot
     ./hardware
@@ -69,7 +69,5 @@
     };
   };
 
-  # Program not found fix
-  # environment.etc."programs.sqlite".source = inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
-  # programs.command-not-found.dbPath = "/etc/programs.sqlite";
+  programs.command-not-found.enable = false;
 }
