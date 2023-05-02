@@ -84,7 +84,7 @@
     };
 
     overlays = {
-      # neovim-nightly-overlay = inputs.neovim-nightly.overlay;
+      neovim-nightly-overlay = inputs.neovim-nightly.overlay;
       rust-overlay = inputs.rust.overlays.default;
 
       starship-overlay = _: prev: {
