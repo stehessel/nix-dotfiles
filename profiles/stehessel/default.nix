@@ -24,7 +24,7 @@
   };
   programs = {
     git = {
-      userEmail = "stephan@stehessel.de";
+      userEmail = "git@stephan.sh";
       userName = "stehessel";
     };
     ssh = {
