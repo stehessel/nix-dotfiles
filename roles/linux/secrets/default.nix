@@ -6,12 +6,6 @@
       "cachix/token" = {
         path = "${config.home.homeDirectory}/dev/secrets/cachix/token";
       };
-      "github/fluxcd/user" = {
-        path = "${config.home.homeDirectory}/dev/secrets/github/fluxcd/user";
-      };
-      "github/fluxcd/token" = {
-        path = "${config.home.homeDirectory}/dev/secrets/github/fluxcd/token";
-      };
       "ssh/github/public" = {
         path = "${config.home.homeDirectory}/dev/secrets/ssh/github.pub";
         sopsFile = ./ssh.yaml;
