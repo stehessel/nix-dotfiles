@@ -22,8 +22,8 @@
           kb_options = caps:escape
           kb_rules =
 
-          repeat_rate = 60
-          repeat_delay = 300
+          repeat_rate = 70
+          repeat_delay = 200
 
           follow_mouse = 1
 
