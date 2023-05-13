@@ -10,10 +10,6 @@
     sudo.execWheelOnly = true;
   };
 
-  # The `scudo` memory allocator set by the hardened profile is causing instability problems.
-  # Switch back to default `libc` allocator.
-  environment.memoryAllocator.provider = "libc";
-
   # Firejail doesn't work with home-manager for the moment.
   programs.firefox.enable = true;
 
