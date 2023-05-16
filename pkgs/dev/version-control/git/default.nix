@@ -3,6 +3,7 @@
     packages = with pkgs; [
       git-extras
       git-interactive-rebase-tool
+      git-mit
       git-sizer
       git-town
       gitAndTools.git-bug

@@ -26,6 +26,14 @@
     git = {
       userEmail = "git@stephan.sh";
       userName = "stehessel";
+      extraConfig = {
+        mit = {
+          "author.config.sh" = {
+            email = "git@stephan.sh";
+            name = "Stephan Heßelmann";
+          };
+        };
+      };
     };
     ssh = {
       enable = true;
@@ -41,6 +49,7 @@
       };
     };
   };
+
   services.mbsync = {
     enable = false;
     configFile = config/mbsync/mbsyncrc;
