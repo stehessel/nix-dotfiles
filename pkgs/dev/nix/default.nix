@@ -4,6 +4,7 @@
       alejandra
       cachix
       deadnix
+      nil
       nix-info
       nix-output-monitor
       nix-prefetch-github
