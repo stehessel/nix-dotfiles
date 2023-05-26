@@ -22,6 +22,14 @@
         path = "${config.home.homeDirectory}/dev/secrets/ssh/hcloud";
         sopsFile = ./ssh.yaml;
       };
+      "ssh/seedbox/public" = {
+        path = "${config.home.homeDirectory}/dev/secrets/ssh/seedbox.pub";
+        sopsFile = ./ssh.yaml;
+      };
+      "ssh/seedbox/private" = {
+        path = "${config.home.homeDirectory}/dev/secrets/ssh/seedbox";
+        sopsFile = ./ssh.yaml;
+      };
       "ssh/server/public" = {
         path = "${config.home.homeDirectory}/dev/secrets/ssh/server.pub";
         sopsFile = ./ssh.yaml;

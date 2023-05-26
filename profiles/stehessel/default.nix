@@ -38,11 +38,16 @@
     ssh = {
       enable = true;
       matchBlocks = {
+        "seedbox" = {
+          hostname = "stehessel.gandalf.usbx.me";
+          identityFile = "${config.home.homeDirectory}/dev/secrets/ssh/seedbox";
+          user = "stehessel";
+        };
         "server" = {
           addressFamily = "inet6";
           hostname = "hesselmann.cloud";
           identitiesOnly = true;
-          identityFile = "${config.home.homeDirectory}/dev/secrets/ssh/server.pub";
+          identityFile = "${config.home.homeDirectory}/dev/secrets/ssh/server";
           port = 50022;
           user = "stephan";
         };
