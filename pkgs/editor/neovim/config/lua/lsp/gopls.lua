@@ -6,7 +6,6 @@ return {
       flags = flags,
       settings = {
         gopls = {
-          experimentalPackageCacheKey = true,
           gofumpt = true,
           semanticTokens = true,
         },
