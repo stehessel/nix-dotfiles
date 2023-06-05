@@ -23,6 +23,7 @@
       linkerd
       operator-sdk
       upbound
+      velero
     ];
     sessionPath = [
       "/home/stephan/.krew/bin"
