@@ -82,6 +82,7 @@
       "nrlquaker/createzap"
     ];
     brews = [
+      "coreutils"
       "llvm"
       "prometheus"
       "skhd"

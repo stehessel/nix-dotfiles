@@ -103,7 +103,7 @@
       # --- process manager ---
       htop
       # --- system ---
-      (uutils-coreutils.override {prefix = "";})
+      # (uutils-coreutils.override {prefix = "";})
       # --- terminal ---
       alacritty
       # --- terminal multiplexers ---
