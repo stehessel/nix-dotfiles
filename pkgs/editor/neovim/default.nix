@@ -4,7 +4,7 @@
     neovim-python = pkgs.python3.withPackages python-packages;
   in {
     packages = with pkgs; [
-      neovim
+      neovim-nightly
       neovim-python
     ];
 

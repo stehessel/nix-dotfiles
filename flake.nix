@@ -11,14 +11,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stehessel-overlay = {
+      url = "github:stehessel/nix-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland.url = "github:hyprwm/Hyprland";
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = "rust";
-    };
-    neovim-nightly = {
-      url = "github:nix-community/neovim-nightly-overlay";
     };
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
@@ -83,7 +84,7 @@
     };
 
     overlays = {
-      # neovim-nightly-overlay = inputs.neovim-nightly.overlay;
+      stehessel-overlay = inputs.stehessel-overlay.overlay;
       rust-overlay = inputs.rust.overlays.default;
     };
   };
