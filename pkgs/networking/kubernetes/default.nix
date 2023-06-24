@@ -22,6 +22,7 @@
       kustomize
       linkerd
       operator-sdk
+      stern
       upbound
       velero
     ];
