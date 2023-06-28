@@ -67,15 +67,25 @@ return {
             require("luasnip").lsp_expand(args.body)
           end,
         },
+        sorting = {
+          comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            require("cmp-under-comparator").under,
+            cmp.config.compare.kind,
+          },
+        },
         sources = cmp.config.sources({
-          { name = "path" },
+          { name = "async_path" },
           { name = "neorg" },
           { name = "orgmode" },
           { name = "luasnip" },
           { name = "nvim_lua" },
           { name = "nvim_lsp" },
           { name = "git" },
-          { name = "fuzzy_buffer" },
+          { name = "fuzzy_buffer", keyword_length = 5 },
         }),
       })
       cmp.setup.filetype("gitcommit", {
@@ -87,10 +97,12 @@ return {
       require("cmp_git").setup()
     end,
     dependencies = {
+      { "FelipeLema/cmp-async-path" },
       { "L3MON4D3/LuaSnip" },
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-nvim-lua" },
       { "hrsh7th/cmp-path" },
+      { "lukas-reineke/cmp-under-comparator" },
       { "petertriho/cmp-git" },
       { "saadparwaiz1/cmp_luasnip" },
       { "tzachar/cmp-fuzzy-buffer", dependencies = { "tzachar/fuzzy.nvim" } },
