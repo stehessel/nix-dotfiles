@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   home = {
     packages = with pkgs; [
       buildpack
@@ -6,5 +10,8 @@
       gnumake
       go-task
     ];
+    sessionVariables = {
+      PACK_HOME = "${config.xdg.configHome}/pack";
+    };
   };
 }
