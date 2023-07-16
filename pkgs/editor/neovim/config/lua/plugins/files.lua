@@ -7,32 +7,30 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    branch = "v3.x",
     cmd = { "Neotree" },
-    config = function()
-      -- Unless you are still migrating, remove the deprecated commands from v1.x
-      vim.g.neo_tree_remove_legacy_commands = 1
-
-      require("neo-tree").setup({
-        close_if_last_window = false,
-        window = {
-          mappings = {
-            ["l"] = "open",
-          },
-          width = 40,
+    opts = {
+      close_if_last_window = false,
+      window = {
+        mappings = {
+          ["l"] = "open",
         },
-        filesystem = {
-          follow_current_file = true,
-          group_empty_dirs = true,
-          use_libuv_file_watcher = true,
+        width = 40,
+      },
+      filesystem = {
+        follow_current_file = {
+          enabled = true,
         },
-      })
-    end,
+        group_empty_dirs = true,
+        use_libuv_file_watcher = true,
+      },
+    },
     init = function()
       vim.keymap.set("n", "<Leader>e", ":Neotree reveal toggle<CR>")
     end,
     dependencies = {
-      "kyazdani42/nvim-web-devicons",
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
   },
