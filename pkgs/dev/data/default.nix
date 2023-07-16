@@ -1,5 +1,5 @@
 {
-  config,
+  # config,
   pkgs,
   ...
 }: {
@@ -9,9 +9,9 @@
       nodePackages.vscode-langservers-extracted
       yq-go
     ];
-    sessionVariables = {
-      PRETTIERD_DEFAULT_CONFIG = "${config.xdg.configHome}/prettier/prettierrc.json";
-    };
+    # sessionVariables = {
+    #   PRETTIERD_DEFAULT_CONFIG = "${config.xdg.configHome}/prettier/prettierrc.json";
+    # };
   };
-  xdg.configFile."prettier/prettierrc.json".source = ./config/prettierrc.json;
+  # xdg.configFile."prettier/prettierrc.json".source = ./config/prettierrc.json;
 }

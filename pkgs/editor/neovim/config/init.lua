@@ -33,8 +33,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+require("lazy").setup("plugins", {
   defaults = { lazy = true },
-  lockfile = "~/nix-home/pkgs/editor/neovim/config/lazy-lock.json",
-  spec = { import = "plugins" },
 })

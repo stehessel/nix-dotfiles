@@ -1,3 +1,4 @@
 {
+  "pluginSearchDirs": ["~/.config/npm/npm-packages/lib/node_modules"],
   "plugins": ["prettier-plugin-go-template"]
 }

@@ -69,6 +69,7 @@ return {
         },
         sorting = {
           comparators = {
+            require("cmp_fuzzy_buffer.compare"),
             cmp.config.compare.offset,
             cmp.config.compare.exact,
             cmp.config.compare.score,
@@ -105,7 +106,13 @@ return {
       { "lukas-reineke/cmp-under-comparator" },
       { "petertriho/cmp-git" },
       { "saadparwaiz1/cmp_luasnip" },
-      { "tzachar/cmp-fuzzy-buffer", dependencies = { "tzachar/fuzzy.nvim" } },
+      {
+        "tzachar/cmp-fuzzy-buffer",
+        dependencies = {
+          "tzachar/fuzzy.nvim",
+          "nvim-telescope/telescope-fzf-native.nvim",
+        },
+      },
     },
     event = "InsertEnter",
   },

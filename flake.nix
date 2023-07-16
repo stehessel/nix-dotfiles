@@ -86,6 +86,17 @@
     overlays = {
       stehessel-overlay = inputs.stehessel-overlay.overlay;
       rust-overlay = inputs.rust.overlays.default;
+
+      python-overlay = _: prev: rec {
+        python3 = prev.python3.override {
+          packageOverrides = _: prev: {
+            maxminddb = prev.maxminddb.overridePythonAttrs (_: {
+              doCheck = false;
+            });
+          };
+        };
+        python3Packages = python3.pkgs;
+      };
     };
   };
 }

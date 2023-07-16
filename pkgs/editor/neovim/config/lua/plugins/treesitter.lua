@@ -3,21 +3,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = vim.cmd.TSUpdate,
     config = function()
-      local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
-
-      parser_configs.org = {
-        install_info = {
-          url = "https://github.com/milisims/tree-sitter-org",
-          revision = "main",
-          files = { "src/parser.c", "src/scanner.cc" },
-        },
-        filetype = "org",
-      }
-
       require("nvim-treesitter.configs").setup({
         highlight = {
           enable = true,
-          additional_vim_regex_highlighting = { "org" },
           disable = function(_, buf)
             local max_filesize = 100 * 1024 -- 100KB
             local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))

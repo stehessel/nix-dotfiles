@@ -114,4 +114,10 @@ return {
       require("octo").setup()
     end,
   },
+  {
+    "NeogitOrg/neogit",
+    config = true,
+    dependencies = "nvim-lua/plenary.nvim",
+    event = "BufReadPre",
+  },
 }
