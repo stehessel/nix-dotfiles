@@ -1,14 +1,10 @@
-{
-  # config,
-  pkgs,
-  ...
-}: {
+_: {
+  imports = [
+    ./json
+    ./toml
+    ./yaml
+  ];
   home = {
-    packages = with pkgs; [
-      jq
-      nodePackages.vscode-langservers-extracted
-      yq-go
-    ];
     # sessionVariables = {
     #   PRETTIERD_DEFAULT_CONFIG = "${config.xdg.configHome}/prettier/prettierrc.json";
     # };
