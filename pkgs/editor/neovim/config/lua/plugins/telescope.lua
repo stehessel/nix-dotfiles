@@ -11,13 +11,6 @@ return {
           selection_caret = "❯ ",
           mappings = { i = { ["<Esc>"] = require("telescope.actions").close } },
         },
-        extensions = {
-          fzf = {
-            override_generic_sorter = true,
-            override_file_sorter = true,
-            case_mode = "smart_case",
-          },
-        },
       })
       telescope.load_extension("advanced_git_search")
       telescope.load_extension("fzf")
@@ -42,7 +35,11 @@ return {
       vim.keymap.set("n", "<Leader>fo", "<Cmd>lua require('telescope.builtin').project()<CR>")
       vim.keymap.set("n", "<Leader>O", "<Cmd>lua require('telescope.builtin').spell_suggest()<CR>")
 
-      vim.keymap.set("n", "<Leader>fG", "<Cmd>lua require('telescope').extensions.advanced_git_search.show_custom_functions()<CR>")
+      vim.keymap.set(
+        "n",
+        "<Leader>fG",
+        "<Cmd>lua require('telescope').extensions.advanced_git_search.show_custom_functions()<CR>"
+      )
 
       vim.keymap.set("n", "<Leader>dc", "<Cmd>lua require('telescope').extensions.dap.commands({})<CR>")
       vim.keymap.set("n", "<Leader>db", "<Cmd>lua require('telescope').extensions.dap.list_breakpoints({})<CR>")
