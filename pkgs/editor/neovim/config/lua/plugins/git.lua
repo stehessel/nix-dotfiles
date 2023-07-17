@@ -118,6 +118,5 @@ return {
     "NeogitOrg/neogit",
     config = true,
     dependencies = "nvim-lua/plenary.nvim",
-    event = "BufReadPre",
   },
 }
