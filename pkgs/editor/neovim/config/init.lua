@@ -34,5 +34,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
+  concurrency = 64,
   defaults = { lazy = true },
 })
