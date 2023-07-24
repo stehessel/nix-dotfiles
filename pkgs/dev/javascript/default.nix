@@ -9,6 +9,7 @@
       nodePackages.typescript
       nodePackages.typescript-language-server
       nodejs_latest
+      prettierd
       yarn
     ];
     sessionPath = [

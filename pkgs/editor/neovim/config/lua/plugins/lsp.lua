@@ -135,6 +135,7 @@ return {
               builtins.diagnostics.eslint.with({ command = "eslint_d" }),
               -- builtins.diagnostics.golangci_lint,
               builtins.diagnostics.hadolint,
+              builtins.diagnostics.protolint,
               builtins.diagnostics.selene,
               builtins.diagnostics.shellcheck,
               builtins.diagnostics.statix,
@@ -165,6 +166,7 @@ return {
               builtins.formatting.fish_indent,
               builtins.formatting.isort,
               builtins.formatting.prettierd,
+              builtins.formatting.protolint,
               builtins.formatting.shfmt,
               builtins.formatting.sql_formatter,
               builtins.formatting.stylua.with({

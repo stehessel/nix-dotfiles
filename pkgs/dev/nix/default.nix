@@ -2,7 +2,7 @@
   home = {
     packages = with pkgs; [
       alejandra
-      cachix
+      # cachix
       deadnix
       nil
       nix-info
