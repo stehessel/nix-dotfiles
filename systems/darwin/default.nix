@@ -83,6 +83,7 @@
     ];
     brews = [
       "coreutils"
+      "gcc"
       "llvm"
       "prometheus"
       "skhd"
