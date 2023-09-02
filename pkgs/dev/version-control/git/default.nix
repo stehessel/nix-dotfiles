@@ -97,6 +97,9 @@
           autoSetupRemote = true;
           recurseSubmodules = "check";
         };
+        safe = {
+          directory = ["/Users/stephan/go/src/github.com/stackrox/stackrox"];
+        };
         sequence = {
           editor = "interactive-rebase-tool";
         };

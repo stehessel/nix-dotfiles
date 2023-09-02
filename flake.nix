@@ -2,6 +2,7 @@
   description = "macOS system configuration";
 
   inputs = {
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs";
     darwin = {
       url = "github:lnl7/nix-darwin";
