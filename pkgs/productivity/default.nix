@@ -1,6 +1,6 @@
 _: {
   imports = [
     ./jira
-    # ./taskwarrior
+    ./taskwarrior
   ];
 }

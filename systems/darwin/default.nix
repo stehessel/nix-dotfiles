@@ -84,6 +84,7 @@
     brews = [
       "coreutils"
       "gcc"
+      "go-task"
       "llvm"
       "prometheus"
       "skhd"

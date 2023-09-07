@@ -8,7 +8,7 @@
       buildpack
       cmake
       gnumake
-      go-task
+      # go-task
     ];
     sessionVariables = {
       PACK_HOME = "${config.xdg.configHome}/pack";
