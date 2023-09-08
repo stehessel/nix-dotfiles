@@ -1,6 +1,6 @@
 return {
   {
-    "windwp/nvim-spectre",
+    "nvim-pack/nvim-spectre",
     config = function()
       require("spectre").setup({
         mapping = {
