@@ -83,7 +83,7 @@
       fzy
       # --- highlighters ---
       bat
-      exa
+      eza
       glow
       highlight
       # --- images ---
