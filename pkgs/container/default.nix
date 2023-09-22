@@ -9,7 +9,7 @@
       act
       ctop
       # Broken due to ilist Haskell package.
-      # hadolint
+      hadolint
       nodePackages.dockerfile-language-server-nodejs
       # podman
     ];
