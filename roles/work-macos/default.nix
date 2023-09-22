@@ -27,6 +27,7 @@
 
     # Needed for nvim-spectre on macOS
     shellAliases = {
+      gotask = "/usr/local/bin/task";
       gsed = "sed";
     };
   };
