@@ -1,6 +1,7 @@
 _: {
   imports = [
-    ./kubernetes
-    ./openshift
+    ./cluster/kubernetes
+    ./cluster/openshift
+    ./dns
   ];
 }
