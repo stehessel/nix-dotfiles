@@ -10,8 +10,9 @@
 
   # `home-manager` currently has issues adding them to `~/Applications`
   # Issue: https://github.com/nix-community/home-manager/issues/1341
-  environment.systemPackages = with pkgs; [
-    kitty
+  environment.systemPackages = [
+    (import (fetchTarball "https://install.devenv.sh/latest")).default
+    pkgs.kitty
   ];
 
   home-manager = {
@@ -180,6 +181,8 @@
   nix = {
     configureBuildUsers = true;
     extraOptions = ''
+      builders = ssh-ng://builder@linux-builder x86_64-linux /etc/nix/builder_ed25519 4 - - - c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUpCV2N4Yi9CbGFxdDFhdU90RStGOFFVV3JVb3RpQzVxQkorVXVFV2RWQ2Igcm9vdEBuaXhvcwo=
+      builders-use-substitutes = true
       connect-timeout = 5  # in seconds
       experimental-features = ca-derivations nix-command flakes
       fallback = true
@@ -201,11 +204,13 @@
         # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
         "https://aseipp-nix-cache.freetls.fastly.net"
         "https://cache.nixos.org"
+        "https://devenv.cachix.org"
         "https://nix-community.cachix.org"
         "https://stackrox.cachix.org"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "stackrox.cachix.org-1:Wnn8TKAitOTWKfTvvHiHzJjXy0YfiwoK6rrVzXt/trA="
       ];
