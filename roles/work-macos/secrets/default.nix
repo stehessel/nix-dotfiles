@@ -9,6 +9,12 @@
       "bitwarden/api/secret" = {
         path = "${config.home.homeDirectory}/dev/secrets/bitwarden/secret";
       };
+      "acme/zeroSSL/eabKid" = {
+        path = "${config.home.homeDirectory}/dev/secrets/acme/zeroSSL/kid";
+      };
+      "acme/zeroSSL/eabHmacKey" = {
+        path = "${config.home.homeDirectory}/dev/secrets/acme/zeroSSL/key";
+      };
       "aws/dev/accessKeyId" = {
         path = "${config.home.homeDirectory}/dev/secrets/aws/dev/accessKeyId";
       };
