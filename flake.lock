@@ -500,11 +500,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1696430584,
-        "narHash": "sha256-49S/8RJL+fK5Wvf/bjsJ390ybeA5pi9fuUqrLN8Nsb4=",
+        "lastModified": 1696434614,
+        "narHash": "sha256-/RVvHmxfD6qH4ZhZtezqF1MfeHz0ycIIDwbkMM5qjFo=",
         "owner": "stehessel",
         "repo": "nix-overlay",
-        "rev": "bdd080b26fea157491c99397616d4879502c2ffb",
+        "rev": "3f9c60845b2cb590580f7ee2cfc68f30a9ad6857",
         "type": "github"
       },
       "original": {
