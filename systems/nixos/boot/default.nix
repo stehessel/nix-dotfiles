@@ -18,7 +18,7 @@
     lanzaboote = {
       enable = true;
       pkiBundle = "/etc/secureboot";
-      configurationLimit = 25;
+      configurationLimit = 10;
     };
 
     loader = {
@@ -36,7 +36,7 @@
           if lanzaboote.enable
           then lib.mkForce false
           else true;
-        configurationLimit = 25;
+        configurationLimit = 10;
       };
 
       timeout = 1;
