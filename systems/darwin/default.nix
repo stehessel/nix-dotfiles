@@ -101,6 +101,7 @@
       "google-chrome"
       "inkscape"
       "quarto"
+      "shottr"
       "slack"
       "syncthing"
       "zoom"
