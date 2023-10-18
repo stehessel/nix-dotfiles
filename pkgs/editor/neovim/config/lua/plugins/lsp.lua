@@ -1,9 +1,7 @@
 local on_attach = function(client, bufnr)
-  -- Mappings
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
   vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { buffer = bufnr })
 
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
   vim.keymap.set("n", "<Space>D", vim.lsp.buf.type_definition, { buffer = bufnr })
   vim.keymap.set("n", "<Space>r", vim.lsp.buf.rename, { buffer = bufnr })
 
@@ -119,7 +117,7 @@ return {
         end,
       },
       {
-        "jose-elias-alvarez/null-ls.nvim",
+        "nvimtools/none-ls.nvim",
         config = function()
           local builtins = require("null-ls").builtins
 
@@ -206,6 +204,27 @@ return {
       },
       { "b0o/schemastore.nvim" },
       { "nanotee/sqls.nvim", ft = "sql" },
+      {
+        "lewis6991/hover.nvim",
+        config = function()
+          require("hover").setup({
+            init = function()
+              require("hover.providers.lsp")
+              require("hover.providers.gh")
+              require("hover.providers.gh_user")
+              require("hover.providers.jira")
+            end,
+            preview_opts = {
+              border = nil,
+            },
+            preview_window = false,
+            title = true,
+          })
+
+          vim.keymap.set("n", "K", require("hover").hover, { desc = "hover.nvim" })
+          vim.keymap.set("n", "gK", require("hover").hover_select, { desc = "hover.nvim (select)" })
+        end,
+      },
     },
   },
 }
