@@ -11,7 +11,7 @@
   };
 
   # Firejail doesn't work with home-manager for the moment.
-  programs.firefox.enable = true;
+  programs.firefox.enable = false;
 
   # Causes chromium rebuild, which takes forever.
   # security.chromiumSuidSandbox.enable = true;
