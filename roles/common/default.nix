@@ -59,13 +59,13 @@
       editorconfig-core-c
       prometheus
       prometheus-alertmanager
-      tokei
+      # tokei
       tree-sitter
       universal-ctags
       xsv
       # --- editor ---
       helix
-      kakoune
+      # kakoune
       # --- file manager ---
       nnn
       xplr
