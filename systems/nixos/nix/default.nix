@@ -21,7 +21,7 @@
         # Content addressed cache
         # "https://cache.ngi0.nixos.org"
         # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
-        "https://aseipp-nix-cache.freetls.fastly.net"
+        # "https://aseipp-nix-cache.freetls.fastly.net"
         "https://cache.nixos.org"
         "https://hyprland.cachix.org"
         "https://nix-community.cachix.org"

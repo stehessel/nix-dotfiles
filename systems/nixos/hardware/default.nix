@@ -13,4 +13,6 @@ _: {
     enableRedistributableFirmware = true;
     opengl.enable = true;
   };
+
+  services.fwupd.enable = true;
 }
