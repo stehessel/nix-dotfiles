@@ -1,6 +1,7 @@
 _: {
   imports = [
     ./build
+    ./cue
     ./data
     ./golang
     ./javascript

@@ -26,51 +26,6 @@ local on_attach = function(client, bufnr)
     })
   end
 
-  -- Workaround to https://github.com/golang/go/issues/54531
-  -- should be fixed with gopls >= 0.12.0
-  -- client.server_capabilities.semanticTokensProvider = {
-  --   full = true,
-  --   legend = {
-  --     tokenTypes = {
-  --       "namespace",
-  --       "type",
-  --       "class",
-  --       "enum",
-  --       "interface",
-  --       "struct",
-  --       "typeParameter",
-  --       "parameter",
-  --       "variable",
-  --       "property",
-  --       "enumMember",
-  --       "event",
-  --       "function",
-  --       "method",
-  --       "macro",
-  --       "keyword",
-  --       "modifier",
-  --       "comment",
-  --       "string",
-  --       "number",
-  --       "regexp",
-  --       "operator",
-  --       "decorator",
-  --     },
-  --     tokenModifiers = {
-  --       "declaration",
-  --       "definition",
-  --       "readonly",
-  --       "static",
-  --       "deprecated",
-  --       "abstract",
-  --       "async",
-  --       "modification",
-  --       "documentation",
-  --       "defaultLibrary",
-  --     },
-  --   },
-  -- }
-
   -- Callstack
   vim.keymap.set("n", "<Space>ci", vim.lsp.buf.incoming_calls, { buffer = bufnr })
   vim.keymap.set("n", "<Space>co", vim.lsp.buf.outgoing_calls, { buffer = bufnr })
@@ -131,8 +86,9 @@ return {
               builtins.diagnostics.codespell,
               builtins.diagnostics.deadnix,
               builtins.diagnostics.eslint.with({ command = "eslint_d" }),
-              -- builtins.diagnostics.golangci_lint,
+              builtins.diagnostics.golangci_lint,
               builtins.diagnostics.hadolint,
+              builtins.diagnostics.cue_fmt,
               builtins.diagnostics.protolint,
               builtins.diagnostics.selene,
               builtins.diagnostics.shellcheck,
@@ -161,6 +117,8 @@ return {
                   "--best-effort",
                 },
               }),
+              builtins.formatting.cue_fmt,
+              builtins.formatting.cueimports,
               builtins.formatting.fish_indent,
               builtins.formatting.isort,
               builtins.formatting.prettierd,
