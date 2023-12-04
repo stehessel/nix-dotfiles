@@ -8,12 +8,7 @@
       # Start up
       exec-once  = wl-paste --watch cliphist store
       exec-once  = swaync
-      windowrule = workspace 1 silent, brave
-      windowrule = workspace 2 silent, foot
       exec-once  = brave
-      exec-once  = foot
-      exec-once  = cleanup_after_start.sh
-
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
           kb_layout = us
@@ -184,6 +179,4 @@
       binde = , xf86monbrightnessdown, exec, brightnessctl --device intel_backlight set 5%-
     '';
   };
-
-  home.file.".local/bin/cleanup_after_start.sh".source = config/cleanup_after_start.sh;
 }
