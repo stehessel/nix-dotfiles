@@ -6,6 +6,7 @@ return {
       flags = flags,
       settings = {
         gopls = {
+          allowModfileModifications = true,
           gofumpt = true,
           semanticTokens = true,
         },
