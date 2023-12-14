@@ -86,7 +86,7 @@ return {
               builtins.diagnostics.codespell,
               builtins.diagnostics.deadnix,
               builtins.diagnostics.eslint.with({ command = "eslint_d" }),
-              builtins.diagnostics.golangci_lint,
+              -- builtins.diagnostics.golangci_lint,
               builtins.diagnostics.hadolint,
               builtins.diagnostics.cue_fmt,
               builtins.diagnostics.protolint,
