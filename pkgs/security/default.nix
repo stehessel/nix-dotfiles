@@ -6,6 +6,7 @@
   home = {
     packages = with pkgs; [
       age
+      auth0-cli
       bitwarden-cli
       cosign
       sops
