@@ -97,7 +97,6 @@
       httpie
       jwt-cli
       netcat
-      ngrok
       nmap
       speedtest-cli
       # --- process manager ---

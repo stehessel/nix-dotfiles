@@ -1,11 +1,7 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   security = {
     audit.enable = true;
-    auditd.enable = true;
+    auditd.enable = false;
     pam.services.swaylock = {};
     sudo.execWheelOnly = true;
   };
