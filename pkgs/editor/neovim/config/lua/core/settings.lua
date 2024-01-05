@@ -27,6 +27,9 @@ vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSi
 vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
 -- Diagnostics
+vim.keymap.set("n", "<Space>D", function()
+  vim.diagnostic.disable()
+end)
 vim.keymap.set("n", "<Space>d", function()
   vim.diagnostic.open_float(0, { focusable = false, scope = "line" })
 end)
