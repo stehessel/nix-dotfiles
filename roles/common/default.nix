@@ -104,7 +104,7 @@
       # --- system ---
       # (uutils-coreutils.override {prefix = "";})
       # --- terminal ---
-      alacritty
+      # alacritty
       # --- terminal multiplexers ---
       tmux
       # --- utility ---

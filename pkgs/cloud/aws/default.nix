@@ -5,6 +5,7 @@
       # awscli2
       chamber
       cw
+      eksctl
     ];
   };
 }
