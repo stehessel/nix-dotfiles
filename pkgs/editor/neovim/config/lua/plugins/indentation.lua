@@ -12,6 +12,7 @@ return {
         filetypes = { "packer", "startify" },
       },
     },
+    enabled=false,
   },
   { "Darazaki/indent-o-matic", event = "BufReadPre", enabled = false },
   {
