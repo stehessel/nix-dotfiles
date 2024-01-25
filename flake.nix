@@ -87,22 +87,22 @@
       stehessel-overlay = inputs.stehessel-overlay.overlay;
       rust-overlay = inputs.rust.overlays.default;
 
-      # age-overlay = _: prev: {
-      #   age = prev.age.overrideAttrs (_: {
-      #     doCheck = false;
-      #   });
-      # };
+      k9s-overlay = _: prev: {
+        k9s = prev.k9s.overrideAttrs (_: {
+          doCheck = false;
+        });
+      };
 
-      # python-overlay = _: prev: rec {
-      #   python3 = prev.python3.override {
-      #     packageOverrides = _: prev: {
-      #       maxminddb = prev.maxminddb.overridePythonAttrs (_: {
-      #         doCheck = false;
-      #       });
-      #     };
-      #   };
-      #   python3Packages = python3.pkgs;
-      # };
+      python-overlay = _: prev: rec {
+        python3 = prev.python3.override {
+          packageOverrides = _: prev: {
+            pytest-httpserver = prev.pytest-httpserver.overridePythonAttrs (_: {
+              doCheck = false;
+            });
+          };
+        };
+        python3Packages = python3.pkgs;
+      };
     };
   };
 }
