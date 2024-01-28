@@ -48,9 +48,6 @@
     };
 
     packages = with pkgs; [
-      # --- chat ---
-      zulip-term
-      # podman-compose
       # --- desktop ---
       xdg-utils
       # --- dev ---
@@ -59,7 +56,7 @@
       editorconfig-core-c
       prometheus
       prometheus-alertmanager
-      # tokei
+      tokei
       tree-sitter
       universal-ctags
       xsv
@@ -119,7 +116,6 @@
       wget
       # --- web ---
       hugo
-      nodePackages."@tailwindcss/language-server"
     ];
   };
 
