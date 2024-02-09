@@ -108,6 +108,7 @@ return {
               }),
               builtins.formatting.alejandra,
               builtins.formatting.black,
+              builtins.formatting.buf,
               builtins.formatting.cbfmt.with({
                 args = {
                   "--config",
