@@ -70,6 +70,9 @@
           # List all currently git assumed files
           assumed = "!git ls-files -v | grep ^h | cut -c 3-";
         };
+        branch = {
+          sort = "-commiterdate";
+        };
         color = {
           ui = "true";
           diff-highlight = {
@@ -87,8 +90,17 @@
             whitespace = "red reverse";
           };
         };
+        commit = {
+          verbose = true;
+        };
         diff = {
           submodule = "log";
+        };
+        init = {
+          defaultBranch = "master";
+        };
+        merge = {
+          conflictstyle = "zdiff3";
         };
         pull = {
           ff = "only";
@@ -96,6 +108,9 @@
         push = {
           autoSetupRemote = true;
           recurseSubmodules = "check";
+        };
+        rerere = {
+          enable = true;
         };
         safe = {
           directory = ["/Users/stephan/go/src/github.com/stackrox/stackrox"];
