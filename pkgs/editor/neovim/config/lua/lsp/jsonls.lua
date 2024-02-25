@@ -4,7 +4,6 @@ return {
       on_attach = on_attach,
       capabilities = capabilities,
       flags = flags,
-      filetypes = { "json", "jsonc" },
       init_options = { provideFormatter = false },
       json = {
         schemas = require("schemastore").json.schemas(),

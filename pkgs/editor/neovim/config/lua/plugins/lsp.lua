@@ -43,6 +43,7 @@ return {
         "bashls",
         "bufls",
         "dockerls",
+        "eslint",
         "gopls",
         "groovyls",
         "helm_ls",
@@ -85,13 +86,11 @@ return {
               builtins.diagnostics.buf,
               builtins.diagnostics.codespell,
               builtins.diagnostics.deadnix,
-              builtins.diagnostics.eslint.with({ command = "eslint_d" }),
               -- builtins.diagnostics.golangci_lint,
               builtins.diagnostics.hadolint,
               builtins.diagnostics.cue_fmt,
               builtins.diagnostics.protolint,
               builtins.diagnostics.selene,
-              builtins.diagnostics.shellcheck,
               builtins.diagnostics.statix,
               builtins.diagnostics.vale.with({
                 args = function(params)
