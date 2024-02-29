@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+_: {
   programs = {
     starship = {
       enable = true;
