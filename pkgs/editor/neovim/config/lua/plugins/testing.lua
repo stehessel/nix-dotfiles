@@ -2,6 +2,17 @@ return {
   {
     "nvim-neotest/neotest",
     config = function()
+      -- Get neotest namespace (api call creates or returns namespace).
+      local neotest_ns = vim.api.nvim_create_namespace("neotest")
+      vim.diagnostic.config({
+        virtual_text = {
+          format = function(diagnostic)
+            local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+            return message
+          end,
+        },
+      }, neotest_ns)
+
       require("neotest").setup({
         adapters = {
           require("neotest-go")({
@@ -28,11 +39,16 @@ return {
       vim.keymap.set("n", "<Leader>ts", "<Cmd>lua require('neotest').summary.toggle()<CR>")
       vim.keymap.set("n", "<Leader>tm", "<Cmd>lua require('neotest').summary.run_marked()<CR>")
       vim.keymap.set("n", "<Leader>to", "<Cmd>lua require('neotest').output.open()<CR>")
+      vim.keymap.set("n", "<Leader>tp", "<Cmd>lua require('neotest').output_panel.toggle()<CR>")
+      vim.keymap.set("n", "<Leader>tc", "<Cmd>lua require('neotest').output_panel.clear()<CR>")
     end,
     dependencies = {
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-lua/plenary.nvim",
       "nvim-neotest/neotest-go",
       "nvim-neotest/neotest-plenary",
       "nvim-neotest/neotest-python",
+      "nvim-treesitter/nvim-treesitter",
     },
   },
 }

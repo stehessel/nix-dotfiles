@@ -61,5 +61,6 @@ return {
         ft = "go",
       },
     },
+    lazy = false,
   },
 }
