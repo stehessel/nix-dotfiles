@@ -2,7 +2,6 @@
   accounts.email.accounts = {
     stehessel = {
       primary = true;
-      himalaya.backend = "imap";
       address = "stephan@stehessel.de";
       realName = "Stephan Heßelmann";
       userName = "stephan@stehessel.de";

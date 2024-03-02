@@ -93,16 +93,16 @@
         });
       };
 
-      python-overlay = _: prev: rec {
-        python3 = prev.python3.override {
-          packageOverrides = _: prev: {
-            pytest-httpserver = prev.pytest-httpserver.overridePythonAttrs (_: {
-              doCheck = false;
-            });
-          };
-        };
-        python3Packages = python3.pkgs;
-      };
+      # python-overlay = _: prev: rec {
+      #   python3 = prev.python3.override {
+      #     packageOverrides = _: prev: {
+      #       pytest-httpserver = prev.pytest-httpserver.overridePythonAttrs (_: {
+      #         doCheck = false;
+      #       });
+      #     };
+      #   };
+      #   python3Packages = python3.pkgs;
+      # };
     };
   };
 }
