@@ -25,7 +25,6 @@
     users.stephan = {
       imports = [
         inputs.sops-nix.homeManagerModules.sops
-        inputs.hyprland.homeManagerModules.default
         ../../profiles/stehessel
         ../../roles/linux
       ];

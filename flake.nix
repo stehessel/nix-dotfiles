@@ -15,7 +15,6 @@
       url = "github:stehessel/nix-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,7 +61,6 @@
         inputs.lanzaboote.nixosModules.lanzaboote
         ./systems/thinkpad
         flakeRegistry
-        inputs.hyprland.nixosModules.default
         {programs.hyprland.enable = true;}
         inputs.nix-index-database.nixosModules.nix-index
         inputs.home-manager.nixosModules.home-manager
