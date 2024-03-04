@@ -35,7 +35,11 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = vim.tbl_deep_extend(
+        "force",
+        vim.lsp.protocol.make_client_capabilities(),
+        require("cmp_nvim_lsp").default_capabilities()
+      )
       local flags = { debounce_text_changes = 150 }
 
       local servers = {
