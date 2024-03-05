@@ -54,6 +54,7 @@
       code-minimap
       codespell
       editorconfig-core-c
+      mimir
       prometheus
       prometheus-alertmanager
       tokei
