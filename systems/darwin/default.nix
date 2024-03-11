@@ -220,6 +220,7 @@
         "@admin"
       ];
       sandbox = false;
+      use-xdg-base-directories = true;
     };
   };
 
