@@ -55,7 +55,7 @@ return {
         "jsonnet_ls",
         "luals",
         "marksman",
-        "nil",
+        "nixd",
         "pyright",
         -- "sqls",
         "tailwindcss",

@@ -9,10 +9,10 @@
       nix-output-monitor
       nix-prefetch-github
       nix-update
+      nixd
       nixpkgs-fmt
       nixpkgs-review
       nurl
-      rnix-lsp
       statix
       vulnix
     ];
