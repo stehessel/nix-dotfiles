@@ -11,7 +11,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stehessel-overlay = {
+    stehessel = {
       url = "github:stehessel/nix-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -34,73 +34,71 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    nixpkgsConfig = {
-      config = {
-        allowUnfree = true;
-        # contentAddressedByDefault = true;
+  outputs = inputs @ { self, ... }:
+    let
+      nixpkgsConfig = {
+        config = {
+          allowUnfree = true;
+          # contentAddressedByDefault = true;
+        };
+        overlays = inputs.nixpkgs.lib.attrValues self.overlays;
       };
-      overlays = nixpkgs.lib.attrValues self.overlays;
-    };
-    flakeRegistry = {
-      nix.registry.nixpkgs.flake = nixpkgs;
-      nix.registry.stehessel.flake = self;
-    };
-  in {
-    nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-        inherit nixpkgsConfig;
+      flakeRegistry = {
+        nix.registry.nixpkgs.flake = inputs.nixpkgs;
+        nix.registry.stehessel.flake = self;
       };
-      modules = [
-        inputs.lanzaboote.nixosModules.lanzaboote
-        ./systems/thinkpad
-        flakeRegistry
-        {programs.hyprland.enable = true;}
-        inputs.nix-index-database.nixosModules.nix-index
-        inputs.home-manager.nixosModules.home-manager
-      ];
-    };
-
-    darwinConfigurations.shesselm-mac = inputs.darwin.lib.darwinSystem {
-      system = "x86_64-darwin";
-      specialArgs = {
-        inherit inputs;
-        inherit nixpkgsConfig;
-      };
-      modules = [
-        ./systems/darwin
-        flakeRegistry
-        inputs.nix-index-database.darwinModules.nix-index
-        inputs.home-manager.darwinModules.home-manager
-      ];
-    };
-
-    overlays = {
-      stehessel-overlay = inputs.stehessel-overlay.overlay;
-      rust-overlay = inputs.rust.overlays.default;
-
-      k9s-overlay = _: prev: {
-        k9s = prev.k9s.overrideAttrs (_: {
-          doCheck = false;
-        });
+    in
+    {
+      nixosConfigurations.thinkpad = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+          inherit nixpkgsConfig;
+        };
+        modules = [
+          inputs.lanzaboote.nixosModules.lanzaboote
+          ./systems/thinkpad
+          flakeRegistry
+          { programs.hyprland.enable = true; }
+          inputs.nix-index-database.nixosModules.nix-index
+          inputs.home-manager.nixosModules.home-manager
+        ];
       };
 
-      # python-overlay = _: prev: rec {
-      #   python3 = prev.python3.override {
-      #     packageOverrides = _: prev: {
-      #       pytest-httpserver = prev.pytest-httpserver.overridePythonAttrs (_: {
-      #         doCheck = false;
-      #       });
-      #     };
-      #   };
-      #   python3Packages = python3.pkgs;
-      # };
+      darwinConfigurations.shesselm-mac = inputs.darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
+        specialArgs = {
+          inherit inputs;
+          inherit nixpkgsConfig;
+        };
+        modules = [
+          ./systems/darwin
+          flakeRegistry
+          inputs.nix-index-database.darwinModules.nix-index
+          inputs.home-manager.darwinModules.home-manager
+        ];
+      };
+
+      overlays = {
+        stehessel-overlay = inputs.stehessel.overlays.default;
+        rust-overlay = inputs.rust.overlays.default;
+
+        k9s-overlay = _: prev: {
+          k9s = prev.k9s.overrideAttrs (_: {
+            doCheck = false;
+          });
+        };
+
+        # python-overlay = _: prev: rec {
+        #   python3 = prev.python3.override {
+        #     packageOverrides = _: prev: {
+        #       pytest-httpserver = prev.pytest-httpserver.overridePythonAttrs (_: {
+        #         doCheck = false;
+        #       });
+        #     };
+        #   };
+        #   python3Packages = python3.pkgs;
+        # };
+      };
     };
-  };
 }
