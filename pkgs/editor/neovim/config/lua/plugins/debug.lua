@@ -38,6 +38,7 @@ return {
           require("dapui").setup()
           vim.keymap.set("n", "<Leader>du", require("dapui").toggle)
         end,
+        dependencies = {"nvim-neotest/nvim-nio"},
       },
       {
         "theHamsta/nvim-dap-virtual-text",
