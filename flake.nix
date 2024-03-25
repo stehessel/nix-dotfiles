@@ -83,11 +83,11 @@
         stehessel-overlay = inputs.stehessel.overlays.default;
         rust-overlay = inputs.rust.overlays.default;
 
-        k9s-overlay = _: prev: {
-          k9s = prev.k9s.overrideAttrs (_: {
-            doCheck = false;
-          });
-        };
+        # k9s-overlay = _: prev: {
+        #   k9s = prev.k9s.overrideAttrs (_: {
+        #     doCheck = false;
+        #   });
+        # };
 
         # python-overlay = _: prev: rec {
         #   python3 = prev.python3.override {
