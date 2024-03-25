@@ -8,7 +8,8 @@ _: {
         spacing = 20;
 
         modules-left = [
-          "wlr/workspaces"
+          "hyprland/workspaces"
+          "hyprland/window"
         ];
         modules-right = [
           "backlight"
@@ -23,11 +24,17 @@ _: {
           "tray"
         ];
 
-        # `wlr/workspaces` require compositor to implement ext_workspace_unstable_v1 wayland protocol (which is not merged yet).
-        "wlr/workspaces" = {
-          "format" = "{icon}";
-          "on-scroll-up" = "hyprctl dispatch workspace e+1";
-          "on-scroll-down" = "hyprctl dispatch workspace e-1";
+        "hyprland/workspaces" = {
+          persistent-workspaces = {
+            "*" = 5;
+          };
+        };
+        "hyprland/window" = {
+          rewrite = {
+            "(.*) - Brave" = "🌎 $1";
+            "(.*) - fish" = "> [$1]";
+          };
+          "separate-outputs" = true;
         };
 
         "clock#1" = {
@@ -43,7 +50,7 @@ _: {
         backlight = {
           device = "intel_backlight";
           format = "{icon} {percent:2}%";
-          format-icons = ["" ""];
+          format-icons = [ "" "" ];
         };
         puiseaudio = {
           format = "{icon} {volume:2}%";
@@ -105,6 +112,7 @@ _: {
       }
 
       #workspaces,
+      #window,
       #clock.1,
       #clock.2,
       #clock.3,
