@@ -2,7 +2,7 @@
   home = {
     packages = with pkgs; [
       aws-vault
-      awscli2
+      # awscli2
       chamber
       cw
       eksctl

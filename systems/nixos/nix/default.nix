@@ -13,7 +13,6 @@
       log-lines = 25
       max-free = 1000000000 # 1 GB
       min-free = 256000000  # 256 MB
-      permittedInsecurePackages = ["nix-2.16.2"];
     '';
     gc = {
       automatic = true;
@@ -21,7 +20,6 @@
     };
     package = pkgs.nixVersions.unstable;
     settings = {
-      permittedInsecurePackages = ["nix-2.16.2"];
       auto-optimise-store = true;
       substituters = [
         # Content addressed cache
