@@ -5,6 +5,7 @@
 }: {
   home = {
     packages = with pkgs; [
+      actionlint
       buildpack
       cmake
       gnumake

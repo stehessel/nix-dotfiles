@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./flake8
-    ./isort
+    # ./isort
     ./mypy
     ./pycodestyle
   ];
@@ -15,8 +15,7 @@
     packages = with pkgs; [
       black
       pyright
-      python310Packages.isort
-      # python310Packages.pipx
+      python310Packages.pipx
     ];
     sessionVariables = {
       PYTHONSTARTUP = "${config.xdg.configHome}/python/pythonrc.py";

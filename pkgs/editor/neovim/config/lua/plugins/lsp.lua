@@ -87,6 +87,7 @@ return {
               builtins.code_actions.gitsigns,
               builtins.code_actions.refactoring,
               builtins.code_actions.statix,
+              builtins.diagnostics.actionlint,
               builtins.diagnostics.buf,
               builtins.diagnostics.codespell,
               builtins.diagnostics.deadnix,
@@ -109,7 +110,7 @@ return {
                   }
                 end,
               }),
-              builtins.formatting.alejandra,
+              -- builtins.formatting.alejandra,
               builtins.formatting.black,
               builtins.formatting.buf,
               builtins.formatting.cbfmt.with({
