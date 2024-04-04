@@ -1,7 +1,3 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+_: {
   xdg.configFile."mypy/config".source = config/config;
 }

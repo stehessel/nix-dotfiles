@@ -1,9 +1,4 @@
-{
-  nixpkgsConfig,
-  pkgs,
-  ...
-}: {
-  nixpkgs = nixpkgsConfig;
+{pkgs, ...}: {
   nix = {
     extraOptions = ''
       connect-timeout = 5  # in seconds

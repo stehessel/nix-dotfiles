@@ -1,7 +1,3 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+_: {
   xdg.configFile."zathura/zathurarc".source = config/zathurarc;
 }

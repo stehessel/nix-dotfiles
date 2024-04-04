@@ -1,7 +1,3 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+_: {
   xdg.configFile."exec/key-handler".source = config/exec/key-handler;
 }

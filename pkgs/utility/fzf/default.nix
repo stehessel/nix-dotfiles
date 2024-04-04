@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+_: {
   home.sessionVariables = {
     fzf_fd_opts = "--type=file";
     fzf_preview_dir_cmd = "eza --all --color=always --group-directories-first";

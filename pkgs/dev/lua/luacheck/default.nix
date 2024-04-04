@@ -1,7 +1,3 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+_: {
   xdg.configFile."luacheck/.luacheckrc".source = config/luacheckrc;
 }

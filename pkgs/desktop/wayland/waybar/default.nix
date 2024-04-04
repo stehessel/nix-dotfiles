@@ -50,7 +50,7 @@ _: {
         backlight = {
           device = "intel_backlight";
           format = "{icon} {percent:2}%";
-          format-icons = [ "" "" ];
+          format-icons = ["" ""];
         };
         puiseaudio = {
           format = "{icon} {volume:2}%";
