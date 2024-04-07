@@ -1,10 +1,12 @@
 return {
   {
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    config = true,
+  },
+  {
     "vhyrro/neorg",
-    build = ":Neorg sync-parsers",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-    },
+    dependencies = { "luarocks.nvim" },
     lazy = false,
     opts = {
       load = {
