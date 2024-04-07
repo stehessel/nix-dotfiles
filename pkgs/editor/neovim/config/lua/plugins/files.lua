@@ -1,4 +1,5 @@
 return {
+  { "LunarVim/bigfile.nvim", lazy = false },
   {
     "ahmedkhalf/project.nvim",
     config = function()
