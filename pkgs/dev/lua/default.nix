@@ -7,6 +7,7 @@
 
   home = {
     packages = with pkgs; [
+      luajit
       luajitPackages.lua-lsp
       luajitPackages.luacheck
       luajitPackages.luarocks
