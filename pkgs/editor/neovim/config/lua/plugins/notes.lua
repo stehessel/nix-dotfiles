@@ -6,6 +6,7 @@ return {
   },
   {
     "vhyrro/neorg",
+    enabled = false,
     dependencies = { "luarocks.nvim" },
     lazy = false,
     opts = {
