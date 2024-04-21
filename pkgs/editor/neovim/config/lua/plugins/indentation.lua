@@ -1,7 +1,7 @@
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
+    event = "VeryLazy",
     main = "ibl",
     opts = {
       indent = {
@@ -13,12 +13,12 @@ return {
       },
     },
   },
-  { "Darazaki/indent-o-matic", event = "BufReadPre", enabled = false },
+  { "Darazaki/indent-o-matic", event = "VeryLazy", enabled = false },
   {
     "nmac427/guess-indent.nvim",
     config = function()
       require("guess-indent").setup({})
     end,
-    event = "BufReadPre",
+    event = "VeryLazy",
   },
 }

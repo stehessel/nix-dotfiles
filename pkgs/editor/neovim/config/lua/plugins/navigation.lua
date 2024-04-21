@@ -8,7 +8,7 @@ return {
         lastplace_open_folds = true,
       })
     end,
-    event = "BufReadPre",
+    event = "VeryLazy",
   },
   {
     "ggandor/leap.nvim",

@@ -3,7 +3,7 @@ return {
   {
     "LhKipp/nvim-nu",
     config = true,
-    event = "BufReadPre",
+    event = "VeryLazy",
     opts = {},
   },
   { "towolf/vim-helm", ft = "helm" },

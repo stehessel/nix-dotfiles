@@ -4,18 +4,7 @@ return {
     config = function()
       require("matchparen").setup()
     end,
-    event = "BufReadPre",
-  },
-  {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup()
-
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
-    end,
-    enabled = false,
-    event = "InsertEnter",
+    event = "VeryLazy",
   },
   {
     "kylechui/nvim-surround",

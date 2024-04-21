@@ -26,7 +26,7 @@ return {
       },
     },
   },
-  { "matze/vim-move", event = "BufReadPre" },
+  { "matze/vim-move", event = "VeryLazy" },
   { "mg979/vim-visual-multi", keys = { "<C-n>", "<C-Up>", "<C-Down>" } },
   {
     "nicwest/vim-camelsnek",
@@ -72,7 +72,7 @@ return {
     config = function()
       require("Comment").setup()
     end,
-    event = "BufReadPre",
+    event = "VeryLazy",
   },
   -- Text substitution
   {
@@ -135,8 +135,8 @@ return {
     end,
   },
   -- Text objects
-  { "wellle/targets.vim", event = "BufReadPre" },
-  { "gcmt/taboo.vim", event = "BufReadPre" },
+  { "wellle/targets.vim", event = "VeryLazy" },
+  { "gcmt/taboo.vim", event = "VeryLazy" },
   {
     "chrisgrieser/nvim-various-textobjs",
     config = function()

@@ -68,7 +68,7 @@ return {
         require("lsp." .. name).setup(on_attach, capabilities, flags)
       end
     end,
-    event = "BufReadPre",
+    event = "VeryLazy",
     dependencies = {
       {
         "someone-stole-my-name/yaml-companion.nvim",

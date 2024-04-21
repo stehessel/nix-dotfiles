@@ -80,7 +80,7 @@ return {
         end,
       })
     end,
-    event = "BufReadPre",
+    event = "VeryLazy",
   },
   {
     "f-person/git-blame.nvim",
@@ -104,7 +104,7 @@ return {
     config = function()
       require("git-conflict").setup()
     end,
-    event = "BufReadPre",
+    event = "VeryLazy",
   },
   {
     "pwntester/octo.nvim",
