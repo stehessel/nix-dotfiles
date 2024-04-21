@@ -18,14 +18,6 @@ return {
     event = "InsertEnter",
   },
   {
-    "ur4ltz/surround.nvim",
-    config = function()
-      require("surround").setup({ prefix = "r" })
-    end,
-    enabled = true,
-    keys = "r",
-  },
-  {
     "kylechui/nvim-surround",
     config = function()
       require("nvim-surround").setup({
@@ -37,6 +29,6 @@ return {
         },
       })
     end,
-    enabled = false,
+    event = "VeryLazy",
   },
 }
