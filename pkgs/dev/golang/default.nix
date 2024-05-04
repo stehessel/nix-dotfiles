@@ -19,7 +19,7 @@
       "$HOME/${config.programs.go.goPath}/bin"
     ];
     sessionVariables = {
-      GOMEMLIMIT = "8GiB";
+      GOMEMLIMIT = "2GiB";
     };
   };
 

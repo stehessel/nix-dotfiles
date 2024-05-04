@@ -9,7 +9,7 @@
       nodePackages.eslint_d
       nodePackages.typescript
       nodePackages.typescript-language-server
-      nodejs_latest
+      nodejs
       prettierd
       yarn
     ];

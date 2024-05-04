@@ -83,10 +83,15 @@
     ];
     brews = [
       "coreutils"
+      "fribidi"
       "gcc"
       "go-task"
+      "harfbuzz"
+      "libgit2"
+      "libtiff"
       "llvm"
       "prometheus"
+      "r"
       "skhd"
       "yabai"
     ];
@@ -100,6 +105,7 @@
       "google-chrome"
       "inkscape"
       "quarto"
+      "rstudio"
       "shottr"
       "slack"
       "syncthing"
