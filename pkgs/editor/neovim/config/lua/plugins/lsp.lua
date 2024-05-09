@@ -57,6 +57,7 @@ return {
         "marksman",
         "nixd",
         "pyright",
+        "r_ls",
         -- "sqls",
         "tailwindcss",
         "taplo",

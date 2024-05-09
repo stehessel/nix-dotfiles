@@ -1,5 +1,5 @@
 _: {
   programs.broot = {
-    enable = true;
+    enable = false;
   };
 }

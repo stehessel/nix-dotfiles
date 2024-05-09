@@ -13,7 +13,7 @@
       automatic = true;
       dates = "weekly";
     };
-    package = pkgs.nixVersions.unstable;
+    package = pkgs.nixVersions.latest;
     settings = {
       auto-optimise-store = true;
       substituters = [

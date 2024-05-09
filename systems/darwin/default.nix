@@ -82,18 +82,22 @@
       "nrlquaker/createzap"
     ];
     brews = [
+      "apache-arrow"
       "coreutils"
       "fribidi"
       "gcc"
+      "gdal"
       "go-task"
       "harfbuzz"
       "libgit2"
       "libtiff"
       "llvm"
+      "pkg-config"
       "prometheus"
       "r"
       "skhd"
       "yabai"
+      "z3"
     ];
     casks = [
       "adobe-acrobat-reader"
@@ -202,7 +206,7 @@
         Hour = 12;
       };
     };
-    package = pkgs.nixVersions.unstable;
+    package = pkgs.nixVersions.latest;
     settings = {
       auto-optimise-store = true;
       substituters = [
