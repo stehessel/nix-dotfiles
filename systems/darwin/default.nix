@@ -208,7 +208,7 @@
     };
     package = pkgs.nixVersions.latest;
     settings = {
-      auto-optimise-store = true;
+      auto-optimise-store = false;
       substituters = [
         # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
         # "https://aseipp-nix-cache.freetls.fastly.net"
