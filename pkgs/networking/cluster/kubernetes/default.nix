@@ -19,6 +19,7 @@
       kubeconform
       kubectl
       kubectx
+      kubeswitch
       kustomize
       linkerd
       operator-sdk

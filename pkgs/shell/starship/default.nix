@@ -9,6 +9,7 @@ _: {
           diverged = "⇕⇡\${ahead_count}⇣\${behind_count}";
           behind = "⇣\${count}";
         };
+        kubernetes.disabled = false;
       };
     };
   };
