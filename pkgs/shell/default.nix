@@ -7,10 +7,10 @@
   ];
   home = {
     packages = with pkgs; [
+      bash-language-server
       bashInteractive
       dash
       elvish
-      # nodePackages.bash-language-server
       shellcheck
       shfmt
     ];
