@@ -3,7 +3,7 @@
     packages = with pkgs; [
       ocm
       openshift
-      # rhoas
+      rhoas
     ];
   };
 }
