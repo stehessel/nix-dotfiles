@@ -11,9 +11,6 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    # We only have this input to pass it to other dependencies and
-    # avoid having multiple versions in our dependencies.
-    flake-utils.url = "github:numtide/flake-utils";
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +30,6 @@
       url = "github:nix-community/lanzaboote";
       inputs = {
         flake-parts.follows = "flake-parts";
-        flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
         rust-overlay.follows = "rust";
       };
@@ -45,7 +41,6 @@
     rust = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
