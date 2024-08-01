@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{config, pkgs, ...}: {
   imports = [
     ./helm
   ];
@@ -26,8 +26,11 @@
       upbound
       velero
     ];
+    sessionVariables = {
+      KREW_ROOT = "${config.xdg.dataHome}/krew";
+    };
     sessionPath = [
-      "/home/stephan/.krew/bin"
+      "${config.xdg.dataHome}/krew"
     ];
   };
 }
