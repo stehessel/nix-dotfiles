@@ -11,6 +11,7 @@ _: {
       B = ''
         git checkout (git for-each-ref --sort=-committerdate --count=100 --format='%(refname:short)' refs/heads/ | fzf --preview 'git log {} --pretty=format:''\\''\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset''\\''\" --abbrev-commit --date=relative --color | head -n 200')
       '';
+      K = "kind";
       d = "cd (fd --type=d --max-depth=1 . ~/dev | fzf --preview 'ls --color=always {}')";
       f = "flux get kustomizations";
       gP = "git pull";
@@ -22,13 +23,13 @@ _: {
       gf = "git fetch upstream; git pull upstream master";
       gl = "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
       gp = "git push";
+      gr = "git restore";
       gs = "git status";
       gw = "git switch";
-      gr = "git restore";
       i = "istioctl";
       k = "kubectl";
-      K = "kind";
       n = "nixos-rebuild switch --flake . --use-remote-sudo";
+      s = "switcher";
       t = "task";
       tf = "terraform";
     };
