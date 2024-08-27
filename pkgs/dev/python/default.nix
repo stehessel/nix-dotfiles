@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./flake8
-    ./isort
+    # ./isort
     ./mypy
     ./pycodestyle
   ];
