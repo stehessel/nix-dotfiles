@@ -68,8 +68,27 @@ vim.opt.updatetime = 750
 
 -- Folds
 vim.opt.foldlevelstart = 99
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+local function enable_foldexpr(bufnr)
+  if vim.api.nvim_buf_line_count(bufnr) > 40000 then
+    return
+  end
+  vim.api.nvim_buf_call(bufnr, function()
+    vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo[0][0].foldmethod = "expr"
+    vim.cmd.normal("zx")
+  end)
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    if not pcall(vim.treesitter.start, args.buf) then
+      return
+    end
+
+    enable_foldexpr(args.buf)
+  end,
+})
 
 -- Title
 vim.opt.title = true
