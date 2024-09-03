@@ -9,5 +9,6 @@
     config = {
       uda.priority.values = "H,M,,L";
     };
+    package = pkgs.taskwarrior3;
   };
 }
