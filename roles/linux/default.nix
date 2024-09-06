@@ -34,7 +34,7 @@
       # --- file viewer ---
       glow
       # --- icons ---
-      gnome.adwaita-icon-theme
+      adwaita-icon-theme
       # --- media ---
       brightnessctl
       pamixer
