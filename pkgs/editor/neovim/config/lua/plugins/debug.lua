@@ -2,12 +2,7 @@ return {
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require("dap")
-      vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "", linehl = "", numhl = "" })
-      vim.fn.sign_define("DapStopped", { text = "▶", texthl = "", linehl = "", numhl = "" })
-
       require("dap").defaults.fallback.exception_breakpoints = { "raised", "uncaught" }
-
       require("telescope").load_extension("dap")
     end,
     init = function()

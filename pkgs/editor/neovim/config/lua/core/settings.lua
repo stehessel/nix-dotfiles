@@ -21,10 +21,6 @@ vim.opt.sessionoptions:remove({ "folds", "options" })
 
 -- Sign column
 vim.opt.signcolumn = "yes"
-vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
 -- Diagnostics
 vim.keymap.set("n", "<Space>D", function()
@@ -40,7 +36,20 @@ vim.keymap.set("n", "]d", function()
   vim.diagnostic.goto_next({ float = { focusable = false } })
 end)
 
-vim.diagnostic.config({ virtual_text = true, severity_sort = true })
+vim.diagnostic.config({
+  severity_sort = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.INFO] = " ",
+      [vim.diagnostic.severity.HINT] = "",
+      ["DapBreakpoint"] = "●",
+      ["DapStopped"] = "▶",
+    },
+  },
+  virtual_text = true,
+})
 
 -- Short messages
 vim.opt.shortmess:append("c")
