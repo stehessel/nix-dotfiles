@@ -11,7 +11,7 @@ _: {
   hardware = {
     bluetooth.enable = true;
     enableRedistributableFirmware = true;
-    opengl.enable = true;
+    graphics.enable = true;
   };
 
   services.fwupd.enable = true;

@@ -2,14 +2,17 @@ _: {
   services.kanshi = {
     enable = true;
     systemdTarget = "hyprland-session.target";
-    profiles = {
-      undocked = {
-        outputs = [
-          {
-            criteria = "eDP-1";
-          }
-        ];
-      };
-    };
+    settings = [
+      {
+        profile = {
+          name = "undocked";
+          outputs = [
+            {
+              criteria = "eDP-1";
+            }
+          ];
+        };
+      }
+    ];
   };
 }
