@@ -11,10 +11,6 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, { buffer = bufnr })
 
-  vim.keymap.set("n", "<Space>f", function()
-    vim.lsp.buf.format({ async = false })
-  end, { buffer = bufnr })
-
   if client.server_capabilities.signatureHelpProvider then
     require("lsp-overloads").setup(client, {
       keymaps = {
@@ -78,6 +74,67 @@ return {
         end,
       },
       {
+        "stevearc/conform.nvim",
+        event = { "BufWritePre" },
+        cmd = { "ConformInfo" },
+        keys = {
+          {
+            "<Space>f",
+            function()
+              require("conform").format({ async = true })
+            end,
+            mode = "",
+            desc = "Format buffer",
+          },
+        },
+        -- This will provide type hinting with LuaLS
+        ---@module "conform"
+        ---@type conform.setupOpts
+        opts = {
+          formatters_by_ft = {
+            bash = { "shfmt" },
+            css = { "prettierd", "prettier", stop_after_first = true },
+            cue = { "cue_fmt" },
+            fish = { "fish_indent" },
+            graphql = { "prettierd", "prettier", stop_after_first = true },
+            javascript = { "prettierd", "prettier", stop_after_first = true },
+			json = { "prettierd", "prettier", stop_after_first = true },
+			jsx = { "prettierd", "prettier", stop_after_first = true },
+            lua = { "stylua" },
+            nix = { "alejandra" },
+            proto = { "buf" },
+            python = function(bufnr)
+              if require("conform").get_formatter_info("ruff_format", bufnr).available then
+                return { "ruff_format" }
+              else
+                return { "isort", "black" }
+              end
+            end,
+            sh = { "shfmt" },
+            sql = { "sql_formatter" },
+            typescript = { "prettierd", "prettier", stop_after_first = true },
+			yaml = { "prettierd", "prettier", stop_after_first = true },
+          },
+          default_format_opts = {
+            lsp_format = "fallback",
+          },
+          formatters = {
+            shfmt = {
+              prepend_args = { "-i", "2" },
+            },
+            stylua = {
+              prepend_args = {
+                "--config-path",
+                os.getenv("HOME") .. "/.config/stylua/stylua.toml",
+              },
+            },
+          },
+        },
+        init = function()
+          vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+        end,
+      },
+      {
         "nvimtools/none-ls.nvim",
         config = function()
           local builtins = require("null-ls").builtins
@@ -110,33 +167,6 @@ return {
                     "." .. vim.fn.fnamemodify(params.bufname, ":e"),
                   }
                 end,
-              }),
-              -- builtins.formatting.alejandra,
-              builtins.formatting.black,
-              builtins.formatting.buf,
-              builtins.formatting.cbfmt.with({
-                args = {
-                  "--config",
-                  os.getenv("XDG_CONFIG_HOME") .. "/cbfmt/cbfmt.toml",
-                  "--stdin-filepath",
-                  "$FILENAME",
-                  "--best-effort",
-                },
-              }),
-              builtins.formatting.cue_fmt,
-              builtins.formatting.cueimports,
-              builtins.formatting.fish_indent,
-              builtins.formatting.isort,
-              builtins.formatting.prettierd,
-              builtins.formatting.protolint,
-              builtins.formatting.shfmt,
-              builtins.formatting.sql_formatter,
-              builtins.formatting.stylua.with({
-                args = {
-                  "--config-path",
-                  os.getenv("HOME") .. "/.config/stylua/stylua.toml",
-                  "-",
-                },
               }),
             },
           })
