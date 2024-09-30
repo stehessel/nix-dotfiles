@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs-stable,
+  ...
+}: {
   imports = [
     ../nixos
     ./hardware-configuration.nix
@@ -19,6 +23,9 @@
   networking.hostName = "thinkpad";
 
   home-manager = {
+    extraSpecialArgs = {
+      inherit pkgs-stable;
+    };
     useGlobalPkgs = true;
     useUserPackages = true;
 

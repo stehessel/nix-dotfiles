@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -109,10 +110,11 @@
       flake = {
         nixosConfigurations.thinkpad = withSystem "x86_64-linux" (
           _:
-            inputs.nixpkgs.lib.nixosSystem {
+            inputs.nixpkgs.lib.nixosSystem rec {
               system = "x86_64-linux";
               specialArgs = {
                 inherit inputs nixpkgsConfig;
+                pkgs-stable = import inputs.nixpkgs-stable {inherit system;};
               };
               modules = [
                 {nixpkgs = nixpkgsConfig;}
@@ -128,10 +130,11 @@
 
         darwinConfigurations.shesselm-mac = withSystem "x86_64-darwin" (
           _:
-            inputs.darwin.lib.darwinSystem {
+            inputs.darwin.lib.darwinSystem rec {
               system = "x86_64-darwin";
               specialArgs = {
                 inherit inputs nixpkgsConfig;
+                pkgs-stable = import inputs.nixpkgs-stable {inherit system;};
               };
               modules = [
                 {nixpkgs = nixpkgsConfig;}

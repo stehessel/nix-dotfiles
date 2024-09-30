@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  pkgs-stable,
   ...
 }: {
   environment.shells = [pkgs.bashInteractive pkgs.fish];
@@ -15,6 +16,9 @@
   ];
 
   home-manager = {
+    extraSpecialArgs = {
+      inherit pkgs-stable;
+    };
     useGlobalPkgs = true;
     useUserPackages = true;
     users.stephan = {
@@ -193,6 +197,7 @@
     # builders-use-substitutes = true
     extraOptions = ''
       connect-timeout = 5  # in seconds
+      download-buffer-size = 268435456
       experimental-features = ca-derivations nix-command flakes
       fallback = true
       keep-going = true
