@@ -72,6 +72,7 @@ return {
               ["aC"] = "@class.outer",
               ["iC"] = "@class.inner",
               ["ak"] = "@comment.outer",
+              ["ik"] = "@comment.inner",
               ["ac"] = "@conditional.outer",
               ["ic"] = "@conditional.inner",
               ["af"] = "@function.outer",
