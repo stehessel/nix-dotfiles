@@ -8,7 +8,7 @@
     packages = with pkgs; [
       act
       ctop
-      # Broken due to ilist Haskell package.
+      crane
       hadolint
       nodePackages.dockerfile-language-server-nodejs
       # podman
