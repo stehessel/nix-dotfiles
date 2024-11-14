@@ -108,7 +108,7 @@
       tmux
       # --- utility ---
       cmatrix
-      du-dust
+      # du-dust
       duf
       file
       gettext

@@ -13,7 +13,7 @@
   home = {
     packages = with pkgs; [
       # --- containers ---
-      docker
+      (docker.override (_: {buildxSupport = true;}))
       docker-compose
       # --- text ---
       gnused
