@@ -2,7 +2,7 @@
   home = {
     packages = with pkgs; [
       buf
-      buf-language-server
+      # buf-language-server
       protolint
     ];
   };

@@ -41,7 +41,7 @@ return {
       local servers = {
         "ansiblels",
         "bashls",
-        "bufls",
+        "buf_ls",
         "dockerls",
         "eslint",
         "gopls",
@@ -98,8 +98,8 @@ return {
             fish = { "fish_indent" },
             graphql = { "prettierd", "prettier", stop_after_first = true },
             javascript = { "prettierd", "prettier", stop_after_first = true },
-			json = { "prettierd", "prettier", stop_after_first = true },
-			jsx = { "prettierd", "prettier", stop_after_first = true },
+            json = { "prettierd", "prettier", stop_after_first = true },
+            jsx = { "prettierd", "prettier", stop_after_first = true },
             lua = { "stylua" },
             nix = { "alejandra" },
             proto = { "buf" },
@@ -113,7 +113,7 @@ return {
             sh = { "shfmt" },
             sql = { "sql_formatter" },
             typescript = { "prettierd", "prettier", stop_after_first = true },
-			yaml = { "prettierd", "prettier", stop_after_first = true },
+            yaml = { "prettierd", "prettier", stop_after_first = true },
           },
           default_format_opts = {
             lsp_format = "fallback",
@@ -195,6 +195,7 @@ return {
           })
         end,
         event = "LspAttach",
+		enabled = false,
       },
       { "b0o/schemastore.nvim" },
       { "nanotee/sqls.nvim", ft = "sql" },
