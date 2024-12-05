@@ -16,6 +16,7 @@
       black
       pipx
       pyright
+      uv
     ];
     sessionVariables = {
       PYTHONSTARTUP = "${config.xdg.configHome}/python/pythonrc.py";
