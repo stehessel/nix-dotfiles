@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./flake8
-    # ./isort
+    ./isort
     ./mypy
     ./pycodestyle
   ];
@@ -16,6 +16,7 @@
       black
       pipx
       pyright
+      ruff
       uv
     ];
     sessionVariables = {
