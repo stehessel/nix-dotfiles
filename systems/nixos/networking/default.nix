@@ -14,6 +14,9 @@ _: {
     useDHCP = false;
   };
 
+  # VPN
+  services.tailscale.enable = true;
+
   # Encrypted DNS
   services.dnscrypt-proxy2 = {
     enable = true;
