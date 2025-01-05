@@ -18,10 +18,8 @@
     font = "FiraCode";
   };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = ["FiraCode"];
-    })
+  fonts.packages = [
+    pkgs.nerd-fonts.fira-code
   ];
 
   services = {
