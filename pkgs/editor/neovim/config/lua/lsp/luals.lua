@@ -1,5 +1,5 @@
 return {
-  setup = function(on_attach, capabilities, flags)
+  setup = function(on_attach, flags)
     local runtime_path = vim.split(package.path, ";")
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
@@ -7,7 +7,6 @@ return {
     require("lspconfig").lua_ls.setup({
       cmd = { "lua-language-server" },
       on_attach = on_attach,
-      capabilities = capabilities,
       flags = flags,
       settings = {
         Lua = {

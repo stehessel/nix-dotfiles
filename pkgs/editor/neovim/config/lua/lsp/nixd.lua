@@ -1,8 +1,7 @@
 return {
-  setup = function(on_attach, capabilities, flags)
+  setup = function(on_attach, flags)
     require("lspconfig").nixd.setup({
       on_attach = on_attach,
-      capabilities = capabilities,
       flags = flags,
       settings = {
         formatting = {

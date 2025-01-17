@@ -1,5 +1,5 @@
 return {
-  setup = function(on_attach, capabilities, flags)
+  setup = function(on_attach, flags)
     require("lspconfig").ts_ls.setup({
       on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
@@ -12,7 +12,6 @@ return {
 
         on_attach(client, bufnr)
       end,
-      capabilities = capabilities,
       flags = flags,
     })
   end,

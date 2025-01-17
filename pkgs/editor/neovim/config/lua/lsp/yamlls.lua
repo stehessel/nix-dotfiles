@@ -1,8 +1,7 @@
 return {
-  setup = function(on_attach, capabilities, flags)
+  setup = function(on_attach, flags)
     local cfg = require("yaml-companion").setup({
       on_attach = on_attach,
-      capabilities = capabilities,
       flags = flags,
       yaml = {
         schemas = {

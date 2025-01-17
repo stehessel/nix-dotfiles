@@ -31,11 +31,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local capabilities = vim.tbl_deep_extend(
-        "force",
-        vim.lsp.protocol.make_client_capabilities(),
-        require("cmp_nvim_lsp").default_capabilities()
-      )
       local flags = { debounce_text_changes = 150 }
 
       local servers = {
@@ -62,7 +57,7 @@ return {
         "yamlls",
       }
       for _, name in ipairs(servers) do
-        require("lsp." .. name).setup(on_attach, capabilities, flags)
+        require("lsp." .. name).setup(on_attach, flags)
       end
     end,
     event = "VeryLazy",

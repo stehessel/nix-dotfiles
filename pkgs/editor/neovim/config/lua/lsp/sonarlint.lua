@@ -1,5 +1,5 @@
 return {
-  setup = function(on_attach, capabilities, flags)
+  setup = function(on_attach, flags)
     if not require("lspconfig").sonarlint then
       require("lspconfig/configs").sonarlint = {
         default_config = { cmd = { "nc", "-l", "6008" }, filetypes = { "python" } },
@@ -7,7 +7,6 @@ return {
     end
     require("lspconfig").sonarlint.setup({
       on_attach = on_attach,
-      capabilities = capabilities,
       flags = flags,
     })
   end,
