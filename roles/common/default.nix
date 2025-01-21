@@ -9,6 +9,7 @@
     ../../pkgs/container
     ../../pkgs/dev
     ../../pkgs/editor/neovim
+    ../../pkgs/editor/obsidian
     # ../../pkgs/editor/zed
     ../../pkgs/file-manager/lf
     ../../pkgs/infra
