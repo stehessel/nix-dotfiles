@@ -6,6 +6,7 @@ return {
       init_options = { provideFormatter = false },
       json = {
         schemas = require("schemastore").json.schemas(),
+        validate = { enable = true },
       },
     })
   end,

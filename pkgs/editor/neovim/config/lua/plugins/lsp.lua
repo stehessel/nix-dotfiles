@@ -192,7 +192,7 @@ return {
         event = "LspAttach",
 		enabled = false,
       },
-      { "b0o/schemastore.nvim" },
+      { "b0o/SchemaStore.nvim" },
       { "nanotee/sqls.nvim", ft = "sql" },
       {
         "lewis6991/hover.nvim",
