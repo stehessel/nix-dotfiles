@@ -62,7 +62,7 @@
       tokei
       tree-sitter
       universal-ctags
-      xsv
+      xan
       # --- editor ---
       helix
       # kakoune
