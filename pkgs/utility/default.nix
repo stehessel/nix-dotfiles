@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   imports = [
     ./broot
     ./fd
@@ -10,4 +10,10 @@ _: {
     ./wget
     ./zoxide
   ];
+
+  home = {
+    packages = with pkgs; [
+      ast-grep
+    ];
+  };
 }

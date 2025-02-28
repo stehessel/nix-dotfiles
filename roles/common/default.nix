@@ -116,7 +116,6 @@
       hyperfine
       sd
       watch
-      wget
       # --- web ---
       hugo
     ];

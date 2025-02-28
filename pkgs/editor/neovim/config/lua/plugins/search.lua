@@ -1,5 +1,15 @@
 return {
   {
+    "MagicDuck/grug-far.nvim",
+    config = function()
+      require("grug-far").setup({})
+    end,
+    event = "VeryLazy",
+    init = function()
+      vim.keymap.set("n", "<Leader>S", "<Cmd>require('grug-far').open()<CR>", { desc = "grug-far - open" })
+    end,
+  },
+  {
     "nvim-pack/nvim-spectre",
     config = function()
       require("spectre").setup({
@@ -28,6 +38,7 @@ return {
         { desc = "Spectre - open current file" }
       )
     end,
+    enabled = false,
   },
   {
     "cshuaimin/ssr.nvim",
