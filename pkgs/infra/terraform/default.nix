@@ -2,8 +2,9 @@
   home = {
     packages = with pkgs; [
       terraform
-      terragrunt
       terraform-ls
+      terragrunt
+      tflint
     ];
   };
 }

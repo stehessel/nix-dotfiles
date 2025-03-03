@@ -11,6 +11,8 @@
         auth0-cli
         cosign
         sops
+        step-ca
+        step-cli
         vals
       ]
       ++ [pkgs-stable.bitwarden-cli];
