@@ -56,11 +56,11 @@
 
       # Overlay examples.
 
-      kitty-overlay = _: prev: {
-        kitty = prev.kitty.overrideAttrs (_: {
-          doCheck = false;
-        });
-      };
+      # kitty-overlay = _: prev: {
+      #   kitty = prev.kitty.overrideAttrs (_: {
+      #     doCheck = false;
+      #   });
+      # };
 
       # python-overlay = _: prev: rec {
       #   python3 = prev.python3.override {
