@@ -40,7 +40,7 @@ _: {
 
       # Open files with Ctrl-f
       fzf_configure_bindings --directory=\cf --git_log=\cg
-      set fzf_directory_opts --bind "enter:execute($EDITOR {} &> /dev/tty)+abort"
+      set fzf_directory_opts --bind "space:jump,enter,jump:become($EDITOR {} &> /dev/tty)"
 
       # Fisher
       if not functions -q fisher
