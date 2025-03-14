@@ -49,23 +49,18 @@
     };
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    flake-parts,
-    ...
-  }: let
+  outputs = inputs: let
     overlays = {
       stehessel-overlay = inputs.stehessel.overlays.default;
       rust-overlay = inputs.rust.overlays.default;
 
       # Overlay examples.
 
-      k9s-overlay = _: prev: {
-        k9s = prev.k9s.overrideAttrs (_: {
-          doCheck = false;
-        });
-      };
+      # kitty-overlay = _: prev: {
+      #   kitty = prev.kitty.overrideAttrs (_: {
+      #     doCheck = false;
+      #   });
+      # };
 
       # python-overlay = _: prev: rec {
       #   python3 = prev.python3.override {
@@ -84,11 +79,11 @@
     };
     flakeRegistry = {
       nix.registry.nixpkgs.flake = inputs.nixpkgs;
-      nix.registry.stehessel.flake = self;
+      nix.registry.stehessel.flake = inputs.self;
     };
   in
-    flake-parts.lib.mkFlake {inherit inputs;}
-    ({withSystem, ...}: {
+    inputs.flake-parts.lib.mkFlake {inherit inputs;}
+    (_: {
       systems = inputs.nixpkgs.lib.systems.flakeExposed;
 
       imports = [
@@ -110,43 +105,37 @@
       };
 
       flake = {
-        nixosConfigurations.thinkpad = withSystem "x86_64-linux" (
-          _:
-            inputs.nixpkgs.lib.nixosSystem rec {
-              system = "x86_64-linux";
-              specialArgs = {
-                inherit inputs nixpkgsConfig;
-                pkgs-stable = import inputs.nixpkgs-stable {inherit system;};
-              };
-              modules = [
-                {nixpkgs = nixpkgsConfig;}
-                inputs.lanzaboote.nixosModules.lanzaboote
-                ./systems/thinkpad
-                flakeRegistry
-                {programs.hyprland.enable = true;}
-                inputs.nix-index-database.nixosModules.nix-index
-                inputs.home-manager.nixosModules.home-manager
-              ];
-            }
-        );
+        nixosConfigurations.thinkpad = inputs.nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs nixpkgsConfig;
+            pkgs-stable = import inputs.nixpkgs-stable {inherit system;};
+          };
+          modules = [
+            {nixpkgs = nixpkgsConfig;}
+            inputs.lanzaboote.nixosModules.lanzaboote
+            ./systems/thinkpad
+            flakeRegistry
+            {programs.hyprland.enable = true;}
+            inputs.nix-index-database.nixosModules.nix-index
+            inputs.home-manager.nixosModules.home-manager
+          ];
+        };
 
-        darwinConfigurations.shesselm-mac = withSystem "x86_64-darwin" (
-          _:
-            inputs.darwin.lib.darwinSystem rec {
-              system = "x86_64-darwin";
-              specialArgs = {
-                inherit inputs nixpkgsConfig;
-                pkgs-stable = import inputs.nixpkgs-stable {inherit system;};
-              };
-              modules = [
-                {nixpkgs = nixpkgsConfig;}
-                ./systems/darwin
-                flakeRegistry
-                inputs.nix-index-database.darwinModules.nix-index
-                inputs.home-manager.darwinModules.home-manager
-              ];
-            }
-        );
+        darwinConfigurations.shesselm-mac = inputs.darwin.lib.darwinSystem rec {
+          system = "x86_64-darwin";
+          specialArgs = {
+            inherit inputs nixpkgsConfig;
+            pkgs-stable = import inputs.nixpkgs-stable {inherit system;};
+          };
+          modules = [
+            {nixpkgs = nixpkgsConfig;}
+            ./systems/darwin
+            flakeRegistry
+            inputs.nix-index-database.darwinModules.nix-index
+            inputs.home-manager.darwinModules.home-manager
+          ];
+        };
       };
     });
 }
