@@ -71,6 +71,7 @@ return {
       { "nvim-telescope/telescope-symbols.nvim" },
       { "nvim-telescope/telescope-ui-select.nvim" },
     },
+	enabled = false,
   },
   {
     "folke/todo-comments.nvim",
