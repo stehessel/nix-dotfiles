@@ -88,6 +88,7 @@
     brews = [
       "apache-arrow"
       "coreutils"
+      "docker-buildx"
       "fribidi"
       "gcc"
       "gdal"

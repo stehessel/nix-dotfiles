@@ -3,7 +3,6 @@ return {
     "mfussenegger/nvim-dap",
     config = function()
       require("dap").defaults.fallback.exception_breakpoints = { "raised", "uncaught" }
-      require("telescope").load_extension("dap")
     end,
     init = function()
       vim.keymap.set("n", "<F2>", "<Cmd>lua require('dap').pause()<CR>")
@@ -57,6 +56,5 @@ return {
         ft = "go",
       },
     },
-    enabled = false,
   },
 }
