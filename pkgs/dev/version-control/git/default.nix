@@ -8,6 +8,7 @@
       git-town
       gitAndTools.git-bug
       gitAndTools.git-fame
+      glab
       # nodePackages."@withgraphite/graphite-cli"
       # onefetch
       pre-commit
