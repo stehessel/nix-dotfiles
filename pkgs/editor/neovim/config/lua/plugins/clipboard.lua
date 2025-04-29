@@ -3,7 +3,8 @@ return {
     "AckslD/nvim-neoclip.lua",
     config = function()
       require("neoclip").setup({
-        enable_persistent_history = true,
+        -- Disabled because it caused start up to hang up to 30 seconds.
+        enable_persistent_history = false,
         default_register = "+",
       })
       vim.g.sqlite_clib_path = os.getenv("LIB_SQLITE_PATH")
