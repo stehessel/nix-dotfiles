@@ -5,7 +5,7 @@
 }: {
   home = {
     packages = with pkgs; [
-      ansible
+      # ansible
       # ansible-lint
       ansible-language-server
     ];

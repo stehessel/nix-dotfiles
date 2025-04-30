@@ -9,6 +9,7 @@
 
   home = {
     packages = with pkgs; [
+      argocd
       cilium-cli
       fluxcd
       hubble

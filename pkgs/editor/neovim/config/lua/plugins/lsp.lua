@@ -128,6 +128,7 @@ return {
       },
       {
         "nvimtools/none-ls.nvim",
+        url = "https://github.com/ulisses-cruz/none-ls.nvim",
         config = function()
           local builtins = require("null-ls").builtins
 
