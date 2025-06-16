@@ -101,8 +101,10 @@
       "prometheus"
       "r"
       "skhd"
+      "texlive"
       "yabai"
       "z3"
+      "zerotier-one"
     ];
     casks = [
       "adobe-acrobat-reader"
@@ -184,6 +186,7 @@
         AppleFontSmoothing = 0;
       };
     };
+    primaryUser = "stephan";
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;

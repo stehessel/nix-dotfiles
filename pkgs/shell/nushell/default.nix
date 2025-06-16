@@ -1,6 +1,6 @@
 _: {
   programs.nushell = {
-    enable = true;
+    # enable = true;
     configFile = {
       text = ''
         let-env config = {

@@ -12,7 +12,7 @@
   };
   home = {
     sessionVariables = {
-      ANSIBLE_CONFIG = "${config.xdg.configHome}/ansible/ansible.cfg";
+      ANSIBLE_HOME = "${config.xdg.configHome}/ansible";
     };
   };
   xdg.configFile."ansible/ansible.cfg".source = ./config/ansible.cfg;
