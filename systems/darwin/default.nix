@@ -125,6 +125,13 @@
   };
 
   networking = {
+    applicationFirewall = {
+      allowSigned = true;
+      allowSignedApp = true;
+      blockAllIncoming = true;
+      enable = true;
+      enableStealthMode = true;
+    };
     dns = [
       "1.1.1.1"
       "1.0.0.1"
@@ -149,14 +156,6 @@
     };
 
     defaults = {
-      # Firewall
-      alf = {
-        globalstate = 1;
-        allowsignedenabled = 1;
-        allowdownloadsignedenabled = 1;
-        stealthenabled = 1;
-      };
-
       dock = {
         autohide = true;
         autohide-delay = 0.0;

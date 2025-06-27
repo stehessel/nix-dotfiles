@@ -10,6 +10,7 @@
         age
         auth0-cli
         cosign
+        doppler
         sops
         step-ca
         step-cli
