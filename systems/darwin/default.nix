@@ -158,6 +158,53 @@
     };
 
     defaults = {
+      CustomUserPreferences = {
+        "com.apple.symbolichotkeys" = {
+          AppleSymbolicHotKeys = {
+            # Switch to space 1 with 'Option + 1'.
+            "118" = {
+              enabled = true;
+              value = {
+                parameters = [49 18 524288];
+                type = "standard";
+              };
+            };
+            # Switch to space 2 with 'Option + 2'.
+            "119" = {
+              enabled = true;
+              value = {
+                parameters = [50 19 524288];
+                type = "standard";
+              };
+            };
+            # Switch to space 3 with 'Option + 3'.
+            "120" = {
+              enabled = true;
+              value = {
+                parameters = [51 20 524288];
+                type = "standard";
+              };
+            };
+            # Switch to space 4 with 'Option + 4'.
+            "121" = {
+              enabled = true;
+              value = {
+                parameters = [52 21 524288];
+                type = "standard";
+              };
+            };
+            # Switch to space 5 with 'Option + 5'.
+            "122" = {
+              enabled = true;
+              value = {
+                parameters = [53 22 524288];
+                type = "standard";
+              };
+            };
+          };
+        };
+      };
+
       dock = {
         autohide = true;
         autohide-delay = 0.0;
