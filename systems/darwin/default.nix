@@ -21,7 +21,7 @@
     };
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.stephan = {
+    users.shesselm = {
       imports = [
         inputs.sops-nix.homeManagerModules.sops
         ../../profiles/redhat
@@ -30,9 +30,11 @@
     };
   };
 
-  users.users.stephan = {
-    name = "stephan";
-    home = "/Users/stephan";
+  nix.enable = false;
+
+  users.users.shesselm = {
+    name = "shesselm";
+    home = "/Users/shesselm";
   };
 
   services = {
@@ -145,9 +147,9 @@
     ];
   };
 
-  fonts.packages = [
-    pkgs.nerd-fonts.fira-code
-  ];
+  # fonts.packages = [
+  #   pkgs.nerd-fonts.fira-code
+  # ];
 
   system = {
     keyboard = {
@@ -185,58 +187,12 @@
         AppleFontSmoothing = 0;
       };
     };
-    primaryUser = "stephan";
+    primaryUser = "shesselm";
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
-  nix = {
-    enable = true;
-    # builders = ssh-ng://builder@linux-builder x86_64-linux /etc/nix/builder_ed25519 4 - - - c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUpCV2N4Yi9CbGFxdDFhdU90RStGOFFVV3JVb3RpQzVxQkorVXVFV2RWQ2Igcm9vdEBuaXhvcwo=
-    # builders-use-substitutes = true
-    extraOptions = ''
-      connect-timeout = 5  # in seconds
-      download-buffer-size = 268435456
-      experimental-features = ca-derivations nix-command flakes
-      fallback = true
-      keep-going = true
-      log-lines = 25
-      max-free = 1000000000 # 1 GB
-      min-free = 256000000  # 256 MB
-    '';
-    gc = {
-      automatic = true;
-      interval = {
-        Hour = 12;
-      };
-    };
-    package = pkgs.nixVersions.latest;
-    settings = {
-      auto-optimise-store = false;
-      substituters = [
-        # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
-        # "https://aseipp-nix-cache.freetls.fastly.net"
-        "https://cache.nixos.org"
-        "https://devenv.cachix.org"
-        "https://nix-community.cachix.org"
-        "https://stackrox.cachix.org"
-      ];
-      trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "stackrox.cachix.org-1:Wnn8TKAitOTWKfTvvHiHzJjXy0YfiwoK6rrVzXt/trA="
-      ];
-      trusted-users = [
-        "root"
-        "@admin"
-      ];
-      sandbox = false;
-      use-xdg-base-directories = true;
-    };
-  };
-
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
-  system.stateVersion = 4;
+  system.stateVersion = 6;
 }

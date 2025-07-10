@@ -8,7 +8,7 @@ declare -A gaps
 declare -A color
 
 gaps["top"]="4"
-gaps["bottom"]="24"
+gaps["bottom"]="4"
 gaps["left"]="4"
 gaps["right"]="4"
 gaps["inner"]="4"
@@ -37,8 +37,7 @@ yabai -m config left_padding                "${gaps["left"]}"
 yabai -m config right_padding               "${gaps["right"]}"
 yabai -m config window_gap                  "${gaps["inner"]}"
 
-yabai -m config mouse_follows_focus         on
-yabai -m config focus_follows_mouse         on
+yabai -m config focus_follows_mouse         autoraise
 
 yabai -m config window_topmost              off
 yabai -m config window_opacity              off

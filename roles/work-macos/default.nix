@@ -18,7 +18,7 @@
       # --- text ---
       gnused
       # --- window manager ---
-      # yabai
+      yabai
     ];
 
     sessionVariables = {
