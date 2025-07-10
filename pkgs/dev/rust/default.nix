@@ -5,16 +5,16 @@
 }: {
   home = {
     packages = with pkgs; [
-      # rustup
-      rust-bin.beta.latest.default
-      rust-analyzer
+      rustup
+      # rust-bin.beta.latest.default
+      # rust-analyzer
     ];
     sessionPath = [
       "${config.xdg.configHome}/cargo/bin"
     ];
     sessionVariables = {
       CARGO_HOME = "${config.xdg.configHome}/cargo";
-      # RUSTUP_HOME = "${config.xdg.configHome}/rustup";
+      RUSTUP_HOME = "${config.xdg.configHome}/rustup";
     };
   };
 

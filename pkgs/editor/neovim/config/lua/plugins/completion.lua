@@ -40,7 +40,7 @@ return {
       },
     },
     opts_extend = { "sources.default" },
-    version = "*",
+    version = "1.*",
   },
   {
     "ray-x/lsp_signature.nvim",
