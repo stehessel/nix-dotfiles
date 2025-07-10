@@ -123,7 +123,7 @@
         };
 
         darwinConfigurations.shesselm-mac = inputs.darwin.lib.darwinSystem rec {
-          system = "x86_64-darwin";
+          system = "aarch64-darwin";
           specialArgs = {
             inherit inputs nixpkgsConfig;
             pkgs-stable = import inputs.nixpkgs-stable {inherit system;};
