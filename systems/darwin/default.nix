@@ -159,8 +159,25 @@
 
     defaults = {
       CustomUserPreferences = {
+        # See https://stackoverflow.com/questions/21878482/what-do-the-parameter-values-in-applesymbolichotkeys-plist-dict-represent.
         "com.apple.symbolichotkeys" = {
           AppleSymbolicHotKeys = {
+            # Open mission control with 'Option + Up'.
+            "32" = {
+              enabled = true;
+              value = {
+                parameters = [65535 126 11010048];
+                type = "standard";
+              };
+            };
+            # Open mission control with 'Option + Up'.
+            "34" = {
+              enabled = true;
+              value = {
+                parameters = [65535 126 11141120];
+                type = "standard";
+              };
+            };
             # Switch to space 1 with 'Option + 1'.
             "118" = {
               enabled = true;
