@@ -2,7 +2,7 @@
   home = {
     packages = with pkgs; [
       jq
-      nodePackages.vscode-langservers-extracted
+      vscode-langservers-extracted
     ];
   };
 }

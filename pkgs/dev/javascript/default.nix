@@ -5,12 +5,13 @@
 }: {
   home = {
     packages = with pkgs; [
-      nodePackages."@tailwindcss/language-server"
-      nodePackages.eslint_d
-      nodePackages.typescript
-      nodePackages.typescript-language-server
+      eslint_d
       nodejs
+      prettier
       prettierd
+      tailwindcss-language-server
+      typescript
+      typescript-language-server
       yarn
     ];
     sessionPath = [

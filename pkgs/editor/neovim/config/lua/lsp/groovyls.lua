@@ -4,7 +4,7 @@ return {
       cmd = {
         "java",
         "-jar",
-        "/Users/stephan/program/groovy-language-server/build/libs/groovy-language-server-all.jar",
+        "/Users/shesselm/program/groovy-language-server/build/libs/groovy-language-server-all.jar",
       },
       on_attach = on_attach,
       root_dir = function(fname)

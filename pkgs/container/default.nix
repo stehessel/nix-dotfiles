@@ -7,10 +7,10 @@
   home = {
     packages = with pkgs; [
       act
-      ctop
       crane
+      ctop
+      dockerfile-language-server-nodejs
       hadolint
-      nodePackages.dockerfile-language-server-nodejs
       # podman
     ];
   };

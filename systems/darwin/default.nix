@@ -67,46 +67,22 @@
   };
 
   homebrew = {
-    enable = false;
+    enable = true;
     onActivation = {
       autoUpdate = true;
-      cleanup = "zap";
     };
-    global.brewfile = true;
-
     taps = [
-      "homebrew/bundle"
-      "homebrew/cask"
-      "homebrew/cask-drivers"
-      "homebrew/cask-fonts"
-      "homebrew/cask-versions"
-      "homebrew/core"
-      "homebrew/services"
       "homebrew/test-bot"
       "koekeishiya/formulae"
-      "mutagen-io/mutagen"
-      "nrlquaker/createzap"
     ];
     brews = [
-      "apache-arrow"
-      "coreutils"
       "docker-buildx"
-      "fribidi"
-      "gcc"
-      "gdal"
       "go-task"
-      "harfbuzz"
-      "libgit2"
-      "libtiff"
-      "llvm"
-      "pkg-config"
       "prometheus"
       "r"
       "skhd"
       "texlive"
       "yabai"
-      "z3"
-      "zerotier-one"
     ];
     casks = [
       "adobe-acrobat-reader"
@@ -117,11 +93,13 @@
       "font-fira-code-nerd-font"
       "google-chrome"
       "inkscape"
+      "maccy"
       "quarto"
       "rstudio"
       "shottr"
       "slack"
       "syncthing"
+      "zerotier-one"
       "zoom"
     ];
   };
