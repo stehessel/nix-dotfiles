@@ -21,9 +21,9 @@
       settings.git_protocol = "ssh";
     };
 
-    gitui = {
-      enable = true;
-    };
+    # gitui = {
+    #   enable = true;
+    # };
 
     git = {
       enable = true;
