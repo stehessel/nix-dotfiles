@@ -24,6 +24,7 @@
       kubectl
       kubectx
       kubeswitch
+      kubevirt
       kustomize
       linkerd
       operator-sdk
@@ -35,7 +36,7 @@
       KREW_ROOT = "${config.xdg.dataHome}/krew";
     };
     sessionPath = [
-      "${config.xdg.dataHome}/krew"
+      "${config.xdg.dataHome}/krew/bin"
     ];
   };
 }
