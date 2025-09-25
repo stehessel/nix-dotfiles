@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").gopls.setup({
+    vim.lsp.config("gopls", {
       on_attach = on_attach,
       flags = flags,
       settings = {

@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").helm_ls.setup({
+    vim.lsp.config("helm_ls", {
       on_attach = on_attach,
       flags = flags,
     })

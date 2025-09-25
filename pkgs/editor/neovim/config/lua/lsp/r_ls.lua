@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").r_language_server.setup({
+    vim.lsp.config("r_language_server", {
       on_attach = on_attach,
       flags = flags,
     })

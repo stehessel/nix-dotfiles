@@ -9,7 +9,7 @@
       act
       crane
       ctop
-      dockerfile-language-server-nodejs
+      dockerfile-language-server
       hadolint
       # podman
     ];

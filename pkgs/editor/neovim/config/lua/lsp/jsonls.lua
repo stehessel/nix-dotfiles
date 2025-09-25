@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").jsonls.setup({
+    vim.lsp.config("jsonls", {
       on_attach = on_attach,
       flags = flags,
       init_options = { provideFormatter = false },

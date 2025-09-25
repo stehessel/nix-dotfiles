@@ -4,7 +4,7 @@ return {
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
 
-    require("lspconfig").lua_ls.setup({
+    vim.lsp.config("lua_ls", {
       cmd = { "lua-language-server" },
       on_attach = on_attach,
       flags = flags,

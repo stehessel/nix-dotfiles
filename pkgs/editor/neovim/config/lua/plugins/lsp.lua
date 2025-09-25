@@ -59,6 +59,7 @@ return {
       for _, name in ipairs(servers) do
         require("lsp." .. name).setup(on_attach, flags)
       end
+      vim.lsp.enable(servers)
     end,
     event = "VeryLazy",
     dependencies = {

@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").nixd.setup({
+    vim.lsp.config("nixd", {
       on_attach = on_attach,
       flags = flags,
       settings = {

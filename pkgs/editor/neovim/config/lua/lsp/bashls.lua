@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").bashls.setup({
+    vim.lsp.config("bashls", {
       on_attach = on_attach,
       flags = flags,
     })

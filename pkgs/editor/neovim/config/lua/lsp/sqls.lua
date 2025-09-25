@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").sqls.setup({
+    vim.lsp.config("sqls", {
       on_attach = function(client)
         on_attach(client)
         client.server_capabilities.executeCommandProvider = true

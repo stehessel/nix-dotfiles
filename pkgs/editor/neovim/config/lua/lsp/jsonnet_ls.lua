@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").jsonnet_ls.setup({
+    vim.lsp.config("jsonnet_ls", {
       on_attach = on_attach,
       flags = flags,
     })

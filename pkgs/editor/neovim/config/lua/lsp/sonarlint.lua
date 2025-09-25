@@ -5,7 +5,7 @@ return {
         default_config = { cmd = { "nc", "-l", "6008" }, filetypes = { "python" } },
       }
     end
-    require("lspconfig").sonarlint.setup({
+    vim.lsp.config("sonarlint", {
       on_attach = on_attach,
       flags = flags,
     })

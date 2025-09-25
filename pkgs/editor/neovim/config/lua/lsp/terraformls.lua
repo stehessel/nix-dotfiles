@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").terraformls.setup({
+    vim.lsp.config("terraformls", {
       on_attach = on_attach,
       flags = flags,
     })

@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").groovyls.setup({
+    vim.lsp.config("groovyls", {
       cmd = {
         "java",
         "-jar",

@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").marksman.setup({
+    vim.lsp.config("marksman", {
       on_attach = on_attach,
       flags = flags,
     })

@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").taplo.setup({
+    vim.lsp.config("taplo", {
       on_attach = on_attach,
       flags = flags,
     })

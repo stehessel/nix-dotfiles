@@ -14,6 +14,6 @@ return {
         schemas = require("schemastore").yaml.schemas(),
       },
     })
-    require("lspconfig").yamlls.setup(cfg)
+    vim.lsp.config("yamlls", cfg)
   end,
 }

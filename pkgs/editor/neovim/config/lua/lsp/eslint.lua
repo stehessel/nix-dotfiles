@@ -1,6 +1,6 @@
 return {
   setup = function(on_attach, flags)
-    require("lspconfig").eslint.setup({
+    vim.lsp.config("eslint", {
       on_attach = on_attach,
       flags = flags,
     })
