@@ -12,6 +12,7 @@
       dockerfile-language-server
       hadolint
       # podman
+      skopeo
     ];
   };
 }
