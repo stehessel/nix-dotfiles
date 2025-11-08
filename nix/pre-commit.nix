@@ -5,7 +5,7 @@
     tagref.enable = true;
 
     # GitHub actions
-    actionlint.enable = true;
+    # actionlint.enable = true;
 
     # Misc
     prettier.enable = true;

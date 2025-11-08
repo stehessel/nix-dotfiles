@@ -1,11 +1,11 @@
-{config, ...}: {
-  programs.git = {
-    userEmail = "shesselm@redhat.com";
-    userName = "Stephan Heßelmann";
+{
+  programs.git.settings.user = {
+    email = "shesselm@redhat.com";
+    name = "Stephan Heßelmann";
   };
   home = {
     sessionPath = [
-      "$HOME/${config.programs.go.goPath}/src/github.com/stackrox/workflow/bin"
+      "$HOME/go/src/github.com/stackrox/workflow/bin"
     ];
     sessionVariables = {
       ANTHROPIC_VERTEX_PROJECT_ID = "itpc-gcp-hybrid-pe-eng-claude";

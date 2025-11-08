@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home = {
     packages = with pkgs; [
       delve
@@ -16,11 +12,11 @@
       richgo
     ];
     sessionPath = [
-      "$HOME/${config.programs.go.goPath}/bin"
+      "$HOME/go/bin"
     ];
     sessionVariables = {
       GOMEMLIMIT = "4GiB";
-      GOROOT = "$HOME/go";
+      GOPROXY = "direct";
     };
   };
 

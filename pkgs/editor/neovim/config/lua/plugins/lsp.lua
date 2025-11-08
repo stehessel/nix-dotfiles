@@ -96,13 +96,7 @@ return {
             lua = { "stylua" },
             nix = { "alejandra" },
             proto = { "buf" },
-            python = function(bufnr)
-              if require("conform").get_formatter_info("ruff_format", bufnr).available then
-                return { "ruff_format" }
-              else
-                return { "isort", "black" }
-              end
-            end,
+            python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
             sh = { "shfmt" },
             sql = { "sql_formatter" },
             typescript = { "prettierd", "prettier", stop_after_first = true },
@@ -188,7 +182,7 @@ return {
           })
         end,
         event = "LspAttach",
-		enabled = false,
+        enabled = false,
       },
       { "b0o/SchemaStore.nvim" },
       { "nanotee/sqls.nvim", ft = "sql" },

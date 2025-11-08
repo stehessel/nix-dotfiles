@@ -15,6 +15,7 @@
     packages = with pkgs; [
       black
       pipx
+      pyrefly
       pyright
       ruff
       uv

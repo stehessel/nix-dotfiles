@@ -14,7 +14,7 @@
       nixpkgs-review
       nurl
       statix
-      vulnix
+      # vulnix
     ];
   };
   programs = {

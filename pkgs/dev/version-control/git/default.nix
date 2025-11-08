@@ -25,6 +25,14 @@
     #   enable = true;
     # };
 
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        line-numbers = true;
+      };
+    };
+
     git = {
       enable = true;
 
@@ -53,14 +61,7 @@
         ".direnv/"
       ];
 
-      delta = {
-        enable = true;
-        options = {
-          line-numbers = true;
-        };
-      };
-
-      extraConfig = {
+      settings = {
         alias = {
           # Usage: git assume fileName
           assume = "update-index --assume-unchanged";
