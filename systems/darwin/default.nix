@@ -98,7 +98,7 @@
       "rstudio"
       "shottr"
       "slack"
-      "syncthing"
+      "syncthing-app"
       "zerotier-one"
       "zoom"
     ];

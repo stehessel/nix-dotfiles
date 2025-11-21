@@ -14,15 +14,15 @@
     sessionPath = [
       "$HOME/go/bin"
     ];
-    sessionVariables = {
-      GOMEMLIMIT = "4GiB";
-      GOPROXY = "direct";
-    };
   };
 
   programs = {
     go = {
       enable = true;
+      env = {
+        GOMEMLIMIT = "4GiB";
+        GOPROXY = "direct";
+      };
     };
   };
 }

@@ -4,10 +4,10 @@
       git-extras
       git-interactive-rebase-tool
       # git-mit
+      git-bug
+      git-fame
       git-sizer
       git-town
-      gitAndTools.git-bug
-      gitAndTools.git-fame
       glab
       # nodePackages."@withgraphite/graphite-cli"
       # onefetch

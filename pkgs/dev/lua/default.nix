@@ -7,13 +7,13 @@
 
   home = {
     packages = with pkgs; [
+      lua-language-server
       luajit
       luajitPackages.lua-lsp
       luajitPackages.luacheck
       luajitPackages.luarocks
       selene
       stylua
-      sumneko-lua-language-server
     ];
     sessionPath = [
       "$HOME/.luarocks/bin"
