@@ -25,11 +25,12 @@
     #   enable = true;
     # };
 
-    delta = {
+    difftastic = {
       enable = true;
-      enableGitIntegration = true;
+      git.enable = true;
       options = {
-        line-numbers = true;
+        sort-paths = true;
+        tab-width = 4;
       };
     };
 
