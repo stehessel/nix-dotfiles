@@ -7,6 +7,7 @@ _: {
     ./golang
     ./javascript
     ./jsonnet
+    ./linux
     ./lua
     ./nix
     ./protobuf

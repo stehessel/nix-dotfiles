@@ -50,6 +50,7 @@ return {
         "pyright",
         "r_ls",
         -- "sqls",
+        "systemd_lsp",
         "tailwindcss",
         "taplo",
         "terraformls",
