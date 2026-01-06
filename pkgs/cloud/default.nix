@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./aws
-    # ./azure
+    ./azure
     ./backblaze
     ./gcp
     ./hetzner

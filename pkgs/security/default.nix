@@ -14,6 +14,7 @@
         sops
         step-ca
         step-cli
+        trivy
         vals
       ]
       ++ [pkgs-stable.bitwarden-cli];
