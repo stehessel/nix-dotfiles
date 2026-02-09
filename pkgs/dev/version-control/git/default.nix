@@ -8,6 +8,7 @@
       git-fame
       git-sizer
       git-town
+      gitleaks
       glab
       # nodePackages."@withgraphite/graphite-cli"
       # onefetch

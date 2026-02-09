@@ -30,11 +30,11 @@ vim.keymap.set("n", "<Space>d", function()
   vim.diagnostic.open_float(0, { focusable = false, scope = "line" })
 end)
 vim.keymap.set("n", "[d", function()
-  vim.diagnostic.goto_prev({ float = { focusable = false } })
-end)
+  vim.diagnostic.jump({ count = -1, float = true })
+end, { desc = "Previous diagnostic" })
 vim.keymap.set("n", "]d", function()
-  vim.diagnostic.goto_next({ float = { focusable = false } })
-end)
+  vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = "Next diagnostic" })
 
 vim.diagnostic.config({
   severity_sort = true,

@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   imports = [
     ./ai
     ./build
@@ -17,4 +17,10 @@ _: {
     ./text
     ./version-control/git
   ];
+
+  home = {
+    packages = with pkgs; [
+      semgrep
+    ];
+  };
 }

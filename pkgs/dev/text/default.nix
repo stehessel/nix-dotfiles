@@ -7,7 +7,7 @@
   home = {
     packages = with pkgs; [
       asciidoctor
-      marksman
+      # marksman
     ];
   };
 }

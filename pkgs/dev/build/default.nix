@@ -5,8 +5,9 @@
 }: {
   home = {
     packages = with pkgs; [
-      # actionlint
+      actionlint
       buildpack
+      checkmake
       cmake
       gnumake
       # go-task

@@ -3,8 +3,10 @@
     packages = with pkgs; [
       delve
       ginkgo
+      go-tools
       gofumpt
       golangci-lint
+      gomodifytags
       gopls
       gotest
       gotests

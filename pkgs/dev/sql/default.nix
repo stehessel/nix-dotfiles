@@ -3,6 +3,7 @@
     packages = with pkgs; [
       sql-formatter
       sqlite
+      sqruff
     ];
   };
 }
