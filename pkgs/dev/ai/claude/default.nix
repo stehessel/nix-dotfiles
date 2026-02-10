@@ -2,7 +2,7 @@ _: {
   programs.claude-code = {
     enable = true;
 
-    commandsDir = ./commands;
+    commandsDir = ./config/commands;
 
     # mcpServers = {
     #   filesystem = {
@@ -19,6 +19,8 @@ _: {
     #     url = "https://api.githubcopilot.com/mcp/";
     #   };
     # };
+
+    memory.source = ./config/memory.md;
 
     settings = {
       alwaysThinkingEnabled = true;
