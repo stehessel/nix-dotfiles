@@ -20,7 +20,7 @@ _: {
     #   };
     # };
 
-    memory.source = ./config/memory.md;
+    memory.source = ./config/CLAUDE.md;
 
     settings = {
       alwaysThinkingEnabled = true;

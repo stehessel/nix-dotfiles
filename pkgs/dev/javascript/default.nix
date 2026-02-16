@@ -5,6 +5,7 @@
 }: {
   home = {
     packages = with pkgs; [
+      eslint
       eslint_d
       nodejs
       prettier
