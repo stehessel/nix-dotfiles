@@ -8,7 +8,7 @@
       "$HOME/go/src/github.com/stackrox/workflow/bin"
     ];
     sessionVariables = {
-      ANTHROPIC_VERTEX_PROJECT_ID = "itpc-gcp-hybrid-pe-eng-claude";
+      ANTHROPIC_VERTEX_PROJECT_ID = "itpc-gcp-hcm-pe-eng-claude";
       CLOUD_ML_REGION = "us-east5";
     };
   };
