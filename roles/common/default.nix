@@ -12,6 +12,7 @@
     ../../pkgs/editor/obsidian
     # ../../pkgs/editor/zed
     ../../pkgs/file-manager/lf
+    ../../pkgs/homelab
     ../../pkgs/infra
     ../../pkgs/networking
     ../../pkgs/productivity
