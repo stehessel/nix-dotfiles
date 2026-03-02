@@ -45,6 +45,8 @@
       "jira/token" = {
         path = "${config.home.homeDirectory}/dev/secrets/jira/token";
       };
+      "radarr/token" = {};
+      "sonarr/token" = {};
     };
   };
 }
