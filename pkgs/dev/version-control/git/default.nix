@@ -134,6 +134,8 @@
           };
         };
       };
+
+      signing.format = null;
     };
   };
 }

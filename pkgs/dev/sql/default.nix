@@ -4,6 +4,7 @@
       sql-formatter
       sqlite
       sqruff
+      # tsql
     ];
   };
 }

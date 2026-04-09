@@ -24,12 +24,22 @@ _: {
 
     settings = {
       alwaysThinkingEnabled = true;
+
       enabledPlugins = {
+        "cc-skills-golang@samber" = true;
         "code-review@claude-plugins-official" = true;
+        "code-simplifier@claude-plugins-official" = true;
         "context7@claude-plugins-official" = true;
+        "github@claude-plugins-official" = true;
         "gopls-lsp@claude-plugins-official" = true;
         "superpowers@claude-plugins-official" = true;
         "typescript-lsp@claude-plugins-official" = true;
+      };
+      extraKnownMarketplaces = {
+        "samber" = {
+          "repo" = "samber/cc";
+          "source" = "github";
+        };
       };
       env = {
         ENABLE_LSP_TOOL = "1";

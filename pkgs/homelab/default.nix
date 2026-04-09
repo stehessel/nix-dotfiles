@@ -4,7 +4,7 @@
   ];
   home = {
     packages = with pkgs; [
-      ntfy-sh
+      # ntfy-sh
     ];
   };
 }

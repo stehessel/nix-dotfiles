@@ -2,7 +2,7 @@
   home = {
     packages = with pkgs; [
       delve
-      ginkgo
+      # ginkgo
       go-tools
       gofumpt
       golangci-lint
