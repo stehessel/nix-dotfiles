@@ -20,6 +20,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    llm-agents.url = "github:numtide/llm-agents.nix";
     stehessel = {
       url = "github:stehessel/nix-overlay";
       inputs = {
@@ -108,6 +109,7 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs nixpkgsConfig;
+            llms = inputs.llm-agents.packages.${system};
             pkgs-stable = import inputs.nixpkgs-stable {inherit system;};
           };
           modules = [
@@ -125,6 +127,7 @@
           system = "aarch64-darwin";
           specialArgs = {
             inherit inputs nixpkgsConfig;
+            llms = inputs.llm-agents.packages.${system};
             pkgs-stable = import inputs.nixpkgs-stable {inherit system;};
           };
           modules = [

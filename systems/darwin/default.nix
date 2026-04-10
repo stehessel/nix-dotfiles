@@ -1,5 +1,6 @@
 {
   inputs,
+  llms,
   pkgs,
   pkgs-stable,
   ...
@@ -17,7 +18,7 @@
 
   home-manager = {
     extraSpecialArgs = {
-      inherit pkgs-stable;
+      inherit llms pkgs-stable;
     };
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -33,7 +34,7 @@
   nix = {
     enable = false;
     settings = {
-      substituters = [
+      extra-substituters = [
         # Content addressed cache
         # "https://cache.ngi0.nixos.org"
         # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
@@ -44,7 +45,7 @@
         "https://nix-community.cachix.org"
         "https://stehessel.cachix.org"
       ];
-      trusted-public-keys = [
+      extra-trusted-public-keys = [
         "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="

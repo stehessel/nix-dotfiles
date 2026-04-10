@@ -1,5 +1,6 @@
 {
   inputs,
+  llms,
   pkgs-stable,
   ...
 }: {
@@ -24,7 +25,7 @@
 
   home-manager = {
     extraSpecialArgs = {
-      inherit pkgs-stable;
+      inherit llms pkgs-stable;
     };
     useGlobalPkgs = true;
     useUserPackages = true;

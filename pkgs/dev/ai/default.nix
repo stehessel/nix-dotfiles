@@ -1,13 +1,17 @@
-{pkgs, ...}: {
+{
+  llms,
+  pkgs,
+  ...
+}: {
   imports = [
     ./claude
     # ./sourcery
   ];
 
   home = {
-    packages = with pkgs; [
-      beans
-      beads
+    packages = builtins.concatLists [
+      (with pkgs; [beans beads])
+      (with llms; [apm coderabbit-cli])
     ];
   };
 }

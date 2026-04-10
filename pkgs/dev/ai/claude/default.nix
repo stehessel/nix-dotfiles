@@ -36,9 +36,11 @@ _: {
         "typescript-lsp@claude-plugins-official" = true;
       };
       extraKnownMarketplaces = {
-        "samber" = {
-          "repo" = "samber/cc";
-          "source" = "github";
+        samber = {
+          source = {
+            repo = "samber/cc";
+            source = "github";
+          };
         };
       };
       env = {
