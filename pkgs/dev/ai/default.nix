@@ -11,7 +11,7 @@
   home = {
     packages = builtins.concatLists [
       (with pkgs; [beans beads])
-      (with llms; [apm coderabbit-cli])
+      (with llms; [apm beads-viewer coderabbit-cli])
     ];
   };
 }
