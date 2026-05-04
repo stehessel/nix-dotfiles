@@ -10,8 +10,14 @@
 
   home = {
     packages = builtins.concatLists [
-      (with pkgs; [beans beads])
-      (with llms; [apm beads-viewer coderabbit-cli])
+      (with pkgs; [beans])
+      (with llms; [
+        apm
+        beads
+        beads-viewer
+        coderabbit-cli
+        kilocode-cli
+      ])
     ];
   };
 }

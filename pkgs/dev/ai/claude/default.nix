@@ -20,7 +20,7 @@ _: {
       # };
     };
 
-    memory.source = ./config/CLAUDE.md;
+    context = ./config/CLAUDE.md;
 
     settings = {
       alwaysThinkingEnabled = true;
@@ -44,13 +44,11 @@ _: {
         };
       };
       env = {
+        CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1";
+        CLAUDE_CODE_USE_VERTEX = "1";
         ENABLE_LSP_TOOL = "1";
       };
       includeCoAuthoredBy = true;
     };
-  };
-
-  home.sessionVariables = {
-    CLAUDE_CODE_USE_VERTEX = "1";
   };
 }

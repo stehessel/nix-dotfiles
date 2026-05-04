@@ -9,7 +9,7 @@
     ];
     sessionVariables = {
       ANTHROPIC_VERTEX_PROJECT_ID = "itpc-gcp-hcm-pe-eng-claude";
-      CLOUD_ML_REGION = "us-east5";
+      CLOUD_ML_REGION = "global";
     };
   };
 }
