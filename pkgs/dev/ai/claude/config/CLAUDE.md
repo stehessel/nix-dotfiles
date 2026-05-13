@@ -6,6 +6,10 @@
 * **Logic First:** Always think through complex logic steps before writing code.
 * **Error Handling:** Prioritize robust error handling and edge-case validation.
 
+## Git commands
+
+* **Changing Paths:** When you need to run git commands in a different directory, use git -C <path> <command> instead of cd <path> && git <command>.
+
 ## 📝 Coding Standards
 
 ### Commenting & Documentation
