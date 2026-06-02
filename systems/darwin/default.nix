@@ -62,6 +62,7 @@
   users.users.shesselm = {
     name = "shesselm";
     home = "/Users/shesselm";
+    shell = pkgs.fish;
   };
 
   services = {

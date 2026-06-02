@@ -17,6 +17,7 @@
         beads-viewer
         coderabbit-cli
         kilocode-cli
+        nono
       ])
     ];
   };

@@ -1,4 +1,10 @@
-_: {
+{llms, ...}: {
+  home = {
+    packages = with llms; [
+      ccstatusline
+    ];
+  };
+
   programs.claude-code = {
     enable = true;
 
@@ -24,8 +30,8 @@ _: {
 
     settings = {
       alwaysThinkingEnabled = true;
-
       enabledPlugins = {
+        "agent-eval-harness@opendatahub-skills" = true;
         "cc-skills-golang@samber" = true;
         "code-review@claude-plugins-official" = true;
         "code-simplifier@claude-plugins-official" = true;
@@ -36,6 +42,12 @@ _: {
         "typescript-lsp@claude-plugins-official" = true;
       };
       extraKnownMarketplaces = {
+        opendatahub-skills = {
+          source = {
+            repo = "opendatahub-io/skills-registry";
+            source = "github";
+          };
+        };
         samber = {
           source = {
             repo = "samber/cc";
@@ -49,6 +61,12 @@ _: {
         ENABLE_LSP_TOOL = "1";
       };
       includeCoAuthoredBy = true;
+      statusLine = {
+        command = "npx -y ccstatusline@latest";
+        padding = 0;
+        refreshInterval = 10;
+        type = "command";
+      };
     };
   };
 }
