@@ -10,7 +10,10 @@
 
   home = {
     packages = builtins.concatLists [
-      (with pkgs; [beans])
+      (with pkgs; [
+        beans
+        openshell
+      ])
       (with llms; [
         apm
         beads

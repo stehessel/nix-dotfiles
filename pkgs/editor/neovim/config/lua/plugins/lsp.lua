@@ -65,7 +65,7 @@ return {
     event = "VeryLazy",
     dependencies = {
       {
-        "someone-stole-my-name/yaml-companion.nvim",
+        "mosheavni/yaml-companion.nvim",
       },
       {
         "stevearc/conform.nvim",
