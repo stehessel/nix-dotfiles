@@ -35,6 +35,7 @@
         rust-overlay.follows = "rust";
       };
     };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -136,6 +137,7 @@
             flakeRegistry
             inputs.nix-index-database.darwinModules.nix-index
             inputs.home-manager.darwinModules.home-manager
+            inputs.nix-homebrew.darwinModules.nix-homebrew
           ];
         };
       };

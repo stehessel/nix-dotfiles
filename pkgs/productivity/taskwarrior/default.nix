@@ -5,7 +5,7 @@
     ];
   };
   programs.taskwarrior = {
-    enable = true;
+    enable = false;
     config = {
       uda.priority.values = "H,M,,L";
     };

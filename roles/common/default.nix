@@ -29,7 +29,7 @@
     stateVersion = "22.11";
     sessionPath = [
       "$HOME/.local/bin"
-      "/usr/local/bin"
+      "/opt/homebrew/bin"
     ];
     sessionVariables = {
       BOTO_CONFIG = "${config.xdg.configHome}/boto/config";

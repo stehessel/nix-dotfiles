@@ -31,6 +31,13 @@
     };
   };
 
+  nix-homebrew = {
+    autoMigrate = true;
+    enable = true;
+    enableRosetta = false; # Forces native ARM64 compilation/execution.
+    user = "shesselm";
+  };
+
   nix = {
     enable = false;
     settings = {
@@ -100,7 +107,6 @@
       autoUpdate = true;
     };
     taps = [
-      "homebrew/test-bot"
       "koekeishiya/formulae"
     ];
     brews = [

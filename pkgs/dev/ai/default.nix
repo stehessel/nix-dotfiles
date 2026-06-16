@@ -12,6 +12,7 @@
     packages = builtins.concatLists [
       (with pkgs; [
         beans
+        opencode
         openshell
       ])
       (with llms; [
