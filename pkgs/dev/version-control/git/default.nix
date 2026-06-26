@@ -103,6 +103,9 @@
         init = {
           defaultBranch = "master";
         };
+        gpg.ssh = {
+          allowedSignersFile = "~/.ssh/allowed_signers";
+        };
         merge = {
           conflictstyle = "zdiff3";
         };
