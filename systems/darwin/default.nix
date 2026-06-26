@@ -103,6 +103,7 @@
 
   homebrew = {
     enable = true;
+    enableFishIntegration = true;
     onActivation = {
       autoUpdate = true;
     };
@@ -110,13 +111,26 @@
       "koekeishiya/formulae"
     ];
     brews = [
-      "docker-buildx"
-      "go-task"
-      "prometheus"
-      "r"
-      "skhd"
-      "texlive"
-      "yabai"
+      {
+        name = "docker-buildx";
+      }
+      {
+        name = "go-task";
+      }
+      {
+        name = "prometheus";
+      }
+      {
+        name = "r";
+      }
+      # {
+      #   name = "skhd";
+      #   trusted = true;
+      # }
+      # {
+      #   name = "yabai";
+      #   trusted = true;
+      # }
     ];
     casks = [
       "adobe-acrobat-reader"

@@ -2,6 +2,7 @@
   programs.git.settings.user = {
     email = "shesselm@redhat.com";
     name = "Stephan Heßelmann";
+    signingKey = "~/.ssh/id_ed25519.pub";
   };
   home = {
     sessionPath = [

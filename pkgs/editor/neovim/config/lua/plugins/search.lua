@@ -6,7 +6,9 @@ return {
     end,
     event = "VeryLazy",
     init = function()
-      vim.keymap.set("n", "<Leader>S", "<Cmd>require('grug-far').open()<CR>", { desc = "grug-far - open" })
+      vim.keymap.set({ "n", "x" }, "<leader>si", function()
+        require("grug-far").open({ visualSelectionUsage = "auto-detect" })
+      end, { desc = "grug-far: Search within range" })
     end,
   },
   {

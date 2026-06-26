@@ -170,7 +170,6 @@ return {
         end,
       },
       { "Issafalcon/lsp-overloads.nvim" },
-      { "jose-elias-alvarez/nvim-lsp-ts-utils" },
       { "onsails/lspkind-nvim" },
       {
         "lvimuser/lsp-inlayhints.nvim",

@@ -135,7 +135,11 @@
         };
       };
 
-      signing.format = null;
+      signing = {
+        format = "ssh";
+        signByDefault = true;
+        signer = "ssh-keygen";
+      };
     };
   };
 }
