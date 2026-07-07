@@ -48,3 +48,8 @@ data := resp.GetData()
 // Go - BAD
 id := msg.Id // Risky if msg is nil
 ```
+
+## REVIEW.md Configuration for Go Project
+
+### Skip Rules
+- Ignore all auto-generated files matching `*.pb.go` or `mock_*.go`.

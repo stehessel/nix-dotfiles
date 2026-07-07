@@ -7,27 +7,25 @@
 
   programs.claude-code = {
     enable = true;
+    enableMcpIntegration = true;
 
     commandsDir = ./config/commands;
-
-    mcpServers = {
-      atlassian = {
-        type = "http";
-        url = "https://mcp.atlassian.com/v1/mcp";
-      };
-    };
 
     context = ./config/CLAUDE.md;
 
     settings = {
       alwaysThinkingEnabled = true;
+      model = "claude-opus-4-6[1m]";
       enabledPlugins = {
         "agent-eval-harness@opendatahub-skills" = true;
         "cc-skills-golang@samber" = true;
         "code-review@claude-plugins-official" = true;
         "code-simplifier@claude-plugins-official" = true;
+        "comprehensive-review@tag1consulting" = true;
         "context7@claude-plugins-official" = true;
         "gopls-lsp@claude-plugins-official" = true;
+        "ponytail@ponytail" = true;
+        "pr-review-toolkit@claude-plugins-official" = true;
         "superpowers@claude-plugins-official" = true;
         "typescript-lsp@claude-plugins-official" = true;
       };
@@ -38,9 +36,21 @@
             source = "github";
           };
         };
+        ponytail = {
+          source = {
+            repo = "DietrichGebert/ponytail";
+            source = "github";
+          };
+        };
         samber = {
           source = {
             repo = "samber/cc";
+            source = "github";
+          };
+        };
+        tag1consulting = {
+          source = {
+            repo = "tag1consulting/claude-plugins";
             source = "github";
           };
         };

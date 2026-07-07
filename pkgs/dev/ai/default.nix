@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./claude
+    ./opencode
     # ./sourcery
   ];
 
@@ -12,7 +13,6 @@
     packages = builtins.concatLists [
       (with pkgs; [
         beans
-        opencode
         openshell
       ])
       (with llms; [
@@ -24,5 +24,26 @@
         nono
       ])
     ];
+  };
+
+  programs.mcp = {
+    enable = true;
+    servers = {
+      atlassian = {
+        url = "https://mcp.atlassian.com/v1/mcp";
+      };
+      context7 = {
+        command = "npx";
+        args = ["-y" "@upstash/context7-mcp"];
+      };
+      gopls = {
+        command = "gopls";
+        args = ["mcp"];
+      };
+      nixos = {
+        command = "uvx";
+        args = ["mcp-nixos"];
+      };
+    };
   };
 }
