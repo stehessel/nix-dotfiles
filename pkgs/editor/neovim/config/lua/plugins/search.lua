@@ -6,60 +6,9 @@ return {
     end,
     event = "VeryLazy",
     init = function()
-      vim.keymap.set({ "n", "x" }, "<leader>si", function()
+      vim.keymap.set({ "n", "x" }, "<leader>sr", function()
         require("grug-far").open({ visualSelectionUsage = "auto-detect" })
       end, { desc = "grug-far: Search within range" })
-    end,
-  },
-  {
-    "nvim-pack/nvim-spectre",
-    config = function()
-      require("spectre").setup({
-        mapping = {
-          ["send_to_qf"] = {
-            map = "<leader>Q",
-            cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>",
-            desc = "send all item to quickfix",
-          },
-        },
-        is_insert_mode = true,
-      })
-    end,
-    init = function()
-      vim.keymap.set("n", "<Leader>S", "<Cmd>lua require('spectre').open()<CR>", { desc = "Spectre - open" })
-      vim.keymap.set(
-        "v",
-        "<leader>S",
-        "<Cmd>lua require('spectre').open_visual()<CR>",
-        { desc = "Spectre - open visual" }
-      )
-      vim.keymap.set(
-        "n",
-        "<localleader>S",
-        "<Cmd>lua require('spectre').open_file_search()<CR>",
-        { desc = "Spectre - open current file" }
-      )
-    end,
-    enabled = false,
-  },
-  {
-    "cshuaimin/ssr.nvim",
-    config = function()
-      require("ssr").setup({
-        min_width = 50,
-        min_height = 5,
-        keymaps = {
-          close = "q",
-          next_match = "n",
-          prev_match = "N",
-          replace_all = "<leader><cr>",
-        },
-      })
-    end,
-    init = function()
-      vim.keymap.set({ "n", "x" }, "<leader>sr", function()
-        require("ssr").open()
-      end)
     end,
   },
   {

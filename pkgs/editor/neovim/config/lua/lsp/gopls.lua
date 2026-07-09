@@ -5,7 +5,7 @@ return {
       flags = flags,
       settings = {
         gopls = {
-          buildFlags = { "-tags=compliance,sql_integration,test_e2e" },
+          buildFlags = { "-tags=compliance,externalbackups,sql_integration,test_e2e" },
           -- allowModfileModifications = true,
           gofumpt = true,
           semanticTokens = true,
