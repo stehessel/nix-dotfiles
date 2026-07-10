@@ -147,7 +147,7 @@
       "shottr"
       "slack"
       "syncthing-app"
-      "zerotier-one"
+      "tailscale"
       "zoom"
     ];
   };
