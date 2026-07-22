@@ -30,6 +30,7 @@
       "docker/stehessel/password" = {
         path = "${config.home.homeDirectory}/dev/secrets/docker/password";
       };
+      "home-assistant/ha-mcp/webhook" = {};
       "openshift/pullSecret" = {
         path = "${config.home.homeDirectory}/dev/secrets/openshift/pullSecret";
       };

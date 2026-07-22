@@ -4,6 +4,7 @@
       ocm
       openshift
       rhoas
+      rosa
     ];
   };
 }

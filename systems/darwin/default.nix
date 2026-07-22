@@ -147,7 +147,7 @@
       "shottr"
       "slack"
       "syncthing-app"
-      "tailscale"
+      "tailscale-app"
       "zoom"
     ];
   };

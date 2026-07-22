@@ -1,4 +1,4 @@
-{...}: {
+_: {
   programs.opencode = {
     enable = true;
     enableMcpIntegration = true;
@@ -14,7 +14,7 @@
           extensions = [".nix"];
         };
         yaml-ls = {
-          disabled = false;
+          disabled = true;
         };
       };
     };

@@ -15,8 +15,13 @@ in {
       "$HOME/go/src/github.com/stackrox/workflow/bin"
     ];
     sessionVariables = {
+      # ClaudeCode
       ANTHROPIC_VERTEX_PROJECT_ID = "itpc-gcp-hcm-pe-eng-claude";
       CLOUD_ML_REGION = "global";
+
+      # OpenCode
+      GOOGLE_CLOUD_PROJECT = "itpc-gcp-hcm-pe-eng-claude";
+      VERTEX_LOCATION = "global";
     };
   };
 }
