@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   llms,
   pkgs,
   ...
@@ -47,7 +45,8 @@
         args = ["mcp"];
       };
       home-assistant = {
-        url = config.sops.placeholder."home-assistant/ha-mcp/webhook";
+        # Webhook URL is guarded by Home Assistant OAuth login (ha_auth).
+        url = "https://home.stephan.sh/api/webhook/mcp_841baf20d12fbd58fc207f24464f2a19";
       };
       nixos = {
         command = "uvx";
@@ -60,16 +59,4 @@
       };
     };
   };
-
-  sops.templates."mcp.json".file = (pkgs.formats.json {}).generate "mcp.json" {
-    mcpServers = lib.mapAttrs (
-      _: server:
-      lib.hm.mcp.transformMcpServer {
-        inherit server;
-        extraTransforms = [lib.hm.mcp.addType];
-        exclude = ["serverUrl"];
-      }
-    ) config.programs.mcp.servers;
-  };
-  xdg.configFile."mcp/mcp.json".source = lib.mkForce (config.lib.file.mkOutOfStoreSymlink config.sops.templates."mcp.json".path);
 }
