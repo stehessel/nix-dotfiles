@@ -3,6 +3,7 @@
     packages = with pkgs; [
       alejandra
       cachix
+      fh
       deadnix
       nil
       nix-info

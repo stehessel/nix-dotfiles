@@ -7,7 +7,7 @@
 
   home = {
     packages = with pkgs; [
-      httpstat
+      # httpstat
     ];
   };
 }

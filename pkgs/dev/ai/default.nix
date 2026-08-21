@@ -12,8 +12,8 @@
   home = {
     packages = builtins.concatLists [
       (with pkgs; [
+        antigravity-cli
         beans
-        gemini-cli
         openshell
       ])
       (with llms; [
@@ -23,6 +23,7 @@
         coderabbit-cli
         kilocode-cli
         nono
+        pi
       ])
     ];
   };
