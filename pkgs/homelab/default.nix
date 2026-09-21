@@ -1,11 +1,9 @@
 {pkgs, ...}: {
   imports = [
     ./managarr
+    ./spire
   ];
-  home = {
-    packages = with pkgs; [
-      # ntfy-sh
-      spire
-    ];
-  };
+  home.packages = with pkgs; [
+    # ntfy-sh
+  ];
 }

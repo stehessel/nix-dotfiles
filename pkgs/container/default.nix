@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    # ./colima
     # ./minikube
   ];
 

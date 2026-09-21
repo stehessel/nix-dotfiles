@@ -109,20 +109,13 @@
     };
     taps = [
       "koekeishiya/formulae"
+      "openshift-online/sre-tools"
     ];
     brews = [
-      {
-        name = "docker-buildx";
-      }
-      {
-        name = "go-task";
-      }
-      {
-        name = "prometheus";
-      }
-      {
-        name = "r";
-      }
+      {name = "docker-buildx";}
+      {name = "go-task";}
+      {name = "prometheus";}
+      {name = "r";}
       # {
       #   name = "skhd";
       #   trusted = true;
@@ -131,6 +124,7 @@
       #   name = "yabai";
       #   trusted = true;
       # }
+      {name = "openshift-online/sre-tools/backplane-cli";}
     ];
     casks = [
       "adobe-acrobat-reader"

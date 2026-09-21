@@ -7,6 +7,9 @@ in {
     name = "Stephan Heßelmann";
     signingKey = "key::${sshPublicKey}";
   };
+  programs.fish.shellAbbrs = {
+    sm = "$HOME/go/src/github.com/openshift/release/hack/secret-manager.sh";
+  };
   home = {
     file.".ssh/allowed_signers".text = ''
       ${email} ${sshPublicKey}

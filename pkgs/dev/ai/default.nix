@@ -2,7 +2,16 @@
   llms,
   pkgs,
   ...
-}: {
+}: let
+  ha-mcp = pkgs.writeShellScript "ha-mcp" ''
+    export HOMEASSISTANT_URL="https://home.stephan.sh"
+    export HOMEASSISTANT_TOKEN=$(${pkgs.spire}/bin/spire-agent api fetch jwt \
+      -audience homeassistant-proxy \
+      -socketPath /tmp/spire-agent/public/api.sock \
+      -format json 2>/dev/null | ${pkgs.jq}/bin/jq -r '.[0].svids[0].svid')
+    exec ${pkgs.uv}/bin/uvx --from ha-mcp@latest ha-mcp
+  '';
+in {
   imports = [
     ./claude
     ./opencode
@@ -45,9 +54,11 @@
         command = "gopls";
         args = ["mcp"];
       };
-      home-assistant = {
-        # Webhook URL is guarded by Home Assistant OAuth login (ha_auth).
-        url = "https://home.stephan.sh/api/webhook/mcp_841baf20d12fbd58fc207f24464f2a19";
+      # home-assistant = {
+      #   command = toString ha-mcp;
+      # };
+      notion = {
+        url = "https://mcp.notion.com/mcp";
       };
       nixos = {
         command = "uvx";
