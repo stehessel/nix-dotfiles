@@ -14,7 +14,9 @@
 in {
   imports = [
     ./claude
+    ./codex
     ./opencode
+    ./pi
     # ./sourcery
   ];
 
@@ -32,7 +34,6 @@ in {
         coderabbit-cli
         kilocode-cli
         nono
-        pi
       ])
     ];
   };

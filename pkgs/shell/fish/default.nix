@@ -36,6 +36,7 @@ _: {
     };
 
     interactiveShellInit = ''
+      ulimit -n 524288
       set fish_greeting
 
       # Open files with Ctrl-f

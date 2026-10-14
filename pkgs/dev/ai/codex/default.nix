@@ -1,7 +1,5 @@
-{pkgs, ...}: {
-  home = {
-    packages = with pkgs; [
-      codex
-    ];
+_: {
+  programs.codex = {
+    enable = true;
   };
 }

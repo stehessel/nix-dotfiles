@@ -26,6 +26,8 @@
   xdg.enable = true;
 
   home = {
+    preferXdgDirectories = true;
+
     stateVersion = "22.11";
     sessionPath = [
       "$HOME/.local/bin"
@@ -38,7 +40,7 @@
       GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
       LEIN_HOME = "${config.xdg.configHome}/lein";
       LIB_SQLITE_PATH =
-        if pkgs.stdenv.isDarwin
+        if pkgs.stdenv.hostPlatform.isDarwin
         then "${pkgs.sqlite.out}/lib/libsqlite3.dylib"
         else "${pkgs.sqlite.out}/lib/libsqlite3.so";
       PAGER = "less";

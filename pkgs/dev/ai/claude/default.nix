@@ -8,6 +8,7 @@
   programs.claude-code = {
     enable = true;
     enableMcpIntegration = true;
+    package = llms.claude-code;
 
     commandsDir = ./config/commands;
 

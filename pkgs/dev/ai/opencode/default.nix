@@ -1,7 +1,8 @@
-_: {
+{llms, ...}: {
   programs.opencode = {
     enable = true;
     enableMcpIntegration = true;
+    package = llms.opencode;
 
     settings = {
       lsp = {
