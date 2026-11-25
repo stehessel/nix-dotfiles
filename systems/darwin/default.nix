@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   llms,
   pkgs,
   pkgs-stable,
@@ -38,10 +39,7 @@
     user = "shesselm";
   };
 
-  nix.enable = false;
-
-  # Determinate Nix includes this file from its generated nix.conf.
-  environment.etc."nix/nix.custom.conf" = let
+  determinateNix = let
     caches = {
       "https://cache.numtide.com" = "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=";
       "https://hyprland.cachix.org" = "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=";
@@ -49,12 +47,13 @@
       "https://stehessel.cachix.org" = "stehessel.cachix.org-1:lvYhj5BePS/SBMUvSRlDPy5galoS8MszATOdfEZQ0Qw=";
     };
   in {
-    # Allow activation to replace the installer's comment-only default file.
-    knownSha256Hashes = ["3bd68ef979a42070a44f8d82c205cfd8e8cca425d91253ec2c10a88179bb34aa"];
-    text = ''
-      extra-substituters = ${builtins.concatStringsSep " " (builtins.attrNames caches)}
-      extra-trusted-public-keys = ${builtins.concatStringsSep " " (builtins.attrValues caches)}
-    '';
+    enable = true;
+    customSettings = {
+      # Keep Determinate's global registry alongside the system registry aliases.
+      flake-registry = lib.mkForce null;
+      extra-substituters = builtins.attrNames caches;
+      extra-trusted-public-keys = builtins.attrValues caches;
+    };
   };
 
   users.users.shesselm = {

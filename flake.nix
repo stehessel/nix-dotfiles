@@ -8,6 +8,7 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -74,8 +75,8 @@
       overlays = inputs.nixpkgs.lib.attrValues overlays;
     };
     flakeRegistry = {
-      nix.registry.nixpkgs.flake = inputs.nixpkgs;
-      nix.registry.stehessel.flake = inputs.self;
+      nixpkgs.flake = inputs.nixpkgs;
+      stehessel.flake = inputs.self;
     };
   in
     inputs.flake-parts.lib.mkFlake {inherit inputs;}
@@ -112,7 +113,7 @@
             {nixpkgs = nixpkgsConfig;}
             inputs.lanzaboote.nixosModules.lanzaboote
             ./systems/thinkpad
-            flakeRegistry
+            {nix.registry = flakeRegistry;}
             {programs.hyprland.enable = true;}
             inputs.nix-index-database.nixosModules.nix-index
             inputs.home-manager.nixosModules.home-manager
@@ -129,7 +130,8 @@
           modules = [
             {nixpkgs = nixpkgsConfig;}
             ./systems/darwin
-            flakeRegistry
+            inputs.determinate.darwinModules.default
+            {determinateNix.registry = flakeRegistry;}
             inputs.nix-index-database.darwinModules.nix-index
             inputs.home-manager.darwinModules.home-manager
             inputs.nix-homebrew.darwinModules.nix-homebrew
