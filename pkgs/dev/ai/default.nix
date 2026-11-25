@@ -24,7 +24,7 @@
         beads
         beads-viewer
         coderabbit-cli
-        herdr
+        # herdr
         herdr-app
         # kilocode-cli
         nono

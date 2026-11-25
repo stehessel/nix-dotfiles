@@ -38,32 +38,23 @@
     user = "shesselm";
   };
 
-  nix = {
-    enable = false;
-    settings = {
-      extra-substituters = [
-        # Content addressed cache
-        # "https://cache.ngi0.nixos.org"
-        # See https://nixos.wiki/wiki/Maintainers:Fastly#Cache_v2_plans
-        # "https://aseipp-nix-cache.freetls.fastly.net"
-        "https://cache.nixos.org"
-        "https://cache.numtide.com"
-        "https://hyprland.cachix.org"
-        "https://nix-community.cachix.org"
-        "https://stehessel.cachix.org"
-      ];
-      extra-trusted-public-keys = [
-        "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
-      trusted-users = [
-        "root"
-        "shesselm"
-      ];
+  nix.enable = false;
+
+  # Determinate Nix includes this file from its generated nix.conf.
+  environment.etc."nix/nix.custom.conf" = let
+    caches = {
+      "https://cache.numtide.com" = "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=";
+      "https://hyprland.cachix.org" = "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=";
+      "https://nix-community.cachix.org" = "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
+      "https://stehessel.cachix.org" = "stehessel.cachix.org-1:lvYhj5BePS/SBMUvSRlDPy5galoS8MszATOdfEZQ0Qw=";
     };
+  in {
+    # Allow activation to replace the installer's comment-only default file.
+    knownSha256Hashes = ["3bd68ef979a42070a44f8d82c205cfd8e8cca425d91253ec2c10a88179bb34aa"];
+    text = ''
+      extra-substituters = ${builtins.concatStringsSep " " (builtins.attrNames caches)}
+      extra-trusted-public-keys = ${builtins.concatStringsSep " " (builtins.attrValues caches)}
+    '';
   };
 
   users.users.shesselm = {
