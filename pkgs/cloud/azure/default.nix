@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home = {
     packages = with pkgs; [
-      (azure-cli.withExtensions [azure-cli.extensions.account])
+      # (azure-cli.withExtensions [azure-cli.extensions.account])
     ];
   };
 }

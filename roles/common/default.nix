@@ -28,7 +28,7 @@
   home = {
     preferXdgDirectories = true;
 
-    stateVersion = "22.11";
+    stateVersion = "26.11";
     sessionPath = [
       "$HOME/.local/bin"
       "/opt/homebrew/bin"

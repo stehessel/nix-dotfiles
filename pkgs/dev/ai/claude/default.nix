@@ -1,4 +1,8 @@
-{llms, ...}: {
+{
+  config,
+  llms,
+  ...
+}: {
   home = {
     packages = with llms; [
       ccstatusline
@@ -6,6 +10,7 @@
   };
 
   programs.claude-code = {
+    configDir = "${config.xdg.configHome}/claude";
     enable = true;
     enableMcpIntegration = true;
     package = llms.claude-code;

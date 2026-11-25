@@ -63,16 +63,11 @@
       #   });
       # };
 
-      # python-overlay = _: prev: rec {
-      #   python3 = prev.python3.override {
-      #     packageOverrides = _: prev: {
-      #       pytest-httpserver = prev.pytest-httpserver.overridePythonAttrs (_: {
-      #         doCheck = false;
-      #       });
-      #     };
-      #   };
-      #   python3Packages = python3.pkgs;
-      # };
+      semgrep-overlay = _: prev: {
+        semgrep = prev.semgrep.overridePythonAttrs (_: {
+          doCheck = false;
+        });
+      };
     };
     nixpkgsConfig = {
       config.allowUnfree = true;

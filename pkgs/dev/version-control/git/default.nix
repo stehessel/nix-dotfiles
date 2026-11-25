@@ -13,6 +13,7 @@
       # nodePackages."@withgraphite/graphite-cli"
       # onefetch
       pre-commit
+      tuicr
     ];
   };
 
