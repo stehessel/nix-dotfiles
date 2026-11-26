@@ -68,6 +68,22 @@
         "type": "github"
       }
     },
+    "cc-skills-golang": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794174417,
+        "narHash": "sha256-Kc3OXcnaFjo+4rcH7AiBg0tJcVqXAnQvJv+pfuHETMw=",
+        "owner": "samber",
+        "repo": "cc-skills-golang",
+        "rev": "d68d80aec298e1b74b37c2a472c002b5217248b3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "samber",
+        "repo": "cc-skills-golang",
+        "type": "github"
+      }
+    },
     "crane": {
       "locked": {
         "lastModified": 1793836618,
@@ -628,6 +644,22 @@
         "type": "github"
       }
     },
+    "ponytail": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793275171,
+        "narHash": "sha256-PhPtZbeX2wBp19GtWRy+fV93+fFYZe5S487eXPDl/us=",
+        "owner": "DietrichGebert",
+        "repo": "ponytail",
+        "rev": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DietrichGebert",
+        "repo": "ponytail",
+        "type": "github"
+      }
+    },
     "pre-commit": {
       "inputs": {
         "flake-compat": "flake-compat_3",
@@ -652,6 +684,7 @@
     },
     "root": {
       "inputs": {
+        "cc-skills-golang": "cc-skills-golang",
         "darwin": "darwin",
         "determinate": "determinate",
         "flake-parts": "flake-parts_2",
@@ -663,9 +696,11 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-stable": "nixpkgs-stable",
+        "ponytail": "ponytail",
         "rust": "rust",
         "sops-nix": "sops-nix",
-        "stehessel": "stehessel"
+        "stehessel": "stehessel",
+        "superpowers": "superpowers"
       }
     },
     "rust": {
@@ -730,6 +765,22 @@
       "original": {
         "owner": "stehessel",
         "repo": "nix-overlay",
+        "type": "github"
+      }
+    },
+    "superpowers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793744227,
+        "narHash": "sha256-rP5YsyGuPd9YSW/Fj3aukrq1bLuV+nwwQMK4JaZQgkI=",
+        "owner": "obra",
+        "repo": "superpowers",
+        "rev": "22f0b463e7a5e579904dd6211a520321035526f7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "obra",
+        "repo": "superpowers",
         "type": "github"
       }
     },

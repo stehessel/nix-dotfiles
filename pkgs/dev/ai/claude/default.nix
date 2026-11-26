@@ -1,10 +1,12 @@
 {
   config,
+  inputs,
   lib,
   llms,
   pkgs,
   ...
 }: let
+  inherit (import ../plugins {inherit inputs;}) marketplaces;
   enmaasToken = config.sops.secrets."redhat/enmaas/token" or null;
   defaultModel = "claude-opus-4-6[1m]";
   enmaasModel = "rits/zai-org/glm-5-3";
@@ -65,46 +67,27 @@ in {
       })
       {
         alwaysThinkingEnabled = true;
-        model = lib.mkDefault defaultModel;
         enabledPlugins = {
           "agent-eval-harness@opendatahub-skills" = true;
           "cc-skills-golang@samber" = true;
           "code-review@claude-plugins-official" = true;
           "code-simplifier@claude-plugins-official" = true;
           "comprehensive-review@tag1consulting" = true;
-          "context7@claude-plugins-official" = true;
           "gopls-lsp@claude-plugins-official" = true;
           "ponytail@ponytail" = true;
           "pr-review-toolkit@claude-plugins-official" = true;
           "superpowers@claude-plugins-official" = true;
           "typescript-lsp@claude-plugins-official" = true;
         };
-        extraKnownMarketplaces = {
-          opendatahub-skills = {
+        extraKnownMarketplaces =
+          lib.mapAttrs (_: repo: {
             source = {
-              repo = "opendatahub-io/skills-registry";
+              inherit repo;
               source = "github";
             };
-          };
-          ponytail = {
-            source = {
-              repo = "DietrichGebert/ponytail";
-              source = "github";
-            };
-          };
-          samber = {
-            source = {
-              repo = "samber/cc";
-              source = "github";
-            };
-          };
-          tag1consulting = {
-            source = {
-              repo = "tag1consulting/claude-plugins";
-              source = "github";
-            };
-          };
-        };
+          })
+          marketplaces;
+        model = lib.mkDefault defaultModel;
         env = {
           CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1";
           ENABLE_LSP_TOOL = "1";

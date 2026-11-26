@@ -22,6 +22,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     llm-agents.url = "github:numtide/llm-agents.nix";
+    cc-skills-golang = {
+      url = "github:samber/cc-skills-golang";
+      flake = false;
+    };
+    ponytail = {
+      url = "github:DietrichGebert/ponytail";
+      flake = false;
+    };
+    superpowers = {
+      url = "github:obra/superpowers";
+      flake = false;
+    };
     stehessel = {
       url = "github:stehessel/nix-overlay";
       inputs = {

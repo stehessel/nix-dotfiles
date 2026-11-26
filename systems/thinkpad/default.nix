@@ -25,7 +25,7 @@
 
   home-manager = {
     extraSpecialArgs = {
-      inherit llms pkgs-stable;
+      inherit inputs llms pkgs-stable;
     };
     useGlobalPkgs = true;
     useUserPackages = true;
