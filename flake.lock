@@ -682,6 +682,22 @@
         "type": "github"
       }
     },
+    "prowject": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748442304,
+        "narHash": "sha256-/JsUJlbb4hi4dDZ+w7Y7+/HaOXnlI3Z/PvNLkZOyxxo=",
+        "owner": "redhat-community-ai-tools",
+        "repo": "prowject",
+        "rev": "ae4a486b65647e38a35bac42ad01a1e97375557b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "redhat-community-ai-tools",
+        "repo": "prowject",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "cc-skills-golang": "cc-skills-golang",
@@ -697,9 +713,11 @@
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-stable": "nixpkgs-stable",
         "ponytail": "ponytail",
+        "prowject": "prowject",
         "rust": "rust",
         "sops-nix": "sops-nix",
         "stehessel": "stehessel",
+        "supabase-agent-skills": "supabase-agent-skills",
         "superpowers": "superpowers"
       }
     },
@@ -765,6 +783,22 @@
       "original": {
         "owner": "stehessel",
         "repo": "nix-overlay",
+        "type": "github"
+      }
+    },
+    "supabase-agent-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790944488,
+        "narHash": "sha256-MKa/ZwI2yfwiqI76uNg7QsX9F6MF2nctOEme6UtwtQM=",
+        "owner": "supabase",
+        "repo": "agent-skills",
+        "rev": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "supabase",
+        "repo": "agent-skills",
         "type": "github"
       }
     },

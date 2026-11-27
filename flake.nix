@@ -30,6 +30,14 @@
       url = "github:DietrichGebert/ponytail";
       flake = false;
     };
+    prowject = {
+      url = "github:redhat-community-ai-tools/prowject";
+      flake = false;
+    };
+    supabase-agent-skills = {
+      url = "github:supabase/agent-skills";
+      flake = false;
+    };
     superpowers = {
       url = "github:obra/superpowers";
       flake = false;

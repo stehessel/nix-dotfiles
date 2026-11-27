@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: let
-  inherit (import ../plugins {inherit inputs;}) sources;
+  inherit (import ../plugins {inherit inputs;}) skills sources;
   codexDir = "${config.xdg.configHome}/codex";
   codexWithEnmaas =
     (pkgs.writeShellScriptBin "codex" ''
@@ -25,6 +25,7 @@ in {
     enable = true;
     enableMcpIntegration = true;
     mutableSettings = true;
+    skills = {inherit (skills) supabase-postgres-best-practices;};
     plugins = with sources; [
       cc-skills-golang
       ponytail

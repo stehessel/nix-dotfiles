@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: let
-  inherit (import ../plugins {inherit inputs;}) marketplaces;
+  inherit (import ../plugins {inherit inputs;}) marketplaces skills;
   enmaasToken = config.sops.secrets."redhat/enmaas/token" or null;
   defaultModel = "claude-opus-4-6[1m]";
   enmaasModel = "rits/zai-org/glm-5-3";
@@ -25,6 +25,7 @@ in {
     package = llms.claude-code;
 
     commandsDir = ./config/commands;
+    skills = {inherit (skills) supabase-postgres-best-practices;};
 
     context = ./config/CLAUDE.md;
 
@@ -89,6 +90,7 @@ in {
           marketplaces;
         model = lib.mkDefault defaultModel;
         env = {
+          inherit (config.home.sessionVariables) NPM_CONFIG_CACHE;
           CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1";
           ENABLE_LSP_TOOL = "1";
         };
